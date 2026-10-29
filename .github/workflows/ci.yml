@@ -14,3 +14,10 @@ jobs:
       - run: npm install
       - run: npm test
       - run: npm run build
+      - name: Upload isolated A0 test build
+        if: startsWith(github.ref, 'refs/heads/feature/')
+        uses: actions/upload-artifact@v4
+        with:
+          name: a0-student-preview
+          path: dist/
+          retention-days: 7
