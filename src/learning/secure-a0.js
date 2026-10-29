@@ -38,21 +38,45 @@ export async function mountSecureA0(host,client){
    }
    host.append(el('h4','Practice quiz'));
    for(const q of unit.quiz){
-     const field=el('fieldset');field.append(el('legend',q.prompt));
+     const feedback=state.feedback?.feedback?.find(item=>item.id===q.id);
+     const selected=state.answers[q.id];
+     const field=el('fieldset');
+     field.className='hz-quiz-question'+(feedback?(feedback.correct?' hz-quiz-correct':' hz-quiz-wrong'):'');
+     const legend=el('legend',q.prompt);field.append(legend);
      q.options.forEach((option,index)=>{
-       const label=el('label');const radio=el('input');
-       radio.type='radio';radio.name='secure-'+q.id;radio.checked=state.answers[q.id]===index;
+       const label=el('label');
+       label.className='hz-quiz-option';
+       if(feedback&&selected===index)label.classList.add(feedback.correct?'hz-answer-correct':'hz-answer-wrong');
+       const radio=el('input');
+       radio.type='radio';radio.name='secure-'+q.id;radio.checked=selected===index;
        radio.disabled=!!state.feedback;
        radio.addEventListener('change',()=>state.answers[q.id]=index);
-       label.append(radio,document.createTextNode(' '+option));field.append(label);
+       label.append(radio,document.createTextNode(' '+option));
+       if(feedback&&selected===index){
+         const marker=el('span',feedback.correct?'✓':'✕');
+         marker.className='hz-answer-icon';marker.setAttribute('aria-hidden','true');label.append(marker);
+       }
+       field.append(label);
      });
+     if(feedback){
+       const notice=el('div');
+       notice.className='hz-quiz-feedback '+(feedback.correct?'hz-quiz-feedback-good':'hz-quiz-feedback-bad');
+       notice.setAttribute('role','status');
+       const title=el('strong',feedback.correct?'✓ Correct!':'✕ Not quite — here’s why');
+       notice.append(title);
+       if(!feedback.correct){
+         const detail=el('p',feedback.explanation||'Review the lesson and try again.');
+         notice.append(detail,el('p','Correct answer: '+feedback.answer));
+       }
+       field.append(notice);
+     }
      host.append(field);
    }
    const info=el('p');info.setAttribute('role','status');host.append(info);
    if(state.feedback){
      const result=state.feedback;
-     info.textContent=`Score: ${result.percent}% · ${result.passed?'Passed':'Keep practicing'}`;
-     for(const f of result.feedback||[])host.append(el('p',`${f.correct?'✓':'Review'} ${f.answer}: ${f.explanation}`));
+     info.className='hz-quiz-score';
+     info.textContent=`Score: ${result.percent}% · ${result.passed?'Passed! Great work.':'Keep practicing — you can retry.'}`;
      host.append(btn('Try again',()=>{state.answers={};state.feedback=null;render()}));
    }else{
      host.append(btn('Submit quiz',async()=>{
