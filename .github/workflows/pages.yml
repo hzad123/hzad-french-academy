@@ -3,6 +3,10 @@ on:
   push:
     branches: [development]
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and test"]
+    types: [completed]
+    branches: [feature/a0-learning]
 permissions:
   contents: read
   pages: write
@@ -12,6 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
