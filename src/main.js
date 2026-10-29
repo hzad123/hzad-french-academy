@@ -2,6 +2,7 @@ import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,REDIRECT_URL} from './config.js';
 import {checkAcademyAccess} from './auth/access.js';
 import {renderCourseCards} from './dashboard/courses.js';
 import {template} from './ui/template.js';
+import {wireA0} from './learning/dashboard-integration.js';
 
 export function mountAcademy(host,createClient){
   if(host.dataset.initialized)return;
@@ -79,6 +80,7 @@ export function mountAcademy(host,createClient){
   $('hz-recovery-form').addEventListener('submit',updatePassword);
   $('hz-refresh').addEventListener('click',async()=>{setBusy(true);try{await accessCheck()}finally{setBusy(false)}});
   renderCourseCards($('hz-courses'));
+  wireA0(root,client);
   client.auth.onAuthStateChange(event=>{
     if(event==='PASSWORD_RECOVERY'){recovering=true;show('hz-recovery')}
     else if(event==='SIGNED_OUT'){recovering=false;show('hz-auth')}
