@@ -3,8 +3,7 @@
 export function makeLearningStore(client){
  return {
   async listUnits(){
-   const {data,error}=await client.from('academy_units').select('id,level,position,title,minutes,content,quiz')
-     .eq('level','A0').eq('published',true).order('position');
+   const {data,error}=await client.rpc('academy_list_units',{p_level:'A0'});
    if(error)throw error;
    // Answer keys must not be used for grading; database RPC grades submissions.
    return (data||[]).map(row=>({
