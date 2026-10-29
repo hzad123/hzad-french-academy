@@ -1,0 +1,21 @@
+<!-- HZad French Academy - GoHighLevel Custom HTML loader.
+     Keep a backup of the previous HTML before replacing it.
+     Static assets deploy from the development branch via GitHub Pages. -->
+<div id="hzad-academy-host">
+  <p id="hzad-loading" role="status" style="font:16px system-ui,sans-serif;padding:24px;color:#183153">Loading HZad French Academy…</p>
+</div>
+<link rel="stylesheet" href="https://hzad123.github.io/hzad-french-academy/academy.css">
+<script>
+(function () {
+  var host = document.getElementById('hzad-academy-host');
+  if (!host || host.dataset.hzadLoaderStarted === 'true') return;
+  host.dataset.hzadLoaderStarted = 'true';
+  var script = document.createElement('script');
+  script.src = 'https://hzad123.github.io/hzad-french-academy/academy.js';
+  script.async = true;
+  script.onerror = function () {
+    host.textContent = 'Unable to load HZad French Academy. Please refresh the page or contact support.';
+  };
+  document.head.appendChild(script);
+})();
+</script>
