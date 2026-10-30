@@ -22,6 +22,10 @@ export function makeLearningStore(client){
     attempts:x.attempts,best:x.best_percent,completed:x.completed,updatedAt:x.updated_at
    }]));
   },
+  async checkAnswer(unitId,questionId,answer){
+   const {data,error}=await client.rpc('academy_check_answer',{p_unit_id:unitId,p_question_id:questionId,p_answer:answer});
+   if(error)throw error;return data;
+  },
   async submitQuiz(unitId,answers){
    const {data,error}=await client.rpc('academy_submit_quiz',{p_unit_id:unitId,p_answers:answers});
    if(error)throw error;return data;
