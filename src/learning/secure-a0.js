@@ -24,9 +24,44 @@ export async function mountSecureA0(host,client){
    host.append(nav);
    const unit=state.current;
    host.append(el('h3',unit.title));
-   for(const objective of unit.objectives)host.append(el('p','Goal: '+objective));
    for(const section of unit.sections){
-     host.append(el('h4',section.heading),el('p',section.body));
+     const block=el('section');
+     block.className='hz-lesson-section';
+     block.append(el('h4',section.heading));
+     if(Array.isArray(section.items)){
+       const list=el('ul');
+       list.className='hz-expression-list';
+       for(const item of section.items){
+         const li=el('li');
+         li.className='hz-expression-item';
+         const phrase=el('strong',item.french);
+         phrase.className='hz-expression-french';
+         const meaning=el('span',item.english);
+         meaning.className='hz-expression-english';
+         const usage=el('p',item.usage);
+         usage.className='hz-expression-usage';
+         li.append(phrase,meaning,usage);
+         list.append(li);
+       }
+       block.append(list);
+     }else if(Array.isArray(section.dialogue)){
+       const dialogue=el('div');
+       dialogue.className='hz-dialogue';
+       for(const line of section.dialogue){
+         const turn=el('div');
+         turn.className='hz-dialogue-turn';
+         const french=el('p',line.french);
+         french.className='hz-dialogue-french';
+         const english=el('p',line.english);
+         english.className='hz-dialogue-english';
+         turn.append(french,english);
+         dialogue.append(turn);
+       }
+       block.append(dialogue);
+     }else if(section.body){
+       block.append(el('p',section.body));
+     }
+     host.append(block);
    }
    host.append(el('h4','Vocabulary'));
    for(const [french,english] of unit.vocabulary){
