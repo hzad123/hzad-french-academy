@@ -7,6 +7,9 @@ test('answers are checked instantly and incorrect selections explain why',async(
  const store=await readFile('src/learning/supabase-store.js','utf8');
  const css=await readFile('src/styles/academy.css','utf8');
  assert.match(js,/store\.checkAnswer\(unitId,questionId,index\)/);
+ assert.match(js,/field\.append\(notice\)/);
+ assert.match(js,/options\.forEach\(input=>\{input\.disabled=true\}\)/);
+ assert.doesNotMatch(js,/state\.pending\[q\.id\]=true;[\s\S]{0,100}render\(\)/);
  assert.match(js,/store\.submitQuiz\(unitId,state\.answers\)/);
  assert.doesNotMatch(js,/Submit quiz/);
  assert.match(js,/feedback\.explanation/);
