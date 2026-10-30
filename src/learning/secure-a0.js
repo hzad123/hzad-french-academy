@@ -52,22 +52,55 @@ export async function mountSecureA0(host,client){
        radio.disabled=!!feedback||!!state.pending[q.id];
        radio.addEventListener('change',async()=>{
          if(state.feedback[q.id]||state.pending[q.id])return;
-         state.answers[q.id]=index;
-         state.pending[q.id]=true;
          const questionId=q.id,unitId=unit.id;
-         render();
+         state.answers[questionId]=index;
+         state.pending[questionId]=true;
+         // Keep the selected input mounted; replacing the entire quiz here
+         // interrupts the browser's native radio selection and focus.
+         const options=Array.from(field.querySelectorAll('input[type="radio"]'));
+         options.forEach(input=>{input.disabled=true});
+         const waiting=el('p','Checking answer…');
+         waiting.className='hz-quiz-waiting';
+         waiting.setAttribute('role','status');
+         field.append(waiting);
          try{
            const result=await store.checkAnswer(unitId,questionId,index);
            if(state.current?.id!==unitId)return;
            state.feedback[questionId]=result;
+           waiting.remove();
+           field.classList.add(result.correct?'hz-quiz-correct':'hz-quiz-wrong');
+           label.classList.add(result.correct?'hz-answer-correct':'hz-answer-wrong');
+           const marker=el('span',result.correct?'✓':'✕');
+           marker.className='hz-answer-icon';
+           marker.setAttribute('aria-hidden','true');
+           label.append(marker);
+           const notice=el('div');
+           notice.className='hz-quiz-feedback '+(result.correct?'hz-quiz-feedback-good':'hz-quiz-feedback-bad');
+           notice.setAttribute('role','status');
+           notice.append(el('strong',result.correct?'✓ Correct!':'✕ Not quite — here’s why'));
+           const explanation=el('p',result.explanation||'Review the lesson for more context.');
+           explanation.className='hz-quiz-explanation';
+           notice.append(explanation);
+           if(!result.correct)notice.append(el('p','Correct answer: '+result.answer));
+           field.append(notice);
            if(unit.quiz.every(item=>state.feedback[item.id])){
              try{
                await store.submitQuiz(unitId,state.answers);
                state.progress=await store.readProgress();
-             }catch(e){state.saveError='Your answers were checked, but progress could not be saved: '+e.message}
+             }catch(e){
+               state.saveError='Your answers were checked, but progress could not be saved: '+e.message;
+               info.textContent=state.saveError;
+             }
            }
-         }catch(e){state.saveError='Could not check answer: '+e.message;delete state.answers[questionId]}
-         finally{delete state.pending[questionId];if(state.current?.id===unitId)render()}
+         }catch(e){
+           if(state.current?.id!==unitId)return;
+           waiting.textContent='Could not check this answer: '+e.message+'. Please select again.';
+           delete state.answers[questionId];
+           options.forEach(input=>{input.disabled=false});
+           radio.checked=false;
+         }finally{
+           delete state.pending[questionId];
+         }
        });
        label.append(radio,document.createTextNode(' '+option));
        if(feedback&&selected===index){
