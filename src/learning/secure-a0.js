@@ -58,27 +58,10 @@ export async function mountSecureA0(host,client){
        }
        field.append(label);
      });
-     if(feedback){
-       const notice=el('div');
-       notice.className='hz-quiz-feedback '+(feedback.correct?'hz-quiz-feedback-good':'hz-quiz-feedback-bad');
-       notice.setAttribute('role','status');
-       const title=el('strong',feedback.correct?'✓ Correct!':'✕ Not quite — here’s why');
-       notice.append(title);
-       if(!feedback.correct){
-         const detail=el('p',feedback.explanation||'Review the lesson and try again.');
-         notice.append(detail,el('p','Correct answer: '+feedback.answer));
-       }
-       field.append(notice);
-     }
      host.append(field);
    }
    const info=el('p');info.setAttribute('role','status');host.append(info);
-   if(state.feedback){
-     const result=state.feedback;
-     info.className='hz-quiz-score';
-     info.textContent=`Score: ${result.percent}% · ${result.passed?'Passed! Great work.':'Keep practicing — you can retry.'}`;
-     host.append(btn('Try again',()=>{state.answers={};state.feedback=null;render()}));
-   }else{
+   if(!state.feedback){
      host.append(btn('Submit quiz',async()=>{
        if(unit.quiz.some(q=>state.answers[q.id]===undefined)){info.textContent='Answer all questions first.';return}
        info.textContent='Grading…';
