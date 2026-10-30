@@ -81,7 +81,9 @@ export async function mountSecureA0(host,client){
        notice.className='hz-quiz-feedback '+(feedback.correct?'hz-quiz-feedback-good':'hz-quiz-feedback-bad');
        notice.setAttribute('role','status');
        notice.append(el('strong',feedback.correct?'✓ Correct!':'✕ Not quite — here’s why'));
-       notice.append(el('p',feedback.explanation||'Review the lesson for more context.'));
+       const explanation=el('p',feedback.explanation||'Review the lesson for more context.');
+       explanation.className='hz-quiz-explanation';
+       notice.append(explanation);
        if(!feedback.correct)notice.append(el('p','Correct answer: '+feedback.answer));
        field.append(notice);
      }else if(state.pending[q.id]){
