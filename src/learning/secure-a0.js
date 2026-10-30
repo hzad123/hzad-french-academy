@@ -5,7 +5,7 @@ export async function mountSecureA0(host,client){
  const store=makeLearningStore(client);
  const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n};
  const btn=(label,action)=>{const b=el('button',label);b.type='button';b.className='hz-btn';b.addEventListener('click',action);return b};
- const state={units:[],progress:{},current:null,answers:{},feedback:null};
+ const state={units:[],progress:{},current:null,answers:{},feedback:{},pending:{},saveError:''};
  const status=el('p','Loading your lessons…');host.replaceChildren(status);
  try{
    const [{data:{user},error:authError},units,progress]=await Promise.all([
@@ -20,7 +20,7 @@ export async function mountSecureA0(host,client){
    host.append(el('h2','A0 · Absolute Beginner'),el('p',`${done} of ${total} lessons completed`));
    if(!total){host.append(el('p','No lessons are published yet. Please check back soon.'));return}
    const nav=el('nav');nav.setAttribute('aria-label','Choose a lesson');
-   for(const unit of state.units)nav.append(btn(`${state.progress[unit.id]?.completed?'✓ ':''}${unit.title}`,()=>{state.current=unit;state.answers={};state.feedback=null;render()}));
+   for(const unit of state.units)nav.append(btn(`${state.progress[unit.id]?.completed?'✓ ':''}${unit.title}`,()=>{state.current=unit;state.answers={};state.feedback={};state.pending={};state.saveError='';render()}));
    host.append(nav);
    const unit=state.current;
    host.append(el('h3',unit.title));
@@ -38,7 +38,7 @@ export async function mountSecureA0(host,client){
    }
    host.append(el('h4','Practice quiz'));
    for(const q of unit.quiz){
-     const feedback=state.feedback?.feedback?.find(item=>item.id===q.id);
+     const feedback=state.feedback[q.id];
      const selected=state.answers[q.id];
      const field=el('fieldset');
      field.className='hz-quiz-question'+(feedback?(feedback.correct?' hz-quiz-correct':' hz-quiz-wrong'):'');
@@ -49,8 +49,26 @@ export async function mountSecureA0(host,client){
        if(feedback&&selected===index)label.classList.add(feedback.correct?'hz-answer-correct':'hz-answer-wrong');
        const radio=el('input');
        radio.type='radio';radio.name='secure-'+q.id;radio.checked=selected===index;
-       radio.disabled=!!state.feedback;
-       radio.addEventListener('change',()=>state.answers[q.id]=index);
+       radio.disabled=!!feedback||!!state.pending[q.id];
+       radio.addEventListener('change',async()=>{
+         if(state.feedback[q.id]||state.pending[q.id])return;
+         state.answers[q.id]=index;
+         state.pending[q.id]=true;
+         const questionId=q.id,unitId=unit.id;
+         render();
+         try{
+           const result=await store.checkAnswer(unitId,questionId,index);
+           if(state.current?.id!==unitId)return;
+           state.feedback[questionId]=result;
+           if(unit.quiz.every(item=>state.feedback[item.id])){
+             try{
+               await store.submitQuiz(unitId,state.answers);
+               state.progress=await store.readProgress();
+             }catch(e){state.saveError='Your answers were checked, but progress could not be saved: '+e.message}
+           }
+         }catch(e){state.saveError='Could not check answer: '+e.message;delete state.answers[questionId]}
+         finally{delete state.pending[questionId];if(state.current?.id===unitId)render()}
+       });
        label.append(radio,document.createTextNode(' '+option));
        if(feedback&&selected===index){
          const marker=el('span',feedback.correct?'✓':'✕');
@@ -58,19 +76,24 @@ export async function mountSecureA0(host,client){
        }
        field.append(label);
      });
+     if(feedback){
+       const notice=el('div');
+       notice.className='hz-quiz-feedback '+(feedback.correct?'hz-quiz-feedback-good':'hz-quiz-feedback-bad');
+       notice.setAttribute('role','status');
+       notice.append(el('strong',feedback.correct?'✓ Correct!':'✕ Not quite — here’s why'));
+       if(!feedback.correct){
+         notice.append(el('p',feedback.explanation||'Review this lesson and try again.'));
+         notice.append(el('p','Correct answer: '+feedback.answer));
+       }
+       field.append(notice);
+     }else if(state.pending[q.id]){
+       field.append(el('p','Checking answer…'));
+     }
      host.append(field);
    }
    const info=el('p');info.setAttribute('role','status');host.append(info);
-   if(!state.feedback){
-     host.append(btn('Submit quiz',async()=>{
-       if(unit.quiz.some(q=>state.answers[q.id]===undefined)){info.textContent='Answer all questions first.';return}
-       info.textContent='Grading…';
-       try{
-         const result=await store.submitQuiz(unit.id,state.answers);
-         state.feedback=result;state.progress=await store.readProgress();render();
-       }catch(e){info.textContent='Could not submit quiz: '+e.message}
-     }));
-   }
+   if(state.saveError)info.textContent=state.saveError;
+
  }
  render();
 }
