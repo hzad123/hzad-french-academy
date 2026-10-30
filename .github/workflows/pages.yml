@@ -1,5 +1,5 @@
 name: Deploy academy preview
-# Publish latest instant-answer A0 quiz with explanations for correct and wrong selections (2026-10-29).
+# Refresh A0 preview after explanation visibility fix.
 on:
   push:
     branches: [development]
@@ -30,7 +30,6 @@ jobs:
       - run: npm install
       - run: npm test
       - run: npm run build
-      # Preserve the existing root academy build; publish feature preview separately.
       - name: Checkout A0 feature into isolated folder
         uses: actions/checkout@v4
         with:
