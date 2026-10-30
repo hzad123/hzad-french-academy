@@ -63,3 +63,11 @@
 #hzad-french-academy .hz-quiz-score{font-size:19px;font-weight:800;margin:20px 0}
 @keyframes hz-feedback-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-quiz-feedback{animation:none}}
+
+/* Specificity override: A0 fieldset rules otherwise mask result backgrounds. */
+#hzad-french-academy #hz-a0-learning fieldset.hz-quiz-correct{border:2px solid #239a59;background:#f2fff7}
+#hzad-french-academy #hz-a0-learning fieldset.hz-quiz-wrong{border:2px solid #dc4545;background:#fff7f7}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback{display:block!important;visibility:visible!important;opacity:1!important;position:static!important;max-height:none!important;overflow:visible!important;margin-top:14px;padding:16px;border-radius:12px}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback-good{background:#dcfce7;color:#12613b;border-left:4px solid #239a59}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback-bad{background:#fee2e2;color:#8e2222;border-left:4px solid #dc4545}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-explanation{display:block;margin:8px 0 0;line-height:1.55;font-weight:500}
