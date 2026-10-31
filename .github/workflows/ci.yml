@@ -13,6 +13,7 @@ jobs:
           node-version: '22'
       - run: npm install
       - run: npm test
+      - run: node scripts/validate-curriculum.mjs curriculum/a0-batch-01.json
       - run: npm run build
       - name: Upload isolated A0 test build
         if: startsWith(github.ref, 'refs/heads/feature/')
