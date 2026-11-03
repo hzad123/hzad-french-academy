@@ -191,3 +191,14 @@
 @media(prefers-reduced-motion:reduce){
  #hzad-french-academy #hz-a0-learning .hz-a0-progress-fill{transition:none}
 }
+
+
+/* Give small screens useful reading width inside the dashboard's nested panels. */
+@media(max-width:560px){
+ #hzad-french-academy .hz-shell{padding-left:10px;padding-right:10px}
+ #hzad-french-academy #hz-dashboard.hz-panel.hz-wide{padding:12px}
+ #hzad-french-academy #hz-a0-learning{padding:10px;margin-top:12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-main{padding:12px}
+ #hzad-french-academy #hz-a0-learning .hz-vocab-card,
+ #hzad-french-academy #hz-a0-learning .hz-vocab-passage{padding:14px}
+}
