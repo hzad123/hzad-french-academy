@@ -1,5 +1,5 @@
 name: Deploy academy preview
-# Deploy session-v2-20261103; preserve the existing root academy.
+# Deploy rate-v3-20261103; preserve the existing root academy.
 on:
   push:
     branches: [development]
@@ -35,7 +35,7 @@ jobs:
       - name: Checkout A0 feature into isolated folder
         uses: actions/checkout@v4
         with:
-          ref: feature/a0-learning
+          ref: baf3868e9a7a913c69f2a273e62d7bdf13110349
           path: a0-feature
       - name: Build and test A0 feature
         working-directory: a0-feature
