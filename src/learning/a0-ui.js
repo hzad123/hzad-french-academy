@@ -11,14 +11,14 @@ function action(label,className,callback){
 }
 function lessonNumber(unit){return String(unit.id||'').split('-')[1]||String(unit.position||'');}
 function normalize(value){return String(value||'').toLocaleLowerCase('fr').replace(/[.!?…\s]+/g,' ').trim();}
-function speakFrench(french,button,status){
+export function speakFrench(french,button,status,rate=.86){
  if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){
    status.textContent='French pronunciation is not available in this browser.';return;
  }
  try{
    window.speechSynthesis.cancel();
    const u=new SpeechSynthesisUtterance(french);
-   u.lang='fr-FR';u.rate=.86;
+   u.lang='fr-FR';u.rate=rate;
    const voice=window.speechSynthesis.getVoices().find(v=>/^fr(?:-|$)/i.test(v.lang));
    if(voice)u.voice=voice;
    button.classList.add('is-playing');
