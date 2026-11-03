@@ -16,7 +16,7 @@ export async function mountSecureA0(host,client){
  const state={units,progress,current:units.find(u=>!progress[u.id]?.completed)||units[0]||null,
    answers:{},feedback:{},pending:{},saving:false,saved:false,
    navOpen:!window.matchMedia('(max-width: 800px)').matches,navScroll:0,showTranslations:true};
- let generation=0;
+ let generation=0, currentChrome=null;
  function selectLesson(next){
    if(!next)return;
    if(state.current?.id===next.id){
@@ -31,6 +31,7 @@ export async function mountSecureA0(host,client){
  function render(){
    const renderId=++generation;
    const chrome=renderA0Layout(host,state,selectLesson);
+   currentChrome=chrome;
    const content=chrome.main;
    if(!state.current){content.append(el('p','No lessons are published yet.'));return chrome}
    const unit=state.current;
@@ -107,15 +108,15 @@ export async function mountSecureA0(host,client){
                // Update the progress bar from the successful write; avoid a second request
                // that could be rate-limited or fail after the completion was already saved.
                const previous=state.progress[unitId]||{};
-               state.saved=true;
                state.progress[unitId]={
                  ...previous,
                  completed:true,
                  attempts:(previous.attempts||0)+1,
                  best:Math.max(previous.best||0,submission.percent||0)
                };
+               if(active())currentChrome?.updateProgress();
                if(stillHere()){
-                 chrome.updateProgress();
+                 state.saved=true;
                  const totalDone=state.units.filter(u=>state.progress[u.id]?.completed).length;
                  const percent=typeof submission.percent==='number'?submission.percent:0;
                  info.textContent='✓ Lesson completed! '+totalDone+' of '+state.units.length+
