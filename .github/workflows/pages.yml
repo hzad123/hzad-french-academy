@@ -1,5 +1,5 @@
 name: Deploy academy preview
-# Rebuild preview with inline session recovery for A0 lessons and quiz.
+# Deploy session-v2-20261103; preserve the existing root academy.
 on:
   push:
     branches: [development]
@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: development
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -45,6 +47,7 @@ jobs:
         run: |
           mkdir -p dist/a0-preview
           cp -R a0-feature/dist/. dist/a0-preview/
+          git -C a0-feature rev-parse HEAD > dist/a0-preview/BUILD_COMMIT.txt
       - uses: actions/configure-pages@v5
         with:
           enablement: true
