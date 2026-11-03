@@ -1,5 +1,6 @@
 import {makeLearningStore} from './supabase-store.js';
 import {renderA0Layout,renderVocabulary} from './a0-ui.js';
+import {withSavedQuizCompletion} from './progress.js';
 import {isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
 
@@ -107,13 +108,7 @@ export async function mountSecureA0(host,client){
                // The server verifies that every question was answered and saves completion.
                // Update the progress bar from the successful write; avoid a second request
                // that could be rate-limited or fail after the completion was already saved.
-               const previous=state.progress[unitId]||{};
-               state.progress[unitId]={
-                 ...previous,
-                 completed:true,
-                 attempts:(previous.attempts||0)+1,
-                 best:Math.max(previous.best||0,submission.percent||0)
-               };
+               state.progress=withSavedQuizCompletion(state.progress,unitId,submission);
                if(active())currentChrome?.updateProgress();
                if(stillHere()){
                  state.saved=true;
