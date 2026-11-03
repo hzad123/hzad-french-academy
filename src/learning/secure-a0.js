@@ -129,6 +129,10 @@ export async function mountSecureA0(host,client){
            }
          }catch(e){
            if(state.current?.id!==unitId)return;
+           if(/login session is missing|session expired|could not authenticate this session/i.test(e.message||'')){
+             host.dispatchEvent(new CustomEvent('hzad-session-expired',{bubbles:true}));
+             return;
+           }
            waiting.textContent='Could not check this answer: '+e.message+'. Please select again.';
            delete state.answers[questionId];
            options.forEach(input=>{input.disabled=false});
