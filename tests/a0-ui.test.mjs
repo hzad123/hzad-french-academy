@@ -26,7 +26,7 @@ test('A0 uses a numbered sidebar without changing the secure grading path', asyn
  assert.match(lesson,/renderVocabulary\(content,unit,state\)/);
  assert.match(lesson,/store\.checkAnswer\(unitId,questionId,index\)/);
  assert.match(lesson,/store\.submitQuiz\(unitId,/);
- assert.match(lesson,/chrome\.updateProgress\(\)/);
+ assert.match(lesson,/currentChrome\?\.updateProgress\(\)/);
  assert.match(style,/\.hz-a0-layout/);
  assert.match(style,/@media\(max-width:800px\)/);
  assert.match(style,/\.hz-vocab-card/);
