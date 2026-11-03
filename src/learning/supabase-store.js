@@ -29,8 +29,15 @@ export function makeLearningStore(client){
      const {data:refreshed,error:refreshError}=await client.auth.refreshSession();
      if(refreshError||!refreshed.session)throw Error('Your login session expired. Sign out and sign in again.');
    }
+   const {data:verified,error:verifyError}=await client.auth.getUser();
+   if(verifyError||!verified.user)throw Error('Supabase could not authenticate this session. Sign out and sign in again.');
    const {data,error}=await client.rpc('academy_check_answer',{p_unit_id:unitId,p_question_id:questionId,p_answer:answer});
-   if(error)throw error;return data;
+   if(error){
+     if(error.code==='42501'||/permission denied for function/i.test(error.message||'')){
+       throw Error('Supabase rejected the quiz request (42501) despite a verified user. Check the request Authorization role and the live database function grants.');
+     }
+     throw error;
+   }return data;
   },
   async submitQuiz(unitId,answers){
    const {data,error}=await client.rpc('academy_submit_quiz',{p_unit_id:unitId,p_answers:answers});
