@@ -1,5 +1,5 @@
 name: Deploy academy preview
-# Deploy tested A0 study workspace with mobile focus mode; root academy unchanged.
+# Deploy completed-quiz progress bar fix to isolated A0 preview; root academy unchanged.
 on:
   push:
     branches: [development]
@@ -35,7 +35,7 @@ jobs:
       - name: Checkout A0 feature into isolated folder
         uses: actions/checkout@v4
         with:
-          ref: e686be752e63b080f97cda15072d217be44eeff1
+          ref: 0abf8ef3f890b509b9638f3ff801c1608ee803a4
           path: a0-feature
       - name: Build and test A0 feature
         working-directory: a0-feature
