@@ -30,6 +30,10 @@ test('A0 uses a numbered sidebar without changing the secure grading path', asyn
  assert.match(style,/\.hz-a0-layout/);
  assert.match(style,/@media\(max-width:800px\)/);
  assert.match(style,/\.hz-vocab-card/);
+ const dashboard=await readFile('src/learning/dashboard-integration.js','utf8');
+ assert.match(dashboard,/focus\(true\)/);
+ assert.match(dashboard,/focus\(false\)/);
+ assert.match(dashboard,/scrollIntoView/);
  assert.match(store,/academy_list_units/);
  assert.doesNotMatch(ui,/academy_check_answer|service_role|fetch\(/);
 });
