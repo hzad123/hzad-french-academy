@@ -5,10 +5,13 @@ import {mountSecureA0} from './secure-a0.js';
 
 export function wireA0(root,client){
  const button=root.querySelector('#hz-open-a0'),area=root.querySelector('#hz-a0-learning');
+ const courses=root.querySelector('#hz-courses');
  if(!button||!area)return;
  let open=false,generation=0,stopCooldown=null;
+ const focus=value=>courses?.classList.toggle('hz-hidden',value);
  const reset=()=>{
    generation++;open=false;stopCooldown?.();stopCooldown=null;
+   focus(false);
    area.dataset.mountToken='';area.classList.add('hz-hidden');area.replaceChildren();
    button.disabled=false;button.textContent='Start A0 lessons';
  };
@@ -27,7 +30,8 @@ export function wireA0(root,client){
      if(access.kind!=='active')throw Error(access.kind==='unverified'?'Please verify your email.':'No active academy access is assigned to this account.');
      await mountSecureA0(area,client);
      if(ticket!==generation)return;
-     open=true;button.textContent='Close A0 lessons';
+     open=true;button.textContent='Close A0 lessons';focus(true);
+     area.scrollIntoView?.({behavior:'smooth',block:'start'});
    }catch(error){
      if(ticket!==generation)return;
      if(isRateLimited(error)){
