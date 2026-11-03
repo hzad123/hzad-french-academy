@@ -9,6 +9,7 @@ export function makeLearningStore(client){
    return (data||[]).map(row=>({id:row.id,title:row.title,minutes:row.minutes,
      sections:row.content?.sections||[],vocabulary:row.content?.vocabulary||[],
      listeningChecks:row.content?.listening_checks||[],practiceTasks:row.content?.practice_tasks||[],
+     assessmentDomains:row.content?.assessment_domains||[],
      quiz:(row.quiz||[]).map(({id,type,prompt,options})=>({id,type,prompt,options}))}));
   },
   async readProgress(){
