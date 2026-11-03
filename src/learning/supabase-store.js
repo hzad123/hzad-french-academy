@@ -23,6 +23,12 @@ export function makeLearningStore(client){
    }]));
   },
   async checkAnswer(unitId,questionId,answer){
+   const {data:{session},error:sessionError}=await client.auth.getSession();
+   if(sessionError||!session?.access_token)throw Error('Your login session is missing. Sign out and sign in again.');
+   if(session.expires_at && session.expires_at*1000<Date.now()+30000){
+     const {data:refreshed,error:refreshError}=await client.auth.refreshSession();
+     if(refreshError||!refreshed.session)throw Error('Your login session expired. Sign out and sign in again.');
+   }
    const {data,error}=await client.rpc('academy_check_answer',{p_unit_id:unitId,p_question_id:questionId,p_answer:answer});
    if(error)throw error;return data;
   },
