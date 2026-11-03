@@ -40,6 +40,7 @@ export function wireA0(root,client){
    });
    area.append(form);
  }
+ area.addEventListener('hzad-session-expired',()=>{open=false;button.textContent='Start A0 lessons';showLogin()});
  button.addEventListener('click',async()=>{
    if(button.disabled)return;
    if(open){reset();return}
