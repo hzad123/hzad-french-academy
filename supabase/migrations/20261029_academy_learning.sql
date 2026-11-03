@@ -102,7 +102,8 @@ begin
  end loop;
  v_percent := round(100.0 * v_correct / v_total);
  insert into public.academy_learning_progress(user_id,unit_id,attempts,best_percent,completed,updated_at)
- values(v_user,p_unit_id,1,v_percent,v_percent >= 70,now())
+ -- A lesson completes once all quiz questions are answered; 'passed' still indicates 70% mastery.
+ values(v_user,p_unit_id,1,v_percent,true,now())
  on conflict(user_id,unit_id) do update set
  attempts=public.academy_learning_progress.attempts+1,
  best_percent=greatest(public.academy_learning_progress.best_percent,excluded.best_percent),
