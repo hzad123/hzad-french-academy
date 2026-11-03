@@ -13,7 +13,10 @@ export function wireA0(root,client){
    button.disabled=true;
    try{
      const access=await checkAcademyAccess(client);
-     if(access.kind!=='active')throw Error('Your active academy access could not be verified. Please sign in again.');
+     if(access.kind!=='active'){
+       const detail=access.kind==='error'?'Entitlement lookup failed: '+(access.error?.message||'Unknown database error'):access.kind==='signed_out'?'Your session has expired. Please sign in again.':access.kind==='unverified'?'Your email is not verified.': 'No active academy entitlement was found for this account.';
+       throw Error(detail);
+     }
      area.classList.remove('hz-hidden');
      await mountSecureA0(area,client);
      open=true;button.textContent='Close A0 lessons';
