@@ -1,4 +1,5 @@
 import {makeLearningStore} from './supabase-store.js';
+import {renderA0Layout,renderVocabulary} from './a0-ui.js';
 import {isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
 
@@ -12,21 +13,34 @@ export async function mountSecureA0(host,client){
  // Both APIs authorize the caller server-side. No duplicate Auth /user request.
  const [units,progress]=await Promise.all([store.listUnits(),store.readProgress()]);
  if(!active())return;
- const state={units,progress,current:units[0]||null,answers:{},feedback:{},pending:{},saving:false,saved:false};
+ const state={units,progress,current:units.find(u=>!progress[u.id]?.completed)||units[0]||null,
+   answers:{},feedback:{},pending:{},saving:false,saved:false,
+   navOpen:!window.matchMedia('(max-width: 800px)').matches,navScroll:0,showTranslations:true};
  let generation=0;
+ function selectLesson(next){
+   if(!next)return;
+   if(state.current?.id===next.id){
+     const currentTitle=host.querySelector('.hz-a0-lesson-title');
+     currentTitle?.focus();return;
+   }
+   if('speechSynthesis' in window)window.speechSynthesis.cancel();
+   state.current=next;state.answers={};state.feedback={};state.pending={};state.saving=false;state.saved=false;
+   if(window.matchMedia('(max-width: 800px)').matches)state.navOpen=false;
+   const chrome=render();chrome?.scrollToLesson();
+ }
  function render(){
-   const renderId=++generation;host.replaceChildren();
-   const progressText=el('p');
-   const updateProgress=()=>{progressText.textContent=`${state.units.filter(u=>state.progress[u.id]?.completed).length} of ${state.units.length} lessons completed`};
-   updateProgress();host.append(el('h2','A0 \u00b7 Absolute Beginner'),progressText);
-   if(!state.current){host.append(el('p','No lessons are published yet.'));return}
-   const nav=el('nav');nav.setAttribute('aria-label','Choose a lesson');
-   for(const unit of state.units)nav.append(btn((state.progress[unit.id]?.completed?'\u2713 ':'')+unit.title,()=>{
-     state.current=unit;state.answers={};state.feedback={};state.pending={};state.saving=false;state.saved=false;render();
-   }));host.append(nav);
+   const renderId=++generation;
+   const chrome=renderA0Layout(host,state,selectLesson);
+   const content=chrome.main;
+   if(!state.current){content.append(el('p','No lessons are published yet.'));return chrome}
    const unit=state.current;
    const stillHere=()=>active()&&generation===renderId;
-   host.append(el('h3',unit.title));
+   const intro=el('header');intro.className='hz-a0-lesson-intro';
+   const meta=el('div');meta.className='hz-a0-lesson-meta';
+   const number=String(unit.id||'').split('-')[1]||'';
+   meta.append(el('span','LESSON '+number),el('span',String(unit.minutes||10)+' MIN'));
+   const title=el('h3',unit.title);title.className='hz-a0-lesson-title';
+   intro.append(meta,title);content.append(intro);
    for(const section of unit.sections){
      const block=el('section');block.className='hz-lesson-section';block.append(el('h4',section.heading));
      if(Array.isArray(section.items)){
@@ -36,7 +50,12 @@ export async function mountSecureA0(host,client){
          const phrase=el('strong',item.french);phrase.className='hz-expression-french';
          const meaning=el('span',item.english);meaning.className='hz-expression-english';
          const usage=el('p',item.usage);usage.className='hz-expression-usage';
-         li.append(phrase,meaning,usage);list.append(li);
+         li.append(phrase,meaning);
+         if(item.usage){
+           const detail=el('details');detail.className='hz-expression-tip';
+           detail.append(el('summary','Usage & explanation'),usage);li.append(detail);
+         }
+         list.append(li);
        }block.append(list);
      }else if(Array.isArray(section.dialogue)){
        const dialogue=el('div');dialogue.className='hz-dialogue';
@@ -47,14 +66,10 @@ export async function mountSecureA0(host,client){
          turn.append(french,english);dialogue.append(turn);
        }block.append(dialogue);
      }else if(section.body)block.append(el('p',section.body));
-     host.append(block);
+     content.append(block);
    }
-   host.append(el('h4','Vocabulary'));
-   for(const [french,english] of unit.vocabulary)host.append(btn('\ud83d\udd0a '+french+' \u2014 '+english,()=>{
-     if(!('speechSynthesis' in window))return;
-     speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(french);u.lang='fr-FR';u.rate=.82;speechSynthesis.speak(u);
-   }));
-   host.append(el('h4','Practice quiz'));
+   renderVocabulary(content,unit,state);
+   const quizTitle=el('h4','Practice quiz');quizTitle.className='hz-a0-quiz-title';content.append(quizTitle);
    const info=el('p');info.setAttribute('role','status');
    for(const q of unit.quiz){
      const field=el('fieldset');field.className='hz-quiz-question';field.append(el('legend',q.prompt));
@@ -88,7 +103,7 @@ export async function mountSecureA0(host,client){
                // Never automatically retry this write: a lost response can hide a successful save.
                await store.submitQuiz(unitId,{...state.answers});
                if(!stillHere())return;
-               state.saved=true;state.progress=await store.readProgress();if(stillHere())updateProgress();
+               state.saved=true;state.progress=await store.readProgress();if(stillHere())chrome.updateProgress();
              }catch(error){if(stillHere())info.textContent='Answer feedback is available, but progress could not be confirmed: '+error.message}
              finally{if(stillHere())state.saving=false}
            }
@@ -107,8 +122,14 @@ export async function mountSecureA0(host,client){
            delete state.answers[questionId];radio.checked=false;options.forEach(input=>{input.disabled=false});
          }finally{if(stillHere()&&!cooling)delete state.pending[questionId]}
        });
-     });host.append(field);
-   }host.append(info);
+     });content.append(field);
+   }content.append(info);
+   const navFooter=el('div');navFooter.className='hz-a0-next-prev';
+   const currentIndex=state.units.findIndex(u=>u.id===unit.id);
+   if(currentIndex>0)navFooter.append(btn('← Previous lesson',()=>selectLesson(state.units[currentIndex-1])));
+   if(currentIndex>=0&&currentIndex<state.units.length-1)navFooter.append(btn('Next lesson →',()=>selectLesson(state.units[currentIndex+1])));
+   content.append(navFooter);
+   return chrome;
  }
  render();
 }
