@@ -46,7 +46,10 @@ export function renderPracticeLab(target,unit){
  const note=el('p','These are self-guided activities. Use invented personal details. Drafts and voice recordings stay in your browser; they are not uploaded or AI-graded.');
  note.className='hz-practice-intro';container.append(note);
  const recorders=[],urls=[];
+ let disposed=false;
  const cleanup=()=>{
+   if(disposed)return;
+   disposed=true;
    for(const entry of recorders){
      if(entry.recorder?.state==='recording')try{entry.recorder.stop()}catch{}
      for(const track of entry.stream?.getTracks?.()||[])track.stop();
@@ -97,7 +100,7 @@ export function renderPracticeLab(target,unit){
          recorder.ondataavailable=ev=>{if(ev.data?.size)chunks.push(ev.data)};
          recorder.onstop=()=>{
            stream.getTracks().forEach(t=>t.stop());
-           if(!card.isConnected)return;
+           if(disposed||!card.isConnected)return;
            const blob=new Blob(chunks,{type:recorder.mimeType||'audio/webm'});
            const old=audio.dataset.recordingUrl;
            if(old){URL.revokeObjectURL(old);const j=urls.indexOf(old);if(j>=0)urls.splice(j,1)}
@@ -135,6 +138,6 @@ export function renderPracticeLab(target,unit){
  const observer=new MutationObserver(()=>{
    if(!container.isConnected){cleanup();observer.disconnect()}
  });
- observer.observe(target,{childList:true,subtree:false});
+ observer.observe(target.closest('#hz-a0-learning')||target,{childList:true,subtree:true});
  return ()=>{cleanup();observer.disconnect()};
 }
