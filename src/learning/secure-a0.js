@@ -101,9 +101,28 @@ export async function mountSecureA0(host,client){
              state.saving=true;
              try{
                // Never automatically retry this write: a lost response can hide a successful save.
-               await store.submitQuiz(unitId,{...state.answers});
-               if(!stillHere())return;
-               state.saved=true;state.progress=await store.readProgress();if(stillHere())chrome.updateProgress();
+               const submission=await store.submitQuiz(unitId,{...state.answers});
+               if(!active())return;
+               // The server verifies that every question was answered and saves completion.
+               // Update the progress bar from the successful write; avoid a second request
+               // that could be rate-limited or fail after the completion was already saved.
+               const previous=state.progress[unitId]||{};
+               state.saved=true;
+               state.progress[unitId]={
+                 ...previous,
+                 completed:true,
+                 attempts:(previous.attempts||0)+1,
+                 best:Math.max(previous.best||0,submission.percent||0)
+               };
+               if(stillHere()){
+                 chrome.updateProgress();
+                 const totalDone=state.units.filter(u=>state.progress[u.id]?.completed).length;
+                 const percent=typeof submission.percent==='number'?submission.percent:0;
+                 info.textContent='✓ Lesson completed! '+totalDone+' of '+state.units.length+
+                   ' lessons complete. Quiz score: '+percent+'%. '+
+                   (submission.passed?'Well done!':'You can review and retake this lesson to improve your score.');
+                 info.className='hz-a0-completion-notice';
+               }
              }catch(error){if(stillHere())info.textContent='Answer feedback is available, but progress could not be confirmed: '+error.message}
              finally{if(stillHere())state.saving=false}
            }
