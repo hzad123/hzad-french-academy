@@ -1,6 +1,7 @@
 import {makeLearningStore} from './supabase-store.js';
 import {renderA0Layout,renderVocabulary} from './a0-ui.js';
 import {renderListeningCheck,renderPracticeLab} from './practice-lab.js';
+import {showAssessmentBreakdown} from './assessment.js';
 import {withSavedQuizCompletion} from './progress.js';
 import {isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
@@ -123,6 +124,7 @@ export async function mountSecureA0(host,client){
                    ' lessons complete. Quiz score: '+percent+'%. '+
                    (submission.passed?'Well done!':'You can review and retake this lesson to improve your score.');
                  info.className='hz-a0-completion-notice';
+                 showAssessmentBreakdown(info,unit,state.feedback);
                }
              }catch(error){if(stillHere())info.textContent='Answer feedback is available, but progress could not be confirmed: '+error.message}
              finally{if(stillHere())state.saving=false}
