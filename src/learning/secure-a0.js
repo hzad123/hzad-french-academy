@@ -1,5 +1,6 @@
 import {makeLearningStore} from './supabase-store.js';
 import {renderA0Layout,renderVocabulary} from './a0-ui.js';
+import {renderListeningCheck,renderPracticeLab} from './practice-lab.js';
 import {withSavedQuizCompletion} from './progress.js';
 import {isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
@@ -17,7 +18,7 @@ export async function mountSecureA0(host,client){
  const state={units,progress,current:units.find(u=>!progress[u.id]?.completed)||units[0]||null,
    answers:{},feedback:{},pending:{},saving:false,saved:false,
    navOpen:!window.matchMedia('(max-width: 800px)').matches,navScroll:0,showTranslations:true};
- let generation=0, currentChrome=null;
+ let generation=0, currentChrome=null, disposePractice=null;
  function selectLesson(next){
    if(!next)return;
    if(state.current?.id===next.id){
@@ -25,6 +26,7 @@ export async function mountSecureA0(host,client){
      currentTitle?.focus();return;
    }
    if('speechSynthesis' in window)window.speechSynthesis.cancel();
+   disposePractice?.();disposePractice=null;
    state.current=next;state.answers={};state.feedback={};state.pending={};state.saving=false;state.saved=false;
    if(window.matchMedia('(max-width: 800px)').matches)state.navOpen=false;
    const chrome=render();chrome?.scrollToLesson();
@@ -71,10 +73,13 @@ export async function mountSecureA0(host,client){
      content.append(block);
    }
    renderVocabulary(content,unit,state);
+   disposePractice=renderPracticeLab(content,unit);
    const quizTitle=el('h4','Practice quiz');quizTitle.className='hz-a0-quiz-title';content.append(quizTitle);
    const info=el('p');info.setAttribute('role','status');
+   const audioByQuestion=new Map((unit.listeningChecks||[]).map(c=>[c.questionId,c]));
    for(const q of unit.quiz){
      const field=el('fieldset');field.className='hz-quiz-question';field.append(el('legend',q.prompt));
+     const revealTranscript=renderListeningCheck(field,audioByQuestion.get(q.id));
      q.options.forEach((option,index)=>{
        const label=el('label');label.className='hz-quiz-option';
        const radio=el('input');radio.type='radio';radio.name='secure-'+q.id;
@@ -90,7 +95,7 @@ export async function mountSecureA0(host,client){
          try{
            const result=await store.checkAnswer(unitId,questionId,index);
            if(!stillHere())return;
-           state.feedback[questionId]=result;waiting.remove();
+           state.feedback[questionId]=result;waiting.remove();revealTranscript();
            field.classList.add(result.correct?'hz-quiz-correct':'hz-quiz-wrong');
            label.classList.add(result.correct?'hz-answer-correct':'hz-answer-wrong');
            const marker=el('span',result.correct?'\u2713':'\u2715');marker.className='hz-answer-icon';marker.setAttribute('aria-hidden','true');label.append(marker);
