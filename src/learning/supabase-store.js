@@ -1,28 +1,20 @@
 import {requireSession} from '../auth/session.js';
-
-// The shared client attaches the authenticated token to EVERY REST request.
-// Questions come from the sanitized RPC; never read the answer-key table.
+// Database transport consumes the cached session, not a fresh Auth request.
 export function makeLearningStore(client){
  return {
   async listUnits(){
    await requireSession(client);
    const {data,error}=await client.rpc('academy_list_units',{p_level:'A0'});
    if(error)throw error;
-   return (data||[]).map(row=>({
-    id:row.id,title:row.title,minutes:row.minutes,
-    objectives:row.content?.objectives||[],sections:row.content?.sections||[],
-    vocabulary:row.content?.vocabulary||[],
-    quiz:(row.quiz||[]).map(({id,type,prompt,options})=>({id,type,prompt,options}))
-   }));
+   return (data||[]).map(row=>({id:row.id,title:row.title,minutes:row.minutes,
+     sections:row.content?.sections||[],vocabulary:row.content?.vocabulary||[],
+     quiz:(row.quiz||[]).map(({id,type,prompt,options})=>({id,type,prompt,options}))}));
   },
   async readProgress(){
    await requireSession(client);
-   const {data,error}=await client.from('academy_learning_progress')
-     .select('unit_id,attempts,best_percent,completed,updated_at');
+   const {data,error}=await client.from('academy_learning_progress').select('unit_id,attempts,best_percent,completed,updated_at');
    if(error)throw error;
-   return Object.fromEntries((data||[]).map(x=>[x.unit_id,{
-     attempts:x.attempts,best:x.best_percent,completed:x.completed,updatedAt:x.updated_at
-   }]));
+   return Object.fromEntries((data||[]).map(x=>[x.unit_id,{attempts:x.attempts,best:x.best_percent,completed:x.completed,updatedAt:x.updated_at}]));
   },
   async checkAnswer(unitId,questionId,answer){
    await requireSession(client);

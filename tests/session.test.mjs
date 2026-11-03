@@ -1,58 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createSessionStorage, createAuthenticatedFetch, getAcademyClient} from '../src/auth/client.js';
-import {requireSession} from '../src/auth/session.js';
-
+import {createSessionStorage,createAuthenticatedFetch,getAcademyClient} from '../src/auth/client.js';
+import {requireSession,trackSession} from '../src/auth/session.js';
+const valid=()=>({access_token:'student',expires_at:Date.now()/1000+3600,user:{id:'test',email_confirmed_at:'2026-01-01'}});
 function backing(){const values=new Map();return {getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k),values}}
-test('a saved session survives backing-store loss within the page',()=>{
- const disk=backing(),storage=createSessionStorage(disk);
- storage.setItem('auth','session');disk.values.clear();
- assert.equal(storage.getItem('auth'),'session');
- storage.removeItem('auth');assert.equal(storage.getItem('auth'),null);
-});
-test('storage exceptions do not discard a freshly issued session',()=>{
- const disk={getItem(){throw Error('blocked')},setItem(){throw Error('blocked')},removeItem(){throw Error('blocked')}};
- const storage=createSessionStorage(disk);storage.setItem('auth','session');
- assert.equal(storage.getItem('auth'),'session');storage.removeItem('auth');assert.equal(storage.getItem('auth'),null);
-});
-test('cross-tab explicit signout clears the cached session',()=>{
- let listener;const disk=backing();
- const storage=createSessionStorage(disk,{addEventListener:(_name,callback)=>listener=callback});
- storage.setItem('auth','session');listener({storageArea:disk,key:'auth',newValue:null});
- assert.equal(storage.getItem('auth'),null);
-});
-test('simultaneous session checks share one SDK session request',async()=>{
- let calls=0;const client={auth:{async getSession(){calls++;await new Promise(r=>setTimeout(r,5));return {data:{session:{access_token:'student'}}}}}};
- const result=await Promise.all([requireSession(client),requireSession(client),requireSession(client)]);
- assert.equal(calls,1);assert.equal(result[0].access_token,'student');
-});
-test('protected REST requests always carry the current student token',async()=>{
- const sent=[];const client={auth:{async getSession(){return {data:{session:{access_token:'student'}}}}}};
- const request=createAuthenticatedFetch(()=>client,async(url,init)=>{sent.push(init);return 'ok'},'https://example.supabase.co');
- await request('https://example.supabase.co/rest/v1/rpc/academy_check_answer',{method:'POST',headers:{apikey:'public',Authorization:'Bearer public'}});
- assert.equal(sent[0].headers.get('Authorization'),'Bearer student');
- assert.equal(sent[0].headers.get('apikey'),'public');
-});
-test('a missing session never sends an anonymous protected request',async()=>{
- let sent=false;const client={auth:{async getSession(){return {data:{session:null}}}}};
- const request=createAuthenticatedFetch(()=>client,async()=>{sent=true},'https://example.supabase.co');
- await assert.rejects(()=>request('https://example.supabase.co/rest/v1/rpc/academy_check_answer'),{code:'HZAD_SESSION_REQUIRED'});
- assert.equal(sent,false);
-});
-test('auth and other-origin requests do not receive a student token',async()=>{
- const sent=[];const client={auth:{getSession(){throw Error('must not run')}}};
- const request=createAuthenticatedFetch(()=>client,async(url,init)=>{sent.push(init);return 'ok'},'https://example.supabase.co');
- await request('https://example.supabase.co/auth/v1/token',{headers:{apikey:'public'}});
- await request('https://other.example/rest/v1/rpc/x',{headers:{}});
- assert.equal(sent[0].headers.Authorization,undefined);assert.equal(sent[1].headers.Authorization,undefined);
-});
-test('one client per page and separate preview/portal storage keys',()=>{
- const options=[];const runtime={location:{pathname:'/hzad-french-academy/a0-preview/'},localStorage:backing(),fetch:async()=>{}};
- const factory=(_url,_key,settings)=>{options.push(settings);return {auth:{}}};
- const first=getAcademyClient(factory,'https://example.supabase.co','public',runtime);
- assert.equal(getAcademyClient(factory,'https://example.supabase.co','public',runtime),first);
- assert.equal(options.length,1);assert.match(options[0].auth.storageKey,/-preview-auth-v2$/);
- runtime.location.pathname='/hzadfrenchacademy';
- assert.notEqual(getAcademyClient(factory,'https://example.supabase.co','public',runtime),first);
- assert.match(options[1].auth.storageKey,/-portal-auth-v2$/);
-});
+test('session survives backing-store loss and explicit remove clears it',()=>{const disk=backing(),s=createSessionStorage(disk);s.setItem('auth','session');disk.values.clear();assert.equal(s.getItem('auth'),'session');s.removeItem('auth');assert.equal(s.getItem('auth'),null)});
+test('storage exceptions keep fresh in-page session',()=>{const disk={getItem(){throw Error()},setItem(){throw Error()},removeItem(){throw Error()}};const s=createSessionStorage(disk);s.setItem('auth','session');assert.equal(s.getItem('auth'),'session');s.removeItem('auth');assert.equal(s.getItem('auth'),null)});
+test('cross-tab explicit signout clears stored session',()=>{let listener;const disk=backing(),s=createSessionStorage(disk,{addEventListener:(_,cb)=>listener=cb});s.setItem('auth','session');listener({storageArea:disk,key:'auth',newValue:null});assert.equal(s.getItem('auth'),null)});
+test('concurrent session checks share one request; later choices reuse session',async()=>{let calls=0;const c={auth:{async getSession(){calls++;await new Promise(r=>setTimeout(r,5));return {data:{session:valid()}}}}};await Promise.all([requireSession(c),requireSession(c),requireSession(c)]);await requireSession(c);assert.equal(calls,1)});
+test('short-lived but unexpired event session does not force repeated refreshes',async()=>{let cb;const c={auth:{onAuthStateChange(fn){cb=fn},getSession(){throw Error('No refresh should occur')}}};trackSession(c);cb('SIGNED_IN',{...valid(),expires_at:Date.now()/1000+60});for(let i=0;i<50;i++)await requireSession(c)});
+test('signout invalidates memory session',async()=>{let cb;const c={auth:{onAuthStateChange(fn){cb=fn},async getSession(){return {data:{session:null}}}}};trackSession(c);cb('SIGNED_IN',valid());await requireSession(c);cb('SIGNED_OUT',null);await assert.rejects(requireSession(c),{code:'HZAD_SESSION_REQUIRED'})});
+test('signed-out session cannot be restored by an old in-flight getSession',async()=>{let cb,finish;const c={auth:{onAuthStateChange(fn){cb=fn},getSession(){return new Promise(r=>finish=r)}}};const p=requireSession(c);cb('SIGNED_OUT',null);finish({data:{session:valid()}});await assert.rejects(p,{code:'HZAD_SESSION_REQUIRED'})});
+test('REST uses current bearer and preserves apikey',async()=>{const sent=[];const c={auth:{async getSession(){return {data:{session:valid()}}}}};const f=createAuthenticatedFetch(()=>c,async(_,i)=>{sent.push(i);return 'ok'},'https://example.supabase.co');await f('https://example.supabase.co/rest/v1/rpc/x',{headers:{apikey:'public',Authorization:'Bearer public'}});assert.equal(sent[0].headers.get('Authorization'),'Bearer student');assert.equal(sent[0].headers.get('apikey'),'public')});
+test('missing session blocks request, never anonymous fallback',async()=>{let sent=false;const c={auth:{async getSession(){return {data:{session:null}}}}};const f=createAuthenticatedFetch(()=>c,async()=>{sent=true},'https://example.supabase.co');await assert.rejects(f('https://example.supabase.co/rest/v1/x'),{code:'HZAD_SESSION_REQUIRED'});assert.equal(sent,false)});
+test('no student token sent to unrelated origins or auth calls',async()=>{const sent=[];const c={auth:{getSession(){throw Error()}}};const f=createAuthenticatedFetch(()=>c,async(_,i)=>sent.push(i),'https://example.supabase.co');await f('https://other.example/rest/v1/x',{headers:{}});await f('https://example.supabase.co/auth/v1/token',{headers:{}});assert.equal(sent[0].headers.Authorization,undefined);assert.equal(sent[1].headers.Authorization,undefined)});
+test('singleton: one Auth client plus sessionless database transport per scope',()=>{const opts=[];const runtime={location:{pathname:'/a0-preview/'},localStorage:backing(),fetch:async()=>{}};const factory=(_,__,o)=>{opts.push(o);return {auth:{}}};const a=getAcademyClient(factory,'https://example.supabase.co','public',runtime);assert.equal(getAcademyClient(factory,'https://example.supabase.co','public',runtime),a);assert.equal(opts.length,2);assert.match(opts[0].auth.storageKey,/-preview-auth-v2$/);assert.equal(typeof opts[1].accessToken,'function');assert.equal(opts[1].auth,undefined);runtime.location.pathname='/portal';assert.notEqual(getAcademyClient(factory,'https://example.supabase.co','public',runtime),a);assert.match(opts[2].auth.storageKey,/-portal-auth-v2$/)});
