@@ -22,7 +22,7 @@ try:
      payload=route.request.post_data_json
      assert 'authorization' not in route.request.headers
      valid=payload['p_id']=='33333333-3333-4333-8333-333333333333' and payload['p_holder']=='Élodie Example'
-     route.fulfill(status=200,content_type='application/json',body=json.dumps({'valid':valid,'level':'A0','issuedAt':'2026-11-04T12:00:00Z','scope':'Grammar, vocabulary and reading','notice':'Not official CEFR certification'}))
+     route.fulfill(status=200,content_type='application/json',body=json.dumps({'valid':valid,'level':'A0','issuedAt':'2026-11-04T12:00:00Z','scope':'Grammar, vocabulary and reading','score':100,'lessonCount':2,'version':'fixture-v1','notice':'Not official CEFR certification'}))
     else:route.abort()
    page.route('**/*',route_request)
    page.goto(f'http://127.0.0.1:{server.server_port}/tests/fixtures/tracker.html');page.wait_for_function('window.fixtureReady===true')

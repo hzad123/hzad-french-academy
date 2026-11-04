@@ -12,7 +12,7 @@ export function mountVerification(container){
   event.preventDefault();if(submit.disabled)return;submit.disabled=true;status.textContent='Checking certificate…';
   try{
    const r=await verifyCertificate(id.value.trim(),name.value);if(!active)return;
-   status.textContent=r.valid?`✓ Valid HZad ${r.level} course-completion certificate, issued ${new Date(r.issuedAt).toLocaleDateString()}. ${r.scope}. ${r.notice}.`:'No valid certificate matches this ID and printed name. Check the details or contact the academy.';
+   status.textContent=r.valid?`✓ Valid HZad ${r.level} course-completion certificate, issued ${new Date(r.issuedAt).toLocaleDateString()}. Score: ${r.score}%. Required lessons: ${r.lessonCount}. Assessment version: ${r.version}. ${r.scope}. ${r.notice}.`:'No valid certificate matches this ID and printed name. Check the details or contact the academy.';
   }catch(e){if(active)status.textContent=e.message}finally{if(active)submit.disabled=false}
  });return ()=>{active=false};
 }

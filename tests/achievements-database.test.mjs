@@ -100,7 +100,7 @@ test('passing all assessment items issues one verifiable certificate without res
  const before=(await rewards()).xp;
  assert.equal((await answer(a.id,'final-v1-A0-12',bank.levels.A0[11][3])).result.certificateId,id);assert.equal((await rewards()).xp,before);
  await user(alice);await assert.rejects(()=>rpc('select public.academy_certificate_get($1) as value',[id]),/not found/);
- await user(null,'anon');const publicResult=await verify(id,'Bob Student');assert.equal(publicResult.valid,true);assert.ok(!('holder' in publicResult));
+ await user(null,'anon');const publicResult=await verify(id,'Bob Student');assert.equal(publicResult.valid,true);assert.ok(!('holder' in publicResult));assert.equal(publicResult.score,100);assert.equal(publicResult.lessonCount,1);assert.equal(publicResult.version,bank.version);
  await db.exec('reset role');await query('update academy_achievements.certificates set revoked_at=now() where id=$1',[id]);
  await user(null,'anon');assert.equal((await verify(id,'Bob Student')).valid,false);
 });

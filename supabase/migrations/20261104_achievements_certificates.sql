@@ -231,7 +231,7 @@ begin
  return academy_achievements.exam_state(a.id);
 end;$$;
 create function academy_achievements.verify(p_id uuid,p_holder text) returns jsonb language sql stable security definer set search_path='' as $$
- select coalesce((select jsonb_build_object('valid',true,'level',level,'issuedAt',issued_at,'scope',scope,'issuer','HZad Education','notice','HZad course completion, not official CEFR certification')
+ select coalesce((select jsonb_build_object('valid',true,'level',level,'issuedAt',issued_at,'scope',scope,'score',score,'lessonCount',lesson_count,'version',version,'issuer','HZad Education','notice','HZad course completion, not official CEFR certification')
   from academy_achievements.certificates where id=p_id and revoked_at is null and lower(holder)=lower(btrim(p_holder))),' {"valid":false}'::jsonb);
 $$;
 
