@@ -12,7 +12,9 @@ test('dashboard exposes secure A0 entry and wires it to the authenticated client
  assert.match(template,/id="hz-a0-learning"/);
  assert.match(main,/wireA0\(root,client\)/);
  assert.match(controller,/checkAcademyAccess\(client\)/);
- assert.match(controller,/mountSecureA0\(area,client\)/);
+ assert.match(controller,/mountSecureA0\(area,client,level\)/);
+ assert.match(controller,/data-course-level/);
+ assert.match(controller,/LEVELS=new Set/);
 });
 
 test('client reads sanitized questions through RPC and grades on server',async()=>{
