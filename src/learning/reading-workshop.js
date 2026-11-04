@@ -40,14 +40,19 @@ export function renderReadingWorkshop(target, reading, level='A0') {
   const reflection=el('details');reflection.className='hz-reading-reflection';
   reflection.append(el('summary','Reflect on the passage'));
   const prompts=el('ol');
-  for (const prompt of [
-    'Summarize the central idea in your own French words.',
-    'Find two expressions that support your interpretation.',
-    'Retell or challenge one idea without copying the original wording.'
-  ]) prompts.append(el('li',prompt));
+  const questions=Array.isArray(reading.comprehension_prompts) && reading.comprehension_prompts.length
+    ? reading.comprehension_prompts
+    : ['Summarize the central idea in your own French words.',
+       'Find two expressions that support your interpretation.',
+       'Retell or challenge one idea without copying the original wording.'];
+  for (const prompt of questions) prompts.append(el('li',prompt));
   reflection.append(prompts);
   const count=countFrenchWords(reading.french);
-  const meta=el('p',count+' French words · '+(reading.cefr_length_met === true ? 'Length target marked as met' : 'Short practice text — not a full-length CEFR reading'));
+  const lengthNote=reading.length_target_met === true
+    ? 'Extended editorial draft — not independently CEFR-assessed'
+    : reading.cefr_length_met === true ? 'Length target marked as met'
+    : 'Short practice text — not a full-length CEFR reading';
+  const meta=el('p',count+' French words · '+lengthNote);
   meta.className='hz-reading-meta';
   panel.append(kicker,title,instructions,french,actions,status,translation,reflection,meta);
   target.append(panel);
