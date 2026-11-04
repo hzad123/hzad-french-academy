@@ -8,7 +8,7 @@ export function makeLearningStore(client,level='A0'){
    const {data,error}=await client.rpc('academy_list_units',{p_level:level});
    if(error)throw error;
    return (data||[]).map(row=>({id:row.id,title:row.title,minutes:row.minutes,
-     sections:row.content?.sections||[],vocabulary:row.content?.vocabulary||[],
+     sections:row.content?.sections||[],reading:row.content?.reading||null,vocabulary:row.content?.vocabulary||[],
      listeningChecks:row.content?.listening_checks||[],practiceTasks:row.content?.practice_tasks||[],
      assessmentDomains:row.content?.assessment_domains||[],
      quiz:(row.quiz||[]).map(({id,type,prompt,options})=>({id,type,prompt,options}))}));
