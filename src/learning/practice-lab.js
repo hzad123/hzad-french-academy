@@ -59,12 +59,12 @@ export function renderPracticeLab(target,unit){
  };
  for(let index=0;index<tasks.length;index++){
    const task=tasks[index],card=el('article');card.className='hz-practice-task';
-   const tag=el('span',(task.mode==='speaking'?'SPEAKING':'WRITING')+' · '+String(index+1).padStart(2,'0'));
+   const tag=el('span',(task.mode==='speaking'?'SPEAKING':task.mode==='mediation'?'MEDIATION':'WRITING')+' · '+String(index+1).padStart(2,'0'));
    tag.className='hz-practice-kind';
    const heading=el('h5',task.title),instructions=el('p',task.instructions);
    instructions.className='hz-practice-instructions';
    card.append(tag,heading,instructions);
-   if(task.mode==='writing'){
+   if(task.mode==='writing'||task.mode==='mediation'){
      const area=el('textarea');area.rows=4;
      area.placeholder='Write your own French response here. Use imaginary details.';
      area.setAttribute('aria-label','Your French response for '+task.title);
