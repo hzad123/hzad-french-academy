@@ -25,6 +25,7 @@ test('A0 through C2 use the same protected course viewer and data transport',asy
  assert.match(cards,/Available now/);
  assert.doesNotMatch(cards,/Early-access drafts/);
  assert.match(ui,/level!=='A0'/);
- assert.match(ui,/unreviewed study drafts/);
+ assert.match(ui,/AVAILABLE NOW/);
+ assert.doesNotMatch(ui,/unreviewed study drafts|EARLY ACCESS/);
  assert.match(ui,/not certified CEFR proficiency/);
 });
