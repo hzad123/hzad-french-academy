@@ -1,10 +1,11 @@
 import {requireSession} from '../auth/session.js';
 // Database transport consumes the cached session, not a fresh Auth request.
-export function makeLearningStore(client){
+export function makeLearningStore(client,level='A0'){
+ if(!['A0','A1','A2','B1','B2','C1','C2'].includes(level))throw Error('Unknown French level');
  return {
   async listUnits(){
    await requireSession(client);
-   const {data,error}=await client.rpc('academy_list_units',{p_level:'A0'});
+   const {data,error}=await client.rpc('academy_list_units',{p_level:level});
    if(error)throw error;
    return (data||[]).map(row=>({id:row.id,title:row.title,minutes:row.minutes,
      sections:row.content?.sections||[],vocabulary:row.content?.vocabulary||[],
