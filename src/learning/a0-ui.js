@@ -33,7 +33,9 @@ export function renderA0Layout(host,state,onSelect){
  const upcoming=()=>state.units.find(u=>!state.progress[u.id]?.completed)||state.units.at(-1);
  const header=el('header');header.className='hz-a0-course-head';
  const headerCopy=el('div');headerCopy.className='hz-a0-heading-copy';
- headerCopy.append(el('p','FRENCH ACADEMY  /  COURSE A0'),el('h2','Absolute Beginner'));
+ const level=state.level||'A0';
+ const levels={A0:'Absolute Beginner',A1:'Beginner',A2:'Elementary',B1:'Intermediate',B2:'Upper Intermediate',C1:'Advanced',C2:'Mastery'};
+ headerCopy.append(el('p','FRENCH ACADEMY  /  COURSE '+level),el('h2',levels[level]||level));
  headerCopy.firstElementChild.className='hz-a0-eyebrow';
  const subtitle=el('p','Learn step by step with French audio, examples and instant-feedback practice.');
  subtitle.className='hz-a0-course-subtitle';headerCopy.append(subtitle);
@@ -57,7 +59,7 @@ export function renderA0Layout(host,state,onSelect){
  });
  toggle.setAttribute('aria-controls','hz-a0-lesson-nav');
  const list=el('nav');list.id='hz-a0-lesson-nav';list.className='hz-a0-lesson-nav';
- list.setAttribute('aria-label','A0 course lessons');
+ list.setAttribute('aria-label',level+' course lessons');
  list.addEventListener('scroll',()=>{state.navScroll=list.scrollTop;},{passive:true});
  const navButtons=[];
  for(let i=0;i<state.units.length;i++){
@@ -77,7 +79,7 @@ export function renderA0Layout(host,state,onSelect){
    navButtons.push({unit,button:b,indicator});
  }
  sideHead.append(sideHeading,toggle);sidebar.append(sideHead,list);
- const main=el('article');main.className='hz-a0-main';main.setAttribute('aria-label','Selected A0 lesson');
+ const main=el('article');main.className='hz-a0-main';main.setAttribute('aria-label','Selected '+level+' lesson');
  layout.append(sidebar,main);
  host.replaceChildren(header,progress,quick,layout);
  function syncSidebar(){
