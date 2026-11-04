@@ -4,28 +4,41 @@ import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
 import {mountSecureA0} from './secure-a0.js';
 
 // One shared, access-controlled lesson workspace for A0 through C2.
-// It reuses the successful A0 authentication and quiz flow.
+// Level cards are direct navigation controls; no single level receives
+// privileged or unrestricted access.
 const LEVELS=new Set(['A0','A1','A2','B1','B2','C1','C2']);
 export function wireA0(root,client){
- const button=root.querySelector('#hz-open-a0'),area=root.querySelector('#hz-a0-learning');
+ const area=root.querySelector('#hz-a0-learning');
  const courses=root.querySelector('#hz-courses');
- if(!button||!area)return;
- let open=false,generation=0,stopCooldown=null,activeLevel=null;
- const focus=value=>courses?.classList.toggle('hz-hidden',value);
+ const chooser=root.querySelector('#hz-course-chooser');
+ const controls=root.querySelector('#hz-level-controls');
+ const back=root.querySelector('#hz-back-to-levels');
+ const currentLevel=root.querySelector('#hz-current-level');
+ if(!area||!courses||!chooser||!controls||!back)return;
+ let open=false,loading=false,generation=0,stopCooldown=null,activeLevel=null;
+ const setLoading=value=>{
+   loading=value;
+   courses.querySelectorAll('[data-course-level]').forEach(button=>{button.disabled=value});
+ };
+ const focus=value=>{
+   chooser.classList.toggle('hz-hidden',value);
+   controls.classList.toggle('hz-hidden',!value);
+ };
  const reset=()=>{
    generation++;open=false;stopCooldown?.();stopCooldown=null;activeLevel=null;
+   setLoading(false);
    focus(false);
+   if(currentLevel)currentLevel.textContent='';
    area.dataset.mountToken='';area.classList.add('hz-hidden');area.replaceChildren();
-   button.disabled=false;button.textContent='Start A0 lessons';
  };
  const requestLogin=()=>{reset();root.dispatchEvent(new CustomEvent('hzad-auth-required',{bubbles:true}))};
  area.addEventListener('hzad-session-expired',requestLogin);
  async function openLevel(level){
-   if(!LEVELS.has(level)||button.disabled)return;
+   if(!LEVELS.has(level)||loading)return;
    if(open&&activeLevel===level){reset();return}
    if(open)reset();
    const ticket=++generation;let cooling=false;
-   button.disabled=true;area.classList.remove('hz-hidden');area.textContent='Opening '+level+' lessons...';
+   setLoading(true);area.classList.remove('hz-hidden');area.textContent='Opening '+level+' lessons...';
    try{
      const access=await checkAcademyAccess(client);
      if(ticket!==generation)return;
@@ -34,21 +47,26 @@ export function wireA0(root,client){
      if(access.kind!=='active')throw Error(access.kind==='unverified'?'Please verify your email.':'No active academy access is assigned to this account.');
      await mountSecureA0(area,client,level);
      if(ticket!==generation)return;
-     open=true;activeLevel=level;button.textContent='Close '+level+' lessons';focus(true);
-     area.scrollIntoView?.({behavior:'smooth',block:'start'});
+     open=true;activeLevel=level;
+     if(currentLevel)currentLevel.textContent=level+' lessons';
+     focus(true);
+     controls.scrollIntoView?.({behavior:'smooth',block:'start'});
    }catch(error){
      if(ticket!==generation)return;
      if(isRateLimited(error)){
        cooling=true;
-       stopCooldown=showCooldown(area,client,error,()=>{if(ticket===generation)button.disabled=false});
+       stopCooldown=showCooldown(area,client,error,()=>{if(ticket===generation)setLoading(false)});
        return;
      }
      if(isSessionRequired(error)){requestLogin();return}
      area.textContent='Unable to open '+level+' lessons: '+error.message;
-   }finally{if(ticket===generation&&!cooling)button.disabled=false}
+   }finally{if(ticket===generation&&!cooling)setLoading(false)}
  }
- button.addEventListener('click',()=>{if(open)reset();else void openLevel('A0')});
- courses?.addEventListener('click',event=>{
+ back.addEventListener('click',()=>{
+   reset();
+   chooser.scrollIntoView?.({behavior:'smooth',block:'start'});
+ });
+ courses.addEventListener('click',event=>{
    const target=event.target?.closest?.('[data-course-level]');
    if(!target||!courses.contains(target))return;
    void openLevel(target.dataset.courseLevel);

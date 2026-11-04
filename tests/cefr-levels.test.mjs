@@ -22,7 +22,8 @@ test('A0 through C2 use the same protected course viewer and data transport',asy
  assert.match(dashboard,/mountSecureA0\(area,client,level\)/);
  assert.match(dashboard,/data-course-level/);
  assert.match(cards,/A1:49,A2:54,B1:69,B2:69,C1:61,C2:60/);
- assert.match(cards,/Early-access drafts/);
+ assert.match(cards,/Available now/);
+ assert.doesNotMatch(cards,/Early-access drafts/);
  assert.match(ui,/level!=='A0'/);
  assert.match(ui,/unreviewed study drafts/);
  assert.match(ui,/not certified CEFR proficiency/);
