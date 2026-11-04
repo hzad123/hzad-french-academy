@@ -1,6 +1,7 @@
 import {makeTrackerStore} from './store.js';
 import {LEVELS,SKILLS,learningLevel,skillEvidence,dueMistakes,makeDailyPlan} from './plan.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
+const revisionSummary=entry=>`${entry.skill} · missed ${entry.wrongCount} time(s) · ${entry.lastCorrect?'reviewed; scheduled '+new Date(entry.dueAt).toLocaleDateString():'needs revision'}`;
 export function wireTracker(root,client){
  const area=root.querySelector('#hz-progress-tracker'),launch=root.querySelector('#hz-tracker-launch');
  const chooser=root.querySelector('#hz-course-chooser'),store=makeTrackerStore(client);
@@ -35,6 +36,41 @@ export function wireTracker(root,client){
    if(ticket!==epoch)return;
    const msg=el('p',error.message||'Your progress could not load. Please retry.');msg.setAttribute('role','alert');area.append(msg);
   }finally{if(ticket===epoch){busy=false;area.querySelectorAll('button,input,select').forEach(n=>{n.disabled=false})}}
+ }
+ async function reviseInline(entry,choice,card,fieldset,feedback,retry,continueButton){
+  if(busy)return;
+  busy=true;const ticket=epoch;let correct=false;
+  area.querySelectorAll('button,input,select').forEach(n=>{n.disabled=true});
+  feedback.className='hz-revision-feedback';feedback.textContent='Checking your answer…';feedback.setAttribute('role','status');
+  retry.hidden=true;continueButton.hidden=true;
+  try{
+   const result=await store.revise(entry.unitId,entry.questionId,choice);
+   if(ticket!==epoch)return;
+   if(typeof result?.feedback?.correct!=='boolean'||!Array.isArray(result.snapshot?.notebook))throw Error('Your answer could not be confirmed. Please retry.');
+   snapshot=result.snapshot;correct=result.feedback.correct;
+   const saved=snapshot.notebook.find(n=>n.unitId===entry.unitId&&n.questionId===entry.questionId);
+   card.querySelector('.hz-revision-meta').textContent=saved?revisionSummary(saved):(correct?'Reviewed — next revision scheduled.':'Needs revision.');
+   fieldset.dataset.revisionCorrect=String(correct);
+   const labels=fieldset.querySelectorAll('label');
+   labels.forEach((label,i)=>{
+    label.classList.toggle('hz-revision-correct',i===choice&&correct);
+    label.classList.toggle('hz-revision-incorrect',i===choice&&!correct);
+   });
+   card.classList.toggle('hz-revision-card-correct',correct);
+   feedback.className='hz-revision-feedback '+(correct?'hz-revision-correct':'hz-revision-incorrect');
+   feedback.replaceChildren(el('strong',correct?'✓ Correct!':'✕ Incorrect — try again'),el('p',result.feedback.explanation||'Review the lesson explanation.'));
+   if(!correct)feedback.append(el('p','Correct answer: '+result.feedback.answer));
+   else feedback.append(el('p','Your correction is saved. Your next revision has been scheduled.'));
+   continueButton.hidden=!correct;
+  }catch(error){
+   if(ticket!==epoch)return;
+   feedback.className='hz-revision-feedback';feedback.textContent=error.message||'Could not check your answer. Please retry.';feedback.setAttribute('role','alert');retry.hidden=false;
+  }finally{
+   if(ticket===epoch){
+    busy=false;area.querySelectorAll('button,input,select').forEach(n=>{n.disabled=false});
+    area.querySelectorAll('fieldset[data-revision-correct="true"] input').forEach(n=>{n.disabled=true});
+   }
+  }
  }
  function focusHeading(){const h=area.querySelector('h3');h?.focus()}
  function render(){
@@ -127,17 +163,22 @@ export function wireTracker(root,client){
   if(!items.length)area.append(el('p',filter==='due'?'No mistakes are due in this view. Continue your daily plan or check your reviewed items.':'No items in this view yet. Incorrect practice answers will appear here automatically.'));
   for(const entry of items.slice(page*20,page*20+20)){
    const card=el('article',undefined,'hz-tracker-card');
-   card.append(el('h5',`${entry.level} · ${entry.title}`),el('p',`${entry.skill} · missed ${entry.wrongCount} time(s) · ${entry.lastCorrect?'reviewed; scheduled '+new Date(entry.dueAt).toLocaleDateString():'needs revision'}`),el('p',entry.prompt));
+   card.append(el('h5',`${entry.level} · ${entry.title}`),el('p',revisionSummary(entry),'hz-revision-meta'),el('p',entry.prompt));
    const details=el('details');details.append(el('summary','Review saved answer and explanation'),el('p','Your last incorrect answer: '+entry.chosenAnswer),el('p','Correct answer at review: '+entry.correctAnswer),el('p',entry.explanation||'Revisit the lesson explanation.'));card.append(details);
    const form=el('form'),fieldset=el('fieldset');fieldset.append(el('legend','Try this question again'));
+   const feedback=el('div',undefined,'hz-revision-feedback');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+   const retry=button('Retry answer',()=>{
+    const chosen=form.querySelector('input:checked');if(chosen)void reviseInline(entry,Number(chosen.value),card,fieldset,feedback,retry,continueButton);
+   },true);retry.hidden=true;
+   const continueButton=button('Continue revision',()=>{notice='';render();focusHeading()});continueButton.hidden=true;
    (entry.options||[]).forEach((option,i)=>{
     const label=el('label',undefined,'hz-tracker-option'),radio=el('input');radio.type='radio';radio.name='revision';radio.value=String(i);radio.required=true;
+    radio.addEventListener('change',()=>{void reviseInline(entry,i,card,fieldset,feedback,retry,continueButton)});
     label.append(radio,el('span',option));fieldset.append(label);
    });
-   const submit=el('button','Check revision','hz-btn');submit.type='submit';form.append(fieldset,submit);
+   form.append(fieldset,feedback,retry,continueButton,el('p','Choose an answer to check it immediately.','hz-small'));
    form.addEventListener('submit',event=>{
-    event.preventDefault();const chosen=form.querySelector('input:checked');if(!chosen)return;
-    void run(()=>store.revise(entry.unitId,entry.questionId,Number(chosen.value)));
+    event.preventDefault();
    });card.append(form,button('Revisit lesson',()=>openLesson({id:entry.unitId,level:entry.level}),true));area.append(card);
   }
   if(page>0)area.append(button('Previous page',()=>{page--;render();focusHeading()},true));
