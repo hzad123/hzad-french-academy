@@ -43,6 +43,10 @@ export function renderA0Layout(host,state,onSelect){
  const count=el('strong');count.className='hz-a0-count';
  const summary=el('span','lessons completed');status.append(count,summary);
  header.append(headerCopy,status);
+ if(level!=='A0'){
+   const note=el('p','EARLY ACCESS · This level contains unreviewed study drafts, short starter readings and synthesized pronunciation practice. Quizzes check recognition, not certified CEFR proficiency. Speaking and writing require independent feedback.');
+   note.className='hz-cefr-beta-note';note.setAttribute('role','note');headerCopy.append(note);
+ }
  const progress=el('div');progress.className='hz-a0-progress-track';
  progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','A0 course completion');
  progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(state.units.length));
