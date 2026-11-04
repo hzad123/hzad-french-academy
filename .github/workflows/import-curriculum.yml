@@ -1,0 +1,38 @@
+name: Import reviewed curriculum batch
+on:
+  workflow_dispatch:
+    inputs:
+      batch_file:
+        description: 'Committed JSON batch path (for example curriculum/a0-batch-01.json)'
+        required: true
+        default: 'curriculum/a0-batch-01.json'
+      confirm:
+        description: 'Type IMPORT to confirm unpublished lesson import'
+        required: true
+permissions:
+  contents: read
+jobs:
+  import:
+    if: ${{ github.event.inputs.confirm == 'IMPORT' }}
+    runs-on: ubuntu-latest
+    environment: curriculum-import
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate requested batch path
+        env:
+          BATCH: ${{ inputs.batch_file }}
+        run: |
+          case "$BATCH" in
+            curriculum/*.json) ;;
+            *) echo 'Batch must be a curriculum/*.json file'; exit 1 ;;
+          esac
+          test -f "$BATCH"
+      - name: Validate and import unpublished lessons
+        env:
+          BATCH: ${{ inputs.batch_file }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/deploy-curriculum.mjs "$BATCH"

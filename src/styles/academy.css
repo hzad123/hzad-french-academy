@@ -34,3 +34,238 @@
 #hzad-french-academy .hz-link{background:none;border:0;color:var(--blue);text-decoration:underline;padding:0;font-weight:700}
 #hzad-french-academy .hz-foot{text-align:center;color:var(--muted);font-size:12px;margin:20px 0}
 @media(max-width:600px){#hzad-french-academy .hz-head{padding:20px}#hzad-french-academy .hz-panel{margin-top:14px}#hzad-french-academy .hz-btn{width:100%}}
+
+#hzad-french-academy #hz-a0-learning{margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:18px;background:#f7faff}
+#hzad-french-academy #hz-a0-learning nav{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 24px}
+#hzad-french-academy #hz-a0-learning nav .hz-btn{margin:0;background:#fff;color:var(--blue);border:1px solid #b8cbea;text-align:left}
+#hzad-french-academy #hz-a0-learning h3{font-size:23px;color:var(--navy);margin:24px 0 12px}
+#hzad-french-academy #hz-a0-learning h4{font-size:17px;color:var(--navy);margin:20px 0 8px}
+#hzad-french-academy #hz-a0-learning fieldset{border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;background:white}
+#hzad-french-academy #hz-a0-learning legend{font-weight:750;padding:0 8px}
+#hzad-french-academy #hz-a0-learning fieldset label{display:flex;align-items:center;gap:9px;padding:8px;margin:3px 0;font-weight:500}
+#hzad-french-academy #hz-a0-learning input[type=radio]{width:auto;accent-color:var(--blue)}
+#hzad-french-academy #hz-a0-learning>button{margin:5px 8px 5px 0}
+#hzad-french-academy #hz-a0-learning p{white-space:pre-line}
+
+/* Shared quiz feedback states for all secure academy quizzes. */
+#hzad-french-academy .hz-quiz-question{transition:border-color .2s,background-color .2s}
+#hzad-french-academy .hz-quiz-question.hz-quiz-correct{border:2px solid #239a59;background:#f2fff7}
+#hzad-french-academy .hz-quiz-question.hz-quiz-wrong{border:2px solid #dc4545;background:#fff7f7}
+#hzad-french-academy .hz-quiz-option{border:1px solid transparent;border-radius:10px;transition:background-color .2s,border-color .2s}
+#hzad-french-academy .hz-quiz-option.hz-answer-correct{background:#dcfce7;border-color:#239a59;color:#12613b;font-weight:700}
+#hzad-french-academy .hz-quiz-option.hz-answer-wrong{background:#fee2e2;border-color:#dc4545;color:#9f2020;font-weight:700}
+#hzad-french-academy .hz-answer-icon{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;margin-left:auto;border-radius:50%;background:#239a59;color:white;font-weight:900;flex-shrink:0}
+#hzad-french-academy .hz-answer-wrong .hz-answer-icon{background:#dc4545}
+#hzad-french-academy .hz-quiz-feedback{padding:14px 16px;margin-top:12px;border-radius:12px;animation:hz-feedback-reveal .24s ease-out}
+#hzad-french-academy .hz-quiz-feedback-good{background:#dcfce7;color:#12613b}
+#hzad-french-academy .hz-quiz-feedback-bad{background:#fee2e2;color:#8e2222}
+#hzad-french-academy .hz-quiz-feedback p{margin:8px 0 0;line-height:1.55}
+#hzad-french-academy .hz-quiz-score{font-size:19px;font-weight:800;margin:20px 0}
+@keyframes hz-feedback-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-quiz-feedback{animation:none}}
+
+/* Specificity override: A0 fieldset rules otherwise mask result backgrounds. */
+#hzad-french-academy #hz-a0-learning fieldset.hz-quiz-correct{border:2px solid #239a59;background:#f2fff7}
+#hzad-french-academy #hz-a0-learning fieldset.hz-quiz-wrong{border:2px solid #dc4545;background:#fff7f7}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback{display:block!important;visibility:visible!important;opacity:1!important;position:static!important;max-height:none!important;overflow:visible!important;margin-top:14px;padding:16px;border-radius:12px}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback-good{background:#dcfce7;color:#12613b;border-left:4px solid #239a59}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-feedback-bad{background:#fee2e2;color:#8e2222;border-left:4px solid #dc4545}
+#hzad-french-academy #hz-a0-learning fieldset .hz-quiz-explanation{display:block;margin:8px 0 0;line-height:1.55;font-weight:500}
+
+/* Reusable lesson teaching blocks: expression cards and bilingual dialogues. */
+#hzad-french-academy #hz-a0-learning .hz-lesson-section{margin:20px 0 26px}
+#hzad-french-academy #hz-a0-learning .hz-expression-list{list-style:none;padding:0;margin:12px 0;display:grid;gap:10px}
+#hzad-french-academy #hz-a0-learning .hz-expression-item{position:relative;padding:14px 16px 14px 28px;background:#eef5ff;border-left:4px solid #3176d3;border-radius:11px;line-height:1.5}
+#hzad-french-academy #hz-a0-learning .hz-expression-item:nth-child(even){background:#f0faf4;border-left-color:#2b9b66}
+#hzad-french-academy #hz-a0-learning .hz-expression-item:before{content:"•";position:absolute;left:12px;color:#3176d3;font-size:20px}
+#hzad-french-academy #hz-a0-learning .hz-expression-french{color:#153e83;font-size:17px}
+#hzad-french-academy #hz-a0-learning .hz-expression-english{display:inline-block;margin-left:10px;color:#17634a;font-weight:700}
+#hzad-french-academy #hz-a0-learning .hz-expression-usage{margin:4px 0 0;color:#465773;font-size:14px}
+#hzad-french-academy #hz-a0-learning .hz-dialogue{display:grid;gap:10px;margin:12px 0}
+#hzad-french-academy #hz-a0-learning .hz-dialogue-turn{padding:14px 16px;border-radius:12px;background:#f0f5ff;border-left:4px solid #3979d5}
+#hzad-french-academy #hz-a0-learning .hz-dialogue-turn:nth-child(even){background:#f0faf4;border-left-color:#279866}
+#hzad-french-academy #hz-a0-learning .hz-dialogue-french{margin:0 0 5px;font-weight:750;color:#193b70}
+#hzad-french-academy #hz-a0-learning .hz-dialogue-english{margin:0;color:#3c6371;font-size:14px;font-style:italic}
+
+
+/* A0 learning workspace - restrained HZad blue, gold, and white. */
+#hzad-french-academy #hz-a0-learning{padding:clamp(16px,2.5vw,28px);background:#f8fbff}
+#hzad-french-academy #hz-a0-learning .hz-a0-course-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:4px 0 18px}
+#hzad-french-academy #hz-a0-learning .hz-a0-eyebrow{margin:0 0 8px;font-size:11px;font-weight:800;letter-spacing:.11em;color:#4771b3}
+#hzad-french-academy #hz-a0-learning .hz-a0-course-head h2{font-size:clamp(24px,3vw,32px);margin:0 0 7px;letter-spacing:-.03em}
+#hzad-french-academy #hz-a0-learning .hz-a0-course-subtitle{font-size:14px;color:#60748e;margin:0;max-width:500px}
+#hzad-french-academy #hz-a0-learning .hz-a0-progress-status{display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding:12px 18px;background:#eef4ff;border:1px solid #dae5f6;border-radius:14px}
+#hzad-french-academy #hz-a0-learning .hz-a0-count{font-size:21px;font-weight:850;line-height:1.15;color:#143e7c}
+#hzad-french-academy #hz-a0-learning .hz-a0-progress-status span{font-size:12px;color:#62738a}
+#hzad-french-academy #hz-a0-learning .hz-a0-progress-track{height:8px;background:#e4ebf5;border-radius:999px;overflow:hidden}
+#hzad-french-academy #hz-a0-learning .hz-a0-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#2c68bf,#20a76a);border-radius:inherit;transition:width .25s ease}
+#hzad-french-academy #hz-a0-learning .hz-a0-quick-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:14px 0 22px}
+#hzad-french-academy #hz-a0-learning .hz-a0-quick-row span{font-size:13px;color:#6a7a91}
+#hzad-french-academy #hz-a0-learning .hz-a0-continue{padding:10px 16px;border-radius:10px;border:0;background:#2157b5;color:#fff;font-weight:750;box-shadow:0 3px 10px #15418b20}
+#hzad-french-academy #hz-a0-learning .hz-a0-continue:hover{background:#173f88}
+#hzad-french-academy #hz-a0-learning .hz-a0-layout{display:grid;grid-template-columns:minmax(240px,275px) minmax(0,1fr);gap:18px;align-items:start}
+#hzad-french-academy #hz-a0-learning .hz-a0-layout.is-sidebar-collapsed{grid-template-columns:64px minmax(0,1fr)}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar{border:1px solid #d9e4f2;border-radius:16px;background:#fff;position:sticky;top:16px;overflow:hidden;box-shadow:0 4px 20px #173b6b08}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar-head{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:14px 13px;border-bottom:1px solid #e8eef7}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar-head strong{color:#1e3b6d;font-size:14px;font-weight:800}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar-toggle{border:1px solid #dce6f5;background:#f5f8fc;border-radius:9px;color:#2456a2;min-width:32px;min-height:32px;font-size:18px;font-weight:700;line-height:1}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar.is-collapsed .hz-a0-sidebar-head{border-bottom:0;padding:14px;justify-content:center}
+#hzad-french-academy #hz-a0-learning .hz-a0-sidebar.is-collapsed .hz-a0-sidebar-head strong{display:none}
+#hzad-french-academy #hz-a0-learning nav.hz-a0-lesson-nav{display:block;max-height:min(69vh,690px);overflow-y:auto;overscroll-behavior:contain;margin:0;padding:8px 9px 14px;scrollbar-width:thin}
+#hzad-french-academy #hz-a0-learning nav.hz-a0-lesson-nav[hidden]{display:none}
+#hzad-french-academy #hz-a0-learning .hz-a0-nav-group{margin:14px 6px 7px;color:#8a99ac;font-weight:800;font-size:10px;letter-spacing:.10em}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link{width:100%;min-height:51px;display:flex;align-items:center;gap:9px;text-align:left;border:1px solid transparent;border-radius:10px;padding:9px 8px;background:transparent;color:#344b6a;margin:2px 0;transition:background .15s,border-color .15s}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link:hover{background:#f4f7fc}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link.is-current{background:#eaf2ff;border-color:#b8d0f5;color:#174eab}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-number{display:grid;place-items:center;background:#eef3fa;border-radius:8px;min-width:35px;height:34px;flex:0 0 35px;color:#41638f;font-weight:800;font-size:12px;font-variant-numeric:tabular-nums}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link.is-current .hz-a0-lesson-number{background:#245cb5;color:#fff}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link.is-complete .hz-a0-lesson-number{background:#e6f6ed;color:#218253}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-name{flex:1;min-width:0;font-size:12.5px;font-weight:650;line-height:1.45;overflow-wrap:anywhere}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-indicator{font-size:15px;font-weight:800;color:#299464;flex:0 0 12px;text-align:center}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-link.is-current .hz-a0-lesson-indicator{color:#245cb5}
+#hzad-french-academy #hz-a0-learning .hz-a0-main{min-width:0;border:1px solid #e0e9f4;background:#fff;border-radius:16px;padding:clamp(16px,2.5vw,28px);box-shadow:0 6px 22px #18315308}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-intro{padding-bottom:16px;border-bottom:1px solid #e8eef7;margin-bottom:16px}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-meta{display:flex;gap:8px;flex-wrap:wrap}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-meta span{padding:5px 9px;font-size:10px;font-weight:850;letter-spacing:.07em;border-radius:6px;background:#eff4fb;color:#3061a6}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-meta span:first-child{background:#fff5db;color:#9d6910}
+#hzad-french-academy #hz-a0-learning h3.hz-a0-lesson-title{font-size:clamp(20px,2.25vw,27px);line-height:1.3;letter-spacing:-.025em;margin:12px 0 0}
+#hzad-french-academy #hz-a0-learning .hz-a0-lesson-title:focus{outline:none}
+#hzad-french-academy #hz-a0-learning .hz-expression-tip{margin-top:10px}
+#hzad-french-academy #hz-a0-learning .hz-expression-tip summary,#hzad-french-academy #hz-a0-learning .hz-vocab-tip summary{cursor:pointer;font-size:13px;font-weight:750;color:#2e65b0;list-style-position:inside}
+#hzad-french-academy #hz-a0-learning .hz-expression-tip p{color:#4b607e;margin:8px 0 0;font-size:13px;line-height:1.55}
+#hzad-french-academy #hz-a0-learning .hz-vocab-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin:32px 0 15px;padding-top:20px;border-top:1px solid #e7edf6}
+#hzad-french-academy #hz-a0-learning .hz-vocab-heading h4{font-size:21px;margin:0 0 5px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-help{margin:0;font-size:13px;color:#73839a}
+#hzad-french-academy #hz-a0-learning .hz-vocab-controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-count{font-size:12px;background:#eaf2ff;color:#2255a1;padding:6px 9px;border-radius:8px;font-weight:750}
+#hzad-french-academy #hz-a0-learning .hz-vocab-translation-toggle{border:1px solid #bdd2ef;color:#1d53a5;background:#f8fbff;border-radius:8px;padding:8px 11px;font-size:12px;font-weight:800}
+#hzad-french-academy #hz-a0-learning .hz-vocab-translation-toggle:hover{background:#eaf2ff}
+#hzad-french-academy #hz-a0-learning .hz-vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-card,#hzad-french-academy #hz-a0-learning .hz-vocab-passage{padding:17px;border:1px solid #dce7f4;border-radius:13px;background:linear-gradient(125deg,#fff,#f9fbff);box-shadow:0 3px 12px #214f9906;min-width:0}
+#hzad-french-academy #hz-a0-learning .hz-vocab-card-top{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+#hzad-french-academy #hz-a0-learning .hz-vocab-card-body{flex:1;min-width:0}
+#hzad-french-academy #hz-a0-learning .hz-vocab-index{display:block;color:#94a8bf;font-size:10px;font-weight:850;letter-spacing:.08em;margin:0 0 10px;font-variant-numeric:tabular-nums}
+#hzad-french-academy #hz-a0-learning .hz-vocab-french{font-size:15px;line-height:1.5;font-weight:770;color:#173b76;margin:0 0 8px;overflow-wrap:anywhere}
+#hzad-french-academy #hz-a0-learning .hz-vocab-english{font-size:13px;line-height:1.5;color:#667a94;margin:0;overflow-wrap:anywhere}
+#hzad-french-academy #hz-a0-learning .hz-vocab-english[hidden]{display:none!important}
+#hzad-french-academy #hz-a0-learning .hz-vocab-audio{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex:0 0 42px;border:1px solid #cadef8;background:#edf5ff;color:#1955ae;font-size:20px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-audio:hover,#hzad-french-academy #hz-a0-learning .hz-vocab-audio.is-playing{background:#225bb0;color:#fff;border-color:#225bb0}
+#hzad-french-academy #hz-a0-learning .hz-vocab-audio-status:not(:empty){display:block;color:#a33d30;font-size:12px;margin-top:8px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-tip{border-top:1px solid #ebf0f7;padding-top:10px;margin-top:12px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-tip p{font-size:13px;margin:7px 0 0;color:#506986}
+#hzad-french-academy #hz-a0-learning .hz-vocab-listening-section{margin-top:22px;padding-top:8px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-listening-section h4{font-size:18px;margin:0 0 5px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-passages{display:grid;gap:12px;margin-top:12px}
+#hzad-french-academy #hz-a0-learning .hz-vocab-passage{background:#f0f6ff;border-color:#bed5f6;border-left:4px solid #dba332}
+#hzad-french-academy #hz-a0-learning .hz-vocab-passage .hz-vocab-french{font-size:16px;line-height:1.65}
+#hzad-french-academy #hz-a0-learning .hz-vocab-label{color:#9b7023;font-size:10px;letter-spacing:.11em;font-weight:850;margin:0 0 10px}
+#hzad-french-academy #hz-a0-learning h4.hz-a0-quiz-title{font-size:21px;margin:35px 0 18px;padding-top:20px;border-top:1px solid #e8eef7}
+#hzad-french-academy #hz-a0-learning .hz-a0-next-prev{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:18px;margin-top:22px;border-top:1px solid #ebf0f7}
+#hzad-french-academy #hz-a0-learning .hz-a0-next-prev .hz-btn{margin:0;font-size:13px;padding:11px 15px}
+#hzad-french-academy #hz-a0-learning .hz-a0-next-prev .hz-btn:first-child{background:#eef4fd;color:#2155a6;border:1px solid #d6e3f7}
+#hzad-french-academy #hz-a0-learning button:focus-visible,#hzad-french-academy #hz-a0-learning summary:focus-visible{outline:3px solid #edb54a;outline-offset:2px}
+@media(max-width:950px){
+ #hzad-french-academy #hz-a0-learning .hz-a0-layout{grid-template-columns:minmax(215px,245px) minmax(0,1fr);gap:12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-layout.is-sidebar-collapsed{grid-template-columns:60px minmax(0,1fr)}
+}
+@media(max-width:800px){
+ #hzad-french-academy #hz-a0-learning{padding:14px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-layout,#hzad-french-academy #hz-a0-learning .hz-a0-layout.is-sidebar-collapsed{grid-template-columns:minmax(0,1fr);gap:12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-sidebar{position:static}
+ #hzad-french-academy #hz-a0-learning .hz-a0-sidebar.is-collapsed .hz-a0-sidebar-head{justify-content:space-between;border-bottom:0}
+ #hzad-french-academy #hz-a0-learning .hz-a0-sidebar.is-collapsed .hz-a0-sidebar-head strong{display:block}
+ #hzad-french-academy #hz-a0-learning nav.hz-a0-lesson-nav{max-height:280px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-progress-status{padding:9px 12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-quick-row{margin-bottom:14px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-main{padding:16px}
+}
+@media(max-width:560px){
+ #hzad-french-academy #hz-a0-learning .hz-a0-course-head{align-items:flex-start;gap:12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-progress-status{align-items:flex-start}
+ #hzad-french-academy #hz-a0-learning .hz-a0-quick-row span{display:none}
+ #hzad-french-academy #hz-a0-learning .hz-a0-continue{width:100%}
+ #hzad-french-academy #hz-a0-learning .hz-vocab-grid{grid-template-columns:1fr}
+ #hzad-french-academy #hz-a0-learning .hz-vocab-heading{align-items:flex-start}
+ #hzad-french-academy #hz-a0-learning .hz-a0-next-prev .hz-btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ #hzad-french-academy #hz-a0-learning .hz-a0-progress-fill{transition:none}
+}
+
+
+/* Give small screens useful reading width inside the dashboard's nested panels. */
+@media(max-width:560px){
+ #hzad-french-academy .hz-shell{padding-left:10px;padding-right:10px}
+ #hzad-french-academy #hz-dashboard.hz-panel.hz-wide{padding:12px}
+ #hzad-french-academy #hz-a0-learning{padding:10px;margin-top:12px}
+ #hzad-french-academy #hz-a0-learning .hz-a0-main{padding:12px}
+ #hzad-french-academy #hz-a0-learning .hz-vocab-card,
+ #hzad-french-academy #hz-a0-learning .hz-vocab-passage{padding:14px}
+}
+
+#hzad-french-academy .hz-course-ready{border-color:#b2cbee;background:linear-gradient(145deg,#ffffff,#ecf5ff)}
+#hzad-french-academy .hz-course-ready .hz-small{color:#247149;font-weight:750}
+
+/* Clearly confirm a saved lesson and accompany the top course progress bar. */
+#hzad-french-academy #hz-a0-learning .hz-a0-completion-notice{display:block;margin:20px 0 8px;padding:14px 16px;background:#eaf8ee;color:#19613e;border:1px solid #bde2cb;border-left:4px solid #269a62;border-radius:12px;font-size:14px;font-weight:700;line-height:1.55}
+
+
+/* Practice lab and audio-first quiz support. No per-student AI services. */
+#hzad-french-academy #hz-a0-learning .hz-practice-lab{margin:32px 0 22px;padding:23px;border:1px solid #d7e4f6;background:#f7faff;border-radius:17px}
+#hzad-french-academy #hz-a0-learning .hz-practice-lab>h4{margin:0 0 7px;color:#183b72;font-size:21px}
+#hzad-french-academy #hz-a0-learning .hz-practice-intro{font-size:13px;line-height:1.65;color:#607493;margin:0 0 18px}
+#hzad-french-academy #hz-a0-learning .hz-practice-task{padding:17px;margin:13px 0;background:#fff;border:1px solid #dbe6f5;border-radius:13px}
+#hzad-french-academy #hz-a0-learning .hz-practice-kind{font-size:10px;letter-spacing:.1em;color:#285eb3;font-weight:850}
+#hzad-french-academy #hz-a0-learning .hz-practice-task h5{font-size:17px;margin:7px 0 8px;color:#17376c}
+#hzad-french-academy #hz-a0-learning .hz-practice-instructions{font-size:14px;color:#475e7b;line-height:1.6;margin:0 0 14px}
+#hzad-french-academy #hz-a0-learning .hz-practice-textarea{display:block;width:100%;min-height:95px;box-sizing:border-box;border:1px solid #b9cfe9;border-radius:10px;padding:12px;font-size:14px;font-family:inherit;resize:vertical;background:#fff;color:#142d51}
+#hzad-french-academy #hz-a0-learning .hz-practice-count,#hzad-french-academy #hz-a0-learning .hz-practice-rec-status{font-size:12px;color:#69809c;margin:7px 0}
+#hzad-french-academy #hz-a0-learning .hz-practice-record-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+#hzad-french-academy #hz-a0-learning .hz-practice-record-controls audio{max-width:100%;width:265px}
+#hzad-french-academy #hz-a0-learning .hz-practice-record-controls audio[hidden]{display:none}
+#hzad-french-academy #hz-a0-learning .hz-practice-button{display:inline-flex;justify-content:center;align-items:center;gap:6px;border:1px solid #1d58b2;background:#235eb9;color:#fff;border-radius:10px;padding:10px 13px;font-size:13px;font-weight:750;cursor:pointer}
+#hzad-french-academy #hz-a0-learning .hz-practice-button.is-secondary{color:#2358ac;border-color:#b9d0ef;background:#f5f9ff}
+#hzad-french-academy #hz-a0-learning .hz-practice-button:hover{filter:brightness(.94)}
+#hzad-french-academy #hz-a0-learning .hz-practice-button:disabled{opacity:.6;cursor:wait}
+#hzad-french-academy #hz-a0-learning .hz-practice-check-label{font-size:12px;font-weight:800;margin:14px 0 4px;color:#294873}
+#hzad-french-academy #hz-a0-learning .hz-practice-checklist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+#hzad-french-academy #hz-a0-learning .hz-practice-checklist li{font-size:13px;color:#435d7d;display:flex;align-items:flex-start;gap:8px}
+#hzad-french-academy #hz-a0-learning .hz-practice-checklist input{width:16px;height:16px;flex:0 0 16px;accent-color:#245caa;cursor:pointer}
+#hzad-french-academy #hz-a0-learning .hz-practice-model{margin-top:14px;border-top:1px solid #e5ecf6;padding-top:12px}
+#hzad-french-academy #hz-a0-learning .hz-practice-model summary{font-size:13px;font-weight:800;color:#2058aa;cursor:pointer}
+#hzad-french-academy #hz-a0-learning .hz-practice-model p{font-size:14px;font-weight:650;color:#24466f;line-height:1.65}
+#hzad-french-academy #hz-a0-learning .hz-listening-quiz{background:#f1f7ff;border:1px solid #c4daf7;border-left:4px solid #d9a33f;border-radius:12px;padding:15px;margin:10px 0 16px}
+#hzad-french-academy #hz-a0-learning .hz-listening-label{font-size:11px;font-weight:850;letter-spacing:.08em;color:#966b20;margin:0 0 5px}
+#hzad-french-academy #hz-a0-learning .hz-listening-help{font-size:13px;color:#586f8f;line-height:1.55;margin:0 0 12px}
+#hzad-french-academy #hz-a0-learning .hz-listening-actions{display:flex;flex-wrap:wrap;gap:10px}
+#hzad-french-academy #hz-a0-learning .hz-listening-status:not(:empty){display:block;font-size:12px;color:#986425;margin-top:7px}
+#hzad-french-academy #hz-a0-learning .hz-listening-transcript{margin-top:14px;border-top:1px solid #d8e7f7;padding-top:11px}
+#hzad-french-academy #hz-a0-learning .hz-listening-transcript[hidden]{display:none!important}
+#hzad-french-academy #hz-a0-learning .hz-listening-transcript summary{font-size:13px;font-weight:750;color:#2458a5;cursor:pointer}
+#hzad-french-academy #hz-a0-learning .hz-listening-transcript-french{font-size:14px;color:#1a457e;line-height:1.65;margin:10px 0 5px;font-weight:650}
+#hzad-french-academy #hz-a0-learning .hz-listening-transcript-english{font-size:13px;color:#647b98;line-height:1.6;margin:0}
+@media(max-width:560px){
+ #hzad-french-academy #hz-a0-learning .hz-practice-lab{padding:13px}
+ #hzad-french-academy #hz-a0-learning .hz-practice-task{padding:12px}
+ #hzad-french-academy #hz-a0-learning .hz-practice-button{min-height:43px}
+}
+
+/* Final A0 assessment: separate factual quiz results from self-assessed skill work. */
+#hzad-french-academy #hz-a0-learning .hz-assessment-results{margin:18px 0 22px;padding:19px;background:#f3f8ff;border:1px solid #c8ddf7;border-radius:14px}
+#hzad-french-academy #hz-a0-learning .hz-assessment-results h4{font-size:19px;margin:0 0 9px;color:#194579}
+#hzad-french-academy #hz-a0-learning .hz-assessment-note{font-size:13px;color:#60758d;line-height:1.6;margin:0 0 18px}
+#hzad-french-academy #hz-a0-learning .hz-assessment-row{margin:13px 0}
+#hzad-french-academy #hz-a0-learning .hz-assessment-row-label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:#264977;margin-bottom:5px}
+#hzad-french-academy #hz-a0-learning .hz-assessment-row-label strong{color:#2155a0;white-space:nowrap}
+#hzad-french-academy #hz-a0-learning .hz-assessment-track{height:9px;background:#dae7f7;border-radius:99px;overflow:hidden}
+#hzad-french-academy #hz-a0-learning .hz-assessment-fill{height:100%;background:linear-gradient(90deg,#2d63bc,#268a9c);border-radius:99px}
+#hzad-french-academy #hz-a0-learning .hz-assessment-advice{font-size:13px;font-weight:700;line-height:1.55;color:#2b5b90;margin:17px 0 0}
+
+/* All CEFR levels share the same protected course panel. */
+#hzad-french-academy button.hz-course{font:inherit;color:inherit;text-align:left;cursor:pointer;display:block;width:100%;min-height:155px;transition:border-color .15s,box-shadow .15s}
+#hzad-french-academy button.hz-course:hover{border-color:#88afe1;box-shadow:0 7px 22px #214d8914}
+#hzad-french-academy button.hz-course:focus-visible{outline:3px solid #e6ad31;outline-offset:3px}
+
+/* A1-C2 are explicitly released as early-access study drafts, not certified courses. */
+#hzad-french-academy #hz-a0-learning .hz-cefr-beta-note{margin:14px 0 0;padding:13px 15px;border:1px solid #edcd83;border-left:4px solid #dda332;background:#fff8e6;color:#6c4b14;border-radius:10px;font-size:12.5px;line-height:1.6;font-weight:600;max-width:800px}
+#hzad-french-academy button.hz-course:not(.hz-course-ready) .hz-small{font-weight:650;color:#87621f}

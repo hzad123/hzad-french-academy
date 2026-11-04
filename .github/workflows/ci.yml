@@ -1,7 +1,7 @@
 name: Build and test
 on:
   push:
-    branches: [main, development]
+    branches: [main, development, "feature/**"]
   pull_request:
 jobs:
   build:
@@ -13,4 +13,12 @@ jobs:
           node-version: '22'
       - run: npm install
       - run: npm test
+      - run: node scripts/validate-curriculum.mjs curriculum/a0-batch-01.json
       - run: npm run build
+      - name: Upload isolated A0 test build
+        if: startsWith(github.ref, 'refs/heads/feature/')
+        uses: actions/upload-artifact@v4
+        with:
+          name: a0-student-preview
+          path: dist/
+          retention-days: 7

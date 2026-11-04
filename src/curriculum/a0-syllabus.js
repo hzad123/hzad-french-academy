@@ -1,0 +1,27 @@
+// Course outline only. Lessons are published securely in Supabase after editorial review.
+export const a0Syllabus=[
+['a0-01','Greetings and politeness'],
+['a0-02','Introducing yourself'],
+['a0-03','Numbers 0–20'],
+['a0-04','The French alphabet and spelling'],
+['a0-05','Numbers 21–100'],
+['a0-06','Countries, languages and nationalities'],
+['a0-07','Subject pronouns and être'],
+['a0-08','Avoir and saying your age'],
+['a0-09','Articles: un, une, le, la, les'],
+['a0-10','Gender and simple plural forms'],
+['a0-11','Family and relationships'],
+['a0-12','Colors and everyday objects'],
+['a0-13','Days, months and dates'],
+['a0-14','Time and daily schedules'],
+['a0-15','Common -er verbs in the present'],
+['a0-16','Negation: ne…pas'],
+['a0-17','Simple questions: est-ce que'],
+['a0-18','Food and ordering politely'],
+['a0-19','At home: rooms and furniture'],
+['a0-20','Places in town and directions'],
+['a0-21','Weather and seasons'],
+['a0-22','Clothing and shopping'],
+['a0-23','Short listening and reading practice'],
+['a0-24','A0 review and readiness assessment']
+];
