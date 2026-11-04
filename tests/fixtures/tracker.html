@@ -37,6 +37,7 @@ const client={auth:{onAuthStateChange:fn=>{f.authCallbacks.push(fn);queueMicrota
  async rpc(name,args){
   f.calls.push({name,args});await new Promise(r=>setTimeout(r,f.delay));
   if(f.deny)return {error:{message:'Verified email and active academy access required'}};
+  if(f.failNext&&name==='academy_tracker_revise'){f.failNext=false;return {error:{message:'Connection interrupted. Retry your answer.'}}}
   if(name==='academy_tracker_snapshot')return {data:snapshot()};
   if(name==='academy_tracker_preferences'){f.data.preferences={minutes:args.p_minutes,level:args.p_level};return {data:snapshot()}}
   if(name==='academy_tracker_revise')return {data:{feedback:record(args.p_unit_id,args.p_question_id,args.p_answer),snapshot:snapshot()}};

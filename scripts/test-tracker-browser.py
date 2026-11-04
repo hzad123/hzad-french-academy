@@ -24,7 +24,14 @@ try:
             page.route('**/*',lambda route:route.continue_() if route.request.url.startswith('http://127.0.0.1:') else route.abort())
             page.goto(f'http://127.0.0.1:{server.server_port}/tests/fixtures/tracker.html')
             page.wait_for_function('window.fixtureReady===true')
-            page.get_by_role('button',name='Open Progress Tracker').click()
+            assert page.locator('.hz-dashboard-actions #hz-tracker-launch').count()==1
+            assert page.locator('#hz-course-chooser #hz-tracker-launch').count()==0
+            assert page.locator('.hz-tracker-entry').count()==0
+            box=page.locator('#hz-tracker-launch').bounding_box()
+            top=page.locator('#hz-dashboard .hz-topline').bounding_box()
+            assert box['x']+box['width']>top['x']+top['width']*.9
+            page.screenshot(path=str(artifacts/f'homepage-{width}.png'),full_page=True)
+            page.get_by_role('button',name='Progress Tracker').click()
             area=page.locator('#hz-progress-tracker')
             area.get_by_role('button',name='Start today’s plan',exact=True).wait_for()
             assert page.locator('#hz-course-chooser').is_hidden()
@@ -34,12 +41,24 @@ try:
             page.screenshot(path=str(artifacts/f'plan-{width}.png'),full_page=True)
             area.get_by_role('button',name='Start today’s plan',exact=True).click()
             area.get_by_role('heading',name='Personal mistake notebook').wait_for()
-            radio=area.get_by_role('radio').first;radio.focus();page.keyboard.press('Space');page.keyboard.press('ArrowDown')
+            radio=area.get_by_role('radio').first;radio.focus();page.keyboard.press('Space')
+            area.get_by_text('✕ Incorrect — try again',exact=True).wait_for()
+            assert area.locator('.hz-revision-incorrect input:checked').count()==1
+            assert area.get_by_text('Correct answer: suis',exact=True).is_visible()
+            page.screenshot(path=str(artifacts/f'notebook-wrong-{width}.png'),full_page=True)
+            page.evaluate('fixture.failNext=true')
+            area.get_by_role('radio').nth(1).check()
+            area.get_by_role('alert').wait_for()
             assert area.get_by_role('radio').nth(1).is_checked()
-            area.get_by_role('button',name='Check revision').click()
-            area.get_by_text('✓ Correct. Your review is saved and the next revision is scheduled.',exact=True).wait_for()
+            area.get_by_role('button',name='Retry answer',exact=True).click()
+            area.get_by_text('✓ Correct!',exact=True).wait_for()
+            assert area.locator('.hz-revision-correct input:checked').count()==1
+            assert area.get_by_role('radio').nth(1).is_disabled()
+            assert area.get_by_label('Notebook filter').input_value()=='due'
+            page.screenshot(path=str(artifacts/f'notebook-correct-{width}.png'),full_page=True)
+            area.get_by_role('button',name='Continue revision',exact=True).click()
             area.get_by_label('Notebook filter').select_option('reviewed')
-            assert area.get_by_role('button',name='Check revision').count()==1
+            assert area.get_by_role('radio').count()==2
             area.get_by_text('Review saved answer and explanation',exact=True).click()
             assert area.get_by_text('Your last incorrect answer: est',exact=True).is_visible()
             page.screenshot(path=str(artifacts/f'notebook-{width}.png'),full_page=True)
@@ -57,7 +76,7 @@ try:
             page.locator('#hz-a0-learning input[type=radio]').nth(1).check()
             page.get_by_text('✓ Lesson completed!',exact=False).wait_for()
             page.get_by_role('button',name='← All levels',exact=True).click()
-            page.get_by_role('button',name='Open Progress Tracker').click()
+            page.get_by_role('button',name='Progress Tracker').click()
             area.get_by_role('button',name='Start today’s plan',exact=True).wait_for()
             assert area.get_by_label('Daily study goal').input_value()=='10'
             area.get_by_role('button',name='French mastery',exact=True).click()
@@ -70,16 +89,16 @@ try:
             page.get_by_role('button',name='Close — return to courses').click()
             assert page.get_by_text('Available now',exact=True).count()==7
             page.evaluate('fixture.deny=true')
-            page.get_by_role('button',name='Open Progress Tracker').click()
+            page.get_by_role('button',name='Progress Tracker').click()
             area.get_by_role('alert').wait_for()
             area.get_by_role('button',name='← All levels',exact=True).click()
             page.evaluate('fixture.deny=false;fixture.delay=150')
-            page.get_by_role('button',name='Open Progress Tracker').click()
+            page.get_by_role('button',name='Progress Tracker').click()
             page.evaluate("document.querySelector('#hzad-french-academy').dispatchEvent(new CustomEvent('hzad-clear-lessons'))")
             page.wait_for_timeout(250)
             assert area.is_hidden() and area.inner_text()==''
             page.evaluate('fixture.delay=0')
-            page.get_by_role('button',name='Open Progress Tracker').click()
+            page.get_by_role('button',name='Progress Tracker').click()
             area.get_by_role('button',name='Start today’s plan',exact=True).wait_for()
             page.evaluate("fixture.authCallbacks.forEach(fn=>fn('SIGNED_IN',{user:{id:'different-fixture-user'}}))")
             assert area.is_hidden() and area.inner_text()==''
