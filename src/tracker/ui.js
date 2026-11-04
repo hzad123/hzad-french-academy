@@ -1,27 +1,29 @@
 import {makeTrackerStore} from './store.js';
 import {LEVELS,SKILLS,learningLevel,skillEvidence,dueMistakes,makeDailyPlan} from './plan.js';
 import {mountRewards,mountCertificates} from '../achievements/ui.js';
+import {recordView,recordHome} from '../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const revisionSummary=entry=>`${entry.skill} · missed ${entry.wrongCount} time(s) · ${entry.lastCorrect?'reviewed; scheduled '+new Date(entry.dueAt).toLocaleDateString():'needs revision'}`;
 export function wireTracker(root,client){
  const area=root.querySelector('#hz-progress-tracker'),launch=root.querySelector('#hz-tracker-launch');
  const chooser=root.querySelector('#hz-course-chooser'),store=makeTrackerStore(client);
- let snapshot=null,tab='plan',epoch=0,busy=false,filter='due',page=0,notice='',disposeExtra=null;
+ let snapshot=null,tab='plan',epoch=0,busy=false,filter='due',page=0,notice='',disposeExtra=null,examToRestore=null;
  const button=(title,fn,alt=false)=>{const n=el('button',title,'hz-btn'+(alt?' hz-btn-alt':''));n.type='button';n.addEventListener('click',fn);return n};
  const clear=()=>{epoch++;busy=false;snapshot=null;notice='';disposeExtra?.();disposeExtra=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')};
  let viewer=null;
  client.auth.onAuthStateChange?.((event,session)=>{
-  if(event==='SIGNED_OUT'){viewer=null;clear()}
+  if(event==='SIGNED_OUT'){viewer=null;clear();root.dispatchEvent(new CustomEvent('hzad-nav-reset'))}
   else if(session?.user?.id){
-   if(viewer&&viewer!==session.user.id)clear();
+   if(viewer&&viewer!==session.user.id){clear();root.dispatchEvent(new CustomEvent('hzad-nav-reset'))}
    viewer=session.user.id;
   }
  });
  root.addEventListener('hzad-clear-lessons',clear);
  root.addEventListener('hzad-close-tracker',clear);
- const close=()=>{clear();launch.focus()};
+ root.addEventListener('hzad-route-reset',clear);
+ const close=()=>{clear();recordHome(root);launch.focus()};
  const openLesson=(unit,skill)=>{
-  close();root.dispatchEvent(new CustomEvent('hzad-open-level',{detail:{level:unit.level,unitId:unit.id,skill}}));
+  clear();root.dispatchEvent(new CustomEvent('hzad-open-level',{detail:{level:unit.level,unitId:unit.id,skill}}));
  };
  async function run(fn){
   if(busy)return;busy=true;const ticket=epoch;
@@ -82,20 +84,22 @@ export function wireTracker(root,client){
   const tabs=el('nav');tabs.setAttribute('aria-label','Progress tracker views');
   for(const [key,label] of [['plan','Daily plan'],['mastery','French mastery'],['notebook','Mistake notebook'],['rewards','Achievements'],['certificates','Certificates']]){
    const b=button(label,()=>{
-    tab=key;page=0;notice='';
+    tab=key;page=0;notice='';examToRestore=null;
     if(key==='plan'&&snapshot?.notebookOffset){void run(()=>store.snapshot());return}
     render();focusHeading();
    },true);b.setAttribute('aria-current',tab===key?'page':'false');tabs.append(b);
   }
   area.append(tabs);
   if(notice){const msg=el('p',notice);msg.setAttribute('role','status');area.append(msg)}
+  const previous={filter,page,offset:snapshot?.notebookOffset||0},currentTab=tab;
+  recordView(root,'tracker:'+currentTab,()=>openTracker(currentTab,previous));
   if(!snapshot){area.append(el('p','Load your saved progress to build your study plan.'),button('Load progress',()=>run(()=>store.snapshot())));return}
   if(tab==='plan')renderPlan();
   if(tab==='mastery')renderMastery();
   if(tab==='notebook')renderNotebook();
   if(tab==='rewards')disposeExtra=mountRewards(area,client);
-  if(tab==='certificates')disposeExtra=mountCertificates(area,client,{onSettings:()=>{tab='rewards';render();focusHeading()},onOpenLevel:(level,unitId)=>openLesson({level,id:unitId})});
-  area.append(el('p','Practice scores and course completion are learning evidence, not official CEFR certification. Speaking and writing proficiency are not inferred.','hz-small'));
+  if(tab==='certificates')disposeExtra=mountCertificates(area,client,{initialAttemptId:examToRestore,onNavigate:id=>{if(id)recordView(root,'final:'+id,()=>openTracker('certificates',{attemptId:id}));else recordView(root,'tracker:certificates',()=>openTracker('certificates'))},onSettings:()=>{tab='rewards';render();focusHeading()},onOpenLevel:(level,unitId)=>openLesson({level,id:unitId})});
+
  }
  function renderPlan(){
   const plan=makeDailyPlan(snapshot);
@@ -122,11 +126,11 @@ export function wireTracker(root,client){
    else item.append(button('Revise saved mistakes',()=>{tab='notebook';filter='due';render();focusHeading()},true));
    list.append(item);
   }
-  area.append(list,el('p','Suggested times are estimates. If a lesson needs longer, continue next time; only the normal server-saved quiz marks lesson completion. Refresh this tracker after studying to see your updated plan.'));
+  area.append(list,el('p','Refresh your plan after studying to see your latest progress.'));
  }
  function renderMastery(){
   area.append(el('h4','French mastery dashboard'),el('p',`Your study level: ${learningLevel(snapshot)}. You can choose any accessible course.`));
-  if(snapshot.placement)area.append(el('p',`Latest placement recommends ${snapshot.placement.recommendedLevel}${snapshot.placement.provisional?' (provisional)':''}. This is a recommended starting point, not a certified proficiency level.`));
+  if(snapshot.placement)area.append(el('p',`Latest placement recommends ${snapshot.placement.recommendedLevel}${snapshot.placement.provisional?' (provisional)':''}.`));
   const completed=snapshot.units.filter(u=>u.completed).length;
   area.append(el('p',`${completed} of ${snapshot.units.length} published lessons completed.`));
   const courseGrid=el('div',undefined,'hz-tracker-mastery-grid');
@@ -151,12 +155,12 @@ export function wireTracker(root,client){
    skillGrid.append(card);
   }
   area.append(skillGrid);
-  area.append(el('p','Skill tracking starts when this feature is enabled; older quizzes contribute course scores but cannot reconstruct past wrong answers. Unlabelled questions count as general practice, not invented skill scores.'));
+
   const general=snapshot.skills.find(s=>s.skill==='general');
-  if(general?.total)area.append(el('p',`General practice: ${general.correct}/${general.total} latest checked answers correct. These items have no validated skill label.`));
+  if(general?.total)area.append(el('p',`General practice: ${general.correct}/${general.total} latest checked answers correct.`));
  }
  function renderNotebook(){
-  area.append(el('h4','Personal mistake notebook'),el('p','Missed answers are saved automatically after server grading. Review an explanation, retry, and return for spaced revision. Correct retries preserve your history.'));
+  area.append(el('h4','Personal mistake notebook'),el('p','Review your saved mistakes, retry each question, and build your skills with spaced revision.'));
   const options=el('select');options.setAttribute('aria-label','Notebook filter');
   for(const [value,label] of [['due','Due for revision'],['all','All saved mistakes'],['reviewed','Reviewed — scheduled later']]){const option=el('option',label);option.value=value;options.append(option)}options.value=filter;
   options.addEventListener('change',()=>{filter=options.value;page=0;render()});area.append(options);
@@ -191,8 +195,14 @@ export function wireTracker(root,client){
   if(offset>0)area.append(button('Previous 200 saved items',()=>run(()=>store.snapshot(Math.max(0,offset-200))),true));
   if(offset+200<snapshot.notebookTotal)area.append(button('Next 200 saved items',()=>run(()=>store.snapshot(offset+200)),true));
  }
- launch.addEventListener('click',()=>{
-  if(busy)return;epoch++;tab='plan';filter='due';notice='';root.dispatchEvent(new CustomEvent('hzad-close-placement'));
-  chooser.classList.add('hz-hidden');render();focusHeading();void run(()=>store.snapshot());
- });
+ async function openTracker(nextTab='plan',options={}){
+  if(busy)return;
+  root.dispatchEvent(new CustomEvent('hzad-route-reset'));
+  epoch++;tab=nextTab;filter=options.filter||'due';page=0;notice='';examToRestore=options.attemptId||null;
+  chooser.classList.add('hz-hidden');render();focusHeading();
+  await run(()=>store.snapshot(options.offset||0));
+  if(options.page){page=options.page;render()}
+  await disposeExtra?.ready;
+ }
+ launch.addEventListener('click',()=>{void openTracker()});
 }

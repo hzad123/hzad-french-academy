@@ -4,10 +4,12 @@
 <div id="host"></div>
 <script type="module">
 import {template} from '/src/ui/template.js';
+import {wireNavigation} from '/src/ui/navigation.js';
 import {renderCourseCards} from '/src/dashboard/courses.js';
 import {wirePlacement} from '/src/placement/ui.js';
 const host=document.querySelector('#host');host.innerHTML=template();
 const root=host.querySelector('#hzad-french-academy');
+wireNavigation(root);
 root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');
 renderCourseCards(root.querySelector('#hz-courses'));
 window.fixture={calls:[],deny:false,delay:0,fail:false,attempt:null,history:[]};

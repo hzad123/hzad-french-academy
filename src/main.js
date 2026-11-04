@@ -9,6 +9,7 @@ import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
 import {wireRewardInitialization} from './achievements/ui.js';
 import {mountVerification} from './achievements/verification.js';
+import {wireNavigation,recordView} from './ui/navigation.js';
 
 export function mountAcademy(host,createClient){
   if(host.dataset.initialized)return;
@@ -16,14 +17,15 @@ export function mountAcademy(host,createClient){
   host.innerHTML=template();
   const root=host.querySelector('#hzad-french-academy');
   const $=id=>root.querySelector('#'+id);
+  wireNavigation(root);
   const client=getAcademyClient(createClient,SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-  let tab='login',busy=false,recovering=false,accessSequence=0;
+  let tab='login',busy=false,recovering=false,accessSequence=0,navUser=null;
   const show=which=>['hz-auth','hz-pending','hz-dashboard','hz-recovery'].forEach(id=>$(id).classList.toggle('hz-hidden',id!==which));
   const clearMsg=id=>{$(id).textContent='';$(id).classList.add('hz-hidden')};
   const msg=(id,text,error=false)=>{const el=$(id);el.textContent=text;el.classList.remove('hz-hidden');el.classList.toggle('hz-error',error)};
   const setBusy=value=>{busy=value;$('hz-submit').disabled=value;$('hz-refresh').disabled=value;$('hz-recovery-submit').disabled=value};
   const clearLessons=()=>root.dispatchEvent(new CustomEvent('hzad-clear-lessons'));
-  function setTab(next){
+  function setTab(next,remember=true){
     tab=next;
     root.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===next)));
     $('hz-name-wrap').classList.toggle('hz-hidden',next!=='signup');
@@ -34,10 +36,12 @@ export function mountAcademy(host,createClient){
     $('hz-password-hint').classList.toggle('hz-hidden',next!=='signup');
     $('hz-submit').textContent=next==='signup'?'Create account':next==='reset'?'Send reset link':'Sign in';
     clearMsg('hz-auth-message');
+    if(remember)recordView(root,'auth:'+next,()=>setTab(next,false));
   }
+  root.addEventListener('hzad-nav-home',()=>{if(!$('hz-auth').classList.contains('hz-hidden'))setTab('login',false)});
   function requireLogin(message='Please sign in to continue.'){
-    accessSequence++;recovering=false;clearLessons();
-    $('hz-user-label').textContent='';setTab('login');show('hz-auth');
+    accessSequence++;recovering=false;navUser=null;clearLessons();
+    $('hz-user-label').textContent='';setTab('login',false);show('hz-auth');
     msg('hz-auth-message',message);
   }
   async function accessCheck(){
@@ -46,8 +50,8 @@ export function mountAcademy(host,createClient){
     const result=await checkAcademyAccess(client);
     if(sequence!==accessSequence||recovering)return;
     $('hz-user-label').textContent=result.user?.email||'';
-    if(result.kind==='signed_out'){clearLessons();show('hz-auth');return}
-    if(result.kind==='active'){clearMsg('hz-pending-message');show('hz-dashboard');root.dispatchEvent(new CustomEvent('hzad-access-active',{detail:{userId:result.user.id}}));return}
+    if(result.kind==='signed_out'){navUser=null;clearLessons();show('hz-auth');return}
+    if(result.kind==='active'){if(navUser!==result.user.id){if(navUser)clearLessons();root.dispatchEvent(new CustomEvent('hzad-nav-reset'));navUser=result.user.id}clearMsg('hz-pending-message');show('hz-dashboard');root.dispatchEvent(new CustomEvent('hzad-access-active',{detail:{userId:result.user.id}}));return}
     clearLessons();show('hz-pending');clearMsg('hz-pending-message');
     if(result.kind==='unverified')$('hz-pending-text').textContent='Please verify your email using the link in your inbox.';
     else if(result.kind==='error'){

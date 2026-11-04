@@ -23,15 +23,15 @@ test('Incomplete attempt cannot claim all final questions were assessed',()=>{
  assert.deepEqual(assessmentBreakdown(unit,{}),[]);
 });
 
-test('Final quiz feedback is labeled as non-certified, and all data stays in Supabase',async()=>{
+test('Final quiz feedback stays concise, and all data stays in Supabase',async()=>{
  const [a,store,secure,courses]=await Promise.all([
   readFile('src/learning/assessment.js','utf8'),
   readFile('src/learning/supabase-store.js','utf8'),
   readFile('src/learning/secure-a0.js','utf8'),
   readFile('src/dashboard/courses.js','utf8')
  ]);
- assert.match(a,/not an official CEFR/);
- assert.match(a,/Speaking recordings and written drafts are self-assessed/);
+ assert.match(a,/title.textContent='Your final A0 practice breakdown'/);
+ assert.doesNotMatch(a,/note.textContent=.*self-assessed/);
  assert.match(secure,/showAssessmentBreakdown\(info,unit,state.feedback\)/);
  assert.match(store,/assessmentDomains:row.content\?\.assessment_domains/);
  assert.match(courses,/30 interactive lessons/);

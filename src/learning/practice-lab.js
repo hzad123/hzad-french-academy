@@ -43,7 +43,7 @@ export function renderPracticeLab(target,unit){
  if(!tasks.length)return ()=>{};
  const container=el('section');container.className='hz-practice-lab';
  container.append(el('h4','Speaking & Writing Workshop'));
- const note=el('p','These are self-guided activities. Use invented personal details. Drafts and voice recordings stay in your browser; they are not uploaded or AI-graded.');
+ const note=el('p','Practise your response, compare it with the example, and use the self-check to improve.');
  note.className='hz-practice-intro';container.append(note);
  const recorders=[],urls=[];
  let disposed=false;
@@ -72,12 +72,12 @@ export function renderPracticeLab(target,unit){
      const count=el('p','0 words · saved only in this browser tab');count.className='hz-practice-count';
      area.addEventListener('input',()=>{
        const words=area.value.trim()?area.value.trim().split(/\s+/).length:0;
-       count.textContent=words+' '+(words===1?'word':'words')+' · not uploaded';
+       count.textContent=words+' '+(words===1?'word':'words')+' · draft in this tab';
      });
      card.append(area,count);
    }else if(task.mode==='speaking'){
      const recording=el('div');recording.className='hz-practice-record';
-     const status=el('span','Use the microphone to record and play back your answer. No automatic pronunciation score.');
+     const status=el('span','Record your answer, play it back, and compare with the example.');
      status.setAttribute('role','status');status.className='hz-practice-rec-status';
      const audio=el('audio');audio.controls=true;audio.hidden=true;audio.setAttribute('aria-label','Play your local recording');
      const mic=button('🎙 Record my answer',async()=>{
