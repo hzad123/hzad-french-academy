@@ -2,12 +2,14 @@
 <title>Local-only progress tracker acceptance fixture</title><link rel="stylesheet" href="/src/styles/academy.css"><div id="host"></div>
 <script type="module">
 import {template} from '/src/ui/template.js';
+import {wireNavigation} from '/src/ui/navigation.js';
 import {renderCourseCards} from '/src/dashboard/courses.js';
 import {wireTracker} from '/src/tracker/ui.js';
 import {wirePlacement} from '/src/placement/ui.js';
 import {wireA0} from '/src/learning/dashboard-integration.js';
 const rootHost=document.querySelector('#host');rootHost.innerHTML=template();
 const root=rootHost.querySelector('#hzad-french-academy');
+wireNavigation(root);
 root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');
 renderCourseCards(root.querySelector('#hz-courses'));
 const now=new Date().toISOString();

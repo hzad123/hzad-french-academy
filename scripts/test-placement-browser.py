@@ -63,7 +63,7 @@ try:
                     assert len(page.evaluate('fixture.calls')) == count
                     # Accessible fallback works regardless of device voices.
                     if i == 6:
-                        area.get_by_role('button', name='Use transcript (listening not assessed)').click()
+                        area.get_by_role('button', name='Use transcript').click()
                         assert area.get_by_text('Bonjour, je m’appelle Léa.', exact=True).is_visible()
                     else:
                         page.evaluate("speechSynthesis.getVoices=()=>[{lang:'fr-FR'}]")
@@ -81,7 +81,7 @@ try:
                 if i < 7:
                     area.get_by_text(f'{i+1} answers saved', exact=False).wait_for()
             area.get_by_role('heading', name='Recommended starting level: A1').wait_for()
-            assert area.get_by_text('Provisional:', exact=False).is_visible()
+            assert area.get_by_role('heading', name='Recommended starting level: A1').is_visible()
             assert 'listening: 1/1 correct' in area.inner_text()
             page.screenshot(path=str(artifacts / f'result-{width}.png'), full_page=True)
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')

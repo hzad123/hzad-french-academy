@@ -68,10 +68,17 @@ try:
             assert area.get_by_text('Not enough evidence yet',exact=False).count()==3
             assert area.get_by_role('progressbar').count()==7
             page.screenshot(path=str(artifacts/f'mastery-{width}.png'),full_page=True)
+            page.locator('#hz-global-back').click()
+            area.get_by_role('heading',name='Personal mistake notebook').wait_for()
+            assert area.get_by_label('Notebook filter').input_value()=='reviewed'
             area.get_by_role('button',name='Daily plan',exact=True).click()
             area.get_by_role('button',name='Start today’s plan',exact=True).click()
             page.locator('#hz-a0-learning .hz-a0-lesson-title').filter(has_text='Your next lesson').wait_for()
             assert area.is_hidden()
+            page.locator('#hz-global-back').click()
+            area.get_by_role('heading',name='Today’s 10-minute learning plan').wait_for()
+            area.get_by_role('button',name='Start today’s plan',exact=True).click()
+            page.locator('#hz-a0-learning .hz-a0-lesson-title').filter(has_text='Your next lesson').wait_for()
             # Original instant-feedback and completion flow still saves normally.
             page.locator('#hz-a0-learning input[type=radio]').nth(1).check()
             page.get_by_text('✓ Lesson completed!',exact=False).wait_for()
@@ -102,6 +109,7 @@ try:
             area.get_by_role('button',name='Start today’s plan',exact=True).wait_for()
             page.evaluate("fixture.authCallbacks.forEach(fn=>fn('SIGNED_IN',{user:{id:'different-fixture-user'}}))")
             assert area.is_hidden() and area.inner_text()==''
+            assert page.locator('#hz-global-back').is_disabled()
             assert not errors,errors
             print(f'PASS {width}px: preferences, plan, mastery, notebook, keyboard, lesson deep link, quiz regression, placement, isolation')
             page.close()

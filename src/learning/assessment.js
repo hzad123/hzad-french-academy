@@ -22,9 +22,6 @@ export function showAssessmentBreakdown(afterNode,unit,feedback){
  if(!scores.length)return;
  const section=document.createElement('section');section.className='hz-assessment-results';
  const title=document.createElement('h4');title.textContent='Your final A0 practice breakdown';section.append(title);
- const note=document.createElement('p');note.className='hz-assessment-note';
- note.textContent='These are scores from checked multiple-choice questions. Speaking recordings and written drafts are self-assessed, not automatically graded or certified.';
- section.append(note);
  for(const score of scores){
    const row=document.createElement('div');row.className='hz-assessment-row';
    const head=document.createElement('div');head.className='hz-assessment-row-label';

@@ -38,7 +38,7 @@ export function mountA0Learning(host){
     quiz.append(button('Try again',()=>{state.answers={};state.submitted=false;render()},'hz-learning-primary'));
   }
   main.append(quiz);layout.append(nav,main);host.append(layout);
-  host.append(el('p','hz-learning-disclaimer','Preview progress is stored in this browser only. Secure Supabase syncing will be added before student release.'));
+
  }
  render();
 }

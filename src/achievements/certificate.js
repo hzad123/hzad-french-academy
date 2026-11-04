@@ -12,6 +12,13 @@ export function renderCertificate(popup,certificate){
  @media print{body{background:white;margin:0}.certificate{padding:20px;min-height:0;height:180mm;max-width:none;display:flex;flex-direction:column;justify-content:center}.actions{display:none}
  h1{font-size:28px;margin:18px 0}h2{font-size:30px;margin:14px 0}h3{font-size:22px;margin:12px 0}p{margin:10px 0}
  .issuer{font-size:14px;margin:8px 0}.scope{font-size:14px;margin:10px 0;line-height:1.35}.detail{font-size:10px;margin:7px 0;line-height:1.3}.notice{font-size:10px;margin-top:12px;padding-top:12px;line-height:1.3}}
+
+ .certificate{position:relative;overflow:hidden;border:1px solid #d1dbee;border-radius:18px;box-shadow:0 22px 70px #15345d20;background:radial-gradient(ellipse at top right,#fff3d2,transparent 55%),white}
+ .certificate:before{content:'';position:absolute;inset:0 0 auto;height:12px;background:linear-gradient(90deg,#123267,#286bc3 65%,#e8b53e)}
+ .certificate:after{content:'HZAD';position:absolute;bottom:20px;right:22px;width:72px;height:72px;border:3px double #c59325;border-radius:50%;display:grid;place-items:center;font:700 13px Arial;letter-spacing:2px;color:#a7771f;opacity:.55}
+ .popup-back{position:fixed;top:16px;left:16px;z-index:2;background:#123267}
+ @media screen{.certificate{padding-bottom:112px}}
+ @media print{.certificate{box-shadow:none;border-radius:0}.popup-back{display:none}}
  `;doc.head.append(style);doc.body.replaceChildren();
  const add=(parent,tag,text,cls)=>{const n=doc.createElement(tag);n.textContent=text;if(cls)n.className=cls;parent.append(n);return n};
  const sheet=doc.createElement('main');sheet.className='certificate';doc.body.append(sheet);
@@ -25,7 +32,8 @@ export function renderCertificate(popup,certificate){
  add(sheet,'p','Assessment version: '+certificate.version,'detail');
  add(sheet,'p','Verify this ID and printed holder name at the academy’s certificate verification form.','detail');
  add(sheet,'a','Open certificate verification','detail').href='https://hzad123.github.io/hzad-french-academy/certificates/?verifyCertificate='+encodeURIComponent(certificate.id);
- add(sheet,'p','This HZad course-completion certificate is not an official CEFR, TEF or TCF qualification. Speaking and writing were not assessed. The holder name is supplied by the learner and is not a verified legal identity.','notice');
+
+ const back=doc.createElement('button');back.textContent='← Back';back.className='popup-back';back.addEventListener('click',()=>popup.close());doc.body.prepend(back);
  const actions=doc.createElement('div');actions.className='actions';doc.body.append(actions);
  const print=add(actions,'button','Print / Save as PDF');print.type='button';print.addEventListener('click',()=>popup.print());
 }

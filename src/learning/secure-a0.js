@@ -151,6 +151,7 @@ export async function mountSecureA0(host,client,level='A0'){
    if(currentIndex>0)navFooter.append(btn('← Previous lesson',()=>selectLesson(state.units[currentIndex-1])));
    if(currentIndex>=0&&currentIndex<state.units.length-1)navFooter.append(btn('Next lesson →',()=>selectLesson(state.units[currentIndex+1])));
    content.append(navFooter);
+   host.dispatchEvent(new CustomEvent('hzad-lesson-selected',{detail:{unitId:unit.id}}));
    return chrome;
  }
  render();

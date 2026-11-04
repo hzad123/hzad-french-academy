@@ -338,4 +338,28 @@
 #hzad-french-academy .hz-achievements input:not([type=radio]):not([type=checkbox]){max-width:100%;min-height:44px}
 #hzad-french-academy .hz-achievements label{display:block;margin:12px 0}
 #hzad-french-academy .hz-tracker>nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:8px}
-#hzad-french-academy .hz-tracker>nav .hz-btn{margin:0;width:100%}
+#hzad-french-academy .hz-tracker>nav .hz-btn{margin:0;width:100%;padding:12px 8px;font-size:14px;overflow-wrap:normal}
+
+/* Owner-requested modern achievement gallery and navigation. */
+#hzad-french-academy .hz-global-nav{display:flex;justify-content:flex-start;padding:16px 0 0}
+#hzad-french-academy .hz-global-back{display:inline-flex;align-items:center;gap:8px;border:1px solid #ccdaed;background:white;color:#193e73;border-radius:12px;padding:11px 18px;min-height:44px;font:inherit;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 3px 12px #16356608}
+#hzad-french-academy .hz-global-back:disabled{opacity:.4;cursor:default}
+#hzad-french-academy .hz-global-back:focus-visible{outline:3px solid #c78d24;outline-offset:3px}
+#hzad-french-academy .hz-eyebrow{font-size:11px;letter-spacing:.18em;font-weight:800;color:#4873af;margin:8px 0}
+#hzad-french-academy .hz-study-title{display:inline-flex;padding:7px 13px;border-radius:100px;background:#eaf1ff;color:#315aa1;font-size:12px;font-weight:800}
+#hzad-french-academy .hz-badge-grid,#hzad-french-academy .hz-certificate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));gap:18px;margin:20px 0 30px}
+#hzad-french-academy .hz-badge-card{position:relative;text-align:center;padding:22px 14px;border:1px solid #dce6f4;border-radius:22px;background:linear-gradient(160deg,#fff,#f0f5ff);box-shadow:0 10px 28px #1938630a;transition:transform .2s ease,box-shadow .2s ease}
+#hzad-french-academy .hz-badge-card.is-earned{background:radial-gradient(circle at 50% 15%,#fff3cc,transparent 62%),linear-gradient(155deg,#fff,#fffaf0);border-color:#ecd19a}
+#hzad-french-academy .hz-badge-card.is-locked .hz-badge-art{filter:saturate(.35);opacity:.7}
+#hzad-french-academy .hz-badge-art{display:block;width:120px;height:140px;margin:0 auto 8px;filter:drop-shadow(0 8px 8px #1b377328)}
+#hzad-french-academy .hz-badge-status{display:inline-block;font-size:9px;font-weight:850;letter-spacing:.14em;color:#8b651d;margin:5px 0 10px}
+#hzad-french-academy .hz-badge-card.is-locked .hz-badge-status{color:#64778f}
+#hzad-french-academy .hz-badge-card p{font-size:12px;color:#5e708a;line-height:1.5}
+#hzad-french-academy .hz-certificate-card{position:relative;border:1px solid #d4e0f2;border-radius:20px;background:linear-gradient(155deg,white,#f3f7ff);padding:18px;overflow:hidden;box-shadow:0 8px 24px #163b720c}
+#hzad-french-academy .hz-certificate-art{display:block;width:100%;height:auto;margin-bottom:10px;filter:drop-shadow(0 7px 7px #183b7415)}
+#hzad-french-academy .hz-certificate-card h5{font-size:20px;color:#153c77}
+#hzad-french-academy .hz-certificate-card p{font-size:13px;line-height:1.6;color:#526682}
+#hzad-french-academy .hz-certificate-earned{border-color:#ddbd70;background:radial-gradient(ellipse at top right,#fff0c9,transparent 65%),white}
+#hzad-french-academy .hz-certificate-card .hz-btn{width:100%;margin-right:0}
+@media(hover:hover){#hzad-french-academy .hz-badge-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #19386316}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-badge-card{transition:none}}

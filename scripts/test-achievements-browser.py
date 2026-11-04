@@ -31,6 +31,10 @@ try:
    area.get_by_role('button',name='Achievements',exact=True).click()
    area.get_by_role('heading',name='Your learning achievements').wait_for()
    assert area.get_by_text('Current daily streak',exact=True).is_visible()
+   assert area.locator('.hz-badge-card svg').count()==2
+   assert area.locator('.hz-badge-card.is-earned').count()==1
+   assert area.locator('.hz-badge-card.is-locked').count()==1
+   assert 'Titles are cosmetic' not in area.inner_text()
    assert area.get_by_role('option',name='Dedicated learner · 250 XP').evaluate('(option)=>option.disabled')
    area.get_by_label('Certificate display name').fill('Élodie Example')
    area.get_by_role('button',name='Save achievement settings').click()
@@ -63,7 +67,8 @@ try:
    popup=popup_info.value;popup.get_by_role('heading',name='Certificate of Course Completion').wait_for()
    assert popup.get_by_role('heading',name='Élodie Example').is_visible()
    assert popup.get_by_role('button',name='Print / Save as PDF').is_visible()
-   assert 'not an official CEFR' in popup.locator('body').inner_text()
+   assert popup.get_by_role('heading',name='Certificate of Course Completion').is_visible()
+   assert 'not an official CEFR' not in popup.locator('body').inner_text()
    popup.screenshot(path=str(artifacts/f'certificate-{width}.png'),full_page=True)
    pdf=popup.pdf(path=str(artifacts/f'certificate-{width}.pdf'),prefer_css_page_size=True,print_background=True)
    assert len(re.findall(rb'/Type\s*/Page(?!s)',pdf))==1,'Certificate should print on one landscape page'

@@ -19,3 +19,14 @@
 
 ## Reporting
 For each task, state exactly: what was implemented, what was tested, what was not verified, which database changes remain unapplied, PR link, and whether production was touched. Never call a draft, code-only change or merely published lesson an officially CEFR-certified course.
+
+## Owner interface preferences
+- Keep student-facing copy concise and focused on actions. Do not add repetitive
+  disclaimer paragraphs about cosmetic rewards, legal identity, CEFR status,
+  inferred skills, or implementation constraints. Keep operational errors and
+  factual requirements clear. Use accurate positive labels such as “HZad
+  Certificate of Course Completion”; do not invent accreditation claims.
+- Keep Progress Tracker as the top-right dashboard button, not a central promo.
+- Provide top-left Back navigation across app views, preserve saved progress,
+  and clear navigation history when the account/session changes.
+- Use distinctive achievement artwork and modern certificate presentation.

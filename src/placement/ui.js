@@ -1,4 +1,5 @@
 import {makePlacementStore} from './store.js';
+import {recordView,recordHome} from '../ui/navigation.js';
 
 const levels=new Set(['A0','A1','A2','B1','B2','C1','C2']);
 const el=(tag,text,cls)=>{
@@ -18,8 +19,10 @@ export function wirePlacement(root,client){
   const b=el('button',text,'hz-btn'+(alt?' hz-btn-alt':''));b.type='button';b.addEventListener('click',fn);return b;
  };
  const cancelAudio=()=>{audioGeneration++;speech?.cancel()};
- const close=()=>{generation++;busy=false;cancelAudio();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');state=null;launch.focus()};
- root.addEventListener('hzad-close-placement',close);
+ const clear=()=>{generation++;busy=false;cancelAudio();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');state=null};
+ const close=()=>{clear();recordHome(root);launch.focus()};
+ root.addEventListener('hzad-route-reset',clear);
+ root.addEventListener('hzad-close-placement',clear);
  root.addEventListener('hzad-clear-lessons',()=>{generation++;busy=false;cancelAudio();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');state=null});
  // No answers or student data in localStorage: the server resumes each account.
  async function run(operation){
@@ -48,12 +51,13 @@ export function wirePlacement(root,client){
   else if(attempt?.status==='completed')drawResult(attempt);
   else drawIntro();
   drawHistory();heading.focus();
+  const id=attempt?.id,view=attempt?.status||'intro';recordView(root,'placement:'+(id||'intro'),()=>openPlacement(view,id));
  }
  function drawIntro(){
   area.append(el('p','Find a recommended learning starting point from A0 to C2. Work independently, without dictionaries or translation tools. No AI or credits are used.'),
    el('p','Answer up to 56 questions in increasingly challenging groups of eight (about 10–25 minutes). The test stops when a stage needs more practice. Answers save as you go; return within seven days to resume. You may start three attempts per 24 hours.'),
-   el('p','Grammar, vocabulary, reading and listening are sampled. Use a French device voice for listening; a transcript is available if audio is inaccessible. Transcript questions do not count as listening evidence, and the recommendation is provisional.'),
-   el('p','This is not an official CEFR certificate. Speaking and writing are not assessed. You can still choose any accessible course.'),
+   el('p','Practise grammar, vocabulary, reading and listening. Play the French audio or use a transcript.'),
+
    button('Start or resume assessment',()=>run(()=>store.start())));
  }
  function drawQuestion(attempt){
@@ -66,10 +70,10 @@ export function wirePlacement(root,client){
   const form=el('form'),fieldset=el('fieldset'),legend=el('legend',q.prompt);
   fieldset.append(legend);
   if(q.skill==='listening'){
-   const help=el('p','Listen before answering, or use the accessible transcript. Device speech synthesis may vary; this bank still requires editorial/audio review.');
+   const help=el('p','Listen to the audio or read the transcript.');
    const status=el('p','');status.setAttribute('role','status');
-   const reveal=button('Use transcript (listening not assessed)',()=>{
-    cancelAudio();transcript=true;help.textContent=q.audioText;help.lang='fr';status.textContent='Transcript mode: no listening score for this item.';
+   const reveal=button('Use transcript',()=>{
+    cancelAudio();transcript=true;help.textContent=q.audioText;help.lang='fr';status.textContent='Transcript ready.';
    },true);
    const play=button('Play French audio',()=>{
     if(!speech||!globalThis.SpeechSynthesisUtterance){status.textContent='Audio is unavailable. Please use the transcript.';return}
@@ -102,17 +106,17 @@ export function wirePlacement(root,client){
  function drawResult(attempt){
   const r=attempt.result;
   if(!r||!levels.has(r.recommendedLevel)){area.append(el('p','Result unavailable. Close and retry.'));return}
-  area.append(el('h4',`Recommended starting level: ${r.recommendedLevel}`),el('p',r.rationale),el('p',r.notice));
-  if(r.provisional)area.append(el('p','Provisional: transcript support reduced the listening evidence. Confirm your listening level with a teacher or an accessible audio assessment.'));
+  area.append(el('h4',`Recommended starting level: ${r.recommendedLevel}`),el('p',r.rationale));
+
   const list=el('ul');
   for(const [skill,score] of Object.entries(r.skills)){
-   const evidence=score.total?`${score.correct}/${score.total} correct (${score.percent}%)`:'not assessed';
-   const action=!score.total?'seek further assessment':score.percent<75?'review this skill':'continue developing this strength';
-   list.append(el('li',`${skill}: ${evidence} — ${action}. Scores reflect only the stages sampled.`));
+   const evidence=score.total?`${score.correct}/${score.total} correct (${score.percent}%)`:'No score yet';
+   const action=!score.total?'practise this skill next':score.percent<75?'review this skill':'continue developing this strength';
+   list.append(el('li',`${skill}: ${evidence} — ${action}.`));
   }
   area.append(list,el('p',`Assessment ${attempt.version} · ${new Date(attempt.startedAt).toLocaleString()}`),
    button(`Start ${r.recommendedLevel} lessons`,()=>{
-    const level=r.recommendedLevel;close();root.dispatchEvent(new CustomEvent('hzad-open-level',{detail:{level}}));
+    const level=r.recommendedLevel;clear();root.dispatchEvent(new CustomEvent('hzad-open-level',{detail:{level}}));
    }),button('Retake assessment',()=>{state={...state,attempt:null};draw()},true),
    el('p','Your previous attempts are retained. All seven courses remain available to entitled students.'));
  }
@@ -126,9 +130,10 @@ export function wirePlacement(root,client){
   }
   area.append(details);
  }
- launch.addEventListener('click',()=>{
-  if(busy)return;
-  root.dispatchEvent(new CustomEvent('hzad-close-tracker'));
-  generation++;state=null;chooser.classList.add('hz-hidden');draw();void run(()=>store.state());
- });
+ async function openPlacement(view='current',id){
+  root.dispatchEvent(new CustomEvent('hzad-route-reset'));
+  generation++;state=null;chooser.classList.add('hz-hidden');draw();
+  await run(async()=>{const next=await store.state(id);return view==='intro'?{...next,attempt:null}:next});
+ }
+ launch.addEventListener('click',()=>{if(!busy)void openPlacement()});
 }

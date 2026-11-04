@@ -2,6 +2,7 @@ import {checkAcademyAccess} from '../auth/access.js';
 import {SessionRequiredError,isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
 import {mountSecureA0} from './secure-a0.js';
+import {recordView,recordHome} from '../ui/navigation.js';
 
 // One shared, access-controlled lesson workspace for A0 through C2.
 // Level cards are direct navigation controls; no single level receives
@@ -15,7 +16,7 @@ export function wireA0(root,client){
  const back=root.querySelector('#hz-back-to-levels');
  const currentLevel=root.querySelector('#hz-current-level');
  if(!area||!courses||!chooser||!controls||!back)return;
- let open=false,loading=false,generation=0,stopCooldown=null,activeLevel=null;
+ let open=false,loading=false,generation=0,stopCooldown=null,activeLevel=null,selectedUnit=null;
  const setLoading=value=>{
    loading=value;
    courses.querySelectorAll('[data-course-level]').forEach(button=>{button.disabled=value});
@@ -25,7 +26,7 @@ export function wireA0(root,client){
    controls.classList.toggle('hz-hidden',!value);
  };
  const reset=()=>{
-   generation++;open=false;stopCooldown?.();stopCooldown=null;activeLevel=null;
+   generation++;open=false;stopCooldown?.();stopCooldown=null;activeLevel=null;selectedUnit=null;
    setLoading(false);
    focus(false);
    if(currentLevel)currentLevel.textContent='';
@@ -33,6 +34,8 @@ export function wireA0(root,client){
  };
  const requestLogin=()=>{reset();root.dispatchEvent(new CustomEvent('hzad-auth-required',{bubbles:true}))};
  area.addEventListener('hzad-session-expired',requestLogin);
+ const remember=()=>{const level=activeLevel,unitId=selectedUnit;recordView(root,'lesson:'+level+':'+(unitId||''),()=>openLevel(level,{unitId}))};
+ area.addEventListener('hzad-lesson-selected',event=>{selectedUnit=event.detail.unitId;if(open&&!loading)remember()});
  async function openLevel(level,target={}){
    if(!LEVELS.has(level)||loading)return;
    root.dispatchEvent(new CustomEvent('hzad-close-placement'));
@@ -52,7 +55,7 @@ export function wireA0(root,client){
      if(target.unitId)area.dispatchEvent(new CustomEvent('hzad-select-unit',{detail:target}));
      open=true;activeLevel=level;
      if(currentLevel)currentLevel.textContent=level+' lessons';
-     focus(true);
+     focus(true);remember();
      controls.scrollIntoView?.({behavior:'smooth',block:'start'});
    }catch(error){
      if(ticket!==generation)return;
@@ -66,7 +69,7 @@ export function wireA0(root,client){
    }finally{if(ticket===generation&&!cooling)setLoading(false)}
  }
  back.addEventListener('click',()=>{
-   reset();
+   reset();recordHome(root);
    chooser.scrollIntoView?.({behavior:'smooth',block:'start'});
  });
  root.addEventListener('hzad-open-level',event=>{void openLevel(event.detail?.level,event.detail)});
@@ -77,4 +80,5 @@ export function wireA0(root,client){
  });
  client.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT')reset()});
  root.addEventListener('hzad-clear-lessons',reset);
+ root.addEventListener('hzad-route-reset',reset);
 }
