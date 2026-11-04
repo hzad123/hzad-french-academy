@@ -8,7 +8,9 @@ test('dashboard exposes secure A0 entry and wires it to the authenticated client
   readFile('src/main.js','utf8'),
   readFile('src/learning/dashboard-integration.js','utf8')
  ]);
- assert.match(template,/id="hz-open-a0"/);
+ assert.match(template,/id="hz-course-chooser"/);
+ assert.match(template,/id="hz-back-to-levels"/);
+ assert.doesNotMatch(template,/id="hz-open-a0"/);
  assert.match(template,/id="hz-a0-learning"/);
  assert.match(main,/wireA0\(root,client\)/);
  assert.match(controller,/checkAcademyAccess\(client\)/);
