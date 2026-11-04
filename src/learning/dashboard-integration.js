@@ -35,6 +35,7 @@ export function wireA0(root,client){
  area.addEventListener('hzad-session-expired',requestLogin);
  async function openLevel(level){
    if(!LEVELS.has(level)||loading)return;
+   root.dispatchEvent(new CustomEvent('hzad-close-placement'));
    if(open&&activeLevel===level){reset();return}
    if(open)reset();
    const ticket=++generation;let cooling=false;
@@ -66,6 +67,7 @@ export function wireA0(root,client){
    reset();
    chooser.scrollIntoView?.({behavior:'smooth',block:'start'});
  });
+ root.addEventListener('hzad-open-level',event=>{void openLevel(event.detail?.level)});
  courses.addEventListener('click',event=>{
    const target=event.target?.closest?.('[data-course-level]');
    if(!target||!courses.contains(target))return;

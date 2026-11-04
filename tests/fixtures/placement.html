@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Local placement UI test fixture</title><link rel="stylesheet" href="/src/styles/academy.css">
+<div id="host"></div>
+<script type="module">
+import {template} from '/src/ui/template.js';
+import {renderCourseCards} from '/src/dashboard/courses.js';
+import {wirePlacement} from '/src/placement/ui.js';
+const host=document.querySelector('#host');host.innerHTML=template();
+const root=host.querySelector('#hzad-french-academy');
+root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');
+renderCourseCards(root.querySelector('#hz-courses'));
+window.fixture={calls:[],deny:false,delay:0,fail:false,attempt:null,history:[]};
+const f=window.fixture;
+const question=i=>({id:'q'+i,level:'A0',skill:i>=6?'listening':'grammar',prompt:i>=6?'Quel prénom entendez-vous ?':'Je ___ Léa.',options:['suis','est','sommes','êtes'],audioText:i>=6?'Bonjour, je m’appelle Léa.':null});
+const snapshot=()=>structuredClone({attempt:f.attempt,history:f.history});
+const client={auth:{async getSession(){return {data:{session:{access_token:'fixture-only',expires_at:Date.now()/1000+3600,user:{id:'fixture'}}}}}},
+ async rpc(name,args){
+  f.calls.push({name,args});await new Promise(r=>setTimeout(r,f.delay));
+  if(f.deny)return {error:{message:'Verified email and active academy access required'}};
+  if(f.fail){f.fail=false;return {error:{message:'Connection interrupted. Retry this answer.'}}}
+  if(name==='academy_placement_start')f.attempt||={id:'local',status:'active',version:'fixture-v1',startedAt:new Date().toISOString(),answered:0,maximum:56,question:question(0),result:null};
+  if(name==='academy_placement_answer'){
+   f.attempt.answered++;
+   f.attempt.question=question(f.attempt.answered);
+   if(f.attempt.answered===8){
+    f.attempt.status='completed';f.attempt.question=null;
+    f.attempt.result={recommendedLevel:'A1',rationale:'Review foundations and continue at A1.',notice:'Not an official CEFR certificate. Speaking and writing were not assessed.',provisional:true,skills:{grammar:{correct:6,total:6,percent:100},listening:{correct:1,total:1,percent:100}}};
+    f.history=[structuredClone(f.attempt)];
+   }
+  }
+  return {data:snapshot()};
+ }};
+root.addEventListener('hzad-open-level',event=>{f.openedLevel=event.detail.level});
+wirePlacement(root,client);window.fixtureReady=true;
+</script></html>

@@ -5,6 +5,7 @@ import {requireSession} from './auth/session.js';
 import {renderCourseCards} from './dashboard/courses.js';
 import {template} from './ui/template.js';
 import {wireA0} from './learning/dashboard-integration.js';
+import {wirePlacement} from './placement/ui.js';
 
 export function mountAcademy(host,createClient){
   if(host.dataset.initialized)return;
@@ -101,6 +102,7 @@ export function mountAcademy(host,createClient){
   root.addEventListener('hzad-auth-required',()=>requireLogin());
   renderCourseCards($('hz-courses'));
   wireA0(root,client);
+  wirePlacement(root,client);
   const footer=root.querySelector('.hz-foot');
   if(footer){const version=document.createElement('small');version.textContent=' | '+SESSION_BUILD;footer.append(version)}
   client.auth.onAuthStateChange(event=>{
