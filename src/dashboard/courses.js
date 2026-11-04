@@ -19,7 +19,7 @@ export function renderCourseCards(container){
   const top=make('div','hz-course-top');
   top.append(make('span','hz-level',level),make('span','hz-course-status','Available now'));
   const label=make('span','hz-course-name',title);
-  const note=make('span','hz-course-count',COURSE_COUNTS[level]+' lessons');
+  const note=make('span','hz-course-count',level==='A0'?'30 interactive lessons':COURSE_COUNTS[level]+' lessons');
   const footer=make('span','hz-course-open','Explore lessons  →');
   card.append(top,label,note,footer);
   return card;
