@@ -33,10 +33,11 @@ export function wireA0(root,client){
  };
  const requestLogin=()=>{reset();root.dispatchEvent(new CustomEvent('hzad-auth-required',{bubbles:true}))};
  area.addEventListener('hzad-session-expired',requestLogin);
- async function openLevel(level){
+ async function openLevel(level,target={}){
    if(!LEVELS.has(level)||loading)return;
    root.dispatchEvent(new CustomEvent('hzad-close-placement'));
-   if(open&&activeLevel===level){reset();return}
+   root.dispatchEvent(new CustomEvent('hzad-close-tracker'));
+   if(open&&activeLevel===level&&!target.unitId){reset();return}
    if(open)reset();
    const ticket=++generation;let cooling=false;
    setLoading(true);area.classList.remove('hz-hidden');area.textContent='Opening '+level+' lessons...';
@@ -48,6 +49,7 @@ export function wireA0(root,client){
      if(access.kind!=='active')throw Error(access.kind==='unverified'?'Please verify your email.':'No active academy access is assigned to this account.');
      await mountSecureA0(area,client,level);
      if(ticket!==generation)return;
+     if(target.unitId)area.dispatchEvent(new CustomEvent('hzad-select-unit',{detail:target}));
      open=true;activeLevel=level;
      if(currentLevel)currentLevel.textContent=level+' lessons';
      focus(true);
@@ -67,7 +69,7 @@ export function wireA0(root,client){
    reset();
    chooser.scrollIntoView?.({behavior:'smooth',block:'start'});
  });
- root.addEventListener('hzad-open-level',event=>{void openLevel(event.detail?.level)});
+ root.addEventListener('hzad-open-level',event=>{void openLevel(event.detail?.level,event.detail)});
  courses.addEventListener('click',event=>{
    const target=event.target?.closest?.('[data-course-level]');
    if(!target||!courses.contains(target))return;

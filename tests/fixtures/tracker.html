@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Local-only progress tracker acceptance fixture</title><link rel="stylesheet" href="/src/styles/academy.css"><div id="host"></div>
+<script type="module">
+import {template} from '/src/ui/template.js';
+import {renderCourseCards} from '/src/dashboard/courses.js';
+import {wireTracker} from '/src/tracker/ui.js';
+import {wirePlacement} from '/src/placement/ui.js';
+import {wireA0} from '/src/learning/dashboard-integration.js';
+const rootHost=document.querySelector('#host');rootHost.innerHTML=template();
+const root=rootHost.querySelector('#hzad-french-academy');
+root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');
+renderCourseCards(root.querySelector('#hz-courses'));
+const now=new Date().toISOString();
+const units=[{id:'a0-01',level:'A0',position:1,title:'Greetings review',minutes:10,completed:true,best:50,attempts:1},
+ {id:'a0-02',level:'A0',position:2,title:'Your next lesson',minutes:10,completed:false,best:null,attempts:0}];
+window.fixture={deny:false,delay:0,calls:[],authCallbacks:[],data:{generatedAt:now,preferences:{minutes:20,level:null},
+ placement:{recommendedLevel:'A0',skills:{grammar:{correct:0,total:2}},provisional:false},units,
+ skills:[{skill:'grammar',correct:1,total:3}],notebookOffset:0,notebookTotal:1,
+ notebook:[{unitId:'a0-01',questionId:'g1',level:'A0',title:'Greetings review',skill:'grammar',prompt:'Je ___ Léa.',options:['est','suis'],chosenAnswer:'est',correctAnswer:'suis',explanation:'Je takes suis.',lastCorrect:false,wrongCount:1,dueAt:now,lastCheckedAt:now}]}};
+const f=window.fixture;
+const snapshot=()=>structuredClone(f.data);
+const progress=()=>f.data.units.filter(u=>u.attempts>0).map(u=>({unit_id:u.id,attempts:u.attempts,best_percent:u.best,completed:u.completed}));
+function record(unit,id,choice){
+ const correct=choice===1;
+ let entry=f.data.notebook.find(n=>n.unitId===unit&&n.questionId===id);
+ if(!entry&&!correct){entry={unitId:unit,questionId:id,level:'A0',title:units.find(u=>u.id===unit).title,skill:'grammar',prompt:'Je ___ Léa.',options:['est','suis'],chosenAnswer:'est',correctAnswer:'suis',explanation:'Je takes suis.',wrongCount:0};f.data.notebook.push(entry)}
+ if(entry){entry.lastCorrect=correct;entry.dueAt=new Date(Date.now()+(correct?86400000:0)).toISOString();if(!correct)entry.wrongCount++}
+ f.data.notebookTotal=f.data.notebook.length;
+ return {correct,answer:'suis',explanation:'Je takes suis.'};
+}
+const client={auth:{onAuthStateChange:fn=>{f.authCallbacks.push(fn);queueMicrotask(()=>fn('INITIAL_SESSION',{user:{id:'fixture'}}))},getSession:async()=>({data:{session:{access_token:'local-fixture',expires_at:Date.now()/1000+3600,user:{id:'fixture',email_confirmed_at:now}}}})},
+ from(name){
+  if(name==='academy_learning_progress')return {select:async()=>({data:progress()})};
+  const chain={};for(const key of ['select','eq','in','not','lte','or'])chain[key]=()=>chain;
+  chain.limit=async()=>({data:[{id:'local-access'}]});return chain;
+ },
+ async rpc(name,args){
+  f.calls.push({name,args});await new Promise(r=>setTimeout(r,f.delay));
+  if(f.deny)return {error:{message:'Verified email and active academy access required'}};
+  if(name==='academy_tracker_snapshot')return {data:snapshot()};
+  if(name==='academy_tracker_preferences'){f.data.preferences={minutes:args.p_minutes,level:args.p_level};return {data:snapshot()}}
+  if(name==='academy_tracker_revise')return {data:{feedback:record(args.p_unit_id,args.p_question_id,args.p_answer),snapshot:snapshot()}};
+  if(name==='academy_list_units')return {data:f.data.units.filter(u=>u.level===args.p_level).map(u=>({...u,content:{sections:[{heading:'French expressions',body:'Practice French greetings.'}],vocabulary:[['Bonjour','Hello']]},quiz:[{id:u.id==='a0-01'?'g1':'g2',type:'choice',prompt:'Je ___ Léa.',options:['est','suis']}]}))};
+  if(name==='academy_check_answer')return {data:record(args.p_unit_id,args.p_question_id,args.p_answer)};
+  if(name==='academy_submit_quiz'){const u=f.data.units.find(u=>u.id===args.p_unit_id);u.attempts++;u.best=args.p_answers.g2===1?100:0;u.completed=true;return {data:{percent:u.best,passed:u.best>=70}}}
+  if(name==='academy_placement_state')return {data:{attempt:null,history:[]}};
+  throw Error('Unexpected fixture RPC '+name);
+ }};
+wireA0(root,client);wirePlacement(root,client);wireTracker(root,client);
+window.fixtureReady=true;
+</script></html>

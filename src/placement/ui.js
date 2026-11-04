@@ -128,6 +128,7 @@ export function wirePlacement(root,client){
  }
  launch.addEventListener('click',()=>{
   if(busy)return;
+  root.dispatchEvent(new CustomEvent('hzad-close-tracker'));
   generation++;state=null;chooser.classList.add('hz-hidden');draw();void run(()=>store.state());
  });
 }
