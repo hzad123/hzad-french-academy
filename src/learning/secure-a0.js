@@ -6,8 +6,8 @@ import {withSavedQuizCompletion} from './progress.js';
 import {isSessionRequired} from '../auth/session.js';
 import {isRateLimited,showCooldown} from '../auth/rate-limit.js';
 
-export async function mountSecureA0(host,client){
- const store=makeLearningStore(client);
+export async function mountSecureA0(host,client,level='A0'){
+ const store=makeLearningStore(client,level);
  const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n};
  const btn=(label,action)=>{const b=el('button',label);b.type='button';b.className='hz-btn';b.addEventListener('click',action);return b};
  const ticket=String(Date.now())+Math.random();host.dataset.mountToken=ticket;
@@ -16,7 +16,7 @@ export async function mountSecureA0(host,client){
  // Both APIs authorize the caller server-side. No duplicate Auth /user request.
  const [units,progress]=await Promise.all([store.listUnits(),store.readProgress()]);
  if(!active())return;
- const state={units,progress,current:units.find(u=>!progress[u.id]?.completed)||units[0]||null,
+ const state={level,units,progress,current:units.find(u=>!progress[u.id]?.completed)||units[0]||null,
    answers:{},feedback:{},pending:{},saving:false,saved:false,
    navOpen:!window.matchMedia('(max-width: 800px)').matches,navScroll:0,showTranslations:true};
  let generation=0, currentChrome=null, disposePractice=null;
