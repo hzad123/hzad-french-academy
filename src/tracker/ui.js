@@ -1,13 +1,14 @@
 import {makeTrackerStore} from './store.js';
 import {LEVELS,SKILLS,learningLevel,skillEvidence,dueMistakes,makeDailyPlan} from './plan.js';
+import {mountRewards,mountCertificates} from '../achievements/ui.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const revisionSummary=entry=>`${entry.skill} · missed ${entry.wrongCount} time(s) · ${entry.lastCorrect?'reviewed; scheduled '+new Date(entry.dueAt).toLocaleDateString():'needs revision'}`;
 export function wireTracker(root,client){
  const area=root.querySelector('#hz-progress-tracker'),launch=root.querySelector('#hz-tracker-launch');
  const chooser=root.querySelector('#hz-course-chooser'),store=makeTrackerStore(client);
- let snapshot=null,tab='plan',epoch=0,busy=false,filter='due',page=0,notice='';
+ let snapshot=null,tab='plan',epoch=0,busy=false,filter='due',page=0,notice='',disposeExtra=null;
  const button=(title,fn,alt=false)=>{const n=el('button',title,'hz-btn'+(alt?' hz-btn-alt':''));n.type='button';n.addEventListener('click',fn);return n};
- const clear=()=>{epoch++;busy=false;snapshot=null;notice='';area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')};
+ const clear=()=>{epoch++;busy=false;snapshot=null;notice='';disposeExtra?.();disposeExtra=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')};
  let viewer=null;
  client.auth.onAuthStateChange?.((event,session)=>{
   if(event==='SIGNED_OUT'){viewer=null;clear()}
@@ -74,11 +75,12 @@ export function wireTracker(root,client){
  }
  function focusHeading(){const h=area.querySelector('h3');h?.focus()}
  function render(){
+  disposeExtra?.();disposeExtra=null;
   area.replaceChildren();area.classList.remove('hz-hidden');
   const heading=el('h3','Your Progress Tracker');heading.tabIndex=-1;
   area.append(heading,button('← All levels',close,true),button('Refresh progress',()=>{notice='';void run(()=>store.snapshot())},true));
   const tabs=el('nav');tabs.setAttribute('aria-label','Progress tracker views');
-  for(const [key,label] of [['plan','Daily plan'],['mastery','French mastery'],['notebook','Mistake notebook']]){
+  for(const [key,label] of [['plan','Daily plan'],['mastery','French mastery'],['notebook','Mistake notebook'],['rewards','Achievements'],['certificates','Certificates']]){
    const b=button(label,()=>{
     tab=key;page=0;notice='';
     if(key==='plan'&&snapshot?.notebookOffset){void run(()=>store.snapshot());return}
@@ -91,6 +93,8 @@ export function wireTracker(root,client){
   if(tab==='plan')renderPlan();
   if(tab==='mastery')renderMastery();
   if(tab==='notebook')renderNotebook();
+  if(tab==='rewards')disposeExtra=mountRewards(area,client);
+  if(tab==='certificates')disposeExtra=mountCertificates(area,client,{onSettings:()=>{tab='rewards';render();focusHeading()},onOpenLevel:(level,unitId)=>openLesson({level,id:unitId})});
   area.append(el('p','Practice scores and course completion are learning evidence, not official CEFR certification. Speaking and writing proficiency are not inferred.','hz-small'));
  }
  function renderPlan(){
