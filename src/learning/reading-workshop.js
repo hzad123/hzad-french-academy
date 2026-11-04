@@ -4,7 +4,7 @@ import {speakFrench} from './a0-ui.js';
 // longer passages and certified CEFR assessments require separate editorial QA.
 export function countFrenchWords(value) {
   const trimmed = String(value || '').trim();
-  return trimmed ? trimmed.split(/\s+/u).length : 0;
+  return trimmed ? trimmed.split(/\s+/u).filter(token => /[\p{L}\p{N}]/u.test(token)).length : 0;
 }
 export function readingGuidance(level) {
   const guides = {
