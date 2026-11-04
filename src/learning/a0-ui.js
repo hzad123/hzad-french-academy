@@ -48,7 +48,7 @@ export function renderA0Layout(host,state,onSelect){
    note.className='hz-cefr-beta-note';note.setAttribute('role','note');headerCopy.append(note);
  }
  const progress=el('div');progress.className='hz-a0-progress-track';
- progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','A0 course completion');
+ progress.setAttribute('role','progressbar');progress.setAttribute('aria-label',level+' course completion');
  progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(state.units.length));
  const fill=el('div');fill.className='hz-a0-progress-fill';progress.append(fill);
  const quick=el('div');quick.className='hz-a0-quick-row';
@@ -101,7 +101,7 @@ export function renderA0Layout(host,state,onSelect){
    count.textContent=n+' / '+state.units.length;
    fill.style.width=(state.units.length?100*n/state.units.length:0)+'%';
    progress.setAttribute('aria-valuenow',String(n));
-   continueBtn.textContent=n===state.units.length?'Review A0 lessons →':'Continue learning →';
+   continueBtn.textContent=n===state.units.length?'Review '+level+' lessons →':'Continue learning →';
    for(const item of navButtons){
      const done=!!state.progress[item.unit.id]?.completed;
      item.button.classList.toggle('is-complete',done);
