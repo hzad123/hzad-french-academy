@@ -30,3 +30,8 @@ For each task, state exactly: what was implemented, what was tested, what was no
 - Provide top-left Back navigation across app views, preserve saved progress,
   and clear navigation history when the account/session changes.
 - Use distinctive achievement artwork and modern certificate presentation.
+
+- Keep pronunciation, conversation and writing trainers under the separate
+  top-right AI Learning button. The owner selected OpenAI for these trainers.
+  Configure its key only in server-side secrets, and keep inference disabled
+  until the credit prices, cost ceilings and provider setup are reviewed.

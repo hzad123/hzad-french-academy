@@ -40,6 +40,7 @@ export function wireA0(root,client){
    if(!LEVELS.has(level)||loading)return;
    root.dispatchEvent(new CustomEvent('hzad-close-placement'));
    root.dispatchEvent(new CustomEvent('hzad-close-tracker'));
+   root.dispatchEvent(new CustomEvent('hzad-close-ai'));
    if(open&&activeLevel===level&&!target.unitId){reset();return}
    if(open)reset();
    const ticket=++generation;let cooling=false;

@@ -7,6 +7,7 @@ import {renderCourseCards} from '/src/dashboard/courses.js';
 import {wireTracker} from '/src/tracker/ui.js';
 import {wirePlacement} from '/src/placement/ui.js';
 import {wireA0} from '/src/learning/dashboard-integration.js';
+import {wireAiLearning} from '/src/ai/ui.js';
 const rootHost=document.querySelector('#host');rootHost.innerHTML=template();
 const root=rootHost.querySelector('#hzad-french-academy');
 wireNavigation(root);
@@ -71,6 +72,6 @@ const client={auth:{onAuthStateChange:fn=>{f.authCallbacks.push(fn);queueMicrota
   if(name==='academy_placement_state')return {data:{attempt:null,history:[]}};
   throw Error('Unexpected fixture RPC '+name);
  }};
-wireA0(root,client);wirePlacement(root,client);wireTracker(root,client);
+wireA0(root,client);wirePlacement(root,client);wireTracker(root,client);wireAiLearning(root,client);
 window.fixtureReady=true;
 </script></html>

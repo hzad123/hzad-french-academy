@@ -155,3 +155,8 @@ Build a high-quality, browser-based French-learning academy from **A0 through C2
 ---
 
 **Scope reminder:** The next assignment is the **A0–C2 placement test** with automatic recommended starting level. Everything else remains in the master roadmap until separately scheduled.
+
+
+## Latest owner assignment — AI Learning (2026-11-04)
+
+The owner has now requested an AI pronunciation trainer, interactive French conversation simulator, and AI writing trainer under a separate top-right **AI Learning** button, and selected **OpenAI**. Implementation and rollout instructions are in `docs/ai-learning.md`. This assignment includes the server-side credit/budget foundation needed for optional AI actions. It does not authorize payment checkout or invent production credit prices. The new schema/functions remain unapplied while awaiting a provider key, reviewed credit/model/budget settings, staging checks and production activation. Existing course progress and access must be preserved. Student-facing copy follows the concise-copy preferences in `AGENTS.md`.
