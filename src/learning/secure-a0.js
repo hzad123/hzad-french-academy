@@ -1,4 +1,5 @@
 import {makeLearningStore} from './supabase-store.js';
+import {renderReadingWorkshop} from './reading-workshop.js';
 import {renderA0Layout,renderVocabulary} from './a0-ui.js';
 import {renderListeningCheck,renderPracticeLab} from './practice-lab.js';
 import {showAssessmentBreakdown} from './assessment.js';
@@ -46,7 +47,9 @@ export async function mountSecureA0(host,client,level='A0'){
    meta.append(el('span','LESSON '+number),el('span',String(unit.minutes||10)+' MIN'));
    const title=el('h3',unit.title);title.className='hz-a0-lesson-title';
    intro.append(meta,title);content.append(intro);
+   renderReadingWorkshop(content,unit.reading,level);
    for(const section of unit.sections){
+     if(unit.reading && /original guided reading/i.test(section.heading||''))continue;
      const block=el('section');block.className='hz-lesson-section';block.append(el('h4',section.heading));
      if(Array.isArray(section.items)){
        const list=el('ul');list.className='hz-expression-list';
