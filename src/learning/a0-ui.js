@@ -44,8 +44,8 @@ export function renderA0Layout(host,state,onSelect){
  const summary=el('span','lessons completed');status.append(count,summary);
  header.append(headerCopy,status);
  if(level!=='A0'){
-   const note=el('p','EARLY ACCESS · This level contains unreviewed study drafts, short starter readings and synthesized pronunciation practice. Quizzes check recognition, not certified CEFR proficiency. Speaking and writing require independent feedback.');
-   note.className='hz-cefr-beta-note';note.setAttribute('role','note');headerCopy.append(note);
+   const note=el('p','AVAILABLE NOW · Explore this level’s lessons, French readings, and practice quizzes. Reading passages vary in length. Quiz results are practice feedback, not official CEFR certification; speaking and writing benefit from independent feedback.');
+   note.className='hz-course-info-note';note.setAttribute('role','note');headerCopy.append(note);
  }
  const progress=el('div');progress.className='hz-a0-progress-track';
  progress.setAttribute('role','progressbar');progress.setAttribute('aria-label','A0 course completion');
