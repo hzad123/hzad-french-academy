@@ -44,7 +44,7 @@ export async function mountSecureA0(host,client,level='A0'){
    const meta=el('div');meta.className='hz-a0-lesson-meta';
    const number=String(unit.id||'').split('-')[1]||'';
    meta.append(el('span','LESSON '+number),el('span',String(unit.minutes||10)+' MIN'));
-   const title=el('h3',unit.title);title.className='hz-a0-lesson-title';
+   const title=el('h3',unit.title);title.className='hz-a0-lesson-title';title.tabIndex=-1;
    intro.append(meta,title);content.append(intro);
    for(const section of unit.sections){
      const block=el('section');block.className='hz-lesson-section';block.append(el('h4',section.heading));
@@ -154,4 +154,18 @@ export async function mountSecureA0(host,client,level='A0'){
    return chrome;
  }
  render();
+ // Replace the previous mount's handler; deep links still select only units
+ // returned by the entitlement-protected RPC for this level.
+ host.hzadSelectionController?.abort();
+ host.hzadSelectionController=new AbortController();
+ host.addEventListener('hzad-select-unit',event=>{
+  if(!active())return;
+  const unit=state.units.find(u=>u.id===event.detail?.unitId);
+  if(unit){
+   selectLesson(unit);
+   const selectors={vocabulary:'.hz-vocab-heading',listening:'.hz-listening-quiz',grammar:'.hz-a0-quiz-title',reading:'.hz-lesson-section'};
+   const section=host.querySelector(selectors[event.detail?.skill]||'.hz-a0-lesson-title');
+   if(section){section.tabIndex=-1;section.focus({preventScroll:true});section.scrollIntoView?.({block:'start'})}
+  }
+ },{signal:host.hzadSelectionController.signal});
 }
