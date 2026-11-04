@@ -18,6 +18,11 @@ window.fixture={deny:false,delay:0,calls:[],authCallbacks:[],data:{generatedAt:n
  skills:[{skill:'grammar',correct:1,total:3}],notebookOffset:0,notebookTotal:1,
  notebook:[{unitId:'a0-01',questionId:'g1',level:'A0',title:'Greetings review',skill:'grammar',prompt:'Je ___ Léa.',options:['est','suis'],chosenAnswer:'est',correctAnswer:'suis',explanation:'Je takes suis.',lastCorrect:false,wrongCount:1,dueAt:now,lastCheckedAt:now}]}};
 const f=window.fixture;
+f.rewards={xp:60,rank:1,rankProgress:60,streak:1,longestStreak:3,studiedToday:true,
+ profile:{timezone:'America/Winnipeg',certificateName:'Élodie Example',title:'French learner'},
+ badges:[{code:'first-lesson',name:'First steps',progress:1,target:1,earned:true},{code:'seven-day-streak',name:'Weekly dedication',progress:3,target:7,earned:false}],
+ rewards:[{name:'French learner',requiredXp:0},{name:'Dedicated learner',requiredXp:250}]};
+const finalQuestion=i=>({id:'final-fixture-'+i,skill:i>=9?'listening':i>=6?'reading':i>=3?'vocabulary':'grammar',prompt:'Choose the appropriate expression.',options:['Non','Oui','Peut-être','Jamais'],audioText:i>=9?'Bonjour, je voudrais un billet pour demain.':null});
 const snapshot=()=>structuredClone(f.data);
 const progress=()=>f.data.units.filter(u=>u.attempts>0).map(u=>({unit_id:u.id,attempts:u.attempts,best_percent:u.best,completed:u.completed}));
 function record(unit,id,choice){
@@ -39,6 +44,23 @@ const client={auth:{onAuthStateChange:fn=>{f.authCallbacks.push(fn);queueMicrota
   if(f.deny)return {error:{message:'Verified email and active academy access required'}};
   if(f.failNext&&name==='academy_tracker_revise'){f.failNext=false;return {error:{message:'Connection interrupted. Retry your answer.'}}}
   if(name==='academy_tracker_snapshot')return {data:snapshot()};
+  if(name==='academy_rewards_state')return {data:structuredClone(f.rewards)};
+  if(name==='academy_rewards_preferences'){f.rewards.profile={timezone:args.p_timezone,certificateName:args.p_name,title:args.p_title};return {data:structuredClone(f.rewards)}}
+  if(name==='academy_certificates_state')return {data:{name:f.rewards.profile.certificateName,certificates:f.certificate?[f.certificate]:[],attempts:[],levels:['A0','A1','A2','B1','B2','C1','C2'].map(level=>{
+   const units=f.data.units.filter(u=>u.level===level),ready=units.filter(u=>u.completed&&u.best>=70).length;return {level,total:units.length,ready,eligible:units.length>0&&ready===units.length,nextUnit:units.find(u=>!u.completed||u.best<70)?.id};
+  })}};
+  if(name==='academy_final_start'){
+   if(!f.final||f.final.status!=='active')f.final={id:'final-fixture',level:args.p_level,version:'fixture-v1',status:'active',answered:0,total:12,textSupport:args.p_text_support,question:finalQuestion(0),result:null};return {data:structuredClone(f.final)};
+  }
+  if(name==='academy_final_state')return {data:structuredClone(f.final)};
+  if(name==='academy_final_answer'){
+   f.final.answered++;f.final.textSupport ||= args.p_transcript;f.final.question=finalQuestion(f.final.answered);
+   if(f.final.answered===12){
+    f.certificate={id:'33333333-3333-4333-8333-333333333333',level:'A0',version:'fixture-v1',holder:f.rewards.profile.certificateName,issuedAt:new Date().toISOString(),scope:'Grammar, vocabulary and reading (text-supported assessment)',lessonCount:2,score:100,revoked:false,issuer:'HZad Education'};
+    f.final.status='completed';f.final.question=null;f.final.result={passed:true,percent:100,scope:f.certificate.scope,certificateId:f.certificate.id,skills:{grammar:{correct:3,total:3},vocabulary:{correct:3,total:3},reading:{correct:6,total:6}}};
+   }return {data:structuredClone(f.final)};
+  }
+  if(name==='academy_certificate_get')return {data:structuredClone(f.certificate)};
   if(name==='academy_tracker_preferences'){f.data.preferences={minutes:args.p_minutes,level:args.p_level};return {data:snapshot()}}
   if(name==='academy_tracker_revise')return {data:{feedback:record(args.p_unit_id,args.p_question_id,args.p_answer),snapshot:snapshot()}};
   if(name==='academy_list_units')return {data:f.data.units.filter(u=>u.level===args.p_level).map(u=>({...u,content:{sections:[{heading:'French expressions',body:'Practice French greetings.'}],vocabulary:[['Bonjour','Hello']]},quiz:[{id:u.id==='a0-01'?'g1':'g2',type:'choice',prompt:'Je ___ Léa.',options:['est','suis']}]}))};

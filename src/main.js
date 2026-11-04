@@ -7,6 +7,8 @@ import {template} from './ui/template.js';
 import {wireA0} from './learning/dashboard-integration.js';
 import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
+import {wireRewardInitialization} from './achievements/ui.js';
+import {mountVerification} from './achievements/verification.js';
 
 export function mountAcademy(host,createClient){
   if(host.dataset.initialized)return;
@@ -45,7 +47,7 @@ export function mountAcademy(host,createClient){
     if(sequence!==accessSequence||recovering)return;
     $('hz-user-label').textContent=result.user?.email||'';
     if(result.kind==='signed_out'){clearLessons();show('hz-auth');return}
-    if(result.kind==='active'){clearMsg('hz-pending-message');show('hz-dashboard');return}
+    if(result.kind==='active'){clearMsg('hz-pending-message');show('hz-dashboard');root.dispatchEvent(new CustomEvent('hzad-access-active',{detail:{userId:result.user.id}}));return}
     clearLessons();show('hz-pending');clearMsg('hz-pending-message');
     if(result.kind==='unverified')$('hz-pending-text').textContent='Please verify your email using the link in your inbox.';
     else if(result.kind==='error'){
@@ -105,6 +107,8 @@ export function mountAcademy(host,createClient){
   wireA0(root,client);
   wirePlacement(root,client);
   wireTracker(root,client);
+  wireRewardInitialization(root,client);
+  mountVerification($('hz-auth'));
   const footer=root.querySelector('.hz-foot');
   if(footer){const version=document.createElement('small');version.textContent=' | '+SESSION_BUILD;footer.append(version)}
   client.auth.onAuthStateChange(event=>{
