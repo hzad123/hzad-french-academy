@@ -269,3 +269,30 @@
 /* A1-C2 are explicitly released as early-access study drafts, not certified courses. */
 #hzad-french-academy #hz-a0-learning .hz-cefr-beta-note{margin:14px 0 0;padding:13px 15px;border:1px solid #edcd83;border-left:4px solid #dda332;background:#fff8e6;color:#6c4b14;border-radius:10px;font-size:12.5px;line-height:1.6;font-weight:600;max-width:800px}
 #hzad-french-academy button.hz-course:not(.hz-course-ready) .hz-small{font-weight:650;color:#87621f}
+
+/* Centered level navigation: accessible and balanced on wide and narrow displays. */
+#hzad-french-academy .hz-course-chooser{max-width:1050px;margin:22px auto 0}
+#hzad-french-academy .hz-course-intro{text-align:center;margin:0 auto 22px;max-width:720px}
+#hzad-french-academy .hz-course-eyebrow{font-size:11px;letter-spacing:.16em;font-weight:850;color:#926015;margin:0 0 8px}
+#hzad-french-academy .hz-course-intro h3{font-size:clamp(23px,3.5vw,30px);font-weight:850;letter-spacing:-.035em;color:#112b57;margin:0 0 9px}
+#hzad-french-academy .hz-course-intro>p:last-child{font-size:15px;color:#52677f;line-height:1.6;margin:0}
+#hzad-french-academy #hz-courses.hz-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:22px auto 10px;max-width:1050px}
+#hzad-french-academy #hz-courses .hz-course{flex:1 1 215px;min-width:210px;max-width:250px;min-height:205px;text-align:left;display:flex;flex-direction:column;align-items:stretch;gap:11px;padding:19px 19px 16px;background:linear-gradient(155deg,#fff 0%,#f8fbff 100%);border:1px solid #d6e2f2;border-radius:17px;color:#15345e;box-shadow:0 7px 21px #132e590c;transition:transform .17s ease,border-color .17s ease,box-shadow .17s ease}
+#hzad-french-academy #hz-courses .hz-course-featured{border-color:#91b8ef;background:linear-gradient(155deg,#f7faff 0%,#edf5ff 100%)}
+#hzad-french-academy #hz-courses .hz-course-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+#hzad-french-academy #hz-courses .hz-level{font-weight:900;font-size:34px;letter-spacing:-.05em;color:#2058b5;line-height:1.1}
+#hzad-french-academy #hz-courses .hz-course-status{font-size:10px;font-weight:800;background:#e7f6ee;color:#186746;border:1px solid #bde4cf;border-radius:999px;padding:6px 8px;white-space:nowrap;line-height:1.25}
+#hzad-french-academy #hz-courses .hz-course-status::before{content:"";display:inline-block;width:6px;height:6px;background:#24965d;border-radius:50%;margin-right:5px;vertical-align:1px}
+#hzad-french-academy #hz-courses .hz-course-name{display:block;font-size:18px;font-weight:800;line-height:1.25;min-height:40px}
+#hzad-french-academy #hz-courses .hz-course-count{display:block;font-size:14px;font-weight:650;color:#52677f}
+#hzad-french-academy #hz-courses .hz-course-open{display:block;margin-top:auto;border-top:1px solid #e4ecf6;padding-top:11px;color:#2058b5;font-size:13px;font-weight:800;letter-spacing:.01em}
+#hzad-french-academy #hz-courses .hz-course:hover{transform:translateY(-3px);border-color:#8cb0e5;box-shadow:0 13px 28px #143f7a1a}
+#hzad-french-academy #hz-courses .hz-course:focus-visible,#hzad-french-academy .hz-back-levels:focus-visible{outline:3px solid #deaa3b;outline-offset:3px}
+#hzad-french-academy #hz-courses .hz-course:disabled{cursor:wait;opacity:.68;transform:none}
+#hzad-french-academy .hz-level-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 0;flex-wrap:wrap}
+#hzad-french-academy .hz-back-levels{border:1px solid #bbd0ef;background:#eff5ff;color:#174884;font-weight:800;padding:10px 16px;border-radius:11px;transition:background .15s}
+#hzad-french-academy .hz-back-levels:hover{background:#e0edff}
+#hzad-french-academy .hz-current-level{font-size:13px;font-weight:800;color:#54708e}
+@media(max-width:700px){#hzad-french-academy #hz-courses.hz-grid{gap:12px}#hzad-french-academy #hz-courses .hz-course{flex-basis:185px;min-width:0;max-width:calc(50% - 6px);padding:16px;min-height:190px}#hzad-french-academy #hz-courses .hz-course-top{flex-wrap:wrap}#hzad-french-academy #hz-courses .hz-course-status{font-size:10px}#hzad-french-academy #hz-courses .hz-course-name{font-size:16px;min-height:38px}}
+@media(max-width:420px){#hzad-french-academy #hz-courses .hz-course{flex:1 1 100%;max-width:100%;min-height:162px}#hzad-french-academy #hz-courses .hz-course-top{flex-wrap:nowrap}#hzad-french-academy #hz-courses .hz-course-name{min-height:0}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy #hz-courses .hz-course{transition:none}#hzad-french-academy #hz-courses .hz-course:hover{transform:none}}
