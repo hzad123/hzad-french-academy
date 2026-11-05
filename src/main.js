@@ -8,6 +8,8 @@ import {wireA0} from './learning/dashboard-integration.js';
 import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
 import {wireAiLearning} from './ai/ui.js';
+import {wireExams} from './exams/ui.js';
+import {wireExamAudioAdmin} from './exams/audio-admin.js';
 import {wireRewardInitialization} from './achievements/ui.js';
 import {mountVerification} from './achievements/verification.js';
 import {wireNavigation,recordView} from './ui/navigation.js';
@@ -113,6 +115,8 @@ export function mountAcademy(host,createClient){
   wirePlacement(root,client);
   wireTracker(root,client);
   wireAiLearning(root,client);
+  wireExams(root,client);
+  wireExamAudioAdmin(root,client);
   wireRewardInitialization(root,client);
   mountVerification($('hz-auth'));
   const footer=root.querySelector('.hz-foot');
