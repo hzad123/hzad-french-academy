@@ -1,6 +1,6 @@
 # TEF Canada / TCF Canada mock exams
 
-Feature branch: `feature/tef-tcf-mock-exams-20261105`; draft PR #13 targets `development`. No feature migration, provider call, credit-price change, merge or deployment has occurred in production. Existing lessons, quiz IDs, progress, purchase entitlements and student balances are untouched.
+Feature branch: `feature/tef-tcf-mock-exams-20261105`; draft PR #13 targets `development`. After the owner explicitly requested publication on November 5, both additive exam migrations were applied and academy-exams version 1 was deployed ACTIVE with verify_jwt=true. All 392 lessons and five progress rows were preserved, including an unchanged checksum of every progress row. Both catalog rows remain disabled, unpriced, and without audio/editorial sign-off. No inference, price activation or frontend merge/deployment occurred. Existing entitlements and student balances are untouched.
 
 ## Implementation
 
