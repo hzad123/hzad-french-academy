@@ -97,7 +97,7 @@ Build a high-quality, browser-based French-learning academy from **A0 through C2
 - These are mostly deterministic / non-AI features.
 
 ### Phase C — HZad AI credit wallet (build before paid AI actions)
-- **Six months of included student AI credits**, tied to verified purchase/access terms; user intent is to keep the **maximum included AI provider cost at CAD $15 per student** during the included period, with billing/provider cost monitored.
+- **Six months of included student AI credits**, tied to verified purchase/access terms; user intent is to keep the **maximum included AI provider cost at CAD $10 per student** during the included period, with billing/provider cost monitored.
 - Display **per-activity credit charges before the student starts**, including messages, voice/pronunciation, conversational sessions, writing feedback and full mock tests.
 - Charge and **reserve sufficient credits server-side**, and prevent negative balances and race conditions. Use append-only/auditable transactions, idempotency, usage limits and cost reporting.
 - After included credits are exhausted, prompt for **paid credit top-ups** rather than incurring unbounded expenses.
@@ -138,7 +138,7 @@ Build a high-quality, browser-based French-learning academy from **A0 through C2
 - **For code:** reviewed feature branch + PR, `npm test`, `npm run build`, migration/security validation, successful CI and protected authorized/unentitled browser QA. Check a real mobile viewport and keyboard navigation.
 - **For curriculum:** factual French/English correctness, pedagogical coherence at target level, no templated filler, sufficient example variety, answer/explanation alignment, and explicit draft-vs-validated status internally.
 - **For placement:** deterministic versioned scoring, no leaked answer keys, enough evidence, explainable recommendations, retake persistence and no unauthorized results access.
-- **For AI wallet:** atomic credit accounting, visible activity costs, top-up flow, tested price/cost assumptions, CAD $15 included provider-cost ceiling enforced operationally.
+- **For AI wallet:** atomic credit accounting, visible activity costs, top-up flow, tested price/cost assumptions, CAD $10 included provider-cost ceiling enforced operationally.
 - **For mock exams:** authentic original content, current spec verification, credit reservation, consistent grading labels and result-review behavior.
 - **For launch:** protect data, verify CI **and** deployed Pages, then inspect the actual GHL page. Changes to `development` can trigger production GitHub Pages deployment, so **review before merging**.
 
@@ -155,3 +155,8 @@ Build a high-quality, browser-based French-learning academy from **A0 through C2
 ---
 
 **Scope reminder:** The next assignment is the **A0–C2 placement test** with automatic recommended starting level. Everything else remains in the master roadmap until separately scheduled.
+
+
+## Latest owner assignment — AI Learning (2026-11-04)
+
+The owner has now requested an AI pronunciation trainer, interactive French conversation simulator, and AI writing trainer under a separate top-right **AI Learning** button, and selected **OpenAI**. Implementation and rollout instructions are in `docs/ai-learning.md`. This assignment includes the server-side credit/budget foundation needed for optional AI actions. It does not authorize payment checkout or invent production credit prices. The owner subsequently supplied `OPENAI_API_KEYfrench`, authorized publishing, and changed the included AI budget to CAD $10 per student, followed by paid top-ups. Deployment status is recorded in `docs/ai-learning-release.md`; spending remains paused until provider checks and launch settings are cleared. Existing course progress and access must be preserved. Student-facing copy follows the concise-copy preferences in `AGENTS.md`.

@@ -7,6 +7,7 @@ import {template} from './ui/template.js';
 import {wireA0} from './learning/dashboard-integration.js';
 import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
+import {wireAiLearning} from './ai/ui.js';
 import {wireRewardInitialization} from './achievements/ui.js';
 import {mountVerification} from './achievements/verification.js';
 import {wireNavigation,recordView} from './ui/navigation.js';
@@ -111,6 +112,7 @@ export function mountAcademy(host,createClient){
   wireA0(root,client);
   wirePlacement(root,client);
   wireTracker(root,client);
+  wireAiLearning(root,client);
   wireRewardInitialization(root,client);
   mountVerification($('hz-auth'));
   const footer=root.querySelector('.hz-foot');

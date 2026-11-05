@@ -29,7 +29,9 @@ try:
             assert page.locator('.hz-tracker-entry').count()==0
             box=page.locator('#hz-tracker-launch').bounding_box()
             top=page.locator('#hz-dashboard .hz-topline').bounding_box()
-            assert box['x']+box['width']>top['x']+top['width']*.9
+            actions=page.locator('#hz-dashboard .hz-dashboard-actions').bounding_box()
+            assert actions['x']+actions['width']>top['x']+top['width']*.9
+            assert box['x']>=actions['x'] and box['x']+box['width']<=actions['x']+actions['width']+.5
             page.screenshot(path=str(artifacts/f'homepage-{width}.png'),full_page=True)
             page.get_by_role('button',name='Progress Tracker').click()
             area=page.locator('#hz-progress-tracker')
