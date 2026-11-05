@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local audio administration fixture</title><link rel="stylesheet" href="/src/styles/academy.css"><div id="host"></div>
+<script type="module">
+import {template} from '/src/ui/template.js';
+import {wireNavigation} from '/src/ui/navigation.js';
+import {wireExamAudioAdmin} from '/src/exams/audio-admin.js';
+document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
+const f=window.fixture={owner:new URLSearchParams(location.search).get('owner')!=='no',callbacks:[],generations:0,delay:20,signedIn:true,providerReady:true,assets:Array.from({length:3},(_,i)=>({path:'synthetic/l'+(i+1)+'.mp3',exam:i<2?'tef-canada':'tcf-canada',ordinal:i<2?i+1:1,scriptHash:'a'.repeat(64),script:'Bonjour, le cours commence à dix heures. Question : à quelle heure commence le cours ?',status:'pending',reviewed:false,audioHash:null}))};
+const session=()=>({access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:f.owner?'owner':'student'}});
+const client={auth:{getSession:async()=>({data:{session:f.signedIn?session():null}}),onAuthStateChange:fn=>f.callbacks.push(fn)}};
+const fetcher=async(_url,init)=>{
+ if(!f.owner)return new Response(JSON.stringify({error:'Operator required'}),{status:403});
+ const input=init.body?JSON.parse(init.body):null;
+ if(input?.action==='generate-next'){await new Promise(resolve=>setTimeout(resolve,f.delay));const row=f.assets.find(a=>a.status==='pending');if(row){f.generations++;row.status='ready';row.audioHash='b'.repeat(64)}}
+ if(input?.action==='listen')return new Response(JSON.stringify({url:'/tests/fixtures/exam-silence.wav'}));
+ if(input?.action==='review')f.assets.find(a=>a.path===input.path).reviewed=true;
+ return new Response(JSON.stringify({assets:f.assets,providerReady:f.providerReady}));
+};
+wireExamAudioAdmin(root,client,{fetcher});f.signOut=()=>{f.signedIn=false;for(const fn of f.callbacks)fn('SIGNED_OUT',null)};
+window.fixtureReady=true;
+</script></html>
