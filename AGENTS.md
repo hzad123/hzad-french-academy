@@ -27,6 +27,9 @@ For each task, state exactly: what was implemented, what was tested, what was no
   factual requirements clear. Use accurate positive labels such as “HZad
   Certificate of Course Completion”; do not invent accreditation claims.
 - Keep Progress Tracker as the top-right dashboard button, not a central promo.
+- Organise each TEF/TCF full timed test into Reading, Listening, Writing and
+  Speaking, with its numbered questions/tasks underneath. These are sections
+  of one full test, not separately purchased practice activities.
 - Provide top-left Back navigation across app views, preserve saved progress,
   and clear navigation history when the account/session changes.
 - Use distinctive achievement artwork and modern certificate presentation.

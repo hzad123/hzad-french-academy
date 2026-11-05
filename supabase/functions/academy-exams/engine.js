@@ -107,7 +107,7 @@ export function applyEvent(state,bank,{userId,now,event}){
 }
 export function publicAttempt(state,bank,{userId,now}){
  const attempt=tick(state,bank,{userId,now});
- const summary={id:attempt.id,exam:attempt.exam,version:attempt.version,status:attempt.status,startedAt:attempt.startedAt,finishedAt:attempt.finishedAt,sectionResults:clone(attempt.sectionResults)};
+ const summary={id:attempt.id,exam:attempt.exam,version:attempt.version,status:attempt.status,startedAt:attempt.startedAt,finishedAt:attempt.finishedAt,sectionResults:clone(attempt.sectionResults),sections:bank.sections.map(s=>({skill:s.skill,seconds:s.seconds,items:s.items.length,answered:s.items.flatMap((q,i)=>Object.hasOwn(attempt.answers,q.id)||!!attempt.writing[q.id]?.trim()||(attempt.speaking[q.id]||[]).length?[i]:[])}))};
  if(attempt.status==='completed')return {...summary,feedback:clone(attempt.feedback)};
  const section=bank.sections[attempt.section],item=section.items[attempt.item];
  const question={id:item.id,prompt:item.prompt};

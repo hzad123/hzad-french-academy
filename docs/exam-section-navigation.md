@@ -1,0 +1,9 @@
+# Full-test section and question navigation
+
+The owner requested **TEF/TCF → Reading/Listening/Writing/Speaking → questions**, and explicitly chose sections within the full timed test rather than separate practice modes.
+
+Each exam card now has four expandable skill categories. Their outlines list all question/task numbers. Starting the full test opens the active question inside its skill section. Reading questions and TCF writing tasks can be selected directly from their lists, with saved-work markers. Listening, TEF timed writing and speaking retain their sequential rules. Completed and upcoming sections can be expanded for their outlines, but do not permit jumping past server eligibility, resetting clocks or opening corrections early. Completed review also groups questions, corrections and productive feedback under the same four categories.
+
+`publicAttempt()` supplies only a version-frozen section outline (skill, duration, item count and answered indices). Correct choices, rationales, listening transcripts and future question content remain withheld until eligible delivery/completed review. The UI supports the previous response shape during rollout by falling back to catalog counts. There are no new charges, independent section attempts, prices, schemas, migrations, content IDs or student-data updates. Full-test release gates and the separate owner audio setup remain in place.
+
+Validation covers exact bank counts, revision eligibility, no cross-section jumps, fixed task clocks, answer-key withholding and existing regressions. Desktop/mobile fixture QA checks expandable outlines, active-question nesting, direct reading/TCF writing navigation, saved answers, timed-section locks and grouped review. These checks use mock provider/storage services and do not establish native AI grading or live student exam activation.
