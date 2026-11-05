@@ -142,10 +142,15 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   for(const [key,[,label]] of Object.entries(trainers)){const b=button(label,()=>{state.tab=key;state.result=null;render()},true);b.setAttribute('aria-current',state.tab===key?'page':'false');nav.append(b)}area.append(nav);
   if(!state.snapshot){area.append(el('p','Opening your AI practice…'));remember();return}
   const snap=state.snapshot;
+  if(Number.isFinite(Number(snap.includedCad)))area.append(el('p',`Included AI allowance: up to CAD $${Number(snap.includedCad).toFixed(2)}. Additional AI use requires a paid credit top-up.`,'hz-small'));
   if(snap.wallet)area.append(el('p',`${snap.wallet.available} AI credits available · ${snap.wallet.reserved} reserved`,'hz-ai-balance'));
   if(!snap.enabled)status('AI Learning is being prepared. Please return soon.');
-  else if(snap.wallet&&Date.parse(snap.wallet.expiresAt)<=Date.now())status('Your included AI learning period has ended. Contact the academy to continue.');
-  else if(snap.wallet&&!snap.wallet.budgetAvailable)status('Your AI study allowance has been reached. Contact the academy for help.');
+  else if(snap.wallet&&(Date.parse(snap.wallet.expiresAt)<=Date.now()||!snap.wallet.budgetAvailable||snap.wallet.available===0)){
+   status('Your AI credit allowance is used. Purchase additional AI credits to continue.');
+   let checkout;try{const url=new URL(snap.topUpUrl);if(url.protocol==='https:')checkout=url.href}catch{}
+   if(checkout){const link=el('a','Purchase AI credits','hz-btn');link.href=checkout;link.target='_blank';link.rel='noopener noreferrer';area.append(link)}
+   else status('Contact the academy to arrange a paid AI credit top-up.');
+  }
   if(state.tab==='home'){
    const cards=el('div',undefined,'hz-ai-cards');for(const [key,[icon,title,description]] of Object.entries(trainers)){
     const card=el('article',undefined,'hz-ai-card');const symbol=el('span',icon,'hz-ai-symbol');symbol.setAttribute('aria-hidden','true');card.append(symbol,el('h4',title),el('p',description));

@@ -17,7 +17,7 @@ try:
   for width in [390,1280]:
    page=browser.new_page(viewport={'width':width,'height':900});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
    page.add_init_script("""window.aiTracks=[];const get=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);navigator.mediaDevices.getUserMedia=async options=>{const stream=await get(options);aiTracks.push(...stream.getTracks());return stream};""")
-   state={'enabled':True,'wallet':{'available':100,'reserved':0,'budgetAvailable':True,'expiresAt':'2099-01-01T00:00:00Z'},'activities':{k:{'enabled':True,'credits':v} for k,v in [('writing',4),('pronunciation',3),('conversation',2)]},'history':[],'conversations':[]}
+   state={'enabled':True,'includedCad':10,'wallet':{'available':100,'reserved':0,'budgetAvailable':True,'expiresAt':'2099-01-01T00:00:00Z'},'activities':{k:{'enabled':True,'credits':v} for k,v in [('writing',4),('pronunciation',3),('conversation',2)]},'history':[],'conversations':[]}
    requests={};sessions={};calls=[];lost={'next':True}
    def route_request(route):
     request=route.request
@@ -56,6 +56,7 @@ try:
    assert page.locator('.hz-dashboard-actions #hz-ai-launch').count()==1
    assert page.locator('#hz-course-chooser #hz-ai-launch').count()==0
    page.locator('#hz-ai-launch').click();area=page.locator('#hz-ai-learning')
+   area.get_by_text('Included AI allowance: up to CAD $10.00.',exact=False).wait_for()
    area.get_by_role('button',name='Open Writing trainer',exact=True).click()
    area.get_by_label('Your French writing').fill('Je suis aller au marché.')
    area.get_by_role('button',name='Review my writing · 4 credits',exact=True).click()
@@ -103,6 +104,12 @@ try:
    area.get_by_text('AI Learning is being prepared.',exact=False).wait_for()
    area.get_by_role('button',name='Open Writing trainer',exact=True).click()
    assert area.get_by_label('Your French writing').input_value()==''
+   assert area.get_by_role('button',name='Review my writing · 4 credits',exact=True).is_disabled()
+   state['enabled']=True;state['wallet']['available']=0;state['wallet']['budgetAvailable']=False
+   state['topUpUrl']='https://payments.example.test/ai-credits'
+   page.locator('#hz-ai-launch').click();area.get_by_role('link',name='Purchase AI credits',exact=True).wait_for()
+   assert area.get_by_role('link',name='Purchase AI credits',exact=True).get_attribute('href')==state['topUpUrl']
+   area.get_by_role('button',name='Open Writing trainer',exact=True).click()
    assert area.get_by_role('button',name='Review my writing · 4 credits',exact=True).is_disabled()
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
    assert not errors,errors

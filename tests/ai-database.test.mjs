@@ -25,12 +25,12 @@ before(async()=>{
  await db.exec(await readFile('supabase/migrations/20261029_academy_learning.sql','utf8'));
  await db.exec(`insert into public.academy_units(id,level,position,title,published) values('a0-01','A0',1,'Existing lesson',true);
  insert into public.academy_learning_progress(user_id,unit_id,attempts,best_percent,completed) values('${alice}','a0-01',2,83,true);`);
- await db.exec(await readFile('supabase/migrations/20261104_ai_learning.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261105001000_ai_learning.sql','utf8'));
 });
 after(async()=>db?.close());
 beforeEach(async()=>{
- await role();await db.exec(`truncate academy_ai.ledger,academy_ai.requests,academy_ai.conversations,academy_ai.wallets restart identity cascade;
- update academy_ai.policy set enabled=true,included_credits=20,student_cap_microcad=1000,global_cap_microcad=5000,spent_microcad=0,reserved_microcad=0,daily_limit=20;
+ await role();await db.exec(`truncate academy_ai.paid_topups,academy_ai.ledger,academy_ai.requests,academy_ai.conversations,academy_ai.wallets restart identity cascade;
+ update academy_ai.policy set enabled=true,allowed_users=null,included_credits=20,student_cap_microcad=1000,global_cap_microcad=5000,spent_microcad=0,reserved_microcad=0,daily_limit=20;
  update academy_ai.activities set enabled=true,credits=case kind when 'writing' then 4 when 'conversation' then 2 else 3 end,ceiling_microcad=100,model='tested-model',max_output_tokens=1200;
  update auth.users set email_confirmed_at=now();update public.purchase_entitlements set status='active',verified_at=now(),access_starts_at=now()-interval '1 day',access_ends_at=null;`);
 });
@@ -39,6 +39,13 @@ test('AI defaults can be disabled without initializing wallets or affecting less
  const s=await state();assert.equal(s.enabled,false);assert.equal(s.wallet,null);assert.deepEqual(s.history,[]);
  await assert.rejects(()=>reserve(base()),/not available/);await role();assert.equal((await q('select count(*)::int n from academy_ai.wallets'))[0].n,0);
  assert.equal((await q('select best_percent from public.academy_learning_progress'))[0].best_percent,83);
+});
+test('deployment allowlists restrict AI spending without granting course access or allocating other wallets',async()=>{
+ await q('update academy_ai.policy set allowed_users=array[$1]::uuid[]',[alice]);
+ await role('authenticated',bob);const s=await state();assert.equal(s.enabled,false);assert.equal(s.wallet,null);
+ await assert.rejects(()=>reserve(base({user:bob})),/not available/);
+ const r=base();await reserve(r);await role();await q('update academy_ai.policy set allowed_users=array[$1]::uuid[]',[bob]);
+ await assert.rejects(()=>claim(r),/paused/);await fail(r);
 });
 test('only verified entitled identities read AI data; students cannot reserve, claim, change credits or access private tables',async()=>{
  await role('anon');await assert.rejects(state,/permission denied/);
@@ -103,6 +110,17 @@ test('maintenance refunds stale work conservatively and purges old content witho
  r=base();await reserve(r);await claim(r);await finish(r);await role();await db.exec("update academy_ai.requests set created_at=now()-interval '91 days' where status='completed'");
  await role('service_role');assert.equal((await value('select public.academy_ai_maintenance() as v')).feedbackPurged,1);
  await role('authenticated',alice);assert.equal((await state()).history.length,1);assert.equal((await row('wallets')).available,16);
+});
+test('the included cap cannot exceed CAD 10 and only verified administrative payments can add more AI credit',async()=>{
+ await assert.rejects(()=>q('update academy_ai.policy set student_cap_microcad=10000001'),/check constraint/);
+ const r=base();await reserve(r);await fail(r);await role('authenticated',alice);
+ const expiry=new Date(Date.now()+86400000*30).toISOString();
+ const topup=()=>value('select public.academy_ai_paid_topup($1,$2,20,1000,$3) as v',[alice,'verified-test-payment',expiry]);
+ await assert.rejects(topup,/permission denied/);await role('service_role');await assert.rejects(topup,/current AI allowance/);
+ await role();await db.exec('update academy_ai.wallets set available=0');await role('service_role');
+ assert.equal((await topup()).credited,true);assert.equal((await topup()).alreadyRecorded,true);
+ await role('authenticated',alice);const s=await state();assert.equal(s.wallet.available,20);assert.equal(s.wallet.funding,'paid');
+ await role('authenticated',bob);await assert.rejects(()=>q('select * from academy_ai.paid_topups'),/permission denied/);
 });
 test('saved feedback and pending activity are owner-only; rollback preserves them and existing progress',async()=>{
  const r=base();await reserve(r);await claim(r);await finish(r);

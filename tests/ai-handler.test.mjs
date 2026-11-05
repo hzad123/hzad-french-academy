@@ -4,9 +4,20 @@ import {createHandler} from '../supabase/functions/academy-ai/handler.js';
 import {createOpenAiProvider,buildMessages} from '../supabase/functions/academy-ai/provider.js';
 import {validateInput,validateOutput,inspectAudio,AiError} from '../supabase/functions/academy-ai/contracts.js';
 import {encodeWav,audioBase64} from '../src/ai/audio.js';
+import {providerKey} from '../supabase/functions/academy-ai/config.js';
+import {readFile} from 'node:fs/promises';
 const uid='11111111-1111-4111-8111-111111111111';
 const input=()=>({id:crypto.randomUUID(),kind:'writing',level:'B1',text:'Je suis allé au marché.',expectedCredits:4});
 const writing={correctedText:'Je suis allé au marché.',summary:'Clear sentence.',corrections:[],suggestions:['Add a reason for your visit.']};
+test('server configuration prefers the owner-named French key and preserves the standard fallback',()=>{
+ assert.equal(providerKey(name=>({OPENAI_API_KEYfrench:'french-test-key',OPENAI_API_KEY:'fallback-test-key'})[name]),'french-test-key');
+ assert.equal(providerKey(name=>name==='OPENAI_API_KEY'?'fallback-test-key':undefined),'fallback-test-key');
+ assert.equal(providerKey(()=>undefined),'');
+ assert.equal(providerKey(name=>name==='OPENAI_API_KEYfrench'?'  french-test-key  ':undefined),'french-test-key');
+});
+test('deployment keeps gateway JWT verification enabled',async()=>{
+ assert.match(await readFile('supabase/config.toml','utf8'),/verify_jwt = true/);
+});
 const audio=()=>audioBase64(encodeWav(Float32Array.from({length:16000},(_,i)=>.1*Math.sin(i/10)),16000));
 function setup({run,finishError=false,ready=true}={}){
  const requests=new Map(),calls=[];
@@ -82,4 +93,9 @@ test('writing/conversation outputs are bounded and malformed feedback fails befo
  assert.throws(()=>validateOutput('writing',{...writing,correctedText:'x'.repeat(7000)}));assert.throws(()=>validateOutput('pronunciation',{heardText:'Bonjour.'}));
  assert.throws(()=>validateOutput('conversation',{reply:'Bonjour',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:Array(4).fill('Oui')}));
  const messages=buildMessages({kind:'conversation',level:'A0',scenario:'cafe',text:'Un café.'},[{role:'user',content:'Bonjour'},{role:'assistant',content:'Bienvenue'}]);assert.equal(messages.length,4);assert.match(messages[0].content,/level A0/);
+});
+test('provider context stays bounded while retaining the introduction and latest conversation messages',()=>{
+ const history=Array.from({length:24},(_,i)=>({role:i%2?'assistant':'user',content:'Message '+i}));
+ const messages=buildMessages({kind:'conversation',level:'A2',scenario:'cafe',text:'Un café.'},history);
+ assert.equal(messages.length,10);assert.equal(messages[1].content,'Message 0');assert.equal(messages[2].content,'Message 1');assert.equal(messages[3].content,'Message 18');
 });

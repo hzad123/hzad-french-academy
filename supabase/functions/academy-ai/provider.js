@@ -11,7 +11,9 @@ export function buildMessages(input,history=[]){
  else if(input.kind==='pronunciation')task='Listen to the attached recording of this reference sentence: '+input.reference+'\nUse the acoustic evidence for French sounds, liaison, stress and rhythm. The reference is not a transcript of the recording. Do not treat a transcription match as proof of good pronunciation. If a sound is unclear, say so briefly and give a useful retry instruction. Never invent numerical or phoneme scores.';
  else task='Role-play this situation: '+SCENARIOS[input.scenario]+'. Stay in character as the French-speaking partner, keep the conversation interactive, and help the learner improve without interrupting every sentence. '+(input.audio?'Listen to the attached learner reply.':'LEARNER REPLY:\n'+input.text);
  const messages=[{role:'system',content:instructions}];
- if(input.kind==='conversation')for(const item of history.slice(-24)){
+ // Bound provider input while retaining the introduction and six latest turns.
+ const context=history.length<=8?history:[...history.slice(0,2),...history.slice(-6)];
+ if(input.kind==='conversation')for(const item of context){
   if(!['user','assistant'].includes(item.role)||typeof item.content!=='string'||item.content.length>2000)throw new AiError('Conversation history could not load.',503,'AI_HISTORY');
   messages.push({role:item.role,content:item.content});
  }

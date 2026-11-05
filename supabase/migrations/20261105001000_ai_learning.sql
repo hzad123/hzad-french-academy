@@ -6,8 +6,12 @@ revoke all on schema academy_ai from public,anon,authenticated;
 create table academy_ai.policy(
  id boolean primary key default true check(id),
  enabled boolean not null default false,
+ -- Null allows all otherwise-entitled learners; deployment probes use an
+ -- explicit disposable-user allowlist until release checks are complete.
+ allowed_users uuid[],
+ topup_url text check(topup_url is null or topup_url ~ '^https://[A-Za-z0-9][A-Za-z0-9.-]+(/|$)'),
  included_credits integer check(included_credits between 1 and 100000),
- student_cap_microcad bigint not null default 15000000 check(student_cap_microcad between 1 and 15000000),
+ student_cap_microcad bigint not null default 10000000 check(student_cap_microcad between 1 and 10000000),
  global_cap_microcad bigint not null default 0 check(global_cap_microcad>=0),
  spent_microcad bigint not null default 0 check(spent_microcad>=0),
  reserved_microcad bigint not null default 0 check(reserved_microcad>=0),
@@ -19,7 +23,7 @@ create table academy_ai.activities(
  enabled boolean not null default false,
  credits integer check(credits between 1 and 10000),
  -- Reviewed worst-case provider cost for bounded input/output, in micro-CAD.
- ceiling_microcad bigint check(ceiling_microcad between 1 and 15000000),
+ ceiling_microcad bigint check(ceiling_microcad between 1 and 10000000),
  model text check(length(model) between 1 and 100),
  max_output_tokens integer not null default 1200 check(max_output_tokens between 100 and 2000)
 );
@@ -31,7 +35,8 @@ create table academy_ai.wallets(
  reserved integer not null default 0 check(reserved>=0),
  spent_microcad bigint not null default 0 check(spent_microcad>=0),
  reserved_microcad bigint not null default 0 check(reserved_microcad>=0),
- cap_microcad bigint not null check(cap_microcad between 1 and 15000000),
+ purchased_budget_microcad bigint not null default 0 check(purchased_budget_microcad>=0),
+ cap_microcad bigint not null check(cap_microcad>0 and cap_microcad<=10000000+purchased_budget_microcad),
  starts_at timestamptz not null,
  expires_at timestamptz not null
 );
@@ -73,12 +78,22 @@ create table academy_ai.ledger(
  created_at timestamptz not null default now(),
  unique(request_id,event)
 );
+create table academy_ai.paid_topups(
+ payment_reference text primary key check(length(payment_reference) between 8 and 200),
+ user_id uuid not null references auth.users(id) on delete cascade,
+ credits integer not null check(credits between 1 and 100000),
+ budget_microcad bigint not null check(budget_microcad between 1 and 100000000),
+ expired_credits integer not null check(expired_credits>=0),
+ expires_at timestamptz not null,
+ verified_at timestamptz not null default now()
+);
 alter table academy_ai.policy enable row level security;
 alter table academy_ai.activities enable row level security;
 alter table academy_ai.wallets enable row level security;
 alter table academy_ai.conversations enable row level security;
 alter table academy_ai.requests enable row level security;
 alter table academy_ai.ledger enable row level security;
+alter table academy_ai.paid_topups enable row level security;
 revoke all on all tables in schema academy_ai from public,anon,authenticated,service_role;
 revoke all on all sequences in schema academy_ai from public,anon,authenticated,service_role;
 
@@ -99,7 +114,7 @@ declare cfg academy_ai.policy; start_date timestamptz;
 begin
  perform academy_ai.require_access(p_user);
  select * into cfg from academy_ai.policy where id;
- if not cfg.enabled or cfg.included_credits is null then return;end if;
+ if not cfg.enabled or cfg.included_credits is null or (cfg.allowed_users is not null and not (p_user=any(cfg.allowed_users))) then return;end if;
  -- Entitlement date, not the first AI visit; subsequent visits never refill it.
  select min(e.access_starts_at) into start_date from public.purchase_entitlements e where e.user_id=p_user
  and e.status='active' and e.verified_at is not null and e.access_starts_at<=now()
@@ -120,8 +135,9 @@ begin
   select id,kind,level,status,credits,conversation_id as "conversationId",created_at as "createdAt",result
   from academy_ai.requests where user_id=u and created_at>now()-interval '90 days' order by created_at desc,id desc limit 20
  )h;
- return jsonb_build_object('enabled',cfg.enabled and cfg.included_credits is not null and cfg.global_cap_microcad>cfg.spent_microcad+cfg.reserved_microcad,
- 'wallet',case when w.user_id is null then null else jsonb_build_object('available',case when w.expires_at>now() then w.available else 0 end,'reserved',w.reserved,'expiresAt',w.expires_at,
+ return jsonb_build_object('enabled',cfg.enabled and (cfg.allowed_users is null or u=any(cfg.allowed_users)) and cfg.included_credits is not null and cfg.global_cap_microcad>cfg.spent_microcad+cfg.reserved_microcad,
+ 'includedCad',cfg.student_cap_microcad/1000000.0,'topUpUrl',cfg.topup_url,
+ 'wallet',case when w.user_id is null then null else jsonb_build_object('available',case when w.expires_at>now() then w.available else 0 end,'reserved',w.reserved,'expiresAt',w.expires_at,'funding',case when w.purchased_budget_microcad>0 then 'paid' else 'included' end,
  'budgetAvailable',w.spent_microcad+w.reserved_microcad<w.cap_microcad) end,'activities',catalog,'history',history,
  'conversations',(select coalesce(jsonb_agg(to_jsonb(c)),'[]') from (select id,level,scenario,updated_at as "updatedAt",jsonb_array_length(messages)/2 as turns from academy_ai.conversations where user_id=u and updated_at>now()-interval '90 days' order by updated_at desc limit 5)c));
 end;$$;
@@ -158,13 +174,13 @@ begin
   return jsonb_build_object('id',r.id,'status',r.status,'result',r.result,'credits',r.credits,'conversationId',r.conversation_id);
  end if;
  select * into a from academy_ai.activities where kind=p_kind;
- if not found or not cfg.enabled or cfg.included_credits is null or not a.enabled or a.credits is null or a.ceiling_microcad is null or a.model is null then raise exception 'AI Learning is not available yet';end if;
+ if not found or not cfg.enabled or (cfg.allowed_users is not null and not (p_user=any(cfg.allowed_users))) or cfg.included_credits is null or not a.enabled or a.credits is null or a.ceiling_microcad is null or a.model is null then raise exception 'AI Learning is not available yet';end if;
  if p_expected_credits is null or p_expected_credits<>a.credits then raise exception 'AI credit price changed. Refresh before starting';end if;
  perform academy_ai.ensure_wallet(p_user);select * into w from academy_ai.wallets where user_id=p_user for update;
- if w.expires_at<=now() then raise exception 'Included AI learning period has ended';end if;
- if w.available<a.credits then raise exception 'Not enough AI credits for this activity';end if;
+ if w.expires_at<=now() then raise exception 'Included AI learning period has ended. Purchase additional AI credits to continue';end if;
+ if w.available<a.credits then raise exception 'Not enough AI credits for this activity. A paid top-up is required';end if;
  if w.spent_microcad+w.reserved_microcad+a.ceiling_microcad>w.cap_microcad
- or cfg.spent_microcad+cfg.reserved_microcad+a.ceiling_microcad>cfg.global_cap_microcad then raise exception 'AI study allowance reached. Please contact the academy';end if;
+ or cfg.spent_microcad+cfg.reserved_microcad+a.ceiling_microcad>cfg.global_cap_microcad then raise exception 'AI study allowance reached. Please contact the academy for paid credit options';end if;
  if (select count(*) from academy_ai.requests where user_id=p_user and created_at>now()-interval '24 hours')>=cfg.daily_limit then raise exception 'Daily AI practice limit reached. Return tomorrow';end if;
  if exists(select 1 from academy_ai.requests where user_id=p_user and status in ('reserved','dispatched')) then raise exception 'An AI activity is already in progress. Check your saved activity';end if;
  if p_kind='conversation' then
@@ -194,7 +210,7 @@ begin
  perform academy_ai.require_access(p_user);
  select * into r from academy_ai.requests where id=p_id and user_id=p_user for update;
  if not found or r.status<>'reserved' then return jsonb_build_object('claimed',false);end if;
- if not (select enabled from academy_ai.policy where id) then raise exception 'AI Learning is paused';end if;
+ if not exists(select 1 from academy_ai.policy where id and enabled and (allowed_users is null or p_user=any(allowed_users))) then raise exception 'AI Learning is paused';end if;
  select * into a from academy_ai.activities where kind=r.kind;
  if not a.enabled then raise exception 'This trainer is paused';end if;
  if r.conversation_id is not null then select * into s from academy_ai.conversations where id=r.conversation_id;end if;
@@ -261,14 +277,45 @@ begin
  return jsonb_build_object('reconciled',reconciled,'feedbackPurged',purged);
 end;$$;
 create function public.academy_ai_maintenance() returns jsonb language sql security invoker set search_path='' as $$select academy_ai.maintenance()$$;
+-- Administrative payment reconciliation only. The caller must independently
+-- verify the receipt with the payment provider; learner claims never grant credit.
+create function academy_ai.paid_topup(p_user uuid,p_payment_reference text,p_credits integer,p_budget_microcad bigint,p_expires_at timestamptz) returns jsonb
+language plpgsql security definer set search_path='' as $$
+declare w academy_ai.wallets;existing academy_ai.paid_topups;
+begin
+ perform academy_ai.require_access(p_user);
+ if p_payment_reference is null or length(p_payment_reference) not between 8 and 200 or p_credits is null or p_credits not between 1 and 100000
+ or p_budget_microcad is null or p_budget_microcad not between 1 and 100000000 or p_expires_at is null
+ or p_expires_at<=now() or p_expires_at>now()+interval '1 year' then raise exception 'Invalid verified payment';end if;
+ perform 1 from academy_ai.policy where id for update;
+ select * into existing from academy_ai.paid_topups where payment_reference=p_payment_reference;
+ if found then
+  if existing.user_id is distinct from p_user or existing.credits<>p_credits or existing.budget_microcad<>p_budget_microcad or existing.expires_at<>p_expires_at then raise exception 'Payment reference already used';end if;
+  return jsonb_build_object('credited',false,'alreadyRecorded',true);
+ end if;
+ select * into w from academy_ai.wallets where user_id=p_user for update;
+ if not found then raise exception 'AI wallet not found';end if;
+ if w.reserved>0 then raise exception 'Reconcile pending AI practice before applying a top-up';end if;
+ if w.expires_at>now() and w.available>0 and w.spent_microcad<w.cap_microcad then raise exception 'Use the current AI allowance before adding a top-up';end if;
+ insert into academy_ai.paid_topups(payment_reference,user_id,credits,budget_microcad,expired_credits,expires_at)
+ values(p_payment_reference,p_user,p_credits,p_budget_microcad,w.available,p_expires_at);
+ update academy_ai.wallets set available=p_credits,cap_microcad=spent_microcad+p_budget_microcad,
+ purchased_budget_microcad=purchased_budget_microcad+p_budget_microcad,expires_at=p_expires_at where user_id=p_user;
+ return jsonb_build_object('credited',true,'credits',p_credits);
+end;$$;
+create function public.academy_ai_paid_topup(p_user uuid,p_payment_reference text,p_credits integer,p_budget_microcad bigint,p_expires_at timestamptz) returns jsonb
+language sql security invoker set search_path='' as $$select academy_ai.paid_topup(p_user,p_payment_reference,p_credits,p_budget_microcad,p_expires_at)$$;
 revoke all on all functions in schema academy_ai from public,anon,authenticated,service_role;
 grant usage on schema academy_ai to authenticated,service_role;
 grant execute on function academy_ai.state(),academy_ai.request_state(uuid),academy_ai.conversation(uuid) to authenticated;
 grant execute on function academy_ai.reserve(uuid,uuid,text,text,text,integer,uuid,text),academy_ai.claim(uuid,uuid),academy_ai.finish(uuid,uuid,jsonb,jsonb,text),academy_ai.fail(uuid,uuid),academy_ai.maintenance() to service_role;
+grant execute on function academy_ai.paid_topup(uuid,text,integer,bigint,timestamptz) to service_role;
 revoke all on function public.academy_ai_state(),public.academy_ai_request(uuid),public.academy_ai_conversation(uuid),public.academy_ai_reserve(uuid,uuid,text,text,text,integer,uuid,text),public.academy_ai_claim(uuid,uuid),public.academy_ai_finish(uuid,uuid,jsonb,jsonb,text),public.academy_ai_fail(uuid,uuid) from public,anon,authenticated;
 grant execute on function public.academy_ai_state(),public.academy_ai_request(uuid),public.academy_ai_conversation(uuid) to authenticated;
 grant execute on function public.academy_ai_reserve(uuid,uuid,text,text,text,integer,uuid,text),public.academy_ai_claim(uuid,uuid),public.academy_ai_finish(uuid,uuid,jsonb,jsonb,text),public.academy_ai_fail(uuid,uuid) to service_role;
 revoke all on function public.academy_ai_maintenance() from public,anon,authenticated;
 grant execute on function public.academy_ai_maintenance() to service_role;
+revoke all on function public.academy_ai_paid_topup(uuid,text,integer,bigint,timestamptz) from public,anon,authenticated;
+grant execute on function public.academy_ai_paid_topup(uuid,text,integer,bigint,timestamptz) to service_role;
 notify pgrst,'reload schema';
 commit;

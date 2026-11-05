@@ -1,6 +1,7 @@
 import {createHandler} from './handler.js';
 import {createOpenAiProvider} from './provider.js';
 import {AiError} from './contracts.js';
+import {providerKey} from './config.js';
 
 const url=Deno.env.get('SUPABASE_URL')||'';
 const publicKey=Deno.env.get('SUPABASE_ANON_KEY')||'';
@@ -16,5 +17,5 @@ async function authenticate(token:string){
  if(!response.ok)throw new AiError('Please sign in again to use AI Learning.',401,'AI_AUTH');
  return response.json();
 }
-const provider=createOpenAiProvider({key:Deno.env.get('OPENAI_API_KEY')||''});
+const provider=createOpenAiProvider({key:providerKey(name=>Deno.env.get(name))});
 Deno.serve(createHandler({authenticate,db,provider}));

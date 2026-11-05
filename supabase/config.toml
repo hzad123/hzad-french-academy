@@ -1,6 +1,6 @@
 project_id = "hzad-french-academy"
 
 [functions.academy-ai]
-# The handler verifies the actual user JWT with Supabase Auth on every request.
-# This supports the project's current publishable-key/JWT configuration.
-verify_jwt = false
+# Require a valid Supabase JWT at the gateway and independently verify the
+# actual user with Supabase Auth inside the handler on every request.
+verify_jwt = true

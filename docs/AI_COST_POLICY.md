@@ -14,7 +14,7 @@
 - Secrets live server-side; never in GitHub Pages or GHL HTML.
 - Students can learn and finish the entire course if the AI tutor is unavailable.
 - Display the exact configured credit charge before every provider call. The server rejects a changed quote and atomically reserves credits and a reviewed worst-case provider-cost ceiling before dispatch.
-- The included allowance lasts six months from verified purchase, with a maximum CAD $15 provider-cost allowance per student. Credits, activity prices, models and cost ceilings remain unconfigured/disabled until reviewed; use the setup in [ai-learning.md](./ai-learning.md).
+- The included allowance lasts six months from verified purchase, with a maximum CAD $10 provider-cost allowance per student. Credits, activity prices, models and cost ceilings remain unconfigured/disabled until reviewed; use the setup in [ai-learning.md](./ai-learning.md).
 - Never retry an inference automatically after a lost response. Reuse the request ID to retrieve/reconcile the existing result.
 
 ## Data security
