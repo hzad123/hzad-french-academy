@@ -401,6 +401,29 @@
 #hzad-french-academy .hz-ai button:focus-visible,#hzad-french-academy .hz-ai textarea:focus-visible,#hzad-french-academy .hz-ai select:focus-visible{outline:3px solid #d3a746;outline-offset:3px}
 @media(max-width:600px){#hzad-french-academy .hz-dashboard-actions{flex-wrap:wrap}#hzad-french-academy .hz-ai nav .hz-btn{flex:1 1 140px;margin-right:0}#hzad-french-academy .hz-ai-card{padding:18px}}
 /* Mock exam centre */
+/* Full-test hierarchy: exam > skill > numbered questions/tasks. */
+#hzad-french-academy .hz-exam-section{border:1px solid #d5e1f0;border-radius:18px;background:#fff;overflow:hidden;margin:12px 0}
+#hzad-french-academy .hz-exam-section.is-active{border-color:#2d60a5;box-shadow:0 4px 18px #214f8c12}
+#hzad-french-academy .hz-exam-section .hz-exam-section-summary{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;padding:16px;background:#f3f7fd;list-style:none}
+#hzad-french-academy .hz-exam-section-summary::-webkit-details-marker{display:none}
+#hzad-french-academy .hz-exam-section-summary::after{content:'⌄';margin-left:auto;font-size:1.25rem;color:#1d4e89}
+#hzad-french-academy .hz-exam-section[open]>.hz-exam-section-summary::after{content:'⌃'}
+#hzad-french-academy .hz-exam-section-name{display:inline-flex;align-items:center;gap:10px;font-size:1.05rem}
+#hzad-french-academy .hz-exam-skill-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:#dce9fd;color:#1a4c8d;font-size:1.3rem}
+#hzad-french-academy .hz-exam-section-meta{font-size:.88rem;color:#4c6281}
+#hzad-french-academy .hz-exam-section-state{font-size:.76rem;font-weight:800;border-radius:20px;padding:5px 10px;background:#e6edf8;color:#284f7e}
+#hzad-french-academy .hz-exam-section.is-active .hz-exam-section-state{background:#2156a0;color:#fff}
+#hzad-french-academy .hz-exam-outline-questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;padding:16px;margin:0;max-height:220px;overflow-y:auto}
+#hzad-french-academy .hz-exam-outline-questions li{font-size:.82rem;background:#f5f8fd;padding:8px;border-radius:8px;white-space:nowrap}
+#hzad-french-academy .hz-exam-section-layout{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:24px;padding:20px;align-items:start}
+#hzad-french-academy .hz-exam-question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:420px;overflow-y:auto;padding:2px}
+#hzad-french-academy .hz-exam-question-list button{margin:0;padding:10px 5px;min-height:44px;font-size:.77rem;border-radius:10px;white-space:nowrap}
+#hzad-french-academy .hz-exam-question-list button[aria-current=step]{opacity:1;background:#1f5297;color:#fff;border-color:#1f5297}
+#hzad-french-academy .hz-exam-question-list button.is-saved:not([aria-current=step]){border-color:#63a18b;background:#edf8f2;color:#1b6348}
+#hzad-french-academy .hz-exam-current-question{min-width:0}
+#hzad-french-academy .hz-exam-section-review{padding:0 20px;min-width:0}
+#hzad-french-academy .hz-exam-question-heading{font-weight:850;color:#194b86;margin-top:0;font-size:1.1rem}
+@media(max-width:760px){#hzad-french-academy .hz-exam-section-layout{grid-template-columns:minmax(0,1fr);padding:14px;gap:18px}#hzad-french-academy .hz-exam-question-list{grid-template-columns:repeat(3,minmax(0,1fr));max-height:130px}#hzad-french-academy .hz-exam-section .hz-exam-section-summary{padding:12px;gap:8px}#hzad-french-academy .hz-exam-section-meta{font-size:.78rem}#hzad-french-academy .hz-exam-outline-questions{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px}}
 #hzad-french-academy .hz-exams{margin-top:24px;min-width:0}
 #hzad-french-academy .hz-exam-hero{padding:30px;border-radius:24px;background:linear-gradient(125deg,#102c58,#1f559c);color:#fff;margin-bottom:20px}
 #hzad-french-academy .hz-exam-hero h3{color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);margin:8px 0}

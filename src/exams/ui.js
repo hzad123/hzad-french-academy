@@ -1,7 +1,8 @@
 import {makeExamStore} from './store.js';
 import {mountRecorder} from '../ai/audio.js';
 import {recordView,recordHome} from '../ui/navigation.js';
-const names={'tef-canada':'TEF Canada','tcf-canada':'TCF Canada'},skills={reading:'Reading',listening:'Listening',writing:'Writing',speaking:'Speaking'};
+import {examSections,canSelectQuestion,itemLabel,SKILL_NAMES} from './sections.js';
+const names={'tef-canada':'TEF Canada','tcf-canada':'TCF Canada'},skills=SKILL_NAMES;
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const button=(text,fn,alt=false)=>{const b=el('button',text,'hz-btn'+(alt?' hz-btn-alt':''));b.type='button';b.addEventListener('click',fn);return b};
 const clock=n=>`${Math.floor(Math.max(0,n)/60)}:${String(Math.floor(Math.max(0,n)%60)).padStart(2,'0')}`;
@@ -12,7 +13,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
  function reset(){clear();catalog=null;attempt=null;drafts={}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
- function status(text,error=false){let n=area.querySelector('.hz-exam-status');if(!n){n=el('p',undefined,'hz-exam-status');area.append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status')}
+ function status(text,error=false){let n=area.querySelector('.hz-exam-status');if(!n){n=el('p',undefined,'hz-exam-status');(area.querySelector('.hz-exam-current-question')||area).append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status')}
  function accept(value){if(value.status==='processing'){status('Your examiner response is processing. Check the saved attempt before sending again.');return false}attempt=value;observedAt=Date.now();return true}
  async function run(work){
   if(busy)return;busy=true;const ticket=epoch;controller=new AbortController();controls();
@@ -36,15 +37,18 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
  function home(){clear();recordHome(root)}
  function header(title){const h=el('header',undefined,'hz-exam-hero');h.append(el('p','HZAD EXAM CENTRE','hz-eyebrow'),el('h3',title),el('p','Train with purpose. Finish with a clear plan for improvement.'));area.append(h,button('← All levels',home,true))}
  function render(){
+  const reviewOpen=[...area.querySelectorAll('.hz-exam-review-section[open]')].map(section=>section.dataset.skill);
   clearInterval(interval);clearTimeout(saveTimer);recorder?.dispose();recorder=null;audio?.pause();audio=null;confirmation=false;area.replaceChildren();area.classList.remove('hz-hidden');
   if(!attempt){renderCatalog();remember();controls();return}
   header(names[attempt.exam]+' · Mock 01');area.append(button('Mock exam centre',()=>open(),true));
-  if(attempt.status==='completed'){results();remember();controls();return}
+  if(attempt.status==='completed'){results(reviewOpen);remember();controls();return}
   if(attempt.status==='cancelled'){area.append(el('p','This attempt is closed. Your previous attempts remain saved.'));remember();controls();return}
   const q=attempt.question;
   const bar=el('div',undefined,'hz-exam-toolbar'),time=el('strong',undefined,'hz-exam-clock');time.setAttribute('aria-label','Section time remaining');bar.append(el('span',`${skills[attempt.skill]} · ${attempt.itemIndex+1} of ${attempt.totalItems}`),time);area.append(bar);
   const progress=el('progress');progress.max=4;progress.value=attempt.section;progress.setAttribute('aria-label','Exam sections completed');area.append(progress);
-  const taskClock=q.responseRemainingSeconds!==undefined?el('p',undefined,'hz-exam-task-clock'):null;if(taskClock)area.append(taskClock);
+  const content=renderActiveSections();
+  content.append(el('p',`${skills[attempt.skill]} · ${itemLabel(attempt.skill,attempt.itemIndex)}`,'hz-exam-question-heading'));
+  const taskClock=q.responseRemainingSeconds!==undefined?el('p',undefined,'hz-exam-task-clock'):null;if(taskClock)content.append(taskClock);
   let requested=false;
   function updateClock(){
    const elapsed=Math.floor((Date.now()-observedAt)/1000),remaining=Math.max(0,attempt.remainingSeconds-elapsed);time.textContent=clock(remaining);
@@ -56,7 +60,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   updateClock();interval=setInterval(updateClock,1000);
   const prompt=el('section',undefined,'hz-exam-task');prompt.lang='fr';
   if(q.passage)prompt.append(el('p',q.passage,'hz-exam-passage'));
-  const question=el('h4',q.prompt);prompt.append(question);area.append(prompt);
+  const question=el('h4',q.prompt);prompt.append(question);content.append(prompt);
   if(attempt.skill==='reading'||attempt.skill==='listening'){
    const choices=el('fieldset');choices.append(el('legend','Choisissez une réponse.'));choices.lang='fr';
    q.options.forEach((option,index)=>{const label=el('label',undefined,'hz-exam-choice'),input=el('input');input.type='radio';input.name='exam-answer';input.value=index;input.checked=q.savedAnswer===index;input.addEventListener('change',()=>event({kind:'answer',choice:index}));label.append(input,el('span',String.fromCharCode(65+index)+'. '+option));choices.append(label)});
@@ -68,47 +72,73 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
      audio.addEventListener('ended',()=>{question.hidden=false;choices.hidden=false;nextButton.hidden=false;status('Recording finished. Choose your answer, then continue.');play.disabled=true;play.dataset.locked='true'});
      audio.addEventListener('error',()=>{question.hidden=false;choices.hidden=false;nextButton.hidden=false;status('The recording could not play. Your attempt is saved; contact the academy before starting another paid attempt.',true)});
      try{await audio.play();play.disabled=true;play.dataset.locked='true';status('Listening…')}catch{play.textContent='Resume playback';status('Allow audio playback, then choose Resume playback.',true)}
-    })});prompt.prepend(play);area.append(choices);
+    })});prompt.prepend(play);content.append(choices);
     // On resumed questions the server tells us whether playback was consumed.
     if(attempt.played){play.disabled=true;play.dataset.locked='true';question.hidden=false;choices.hidden=false}
-   }else area.append(choices);
+   }else content.append(choices);
    const nav=el('div',undefined,'hz-exam-actions');
    if(attempt.navigation==='review'&&attempt.itemIndex>0)nav.append(button('Previous question',()=>event({kind:'move',index:attempt.itemIndex-1}),true));
    const nextButton=button(attempt.itemIndex+1<attempt.totalItems?'Next question':'Finish section',()=>attempt.itemIndex+1<attempt.totalItems?event({kind:'move',index:attempt.itemIndex+1}):finishSection());
-   if(attempt.skill==='listening'&&!attempt.played)nextButton.hidden=true;nav.append(nextButton);area.append(nav);
+   if(attempt.skill==='listening'&&!attempt.played)nextButton.hidden=true;nav.append(nextButton);content.append(nav);
   }else if(attempt.skill==='writing'){
-   area.append(el('p',`${q.minWords} ${q.maxWords?'– '+q.maxWords:'minimum'} words`));
+   content.append(el('p',`${q.minWords} ${q.maxWords?'– '+q.maxWords:'minimum'} words`));
    const label=el('label','Votre réponse'),input=el('textarea');input.rows=12;input.maxLength=12000;input.lang='fr';input.spellcheck=false;input.value=drafts[q.id]??q.savedText;input.setAttribute('aria-label','Votre réponse écrite');
    const count=el('p',undefined,'hz-exam-wordcount');const update=()=>{count.textContent=`${input.value.trim()?input.value.trim().split(/\s+/u).length:0} words · autosave on`};update();
    const autosave=()=>{if(!visible)return;if(busy){saveTimer=setTimeout(autosave,500);return}void run(async(signal,current)=>{await saveDraft(signal);if(current())status('Writing saved.')})};
    input.addEventListener('input',()=>{drafts[q.id]=input.value;update();clearTimeout(saveTimer);saveTimer=setTimeout(autosave,1200)});
-   label.append(input);area.append(label,count,button('Save writing',()=>{void run(async(signal,current)=>{await saveDraft(signal);if(current())status('Writing saved.')})},true));
+   label.append(input);content.append(label,count,button('Save writing',()=>{void run(async(signal,current)=>{await saveDraft(signal);if(current())status('Writing saved.')})},true));
    if(attempt.navigation==='review'){
-    const nav=el('div',undefined,'hz-exam-actions');if(attempt.itemIndex>0)nav.append(button('Previous task',()=>event({kind:'move',index:attempt.itemIndex-1}),true));if(attempt.itemIndex+1<attempt.totalItems)nav.append(button('Next task',()=>event({kind:'move',index:attempt.itemIndex+1})));area.append(nav);
+    const nav=el('div',undefined,'hz-exam-actions');if(attempt.itemIndex>0)nav.append(button('Previous task',()=>event({kind:'move',index:attempt.itemIndex-1}),true));if(attempt.itemIndex+1<attempt.totalItems)nav.append(button('Next task',()=>event({kind:'move',index:attempt.itemIndex+1})));content.append(nav);
    }
-   area.append(button('Finish writing section',finishSection,true));
+   content.append(button('Finish writing section',finishSection,true));
   }else{
-   area.append(el('p',q.phase==='preparation'?'Prepare your questions. Recording begins after preparation.':'Speak in French. Record each turn, then send it to your interlocutor.'));
-   const log=el('div',undefined,'hz-exam-dialogue');log.setAttribute('role','log');for(const m of attempt.conversation||[]){log.append(el('p','You: '+m.transcript));if(m.reply)log.append(el('p','Interlocutor: '+m.reply),button('Hear interlocutor',()=>speak(m.reply),true))}area.append(log);
+   content.append(el('p',q.phase==='preparation'?'Prepare your questions. Recording begins after preparation.':'Speak in French. Record each turn, then send it to your interlocutor.'));
+   const log=el('div',undefined,'hz-exam-dialogue');log.setAttribute('role','log');for(const m of attempt.conversation||[]){log.append(el('p','You: '+m.transcript));if(m.reply)log.append(el('p','Interlocutor: '+m.reply),button('Hear interlocutor',()=>speak(m.reply),true))}content.append(log);
    if(q.phase!=='preparation'){
-    recorder=recorderFactory(area);area.append(button('Send speaking turn · included',()=>{
+    recorder=recorderFactory(content);content.append(button('Send speaking turn · included',()=>{
      if(recorder.isRecording()){status('Stop recording before sending.',true);return}const recording=recorder.getAudio();if(!recording){status('Record a French response first.',true);return}
      action('turn',{callId:crypto.randomUUID(),section:attempt.section,taskId:q.id,audio:recording});
     }));
    }
-   area.append(button('Finish speaking section',finishSection,true));
+   content.append(button('Finish speaking section',finishSection,true));
   }
   area.append(button('Close this attempt',()=>{if(!confirmation){confirmation=true;status('Closing ends this attempt. Saved results stay available. Full-test access credits have already been charged. Choose Close now to confirm.');area.append(button('Close now',()=>action('close'),true))}},true));remember();controls();
  }
  function finishSection(){if(!confirmation){confirmation=true;status('Finish this section? Saved answers will be locked.');area.append(button('Confirm and continue',()=>event({kind:'finish-section'})));controls()}}
+ function sectionSummary(section,statusText){
+  const summary=el('summary',undefined,'hz-exam-section-summary'),name=el('span',undefined,'hz-exam-section-name'),icon=el('span',section.icon,'hz-exam-skill-icon');icon.setAttribute('aria-hidden','true');name.append(icon,el('strong',section.name));summary.append(name,el('span',`${section.items} ${section.skill==='reading'||section.skill==='listening'?'questions':'tasks'} · ${Math.round(section.seconds/60)} min`,'hz-exam-section-meta'));if(statusText)summary.append(el('span',statusText,'hz-exam-section-state'));return summary;
+ }
+ function renderActiveSections(){
+  const wrap=el('div',undefined,'hz-exam-sections'),sections=examSections(catalog.exams.find(e=>e.exam===attempt.exam),attempt);wrap.setAttribute('aria-label','Test sections and questions');let current;
+  for(const [index,section] of sections.entries()){
+   const active=section.skill===attempt.skill,done=index<attempt.section,group=el('details',undefined,'hz-exam-section'+(active?' is-active':''));group.dataset.skill=section.skill;group.open=active;
+   group.append(sectionSummary(section,active?'In progress':done?'Completed':'Up next'));
+   const layout=el('div',undefined,'hz-exam-section-layout'),list=el('nav',undefined,'hz-exam-question-list');list.setAttribute('aria-label',section.name+' questions');
+   for(let i=0;i<section.items;i++){
+    const selected=active&&i===attempt.itemIndex,answered=section.answered.includes(i),b=button(itemLabel(section.skill,i),()=>event({kind:'move',index:i}),true);
+    b.setAttribute('aria-label',section.name+' '+itemLabel(section.skill,i).toLowerCase()+(answered?' · saved':''));b.dataset.locked=String(!canSelectQuestion(attempt,section.skill,i)||selected);b.disabled=b.dataset.locked==='true';if(selected)b.setAttribute('aria-current','step');if(answered)b.classList.add('is-saved');list.append(b);
+   }
+   layout.append(list);
+   if(active){current=el('div',undefined,'hz-exam-current-question');layout.append(current)}
+   else layout.append(el('p',done?'This section is complete. Corrections open after the full test.':'This section opens when you reach it in the timed test.','hz-small'));
+   group.append(layout);wrap.append(group);
+  }
+  area.append(wrap);return current;
+ }
  function renderCatalog(){
   header('Full French mock exams');if(!catalog)return;
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
   const cards=el('div',undefined,'hz-exam-cards');
   for(const exam of catalog.exams){
    const card=el('article',undefined,'hz-exam-card');card.append(el('span',exam.exam==='tef-canada'?'TEF':'TCF','hz-exam-seal'),el('h4',names[exam.exam]+' · Mock 01'));
-   for(const [skill,spec] of Object.entries(exam.sections||{}))card.append(el('p',`${skills[skill]} · ${spec.items} ${skill==='reading'||skill==='listening'?'questions':'tasks'} · ${Math.round(spec.seconds/60)} min`));
-   card.append(el('p','Timed four-skill practice, a French-speaking AI interlocutor, detailed corrections and a focused revision plan.'));
+   const sections=el('div',undefined,'hz-exam-section-outline');
+   for(const section of examSections(exam)){
+    const group=el('details',undefined,'hz-exam-section');group.dataset.skill=section.skill;group.append(sectionSummary(section));
+    const list=el('ol',undefined,'hz-exam-outline-questions');list.setAttribute('aria-label',names[exam.exam]+' '+section.name+' question list');
+    for(let i=0;i<section.items;i++)list.append(el('li',itemLabel(section.skill,i)));
+    group.append(list);sections.append(group);
+   }
+   card.append(sections,el('p','Start the full timed test to open its questions.'));
    if(Number.isSafeInteger(exam.credits))card.append(el('strong',`${exam.credits} credits for the full test, including feedback`));
    if(exam.enabled){
     const start=button('Start full mock · '+exam.credits+' credits',()=>{void run(async(signal,current)=>{const result=await store.send({kind:'start',id:crypto.randomUUID(),exam:exam.exam,expectedCredits:exam.credits},signal);if(current()&&accept(result))render()})});
@@ -121,10 +151,15 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   if(catalog.topUpUrl){try{const url=new URL(catalog.topUpUrl);if(url.protocol==='https:'){const a=el('a','Purchase AI credits','hz-btn');a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';area.append(a)}}catch{}}
   const history=el('section');history.append(el('h4','Your saved attempts'));for(const item of catalog.history)history.append(button(`${names[item.exam]} · ${new Date(item.createdAt).toLocaleDateString()} · ${item.status}`,()=>open(item.id),true));area.append(history);
  }
- function results(){
+ function results(reviewOpen=[]){
   area.append(el('h4','Your exam review'));
   if(attempt.writingIssues?.length){const issues=el('section',undefined,'hz-exam-status');issues.append(el('h5','Writing task coverage'));for(const item of attempt.writingIssues)issues.append(el('p',item.taskId+' · '+item.issue));area.append(issues)}
   const grid=el('div',undefined,'hz-exam-scorecards');for(const result of attempt.sectionResults.filter(r=>r.correct!==undefined))grid.append(el('article',`${skills[result.skill]} · ${result.correct}/${result.total} correct`,'hz-exam-scorecard'));area.append(grid);
+  const groups={};
+  for(const section of examSections(catalog.exams.find(e=>e.exam===attempt.exam),attempt)){
+   const group=el('details',undefined,'hz-exam-section hz-exam-review-section');group.dataset.skill=section.skill;group.open=reviewOpen.length?reviewOpen.includes(section.skill):section.skill==='reading';group.append(sectionSummary(section,'Completed'));
+   const body=el('div',undefined,'hz-exam-section-review');group.append(body);groups[section.skill]=body;area.append(group);
+  }
   for(const task of attempt.tasks){
    const part=task.id.split('-').at(-1),label=attempt.exam==='tef-canada'?'Section '+part.toUpperCase():'Task '+part;
    const card=el('article',undefined,'hz-exam-feedback');card.append(el('h4',skills[task.skill]+' · '+label));
@@ -141,9 +176,9 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
     for(const id of task.missingRecordingIds||[])card.append(button('Recover saved recording feedback · included',()=>action('recover',{callId:crypto.randomUUID(),taskId:task.id,recordingId:id}),true));
     const assess=button('Get detailed feedback · included',()=>action('assess',{callId:crypto.randomUUID(),taskId:task.id}));assess.dataset.locked=String(!!task.missingRecordingIds?.length);card.append(assess);
    }
-   area.append(card);
+   groups[task.skill].append(card);
   }
-  for(const section of attempt.review){const review=el('details');review.append(el('summary',skills[section.skill]+' corrections'));for(const q of section.items){const item=el('article',undefined,'hz-exam-review-item');item.append(el('h5',q.prompt));if(q.passage)item.append(el('p',q.passage));item.append(el('p',q.chosen===q.correct?'✓ Correct':'✕ '+(q.chosen===null?'Not answered':'Your answer: '+q.options[q.chosen]),q.chosen===q.correct?'hz-ai-corrected':'hz-ai-original'),el('p','Correct answer: '+q.options[q.correct]),el('p',q.explanation));if(q.transcript){const transcript=el('details');transcript.append(el('summary','Listening transcript'),el('p',q.transcript));item.append(transcript)}review.append(item)}area.append(review)}
+  for(const section of attempt.review){for(const [index,q] of section.items.entries()){const item=el('article',undefined,'hz-exam-review-item');item.append(el('h5',itemLabel(section.skill,index)),el('p',q.prompt));if(q.passage)item.append(el('p',q.passage));item.append(el('p',q.chosen===q.correct?'✓ Correct':'✕ '+(q.chosen===null?'Not answered':'Your answer: '+q.options[q.chosen]),q.chosen===q.correct?'hz-ai-corrected':'hz-ai-original'),el('p','Correct answer: '+q.options[q.correct]),el('p',q.explanation));if(q.transcript){const transcript=el('details');transcript.append(el('summary','Listening transcript'),el('p',q.transcript));item.append(transcript)}groups[section.skill].append(item)}}
   if(!attempt.closed)area.append(button('Close attempt and keep saved review',()=>action('close'),true));
  }
  return {open,reset};
