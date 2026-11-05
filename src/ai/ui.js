@@ -157,6 +157,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     const cost=snap.activities[key]?.credits;if(Number.isSafeInteger(cost))card.append(el('p',`${cost} ${cost===1?'credit':'credits'} per ${key==='conversation'?'reply':'review'}`,'hz-ai-cost'));
     card.append(button('Open '+title,()=>{state.tab=key;state.result=null;render()}));cards.append(card);
    }area.append(cards);
+   const exams=el('article',undefined,'hz-ai-card');exams.append(el('span','✦','hz-ai-symbol'),el('h4','TEF & TCF mock exams'),el('p','Full timed tests with a French-speaking interlocutor, detailed feedback and targeted revision.'),button('Open mock exam centre',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))));area.append(exams);
    for(const conversation of snap.conversations||[])area.append(button(`Resume ${conversation.level} · ${scenarios[conversation.scenario]}`,()=>open('conversation',{level:conversation.level,conversationId:conversation.id}),true));
   }else{
    area.append(el('h4',trainers[state.tab][1]));

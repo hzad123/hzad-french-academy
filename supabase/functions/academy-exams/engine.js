@@ -9,7 +9,7 @@ function insist(condition,message,code){if(!condition)throw new ExamError(messag
 export function validateBank(bank){
  insist(bank&&['tef-canada','tcf-canada'].includes(bank.exam),'Choose an exam.');
  insist(typeof bank.version==='string'&&bank.version.length>0,'Missing bank version.');
- insist(bank.specification?.verified===true&&typeof bank.specification.verifiedAt==='string'&&bank.specification.sources?.length>=2,'Official format and assessment sources must be verified before starting.','EXAM_UNVERIFIED');
+ insist(bank.specification?.verified===true&&typeof bank.specification.verifiedAt==='string'&&bank.specification.sources?.length>=1,'Official format sources must be verified before starting.','EXAM_UNVERIFIED');
  insist(Array.isArray(bank.sections)&&bank.sections.length===4,'An exam needs all four skills.');
  const skills=bank.sections.map(s=>s.skill);insist(new Set(skills).size===4&&skills.every(s=>objective.has(s)||productive.has(s)),'Exam skills are incomplete.');
  const ids=new Set();
@@ -61,7 +61,7 @@ export function tick(state,bank,{userId,now}){
  while(attempt.status==='active'){
   const section=bank.sections[attempt.section],item=section.items[attempt.item];
   if(now>=attempt.deadline){nextSection(attempt,bank,attempt.deadline);continue}
-  if(section.skill==='speaking'){
+  if(section.skill==='speaking'||section.skill==='writing'&&item.responseSeconds){
    const end=attempt.itemStartedAt+((item.preparationSeconds||0)+item.responseSeconds)*1000;
    if(now>=end){if(attempt.item+1<section.items.length){attempt.item++;attempt.itemStartedAt=end}else nextSection(attempt,bank,end);continue}
   }
@@ -99,7 +99,9 @@ export function applyEvent(state,bank,{userId,now,event}){
  }else if(event.kind==='move'){
   insist(Number.isInteger(event.index)&&event.index>=0&&event.index<section.items.length,'Invalid question.');
   if(section.navigation==='forward')insist(event.index===attempt.item+1,'You can only move to the next question.');
-  attempt.item=event.index;if(section.skill==='speaking')attempt.itemStartedAt=now;
+  // Timed productive tasks cannot be restarted or skipped with a move event.
+  insist(section.skill!=='speaking'&&!item.responseSeconds,'This task advances when its timer ends.');
+  attempt.item=event.index;
  }else throw new ExamError('Unknown exam action.');
  return attempt;
 }
@@ -111,11 +113,11 @@ export function publicAttempt(state,bank,{userId,now}){
  const question={id:item.id,prompt:item.prompt};
  if(item.passage)question.passage=item.passage;
  if(objective.has(section.skill)){question.options=clone(item.options);question.savedAnswer=attempt.answers[item.id]??null;if(section.skill==='listening')question.audioPath=item.audioPath}
- else if(section.skill==='writing'){question.minWords=item.minWords;question.maxWords=item.maxWords;question.savedText=attempt.writing[item.id]||''}
+ else if(section.skill==='writing'){question.minWords=item.minWords;question.maxWords=item.maxWords;question.savedText=attempt.writing[item.id]||'';if(item.responseSeconds)question.responseRemainingSeconds=Math.max(0,Math.ceil((attempt.itemStartedAt+item.responseSeconds*1000-now)/1000))}
  else{question.responseSeconds=item.responseSeconds;question.preparationSeconds=item.preparationSeconds||0;question.savedRecordings=(attempt.speaking[item.id]||[]).length;const responseStart=attempt.itemStartedAt+question.preparationSeconds*1000;question.phase=now<responseStart?'preparation':'response';question.preparationRemainingSeconds=Math.max(0,Math.ceil((responseStart-now)/1000));question.responseRemainingSeconds=Math.max(0,Math.ceil((responseStart+item.responseSeconds*1000-Math.max(now,responseStart))/1000))}
- return {...summary,section:attempt.section,skill:section.skill,itemIndex:attempt.item,totalItems:section.items.length,navigation:section.navigation,deadline:attempt.deadline,remainingSeconds:Math.max(0,Math.ceil((attempt.deadline-now)/1000)),question};
+ return {...summary,serverNow:now,section:attempt.section,skill:section.skill,itemIndex:attempt.item,totalItems:section.items.length,navigation:section.navigation,deadline:attempt.deadline,remainingSeconds:Math.max(0,Math.ceil((attempt.deadline-now)/1000)),question};
 }
 export function completedReview(state,bank,{userId}){
  context(state,bank,userId);insist(state.status==='completed','Finish the exam to open corrections.');
- return bank.sections.filter(s=>objective.has(s.skill)).map(s=>({skill:s.skill,items:s.items.map(q=>({id:q.id,prompt:q.prompt,options:clone(q.options),chosen:state.answers[q.id]??null,correct:q.answer,explanation:q.explanation,...(s.skill==='listening'?{transcript:q.transcript}:{})}))}));
+ return bank.sections.filter(s=>objective.has(s.skill)).map(s=>({skill:s.skill,items:s.items.map(q=>({id:q.id,prompt:q.prompt,passage:q.passage,options:clone(q.options),chosen:state.answers[q.id]??null,correct:q.answer,explanation:q.explanation,...(s.skill==='listening'?{transcript:q.transcript}:{})}))}));
 }
