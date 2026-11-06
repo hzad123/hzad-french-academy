@@ -7,8 +7,9 @@ import {createExamHandler} from '/supabase/functions/academy-exams/handler.js';
 import {BANKS} from '/supabase/functions/academy-exams/banks.js';
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
 const user='11111111-1111-4111-8111-111111111111';
-const f=window.fixture={now:0,rows:new Map(),calls:new Map(),providerCalls:0,requestCount:0};
-const db={userRpc:async()=>({wallet:{available:500,reserved:0,budgetAvailable:true,expiresAt:'2099-01-01'},history:[...f.rows.values()].map(r=>({id:r.id,exam:r.exam,status:r.state.status,createdAt:'2026-11-05T12:00:00Z'})),exams:Object.values(BANKS).map(b=>({exam:b.exam,version:b.version,enabled:true,credits:50}))}),adminRpc:async(_,{p_action:action,p_id:id,p_payload:p})=>{
+const f=window.fixture={now:0,rows:new Map(),calls:new Map(),providerCalls:0,requestCount:0,ownerReview:new URLSearchParams(location.search).get('review')==='owner',callbacks:[],signedIn:true};
+const db={userRpc:async()=>({wallet:{available:500,reserved:0,budgetAvailable:true,expiresAt:'2099-01-01'},history:[...f.rows.values()].map(r=>({id:r.id,exam:r.exam,status:r.state.status,createdAt:'2026-11-05T12:00:00Z'})),exams:Object.values(BANKS).map(b=>({exam:b.exam,version:b.version,enabled:true,credits:50}))}),adminRpc:async(name,{p_action:action,p_id:id,p_payload:p})=>{
+ if(name==='academy_exam_audio_command'){if(!f.ownerReview)throw Error('Audio operator permission required');return {assets:Object.values(BANKS).flatMap(b=>b.sections[1].items.map((q,i)=>({path:q.audioPath,status:b.exam==='tcf-canada'&&i<3?'ready':'pending',reviewed:false})))}}
  let r=f.rows.get(id);
  if(action==='start'){if(!r){r={id,exam:p.exam,version:p.version,revision:0,state:p.state,settings:{},credits:p.credits};f.rows.set(id,r)}return structuredClone(r)}
  if(!r)throw Error('Exam attempt not found');
@@ -25,10 +26,11 @@ const provider={ready:()=>true,run:async ({kind,task,response})=>{
 }};
 const storage={listeningUrl:async()=>'/tests/fixtures/exam-silence.wav',saveRecording:async()=>{},recording:async()=>''};
 const handler=createExamHandler({authenticate:async()=>({id:user,email_confirmed_at:'yes'}),db,storage,provider,clock:()=>f.now});
-const client={auth:{onAuthStateChange:()=>{},getSession:async()=>({data:{session:{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:user}}}})}};
+const client={auth:{onAuthStateChange:fn=>f.callbacks.push(fn),getSession:async()=>({data:{session:f.signedIn?{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:user}}:null}})}};
 const fetcher=async(_url,init)=>{f.requestCount++;const response=await handler(new Request('https://local.invalid/academy-exams',init));if(!response.ok)console.log(await response.clone().text());return response};
 const recorderFactory=parent=>{const p=document.createElement('p');p.textContent='Fixture microphone ready.';parent.append(p);return {dispose(){},isRecording:()=>false,getAudio:()=>f.audio}};
 f.ui=wireExams(root,client,{fetcher,recorderFactory});
+f.signOut=()=>{f.signedIn=false;for(const fn of f.callbacks)fn('SIGNED_OUT',null)};
 f.send=async body=>{const response=await fetcher('',{method:'POST',headers:{Authorization:'Bearer fixture','Content-Type':'application/json'},body:JSON.stringify(body)});return response.json()};
 await f.ui.open();window.fixtureReady=true;
 </script></html>
