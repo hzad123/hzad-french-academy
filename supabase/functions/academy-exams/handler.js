@@ -1,6 +1,7 @@
 import {BANKS} from './banks.js';
 import {createAttempt,applyEvent,tick,publicAttempt,completedReview,ExamError,wordCount} from './engine.js';
 import {uuid,inspectAudio,fingerprint} from '../academy-ai/contracts.js';
+import {reviewQuestion,completedDebrief} from './content.js';
 const origins=new Set(['https://www.teftcf.hzadeducation.org','https://hzad123.github.io']);
 async function body(request){
  let length=0,text='';const reader=request.body?.getReader(),decoder=new TextDecoder();if(!reader)throw Error('Choose an exam action.');
@@ -19,11 +20,26 @@ export function createExamHandler({authenticate,db,storage,provider,clock=Date.n
   const token=request.headers.get('authorization')?.match(/^Bearer (\S+)$/i)?.[1];if(!token)return reply({error:'Please sign in.'},401);
   const user=await authenticate(token);if(!user?.id||!user.email_confirmed_at)return reply({error:'Sign in with a verified email.'},401);
   const command=(action,id,payload={})=>db.adminRpc('academy_exam_command',{p_user:user.id,p_action:action,p_id:id,p_payload:payload});
+  const reviewCapability=async()=>{try{const state=await db.adminRpc('academy_exam_audio_command',{p_user:user.id,p_action:'state'});return Array.isArray(state?.assets)?state:null}catch{return null}};
   if(request.method==='GET'&&!new URL(request.url).searchParams.has('attempt')){
    const catalog=await db.userRpc(token,'academy_exam_catalog',{});
-   return reply({...catalog,exams:catalog.exams.map(e=>({...e,enabled:e.enabled&&provider.ready(),sections:banks[e.exam]?.specification.sections}))});
+   return reply({...catalog,canReviewContent:!!await reviewCapability(),exams:catalog.exams.map(e=>({...e,enabled:e.enabled&&provider.ready(),sections:banks[e.exam]?.specification.sections}))});
   }
   const input=request.method==='POST'?await body(request):{kind:'read',id:new URL(request.url).searchParams.get('attempt')};
+  if(input.kind==='content-review'||input.kind==='content-audio'){
+   const capability=await reviewCapability();if(!capability)return reply({error:'Content review is restricted to the academy administrator.'},403);
+   await db.userRpc(token,'academy_exam_catalog',{});
+   const bank=banks[input.exam],view=reviewQuestion(bank,input.skill,input.index);
+   if(view.skill==='listening'){
+    const item=bank.sections.find(s=>s.skill==='listening').items[input.index],asset=capability.assets.find(a=>a.path===item.audioPath);
+    view.audioReady=asset?.status==='ready';view.audioReviewed=!!asset?.reviewed;
+    if(input.kind==='content-audio'){
+     if(!view.audioReady)return reply({error:'This recording still needs generation.'},409);
+     return reply({audioUrl:await storage.listeningUrl(item.audioPath)});
+    }
+   }else if(input.kind==='content-audio')return reply({error:'This is not a listening question.'},400);
+   return reply(view);
+  }
   if(!uuid(input.id))return reply({error:'Invalid exam attempt.'},400);
   const now=clock();let row,bank;
   if(input.kind==='start'){
@@ -54,6 +70,7 @@ export function createExamHandler({authenticate,db,storage,provider,clock=Date.n
     visible.review=completedReview(state,bank,{userId:user.id});
     visible.tasks=bank.sections.filter(s=>['writing','speaking'].includes(s.skill)).flatMap(s=>s.items.map(t=>({id:t.id,skill:s.skill,prompt:t.prompt,criteria:t.criteria,words:wordCount(state.writing[t.id]||''),minWords:t.minWords,maxWords:t.maxWords,response:state.writing[t.id]||state.speechEvidence?.[t.id]?.map(e=>e.transcript).join(' ')||'',recordings:state.speaking[t.id]?.length||0,observedRecordings:state.speechEvidence?.[t.id]?.length||0,missingRecordingIds:(state.speaking[t.id]||[]).filter(r=>!state.speechEvidence?.[t.id]?.some(e=>e.id===r.id)).map(r=>r.id)})));
     visible.writingIssues=visible.tasks.filter(t=>t.skill==='writing').flatMap(t=>!t.words?[{taskId:t.id,issue:'Task not attempted.'}]:t.words<t.minWords?[{taskId:t.id,issue:`Below the ${t.minWords}-word minimum.`}]:t.maxWords&&t.words>t.maxWords?[{taskId:t.id,issue:`Above the ${t.maxWords}-word maximum.`}]:[]);
+    for(const task of visible.tasks)task.debrief=completedDebrief(task.id);
    }
    if(visible.skill==='speaking')visible.conversation=state.speechEvidence?.[visible.question.id]?.map(e=>({transcript:e.transcript,reply:e.reply}))||[];
    return visible;

@@ -39,6 +39,7 @@ test('full TEF reading/listening run marks exactly 80 original answers and retur
  }
  for(let section=2;section<4;section++)reply=await f.send({kind:'event',event:{kind:'finish-section',section}});
  assert.equal(reply.data.status,'completed');assert.deepEqual(reply.data.sectionResults.slice(0,2),[{skill:'reading',correct:40,total:40},{skill:'listening',correct:40,total:40}]);assert.equal(reply.data.review[1].items.length,40);assert.ok(reply.data.review[1].items[0].transcript);assert.equal(f.providerCalls(),0);
+ assert.ok(reply.data.tasks.every(task=>task.debrief?.checklist?.length>=4));assert.ok(reply.data.tasks[0].debrief.modelResponse);
 });
 test('speaking uses real validated WAV, persists acoustic evidence and recovers saved provider output without another call',async()=>{
  const f=fixture();await f.send({kind:'start',exam:'tef-canada',expectedCredits:50});

@@ -15,7 +15,7 @@ export const reading = {
  ['En raison de travaux, l’arrêt Mairie est déplacé rue des Pins du 6 au 10 mai. Les horaires restent inchangés.',[
   ['Qu’est-ce qui change pendant les travaux ?','Le lieu de l’arrêt.','Le prix du billet.','L’heure du dernier bus.','La fréquence des bus.','Seul l’emplacement de l’arrêt est annoncé comme modifié.']]],
  ['Pour participer au concours photo, envoyez une seule image avant le 15 juin. Les montages numériques sont exclus. Participation gratuite.',[
-  ['Quelle candidature respecte le règlement ?','Une photo non retouchée en montage, envoyée le 12 juin.','Deux photos envoyées le 12 juin.','Un montage envoyé le 10 juin.','Une photo envoyée le 20 juin.','Elle respecte l’unicité, la date limite et l’absence de montage.']]],
+  ['Quelle candidature respecte le règlement ?','Une photo sans montage, envoyée le 12 juin.','Deux photos envoyées le 12 juin.','Un montage envoyé le 10 juin.','Une photo envoyée le 20 juin.','Elle respecte l’unicité, la date limite et l’absence de montage.']]],
  ['Au café des Arts, le menu du midi comprend un plat et un dessert. La boisson est offerte aux clients qui présentent un billet du musée daté du jour.',[
   ['Qui bénéficie d’une boisson offerte ?','Un client ayant visité le musée le même jour.','Tout client du menu du soir.','Un employé de n’importe quel musée.','Un client qui réserve pour demain.','La condition est un billet du musée portant la date du jour.']]],
  ['Veuillez confirmer votre présence à la formation avant vendredi. Sans réponse, votre place sera attribuée à une personne sur liste d’attente.',[
