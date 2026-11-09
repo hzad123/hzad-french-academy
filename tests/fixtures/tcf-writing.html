@@ -16,6 +16,7 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
   if(p.p_action==='list')return [...f.rows.values()].filter(r=>r.owner===f.user).map(r=>({...r,reviewStatus:f.requests.get(r.id)?.status||null}));
   let row=f.rows.get(p.p_id);
   if(row&&row.owner!==f.user)throw Error('Writing attempt not found');
+  if(p.p_action==='start'&&!row){row=[...f.rows.values()].filter(r=>r.owner===f.user&&r.testId===p.p_payload.testId&&r.status==='draft'&&Date.parse(r.deadline)>Date.now()).sort((a,b)=>Number(b.responses.some(Boolean))-Number(a.responses.some(Boolean))||Date.parse(b.startedAt)-Date.parse(a.startedAt))[0]}
   if(p.p_action==='start'&&!row){const now=Date.now();row={id:p.p_id,owner:f.user,testId:p.p_payload.testId,version:'tcf-writing-2026-11-v1',responses:['','',''],revision:0,status:'draft',startedAt:new Date(now).toISOString(),deadline:new Date(now+3600000).toISOString()};f.rows.set(p.p_id,row)}
   if(!row)throw Error('Writing attempt not found');
   if(p.p_action==='save'){

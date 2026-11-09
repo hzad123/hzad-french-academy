@@ -21,6 +21,7 @@ before(async()=>{
  await db.exec(await readFile('supabase/migrations/20261105001000_ai_learning.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001500_tcf_writing.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001600_fix_tcf_writing_history.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261109001700_resume_tcf_writing_drafts.sql','utf8'));
 });
 after(async()=>db?.close());
 test('additive migration leaves existing progress and activity prices intact and the new paid activity off',async()=>{
@@ -60,7 +61,7 @@ test('draft limits, malformed payloads and invalid bank IDs cannot create unboun
  for(const responses of [[],['one','two'],[1,'',''],['x'.repeat(3501),'',''],['x'.repeat(3000),'x'.repeat(3000),'x'.repeat(1000)]])await assert.rejects(()=>command(bob,'save',id,{revision:0,responses}),/Invalid writing|too long/);
  await assert.rejects(()=>command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-99'}),/check constraint/);
  await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-04'});await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-05'});
- await assert.rejects(()=>command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-06'}),/Finish an open/);await role();
+ assert.equal((await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-06'})).testId,'tcf-writing-06');await role();
 });
 test('writing result uses the existing wallet ledger, one frozen charge, owner-only free review and non-destructive rollback',async()=>{
  await db.exec("update academy_ai.policy set enabled=true,included_credits=20,student_cap_microcad=10000000,global_cap_microcad=10000000;update academy_ai.activities set enabled=true,credits=3,ceiling_microcad=1000,model='test-only' where kind='tcf-writing'");
@@ -94,4 +95,27 @@ test('writing catalog GET succeeds through the real handler and real PostgreSQL 
  const handler=createWritingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:adapter,provider:{ready:()=>true,run:async()=>{calls++;throw Error('Unexpected AI call')}}});
  const response=await handler(new Request('https://example.test',{headers:{Authorization:'Bearer fixture'}}));assert.equal(response.status,200);
  const result=await response.json();assert.equal(result.tests.length,20);assert.equal(result.tests[0].tasks.length,3);assert(result.history.some(r=>r.testId==='tcf-writing-01'));assert.equal(calls,0);assert.equal(result.enabled,false);
+});
+
+test('opening Test 1, going back and reopening never creates duplicates or resets text/timer; all 20 tests stay accessible',async()=>{
+ await role('service_role');let first=await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});
+ first=await command(bob,'save',first.id,{revision:first.revision,responses:['Ne pas perdre ce texte.','','']});
+ for(let i=0;i<8;i++){
+  await command(bob,'list');const resumed=await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});
+  assert.equal(resumed.id,first.id);assert.equal(resumed.deadline,first.deadline);assert.deepEqual(resumed.responses,first.responses);
+ }
+ for(let n=1;n<=20;n++)assert.equal((await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-'+String(n).padStart(2,'0')})).testId,'tcf-writing-'+String(n).padStart(2,'0'));
+ await role();assert.equal((await q('select count(*)::int n from academy_tcf_writing.attempts where user_id=$1 and deadline>now()',[bob]))[0].n,20);
+});
+test('legacy empty duplicates never hide a draft containing responses, and no old attempt is deleted',async()=>{
+ await role();const id=crypto.randomUUID();await q("insert into academy_tcf_writing.attempts(id,user_id,test_id,version) values($1,$2,'tcf-writing-01','tcf-writing-2026-11-v1')",[id,bob]);
+ await role('service_role');const resumed=await command(bob,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});assert.notEqual(resumed.id,id);assert.equal(resumed.responses[0],'Ne pas perdre ce texte.');assert.equal((await command(bob,'read',id)).responses[0],'');await role();
+});
+test('resuming works at the 50-start daily limit; creating genuinely new attempts remains bounded',async()=>{
+ await role();const user='33333333-3333-4333-8333-333333333333';
+ await q('insert into auth.users values($1,now())',[user]);await q("insert into public.purchase_entitlements values($1,'active',now(),now()-interval '1 day',null,'HZAD_FULL_ACADEMY')",[user]);
+ await role('service_role');const original=await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});
+ await role();await q("insert into academy_tcf_writing.attempts(id,user_id,test_id,version,deadline) select gen_random_uuid(),$1,'tcf-writing-02','tcf-writing-2026-11-v1',now()-interval '1 second' from generate_series(1,49)",[user]);
+ await role('service_role');assert.equal((await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'})).id,original.id);
+ await assert.rejects(()=>command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-03'}),/Daily writing attempt limit/);await role();
 });

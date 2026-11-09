@@ -11,7 +11,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT')reset();else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
  globalThis.addEventListener?.('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue=''}});
- function status(text,error=false){let n=area.querySelector('.hz-writing-status');if(!n){n=el('p',undefined,'hz-writing-status');area.append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status')}
+ function status(text,error=false){let n=area.querySelector('.hz-writing-status');if(!n){n=el('p',undefined,'hz-writing-status');area.append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status');if(error){n.tabIndex=-1;n.focus({preventScroll:true});n.scrollIntoView({block:'center'})}}
  function controls(){area.querySelectorAll('button').forEach(b=>b.disabled=busy||b.dataset.locked==='true')}
  async function run(work){if(busy)return;busy=true;const ticket=epoch;controller=new AbortController();controls();try{await work(controller.signal,()=>visible&&ticket===epoch)}catch(e){if(visible&&ticket===epoch)status(e.name==='AbortError'?'Connection interrupted. Reopen the saved attempt before sending again.':e.message,true)}finally{if(ticket===epoch){busy=false;controls()}}}
  function receive(next,{restore=false}={}){
@@ -58,7 +58,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   if(!attempt){
    area.append(el('p','Three tasks · 60 minutes per test. Write your responses, then submit all three for mistake feedback and an estimated TCF/NCLC writing result.'));
    const grid=el('div',undefined,'hz-writing-tests');
-   for(const test of catalog.tests){const card=el('article',undefined,'hz-writing-test');card.append(el('span','TEST '+test.id.slice(-2),'hz-eyebrow'),el('h4',test.title));const list=el('ol');for(const task of test.tasks)list.append(el('li',task.title));card.append(list,button('Start Test '+test.id.slice(-2),()=>start(test.id)));grid.append(card)}area.append(grid);
+   for(const test of catalog.tests){const card=el('article',undefined,'hz-writing-test');card.append(el('span','TEST '+test.id.slice(-2),'hz-eyebrow'),el('h4',test.title));const list=el('ol');for(const task of test.tasks)list.append(el('li',task.title));const resumable=catalog.history.some(row=>row.testId===test.id&&row.status==='draft'&&Date.parse(row.deadline)>Date.now());card.append(list,button((resumable?'Resume Test ':'Start Test ')+test.id.slice(-2),()=>start(test.id)));grid.append(card)}area.append(grid);
    const history=el('section',undefined,'hz-writing-history');history.append(el('h4','Your saved writing tests'));
    for(const row of catalog.history)history.append(button(`Test ${row.testId.slice(-2)} · ${new Date(row.startedAt).toLocaleDateString()} · ${row.reviewStatus==='completed'?'View feedback':row.reviewStatus==='failed'?'Saved responses':row.status==='submitted'?'Check feedback':'Resume writing'}`,()=>{void open(row.id)},true));
    if(!catalog.history.length)history.append(el('p','Your responses and feedback will appear here.'));area.append(history);
