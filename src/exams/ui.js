@@ -133,6 +133,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
  }
  function renderCatalog(){
   header('TEF/TCF AI Tests');if(!catalog)return;
+  const writing=el('section',undefined,'hz-writing-entry');writing.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Writing · 20 tests'),el('p','Three writing tasks per test, a 60-minute timer, saved responses and AI mistake feedback with estimated TCF/NCLC results.'),button('Open TCF Writing tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-writing'))));area.append(writing);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
   const cards=el('div',undefined,'hz-exam-cards');

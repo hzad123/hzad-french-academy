@@ -29,9 +29,15 @@ For each task, state exactly: what was implemented, what was tested, what was no
 - Keep Progress Tracker as the top-right dashboard button, not a central promo.
 - Give TEF/TCF AI Tests its own top-right dashboard button. Keep all exam
   content and owner audio setup inside that area, separate from AI Learning.
-- Organise each TEF/TCF full timed test into Reading, Listening, Writing and
-  Speaking, with its numbered questions/tasks underneath. These are sections
-  of one full test, not separately purchased practice activities.
+- Organise each existing TEF/TCF full timed test into Reading, Listening, Writing
+  and Speaking with numbered questions/tasks. The 9 November assignment
+  additionally authorizes a separate 20-paper TCF writing module in the tests
+  area. Build one module at a time; see `docs/tcf-writing.md`.
+- For current and future TCF modules, base marking on the applicable public
+  examiner criteria and scoring guide, and show a supported TCF/NCLC estimate.
+  Feedback should identify mistakes and unmet requirements only. Do not invent
+  official weights/conversions, infer unassessed skills or reuse a writing
+  conversion for receptive skills. Keep the owner’s sample formats.
 - Provide top-left Back navigation across app views, preserve saved progress,
   and clear navigation history when the account/session changes.
 - Use distinctive achievement artwork and modern certificate presentation.
