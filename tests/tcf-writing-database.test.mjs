@@ -2,6 +2,7 @@ import {test,before,after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
+import {createWritingHandler} from '../supabase/functions/academy-tcf-writing/handler.js';
 let db;const alice='11111111-1111-4111-8111-111111111111',bob='22222222-2222-4222-8222-222222222222';
 const q=async(sql,args=[])=> (await db.query(sql,args)).rows;
 const v=async(sql,args=[])=> (await q(sql,args))[0].v;
@@ -19,9 +20,11 @@ before(async()=>{
  insert into public.academy_learning_progress(user_id,unit_id,attempts,best_percent,completed) values('${alice}','a0-01',3,92,true);`);
  await db.exec(await readFile('supabase/migrations/20261105001000_ai_learning.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001500_tcf_writing.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261109001600_fix_tcf_writing_history.sql','utf8'));
 });
 after(async()=>db?.close());
 test('additive migration leaves existing progress and activity prices intact and the new paid activity off',async()=>{
+ await role('service_role');assert.deepEqual(await command(alice,'list'),[]);await role();
  const activity=(await q("select * from academy_ai.activities where kind='tcf-writing'"))[0];assert.equal(activity.enabled,false);assert.equal(activity.credits,null);assert.equal(activity.ceiling_microcad,null);
  assert.equal((await q('select best_percent from public.academy_learning_progress'))[0].best_percent,92);
  assert.equal((await q('select count(*)::int n from academy_ai.wallets'))[0].n,0);
@@ -71,4 +74,24 @@ test('writing result uses the existing wallet ledger, one frozen charge, owner-o
  assert.equal((await q('select available from academy_ai.wallets where user_id=$1',[alice]))[0].available,17);
  assert.equal((await q("select count(*)::int n from academy_ai.ledger where request_id=$1 and event='charge'",[id]))[0].n,1);
  await db.exec(await readFile('supabase/rollbacks/20261109_disable_tcf_writing.sql','utf8'));await role('service_role');assert.equal((await command(alice,'read',id)).result.nclc,'8');await role();assert.equal((await q('select best_percent from public.academy_learning_progress'))[0].best_percent,92);
+});
+test('entitled learners can list saved writing attempts through the real database function',async()=>{
+ await role('service_role');const rows=await command(alice,'list');assert(Array.isArray(rows));assert(rows.some(r=>r.testId==='tcf-writing-01'));await role();
+});
+
+test('writing catalog GET succeeds through the real handler and real PostgreSQL RPCs without AI calls',async()=>{
+ await role();let calls=0;
+ const adapter={
+  userRpc:async()=>db.transaction(async tx=>{
+   await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[alice]);await tx.exec('set local role authenticated');
+   return (await tx.query('select public.academy_ai_state() as v')).rows[0].v;
+  }),
+  adminRpc:async(name,p)=>db.transaction(async tx=>{
+   assert.equal(name,'academy_tcf_writing_command');await tx.exec('set local role service_role');
+   return (await tx.query('select public.academy_tcf_writing_command($1,$2,$3,$4) as v',[p.p_user,p.p_action,p.p_id,p.p_payload])).rows[0].v;
+  })
+ };
+ const handler=createWritingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:adapter,provider:{ready:()=>true,run:async()=>{calls++;throw Error('Unexpected AI call')}}});
+ const response=await handler(new Request('https://example.test',{headers:{Authorization:'Bearer fixture'}}));assert.equal(response.status,200);
+ const result=await response.json();assert.equal(result.tests.length,20);assert.equal(result.tests[0].tasks.length,3);assert(result.history.some(r=>r.testId==='tcf-writing-01'));assert.equal(calls,0);assert.equal(result.enabled,false);
 });
