@@ -1,6 +1,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import bank from '../supabase/exams/tcf-writing-tests.json' with {type:'json'};
+import originalBank from '../supabase/exams/tcf-writing-tests-v1.json' with {type:'json'};
+import {paperForAttempt} from '../supabase/functions/academy-tcf-writing/banks.js';
 import {nclcForWriting,taskConstraints,validateWritingFeedback,assessmentMessages} from '../supabase/functions/academy-tcf-writing/scoring.js';
 import {createWritingProvider} from '../supabase/functions/academy-tcf-writing/provider.js';
 import {createWritingHandler} from '../supabase/functions/academy-tcf-writing/handler.js';
@@ -67,7 +69,7 @@ function harness({reviewStatus=null,enabled=true,failProvider=false,failFinish=f
   if(name==='academy_ai_fail'){row.reviewStatus='failed';return null}
  }};
  const handler=createWritingHandler({authenticate:async token=>token==='valid'?{id:user,email_confirmed_at:'2026-11-01'}:null,db,provider:{ready:()=>true,run:async()=>{providerCalls++;if(failProvider)throw Error('Bad output');return {result:validateWritingFeedback(feedback(),{test:paper,responses}),usage:{total_tokens:1200}}}}});
- const req=(body,token='valid',origin='https://hzad123.github.io')=>handler(new Request('https://example.test',{method:body?'POST':'GET',headers:{Authorization:'Bearer '+token,Origin:origin,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined}));
+ const req=(body,token='valid',origin='https://hzad123.github.io',query='')=>handler(new Request('https://example.test'+query,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+token,Origin:origin,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined}));
  return {id,user,calls,req,providerCalls:()=>providerCalls,row};
 }
 test('handler rejects unauthorized origin, anonymous identities, forged scores and unknown test IDs before wallet use',async()=>{
@@ -86,4 +88,34 @@ test('paused, stale-price, dispatched, failed and unclaimed requests do not trig
 test('provider failures refund through the existing wallet; finish uncertainty stays pending without a second call',async()=>{
  let h=harness({failProvider:true});assert.equal((await h.req({kind:'review',id:h.id,expectedCredits:3})).status,502);assert(h.calls.some(c=>c.name==='academy_ai_fail'));assert.equal(h.providerCalls(),1);
  h=harness({failFinish:true});assert.equal((await h.req({kind:'review',id:h.id,expectedCredits:3})).status,202);assert.equal(h.providerCalls(),1);assert(!h.calls.some(c=>c.name==='academy_ai_fail'));
+});
+
+test('every Task 2 follows the supplied Sujet/Consigne experience-message pattern and fixed 120–150 words',()=>{
+ const subjects=new Set();
+ for(const paper of bank.tests){const task=paper.tasks[1];
+  assert.match(task.subject,/^Sur un blog/);assert.match(task.subject,/les lecteurs sont invités à raconter/);subjects.add(task.subject);
+  assert.match(task.instruction,/^Rédigez un message pour raconter /);assert.match(task.instruction,/\(lieu, activités, impressions\), et expliquez pourquoi /);assert.match(task.instruction,/a été important[e]? pour vous\.$/);
+  assert.deepEqual([task.minWords,task.maxWords],[120,150]);assert(!/recommand|conseil|amélior|réserves|revendiquer/i.test(task.instruction));
+ }
+ assert.equal(subjects.size,20);
+ assert.equal(bank.tests[0].tasks[1].subject,'Sur un blog de voyage, les lecteurs sont invités à raconter leur expérience de voyage dans une ville ou un pays étranger.');
+ assert.equal(bank.tests[0].tasks[1].instruction,'Rédigez un message pour raconter un voyage marquant que vous avez fait à l’étranger (lieu, activités, impressions), et expliquez pourquoi ce voyage a été important pour vous.');
+});
+test('saved paper versions retain their original topics and requirements',()=>{
+ assert.notEqual(bank.version,originalBank.version);
+ assert.equal(paperForAttempt({version:originalBank.version,testId:'tcf-writing-02'}).tasks[1].instruction,originalBank.tests[1].tasks[1].instruction);
+ assert.equal(paperForAttempt({version:bank.version,testId:'tcf-writing-02'}).tasks[1].subject,bank.tests[1].tasks[1].subject);
+ for(let i=0;i<20;i++){assert.deepEqual(bank.tests[i].tasks[0],originalBank.tests[i].tasks[0]);assert.deepEqual(bank.tests[i].tasks[2],originalBank.tests[i].tasks[2])}
+ assert.throws(()=>paperForAttempt({version:'forged',testId:'tcf-writing-01'}));
+});
+
+test('old and corrected clients receive matching catalog versions; start versions are validated server-side',async()=>{
+ const h=harness();const old=await (await h.req(null)).json();assert.equal(old.version,originalBank.version);assert(!old.tests[0].tasks[1].subject);
+ const current=await (await h.req(null,'valid','https://hzad123.github.io','?format=sample-v2')).json();assert.equal(current.version,bank.version);assert(current.tests.every(p=>p.tasks[1].subject));
+ await h.req({kind:'start',id:h.id,testId:paper.id,version:bank.version});assert(h.calls.some(c=>c.args.p_action==='start'&&c.args.p_payload.version===bank.version));
+ const before=h.calls.length;assert.equal((await h.req({kind:'start',id:h.id,testId:paper.id,version:'forged'})).status,409);assert.equal(h.calls.length,before);
+});
+test('reading an earlier attempt returns its original paper instead of silently substituting revised instructions',async()=>{
+ const h=harness();h.row.version=originalBank.version;h.row.testId='tcf-writing-02';
+ const r=await h.req(null,'valid','https://hzad123.github.io','?attempt='+h.id);assert.equal(r.status,200);const saved=await r.json();assert.equal(saved.paper.tasks[1].instruction,originalBank.tests[1].tasks[1].instruction);assert(!saved.paper.tasks[1].subject);assert.equal(h.providerCalls(),0);
 });

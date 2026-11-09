@@ -9,5 +9,5 @@ export function makeWritingStore(client,fetcher=globalThis.fetch.bind(globalThis
    const data=await response.json();if(!response.ok)throw Error(data.error||'TCF writing could not connect.');return data;
   }finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
  }
- return {catalog:signal=>call('',null,signal),read:(id,signal)=>call('?attempt='+encodeURIComponent(id),null,signal),send:(body,signal)=>call('',body,signal)};
+ return {catalog:signal=>call('?format=sample-v2',null,signal),read:(id,signal)=>call('?attempt='+encodeURIComponent(id),null,signal),send:(body,signal)=>call('',body,signal)};
 }

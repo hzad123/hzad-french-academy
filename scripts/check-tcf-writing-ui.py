@@ -14,6 +14,11 @@ with sync_playwright() as p:
   page.get_by_role('button',name='Start Test 01',exact=True).click();page.get_by_role('heading',name='TCF Writing · Test 01',exact=True).wait_for()
   assert page.locator('.hz-writing-task').count()==3;assert page.locator('textarea').count()==3;assert page.locator('.hz-writing-documents article').count()==2
   assert 'Bretagne' in page.locator('.hz-writing-prompt').first.inner_text()
+  task2=page.locator('.hz-writing-task').nth(1)
+  assert task2.get_by_role('heading',name='Sujet :',exact=True).count()==1
+  assert task2.get_by_role('heading',name='Consigne :',exact=True).count()==1
+  assert task2.get_by_text('(120 mots minimum / 150 mots maximum)',exact=True).count()==1
+  assert 'Rédigez un message pour raconter un voyage marquant' in task2.inner_text()
   answers=['Je suis aller '+' '.join(['bonjour']*68),' '.join(['voyage']*125),' '.join(['travail']*125)]
   for i,text in enumerate(answers,1):page.locator(f'#hz-writing-response-{i}').fill(text)
   page.get_by_text('All three responses saved.',exact=True).wait_for()
@@ -60,5 +65,16 @@ with sync_playwright() as p:
   page.locator('#hz-exams-launch').click();page.get_by_role('button',name='Open TCF Writing tests',exact=True).click();assert page.locator('.hz-writing-history .hz-btn').count()==0
   page.get_by_role('button',name='Start Test 02',exact=True).click();assert page.locator('#hz-writing-response-1').input_value()==''
   page.evaluate('fixture.signOut()');assert page.locator('#hz-tcf-writing').inner_text()=='';assert errors==[],errors
+  # Check the supplied Task 2 structure on every newly opened paper.
+  page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-writing.html');page.wait_for_function('fixtureReady===true')
+  page.locator('#hz-exams-launch').click();page.get_by_role('button',name='Open TCF Writing tests',exact=True).click()
+  for number in range(1,21):
+   label=str(number).zfill(2);page.get_by_role('button',name='Start Test '+label,exact=True).click();page.get_by_role('heading',name='TCF Writing · Test '+label,exact=True).wait_for()
+   task2=page.locator('.hz-writing-task').nth(1);assert task2.get_by_role('heading',name='Sujet :',exact=True).count()==1
+   assert task2.get_by_role('heading',name='Consigne :',exact=True).count()==1
+   assert task2.get_by_text('(120 mots minimum / 150 mots maximum)',exact=True).count()==1
+   assert 'Rédigez un message pour raconter' in task2.inner_text();assert 'et expliquez pourquoi' in task2.inner_text()
+   page.get_by_role('button',name='All 20 writing tests',exact=True).click()
+  assert page.evaluate('fixture.providerCalls')==0;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');assert errors==[],errors
   print(json.dumps({'viewport':width,'result':'20 tests, repeated Back/resume without duplicates or timer resets, switching papers while AI paused, 3 editors, source documents, word counts, autosave/reopen, keyboard jump, TCF/NCLC result, mistake-only view, one charge, free review, save retry, account isolation and no overflow/JS errors passed'}));page.close()
  browser.close()
