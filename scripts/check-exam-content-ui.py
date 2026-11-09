@@ -28,7 +28,7 @@ with sync_playwright() as p:
   page.get_by_text('Task checklist',exact=True).wait_for()
   page.screenshot(path=f'/tmp/exam-content-evidence/tef-writing-{width}.png',full_page=True)
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
-  page.get_by_role('button',name='Mock exam centre',exact=True).click()
+  page.locator('#hz-exams').get_by_role('button',name='TEF/TCF AI Tests',exact=True).click()
   page.get_by_role('button',name='Review TCF Canada content',exact=True).click()
   page.locator('.hz-exam-section[data-skill=listening] > summary').click()
   page.get_by_role('button',name='Review Listening question 1',exact=True).click()

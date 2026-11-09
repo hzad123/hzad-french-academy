@@ -27,6 +27,8 @@ For each task, state exactly: what was implemented, what was tested, what was no
   factual requirements clear. Use accurate positive labels such as “HZad
   Certificate of Course Completion”; do not invent accreditation claims.
 - Keep Progress Tracker as the top-right dashboard button, not a central promo.
+- Give TEF/TCF AI Tests its own top-right dashboard button. Keep all exam
+  content and owner audio setup inside that area, separate from AI Learning.
 - Organise each TEF/TCF full timed test into Reading, Listening, Writing and
   Speaking, with its numbered questions/tasks underneath. These are sections
   of one full test, not separately purchased practice activities.
