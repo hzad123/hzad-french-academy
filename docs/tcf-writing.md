@@ -1,5 +1,13 @@
 # TCF writing — 20-paper module
 
+## Deployment update — 9 November 2026
+
+The owner authorized deployment after reviewing PR #17. Migration `20261109001500` is now installed and recorded in Supabase migration history. Its production DDL/grant check was first run in a rolled-back transaction. RLS is enabled; anonymous/authenticated roles cannot execute the privileged command or read its table; only the service role can execute the command. `academy-tcf-writing` v1 is ACTIVE with gateway `verify_jwt=true`. Anonymous and invalid-token calls return 401; academy CORS preflight returns 204. Publishing PR #17 to development releases the frontend.
+
+Before/after deployment: 392 lessons, five existing progress rows, identical progress checksum, zero new writing attempts; existing AI activity prices/models/ceilings and the policy are unchanged. The included per-student ceiling is CAD $10 and the global cap remains NULL (no shared cap). No student account, entitlement, wallet credit, model call or example attempt was created for release verification. No service-role credential was extracted. Production migration history did not record every older exam SQL deployment; only this new migration was recorded, with no historical SQL replay.
+
+**AI marking for this new activity remains disabled/unpriced** pending the documented examiner-score validation and a measured, confirmed credit charge. Existing AI trainers remain active. The new writing editors, timers and saving backend can be published independently. No real authenticated learner save/marking session or native OpenAI calibration was performed by this release; local authenticated fixture QA is documented below. All later references to unapplied/deployment preparation describe the implementation-stage status, superseded by this deployment update.
+
 Owner assignment, 9 November 2026: build TCF writing first, one module at a time. This replaces the earlier full-test-only restriction for this new writing module. Keep it inside **TEF/TCF AI Tests**, separate from AI Learning. Other existing mock modules are unchanged.
 
 ## Content and student flow
