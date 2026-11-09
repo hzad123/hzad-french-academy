@@ -4,7 +4,7 @@ Published baseline: PRs #13 and #14 delivered the exam centre, owner-only audio 
 
 ## Implementation
 
-The exam centre opens inside **AI Learning**. It contains one original four-skill TEF Canada bank and one original four-skill TCF Canada bank. Counts and timings match the provider-page material supplied by the owner on November 5, 2026:
+The exam centre opens from the dedicated **TEF/TCF AI Tests** dashboard button. AI Learning contains only its pronunciation, conversation and writing trainers. Owner-only audio setup is inside the tests area. It contains one original four-skill TEF Canada bank and one original four-skill TCF Canada bank. Counts and timings match the provider-page material supplied by the owner on November 5, 2026:
 
 | Exam | Reading | Listening | Writing | Speaking |
 | --- | --- | --- | --- | --- |

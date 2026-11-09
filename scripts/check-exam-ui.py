@@ -14,7 +14,7 @@ with sync_playwright() as p:
   page.on('pageerror',lambda e:errors.append(str(e)))
   page.route('**/exam-silence.wav',lambda route:route.fulfill(path='/tmp/exam-silence.wav',content_type='audio/wav'))
   page.goto('http://127.0.0.1:8765/tests/fixtures/exams.html');page.wait_for_function('window.fixtureReady===true')
-  page.get_by_role('heading',name='Full French mock exams').wait_for()
+  page.get_by_role('heading',name='TEF/TCF AI Tests').wait_for()
   cards=page.locator('.hz-exam-card')
   assert cards.count()==2
   for card,expected in [(cards.nth(0),[40,40,2,2]),(cards.nth(1),[39,39,3,3])]:
@@ -59,8 +59,8 @@ with sync_playwright() as p:
   page.evaluate("async()=>{const r=fixture.rows.values().next().value;await fixture.send({kind:'event',id:r.id,event:{kind:'finish-section',section:1}});await fixture.ui.open(r.id)}")
   page.get_by_role('textbox',name='Votre réponse écrite').fill('Bonjour mon ami. Je vous invite samedi à la bibliothèque.')
   page.get_by_text('Writing saved.',exact=True).wait_for()
-  page.get_by_role('button',name='Mock exam centre',exact=True).click()
-  page.get_by_role('heading',name='Full French mock exams').wait_for()
+  page.locator('#hz-exams').get_by_role('button',name='TEF/TCF AI Tests',exact=True).click()
+  page.get_by_role('heading',name='TEF/TCF AI Tests').wait_for()
   page.get_by_role('button',name='TEF Canada ·',exact=False).click()
   assert page.get_by_role('textbox',name='Votre réponse écrite').input_value().startswith('Bonjour mon ami.')
   page.evaluate("async()=>{const r=fixture.rows.values().next().value;await fixture.send({kind:'event',id:r.id,event:{kind:'finish-section',section:2}});await fixture.send({kind:'event',id:r.id,event:{kind:'finish-section',section:3}});await fixture.ui.open(r.id)}")
@@ -74,7 +74,7 @@ with sync_playwright() as p:
   page.get_by_text('Your three priorities',exact=True).wait_for()
   page.screenshot(path=f'/tmp/exam-browser-evidence/feedback-{width}.png',full_page=True)
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'), 'feedback horizontal overflow'
-  page.get_by_role('button',name='Mock exam centre',exact=True).click()
+  page.locator('#hz-exams').get_by_role('button',name='TEF/TCF AI Tests',exact=True).click()
   page.get_by_role('button',name='Start full mock · 50 credits').nth(1).click()
   page.get_by_role('heading',name='TCF Canada · Mock 01').wait_for()
   page.evaluate("async()=>{const r=[...fixture.rows.values()].find(r=>r.exam==='tcf-canada');await fixture.send({kind:'event',id:r.id,event:{kind:'finish-section',section:0}});await fixture.send({kind:'event',id:r.id,event:{kind:'finish-section',section:1}});await fixture.ui.open(r.id)}")

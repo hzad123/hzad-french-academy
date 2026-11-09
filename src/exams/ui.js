@@ -26,6 +26,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   await run(async(signal,current)=>{const next=await store.catalog(signal),saved=id?await store.send({kind:'read',id},signal):null;if(!current())return;catalog=next;attempt=saved;observedAt=Date.now();render()});
  }
  root.addEventListener('hzad-open-exams',()=>{void open()});
+ root.querySelector('#hz-exams-launch')?.addEventListener('click',()=>{void open()});
  function remember(){if(contentView){const {exam,skill,index}=contentView;recordView(root,`exam-content:${exam}:${skill}:${index}`,()=>openContent(exam,skill,index));return}const id=attempt?.id;recordView(root,'exams:'+(id||'home'),()=>open(id))}
  async function openContent(exam,skill='reading',index=0){
   root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;chooser.classList.add('hz-hidden');area.classList.remove('hz-hidden');area.append(el('p','Opening question content…'));
@@ -45,7 +46,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   clearInterval(interval);clearTimeout(saveTimer);recorder?.dispose();recorder=null;audio?.pause();audio=null;confirmation=false;area.replaceChildren();area.classList.remove('hz-hidden');
   if(contentView){renderContentReview();remember();controls();return}
   if(!attempt){renderCatalog();remember();controls();return}
-  header(names[attempt.exam]+' · Mock 01');area.append(button('Mock exam centre',()=>open(),true));
+  header(names[attempt.exam]+' · Mock 01');area.append(button('TEF/TCF AI Tests',()=>open(),true));
   if(attempt.status==='completed'){results(reviewOpen);remember();controls();return}
   if(attempt.status==='cancelled'){area.append(el('p','This attempt is closed. Your previous attempts remain saved.'));remember();controls();return}
   const q=attempt.question;
@@ -131,7 +132,8 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   area.append(wrap);return current;
  }
  function renderCatalog(){
-  header('Full French mock exams');if(!catalog)return;
+  header('TEF/TCF AI Tests');if(!catalog)return;
+  if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
   const cards=el('div',undefined,'hz-exam-cards');
   for(const exam of catalog.exams){
@@ -167,7 +169,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   if(debrief.practice)guide.append(el('h5','Try this next'),el('p',debrief.practice.instruction),el('p',debrief.practice.example,'hz-ai-corrected'));parent.append(guide);
  }
  function renderContentReview(){
-  const view=contentView,q=view.question;header(names[view.exam]+' · Content review');area.append(button('Mock exam centre',()=>open(),true),el('p','Administrator review · no test attempt or credit charge','hz-ai-balance'));
+  const view=contentView,q=view.question;header(names[view.exam]+' · Content review');area.append(button('TEF/TCF AI Tests',()=>open(),true),el('p','Administrator review · no test attempt or credit charge','hz-ai-balance'));
   const groups=el('div',undefined,'hz-exam-sections');let panel;
   for(const section of examSections(catalog.exams.find(e=>e.exam===view.exam))){
    const group=el('details',undefined,'hz-exam-section'+(section.skill===view.skill?' is-active':''));group.dataset.skill=section.skill;group.open=section.skill===view.skill;group.append(sectionSummary(section));

@@ -13,23 +13,18 @@ export function makeAudioAdminStore(client,fetcher=globalThis.fetch.bind(globalT
  };
 }
 export function wireExamAudioAdmin(root,client,{fetcher}={}){
- const dashboard=root.querySelector('#hz-dashboard'),actions=root.querySelector('.hz-dashboard-actions'),chooser=root.querySelector('#hz-course-chooser');if(!dashboard||!actions)return;
+ const dashboard=root.querySelector('#hz-dashboard'),chooser=root.querySelector('#hz-course-chooser');if(!dashboard||!chooser)return;
  const call=makeAudioAdminStore(client,fetcher),area=el('section',undefined,'hz-exams hz-hidden');area.id='hz-exam-audio-admin';area.setAttribute('aria-label','Exam audio setup');dashboard.append(area);
- const launch=button('Exam audio setup',()=>{void open()});launch.id='hz-exam-audio-admin-launch';launch.hidden=true;actions.append(launch);
- let snapshot=null,epoch=0,identity=null,checked=null,controller=null,visible=false,running=false,stop=false,activeAudio=null,reviewError='';
+ let snapshot=null,epoch=0,identity=null,controller=null,visible=false,running=false,stop=false,activeAudio=null,reviewError='';
  function clear(){epoch++;stop=true;running=false;visible=false;controller?.abort();controller=null;activeAudio?.pause();activeAudio=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();identity=null;checked=null;snapshot=null;launch.hidden=true}
+ function reset(){clear();identity=null;snapshot=null}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
- async function discover(session){
-  const id=session?.user?.id;if(!id){reset();return}if(identity&&identity!==id)reset();identity=id;if(checked===id)return;checked=id;
-  try{const data=await call();if(identity!==id)return;snapshot=data;launch.hidden=false}catch{if(identity===id)launch.hidden=true}
- }
- client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT')reset();else if(session?.user?.id){const id=session.user.id;if(identity&&identity!==id)reset();identity=id;setTimeout(()=>{if(identity===id)void discover(session)},0)}});
- const initialEpoch=epoch;void client.auth.getSession().then(({data})=>{if(initialEpoch===epoch)return discover(data?.session)}).catch(()=>{});
+ root.addEventListener('hzad-open-exam-audio',()=>{void open()});
+ client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT')reset();else if(session?.user?.id){const id=session.user.id;if(identity&&identity!==id)reset();identity=id}});
  function status(text,error=false){let n=area.querySelector('.hz-exam-status');if(!n){n=el('p',undefined,'hz-exam-status');area.append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status')}
  async function open(){
-  root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;stop=false;chooser.classList.add('hz-hidden');area.classList.remove('hz-hidden');area.append(el('p','Loading saved audio progress…'));const ticket=epoch;controller=new AbortController();
-  try{const data=await call(null,controller.signal);if(ticket!==epoch)return;snapshot=data;launch.hidden=false;render();recordView(root,'exam-audio-setup',open)}catch(error){if(ticket===epoch){status(error.message,true);if(error.status===401||error.status===403)launch.hidden=true}}
+  root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;stop=false;chooser.classList.add('hz-hidden');area.classList.remove('hz-hidden');area.append(button('← TEF/TCF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),true),el('p','Loading saved audio progress…'));const ticket=epoch;controller=new AbortController();
+  try{const session=await requireSession(client);if(ticket!==epoch)return;identity=session.user?.id||null;const data=await call(null,controller.signal);if(ticket!==epoch)return;snapshot=data;render();recordView(root,'exam-audio-setup',open)}catch(error){if(ticket===epoch)status(error.message,true)}
  }
  async function generate(){
   if(running)return;running=true;stop=false;const ticket=epoch;controller=new AbortController();render();
@@ -58,7 +53,7 @@ export function wireExamAudioAdmin(root,client,{fetcher}={}){
   try{const data=await call({action:'review',path:row.path,hash:row.audioHash,checked:true});if(ticket===epoch){snapshot=data;render();status('Recording approved.')}}catch(error){if(ticket===epoch){status(error.message,true);control.disabled=false}}
  }
  function render(){
-  if(!visible)return;activeAudio?.pause();activeAudio=null;area.replaceChildren();const hero=el('header',undefined,'hz-exam-hero');hero.append(el('p','ACADEMY ADMINISTRATION','hz-eyebrow'),el('h3','Exam audio setup'),el('p','Generate once. Review the French. Reuse recordings for every student.'));area.append(hero);
+  if(!visible)return;activeAudio?.pause();activeAudio=null;area.replaceChildren();const hero=el('header',undefined,'hz-exam-hero');hero.append(el('p','ACADEMY ADMINISTRATION','hz-eyebrow'),el('h3','Exam audio setup'),el('p','Generate once. Review the French. Reuse recordings for every student.'));area.append(button('← TEF/TCF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),true),hero);
   if(!snapshot)return;
   const counts={pending:0,generating:0,ready:0,failed:0};snapshot.assets.forEach(a=>counts[a.status]++);const reviewed=snapshot.assets.filter(a=>a.reviewed).length;
   area.append(el('p',`${counts.ready}/${snapshot.assets.length} generated · ${reviewed} approved`,'hz-ai-balance'));
