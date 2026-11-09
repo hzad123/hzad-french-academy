@@ -52,21 +52,21 @@ export function wireTcfWriting(root,client,{fetcher}={}){
  },900)}
  function nav(fn){if(conflict){status('Choose which responses to keep before leaving this test.',true);return}void run(async(signal,current)=>{if(dirty&&remaining>0)await save(signal,current);if(current()){busy=false;await fn()}})}
  function header(title){const h=el('header',undefined,'hz-exam-hero');h.append(el('p','TCF CANADA · EXPRESSION ÉCRITE','hz-eyebrow'),el('h3',title));area.append(h,button('← TEF/TCF AI Tests',()=>nav(()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))),true));if(attempt)area.append(button('All 20 writing tests',()=>nav(()=>open()),true))}
- function start(testId){void run(async(signal,current)=>{const next=await store.send({kind:'start',id:crypto.randomUUID(),testId},signal);if(current()){receive(next,{restore:true});render()}})}
+ function start(testId){void run(async(signal,current)=>{const next=await store.send({kind:'start',id:crypto.randomUUID(),testId,version:catalog.version},signal);if(current()){receive(next,{restore:true});render()}})}
  function render(){
   clearInterval(timer);area.replaceChildren();header(attempt?`TCF Writing · Test ${attempt.testId.slice(-2)}`:'TCF Writing · 20 tests');
   if(!attempt){
    area.append(el('p','Three tasks · 60 minutes per test. Write your responses, then submit all three for mistake feedback and an estimated TCF/NCLC writing result.'));
    const grid=el('div',undefined,'hz-writing-tests');
-   for(const test of catalog.tests){const card=el('article',undefined,'hz-writing-test');card.append(el('span','TEST '+test.id.slice(-2),'hz-eyebrow'),el('h4',test.title));const list=el('ol');for(const task of test.tasks)list.append(el('li',task.title));const resumable=catalog.history.some(row=>row.testId===test.id&&row.status==='draft'&&Date.parse(row.deadline)>Date.now());card.append(list,button((resumable?'Resume Test ':'Start Test ')+test.id.slice(-2),()=>start(test.id)));grid.append(card)}area.append(grid);
+   for(const test of catalog.tests){const card=el('article',undefined,'hz-writing-test');card.append(el('span','TEST '+test.id.slice(-2),'hz-eyebrow'),el('h4',test.title));const list=el('ol');for(const task of test.tasks)list.append(el('li',task.title));const resumable=catalog.history.some(row=>row.testId===test.id&&(!row.version||row.version===catalog.version)&&row.status==='draft'&&Date.parse(row.deadline)>Date.now());card.append(list,button((resumable?'Resume Test ':'Start Test ')+test.id.slice(-2),()=>start(test.id)));grid.append(card)}area.append(grid);
    const history=el('section',undefined,'hz-writing-history');history.append(el('h4','Your saved writing tests'));
-   for(const row of catalog.history)history.append(button(`Test ${row.testId.slice(-2)} · ${new Date(row.startedAt).toLocaleDateString()} · ${row.reviewStatus==='completed'?'View feedback':row.reviewStatus==='failed'?'Saved responses':row.status==='submitted'?'Check feedback':'Resume writing'}`,()=>{void open(row.id)},true));
+   for(const row of catalog.history)history.append(button(`Test ${row.testId.slice(-2)} · ${new Date(row.startedAt).toLocaleDateString()} · ${row.version&&row.version!==catalog.version?'Previous paper · ':''}${row.reviewStatus==='completed'?'View feedback':row.reviewStatus==='failed'?'Saved responses':row.status==='submitted'?'Check feedback':'Resume writing'}`,()=>{void open(row.id)},true));
    if(!catalog.history.length)history.append(el('p','Your responses and feedback will appear here.'));area.append(history);
   }else renderAttempt();
   const id=attempt?.id;recordView(root,'tcf-writing:'+(id||'home'),()=>open(id));controls();
  }
  function renderAttempt(){
-  const test=catalog.tests.find(t=>t.id===attempt.testId);if(!test){status('This test version could not be opened.',true);return}
+  const test=attempt.paper||catalog.tests.find(t=>t.id===attempt.testId);if(!test){status('This test version could not be opened.',true);return}
   if(conflict){
    status('Saved responses changed in another tab. Your unsaved text is still in the editors. Choose which version to keep.',true);
    area.append(button('Keep my text',()=>{conflict=false;local.revision=attempt.revision;void run(async(signal,current)=>{await save(signal,current);if(current())render()})},true),button('Use saved responses',()=>{conflict=false;dirty=false;local={id:attempt.id,revision:attempt.revision,responses:[...attempt.responses]};render()},true));
@@ -77,9 +77,10 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   for(const task of test.tasks){
    const group=el('details',undefined,'hz-writing-task');group.open=true;const summary=el('summary',`Tâche ${task.number} · ${task.title}`);group.append(summary);
    const prompt=el('div',undefined,'hz-writing-prompt');prompt.lang='fr';
+   if(task.subject)prompt.append(el('h4','Sujet :'),el('p',task.subject));
    if(task.context){prompt.append(el('h4','Message reçu'),el('blockquote',task.context))}
    if(task.documents){const docs=el('div',undefined,'hz-writing-documents');task.documents.forEach((text,i)=>{const doc=el('article');doc.append(el('h4','Document '+(i+1)),el('p',text));docs.append(doc)});prompt.append(docs)}
-   prompt.append(el('h4','Consigne'),el('p',task.instruction));group.append(prompt);
+   prompt.append(el('h4','Consigne :'),el('p',task.instruction),el('p',`(${task.minWords} mots minimum / ${task.maxWords} mots maximum)`,'hz-writing-word-range'));group.append(prompt);
    const count=el('p',undefined,'hz-writing-count');count.id='hz-writing-count-'+task.number;
    const label=el('label','Votre réponse — Tâche '+task.number),input=el('textarea');input.id='hz-writing-response-'+task.number;input.rows=10;input.maxLength=3500;input.lang='fr';input.spellcheck=false;input.value=local.responses[task.number-1];input.disabled=locked;input.setAttribute('aria-describedby',count.id);
    const update=()=>{const n=words(input.value);count.textContent=`${n} mots · ${task.minWords}–${task.maxWords} mots attendus`;count.classList.toggle('is-outside-range',n<task.minWords||n>task.maxWords)};update();

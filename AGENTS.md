@@ -38,6 +38,11 @@ For each task, state exactly: what was implemented, what was tested, what was no
   Feedback should identify mistakes and unmet requirements only. Do not invent
   official weights/conversions, infer unassessed skills or reuse a writing
   conversion for receptive skills. Keep the owner’s sample formats.
+- TCF writing Task 2 must follow the owner’s sample consistently: separate
+  **Sujet** and **Consigne**, a message recounting a past experience (place,
+  activities, impressions), why it was important, and **120–150 words**. Vary
+  topics/content only; do not replace the task with a review, advice, complaint
+  or recommendation. Preserve earlier saved papers with their original prompts.
 - Provide top-left Back navigation across app views, preserve saved progress,
   and clear navigation history when the account/session changes.
 - Use distinctive achievement artwork and modern certificate presentation.

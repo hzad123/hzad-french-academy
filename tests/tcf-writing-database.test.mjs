@@ -7,7 +7,7 @@ let db;const alice='11111111-1111-4111-8111-111111111111',bob='22222222-2222-422
 const q=async(sql,args=[])=> (await db.query(sql,args)).rows;
 const v=async(sql,args=[])=> (await q(sql,args))[0].v;
 async function role(name='postgres',id=''){await db.exec('reset role');await q("select set_config('request.jwt.claim.sub',$1,false)",[id]);if(name!=='postgres')await db.exec('set role '+name)}
-const command=(user,action,id=null,payload={})=>v('select public.academy_tcf_writing_command($1,$2,$3,$4) as v',[user,action,id,payload]);
+const command=(user,action,id=null,payload={})=>v('select public.academy_tcf_writing_command($1,$2,$3,$4) as v',[user,action,id,action==='start'?{version:'tcf-writing-2026-11-v2',...payload}:payload]);
 before(async()=>{
  db=new PGlite();await db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;
  create table auth.users(id uuid primary key,email_confirmed_at timestamptz);
@@ -22,6 +22,7 @@ before(async()=>{
  await db.exec(await readFile('supabase/migrations/20261109001500_tcf_writing.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001600_fix_tcf_writing_history.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001700_resume_tcf_writing_drafts.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261109001800_tcf_writing_sample_format.sql','utf8'));
 });
 after(async()=>db?.close());
 test('additive migration leaves existing progress and activity prices intact and the new paid activity off',async()=>{
@@ -93,7 +94,7 @@ test('writing catalog GET succeeds through the real handler and real PostgreSQL 
   })
  };
  const handler=createWritingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:adapter,provider:{ready:()=>true,run:async()=>{calls++;throw Error('Unexpected AI call')}}});
- const response=await handler(new Request('https://example.test',{headers:{Authorization:'Bearer fixture'}}));assert.equal(response.status,200);
+ const response=await handler(new Request('https://example.test?format=sample-v2',{headers:{Authorization:'Bearer fixture'}}));assert.equal(response.status,200);
  const result=await response.json();assert.equal(result.tests.length,20);assert.equal(result.tests[0].tasks.length,3);assert(result.history.some(r=>r.testId==='tcf-writing-01'));assert.equal(calls,0);assert.equal(result.enabled,false);
 });
 
@@ -118,4 +119,13 @@ test('resuming works at the 50-start daily limit; creating genuinely new attempt
  await role();await q("insert into academy_tcf_writing.attempts(id,user_id,test_id,version,deadline) select gen_random_uuid(),$1,'tcf-writing-02','tcf-writing-2026-11-v1',now()-interval '1 second' from generate_series(1,49)",[user]);
  await role('service_role');assert.equal((await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'})).id,original.id);
  await assert.rejects(()=>command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-03'}),/Daily writing attempt limit/);await role();
+});
+
+test('new sample-format papers never overwrite or resume earlier-version responses under changed prompts',async()=>{
+ await role();const user='44444444-4444-4444-8444-444444444444',old=crypto.randomUUID();
+ await q('insert into auth.users values($1,now())',[user]);await q("insert into public.purchase_entitlements values($1,'active',now(),now()-interval '1 day',null,'HZAD_FULL_ACADEMY')",[user]);
+ await q("insert into academy_tcf_writing.attempts(id,user_id,test_id,version,responses) values($1,$2,'tcf-writing-01','tcf-writing-2026-11-v1',$3)",[old,user,['Réponse à la question précédente.','','']]);
+ await role('service_role');const latest=await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});assert.notEqual(latest.id,old);assert.equal(latest.version,'tcf-writing-2026-11-v2');
+ const earlier=await command(user,'read',old);assert.equal(earlier.version,'tcf-writing-2026-11-v1');assert.equal(earlier.responses[0],'Réponse à la question précédente.');
+ assert.equal((await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'})).id,latest.id);assert.equal((await command(user,'list')).length,2);await role();
 });

@@ -6,6 +6,7 @@ import {wireExams} from '/src/exams/ui.js';
 import {wireTcfWriting} from '/src/exams/tcf-writing/ui.js';
 import {wireAiLearning} from '/src/ai/ui.js';
 import {createWritingHandler} from '/supabase/functions/academy-tcf-writing/handler.js';
+import {CURRENT_BANK} from '/supabase/functions/academy-tcf-writing/banks.js';
 import {validateWritingFeedback} from '/supabase/functions/academy-tcf-writing/scoring.js';
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
 const f=window.fixture={user:'11111111-1111-4111-8111-111111111111',callbacks:[],rows:new Map(),requests:new Map(),providerCalls:0,charges:0,paused:false,balance:100,failSave:false,delay:false};
@@ -16,8 +17,8 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
   if(p.p_action==='list')return [...f.rows.values()].filter(r=>r.owner===f.user).map(r=>({...r,reviewStatus:f.requests.get(r.id)?.status||null}));
   let row=f.rows.get(p.p_id);
   if(row&&row.owner!==f.user)throw Error('Writing attempt not found');
-  if(p.p_action==='start'&&!row){row=[...f.rows.values()].filter(r=>r.owner===f.user&&r.testId===p.p_payload.testId&&r.status==='draft'&&Date.parse(r.deadline)>Date.now()).sort((a,b)=>Number(b.responses.some(Boolean))-Number(a.responses.some(Boolean))||Date.parse(b.startedAt)-Date.parse(a.startedAt))[0]}
-  if(p.p_action==='start'&&!row){const now=Date.now();row={id:p.p_id,owner:f.user,testId:p.p_payload.testId,version:'tcf-writing-2026-11-v1',responses:['','',''],revision:0,status:'draft',startedAt:new Date(now).toISOString(),deadline:new Date(now+3600000).toISOString()};f.rows.set(p.p_id,row)}
+  if(p.p_action==='start'&&!row){row=[...f.rows.values()].filter(r=>r.owner===f.user&&r.testId===p.p_payload.testId&&r.status==='draft'&&r.version===CURRENT_BANK.version&&Date.parse(r.deadline)>Date.now()).sort((a,b)=>Number(b.responses.some(Boolean))-Number(a.responses.some(Boolean))||Date.parse(b.startedAt)-Date.parse(a.startedAt))[0]}
+  if(p.p_action==='start'&&!row){const now=Date.now();row={id:p.p_id,owner:f.user,testId:p.p_payload.testId,version:p.p_payload.version||'tcf-writing-2026-11-v1',responses:['','',''],revision:0,status:'draft',startedAt:new Date(now).toISOString(),deadline:new Date(now+3600000).toISOString()};f.rows.set(p.p_id,row)}
   if(!row)throw Error('Writing attempt not found');
   if(p.p_action==='save'){
    if(f.failSave)throw Error('Writing connection interrupted');

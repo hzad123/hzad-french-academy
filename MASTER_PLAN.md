@@ -174,3 +174,13 @@ TCF modules, retain this marking requirement while verifying each skill's own
 scale/conversion; do not infer other skills or invent hidden examiner weights.
 Implementation, source evidence, limitations, validation and the additive release
 plan are in `docs/tcf-writing.md`. No other new module is requested yet.
+
+
+### TCF Task 2 correction — 2026-11-09
+
+Across all 20 papers, retain the supplied **Sujet → Consigne → 120–150 mots**
+structure. Task 2 consistently asks for a message recounting a past experience,
+with place/activities/impressions and an explanation of why it was important.
+Only topics and content vary. Do not substitute recommendations, criticism,
+advice or a different communicative genre. Keep the sample’s first Task 2
+wording verbatim; preserve saved responses against their original paper version.
