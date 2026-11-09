@@ -160,3 +160,17 @@ Build a high-quality, browser-based French-learning academy from **A0 through C2
 ## Latest owner assignment — AI Learning (2026-11-04)
 
 The owner has now requested an AI pronunciation trainer, interactive French conversation simulator, and AI writing trainer under a separate top-right **AI Learning** button, and selected **OpenAI**. Implementation and rollout instructions are in `docs/ai-learning.md`. This assignment includes the server-side credit/budget foundation needed for optional AI actions. It does not authorize payment checkout or invent production credit prices. The owner subsequently supplied `OPENAI_API_KEYfrench`, authorized publishing, and changed the included AI budget to CAD $10 per student, followed by paid top-ups. Deployment status is recorded in `docs/ai-learning-release.md`; spending remains paused until provider checks and launch settings are cleared. Existing course progress and access must be preserved. Student-facing copy follows the concise-copy preferences in `AGENTS.md`.
+
+
+## Latest owner assignment — TCF writing first (2026-11-09)
+
+Build one module at a time under **TEF/TCF AI Tests**, outside AI Learning. The
+owner supplied an academy TCF writing sample and requested 20 papers with varied
+topics, three individual response editors per paper, saved responses and AI
+feedback on mistakes only, plus the corresponding estimated TCF/NCLC writing
+result using the applicable examiner criteria and scoring guide. This authorizes
+a standalone writing module in addition to earlier full timed mocks. For later
+TCF modules, retain this marking requirement while verifying each skill's own
+scale/conversion; do not infer other skills or invent hidden examiner weights.
+Implementation, source evidence, limitations, validation and the additive release
+plan are in `docs/tcf-writing.md`. No other new module is requested yet.

@@ -117,7 +117,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  function history(){
   const snapshot=state.snapshot;if(!snapshot)return;
   const detail=el('details');detail.append(el('summary','Saved AI practice'));
-  for(const item of snapshot.history){
+  for(const item of snapshot.history.filter(item=>Object.hasOwn(trainers,item.kind))){
    const label={completed:'Completed',failed:'Try a new activity',reserved:'In progress',dispatched:'In progress'}[item.status]||'In progress';
    const title=`${trainers[item.kind]?.[1]||'AI activity'} · ${item.level} · ${new Date(item.createdAt).toLocaleDateString()} · ${label}`;
    detail.append(button(title,()=>{

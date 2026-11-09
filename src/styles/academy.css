@@ -469,3 +469,35 @@
 #hzad-french-academy .hz-exams summary{cursor:pointer;font-weight:750;padding:8px 0}
 #hzad-french-academy .hz-exam-dialogue p{padding:14px;border-radius:14px;background:#eff5ff;white-space:pre-wrap}
 @media(max-width:640px){#hzad-french-academy .hz-exam-cards{grid-template-columns:1fr}#hzad-french-academy .hz-exam-hero,#hzad-french-academy .hz-exam-card,#hzad-french-academy .hz-exam-feedback{padding:20px}#hzad-french-academy .hz-exam-passage{padding:16px}#hzad-french-academy .hz-exam-actions button{width:100%}}
+
+/* TCF writing papers: distinct task sections and quiet, spacious editors. */
+#hzad-french-academy .hz-writing-entry{padding:28px;margin:24px 0;border:1px solid #c6d8f7;border-left:5px solid #d69b26;border-radius:20px;background:linear-gradient(120deg,#f2f6ff,#fff)}
+#hzad-french-academy .hz-writing-entry h4{font-size:1.5rem;margin:8px 0}
+#hzad-french-academy .hz-writing-tests{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}
+#hzad-french-academy .hz-writing-test{border:1px solid #d9e3f3;border-radius:20px;padding:22px;background:#f8faff;display:flex;flex-direction:column;align-items:flex-start}
+#hzad-french-academy .hz-writing-test h4{margin:8px 0;font-size:1.2rem}
+#hzad-french-academy .hz-writing-test ol{padding-left:20px;flex:1;line-height:1.8}
+#hzad-french-academy .hz-writing-toolbar,#hzad-french-academy .hz-writing-jump{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:20px 0}
+#hzad-french-academy .hz-writing-toolbar{justify-content:space-between;padding:18px;background:#edf3ff;border-radius:14px}
+#hzad-french-academy .hz-writing-task{margin:20px 0;border:1px solid #d5dff0;border-radius:18px;overflow:hidden;background:#fff}
+#hzad-french-academy .hz-writing-task>summary{cursor:pointer;padding:20px;background:#edf3ff;font-weight:800;color:#183966}
+#hzad-french-academy .hz-writing-task>label,#hzad-french-academy .hz-writing-prompt,#hzad-french-academy .hz-writing-count{display:block;margin:20px}
+#hzad-french-academy .hz-writing-task textarea{display:block;box-sizing:border-box;width:100%;margin-top:10px;border:1px solid #a9bedc;border-radius:12px;padding:16px;min-height:240px;resize:vertical;font:inherit;font-weight:400;line-height:1.7;background:#fcfdff;color:#17304e}
+#hzad-french-academy .hz-writing-task textarea:focus{outline:3px solid #8fb6fa;outline-offset:2px}
+#hzad-french-academy .hz-writing-documents{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#hzad-french-academy .hz-writing-documents article{padding:18px;border-radius:12px;background:#f5f7fb}
+#hzad-french-academy .hz-writing-prompt h4{margin-top:0}
+#hzad-french-academy .hz-writing-prompt p,#hzad-french-academy .hz-writing-prompt blockquote{line-height:1.8}
+#hzad-french-academy .hz-writing-count{font-size:.9rem;color:#276348}
+#hzad-french-academy .hz-writing-count.is-outside-range,#hzad-french-academy .hz-writing-issue{color:#92420d}
+#hzad-french-academy .hz-writing-feedback{margin-top:30px;overflow-wrap:anywhere}
+#hzad-french-academy .hz-writing-score{display:flex;flex-wrap:wrap;gap:18px;align-items:center;background:linear-gradient(110deg,#143563,#354ea7);color:white;border-radius:18px;padding:26px}
+#hzad-french-academy .hz-writing-score strong{font-size:1.8rem}
+#hzad-french-academy .hz-writing-corrections{padding:20px;margin:18px 0;border:1px solid #d8e2f1;border-radius:16px}
+#hzad-french-academy .hz-writing-correction{margin:18px 0;padding-left:16px;border-left:3px solid #dfa336}
+#hzad-french-academy .hz-writing-correction del,#hzad-french-academy .hz-writing-correction ins{display:block;padding:7px 10px;border-radius:6px;text-decoration:none;white-space:pre-wrap}
+#hzad-french-academy .hz-writing-correction del{color:#8f2525;background:#fff0f0;text-decoration:line-through}
+#hzad-french-academy .hz-writing-correction ins{color:#1e633f;background:#eaf7ef;margin-top:7px}
+#hzad-french-academy .hz-writing-history .hz-btn{display:block;margin:12px 0;text-align:left}
+@media(max-width:1000px){#hzad-french-academy .hz-writing-tests{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#hzad-french-academy .hz-writing-tests,#hzad-french-academy .hz-writing-documents{grid-template-columns:1fr}#hzad-french-academy .hz-writing-task>label,#hzad-french-academy .hz-writing-prompt,#hzad-french-academy .hz-writing-count{margin:14px}#hzad-french-academy .hz-writing-task>summary{padding:16px}#hzad-french-academy .hz-writing-entry{padding:20px}}
