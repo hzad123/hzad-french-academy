@@ -4,6 +4,7 @@ import bank from '../supabase/exams/tcf-writing-tests.json' with {type:'json'};
 import originalBank from '../supabase/exams/tcf-writing-tests-v1.json' with {type:'json'};
 import {paperForAttempt} from '../supabase/functions/academy-tcf-writing/banks.js';
 import {nclcForWriting,taskConstraints,validateWritingFeedback,assessmentMessages} from '../supabase/functions/academy-tcf-writing/scoring.js';
+import {failureMetadata,WritingFailure} from '../supabase/functions/academy-tcf-writing/failures.js';
 import {createWritingProvider} from '../supabase/functions/academy-tcf-writing/provider.js';
 import {createWritingHandler} from '../supabase/functions/academy-tcf-writing/handler.js';
 const paper=bank.tests[0],responses=[Array(70).fill('Bonjour').join(' '),Array(130).fill('voyage').join(' '),Array(130).fill('travail').join(' ')];
@@ -118,4 +119,18 @@ test('old and corrected clients receive matching catalog versions; start version
 test('reading an earlier attempt returns its original paper instead of silently substituting revised instructions',async()=>{
  const h=harness();h.row.version=originalBank.version;h.row.testId='tcf-writing-02';
  const r=await h.req(null,'valid','https://hzad123.github.io','?attempt='+h.id);assert.equal(r.status,200);const saved=await r.json();assert.equal(saved.paper.tasks[1].instruction,originalBank.tests[1].tasks[1].instruction);assert(!saved.paper.tasks[1].subject);assert.equal(h.providerCalls(),0);
+});
+
+test('failure diagnostics distinguish provider rejections and validation errors without retaining credentials or learner text',async()=>{
+ const canary='PRIVATE_WRITING_AND_KEY_SHOULD_NOT_LEAK';
+ const p=createWritingProvider({key:canary,fetcher:async()=>Response.json({error:{code:'insufficient_quota',message:canary}},{status:429})});
+ try{await p.run({test:paper,responses},{model:'gpt-4o-mini',maxOutputTokens:2000});assert.fail('Expected rejection')}catch(error){assert.deepEqual(failureMetadata(error),{code:'PROVIDER_HTTP',status:429,providerCode:'insufficient_quota'});assert(!JSON.stringify(error).includes(canary))}
+ assert.deepEqual(failureMetadata(Object.assign(Error(canary),{providerCode:canary,usage:{prompt_tokens:50,completion_tokens:-1,text:canary}})),{code:'UNKNOWN',usage:{prompt_tokens:50}});
+ assert.deepEqual(failureMetadata(new WritingFailure('UNVERIFIED_QUOTE',{usage:{prompt_tokens:123,completion_tokens:456}})),{code:'UNVERIFIED_QUOTE',usage:{prompt_tokens:123,completion_tokens:456}});
+});
+test('malformed, truncated and unverifiable provider output receive distinct safe failure codes',async()=>{
+ for(const [raw,code] of [[{choices:[{finish_reason:'length'}],usage:{completion_tokens:2000}},'TRUNCATED'],[{choices:[{message:{content:'not json'}}]},'INVALID_JSON'],[{choices:[{message:{content:JSON.stringify({...feedback(),score:12.5})}}]},'INVALID_SCORE']]){
+  const p=createWritingProvider({key:'test-only',fetcher:async()=>Response.json(raw)});
+  try{await p.run({test:paper,responses},{model:'gpt-4o-mini',maxOutputTokens:2000});assert.fail('Expected invalid response')}catch(error){assert.equal(failureMetadata(error).code,code)}
+ }
 });

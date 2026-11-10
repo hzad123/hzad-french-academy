@@ -1,7 +1,8 @@
 import {CURRENT_BANK as bank,LEGACY_BANK,paperForAttempt,withPaper} from './banks.js';
+import {failureMetadata} from './failures.js';
 import {uuid,fingerprint} from '../academy-ai/contracts.js';
 const tests=new Map(bank.tests.map(t=>[t.id,t]));
-export function createWritingHandler({authenticate,db,provider,allowedOrigins=new Set(['https://www.teftcf.hzadeducation.org','https://hzad123.github.io'])}){
+export function createWritingHandler({authenticate,db,provider,reportFailure=meta=>console.error('HZAD_TCF_FAILURE '+JSON.stringify(meta)),allowedOrigins=new Set(['https://www.teftcf.hzadeducation.org','https://hzad123.github.io'])}){
  return async request=>{
   const origin=request.headers.get('origin'),headers={'Content-Type':'application/json','Cache-Control':'no-store','Vary':'Origin','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info','Access-Control-Allow-Methods':'GET,POST,OPTIONS'};
   if(origin&&allowedOrigins.has(origin))headers['Access-Control-Allow-Origin']=origin;
@@ -59,9 +60,10 @@ export function createWritingHandler({authenticate,db,provider,allowedOrigins=ne
    const claim=await db.adminRpc('academy_ai_claim',{p_user:user.id,p_id:input.id});
    if(!claim.claimed)return reply({...withPaper(await command('read',input.id)),processing:true},202);
    let generated;
-   try{generated=await provider.run({test,responses:attempt.responses},claim)}catch{
+   try{generated=await provider.run({test,responses:attempt.responses},claim)}catch(error){
+    const diagnostic=failureMetadata(error);try{reportFailure(diagnostic)}catch{}
     let refunded=false;try{await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:input.id});refunded=true}catch{}
-    return reply({error:refunded?'AI marking could not finish. Your credits were returned and responses saved.':'AI marking is being checked. Reopen the saved attempt before retrying.',processing:!refunded},refunded?502:202);
+    return reply({failure:diagnostic,error:refunded?'AI marking could not finish. Your credits were returned and responses saved.':'AI marking is being checked. Reopen the saved attempt before retrying.',processing:!refunded},refunded?502:202);
    }
    try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.id,p_result:generated.result,p_usage:generated.usage,p_student_text:null})}
    catch{return reply({...withPaper(await command('read',input.id)),processing:true},202)}
