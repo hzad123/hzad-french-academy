@@ -19,6 +19,7 @@ before(async()=>{
  await db.exec(`insert into public.academy_units(id,level,position,title,published) values('a0-01','A0',1,'Keep lesson',true);
  insert into public.academy_learning_progress(user_id,unit_id,attempts,best_percent,completed) values('${alice}','a0-01',3,92,true);`);
  await db.exec(await readFile('supabase/migrations/20261105001000_ai_learning.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261105001200_mock_exams.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001500_tcf_writing.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001600_fix_tcf_writing_history.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001700_resume_tcf_writing_drafts.sql','utf8'));
@@ -128,4 +129,23 @@ test('new sample-format papers never overwrite or resume earlier-version respons
  await role('service_role');const latest=await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});assert.notEqual(latest.id,old);assert.equal(latest.version,'tcf-writing-2026-11-v2');
  const earlier=await command(user,'read',old);assert.equal(earlier.version,'tcf-writing-2026-11-v1');assert.equal(earlier.responses[0],'Réponse à la question précédente.');
  assert.equal((await command(user,'start',crypto.randomUUID(),{testId:'tcf-writing-01'})).id,latest.id);assert.equal((await command(user,'list')).length,2);await role();
+});
+
+test('live TCF marking uses one displayed credit, preserves the CAD 10/no-shared-cap policy and charges exactly once',async()=>{
+ await role();await db.exec('update academy_ai.policy set enabled=true,student_cap_microcad=10000000,global_cap_microcad=null');
+ const before=(await q('select * from public.academy_learning_progress'))[0];
+ await db.exec(await readFile('supabase/migrations/20261109001900_activate_tcf_writing.sql','utf8'));
+ await role('authenticated',alice);const snapshot=await v('select public.academy_ai_state() as v');assert.equal(snapshot.enabled,true);assert.deepEqual(snapshot.activities['tcf-writing'],{enabled:true,credits:1});
+ await role('service_role');const id=crypto.randomUUID(),args=[alice,id,'tcf-writing','B2','b'.repeat(64),1,null,null];
+ const reserve=()=>v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',args);
+ await reserve();await reserve();const claim=await v('select public.academy_ai_claim($1,$2) as v',[alice,id]);assert.equal(claim.model,'gpt-4o-mini');assert.equal(claim.maxOutputTokens,2000);
+ await v('select public.academy_ai_finish($1,$2,$3,$4,null) as v',[alice,id,{module:'tcf-writing',score:12,nclc:'8'},{prompt_tokens:1000,completion_tokens:900}]);
+ await role();assert.equal((await q('select * from public.academy_learning_progress'))[0].best_percent,before.best_percent);
+ const policy=(await q('select * from academy_ai.policy'))[0];assert.equal(policy.student_cap_microcad,10000000);assert.equal(policy.global_cap_microcad,null);
+ const charged=await q("select credits_delta,microcad from academy_ai.ledger where request_id=$1 order by id",[id]);assert.deepEqual(charged.map(r=>r.credits_delta),[-1,0]);assert.equal(charged[1].microcad,20000);
+ // Each learner is capped independently. A spent wallet cannot reserve again;
+ // another student's untouched allowance is still usable, with no shared gate.
+ await q('update academy_ai.wallets set spent_microcad=cap_microcad where user_id=$1',[alice]);await role('service_role');
+ await assert.rejects(()=>v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[alice,crypto.randomUUID(),'tcf-writing','B2','c'.repeat(64),1,null,null]),/allowance/);
+ const other=await v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[bob,crypto.randomUUID(),'tcf-writing','B2','d'.repeat(64),1,null,null]);assert.equal(other.status,'reserved');await role();
 });

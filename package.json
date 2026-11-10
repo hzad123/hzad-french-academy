@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "check:ai": "node scripts/check-ai-edge.mjs",
-    "build": "node scripts/build.mjs && node scripts/build-learning.mjs && node scripts/check-ai-edge.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "build": "node scripts/build.mjs && node scripts/build-learning.mjs && node scripts/check-ai-edge.mjs && node scripts/check-tcf-writing-budget.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check:tcf-budget": "node scripts/check-tcf-writing-budget.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0"

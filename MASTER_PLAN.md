@@ -184,3 +184,15 @@ with place/activities/impressions and an explanation of why it was important.
 Only topics and content vary. Do not substitute recommendations, criticism,
 advice or a different communicative genre. Keep the sample’s first Task 2
 wording verbatim; preserve saved responses against their original paper version.
+
+
+### TCF writing AI activation — 2026-11-09 (Winnipeg)
+
+The owner explicitly instructed live AI marking using the existing OpenAI key.
+TCF writing marking is enabled at **1 AI credit for all three tasks** using the
+existing gpt-4o-mini model, 2,000 output tokens and CAD $0.02 reserved cost. Saved
+feedback remains free; CAD $10 per student and no shared cap are unchanged.
+The earlier pause is superseded by this activation. See the analytical cost
+bound, tests, deployed settings and native-verification limitations in
+`docs/tcf-writing.md`. Do not reset work, retrieve server keys into clients,
+auto-retry paid inference or fabricate official examiner calibration.

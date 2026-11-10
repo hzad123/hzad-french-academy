@@ -92,8 +92,8 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   if(attempt.reviewStatus==='dispatched'||attempt.processing){area.append(button('Check saved feedback',()=>{void open(attempt.id)}));status('Your writing assessment is processing. Check saved feedback before sending again.');return}
   if(!locked)area.append(button('Save responses',()=>{void run((signal,current)=>save(signal,current))},true));
   const quote=Number.isSafeInteger(catalog.credits)?catalog.credits:null;
-  area.append(el('p',quote?`${quote} AI credits for one assessment of all three tasks. Viewing saved feedback costs no additional credits.`:'AI marking is being prepared. You can write and save all 20 tests.','hz-small'));
-  const submit=button(`Get AI feedback${quote?' · '+quote+' credits':''}`,()=>{
+  area.append(el('p',quote?`${quote} AI ${quote===1?'credit':'credits'} for one assessment of all three tasks. Viewing saved feedback costs no additional credits.`:'AI marking is being prepared. You can write and save all 20 tests.','hz-small'));
+  const submit=button(`Get AI feedback${quote?' · '+quote+' '+(quote===1?'credit':'credits'):''}`,()=>{
    if(!locked&&remaining>0&&local.responses.some(s=>!s.trim())){status('Complete all three tasks before submitting.',true);return}
    void run(async(signal,current)=>{
     if(dirty&&remaining>0)await save(signal,current);if(!current())return;

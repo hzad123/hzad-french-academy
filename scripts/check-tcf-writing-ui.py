@@ -41,7 +41,7 @@ with sync_playwright() as p:
   assert page.evaluate('fixture.charges')==0;assert page.evaluate('fixture.providerCalls')==0
   page.evaluate('fixture.paused=false');page.get_by_role('button',name='All 20 writing tests',exact=True).click();page.get_by_role('button',name='Resume Test 01',exact=True).click();assert page.locator('#hz-writing-response-1').input_value()==answers[0]
   page.get_by_role('button',name='Tâche 3',exact=True).click();assert page.locator('#hz-writing-response-3').evaluate('(n)=>n===document.activeElement')
-  page.evaluate('fixture.delay=true');page.get_by_role('button',name='Get AI feedback · 3 credits',exact=True).click();page.wait_for_function('!!fixture.release');assert page.get_by_role('button',name='Get AI feedback · 3 credits',exact=True).is_disabled();page.evaluate('fixture.release();fixture.delay=false');page.get_by_role('heading',name='Your writing result',exact=True).wait_for()
+  page.evaluate('fixture.delay=true');page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).click();page.wait_for_function('!!fixture.release');assert page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).is_disabled();page.evaluate('fixture.release();fixture.delay=false');page.get_by_role('heading',name='Your writing result',exact=True).wait_for()
   page.get_by_text('12/20',exact=True).wait_for();page.get_by_text('NCLC 8',exact=True).wait_for();page.locator('ins').get_by_text('Je suis allé',exact=True).wait_for()
   assert page.locator('.hz-writing-corrections').count()==3;assert page.locator('textarea:disabled').count()==3
   assert page.evaluate('fixture.charges')==1;assert page.evaluate('fixture.providerCalls')==1
