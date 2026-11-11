@@ -287,3 +287,44 @@ fixture data; the owner's preceding successful native marking verifies the live
 provider path, while this richer native feedback remains to be checked after
 release. Migration23 and the updated function are applied by the reviewed
 GitHub release before frontend merge; release status is recorded in its PR.
+
+## Grounding feedback in saved text — 11 November 2026
+
+The owner reported **UNVERIFIED_QUOTE** after the criterion-feedback upgrade.
+That category covers both an excerpt not found exactly in its cited response
+and missing evidence for a positive score; the stored fixed code cannot tell
+which occurred. Requiring strict JSON did not prevent a model from changing a
+quote's wording/typography or omitting a citation. Repeating the same paid
+request is not a durable repair.
+
+Native feedback now cites server-created source IDs instead of reproducing
+learner quotes. Each saved response is split into bounded, exact passages with
+stable task-local IDs. Those passages replace the raw response strings in the
+prompt rather than duplicating the student's text. The strict native schema
+limits citations and corrections to the supplied IDs. Each criterion requires
+one source reference; empty papers use a special no-evidence marker accepted
+only with zero score and entirely blank writing. The server inserts the original
+saved text and task number into the result, then runs the existing evidence,
+score, criterion and correction validation unchanged. A correction referencing
+another task, an unknown ID or raw quote fallback is rejected. Minimal corrected
+French and explanations remain model-generated; no unverified paraphrase is
+presented as the learner's original writing.
+
+The report retains its three TCF criterion sections, concrete improvements,
+one holistic estimated /20 score and deterministic NCLC equivalent. Saved
+feedback/results/responses, wallet prices/caps, Auth/RLS and ordinary quizzes
+are unchanged. No new SQL migration is required. The function is deployed
+through the existing reviewed GitHub release using its existing secret, with
+JWT verification retained; no automatic paid call or native QA identity is
+introduced. The owner can explicitly retry the existing failed saved review.
+
+Validation: all203 tests passed. New provider/source regressions cover exact
+Unicode/whitespace preservation, repeated passages, bounded chunks, strict
+source enums, required positive-score evidence, partial/blank tasks, wrong-task
+and unknown IDs, rejected raw-quote fallbacks, unchanged-correction rejection,
+private diagnostics and one provider call. The analytical input bound includes
+the actual dynamic schema and additional worst-case source metadata:54,557
+tokens, CAD0.018768 at the documented reference prices/FX buffer, below CAD0.02.
+All builds passed. These are isolated native-transport fixtures, not a new live
+OpenAI assessment. Publication is recorded in the PR; the owner must explicitly
+retry their existing saved attempt to verify the changed native transport.
