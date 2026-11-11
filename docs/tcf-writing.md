@@ -175,3 +175,31 @@ or bypass normal authentication. Rollback: disable only TCF writing if needed,
 restore the previous frontend/Edge code, retain all attempts and accounting.
 The additive columns and grant audit should remain; never erase consumed usage
 or revoke a reservation as part of a code rollback.
+
+### GitHub deployment fallback — 11 November 2026
+
+Because the chat environment's editor/publication remains blocked, the owner
+requested another way to release quickly. The tightly scoped **Release TCF
+marking backend** workflow runs only on pushes to the reviewed feature branch,
+never on pull requests/forks. It reads the repository Actions secret
+`SUPABASE_ACCESS_TOKEN`, runs tests/builds, bundles the normal function, then runs
+`scripts/release/tcf-marking.py`. No OpenAI key or service-role key is requested
+from GitHub; the existing Supabase-hosted inference secret remains server-side.
+
+The release script validates the live command against migration 018, checks
+recorded migration contents for idempotency, rehearses only migrations 020/021
+and the audited grant inside a rolled-back transaction, and checks data
+preservation before committing. It selects the sole existing private audio
+operator previously verified as the affected owner; ambiguous membership or
+missing prior failed TCF request aborts instead of guessing an account. It does
+not publish user identifiers in source or logs. Existing attempts, ordinary
+wallets, progress, policy and prices are checksummed inside the transaction;
+the owner retains expiry/used/reserved/paid accounting. The function is deployed
+with `verify_jwt=true`. No native grading, synthetic login or payment occurs.
+
+A missing/invalid GitHub token fails clearly. Add/update the repository secret
+securely at GitHub Settings → Secrets and variables → Actions, then re-run the
+failed release job. This avoids the broken chat environment editor. Merge the
+frontend PR only after the backend release succeeds. A completed release job is
+not evidence of a native marking success; that still requires the owner's
+explicit retry of saved feedback and inspection of the sanitized result/code.
