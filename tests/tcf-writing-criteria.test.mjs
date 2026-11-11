@@ -2,6 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import bank from '../supabase/exams/tcf-writing-tests.json' with {type:'json'};
 import {assessmentMessages,validateWritingFeedback} from '../supabase/functions/academy-tcf-writing/scoring.js';
+import {originalResponses} from './helpers/tcf-native-feedback.mjs';
 import {WRITING_RESPONSE_SCHEMA} from '../supabase/functions/academy-tcf-writing/response-schema.js';
 const paper=bank.tests[0];
 const responses=[Array(70).fill('Bonjour').join(' '),Array(130).fill('voyage').join(' '),Array(130).fill('travail').join(' ')];
@@ -34,5 +35,5 @@ test('examiner prompt demands TCF task fulfilment and criterion-specific fixes r
  const system=assessmentMessages(paper,responses)[0].content;
  for(const phrase of ['three public marking dimensions','Task 1 must fulfil its communicative situation','Task 2 must recount the past experience','Task 3 must accurately reformulate both supplied viewpoints','personal importance','audience, tone, politeness','Never invent criterion subscores','one total score remains a holistic TCF writing estimate','criterion improvement 240','at most 2 important error patterns'])assert(system.includes(phrase),phrase);
  assert(system.includes('Do not say merely "improve grammar"'));assert(system.includes('Fit the complete valid JSON within 2000 output tokens'));
- const user=JSON.parse(assessmentMessages(paper,responses)[1].content);assert.deepEqual(user.responses,responses);assert.equal(user.test.tasks[2].documents.length,2);
+ const user=JSON.parse(assessmentMessages(paper,responses)[1].content);assert.deepEqual(originalResponses(user.responses),responses);assert.equal(user.test.tasks[2].documents.length,2);
 });
