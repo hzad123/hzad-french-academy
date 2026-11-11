@@ -29,6 +29,7 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
    row.responses=structuredClone(p.p_payload.responses);row.revision++;
   }
   if(p.p_action==='submit'){row.status='submitted';row.revision++}
+  if(p.p_action==='reassess-review'&&p.p_payload.reviewId===(row.reviewId||row.id)&&f.requests.get(row.reviewId||row.id)?.status==='completed')row.reviewId=crypto.randomUUID();
   if(p.p_action==='retry-review'&&f.requests.get(row.reviewId||row.id)?.status==='failed')row.reviewId=crypto.randomUUID();
   const r=f.requests.get(row.reviewId||row.id);return {...structuredClone(row),reviewId:row.reviewId||row.id,failure:r?.failure||null,serverNow:new Date().toISOString(),reviewStatus:r?.status||null,result:r?.result||null};
  }
@@ -43,7 +44,7 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
 }};
 const handler=createWritingHandler({authenticate:async()=>f.user?{id:f.user,email_confirmed_at:'yes'}:null,db,provider:{ready:()=>true,run:async({test,responses})=>{
  f.providerCalls++;if(f.failProvider)throw new WritingFailure('PROVIDER_HTTP',{status:429,providerCode:'insufficient_quota'});if(f.delay)await new Promise(resolve=>{f.release=resolve});
- return {result:validateWritingFeedback({score:12,scoreReason:'Errors in agreement and limited comparison reduce precision.',criteria:['linguistic','pragmatic','sociolinguistic'].map((id,i)=>({id,evidence:[{task:i+1,quote:responses[i].split(' ').slice(0,3).join(' ')}],reason:'Errors reduce the precision of the response.'})),tasks:[1,2,3].map(number=>({number,onTopic:true,mistakes:number===1&&responses[0].includes('Je suis aller')?[{original:'Je suis aller',corrected:'Je suis allé',explanation:'Use the past participle after être in the passé composé.'}]:[],issues:[]}))},{test,responses}),usage:{total_tokens:300}};
+ return {result:validateWritingFeedback({score:12,scoreReason:'Errors in agreement and limited comparison reduce precision.',criteria:['linguistic','pragmatic','sociolinguistic'].map((id,i)=>({id,evidence:[{task:i+1,quote:responses[i].split(' ').slice(0,3).join(' ')}],reason:'Errors reduce the precision of the response.',improvement:['Tâche 1: replace aller with allé after suis to form the passé composé.','Tâche 2: link the activities to your impressions and explain why the experience mattered.','Tâche 3: keep the same formal register when comparing the two documents.'][i]})),tasks:[1,2,3].map(number=>({number,onTopic:true,mistakes:number===1&&responses[0].includes('Je suis aller')?[{original:'Je suis aller',corrected:'Je suis allé',explanation:'Use the past participle after être in the passé composé.'}]:[],issues:[]}))},{test,responses}),usage:{total_tokens:300}};
 }}});
 const client={auth:{onAuthStateChange:fn=>f.callbacks.push(fn),getSession:async()=>({data:{session:f.user?{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:f.user}}:null}})}};
 const examFetcher=async()=>Response.json({exams:[],history:[]});

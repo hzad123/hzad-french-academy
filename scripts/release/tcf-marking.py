@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = 'https://api.supabase.com/v1/projects/ogntvgvzmjrnppcullsj'
 MIGRATIONS = ['20261110002000_owner_testing_budget.sql',
               '20261110002100_tcf_saved_assessment_retry.sql',
-              '20261111002200_tcf_feedback_diagnostic_codes.sql']
+              '20261111002200_tcf_feedback_diagnostic_codes.sql',
+              '20261111002300_tcf_criterion_reassessment.sql']
 
 
 def api(path, body=None, raw=None, content_type='application/json'):
@@ -96,7 +97,7 @@ def transaction(pending, commit=False):
 
 
 def preflight():
-    rows = query("select version,statements from supabase_migrations.schema_migrations where version in ('20261110002000','20261110002100','20261111002200')")
+    rows = query("select version,statements from supabase_migrations.schema_migrations where version in ('20261110002000','20261110002100','20261111002200','20261111002300')")
     recorded = {row['version']: row['statements'] for row in rows}
     pending = []
     for filename in MIGRATIONS:
@@ -112,6 +113,11 @@ def preflight():
         deployed = query("select prosrc from pg_proc where oid='public.academy_tcf_writing_command(uuid,text,uuid,jsonb)'::regprocedure")[0]['prosrc']
         if deployed != original:
             raise RuntimeError('Live writing command differs from the reviewed baseline.')
+    elif MIGRATIONS[3] in pending:
+        original = (ROOT / 'supabase/migrations/20261110002100_tcf_saved_assessment_retry.sql').read_text().split('as $$', 1)[1].split('$$;', 1)[0]
+        deployed = query("select prosrc from pg_proc where oid='public.academy_tcf_writing_command(uuid,text,uuid,jsonb)'::regprocedure")[0]['prosrc']
+        if deployed != original:
+            raise RuntimeError('Live saved retry command differs from the reviewed baseline.')
     names = {row['name'] for row in api('/secrets')}
     if 'OPENAI_API_KEYfrench' not in names:
         raise RuntimeError('Expected OpenAI secret name missing; key values were not read.')

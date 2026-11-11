@@ -63,7 +63,12 @@ function harness({reviewStatus=null,enabled=true,failProvider=false,failFinish=f
  const db={userRpc:async()=>({enabled,activities:{'tcf-writing':{enabled,credits:3}},wallet:{available:100},history:[]}),adminRpc:async(name,args)=>{
   calls.push({name,args});assert.equal(args.p_user,user);
   if(name==='academy_tcf_writing_command'){
-   if(args.p_action==='list')return [];if(args.p_action==='submit')row.status='submitted';if(args.p_action==='retry-review'&&row.reviewStatus==='failed'){row.reviewId=crypto.randomUUID();row.reviewStatus=null}return {...row};
+   if(args.p_action==='list')return [];if(args.p_action==='submit')row.status='submitted';if(args.p_action==='retry-review'&&row.reviewStatus==='failed'){row.reviewId=crypto.randomUUID();row.reviewStatus=null}
+   if(args.p_action==='reassess-review'){
+    if(row.status!=='submitted')throw Error('Complete a writing assessment before requesting updated feedback');
+    if((row.reviewId||row.id)===args.p_payload.reviewId){if(row.reviewStatus!=='completed')throw Error('Complete the current writing assessment before requesting updated feedback');row.reviewId=crypto.randomUUID();row.reviewStatus=null;row.result=null}
+   }
+   return {...row};
   }
   if(name==='academy_ai_reserve')return {status:row.reviewStatus||'reserved'};
   if(name==='academy_ai_claim')return {claimed:claim,model:'bounded-model',maxOutputTokens:2000};
@@ -142,4 +147,17 @@ test('retry submits a new server-selected review ID for the same saved paper and
  const call=h.calls.find(c=>c.name==='academy_ai_reserve');assert.notEqual(call.args.p_id,h.id);assert.equal(call.args.p_id,h.row.reviewId);assert.equal(h.row.id,h.id);
  await h.req({kind:'retry',id:h.id,expectedCredits:3});assert.equal(h.providerCalls(),1);
  const failed=harness({failProvider:true});await failed.req({kind:'review',id:failed.id,expectedCredits:3});assert(failed.calls.some(c=>c.name==='academy_tcf_writing_note_failure'));assert.equal(failed.row.failure.code,'UNKNOWN');
+});
+
+
+test('explicit completed-feedback reassessment quotes its source review and replay never charges or dispatches twice',async()=>{
+ const h=harness({reviewStatus:'completed'});h.row.status='submitted';h.row.result={score:12,nclc:'8'};
+ await h.req({kind:'review',id:h.id,expectedCredits:3});assert.equal(h.providerCalls(),0);
+ assert.equal((await h.req({kind:'reassess',id:h.id,expectedCredits:3})).status,400);
+ assert.equal((await h.req({kind:'reassess',id:h.id,reviewId:h.id,expectedCredits:99})).status,409);assert.equal(h.row.reviewId,undefined);
+ const input={kind:'reassess',id:h.id,reviewId:h.id,expectedCredits:3};const response=await h.req(input);assert.equal(response.status,200);assert.equal(h.providerCalls(),1);
+ const target=h.row.reviewId;assert.notEqual(target,h.id);const reserve=h.calls.find(c=>c.name==='academy_ai_reserve');assert.equal(reserve.args.p_id,target);
+ assert(h.calls.some(c=>c.name==='academy_tcf_writing_command'&&c.args.p_action==='reassess-review'&&c.args.p_payload.reviewId===h.id));
+ await h.req(input);assert.equal(h.row.reviewId,target);assert.equal(h.providerCalls(),1);
+ const draft=harness();assert.equal((await draft.req({kind:'reassess',id:draft.id,reviewId:draft.id,expectedCredits:3})).status,409);assert.equal(draft.providerCalls(),0);
 });

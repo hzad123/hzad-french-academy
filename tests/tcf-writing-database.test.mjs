@@ -26,6 +26,7 @@ before(async()=>{
  await db.exec(await readFile('supabase/migrations/20261109001700_resume_tcf_writing_drafts.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001800_tcf_writing_sample_format.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261110002100_tcf_saved_assessment_retry.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261111002300_tcf_criterion_reassessment.sql','utf8'));
 });
 after(async()=>db?.close());
 test('additive migration leaves existing progress and activity prices intact and the new paid activity off',async()=>{
@@ -180,4 +181,27 @@ test('explicit retry reuses frozen answers and paper, persists safe failure deta
  const completed=await command(alice,'read',a.id);assert.equal(completed.reviewStatus,'completed');assert.equal(completed.result.score,12);assert.equal((await command(alice,'retry-review',a.id)).reviewId,retry.reviewId);
  await assert.rejects(()=>v('select public.academy_tcf_writing_note_failure($1,$2,$3) as v',[alice,a.reviewId,{code:'INVALID_JSON',text:'must not store writing'}]),/Invalid failure diagnostic/);
  await role();assert.equal((await q("select count(*)::int n from academy_ai.ledger where request_id=$1 and event='charge'",[retry.reviewId]))[0].n,1);
+});
+
+
+test('completed assessment can be explicitly reassessed once per source quote while preserving prior result, responses and time',async()=>{
+ await role('service_role');let a=await command(alice,'start',crypto.randomUUID(),{testId:'tcf-writing-02'});
+ a=await command(alice,'save',a.id,{revision:a.revision,responses:['Original answer to keep.','Original account to keep.','Original argument to keep.']});a=await command(alice,'submit',a.id);
+ const reserve=id=>v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[alice,id,'tcf-writing','B2','f'.repeat(64),1,null,null]);
+ const finish=async(id,result)=>{await reserve(id);await v('select public.academy_ai_claim($1,$2) as v',[alice,id]);await v('select public.academy_ai_finish($1,$2,$3,$4,null) as v',[alice,id,result,{total_tokens:80}])};
+ const source=a.reviewId;await finish(source,{module:'tcf-writing',score:11,nclc:'7'});
+ const completed=await command(alice,'read',a.id);assert.equal(completed.reviewStatus,'completed');
+ await assert.rejects(()=>command(bob,'reassess-review',a.id,{reviewId:source}),/not found/);
+ await assert.rejects(()=>command(alice,'reassess-review',a.id,{}),/Invalid writing review reference/);
+ const target=await command(alice,'reassess-review',a.id,{reviewId:source});assert.notEqual(target.reviewId,source);assert.equal(target.id,a.id);assert.deepEqual(target.responses,completed.responses);assert.equal(target.deadline,completed.deadline);assert.equal(target.version,completed.version);assert.equal(target.submittedAt,completed.submittedAt);
+ assert.equal((await command(alice,'reassess-review',a.id,{reviewId:source})).reviewId,target.reviewId);
+ await finish(target.reviewId,{module:'tcf-writing',score:12,nclc:'8'});
+ // A delayed repeat of the original click must not allocate another review,
+ // even though the replacement has already completed.
+ const replay=await command(alice,'reassess-review',a.id,{reviewId:source});assert.equal(replay.reviewId,target.reviewId);assert.equal(replay.reviewStatus,'completed');assert.equal(replay.result.score,12);
+ await reserve(replay.reviewId);await role();
+ assert.equal((await q('select result from academy_ai.requests where id=$1',[source]))[0].result.score,11);
+ assert.equal((await q("select count(*)::int n from academy_ai.ledger where request_id=$1 and event='charge'",[target.reviewId]))[0].n,1);
+ assert.deepEqual((await q('select responses from academy_tcf_writing.attempts where id=$1',[a.id]))[0].responses,completed.responses);
+ const progress=(await q('select best_percent from public.academy_learning_progress'))[0].best_percent;assert.equal(progress,92);
 });

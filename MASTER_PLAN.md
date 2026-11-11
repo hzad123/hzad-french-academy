@@ -208,3 +208,15 @@ Permit explicit, visibly priced retries of failed TCF feedback against the same
 saved responses and original paper. Never automatically repeat paid inference.
 See `docs/tcf-writing.md` for implementation and deployment blockers. This
 authorization does not authorize creating synthetic Auth identities.
+
+### TCF criterion feedback — 2026-11-11
+
+The owner confirmed native TCF marking works and requested feedback organised
+around exam marking criteria. Display the total estimated TCF writing mark /20
+and its NCLC equivalent prominently, with separate visible linguistic,
+pragmatic and sociolinguistic sections. Each section must connect actual task
+evidence to what limits the band and a concrete change to make. Keep the total
+holistic; do not invent official criterion weights or numerical deductions.
+Existing completed results stay free to read. Offer an explicit one-credit
+update using their frozen responses so older generic feedback can be upgraded
+without retyping or resetting the test. See `docs/tcf-writing.md`.

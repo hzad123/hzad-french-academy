@@ -44,6 +44,12 @@ with sync_playwright() as p:
   page.evaluate('fixture.delay=true');page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).click();page.wait_for_function('!!fixture.release');assert page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).is_disabled();page.evaluate('fixture.release();fixture.delay=false');page.get_by_role('heading',name='Your writing result',exact=True).wait_for()
   page.get_by_text('12/20',exact=True).wait_for();page.get_by_text('NCLC 8',exact=True).wait_for();page.locator('ins').get_by_text('Je suis allé',exact=True).wait_for()
   assert page.locator('.hz-writing-corrections').count()==3;assert page.locator('textarea:disabled').count()==3
+  assert page.locator('.hz-writing-criterion').count()==3
+  for name in ['Linguistic competence','Pragmatic competence','Sociolinguistic competence']:page.get_by_role('heading',name=name,exact=True).wait_for()
+  assert page.get_by_role('heading',name='How to improve this criterion',exact=True).count()==3
+  page.get_by_text('Total estimated TCF writing score',exact=True).wait_for();page.get_by_text('NCLC equivalent',exact=True).wait_for()
+  page.get_by_text('Tâche 2: link the activities to your impressions and explain why the experience mattered.',exact=True).wait_for()
+  assert page.get_by_role('button',name='Update TCF feedback · 1 credit',exact=True).count()==0
   assert page.evaluate('fixture.charges')==1;assert page.evaluate('fixture.providerCalls')==1
   page.screenshot(path=str(out/f'feedback-{width}.png'),full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   page.get_by_role('button',name='All 20 writing tests',exact=True).click();page.get_by_role('button',name='Test 01 ·',exact=False).click();page.get_by_text('12/20',exact=True).wait_for()
@@ -65,6 +71,20 @@ with sync_playwright() as p:
   page.locator('#hz-exams-launch').click();page.get_by_role('button',name='Open TCF Writing tests',exact=True).click();assert page.locator('.hz-writing-history .hz-btn').count()==0
   page.get_by_role('button',name='Start Test 02',exact=True).click();assert page.locator('#hz-writing-response-1').input_value()==''
   page.evaluate('fixture.signOut()');assert page.locator('#hz-tcf-writing').inner_text()=='';assert errors==[],errors
+  # A completed legacy assessment is free to view; updating it is explicit.
+  page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-writing.html');page.wait_for_function('fixtureReady===true')
+  page.locator('#hz-exams-launch').click();page.get_by_role('button',name='Open TCF Writing tests',exact=True).click()
+  page.get_by_role('button',name='Start Test 01',exact=True).click()
+  for i,text in enumerate(answers,1):page.locator(f'#hz-writing-response-{i}').fill(text)
+  page.get_by_text('All three responses saved.',exact=True).wait_for();page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).click()
+  page.get_by_role('heading',name='Your writing result',exact=True).wait_for()
+  page.evaluate("const r=[...fixture.requests.values()][0].result;r.rubricVersion='tcf-writing-public-criteria-v1';for(const c of r.criteria)delete c.improvement;fixture.ui.open([...fixture.rows.keys()][0])")
+  page.get_by_role('button',name='Update TCF feedback · 1 credit',exact=True).wait_for();assert page.evaluate('fixture.providerCalls')==1
+  page.get_by_role('button',name='Update TCF feedback · 1 credit',exact=True).click()
+  page.get_by_text('Tâche 2: link the activities to your impressions and explain why the experience mattered.',exact=True).wait_for()
+  assert page.get_by_role('button',name='Update TCF feedback · 1 credit',exact=True).count()==0
+  assert page.evaluate('fixture.providerCalls')==2;assert page.evaluate('fixture.rows.size')==1;assert page.evaluate('fixture.requests.size')==2
+  assert page.locator('#hz-writing-response-1').input_value()==answers[0]
   # Check the supplied Task 2 structure on every newly opened paper.
   page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-writing.html');page.wait_for_function('fixtureReady===true')
   page.locator('#hz-exams-launch').click();page.get_by_role('button',name='Open TCF Writing tests',exact=True).click()
