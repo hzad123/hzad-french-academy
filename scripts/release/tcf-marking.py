@@ -15,7 +15,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[2]
 BASE = 'https://api.supabase.com/v1/projects/ogntvgvzmjrnppcullsj'
 MIGRATIONS = ['20261110002000_owner_testing_budget.sql',
-              '20261110002100_tcf_saved_assessment_retry.sql']
+              '20261110002100_tcf_saved_assessment_retry.sql',
+              '20261111002200_tcf_feedback_diagnostic_codes.sql']
 
 
 def api(path, body=None, raw=None, content_type='application/json'):
@@ -95,7 +96,7 @@ def transaction(pending, commit=False):
 
 
 def preflight():
-    rows = query("select version,statements from supabase_migrations.schema_migrations where version in ('20261110002000','20261110002100')")
+    rows = query("select version,statements from supabase_migrations.schema_migrations where version in ('20261110002000','20261110002100','20261111002200')")
     recorded = {row['version']: row['statements'] for row in rows}
     pending = []
     for filename in MIGRATIONS:

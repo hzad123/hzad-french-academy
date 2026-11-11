@@ -203,3 +203,34 @@ failed release job. This avoids the broken chat environment editor. Merge the
 frontend PR only after the backend release succeeds. A completed release job is
 not evidence of a native marking success; that still requires the owner's
 explicit retry of saved feedback and inspection of the sanitized result/code.
+
+## Native INVALID_FEEDBACK repair — 11 November 2026
+
+After the successful PR23 backend/frontend release, the owner reported native
+retries failing with **INVALID_FEEDBACK**. This establishes feedback validation
+as the failure category; it does not identify which field failed. The previous
+provider requested `json_object`, which enforces JSON syntax but does not enforce
+the task/criterion schema required by the validator. The prompt also omitted the
+validator's numeric string limits, allowing an otherwise relevant long excerpt
+or explanation to reject the whole assessment.
+
+The provider now requests strict structured JSON with all required task,
+criterion, evidence and correction fields, explicit types/enums and no extra
+properties. The prompt spells out existing length limits and prohibits no-op
+corrections. The same model, one-credit charge, 2,000-token output ceiling,
+exact-quote verification, integer score, word limits and deterministic NCLC
+mapping remain. There is no automatic paid retry or relaxed evidence check.
+The cost bound includes schema bytes as well as messages.
+
+Migration `20261111002200_tcf_feedback_diagnostic_codes.sql` extends only the
+private sanitized failure-code allowlist. It records fixed categories for
+fields, bounds, task/criterion structure and unchanged corrections rather than
+collapsing them into INVALID_FEEDBACK. No raw provider response, error message,
+learner content, identity or key is retained in diagnostics. Existing failure
+codes remain readable. Release uses the already configured GitHub repository
+management secret and JWT-protected function; previous grants are idempotent
+and no wallet refill or Auth account creation occurs.
+
+Native success must be verified by a normal signed-in retry after deployment;
+fixture tests and schema conformance alone do not establish examiner accuracy
+or eliminate semantic validation errors.

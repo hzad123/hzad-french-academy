@@ -1,4 +1,4 @@
-const CODES=new Set(['NETWORK','TRUNCATED','INVALID_JSON','INVALID_SCORE','UNVERIFIED_QUOTE','INVALID_FEEDBACK','OUTPUT_TOO_LARGE','UNKNOWN']);
+const CODES=new Set(['NETWORK','TRUNCATED','INVALID_JSON','INVALID_SCORE','UNVERIFIED_QUOTE','INVALID_FEEDBACK','FEEDBACK_FIELDS','FEEDBACK_BOUNDS','FEEDBACK_TASKS','FEEDBACK_CRITERIA','UNCHANGED_CORRECTION','OUTPUT_TOO_LARGE','UNKNOWN']);
 export class WritingFailure extends Error{
  constructor(code,{status,providerCode,usage}={}){super('Writing assessment failed.');this.name='WritingFailure';this.code=code;this.status=status;this.providerCode=providerCode;this.usage=usage}
 }

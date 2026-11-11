@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import {PGlite} from '@electric-sql/pglite';
 const owner='11111111-1111-4111-8111-111111111111',student='22222222-2222-4222-8222-222222222222';
-const pending=['20261110002000_owner_testing_budget.sql','20261110002100_tcf_saved_assessment_retry.sql'];
+const pending=['20261110002000_owner_testing_budget.sql','20261110002100_tcf_saved_assessment_retry.sql','20261111002200_tcf_feedback_diagnostic_codes.sql'];
 function transaction(files,commit=false){
  const result=spawnSync('python3',['-c',`import importlib.util,json
 s=importlib.util.spec_from_file_location('release','scripts/release/tcf-marking.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
@@ -42,8 +42,9 @@ test('release transaction rehearses without writes, preserves student data, gran
  const after=await q('select * from academy_ai.wallets order by user_id');assert.equal(after[0].cap_microcad,100000000);assert.equal(after[0].available,wallets[0].available+4500);assert.equal(after[0].spent_microcad,wallets[0].spent_microcad);assert.equal(after[0].expires_at.toISOString(),wallets[0].expires_at.toISOString());
  const {testing_budget_microcad:otherTesting,...other}=after[1];assert.equal(otherTesting,0);assert.deepEqual(other,wallets[1]);
  const newWriting=await q('select * from academy_tcf_writing.attempts');assert.equal(newWriting[0].review_id,null);delete newWriting[0].review_id;assert.deepEqual(newWriting,writing);assert.deepEqual(await q('select * from public.academy_learning_progress'),progress);
- const records=await q('select * from supabase_migrations.schema_migrations order by version');assert.equal(records.length,2);
- for(let i=0;i<2;i++)assert.deepEqual(records[i].statements,[await readFile('supabase/migrations/'+pending[i],'utf8')]);
+ const records=await q('select * from supabase_migrations.schema_migrations order by version');assert.equal(records.length,pending.length);
+ for(let i=0;i<pending.length;i++)assert.deepEqual(records[i].statements,[await readFile('supabase/migrations/'+pending[i],'utf8')]);
+ await q('select public.academy_tcf_writing_note_failure($1,$2,$3)',[owner,id,{code:'FEEDBACK_BOUNDS'}]);assert.equal((await q('select usage from academy_ai.requests where id=$1',[id]))[0].usage.failure.code,'FEEDBACK_BOUNDS');
  await db.exec(transaction([],true));assert.deepEqual(await q('select * from academy_ai.wallets order by user_id'),after);assert.equal((await q('select count(*)::int n from academy_ai.testing_grants'))[0].n,1);
  }finally{await db.close()}
 });
