@@ -29,7 +29,7 @@ export function createWritingHandler({authenticate,db,provider,reportFailure=met
    while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>40000){await reader.cancel();return reply({error:'Writing request is too long.'},413)}chunks.push(value)}
    const all=new Uint8Array(bytes);let at=0;for(const part of chunks){all.set(part,at);at+=part.length}
    let input;try{input=JSON.parse(new TextDecoder().decode(all))}catch{return reply({error:'Invalid writing request.'},400)}
-   if(!input||Array.isArray(input)||Object.keys(input).some(k=>!['kind','id','testId','revision','responses','expectedCredits','version'].includes(k))||!uuid(input.id)||!['start','save','review'].includes(input.kind))return reply({error:'Invalid writing request.'},400);
+   if(!input||Array.isArray(input)||Object.keys(input).some(k=>!['kind','id','testId','revision','responses','expectedCredits','version'].includes(k))||!uuid(input.id)||!['start','save','review','retry'].includes(input.kind))return reply({error:'Invalid writing request.'},400);
    if(input.kind==='start'){
     if(!tests.has(input.testId))return reply({error:'Choose one of the 20 writing tests.'},400);
     const version=input.version||LEGACY_BANK.version;
@@ -43,29 +43,32 @@ export function createWritingHandler({authenticate,db,provider,reportFailure=met
    let attempt=await command('read',input.id);
    if(attempt.reviewStatus==='completed')return reply(withPaper(attempt));
    if(attempt.reviewStatus==='dispatched')return reply({...withPaper(attempt),processing:true},202);
-   if(attempt.reviewStatus==='failed')return reply({error:'This assessment failed and its credits were returned. Your responses are saved. Start a new attempt to try again.'},409);
+   if(attempt.reviewStatus==='failed'&&input.kind!=='retry')return reply({error:'This assessment failed and its credits were returned. Reopen the saved test and choose Retry saved feedback.'},409);
    if(!Number.isSafeInteger(input.expectedCredits)||input.expectedCredits<1||input.expectedCredits>10000)return reply({error:'Refresh the assessment credit charge.'},400);
    if(!provider.ready())return reply({error:'Writing assessment is unavailable. Your responses remain saved.'},503);
    // Price/availability preview; reserve below remains the atomic authority.
    const snapshot=await db.userRpc(token,'academy_ai_state',{}),activity=snapshot.activities?.['tcf-writing'];
    if(!snapshot.enabled||!activity?.enabled)return reply({error:'AI marking is not open yet. You can keep writing and saving your tests.'},409);
    if(activity.credits!==input.expectedCredits)return reply({error:'The assessment credit charge changed. Reopen the test before submitting.'},409);
-   attempt=await command('submit',input.id);
+   if(input.kind==='retry'&&attempt.reviewStatus==='failed')attempt=await command('retry-review',input.id);
+   else attempt=await command('submit',input.id);
+   const reviewId=attempt.reviewId||input.id;
    const test=paperForAttempt(attempt);
    const hash=await fingerprint({module:'tcf-writing',version:attempt.version,testId:attempt.testId,responses:attempt.responses});
-   const reserved=await db.adminRpc('academy_ai_reserve',{p_user:user.id,p_id:input.id,p_kind:'tcf-writing',p_level:'B2',p_hash:hash,p_expected_credits:input.expectedCredits,p_session:null,p_scenario:null});
+   const reserved=await db.adminRpc('academy_ai_reserve',{p_user:user.id,p_id:reviewId,p_kind:'tcf-writing',p_level:'B2',p_hash:hash,p_expected_credits:input.expectedCredits,p_session:null,p_scenario:null});
    if(reserved.status==='completed')return reply(withPaper(await command('read',input.id)));
    if(reserved.status==='dispatched')return reply({...withPaper(await command('read',input.id)),processing:true},202);
-   if(reserved.status==='failed')return reply({error:'This assessment failed. Your responses remain saved; start a new attempt to retry.'},409);
-   const claim=await db.adminRpc('academy_ai_claim',{p_user:user.id,p_id:input.id});
+   if(reserved.status==='failed')return reply({error:'This assessment failed. Reopen the saved test and choose Retry saved feedback.'},409);
+   const claim=await db.adminRpc('academy_ai_claim',{p_user:user.id,p_id:reviewId});
    if(!claim.claimed)return reply({...withPaper(await command('read',input.id)),processing:true},202);
    let generated;
    try{generated=await provider.run({test,responses:attempt.responses},claim)}catch(error){
     const diagnostic=failureMetadata(error);try{reportFailure(diagnostic)}catch{}
-    let refunded=false;try{await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:input.id});refunded=true}catch{}
+    let refunded=false;try{await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:reviewId});refunded=true}catch{}
+    await db.adminRpc('academy_tcf_writing_note_failure',{p_user:user.id,p_request:reviewId,p_failure:diagnostic}).catch(()=>{});
     return reply({failure:diagnostic,error:refunded?'AI marking could not finish. Your credits were returned and responses saved.':'AI marking is being checked. Reopen the saved attempt before retrying.',processing:!refunded},refunded?502:202);
    }
-   try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.id,p_result:generated.result,p_usage:generated.usage,p_student_text:null})}
+   try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:reviewId,p_result:generated.result,p_usage:generated.usage,p_student_text:null})}
    catch{return reply({...withPaper(await command('read',input.id)),processing:true},202)}
    return reply(withPaper(await command('read',input.id)));
   }catch(error){

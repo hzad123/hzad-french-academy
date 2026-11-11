@@ -20,10 +20,12 @@ before(async()=>{
  insert into public.academy_learning_progress(user_id,unit_id,attempts,best_percent,completed) values('${alice}','a0-01',3,92,true);`);
  await db.exec(await readFile('supabase/migrations/20261105001000_ai_learning.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261105001200_mock_exams.sql','utf8'));
+ await db.exec(`create table academy_exams.audio_operators(user_id uuid primary key references auth.users(id));alter table academy_exams.audio_operators enable row level security;revoke all on academy_exams.audio_operators from public,anon,authenticated,service_role;insert into academy_exams.audio_operators values('${alice}');`);
  await db.exec(await readFile('supabase/migrations/20261109001500_tcf_writing.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001600_fix_tcf_writing_history.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001700_resume_tcf_writing_drafts.sql','utf8'));
  await db.exec(await readFile('supabase/migrations/20261109001800_tcf_writing_sample_format.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261110002100_tcf_saved_assessment_retry.sql','utf8'));
 });
 after(async()=>db?.close());
 test('additive migration leaves existing progress and activity prices intact and the new paid activity off',async()=>{
@@ -148,4 +150,34 @@ test('live TCF marking uses one displayed credit, preserves the CAD 10/no-shared
  await q('update academy_ai.wallets set spent_microcad=cap_microcad where user_id=$1',[alice]);await role('service_role');
  await assert.rejects(()=>v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[alice,crypto.randomUUID(),'tcf-writing','B2','c'.repeat(64),1,null,null]),/allowance/);
  const other=await v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[bob,crypto.randomUUID(),'tcf-writing','B2','d'.repeat(64),1,null,null]);assert.equal(other.status,'reserved');await role();
+});
+
+test('CAD 100 owner testing grant is operator-only, idempotent, not a payment, and leaves ordinary learners capped at CAD 10',async()=>{
+ await role();await db.exec(await readFile('supabase/migrations/20261110002000_owner_testing_budget.sql','utf8'));
+ const before=(await q('select * from academy_ai.wallets where user_id=$1',[alice]))[0];
+ await role('authenticated',alice);await assert.rejects(()=>v('select public.academy_ai_grant_owner_testing($1,$2) as v',[alice,'owner-test-cap100']),/permission denied/);
+ await role('service_role');await assert.rejects(()=>v('select public.academy_ai_grant_owner_testing($1,$2) as v',[bob,'not-an-operator']),/Owner testing permission/);
+ const grant=await v('select public.academy_ai_grant_owner_testing($1,$2) as v',[alice,'owner-test-cap100']);assert.equal(grant.capMicrocad,100000000);assert.equal(grant.creditsAdded,4500);
+ assert.equal((await v('select public.academy_ai_grant_owner_testing($1,$2) as v',[alice,'owner-test-cap100'])).alreadyGranted,true);
+ await assert.rejects(()=>v('select public.academy_ai_grant_owner_testing($1,$2) as v',[alice,'new-reference-cannot-refill']),/already recorded/);
+ await role();const after=(await q('select * from academy_ai.wallets where user_id=$1',[alice]))[0];assert.equal(after.available,before.available+4500);assert.equal(after.spent_microcad,before.spent_microcad);assert.equal(after.reserved,before.reserved);assert.equal(after.expires_at.toISOString(),before.expires_at.toISOString());assert.equal(after.purchased_budget_microcad,before.purchased_budget_microcad);
+ assert.equal((await q('select cap_microcad from academy_ai.wallets where user_id=$1',[bob]))[0].cap_microcad,10000000);
+ await assert.rejects(()=>q('update academy_ai.wallets set cap_microcad=100000001 where user_id=$1',[alice]),/check constraint/);
+ await assert.rejects(()=>q('update academy_ai.wallets set cap_microcad=20000000 where user_id=$1',[bob]),/check constraint/);
+ await role('authenticated',alice);const owner=await v('select public.academy_ai_state() as v');assert.equal(owner.testingCad,100);assert.equal(owner.wallet.funding,'testing');assert.equal(owner.wallet.capCad,100);
+ await role('authenticated',bob);const student=await v('select public.academy_ai_state() as v');assert.equal(student.testingCad,null);assert.equal(student.includedCad,10);assert.equal(student.wallet.funding,'included');await role();
+});
+test('explicit retry reuses frozen answers and paper, persists safe failure details, and cannot double-charge on replay',async()=>{
+ await role('service_role');let a=await command(alice,'start',crypto.randomUUID(),{testId:'tcf-writing-01'});
+ a=await command(alice,'save',a.id,{revision:a.revision,responses:['Réponse sauvegardée.','Récit sauvegardé.','Avis sauvegardé.']});a=await command(alice,'submit',a.id);
+ const reserve=id=>v('select public.academy_ai_reserve($1,$2,$3,$4,$5,$6,$7,$8) as v',[alice,id,'tcf-writing','B2','e'.repeat(64),1,null,null]);
+ await reserve(a.reviewId);await v('select public.academy_ai_claim($1,$2) as v',[alice,a.reviewId]);await v('select public.academy_ai_fail($1,$2) as v',[alice,a.reviewId]);
+ await v('select public.academy_tcf_writing_note_failure($1,$2,$3) as v',[alice,a.reviewId,{code:'INVALID_JSON'}]);const failed=await command(alice,'read',a.id);assert.equal(failed.failure.code,'INVALID_JSON');
+ await assert.rejects(()=>command(bob,'retry-review',a.id),/not found/);
+ let retry=await command(alice,'retry-review',a.id);assert.notEqual(retry.reviewId,a.reviewId);assert.equal(retry.id,a.id);assert.deepEqual(retry.responses,a.responses);assert.equal(retry.deadline,a.deadline);assert.equal(retry.version,a.version);
+ assert.equal((await command(alice,'retry-review',a.id)).reviewId,retry.reviewId);
+ await reserve(retry.reviewId);await reserve(retry.reviewId);await v('select public.academy_ai_claim($1,$2) as v',[alice,retry.reviewId]);await v('select public.academy_ai_finish($1,$2,$3,$4,null) as v',[alice,retry.reviewId,{module:'tcf-writing',score:12,nclc:'8'},{total_tokens:100}]);
+ const completed=await command(alice,'read',a.id);assert.equal(completed.reviewStatus,'completed');assert.equal(completed.result.score,12);assert.equal((await command(alice,'retry-review',a.id)).reviewId,retry.reviewId);
+ await assert.rejects(()=>v('select public.academy_tcf_writing_note_failure($1,$2,$3) as v',[alice,a.reviewId,{code:'INVALID_JSON',text:'must not store writing'}]),/Invalid failure diagnostic/);
+ await role();assert.equal((await q("select count(*)::int n from academy_ai.ledger where request_id=$1 and event='charge'",[retry.reviewId]))[0].n,1);
 });

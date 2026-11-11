@@ -6,6 +6,7 @@ import {wireExams} from '/src/exams/ui.js';
 import {wireTcfWriting} from '/src/exams/tcf-writing/ui.js';
 import {wireAiLearning} from '/src/ai/ui.js';
 import {createWritingHandler} from '/supabase/functions/academy-tcf-writing/handler.js';
+import {WritingFailure} from '/supabase/functions/academy-tcf-writing/failures.js';
 import {CURRENT_BANK} from '/supabase/functions/academy-tcf-writing/banks.js';
 import {validateWritingFeedback} from '/supabase/functions/academy-tcf-writing/scoring.js';
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
@@ -14,7 +15,7 @@ const snapshot=()=>({enabled:!f.paused,activities:{'tcf-writing':{enabled:!f.pau
 const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
  if(p.p_user!==f.user)throw Error('Writing attempt not found');
  if(name==='academy_tcf_writing_command'){
-  if(p.p_action==='list')return [...f.rows.values()].filter(r=>r.owner===f.user).map(r=>({...r,reviewStatus:f.requests.get(r.id)?.status||null}));
+  if(p.p_action==='list')return [...f.rows.values()].filter(r=>r.owner===f.user).map(r=>({...r,reviewStatus:f.requests.get(r.reviewId||r.id)?.status||null}));
   let row=f.rows.get(p.p_id);
   if(row&&row.owner!==f.user)throw Error('Writing attempt not found');
   if(p.p_action==='start'&&!row){row=[...f.rows.values()].filter(r=>r.owner===f.user&&r.testId===p.p_payload.testId&&r.status==='draft'&&r.version===CURRENT_BANK.version&&Date.parse(r.deadline)>Date.now()).sort((a,b)=>Number(b.responses.some(Boolean))-Number(a.responses.some(Boolean))||Date.parse(b.startedAt)-Date.parse(a.startedAt))[0]}
@@ -28,7 +29,8 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
    row.responses=structuredClone(p.p_payload.responses);row.revision++;
   }
   if(p.p_action==='submit'){row.status='submitted';row.revision++}
-  const r=f.requests.get(row.id);return {...structuredClone(row),serverNow:new Date().toISOString(),reviewStatus:r?.status||null,result:r?.result||null};
+  if(p.p_action==='retry-review'&&f.requests.get(row.reviewId||row.id)?.status==='failed')row.reviewId=crypto.randomUUID();
+  const r=f.requests.get(row.reviewId||row.id);return {...structuredClone(row),reviewId:row.reviewId||row.id,failure:r?.failure||null,serverNow:new Date().toISOString(),reviewStatus:r?.status||null,result:r?.result||null};
  }
  if(name==='academy_ai_reserve'){
   let r=f.requests.get(p.p_id);if(!r){r={status:'reserved'};f.requests.set(p.p_id,r);f.balance-=1;f.charges++}return {...r};
@@ -36,10 +38,11 @@ const db={userRpc:async()=>snapshot(),adminRpc:async(name,p)=>{
  if(name==='academy_ai_claim'){const r=f.requests.get(p.p_id);if(r.status!=='reserved')return {claimed:false};r.status='dispatched';return {claimed:true,model:'fixture-model',maxOutputTokens:2000}}
  if(name==='academy_ai_finish'){const r=f.requests.get(p.p_id);r.status='completed';r.result=p.p_result;return {...r}}
  if(name==='academy_ai_fail'){f.requests.get(p.p_id).status='failed';f.balance+=1;return null}
+ if(name==='academy_tcf_writing_note_failure'){f.requests.get(p.p_request).failure=p.p_failure;return null}
  throw Error('Unexpected fixture RPC');
 }};
 const handler=createWritingHandler({authenticate:async()=>f.user?{id:f.user,email_confirmed_at:'yes'}:null,db,provider:{ready:()=>true,run:async({test,responses})=>{
- f.providerCalls++;if(f.delay)await new Promise(resolve=>{f.release=resolve});
+ f.providerCalls++;if(f.failProvider)throw new WritingFailure('PROVIDER_HTTP',{status:429,providerCode:'insufficient_quota'});if(f.delay)await new Promise(resolve=>{f.release=resolve});
  return {result:validateWritingFeedback({score:12,scoreReason:'Errors in agreement and limited comparison reduce precision.',criteria:['linguistic','pragmatic','sociolinguistic'].map((id,i)=>({id,evidence:[{task:i+1,quote:responses[i].split(' ').slice(0,3).join(' ')}],reason:'Errors reduce the precision of the response.'})),tasks:[1,2,3].map(number=>({number,onTopic:true,mistakes:number===1&&responses[0].includes('Je suis aller')?[{original:'Je suis aller',corrected:'Je suis allé',explanation:'Use the past participle after être in the passé composé.'}]:[],issues:[]}))},{test,responses}),usage:{total_tokens:300}};
 }}});
 const client={auth:{onAuthStateChange:fn=>f.callbacks.push(fn),getSession:async()=>({data:{session:f.user?{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:f.user}}:null}})}};

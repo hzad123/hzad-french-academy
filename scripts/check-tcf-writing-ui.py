@@ -76,5 +76,19 @@ with sync_playwright() as p:
    assert 'Rédigez un message pour raconter' in task2.inner_text();assert 'et expliquez pourquoi' in task2.inner_text()
    page.get_by_role('button',name='All 20 writing tests',exact=True).click()
   assert page.evaluate('fixture.providerCalls')==0;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');assert errors==[],errors
+  page.get_by_role('button',name='Resume Test 02',exact=True).click()
+  for i,text in enumerate(answers,1):page.locator(f'#hz-writing-response-{i}').fill(text)
+  page.get_by_text('All three responses saved.',exact=True).wait_for();deadline=page.evaluate("[...fixture.rows.values()].find(r=>r.testId==='tcf-writing-02').deadline")
+  page.evaluate('fixture.failProvider=true');page.get_by_role('button',name='Get AI feedback · 1 credit',exact=True).click()
+  page.get_by_role('button',name='Retry saved feedback · 1 credit',exact=True).wait_for()
+  page.get_by_text('Assessment reference: insufficient_quota',exact=True).wait_for()
+  assert page.evaluate('fixture.balance')==100
+  assert page.locator('#hz-writing-response-1').input_value()==answers[0]
+  page.evaluate('fixture.failProvider=false');page.get_by_role('button',name='Retry saved feedback · 1 credit',exact=True).click()
+  page.get_by_role('heading',name='Your writing result',exact=True).wait_for();page.get_by_text('12/20',exact=True).wait_for()
+  assert page.evaluate('fixture.balance')==99;assert page.evaluate('fixture.providerCalls')==2;assert page.evaluate('fixture.rows.size')==20
+  assert page.evaluate("[...fixture.rows.values()].find(r=>r.testId==='tcf-writing-02').deadline")==deadline
+  assert page.locator('#hz-writing-response-1').input_value()==answers[0];assert errors==[],errors
+
   print(json.dumps({'viewport':width,'result':'20 tests, repeated Back/resume without duplicates or timer resets, switching papers while AI paused, 3 editors, source documents, word counts, autosave/reopen, keyboard jump, TCF/NCLC result, mistake-only view, one charge, free review, save retry, account isolation and no overflow/JS errors passed'}));page.close()
  browser.close()
