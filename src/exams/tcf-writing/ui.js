@@ -67,6 +67,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
  }
  function renderAttempt(){
   const test=attempt.paper||catalog.tests.find(t=>t.id===attempt.testId);if(!test){status('This test version could not be opened.',true);return}
+  if(attempt.result)renderResult(attempt.result);
   if(conflict){
    status('Saved responses changed in another tab. Your unsaved text is still in the editors. Choose which version to keep.',true);
    area.append(button('Keep my text',()=>{conflict=false;local.revision=attempt.revision;void run(async(signal,current)=>{await save(signal,current);if(current())render()})},true),button('Use saved responses',()=>{conflict=false;dirty=false;local={id:attempt.id,revision:attempt.revision,responses:[...attempt.responses]};render()},true));
@@ -87,7 +88,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
    input.addEventListener('input',()=>{local.responses[task.number-1]=input.value;dirty=true;update();status('Unsaved changes…');schedule()});input.addEventListener('blur',()=>{if(dirty&&remaining>0)schedule()});label.append(input);group.append(label,count);area.append(group);
   }
   tick();if(!locked)timer=setInterval(tick,1000);
-  if(attempt.result){renderResult(attempt.result);return}
+  if(attempt.result)return;
   if(attempt.reviewStatus==='failed'){
    status('The previous assessment failed. Your credit was returned and your responses are saved.',true);
    if(attempt.failure?.code)area.append(el('p','Assessment reference: '+(attempt.failure.providerCode||attempt.failure.code),'hz-small'));
@@ -127,13 +128,29 @@ export function wireTcfWriting(root,client,{fetcher}={}){
  function renderResult(result){
   const section=el('section',undefined,'hz-writing-feedback');section.append(el('h4','Your writing result'));
   const score=el('div',undefined,'hz-writing-score');
-  if(result.score!==null)score.append(el('strong',`${result.score}/20`),el('span','Estimated TCF writing'),el('strong',result.nclc==='Below 4'?'Below NCLC 4':'NCLC '+result.nclc));
+  if(result.score!==null){const total=el('div'),nclc=el('div');total.append(el('span','Total estimated TCF writing score'),el('strong',`${result.score}/20`));nclc.append(el('span','NCLC equivalent'),el('strong',result.nclc==='Below 4'?'Below NCLC 4':'NCLC '+result.nclc));score.append(total,nclc)}
   else score.append(el('strong','Task requirements not met'),el('span','TCF/NCLC estimate unavailable'));
   section.append(score,el('p',result.scoreReason));
   for(const c of result.constraints)if(c.status!=='within-range')section.append(el('p',`Tâche ${c.task}: ${c.status==='missing'?'not attempted':c.words<c.minWords?'below the word minimum':'above the word maximum'} (${c.words}/${c.minWords}–${c.maxWords} words).`,'hz-writing-issue'));
-  const criteria=el('details');criteria.append(el('summary','Marking criteria'));
-  const names={linguistic:'Language control',pragmatic:'Task fulfilment and coherence',sociolinguistic:'Audience and register'};
-  for(const c of result.criteria){const item=el('article');item.append(el('h5',names[c.id]),el('p',c.reason));for(const e of c.evidence)item.append(el('blockquote',`Tâche ${e.task}: « ${e.quote} »`));criteria.append(item)}section.append(criteria);
+  const criteria=el('section',undefined,'hz-writing-criteria');criteria.append(el('h4','TCF marking criteria · What to fix'));
+  const names={linguistic:['Linguistic competence','Grammar, vocabulary, sentence structure and spelling'],pragmatic:['Pragmatic competence','Task completion, organisation, coherence and argument'],sociolinguistic:['Sociolinguistic competence','Register, tone and suitability for the reader']};
+  for(const [id,[name,description]] of Object.entries(names)){
+   const c=result.criteria.find(c=>c.id===id);if(!c)continue;
+   const item=el('article',undefined,'hz-writing-criterion');item.append(el('h5',name),el('p',description,'hz-small'),el('h6','Effect on your score'),el('p',c.reason));
+   for(const e of c.evidence)item.append(el('blockquote',`Tâche ${e.task}: « ${e.quote} »`));
+   item.append(el('h6','How to improve this criterion'),el('p',c.improvement===undefined?'Update this assessment for a specific action based on your saved responses.':c.improvement||'No criterion-specific correction identified.','hz-writing-next-step'));criteria.append(item);
+  }section.append(criteria);
+  if(result.rubricVersion!=='tcf-writing-public-criteria-v2'){
+   const cost=catalog.credits,wallet=catalog.wallet;
+   const update=button(`Update TCF feedback · ${cost} ${cost===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{
+    let next;try{next=await store.send({kind:'reassess',id:attempt.id,reviewId:attempt.reviewId||attempt.id,expectedCredits:cost},signal)}catch(error){
+     try{const saved=await store.read(attempt.id,signal);if(current()){receive(saved,{restore:true});render()}}catch{}throw error;
+    }
+    if(!current())return;if(next.processing&&!next.id){status(next.error||'Your assessment is processing. Check saved feedback.');return}receive(next,{restore:true});render();
+   })});
+   update.dataset.locked=String(!catalog.enabled||!Number.isSafeInteger(cost)||!wallet||wallet.available<cost||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now());
+   section.append(el('p','Use your saved responses for the updated TCF criteria breakdown.','hz-small'),update);
+  }
   for(const t of result.tasks){const card=el('article',undefined,'hz-writing-corrections');card.append(el('h4','Tâche '+t.number+' · Mistakes'));
    for(const m of t.mistakes){const item=el('div',undefined,'hz-writing-correction');item.append(el('del',m.original),el('ins',m.corrected),el('p',m.explanation));card.append(item)}
    for(const issue of t.issues)card.append(el('p',issue,'hz-writing-issue'));

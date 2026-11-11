@@ -234,3 +234,56 @@ and no wallet refill or Auth account creation occurs.
 Native success must be verified by a normal signed-in retry after deployment;
 fixture tests and schema conformance alone do not establish examiner accuracy
 or eliminate semantic validation errors.
+
+## TCF criterion feedback and saved-result upgrade — 11 November 2026
+
+The owner confirmed native marking now succeeds, then requested examiner-criteria
+feedback instead of general French commentary. The result page now places the
+**total estimated TCF writing score /20** and **NCLC equivalent** prominently
+above three fully visible sections: linguistic competence (language control),
+pragmatic competence (consigne fulfilment/coherence/argument), and sociolinguistic
+competence (audience/register/conventions). Each includes verbatim task evidence,
+its effect on the estimated band, and a concrete criterion-specific change to
+that response. No arbitrary criterion scores, official weights, task-score
+averages or exact point deductions are invented.
+
+The strict provider schema requires a criterion `improvement` field. The prompt
+connects it to each actual task: Task1's communicative purpose/information,
+Task2's past experience/impressions/personal importance, and Task3's reformulation
+of both documents, comparison and justified opinion. Generic study advice,
+praise and full rewrites remain excluded. Empty improvement means no supported
+criterion-specific correction; no flaw is fabricated. New normalized feedback
+has rubricVersion v2. Older stored results remain readable and opening them is
+free. The same score/NCLC conversion and requirement checks remain: incomplete,
+off-topic or out-of-range work receives specific requirement feedback rather
+than an invented numerical penalty.
+
+An explicit **Update TCF feedback · 1 credit** action upgrades older completed
+feedback using the same frozen responses. Migration20261111002300 replaces only
+the owned command function: a new review is allocated only when the caller's
+quoted source review matches the current completed review. Replays/concurrent
+clicks share the new review ID, even if it has already completed. Old requests
+and results are retained; original paper version, text, deadline and submission
+are unchanged. GET/read never regrade or charge. Failed updates use the same
+saved-answer retry/refund path. No new attempt or timer reset is needed.
+
+The owner authorized continued publication and the existing secured GitHub
+release route is reused. No new secret, Auth identity, payment or student
+allowance change is required. The analytical input bound including schema is
+50,456 tokens; reference pricing and FX assumptions yield CAD0.017537 below the
+unchanged CAD0.02 hold, with 2,000 output tokens. Output is kept compact with two
+important error patterns and one requirement issue per task, plus concise
+criterion reasons/actions. These are analytical assumptions, not a new live
+usage measurement or examiner calibration.
+
+Validation for this release: all196 tests passed, including real database
+reassessment ownership/source replay, retained previous results and one-charge
+handling. Desktop1440px/mobile390px browser checks passed visible criterion
+actions, total/NCLC, no overflow, legacy free viewing and explicitly updating a
+saved result without a new attempt. The result appears before the saved response
+editors so the total and criterion breakdown are immediately accessible. Builds
+and the updated analytical budget check passed. Local provider output is still
+fixture data; the owner's preceding successful native marking verifies the live
+provider path, while this richer native feedback remains to be checked after
+release. Migration23 and the updated function are applied by the reviewed
+GitHub release before frontend merge; release status is recorded in its PR.

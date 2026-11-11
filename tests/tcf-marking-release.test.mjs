@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import {PGlite} from '@electric-sql/pglite';
 const owner='11111111-1111-4111-8111-111111111111',student='22222222-2222-4222-8222-222222222222';
-const pending=['20261110002000_owner_testing_budget.sql','20261110002100_tcf_saved_assessment_retry.sql','20261111002200_tcf_feedback_diagnostic_codes.sql'];
+const pending=['20261110002000_owner_testing_budget.sql','20261110002100_tcf_saved_assessment_retry.sql','20261111002200_tcf_feedback_diagnostic_codes.sql','20261111002300_tcf_criterion_reassessment.sql'];
 function transaction(files,commit=false){
  const result=spawnSync('python3',['-c',`import importlib.util,json
 s=importlib.util.spec_from_file_location('release','scripts/release/tcf-marking.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)

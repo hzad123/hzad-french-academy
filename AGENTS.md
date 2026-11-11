@@ -38,6 +38,11 @@ For each task, state exactly: what was implemented, what was tested, what was no
   Feedback should identify mistakes and unmet requirements only. Do not invent
   official weights/conversions, infer unassessed skills or reuse a writing
   conversion for receptive skills. Keep the owner’s sample formats.
+- Make the total TCF score and NCLC equivalent prominent. Show separate visible
+  criterion sections with response evidence, effect on the score and a concrete
+  change to make; avoid general French advice. For writing these are linguistic,
+  pragmatic and sociolinguistic competence. Do not invent numerical subscores
+  or deductions. Reassessing older saved feedback must be explicit and priced.
 - TCF writing Task 2 must follow the owner’s sample consistently: separate
   **Sujet** and **Consigne**, a message recounting a past experience (place,
   activities, impressions), why it was important, and **120–150 words**. Vary

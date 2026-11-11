@@ -29,7 +29,7 @@ export function createWritingHandler({authenticate,db,provider,reportFailure=met
    while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>40000){await reader.cancel();return reply({error:'Writing request is too long.'},413)}chunks.push(value)}
    const all=new Uint8Array(bytes);let at=0;for(const part of chunks){all.set(part,at);at+=part.length}
    let input;try{input=JSON.parse(new TextDecoder().decode(all))}catch{return reply({error:'Invalid writing request.'},400)}
-   if(!input||Array.isArray(input)||Object.keys(input).some(k=>!['kind','id','testId','revision','responses','expectedCredits','version'].includes(k))||!uuid(input.id)||!['start','save','review','retry'].includes(input.kind))return reply({error:'Invalid writing request.'},400);
+   if(!input||Array.isArray(input)||Object.keys(input).some(k=>!['kind','id','testId','revision','responses','expectedCredits','version','reviewId'].includes(k))||!uuid(input.id)||!['start','save','review','retry','reassess'].includes(input.kind))return reply({error:'Invalid writing request.'},400);
    if(input.kind==='start'){
     if(!tests.has(input.testId))return reply({error:'Choose one of the 20 writing tests.'},400);
     const version=input.version||LEGACY_BANK.version;
@@ -40,8 +40,9 @@ export function createWritingHandler({authenticate,db,provider,reportFailure=met
     if(!Number.isSafeInteger(input.revision)||input.revision<0||!Array.isArray(input.responses)||input.responses.length!==3||input.responses.some(s=>typeof s!=='string'||s.length>3500)||input.responses.join('').length>6500)return reply({error:'Check the three writing responses (6,500 characters total).'},400);
     return reply(withPaper(await command('save',input.id,{revision:input.revision,responses:input.responses})));
    }
+   if(input.kind==='reassess'&&!uuid(input.reviewId))return reply({error:'Reopen the completed assessment before updating its feedback.'},400);
    let attempt=await command('read',input.id);
-   if(attempt.reviewStatus==='completed')return reply(withPaper(attempt));
+   if(attempt.reviewStatus==='completed'&&input.kind!=='reassess')return reply(withPaper(attempt));
    if(attempt.reviewStatus==='dispatched')return reply({...withPaper(attempt),processing:true},202);
    if(attempt.reviewStatus==='failed'&&input.kind!=='retry')return reply({error:'This assessment failed and its credits were returned. Reopen the saved test and choose Retry saved feedback.'},409);
    if(!Number.isSafeInteger(input.expectedCredits)||input.expectedCredits<1||input.expectedCredits>10000)return reply({error:'Refresh the assessment credit charge.'},400);
@@ -50,7 +51,8 @@ export function createWritingHandler({authenticate,db,provider,reportFailure=met
    const snapshot=await db.userRpc(token,'academy_ai_state',{}),activity=snapshot.activities?.['tcf-writing'];
    if(!snapshot.enabled||!activity?.enabled)return reply({error:'AI marking is not open yet. You can keep writing and saving your tests.'},409);
    if(activity.credits!==input.expectedCredits)return reply({error:'The assessment credit charge changed. Reopen the test before submitting.'},409);
-   if(input.kind==='retry'&&attempt.reviewStatus==='failed')attempt=await command('retry-review',input.id);
+   if(input.kind==='reassess')attempt=await command('reassess-review',input.id,{reviewId:input.reviewId});
+   else if(input.kind==='retry'&&attempt.reviewStatus==='failed')attempt=await command('retry-review',input.id);
    else attempt=await command('submit',input.id);
    const reviewId=attempt.reviewId||input.id;
    const test=paperForAttempt(attempt);

@@ -12,7 +12,8 @@ export const WRITING_RESPONSE_SCHEMA=object({
  criteria:array(object({
   id:{type:'string',enum:['linguistic','pragmatic','sociolinguistic']},
   evidence:array(object({task:taskNumber,quote:text})),
-  reason:text
+  reason:text,
+  improvement:text
  })),
  tasks:array(object({
   number:taskNumber,
