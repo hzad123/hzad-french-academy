@@ -144,6 +144,7 @@ def main():
     print('Migrations recorded; owner testing cap CAD 100; ordinary caps CAD 10; progress/responses/other wallets preserved.')
     deploy(args.bundle)
     print('Backend release complete. No provider call, Auth identity or payment was created. Native marking still needs a normal signed-in retry.')
+    print('::notice title=TCF backend released::Reviewed migrations and owner CAD 100 allowance applied; student work preserved; JWT-protected writing function ACTIVE. Native marking requires a signed-in saved retry.')
 
 
 if __name__ == '__main__':
@@ -153,6 +154,8 @@ if __name__ == '__main__':
         # Print only our curated messages; never dump remote bodies or credentials.
         if isinstance(error, RuntimeError):
             print(str(error), file=sys.stderr)
+            print('::error title=TCF release stopped::' + str(error).replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A'))
         else:
             print('Release stopped: ' + type(error).__name__ + '. No private response details printed.', file=sys.stderr)
+            print('::error title=TCF release stopped::' + type(error).__name__ + '; private response details withheld.')
         sys.exit(1)
