@@ -196,3 +196,15 @@ The earlier pause is superseded by this activation. See the analytical cost
 bound, tests, deployed settings and native-verification limitations in
 `docs/tcf-writing.md`. Do not reset work, retrieve server keys into clients,
 auto-retry paid inference or fabricate official examiner calibration.
+
+### Owner AI testing allowance and saved TCF retries — 2026-11-11
+
+The owner authorized a **CAD $100 total testing cap for their existing account**,
+including previously recorded usage. This exception does not increase the normal
+CAD $10 student allowance, create a shared spending cap, reset expiration, or
+record a fabricated payment. Identify the existing account privately and apply
+an audited, idempotent administrative grant; never commit its email or user ID.
+Permit explicit, visibly priced retries of failed TCF feedback against the same
+saved responses and original paper. Never automatically repeat paid inference.
+See `docs/tcf-writing.md` for implementation and deployment blockers. This
+authorization does not authorize creating synthetic Auth identities.

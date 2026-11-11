@@ -118,3 +118,60 @@ The owner reported a real refunded assessment failure after activation. The stor
 The normal JWT-protected backend now classifies provider HTTP status/allowlisted error codes, network failures, truncation, invalid JSON, invalid score, unverifiable evidence and malformed feedback. The authenticated failed response includes a sanitized `failure` object; logging uses the same bounded metadata. Provider error messages/bodies, keys, headers and learner text are never logged or returned as diagnostic details. Diagnostic reporting cannot prevent the existing credit refund. The full suite passed 180 tests and builds, and targeted provider/privacy regressions passed after adding the response metadata. The original failure remains saved/refunded; no learner response, wallet policy, price, score or permission was changed by diagnostics.
 
 Automatic approval review rejected a proposed short-lived native QA identity because the fix request did not explicitly authorize production Auth user/identity/profile, test entitlement/wallet and up to CAD $0.06 of OpenAI usage. The rejected command did not run. No workaround, service-role key extraction, JWT bypass or provider wrapper was used. Exact bounded plan prepared at `/tmp/tcf-native-qa-plan.md`: one unprivileged synthetic login, 15-minute test access, three test credits with a CAD $0.06 cap, at most three explicit native calls, followed by revocation/ban and removal of its sessions/test response content. No real student's data is to be changed. This native test is **awaiting explicit owner approval**. Local fixture tests cannot establish the cause of the original native provider failure.
+
+## Saved feedback retry and owner testing budget — 11 November 2026
+
+The owner authorized a CAD $100 total academy AI testing ceiling for the
+existing owner account. The verified account identifier stays outside source.
+Migration `20261110002000_owner_testing_budget.sql` adds a private audited testing
+grant, guarded by service-only execution, existing verified academy access and
+private operator membership. It adds the difference from the existing CAD $10
+cap (normally 4,500 credits at CAD $0.02 reserved per credit), including usage
+already consumed within the CAD $100 total. A repeated grant cannot refill it.
+Available credits increase once; used/reserved amounts, purchased budget and
+original expiration remain intact. No purchase receipt is invented. Ordinary
+learners remain at CAD $10 and the shared cap stays NULL. This academy allowance
+does not fund the OpenAI billing account or change its provider-side limits.
+
+Migration `20261110002100_tcf_saved_assessment_retry.sql` adds a nullable latest
+review ID without rewriting earlier responses. An explicit **Retry saved feedback
+· 1 credit** action allocates a new server-side review only after the preceding
+review has failed. Responses, paper version, original timer and submission are
+frozen. Concurrent/replayed retries share the new review ID and normal atomic
+reserve/claim/finish/refund logic; completed feedback remains free to reopen.
+Opening a test never calls the provider. Failed retries persist bounded,
+allowlisted failure codes/status/numeric usage only, so subsequent inspection
+can distinguish provider rejection from malformed feedback without storing keys,
+provider messages or learner text in diagnostics.
+
+Validation: all 183 tests passed, including real PostgreSQL owner-only budget,
+idempotency, ordinary student limits, saved retry ownership, frozen answers and
+one-charge checks. Desktop 1440px and mobile 390px browser fixtures passed the
+full 20-paper navigation/editing flow plus failed feedback, refund, saved retry,
+TCF/NCLC display, unchanged timer and no duplicate paper. Browser/learning/Edge
+builds and the analytical cost check passed. Provider responses in these tests
+are fixtures; a successful native OpenAI assessment is still unverified.
+
+**Release blocked:** the previously configured Supabase management credential now
+returns HTTP 401 `Invalid access token` for both function metadata and database
+queries. Cloud readiness reports the secret bound, but fresh service requests
+reject it. Neither new migration nor the owner grant has been applied, and the
+updated Edge Function has not been deployed. Keep this frontend change unmerged
+until the backend dependencies are live. Replace `SUPABASE_ACCESS_TOKEN` in the
+cloud environment's HTTP secret settings for `api.supabase.com`; do not put a
+key in chat, source or frontend code. The existing OpenAI inference secret is a
+separate credential and should not be changed on this evidence.
+
+Release order once management access is restored: compare deployed definitions
+with migrations 018/019; snapshot progress, writing responses, wallets, policy
+and activity prices; rehearse 020/021 and the single private owner grant in a
+rolled-back transaction; apply/record only these two migrations; grant the owner
+CAD $100 once and verify all other wallet/progress/response data unchanged;
+deploy the normal JWT-protected `academy-tcf-writing` function; merge after CI
+and verify hosted assets. Then the owner can explicitly retry their saved
+assessment and its safe failure reference can establish the native failure.
+Do not create Auth identities, extract privileged project keys, mint user tokens
+or bypass normal authentication. Rollback: disable only TCF writing if needed,
+restore the previous frontend/Edge code, retain all attempts and accounting.
+The additive columns and grant audit should remain; never erase consumed usage
+or revoke a reservation as part of a code rollback.

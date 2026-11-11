@@ -62,12 +62,13 @@ function harness({reviewStatus=null,enabled=true,failProvider=false,failFinish=f
  const db={userRpc:async()=>({enabled,activities:{'tcf-writing':{enabled,credits:3}},wallet:{available:100},history:[]}),adminRpc:async(name,args)=>{
   calls.push({name,args});assert.equal(args.p_user,user);
   if(name==='academy_tcf_writing_command'){
-   if(args.p_action==='list')return [];if(args.p_action==='submit')row.status='submitted';return {...row};
+   if(args.p_action==='list')return [];if(args.p_action==='submit')row.status='submitted';if(args.p_action==='retry-review'&&row.reviewStatus==='failed'){row.reviewId=crypto.randomUUID();row.reviewStatus=null}return {...row};
   }
-  if(name==='academy_ai_reserve')return {status:reviewStatus||'reserved'};
+  if(name==='academy_ai_reserve')return {status:row.reviewStatus||'reserved'};
   if(name==='academy_ai_claim')return {claimed:claim,model:'bounded-model',maxOutputTokens:2000};
   if(name==='academy_ai_finish'){if(failFinish)throw Error('Disconnected');row.reviewStatus='completed';row.result=args.p_result;return {...row}}
   if(name==='academy_ai_fail'){row.reviewStatus='failed';return null}
+  if(name==='academy_tcf_writing_note_failure'){row.failure=args.p_failure;return null}
  }};
  const handler=createWritingHandler({authenticate:async token=>token==='valid'?{id:user,email_confirmed_at:'2026-11-01'}:null,db,provider:{ready:()=>true,run:async()=>{providerCalls++;if(failProvider)throw Error('Bad output');return {result:validateWritingFeedback(feedback(),{test:paper,responses}),usage:{total_tokens:1200}}}}});
  const req=(body,token='valid',origin='https://hzad123.github.io',query='')=>handler(new Request('https://example.test'+query,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+token,Origin:origin,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined}));
@@ -133,4 +134,11 @@ test('malformed, truncated and unverifiable provider output receive distinct saf
   const p=createWritingProvider({key:'test-only',fetcher:async()=>Response.json(raw)});
   try{await p.run({test:paper,responses},{model:'gpt-4o-mini',maxOutputTokens:2000});assert.fail('Expected invalid response')}catch(error){assert.equal(failureMetadata(error).code,code)}
  }
+});
+
+test('retry submits a new server-selected review ID for the same saved paper and records safe failure details',async()=>{
+ const h=harness({reviewStatus:'failed'});h.row.status='submitted';const r=await h.req({kind:'retry',id:h.id,expectedCredits:3});assert.equal(r.status,200);assert.equal(h.providerCalls(),1);
+ const call=h.calls.find(c=>c.name==='academy_ai_reserve');assert.notEqual(call.args.p_id,h.id);assert.equal(call.args.p_id,h.row.reviewId);assert.equal(h.row.id,h.id);
+ await h.req({kind:'retry',id:h.id,expectedCredits:3});assert.equal(h.providerCalls(),1);
+ const failed=harness({failProvider:true});await failed.req({kind:'review',id:failed.id,expectedCredits:3});assert(failed.calls.some(c=>c.name==='academy_tcf_writing_note_failure'));assert.equal(failed.row.failure.code,'UNKNOWN');
 });

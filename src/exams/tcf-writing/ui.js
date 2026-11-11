@@ -51,7 +51,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   void run(async(signal,current)=>{await save(signal,current);if(dirty&&current())schedule()});
  },900)}
  function nav(fn){if(conflict){status('Choose which responses to keep before leaving this test.',true);return}void run(async(signal,current)=>{if(dirty&&remaining>0)await save(signal,current);if(current()){busy=false;await fn()}})}
- function header(title){const h=el('header',undefined,'hz-exam-hero');h.append(el('p','TCF CANADA · EXPRESSION ÉCRITE','hz-eyebrow'),el('h3',title));area.append(h,button('← TEF/TCF AI Tests',()=>nav(()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))),true));if(attempt)area.append(button('All 20 writing tests',()=>nav(()=>open()),true))}
+ function header(title){const h=el('header',undefined,'hz-exam-hero');h.append(el('p','TCF CANADA · EXPRESSION ÉCRITE','hz-eyebrow'),el('h3',title));area.append(h);if(catalog?.wallet?.funding==='testing'&&catalog.wallet.capCad)area.append(el('p',`AI testing budget: up to CAD $${Number(catalog.wallet.capCad).toFixed(2)}.`,'hz-small'));area.append(button('← TEF/TCF AI Tests',()=>nav(()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))),true));if(attempt)area.append(button('All 20 writing tests',()=>nav(()=>open()),true))}
  function start(testId){void run(async(signal,current)=>{const next=await store.send({kind:'start',id:crypto.randomUUID(),testId,version:catalog.version},signal);if(current()){receive(next,{restore:true});render()}})}
  function render(){
   clearInterval(timer);area.replaceChildren();header(attempt?`TCF Writing · Test ${attempt.testId.slice(-2)}`:'TCF Writing · 20 tests');
@@ -88,7 +88,19 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   }
   tick();if(!locked)timer=setInterval(tick,1000);
   if(attempt.result){renderResult(attempt.result);return}
-  if(attempt.reviewStatus==='failed'){status('AI marking failed. Your responses are saved and the assessment credits were returned.',true);return}
+  if(attempt.reviewStatus==='failed'){
+   status('The previous assessment failed. Your credit was returned and your responses are saved.',true);
+   if(attempt.failure?.code)area.append(el('p','Assessment reference: '+(attempt.failure.providerCode||attempt.failure.code),'hz-small'));
+   const cost=catalog.credits,wallet=catalog.wallet;
+   const retry=button(`Retry saved feedback · ${cost} ${cost===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{
+    let next;try{next=await store.send({kind:'retry',id:attempt.id,expectedCredits:cost},signal)}catch(error){
+     try{const saved=await store.read(attempt.id,signal);if(current()){receive(saved,{restore:true});render()}}catch{}throw error;
+    }
+    if(!current())return;if(next.processing&&!next.id){status(next.error||'Your assessment is processing. Check saved feedback.');return}receive(next,{restore:true});render();
+   })});
+   retry.dataset.locked=String(!catalog.enabled||!Number.isSafeInteger(cost)||!wallet||wallet.available<cost||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now());
+   area.append(el('p','Retry the same saved responses; the original paper and timer stay unchanged.','hz-small'),retry);return;
+  }
   if(attempt.reviewStatus==='dispatched'||attempt.processing){area.append(button('Check saved feedback',()=>{void open(attempt.id)}));status('Your writing assessment is processing. Check saved feedback before sending again.');return}
   if(!locked)area.append(button('Save responses',()=>{void run((signal,current)=>save(signal,current))},true));
   const quote=Number.isSafeInteger(catalog.credits)?catalog.credits:null;
