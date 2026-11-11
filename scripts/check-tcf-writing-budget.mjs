@@ -4,11 +4,12 @@
 // less than one UTF-8 byte, so bytes + a framing allowance bound input tokens.
 import {CURRENT_BANK,LEGACY_BANK} from '../supabase/functions/academy-tcf-writing/banks.js';
 import {assessmentMessages} from '../supabase/functions/academy-tcf-writing/scoring.js';
+import {WRITING_RESPONSE_FORMAT} from '../supabase/functions/academy-tcf-writing/response-schema.js';
 const responses=['\u0000'.repeat(3500),'\u0000'.repeat(3000),''];
 let largest=0;
 for(const bank of [CURRENT_BANK,LEGACY_BANK])for(const test of bank.tests){
  const messages=assessmentMessages(test,responses);
- const bytes=messages.reduce((n,m)=>n+new TextEncoder().encode(m.content).length,0);
+ const bytes=messages.reduce((n,m)=>n+new TextEncoder().encode(m.content).length,0)+new TextEncoder().encode(JSON.stringify(WRITING_RESPONSE_FORMAT)).length;
  // Extra space covers role framing, word-count digits, and task JSON framing.
  largest=Math.max(largest,bytes+1024);
 }
