@@ -64,25 +64,30 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   area.append(button('Start speaking Test 01',()=>{void run(async(signal,current)=>{try{await microphone().prepare()}catch{throw Error('Allow microphone access in your browser, then start the test again.')}const next=await store.send({kind:'start',id:crypto.randomUUID()},signal);if(current()){accept(next);render()}})},!canPay(3*(turn?.credits||0)+(grade?.credits||0))));
   for(const row of catalog.history)area.append(button('Saved speaking test · '+new Date(row.createdAt).toLocaleDateString(),()=>{void open(row.id)}));
  }else{
+  let roleBlock;
   for(const [index,phase] of catalog.test.phases.entries()){
-   const block=el('section',undefined,'hz-writing-task');block.append(el('h4',phase.name));
-   if(index<=attempt.phase){const p=el('p',phase.prompt);p.lang='fr';block.append(p)}
+   const block=index===2?roleBlock:el('section',undefined,'hz-writing-task');
+   if(index!==2){block.append(el('h4',index===1?'Task 2 · Information role-play':phase.name));area.append(block)}
+   if(index===1)roleBlock=block;
+   if(index===1&&attempt.phase===1)block.append(el('h5','Preparation · 2 minutes'));
+   if(index===2&&attempt.phase>=2)block.append(el('h5','Speaking · 3 minutes 30 seconds'));
+   if(index<=attempt.phase&&index!==2){const p=el('p',phase.prompt);p.lang='fr';block.append(p)}
    for(const call of completed().filter(c=>c.phase===index)){block.append(el('p','You: '+call.result.transcript));if(call.result.reply)block.append(el('p','Examiner: '+call.result.reply))}
    if(index===attempt.phase){
     const clock=el('strong');block.append(clock);let expiring=false;
-    const tick=()=>{const remaining=left();clock.textContent=attempt.pending?'Examiner processing…':`Task ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')} remaining`+(recorder?.isRecording()&&answerDeadline?` · Response ${Math.max(0,Math.ceil((answerDeadline-Date.now())/1000))}s`:'');
+    const tick=()=>{const remaining=left();clock.textContent=attempt.pending?'Examiner processing…':`${index===1?'Preparation':'Task'} ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')} remaining`+(recorder?.isRecording()&&answerDeadline?` · Response ${Math.max(0,Math.ceil((answerDeadline-Date.now())/1000))}s`:'');
      if(!remaining&&!busy&&!attempt.pending&&!expiring&&!capture){expiring=true;clearInterval(timer);if(index===1)advance();else void submit(false)}};timer=setInterval(tick,250);
     if(index===1)block.append(el('p','Prepare your questions. The role-play begins automatically when preparation ends.'));
     else if(attempt.pending){block.append(el('p','Your response is being processed. It will not be sent twice.'),button('Check saved reply',()=>{pollCount=0;void run(async(signal,current)=>{await reconcile(signal);if(current())render()})}))}
     else{
      const same=completed().filter(c=>c.phase===index),question=same.length?same.at(-1).result.reply:phase.opening;
-     if(question){const p=el('p','Examiner: '+question);p.lang='fr';block.append(p)}
+     if(question&&!same.length){const p=el('p','Examiner: '+question);p.lang='fr';block.append(p)}
      block.append(el('p',index===3?'Speak your opinion. Recording continues automatically between parts; Submit response ends your opinion.':'Answer the examiner. Each answer has up to 30 seconds; it is sent when you submit or its timer ends.'));
      block.append(el('p',`${turn?.credits??'—'} AI credits per submitted response.`,'hz-small'),button('Submit response',()=>{void submit(true)},!canPay(turn?.credits)));
     }
+    const liveStatus=el('p',undefined,'hz-speaking-status');liveStatus.setAttribute('role','status');block.append(liveStatus);
     tick();
    }
-   area.append(block);
   }
   if(attempt.phase===4){recorder?.stop();const result=attempt.calls.find(c=>c.kind==='feedback'&&c.status==='completed')?.result;
    if(result){const feedback=el('section',undefined,'hz-writing-feedback');feedback.append(el('h4','Your TCF speaking result'),el('strong',result.score===null?'More audible task evidence needed':`Estimated TCF speaking ${result.score}/20 · NCLC ${result.nclc}`),el('p',result.summary));
