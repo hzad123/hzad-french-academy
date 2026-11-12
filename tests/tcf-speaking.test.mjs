@@ -50,3 +50,10 @@ test('public speaking catalogue excludes examiner role briefs and fixed answer f
  const handler=createSpeakingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:{userRpc:async()=>({enabled:true,activities:{},wallet:{}}),adminRpc:async()=>[]},provider:{ready:()=>true}});
  const response=await handler(new Request('https://example.test',{headers:{Authorization:'Bearer fixture'}}));assert.equal(response.status,200);const catalog=await response.json();assert.equal(catalog.test.phases.length,4);assert(catalog.test.phases.every(p=>!Object.hasOwn(p,'role')));assert(!JSON.stringify(catalog).includes('CAD240'));
 });
+test('server derives WAV duration, rejects excess speaking seconds, and permits a cached replay without dispatch',async()=>{
+ const {encodeWav}=await import('../src/ai/audio.js');const samples=Float32Array.from({length:16000},(_,i)=>Math.sin(i/5)*.2);const audio=Buffer.from(encodeWav(samples,16000)).toString('base64');
+ let calls=0,used=120,replay=false;const callId=crypto.randomUUID();const attempt=()=>({id:alice,phase:0,calls:[{id:replay?callId:bob,phase:0,kind:'turn',status:'completed',result:{seconds:used}}]});
+ const handler=createSpeakingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:{adminRpc:async name=>{if(name==='academy_tcf_speaking_command')return attempt();if(name==='academy_ai_reserve')return {status:'completed'};throw Error('Unexpected dispatch')}},provider:{ready:()=>true,run:async()=>{calls++}}});
+ const send=()=>handler(new Request('https://example.test',{method:'POST',headers:{Authorization:'Bearer fixture'},body:JSON.stringify({kind:'turn',id:alice,callId,audio,expectedCredits:10})}));
+ assert.equal((await send()).status,409);assert.equal(calls,0);replay=true;assert.equal((await send()).status,200);assert.equal(calls,0);
+});
