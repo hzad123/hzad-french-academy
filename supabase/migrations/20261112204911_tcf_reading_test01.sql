@@ -1,0 +1,652 @@
+-- Standalone deterministic reading pilot. No AI, wallet, access or course changes.
+begin;
+create schema academy_tcf_reading;
+revoke all on schema academy_tcf_reading from public,anon,authenticated,service_role;
+create table academy_tcf_reading.papers (
+ id text not null, version text not null, content jsonb not null,
+ primary key(id,version),
+ check(jsonb_typeof(content->'questions')='array' and jsonb_array_length(content->'questions')=39)
+);
+create table academy_tcf_reading.attempts (
+ id uuid primary key, user_id uuid not null references auth.users(id),
+ test_id text not null, version text not null,
+ status text not null default 'active' check(status in ('active','completed')),
+ answers jsonb not null default '{}' check(jsonb_typeof(answers)='object'),
+ revision integer not null default 0,
+ started_at timestamptz not null default now(),
+ deadline timestamptz not null default now()+interval '60 minutes',
+ submitted_at timestamptz, result jsonb,
+ foreign key(test_id,version) references academy_tcf_reading.papers(id,version),
+ check((status='active' and submitted_at is null and result is null) or (status='completed' and submitted_at is not null and result is not null))
+);
+create unique index reading_one_active on academy_tcf_reading.attempts(user_id) where status='active';
+create index reading_owned_history on academy_tcf_reading.attempts(user_id,started_at desc);
+alter table academy_tcf_reading.papers enable row level security;
+alter table academy_tcf_reading.attempts enable row level security;
+revoke all on all tables in schema academy_tcf_reading from public,anon,authenticated,service_role;
+
+insert into academy_tcf_reading.papers(id,version,content) values('tcf-reading-01','tcf-reading-2026-11-pdf-v1',$paper${
+  "id": "tcf-reading-01",
+  "version": "tcf-reading-2026-11-pdf-v1",
+  "title": "TCF Reading · Test 01",
+  "seconds": 3600,
+  "maxPoints": 699,
+  "questions": [
+    {
+      "number": 1,
+      "points": 3,
+      "passage": "Information à tous les voyageurs : En raison de fortes chutes de neige, tous les vols à destination de Genève sont annulés ce lundi. Les passagers concernés peuvent modifier leur billet sans frais. Aéroport International de Lyon",
+      "question": "Que doivent faire les passagers concernés par cette annonce ?",
+      "options": [
+        "Prendre un vol pour une autre ville",
+        "Attendre au terminal jusqu’à nouvel ordre",
+        "Demander un remboursement immédiat",
+        "Modifier leur vol gratuitement"
+      ],
+      "correct": "D",
+      "explanation": "« Les passagers concernés peuvent modifier leur billet sans frais » : le changement de vol est gratuit."
+    },
+    {
+      "number": 2,
+      "points": 3,
+      "passage": "Message de la bibliothèque : Le retour des livres empruntés est prolongé jusqu’au 10 janvier, sans pénalité. Vous pouvez également utiliser la boîte extérieure prévue à cet effet. Bibliothèque municipale",
+      "question": "Que propose la bibliothèque à ses usagers ?",
+      "options": [
+        "Un service de livraison à domicile",
+        "Un retour des livres sans retard pénalisé",
+        "Une réduction sur les abonnements",
+        "Une prolongation sans date limite de tous les prêts"
+      ],
+      "correct": "B",
+      "explanation": "Le retour est prolongé « jusqu’au 10 janvier, sans pénalité ». Aucune prolongation sans limite n’est annoncée."
+    },
+    {
+      "number": 3,
+      "points": 3,
+      "passage": "Cher(e)s client(e)s, Notre boutique en ligne sera en maintenance le jeudi 7 mars de 1 h à 5 h du matin. Pendant cette période, aucune commande ne pourra être passée. L’équipe de Maison Bio",
+      "question": "Que se passera-t-il entre 1 h et 5 h du matin le 7 mars ?",
+      "options": [
+        "Le site sera accessible uniquement aux abonnés",
+        "Le site proposera des réductions exceptionnelles",
+        "Le site ne fonctionnera pas temporairement",
+        "Le site sera remplacé par une nouvelle version"
+      ],
+      "correct": "C",
+      "explanation": "La maintenance a lieu de 1 h à 5 h ; « aucune commande ne pourra être passée » pendant cette période."
+    },
+    {
+      "number": 4,
+      "points": 3,
+      "passage": "Annonce à tous les parents : L’école organise une sortie au musée pour les élèves de CE2 le mardi 17 avril. Les enfants doivent apporter un pique-nique, une bouteille d’eau et porter des chaussures confortables. École Les Érables",
+      "question": "Quel est l’objectif de ce message ?",
+      "options": [
+        "Prévenir les parents d’une grève scolaire",
+        "Demander une autorisation de sortie",
+        "Informer sur les détails pratiques d’une sortie scolaire",
+        "Proposer une activité facultative le week-end"
+      ],
+      "correct": "C",
+      "explanation": "Le message précise la date de la sortie et ce que les enfants doivent apporter et porter."
+    },
+    {
+      "number": 5,
+      "points": 9,
+      "passage": "Chers voisins, La fête de quartier annuelle aura lieu le samedi 15 juillet à partir de 16 h dans le parc du square des Lilas. Apportez un plat à partager et votre bonne humeur ! Jeux pour enfants, musique et tombola sont prévus. Le comité de quartier",
+      "question": "Pourquoi les voisins sont-ils invités au parc ?",
+      "options": [
+        "Pour discuter des travaux dans le quartier",
+        "Pour participer à une réunion d’urgence",
+        "Pour faire du bénévolat dans le parc",
+        "Pour célébrer ensemble un événement local"
+      ],
+      "correct": "D",
+      "explanation": "La fête de quartier prévoit un repas partagé, des jeux, de la musique et une tombola : il s’agit d’une célébration locale."
+    },
+    {
+      "number": 6,
+      "points": 9,
+      "passage": "Annonce : Appartement 2 pièces à louer à partir du 1er septembre. 650 €/mois, charges comprises. Situé au 2e étage avec balcon, à 5 minutes du métro. Idéal pour une personne seule ou un jeune couple. Contact : immo.dubois@email.fr",
+      "question": "Quel type de logement est proposé ?",
+      "options": [
+        "Une maison en colocation",
+        "Un studio au rez-de-chaussée",
+        "Un appartement pour une ou deux personnes",
+        "Une chambre dans une résidence étudiante"
+      ],
+      "correct": "C",
+      "explanation": "L’annonce indique un appartement de deux pièces, « idéal pour une personne seule ou un jeune couple »."
+    },
+    {
+      "number": 7,
+      "points": 9,
+      "passage": "Bonjour ! Je viens d’avoir une excellente nouvelle : ma sœur attend un bébé ! Toute la famille est ravie, et je suis tellement impatiente de devenir tata ! On organise un petit repas dimanche prochain pour célébrer cette belle annonce. Tu veux venir ? Élodie",
+      "question": "Pourquoi Élodie est-elle heureuse ?",
+      "options": [
+        "Elle part bientôt en voyage",
+        "Sa sœur est enceinte",
+        "Elle a trouvé un nouvel emploi",
+        "Elle a réussi un examen"
+      ],
+      "correct": "B",
+      "explanation": "Élodie annonce que sa sœur « attend un bébé » et qu’elle est impatiente de devenir tante."
+    },
+    {
+      "number": 8,
+      "points": 9,
+      "passage": "Offre d’emploi – Assistant(e) administratif(ve) Entreprise locale recherche un(e) assistant(e) à mi-temps pour assurer l’accueil, la gestion des appels et le traitement des courriels. Expérience souhaitée, maîtrise de Word et Excel exigée. Envoyer CV à : emploi@bureauplus.fr",
+      "question": "Quel profil l’entreprise cherche-t-elle ?",
+      "options": [
+        "Un expert en marketing digital",
+        "Une personne bilingue pour le service client",
+        "Un(e) assistant(e) avec des compétences bureautiques",
+        "Un chef de projet en télétravail"
+      ],
+      "correct": "C",
+      "explanation": "Le poste d’assistant administratif exige la maîtrise de Word et Excel, des outils bureautiques."
+    },
+    {
+      "number": 9,
+      "points": 9,
+      "passage": "Invitation spéciale : Participez à notre soirée de réseautage pour les jeunes professionnels, jeudi 12 octobre à 18 h, au café Connect. Venez rencontrer des entrepreneurs, échanger des idées et élargir votre réseau. Entrée gratuite avec inscription en ligne.",
+      "question": "Quel est l’objectif principal de cet événement ?",
+      "options": [
+        "Recruter de nouveaux employés",
+        "Offrir des formations certifiées",
+        "Permettre de rencontrer d’autres professionnels",
+        "Lancer un nouveau café"
+      ],
+      "correct": "C",
+      "explanation": "La soirée permet de « rencontrer des entrepreneurs » et d’« élargir votre réseau »."
+    },
+    {
+      "number": 10,
+      "points": 9,
+      "passage": "Chers amis, Cette année encore, nous organisons une collecte pour aider les familles en difficulté avant la rentrée. Vous pouvez déposer fournitures scolaires et vêtements en bon état à la mairie avant le 25 août. Merci pour votre générosité ! Association Entraide locale",
+      "question": "Quel est le but de cette collecte ?",
+      "options": [
+        "Offrir des cadeaux de Noël aux enfants",
+        "Soutenir les familles lors de la rentrée",
+        "Financer un voyage scolaire",
+        "Récompenser des élèves excellents"
+      ],
+      "correct": "B",
+      "explanation": "La collecte de fournitures et de vêtements aide les familles en difficulté « avant la rentrée »."
+    },
+    {
+      "number": 11,
+      "points": 15,
+      "passage": "Cher Antoine, Je t’écris depuis le petit village de Kpalimé, au Togo, où je participe à un programme de volontariat depuis deux semaines. Nos journées sont bien remplies : nous aidons les instituteurs dans une école primaire, et l’après-midi, nous organisons des ateliers de lecture et d’hygiène pour les enfants. La chaleur est intense, mais l’ambiance est incroyable ! Je loge chez une famille locale très accueillante, et j’ai déjà goûté des plats typiques comme le fufu et l’igname pilée. Je prends beaucoup de photos et je t’enverrai un album à mon retour. À bientôt, Camille",
+      "question": "Pourquoi Camille est-elle au Togo ?",
+      "options": [
+        "Pour y faire un stage en entreprise",
+        "Pour soutenir un projet éducatif",
+        "Pour faire du tourisme avec des amis",
+        "Pour rendre visite à de la famille"
+      ],
+      "correct": "B",
+      "explanation": "Camille participe à un volontariat dans une école et organise des ateliers de lecture et d’hygiène."
+    },
+    {
+      "number": 12,
+      "points": 15,
+      "passage": "Info aux parents : Nous vous informons qu’un mouvement de grève touchera l’ensemble des écoles primaires de la ville le jeudi 14 décembre. Il n’y aura ni cours, ni accueil périscolaire, ni cantine ce jour-là. Merci de prendre vos dispositions. Un service minimum d’accueil sera assuré à l’école Voltaire pour les enfants dont les deux parents travaillent et qui n’ont aucune solution de garde. Direction des affaires scolaires",
+      "question": "Quelle conséquence aura cette grève pour les familles ?",
+      "options": [
+        "Tous les enfants devront rester à la maison",
+        "Les écoles ouvriront uniquement l’après-midi",
+        "Les repas seront assurés mais pas les cours",
+        "Certains enfants pourront être accueillis à l’école Voltaire sous conditions"
+      ],
+      "correct": "D",
+      "explanation": "Les cours et les services habituels sont supprimés. Seuls les enfants répondant aux conditions indiquées peuvent bénéficier de l’accueil à l’école Voltaire."
+    },
+    {
+      "number": 13,
+      "points": 15,
+      "passage": "Technologie – Transports Depuis quelques semaines, des navettes électriques sans conducteur circulent dans certains quartiers de Lyon. Ces véhicules autonomes peuvent transporter jusqu’à 10 personnes et s’arrêtent à la demande, grâce à une application mobile. Ils roulent à faible vitesse, ce qui les rend très sûrs, notamment dans les zones piétonnes. Ce projet pilote est mené en partenariat avec la métropole de Lyon pour tester de nouvelles solutions de mobilité plus écologiques. Des questionnaires sont proposés aux passagers à la fin de chaque trajet pour recueillir leur avis sur le confort et la fiabilité du service.",
+      "question": "Que teste la ville de Lyon avec ce projet ?",
+      "options": [
+        "Une nouvelle ligne de métro souterraine",
+        "Des bus électriques avec chauffeur",
+        "Des navettes autonomes écologiques",
+        "Des vélos électriques à partager"
+      ],
+      "correct": "C",
+      "explanation": "Les navettes sont électriques, « sans conducteur » et testées comme solution de mobilité écologique."
+    },
+    {
+      "number": 14,
+      "points": 15,
+      "passage": "Cher Louis, Tu ne devineras jamais où je suis ! J’étais censée passer le week-end à Nantes, mais mon train a été annulé à cause d’un problème sur la ligne. J’ai donc pris un bus pour rejoindre une amie à La Rochelle, et nous avons décidé de passer deux jours ici. C’est une très belle ville ! On s’est promenées sur le port, et on a même visité l’aquarium. On profite du soleil et de l’air marin. Finalement, ce changement de programme était une bonne surprise. Je repars mardi matin. À très vite, Inès",
+      "question": "Dans quelle ville Inès a-t-elle passé le week-end ?",
+      "options": [
+        "À Nantes",
+        "À Paris",
+        "À Bordeaux",
+        "À La Rochelle"
+      ],
+      "correct": "D",
+      "explanation": "Le train pour Nantes ayant été annulé, Inès a rejoint une amie à La Rochelle et y a passé deux jours."
+    },
+    {
+      "number": 15,
+      "points": 15,
+      "passage": "Écologie – Actualité Le gouvernement a annoncé la mise en place progressive d’une interdiction des emballages plastiques à usage unique dans les commerces de proximité. Dès janvier prochain, les sacs plastiques seront bannis des boulangeries, des boucheries et des primeurs. Les clients devront venir avec leurs propres contenants, ou utiliser des sacs réutilisables en tissu ou en papier. Cette décision vise à réduire considérablement la production de déchets non recyclables, alors que la pollution plastique continue d’augmenter dans les milieux naturels. Des campagnes d'information sont prévues pour accompagner les professionnels et les consommateurs dans cette transition.",
+      "question": "Quel est l’objectif principal de cette mesure ?",
+      "options": [
+        "Favoriser la consommation locale",
+        "Réduire l’utilisation du plastique jetable",
+        "Protéger les commerces indépendants",
+        "Améliorer l’hygiène des produits vendus"
+      ],
+      "correct": "B",
+      "explanation": "L’interdiction vise à « réduire considérablement la production de déchets non recyclables » liés aux plastiques à usage unique."
+    },
+    {
+      "number": 16,
+      "points": 15,
+      "passage": "Vie locale Ce samedi, la maison des associations accueille un forum sur le thème “Grandir à l’ère numérique”. Parents, enseignants, psychologues et spécialistes du numérique interviendront pour échanger sur l’impact des écrans dans la vie des enfants et des adolescents. Des ateliers sont aussi prévus pour les jeunes, afin de leur apprendre à reconnaître les fausses informations, à limiter leur temps d’écran, et à mieux gérer les réseaux sociaux. L’entrée est libre, mais les places sont limitées. Renseignements sur le site de la mairie.",
+      "question": "Quel est le thème principal de cet événement ?",
+      "options": [
+        "L’impact de la technologie sur la santé physique",
+        "Les méthodes pour améliorer la mémoire",
+        "Le développement de logiciels éducatifs",
+        "L’éducation des jeunes au numérique"
+      ],
+      "correct": "D",
+      "explanation": "Le forum « Grandir à l’ère numérique » porte sur les écrans, les fausses informations et les réseaux sociaux chez les jeunes."
+    },
+    {
+      "number": 17,
+      "points": 15,
+      "passage": "Message d’Aurélie à son frère : Devine quoi ! J’ai enfin quitté mon travail au bureau pour me lancer dans ma passion : la pâtisserie. Je me suis inscrite à une formation intensive de six mois à Lyon pour apprendre les bases. Je me lève tôt, je finis tard, mais je n’ai jamais été aussi heureuse. Mon objectif est d’ouvrir ma propre boutique d’ici un an. Je commence à créer mes premières recettes, et mes collègues de cours sont super motivants. Tu peux venir goûter mes créations quand tu veux !",
+      "question": "Qu’a décidé de faire Aurélie ?",
+      "options": [
+        "Créer une école de cuisine",
+        "Ouvrir une boulangerie traditionnelle",
+        "Faire une reconversion professionnelle",
+        "Déménager à l’étranger"
+      ],
+      "correct": "C",
+      "explanation": "Aurélie a quitté son emploi de bureau pour se former à la pâtisserie : elle change de métier."
+    },
+    {
+      "number": 18,
+      "points": 15,
+      "passage": "Avis aux usagers du réseau TER À partir du 15 avril, le train de 7 h 22 entre Grenoble et Chambéry sera supprimé en raison de travaux sur la voie. Les voyageurs sont invités à prendre le train de 7 h 55, ou à utiliser les cars de substitution mis en place. Des retards sont également à prévoir sur les lignes voisines pendant la durée des travaux. Des annonces seront faites en gare, et les informations seront mises à jour chaque jour sur le site TER.",
+      "question": "Qu’indique cet avis aux voyageurs ?",
+      "options": [
+        "Un changement de gare de départ",
+        "L’ajout d’un nouveau train en matinée",
+        "La suppression d’un train du matin",
+        "La gratuité des trains pendant les travaux"
+      ],
+      "correct": "C",
+      "explanation": "L’avis annonce que « le train de 7 h 22 […] sera supprimé » à partir du 15 avril."
+    },
+    {
+      "number": 19,
+      "points": 15,
+      "passage": "Société – Médias Selon une étude récente, près de 40 % des adultes de moins de 30 ans s’informent exclusivement via les réseaux sociaux. Ce phénomène inquiète certains experts, car ces plateformes mélangent contenus d’information, opinions personnelles, publicités, et fausses nouvelles. De plus, les algorithmes montrent souvent aux utilisateurs les contenus qui renforcent leurs idées déjà existantes, ce qui limite l’ouverture d’esprit. Des associations proposent désormais des ateliers d’éducation aux médias, notamment dans les lycées et les universités.",
+      "question": "Quel problème est soulevé dans cet article ?",
+      "options": [
+        "Le manque de connexion dans les zones rurales",
+        "Le coût croissant des abonnements presse",
+        "Les dangers d’une information non vérifiée en ligne",
+        "L’augmentation du temps passé à lire les journaux papier"
+      ],
+      "correct": "C",
+      "explanation": "Le texte évoque le mélange d’informations, d’opinions, de publicités et de fausses nouvelles sur les réseaux sociaux."
+    },
+    {
+      "number": 20,
+      "points": 21,
+      "passage": "La municipalité de Saint-Alban a lancé un programme incitatif pour encourager les habitants à installer des panneaux solaires sur leurs toits. Toute personne qui s’inscrit avant le 30 septembre bénéficiera d’une subvention couvrant jusqu’à 40 % des frais d’installation. En plus de l’aide financière, des ateliers d’information sont organisés pour expliquer les avantages environnementaux et économiques de cette transition. Le maire espère ainsi faire de Saint-Alban un exemple en matière d’énergie renouvelable. Il espère aussi réduire à terme les factures d’électricité de la population locale et contribuer aux objectifs nationaux de réduction carbone.",
+      "question": "Quelle est l’intention principale de la municipalité ?",
+      "options": [
+        "Promouvoir une réduction de la consommation d’électricité",
+        "Accroître l’usage des énergies fossiles",
+        "Encourager les résidents à adopter l’énergie solaire",
+        "Réduire le nombre de toitures anciennes"
+      ],
+      "correct": "C",
+      "explanation": "Le programme subventionne l’installation de panneaux solaires afin d’encourager l’énergie renouvelable."
+    },
+    {
+      "number": 21,
+      "points": 21,
+      "passage": "Dans une petite ville du sud de la France, une école a décidé de remplacer tous les manuels papier par des tablettes numériques. L’objectif est de moderniser les méthodes d’enseignement tout en réduisant le poids des cartables. Certains parents s’inquiètent de l’exposition prolongée des enfants aux écrans, mais les enseignants affirment que les contenus numériques permettent une approche plus interactive et personnalisée de l’apprentissage. Un suivi statistique des résultats sera aussi mis en place pour évaluer l’impact réel sur les performances scolaires.",
+      "question": "Quel est le principal changement apporté à cette école ?",
+      "options": [
+        "La suppression des devoirs à domicile",
+        "L’introduction de tablettes pour remplacer les livres",
+        "La réduction du nombre d’élèves par classe",
+        "La mise en place d’activités sportives"
+      ],
+      "correct": "B",
+      "explanation": "L’école « a décidé de remplacer tous les manuels papier par des tablettes numériques »."
+    },
+    {
+      "number": 22,
+      "points": 21,
+      "passage": "La Bibliothèque Nationale a récemment lancé une campagne de collecte de livres rares auprès du public. L’idée est de constituer un fonds de documents historiques afin de préserver la mémoire culturelle. Les particuliers peuvent proposer des ouvrages anciens, qui seront ensuite évalués par une équipe de spécialistes. En échange, leur nom sera mentionné dans les archives numériques et ils recevront un certificat de contribution. L’initiative a déjà permis de rassembler plus de 800 ouvrages datant d’avant 1900.",
+      "question": "Quel est le but de cette campagne ?",
+      "options": [
+        "Enrichir les collections personnelles des donateurs",
+        "Créer un musée de livres contemporains",
+        "Préserver des livres historiques pour les générations futures",
+        "Revendre les livres rares à des collectionneurs privés"
+      ],
+      "correct": "C",
+      "explanation": "La collecte constitue un fonds de documents historiques pour « préserver la mémoire culturelle »."
+    },
+    {
+      "number": 23,
+      "points": 21,
+      "passage": "Le chef étoilé Alain Morel a décidé d’ouvrir un restaurant gastronomique 100 % végétarien, une première pour lui. Cette décision s’inscrit dans une volonté de proposer une cuisine durable sans sacrifier le goût. Dans ses plats, il utilise des légumes oubliés, des légumineuses locales et des épices rares. Le restaurant connaît un succès inattendu, attirant même des amateurs de viande curieux de cette nouvelle expérience culinaire. Il envisage déjà d’ouvrir une deuxième adresse dans une autre grande ville européenne.",
+      "question": "Quelle orientation a pris le chef Alain Morel ?",
+      "options": [
+        "Il a arrêté la cuisine pour se consacrer à l’agriculture",
+        "Il propose une cuisine végétarienne de haute qualité",
+        "Il a ouvert une école de cuisine spécialisée en viande",
+        "Il se consacre uniquement à la pâtisserie"
+      ],
+      "correct": "B",
+      "explanation": "Le chef ouvre un restaurant gastronomique « 100 % végétarien » sans sacrifier le goût."
+    },
+    {
+      "number": 24,
+      "points": 21,
+      "passage": "Depuis plusieurs années, la ville de Rouen est confrontée à une augmentation du nombre de vélos dans les rues, ce qui provoque parfois des conflits entre cyclistes et piétons. Pour remédier à cela, la mairie a décidé d’élargir certaines voies piétonnes et d’installer des pistes cyclables séparées. Une campagne de sensibilisation a également été lancée pour rappeler à chacun les règles de bonne conduite en ville. Les premières évaluations montrent déjà une baisse des incidents signalés.",
+      "question": "Quelle mesure la ville a-t-elle prise pour réduire les conflits ?",
+      "options": [
+        "Interdire les vélos dans le centre-ville",
+        "Créer des zones de circulation exclusivement piétonnes",
+        "Séparer les pistes pour piétons et cyclistes",
+        "Limiter le nombre de vélos autorisés"
+      ],
+      "correct": "C",
+      "explanation": "La mairie installe « des pistes cyclables séparées » et élargit certaines voies piétonnes."
+    },
+    {
+      "number": 25,
+      "points": 21,
+      "passage": "Une étude menée par l’Institut de Santé Publique montre que près d’un tiers des Français dorment moins de six heures par nuit. Ce manque de sommeil chronique a des répercussions importantes sur la concentration, la mémoire et le moral. Les chercheurs recommandent d’adopter une routine régulière, de limiter les écrans en soirée et d’éviter les boissons stimulantes après 17h. D’après eux, un sommeil réparateur devrait durer au moins sept heures pour les adultes.",
+      "question": "Que souligne cette étude ?",
+      "options": [
+        "Le sommeil excessif est courant chez les Français",
+        "Un bon sommeil dépend uniquement de l’alimentation",
+        "Une majorité de Français dort suffisamment",
+        "Le manque de sommeil affecte plusieurs aspects de la vie"
+      ],
+      "correct": "D",
+      "explanation": "Le manque de sommeil a des effets sur « la concentration, la mémoire et le moral »."
+    },
+    {
+      "number": 26,
+      "points": 21,
+      "passage": "Clémence a toujours rêvé d’écrire un roman. Après avoir suivi un atelier d’écriture en ligne pendant six mois, elle a terminé son premier manuscrit. Encouragée par les retours positifs de ses pairs, elle a décidé de l’envoyer à plusieurs maisons d’édition. Quelques semaines plus tard, elle a reçu une proposition de contrat pour publication. Son livre paraîtra dans quelques mois, et elle espère qu’il trouvera son public. Elle envisage même de commencer un second tome.",
+      "question": "Quel est le sujet principal de ce texte ?",
+      "options": [
+        "Le processus de correction d’un roman",
+        "L’histoire d’une auteure qui a réalisé son rêve",
+        "Le développement des cours d’écriture en ligne",
+        "L’importance des critiques littéraires"
+      ],
+      "correct": "B",
+      "explanation": "Clémence rêvait d’écrire un roman ; elle termine son manuscrit et obtient un contrat de publication."
+    },
+    {
+      "number": 27,
+      "points": 21,
+      "passage": "Le Mont-Blanc, plus haut sommet d’Europe occidentale, attire chaque été des milliers d’alpinistes amateurs. Face à la hausse du nombre d’accidents, les autorités locales ont mis en place un système de réservation obligatoire et des contrôles renforcés de l’équipement. Cette initiative vise à responsabiliser les randonneurs et à préserver l’environnement fragile de la montagne. Un guide de bonnes pratiques a aussi été distribué aux visiteurs avant l’ascension.",
+      "question": "Pourquoi les autorités ont-elles instauré une réservation obligatoire ?",
+      "options": [
+        "Pour limiter l’accès aux professionnels",
+        "Pour protéger les animaux de la montagne",
+        "Pour garantir la sécurité et préserver l’environnement",
+        "Pour organiser des compétitions officielles"
+      ],
+      "correct": "C",
+      "explanation": "Les réservations et les contrôles répondent aux accidents et visent aussi à préserver l’environnement fragile de la montagne."
+    },
+    {
+      "number": 28,
+      "points": 21,
+      "passage": "Chaque année, la ville de Nantes organise une « nuit des musées » durant laquelle tous les musées ouvrent gratuitement leurs portes de 18h à minuit. Des spectacles vivants, des visites guidées, et des ateliers interactifs sont proposés. L’événement attire aussi bien des familles que des touristes de passage, et vise à rendre la culture accessible à tous. L’an dernier, plus de 20 000 personnes y ont participé, un record pour la ville.",
+      "question": "Quel est le but de la nuit des musées ?",
+      "options": [
+        "Vendre plus de billets annuels",
+        "Proposer des activités pour les touristes étrangers uniquement",
+        "Promouvoir l’accès gratuit à la culture",
+        "Organiser des conférences sur l’histoire de la ville"
+      ],
+      "correct": "C",
+      "explanation": "Les musées ouvrent gratuitement et l’événement « vise à rendre la culture accessible à tous »."
+    },
+    {
+      "number": 29,
+      "points": 21,
+      "passage": "La pollution lumineuse est un phénomène de plus en plus étudié par les scientifiques. Dans certaines régions, l’éclairage nocturne excessif perturbe le cycle de sommeil des animaux et empêche l’observation astronomique. Plusieurs communes ont commencé à éteindre ou réduire l’intensité des lampadaires après 23h pour retrouver un ciel nocturne plus naturel. Cela permet aussi de réduire la consommation d’énergie et de faire des économies budgétaires.",
+      "question": "Quelles conséquences sont évoquées à propos de la pollution lumineuse ?",
+      "options": [
+        "Elle accélère la fonte des glaces",
+        "Elle gêne le sommeil des animaux et l’observation du ciel",
+        "Elle augmente les vols de nuit",
+        "Elle abîme les façades historiques"
+      ],
+      "correct": "B",
+      "explanation": "L’éclairage excessif perturbe le sommeil des animaux et « empêche l’observation astronomique »."
+    },
+    {
+      "number": 30,
+      "points": 26,
+      "passage": "Les océans couvrent plus de 70 % de la surface de la Terre et jouent un rôle essentiel dans la régulation du climat. Ils absorbent une grande partie du dioxyde de carbone émis par les activités humaines. Cependant, cette absorption entraîne l’acidification des eaux marines, ce qui menace les récifs coralliens et la biodiversité. Des scientifiques tirent la sonnette d’alarme depuis plusieurs années. Ils soulignent qu’il est urgent de réduire les émissions pour préserver les écosystèmes marins.",
+      "question": "Que déduit-on sur les océans dans ce texte ?",
+      "options": [
+        "Ils produisent la majorité de l’oxygène terrestre",
+        "Ils sont de plus en plus exploités pour leurs ressources",
+        "Ils souffrent des conséquences des activités humaines",
+        "Ils constituent un danger pour le climat"
+      ],
+      "correct": "C",
+      "explanation": "Le CO₂ émis par les activités humaines acidifie les eaux et menace les récifs et la biodiversité."
+    },
+    {
+      "number": 31,
+      "points": 26,
+      "passage": "Dans une école expérimentale, les élèves n’ont pas d’horaires fixes ni de manuels imposés. Ils choisissent leurs sujets d’étude selon leurs intérêts. Les enseignants jouent le rôle de guides, les aidant à approfondir leurs recherches et à formuler leurs propres questions. Ce modèle éducatif attire l’attention de nombreux pédagogues en quête d’alternatives au système traditionnel. Les résultats des élèves à long terme sont en cours d’évaluation.",
+      "question": "Qu’indique ce texte sur cette école ?",
+      "options": [
+        "Les élèves étudient de façon totalement autonome",
+        "Les professeurs choisissent les sujets de recherche",
+        "Les résultats des élèves sont déjà très supérieurs à la moyenne",
+        "Le modèle proposé rencontre une certaine curiosité"
+      ],
+      "correct": "D",
+      "explanation": "Le modèle « attire l’attention de nombreux pédagogues ». Ses résultats à long terme sont encore en cours d’évaluation."
+    },
+    {
+      "number": 32,
+      "points": 26,
+      "passage": "La ville de Bordeaux a récemment transformé une ancienne voie ferrée en promenade urbaine verte. Cet espace, long de plusieurs kilomètres, est aujourd’hui planté d’arbres et de fleurs locales. Les habitants s’y promènent, y font du vélo et participent à des ateliers de jardinage. Ce projet, qui favorise la biodiversité et le bien-être, inspire d’autres villes européennes à lancer des initiatives similaires. Une enquête a montré une forte hausse de la satisfaction des résidents.",
+      "question": "Qu’apprend-on sur ce projet ?",
+      "options": [
+        "Il a été lancé pour encourager les transports en commun",
+        "Il favorise à la fois l’écologie et la qualité de vie",
+        "Il a été abandonné à cause du manque de financement",
+        "Il vise à augmenter le tourisme dans la région"
+      ],
+      "correct": "B",
+      "explanation": "La promenade verte favorise « la biodiversité et le bien-être » et augmente la satisfaction des habitants."
+    },
+    {
+      "number": 33,
+      "points": 26,
+      "passage": "<< Les Brumes du Nord >> est un roman d’aventure situé dans une Scandinavie imaginaire. L’intrigue repose sur une légende ancestrale, mais peine à captiver le lecteur. Les personnages manquent parfois de nuances, bien que certains passages soient bien écrits. Le style de l’auteur est fluide, mais certains critiques notent un manque de suspense. Malgré cela, le livre reste plaisant pour les amateurs de récits nordiques.",
+      "question": "Sur quoi porte la critique négative faite à ce roman ?",
+      "options": [
+        "La qualité de l’écriture",
+        "La complexité des personnages",
+        "Le manque de tension dans l’histoire",
+        "Le contexte géographique peu réaliste"
+      ],
+      "correct": "C",
+      "explanation": "Le texte relève un « manque de suspense » : la critique porte sur l’absence de tension dans l’intrigue."
+    },
+    {
+      "number": 34,
+      "points": 26,
+      "passage": "Une enquête sociologique récente révèle que les jeunes adultes privilégient aujourd’hui les expériences plutôt que les possessions matérielles. Voyager, assister à des concerts ou pratiquer une activité nouvelle sont perçus comme plus enrichissants que l’achat d’objets. Les réseaux sociaux renforcent cette tendance, en valorisant les récits personnels et les découvertes. Cette évolution soulève des questions sur les comportements économiques futurs et la définition du succès.",
+      "question": "Que montre cette enquête ?",
+      "options": [
+        "Les jeunes préfèrent le confort à l’aventure",
+        "L’achat d’objets reste une priorité pour les jeunes",
+        "Les expériences sont vues comme source de richesse personnelle",
+        "Les jeunes adultes se désintéressent des réseaux sociaux"
+      ],
+      "correct": "C",
+      "explanation": "Les voyages, concerts et nouvelles activités sont perçus comme « plus enrichissants que l’achat d’objets »."
+    },
+    {
+      "number": 35,
+      "points": 26,
+      "passage": "Une équipe de chercheurs a étudié la relation entre la musique et la mémoire. Ils ont constaté que les personnes âgées se souvenaient mieux d’un événement si une chanson familière était associée au moment. Ce lien émotionnel semble renforcer les connexions neuronales. Des tests montrent que les malades d’Alzheimer réagissent plus positivement à la musique qu’à d’autres stimuli. Cette découverte ouvre la voie à de nouvelles thérapies non médicamenteuses.",
+      "question": "Que démontre cette recherche ?",
+      "options": [
+        "La musique favorise la créativité des personnes âgées",
+        "La musique peut renforcer la mémoire en agissant sur les émotions",
+        "La musique ralentit la progression de toutes les maladies",
+        "Les souvenirs anciens sont remplacés par des mélodies"
+      ],
+      "correct": "B",
+      "explanation": "Une chanson familière associée à un événement facilite son souvenir grâce au lien émotionnel."
+    },
+    {
+      "number": 36,
+      "points": 33,
+      "passage": "Les restaurants végétariens se multiplient dans les grandes villes européennes. Il y a quelques années, ce type d’établissement était encore marginal, fréquenté par une minorité de consommateurs engagés. Aujourd’hui, la situation a changé. De nombreuses personnes consomment moins de viande, parfois pour des raisons de santé, parfois pour des préoccupations environnementales ou éthiques. Les chefs s’adaptent à cette tendance et proposent des plats créatifs, riches en saveurs, capables de convaincre même les plus fervents amateurs de viande. Le succès de ces établissements repose aussi sur la qualité des produits utilisés : légumes bio, circuits courts, recettes de saison. Ce mouvement entraîne une revalorisation des légumes, longtemps considérés comme simples accompagnements. En rendant la cuisine végétale attrayante et gourmande, les restaurants végétariens participent à une véritable révolution culinaire. Ils attirent désormais une clientèle variée et fidèle.",
+      "question": "Quel constat peut-on faire sur les restaurants végétariens ?",
+      "options": [
+        "Ils attirent un public très engagé uniquement",
+        "Ils renoncent à proposer des plats riches en saveurs",
+        "Ils changent l’image des légumes dans la gastronomie",
+        "Ils restent peu présents dans les grandes villes"
+      ],
+      "correct": "C",
+      "explanation": "Les légumes sont revalorisés : ils passent de simples accompagnements à une cuisine créative et gourmande."
+    },
+    {
+      "number": 37,
+      "points": 33,
+      "passage": "Le télétravail, autrefois réservé à quelques secteurs très spécialisés, s’est largement démocratisé depuis la crise sanitaire. Beaucoup d’entreprises ont adopté un fonctionnement hybride, mêlant présence au bureau et travail à distance. Les salariés apprécient cette souplesse, qui leur permet de mieux concilier vie professionnelle et personnelle. Mais le télétravail n’est pas sans inconvénient : isolement social, difficulté à séparer vie privée et vie professionnelle, surcharge de travail… Les managers doivent repenser leurs méthodes de suivi et de communication pour maintenir la cohésion de leurs équipes. D’un autre côté, certaines entreprises y voient une opportunité de réduire leurs coûts immobiliers. Il est donc probable que ce mode d’organisation s’installe durablement. Cependant, il faudra encore du temps pour trouver un équilibre adapté à tous les types de métiers et de personnalités.",
+      "question": "Quel aspect du télétravail est mis en avant ici ?",
+      "options": [
+        "Il provoque une perte de productivité",
+        "Il nécessite une adaptation organisationnelle",
+        "Il permet d’augmenter les heures de travail",
+        "Il est réservé aux cadres dirigeants"
+      ],
+      "correct": "B",
+      "explanation": "Les managers doivent « repenser leurs méthodes de suivi et de communication » et trouver un équilibre adapté."
+    },
+    {
+      "number": 38,
+      "points": 33,
+      "passage": "Dans certaines écoles de campagne, les enseignants doivent faire preuve d’une grande polyvalence. Il n’est pas rare qu’un seul professeur s’occupe de plusieurs niveaux dans une même salle de classe. Cela demande une organisation rigoureuse et beaucoup de créativité. Les élèves, bien que très jeunes, apprennent à être autonomes et à gérer leur temps. Cette configuration favorise également l’entraide entre les âges. Toutefois, ce modèle a ses limites : les enseignants sont parfois débordés, et l’accès aux ressources pédagogiques reste limité dans les zones rurales. L’État tente de soutenir ces écoles à travers des plans d’investissement et la mise à disposition de matériel numérique. Néanmoins, les différences avec les établissements urbains persistent. De nombreux parents restent attachés à ce type d’école, estimant qu’il transmet des valeurs de proximité, d’écoute et de respect du rythme de chaque élève.",
+      "question": "Quelle particularité des écoles rurales est soulignée ?",
+      "options": [
+        "La concentration d’élèves en grandes classes",
+        "L’autonomie et la solidarité entre élèves",
+        "Le refus d’utiliser le numérique",
+        "L’abandon progressif de ces établissements"
+      ],
+      "correct": "B",
+      "explanation": "Les élèves apprennent l’autonomie et la gestion du temps ; la classe favorise « l’entraide entre les âges »."
+    },
+    {
+      "number": 39,
+      "points": 33,
+      "passage": "L’usage des trottinettes électriques en ville a connu une explosion ces dernières années. D’abord perçues comme un gadget urbain, elles sont devenues un véritable moyen de transport, surtout chez les jeunes actifs. Leur coût relativement bas, la facilité d’utilisation, et la possibilité d’éviter les embouteillages expliquent en partie leur succès. Cependant, leur présence massive sur les trottoirs soulève des inquiétudes. Des accidents se produisent régulièrement, parfois graves, impliquant piétons, cyclistes ou automobilistes. De nombreuses municipalités ont réagi en instaurant des règles strictes : interdiction sur les trottoirs, limitation de la vitesse, port du casque recommandé, voire retrait de certaines entreprises de location. Cette régulation vise à encadrer un phénomène qui, mal maîtrisé, pourrait nuire à la sécurité et à la cohabitation en ville. L’avenir des trottinettes électriques dépendra donc de leur intégration harmonieuse dans l’espace urbain.",
+      "question": "Quel est le principal enjeu lié aux trottinettes électriques ?",
+      "options": [
+        "Leur coût d’entretien élevé pour les utilisateurs",
+        "Leur rejet par les entreprises de transport public",
+        "Le manque d’attrait pour les jeunes générations",
+        "Leur régulation pour garantir la sécurité urbaine"
+      ],
+      "correct": "D",
+      "explanation": "Les règles sur la circulation et la vitesse cherchent à assurer la sécurité et la cohabitation dans l’espace urbain."
+    }
+  ]
+}
+$paper$::jsonb);
+
+create function academy_tcf_reading.grade(p_paper jsonb,p_answers jsonb) returns jsonb
+language sql immutable set search_path='' as $$
+ select jsonb_build_object(
+ 'correct',count(*) filter(where p_answers->>(q->>'number')=q->>'correct'),
+ 'total',count(*),'points',coalesce(sum(case when p_answers->>(q->>'number')=q->>'correct' then (q->>'points')::int else 0 end),0),
+ 'maxPoints',sum((q->>'points')::int),
+ 'unanswered',count(*) filter(where not (p_answers ? (q->>'number'))),
+ 'rows',jsonb_agg(jsonb_build_object('number',q->'number','selected',p_answers->(q->>'number'),'correct',q->>'correct',
+ 'isCorrect',coalesce(p_answers->>(q->>'number')=q->>'correct',false),'points',case when p_answers->>(q->>'number')=q->>'correct' then (q->>'points')::int else 0 end,
+ 'maxPoints',q->'points','explanation',q->>'explanation') order by (q->>'number')::int))
+ from jsonb_array_elements(p_paper->'questions') q;
+$$;
+revoke all on function academy_tcf_reading.grade(jsonb,jsonb) from public,anon,authenticated,service_role;
+
+-- This narrow authenticated RPC performs entitlement and ownership checks on
+-- every action. Private tables and answer keys are never exposed by PostgREST.
+create function public.academy_tcf_reading_command(p_action text,p_id uuid default null,p_payload jsonb default '{}') returns jsonb
+language plpgsql security definer set search_path='' as $$
+declare u uuid:=auth.uid();a academy_tcf_reading.attempts;paper jsonb;history jsonb;question_no text;choice text;
+begin
+ perform academy_ai.require_access(u);
+ if p_action is null or p_action not in ('catalog','start','read','answer','submit') or p_payload is null or jsonb_typeof(p_payload)<>'object' or octet_length(p_payload::text)>1000 then raise exception 'Invalid reading action';end if;
+ if exists(select 1 from jsonb_object_keys(p_payload) k where not (k=any(case p_action when 'start' then array['testId','version'] when 'answer' then array['number','choice','revision'] when 'submit' then array['revision'] else array[]::text[] end))) then raise exception 'Invalid reading request';end if;
+ if p_action='catalog' then
+  select coalesce(jsonb_agg(to_jsonb(h) order by h."startedAt" desc),'[]') into history from (
+   select id,test_id "testId",version,status,started_at "startedAt",deadline from academy_tcf_reading.attempts where user_id=u order by started_at desc limit 50) h;
+  return jsonb_build_object('tests',(select jsonb_agg(jsonb_build_object('id',id,'version',version,'title',content->>'title','questions',39,'seconds',3600,'maxPoints',699) order by id) from academy_tcf_reading.papers),'history',history,'serverNow',now());
+ end if;
+ if p_id is null then raise exception 'Invalid reading attempt';end if;
+ -- Serialize starts per account, rather than a shared/global lock.
+ if p_action='start' then perform 1 from auth.users where id=u for update;end if;
+ select * into a from academy_tcf_reading.attempts where id=p_id for update;
+ if found and a.user_id<>u then raise exception 'Reading attempt not found' using errcode='42501';end if;
+ if p_action='start' then
+  if p_payload->>'testId' is distinct from 'tcf-reading-01' or p_payload->>'version' is distinct from 'tcf-reading-2026-11-pdf-v1' then raise exception 'Reading paper changed. Refresh before starting';end if;
+  if a.id is not null and (a.test_id<>p_payload->>'testId' or a.version<>p_payload->>'version') then raise exception 'Reading attempt already used';end if;
+  if a.id is null then
+   -- Finish expired saved work, then resume any unexpired attempt of this paper.
+   update academy_tcf_reading.attempts t set status='completed',submitted_at=t.deadline,
+    result=academy_tcf_reading.grade(p.content,t.answers),revision=t.revision+1
+    from academy_tcf_reading.papers p where t.user_id=u and t.status='active' and now()>=t.deadline and p.id=t.test_id and p.version=t.version;
+   select * into a from academy_tcf_reading.attempts where user_id=u and status='active' for update;
+   if a.id is null then insert into academy_tcf_reading.attempts(id,user_id,test_id,version) values(p_id,u,p_payload->>'testId',p_payload->>'version') returning * into a;end if;
+  end if;
+ end if;
+ if a.id is null then raise exception 'Reading attempt not found' using errcode='42501';end if;
+ select content into paper from academy_tcf_reading.papers where id=a.test_id and version=a.version;
+ if a.status='active' and now()>=a.deadline then
+  update academy_tcf_reading.attempts set status='completed',submitted_at=deadline,result=academy_tcf_reading.grade(paper,answers),revision=revision+1 where id=a.id returning * into a;
+ end if;
+ if a.status='active' and p_action in ('answer','submit') then
+  if p_payload->'revision' is distinct from to_jsonb(a.revision) then raise exception 'Reading answers changed in another tab. Reload saved answers';end if;
+  if p_action='answer' then
+   if jsonb_typeof(p_payload->'number') is distinct from 'number' or p_payload->>'number' !~ '^([1-9]|[12][0-9]|3[0-9])$' or not (p_payload ? 'choice') or (p_payload->'choice'<>'null'::jsonb and (jsonb_typeof(p_payload->'choice')<>'string' or p_payload->>'choice' not in ('A','B','C','D'))) then raise exception 'Invalid reading choice';end if;
+   question_no:=p_payload->>'number';choice:=p_payload->>'choice';
+   update academy_tcf_reading.attempts set answers=case when choice is null then answers-question_no else jsonb_set(answers,array[question_no],to_jsonb(choice)) end,revision=revision+1 where id=a.id returning * into a;
+  else
+   update academy_tcf_reading.attempts set status='completed',submitted_at=now(),result=academy_tcf_reading.grade(paper,answers),revision=revision+1 where id=a.id returning * into a;
+  end if;
+ end if;
+ return jsonb_build_object('id',a.id,'testId',a.test_id,'version',a.version,'status',a.status,'answers',a.answers,'revision',a.revision,'startedAt',a.started_at,'deadline',a.deadline,'submittedAt',a.submitted_at,'serverNow',now(),
+ 'paper',jsonb_build_object('id',a.test_id,'version',a.version,'title',paper->>'title','seconds',paper->'seconds','questions',(select jsonb_agg(q-'correct'-'explanation' order by (q->>'number')::int) from jsonb_array_elements(paper->'questions') q)),
+ 'result',a.result);
+end;$$;
+revoke all on function public.academy_tcf_reading_command(text,uuid,jsonb) from public,anon,service_role;
+grant execute on function public.academy_tcf_reading_command(text,uuid,jsonb) to authenticated;
+notify pgrst,'reload schema';
+commit;

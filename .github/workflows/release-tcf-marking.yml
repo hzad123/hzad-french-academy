@@ -2,7 +2,7 @@ name: Release TCF marking backend
 # Explicit owner-authorized repair only. No deployment on PRs/untrusted forks.
 on:
   push:
-    branches: [feature/owner-ai-testing-and-retry-20261110, fix/tcf-structured-feedback-20261111, feature/tcf-criterion-feedback-20261111, fix/tcf-source-grounding-20261111]
+    branches: [feature/owner-ai-testing-and-retry-20261110, fix/tcf-structured-feedback-20261111, feature/tcf-criterion-feedback-20261111, fix/tcf-source-grounding-20261111, release/tcf-reading-test01]
 permissions:
   contents: read
 concurrency:
@@ -21,9 +21,16 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Bundle the normal JWT-protected writing function
+        if: github.ref_name != 'release/tcf-reading-test01'
         run: >-
           node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-tcf-writing/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/tcf-marking-release.ts'});"
       - name: Rehearse, preserve student work, apply the reviewed release and deploy
+        if: github.ref_name != 'release/tcf-reading-test01'
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: python3 scripts/release/tcf-marking.py --apply --bundle /tmp/tcf-marking-release.ts
+      - name: Rehearse and apply the reviewed reading pilot
+        if: github.ref_name == 'release/tcf-reading-test01'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/release/tcf-reading.py --apply

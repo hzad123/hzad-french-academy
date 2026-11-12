@@ -247,3 +247,22 @@ merging and publishing twenty speaking papers. Preserve its approved three-task
 flow, continuous Task3, saved history and current credits/budgets. Each attempt
 must retain its server-validated original paper/version; private examiner briefs
 stay server-side. See `docs/tcf-speaking.md` for migration and release evidence.
+
+### TCF reading pilot — 12 November 2026
+
+The owner requested **one** reading test first, using the attached 39-question,
+60-minute paper. Add selectable choices and an end-of-test answer sheet showing
+right/wrong/unanswered responses, correct choices and a total. Use deterministic
+server marking, save attempts, preserve all existing modules/accounting and keep
+it inside TEF/TCF AI Tests. Details, two source-option clarifications, practice
+scoring limits, validation and additive migration: `docs/tcf-reading.md`.
+
+### Standing publication authorization — 12 November 2026
+
+The owner instructed: “always publish changes without asking. we can always undo
+them if we want”. This supersedes earlier requirements to pause for user review
+before routine merges/deployment of requested work, including Reading Test01.
+Complete tests, create/update the PR, apply safe additive backend changes, merge
+to development, publish and verify live assets without requesting confirmation
+again. Retain rollback paths and all student data, auth/access and accounting
+guardrails. This is not a request to alter prices, reset wallets or destroy data.
