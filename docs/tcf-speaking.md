@@ -167,3 +167,15 @@ Keep the four server timing phases and saved attempts unchanged. Each completed
 examiner reply appears once in its conversation; the initial question appears
 only before the first saved turn. Recording status stays beside active controls.
 This is frontend-only, with no database migration or provider/policy changes.
+
+
+### Submit completes the current task
+
+Owner correction: manual Submit saves the active audio and advances just one
+phase: Task1 to Task2 preparation, Task2 speaking to Task3, Task3 to completion.
+Preparation retains its two minutes. Automatic30second audio chunks continue
+the current conversation until the overall task expires. Explicit retries of a
+saved clip also carry manual advance intent; pending reconciliation preserves it.
+Final feedback repeats the same holistic TCF/20 and NCLC total below criterion
+sections, without inventing a score when any task lacks audible evidence.
+No migration, policy, pricing or provider changes are required.
