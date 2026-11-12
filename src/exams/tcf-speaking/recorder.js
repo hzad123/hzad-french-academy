@@ -11,7 +11,7 @@ export function createSpeakingRecorder({onLimit=()=>{},onStatus=()=>{}}={}){
   data=audioBase64(encodeWav(samples,context.sampleRate));return data;
  }
  async function prepare(){
-  if(preparing)return preparing;
+  if(preparing){void context?.resume().catch(()=>{});return preparing}
   preparing=setup();try{return await preparing}finally{preparing=null}
  }
  async function setup(){

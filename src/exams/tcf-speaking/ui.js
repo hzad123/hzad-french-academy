@@ -4,10 +4,10 @@ import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeakingRecorder}={}){
  const area=root.querySelector('#hz-tcf-speaking'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeSpeakingStore(client,fetcher);let catalog,attempt,recorder,timer,pollTimer,controller,cancelSpeech,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0;
+ const store=makeSpeakingStore(client,fetcher);let catalog,attempt,recorder,timer,pollTimer,controller,cancelSpeech,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0;
  const left=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-offset)/1000)):0;
  const accept=value=>{attempt=value;offset=Date.parse(value.serverNow)-Date.now()};
- function clear(){epoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);cancelSpeech?.();globalThis.speechSynthesis?.cancel();capture=null;bootKey=null;answerDeadline=0;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
+ function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);cancelSpeech?.();globalThis.speechSynthesis?.cancel();capture=null;bootKey=null;answerDeadline=0;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();catalog=null;attempt=null;viewer=null}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset();if(session?.user?.id)viewer=session.user.id});
@@ -32,14 +32,14 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  async function beginAnswer(){
   if(!visible||busy||!attempt||attempt.pending||capture||![0,2,3].includes(attempt.phase)||bootKey===key())return;
   if(!left()){void advance();return}
-  const current=key(),ticket=epoch;bootKey=current;
-  try{await microphone().prepare();if(ticket!==epoch||current!==key())return;const same=completed().filter(c=>c.phase===attempt.phase);const question=same.length?same.at(-1).result.reply:catalog.test.phases[attempt.phase].opening;
+  const current=key(),ticket=epoch,answerTicket=++answerEpoch;bootKey=current;
+  try{await microphone().prepare();if(ticket!==epoch||answerTicket!==answerEpoch||current!==key())return;const same=completed().filter(c=>c.phase===attempt.phase);const question=same.length?same.at(-1).result.reply:catalog.test.phases[attempt.phase].opening;
    status(question?'Examiner speaking…':'The examiner is listening. Continue your opinion.');await speak(question);
-   if(ticket!==epoch||current!==key()||busy)return;
+   if(ticket!==epoch||answerTicket!==answerEpoch||current!==key()||busy)return;
    if(!left()){void advance();return}const seconds=Math.min(30,left());await microphone().start(seconds);answerDeadline=Date.now()+seconds*1000;
-  }catch{if(ticket===epoch){bootKey=null;status('Microphone could not start. Allow microphone access in your browser, then press Submit response to try again.')}}
+  }catch{if(ticket===epoch&&answerTicket===answerEpoch){bootKey=null;status('Microphone could not start. Allow microphone access in your browser, then press Submit response to try again.')}}
  }
- function advance(){if(busy||!attempt||attempt.pending||attempt.phase>=4)return;recorder?.stop();bootKey=null;void run(async(signal,current)=>{accept(await store.send({kind:'advance',id:attempt.id},signal));if(current())render()})}
+ function advance(){if(busy||!attempt||attempt.pending||attempt.phase>=4)return;answerEpoch++;cancelSpeech?.();globalThis.speechSynthesis?.cancel();recorder?.stop();bootKey=null;void run(async(signal,current)=>{accept(await store.send({kind:'advance',id:attempt.id},signal));if(current())render()})}
  async function submit(manual=false,readyAudio){
   if(!visible||busy||!attempt||attempt.pending||![0,2,3].includes(attempt.phase))return;
   const audio=capture?.audio||readyAudio||recorder?.stop();answerDeadline=0;
