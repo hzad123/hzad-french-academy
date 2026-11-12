@@ -108,3 +108,21 @@ TCF/NCLC criterion report below tasks, free saved review, no overflow/JS errors,
 and sign-out isolation. Browser, learning and all five Edge entrypoints compile.
 No real microphone/OpenAI call, production migration, function deployment,
 source-price activation or student-data mutation was performed by these checks.
+
+## Authorized pilot deployment — 12 November 2026
+
+The owner explicitly requested deployment of Test01 for their microphone check.
+This supersedes the build-stage not-deployed status above. The secured GitHub
+release validates live conversation/TCF-writing settings and the existing OpenAI
+secret name, rehearses migrations24/25 with data-preservation checks, installs
+schema24, deploys the normal JWT-protected speaking function, then applies
+activation25. Activation reuses the current enabled audio conversation rate,
+model/output/cost ceiling and the enabled TCF-writing feedback settings exactly;
+it fails closed for a non-audio conversation model or changed feedback ceiling.
+No existing activity, account allowance, wallet, writing or progress is changed.
+The release is idempotent against exact recorded migration contents. Failure
+before activation leaves the new activities off. The verified release transaction
+checks progress/writing/wallet/policy/other-activity hashes in one transaction,
+with a full rolled-back rehearsal. No native inference or synthetic login is
+part of deployment; the owner's signed-in trial is the next verification step.
+Live release outcomes are recorded in PR28 before merging its frontend.
