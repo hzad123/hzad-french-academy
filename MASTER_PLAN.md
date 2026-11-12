@@ -220,3 +220,14 @@ holistic; do not invent official criterion weights or numerical deductions.
 Existing completed results stay free to read. Offer an explicit one-credit
 update using their frozen responses so older generic feedback can be upgraded
 without retyping or resetting the test. See `docs/tcf-writing.md`.
+
+### TCF Speaking Test01 pilot — 2026-11-12
+
+The owner now requests standalone TCF speaking tests, starting with **one**
+AI-interactive test; expand to20only after successful pilot verification. Follow
+the supplied blog's three-task timing/roles and public linguistic, pragmatic,
+sociolinguistic criteria, then report holistic estimated TCF speaking /20 and
+its speaking NCLC equivalent. Hear actual student audio for pronunciation/
+fluency, use concrete evidence and keep feedback below all tasks. Preserve
+accounting, writing/results/progress and server-side secrets. Pilot details,
+validation and additive release/activation requirements: `docs/tcf-speaking.md`.
