@@ -3,17 +3,17 @@ import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 export function wireTcfReading(root,client){
  const area=root.querySelector('#hz-tcf-reading'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeReadingStore(client);let catalog,attempt,pending,viewer,visible=false,busy=false,epoch=0,controller,timer,offset=0,index=0,confirming=false;
+ const store=makeReadingStore(client);let selectedTestId,catalog,attempt,pending,viewer,visible=false,busy=false,epoch=0,controller,timer,offset=0,index=0,confirming=false;
  const remaining=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-offset)/1000)):0;
  function clear(){epoch++;visible=false;busy=false;controller?.abort();clearInterval(timer);confirming=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();catalog=null;attempt=null;pending=null;viewer=null;index=0}
+ function reset(){clear();catalog=null;attempt=null;pending=null;viewer=null;index=0;selectedTestId=null}
  globalThis.addEventListener?.('beforeunload',event=>{if(pending){event.preventDefault();event.returnValue=''}});
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset();if(session?.user?.id)viewer=session.user.id});
  function status(text,error=false){let n=area.querySelector('.hz-reading-status');if(!n){n=el('p',undefined,'hz-reading-status');area.append(n)}n.textContent=text;n.setAttribute('role',error?'alert':'status')}
  function controls(){area.querySelectorAll('button,input').forEach(n=>n.disabled=busy||n.dataset.locked==='true')}
  function button(text,fn,locked=false,alt=false){const b=el('button',text,'hz-btn'+(alt?' hz-btn-alt':''));b.type='button';b.dataset.locked=String(locked);b.onclick=fn;return b}
- function receive(next){if(pending&&next.status==='active'&&pending.id!==next.id)pending=null;attempt=next;offset=Date.parse(next.serverNow)-Date.now();if(pending?.id===next.id&&(next.status==='completed'||(next.answers[pending.number]??null)===pending.choice))pending=null}
+ function receive(next){attempt=next;offset=Date.parse(next.serverNow)-Date.now();if(pending?.id===next.id&&(next.status==='completed'||(next.answers[pending.number]??null)===pending.choice))pending=null}
  async function run(work){if(busy)return;busy=true;const ticket=epoch;controller=new AbortController();controls();try{await work(controller.signal,()=>visible&&ticket===epoch)}catch(e){if(visible&&ticket===epoch){if(attempt){try{const next=await store.read(attempt.id,controller.signal);if(ticket===epoch){receive(next);render()}}catch{}}if(ticket===epoch)status(e.name==='AbortError'?'Connection interrupted. Reopen your saved reading test.':e.message,true)}}finally{if(ticket===epoch){busy=false;controls()}}}
  async function open(id){root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;area.classList.remove('hz-hidden');chooser.classList.add('hz-hidden');status('Opening TCF reading…');await run(async(signal,current)=>{const session=await client.auth.getSession();const user=session.data?.session?.user?.id;if(viewer&&user&&viewer!==user){pending=null;attempt=null}viewer=user;const next=await store.catalog(signal),saved=id?await store.read(id,signal):null;if(!current())return;catalog=next;if(saved)receive(saved);else attempt=null;index=pending&&saved&&pending.id===saved.id?pending.number-1:0;confirming=false;render()})}
  root.addEventListener('hzad-open-tcf-reading',()=>{void open()});
@@ -22,16 +22,22 @@ export function wireTcfReading(root,client){
  function navigate(fn){if(pending&&pending.id===attempt?.id){status('Save or reload your pending answer before leaving this test.',true);return}fn()}
  function move(number){index=number;confirming=false;render();const heading=area.querySelector('#hz-reading-question-title');heading?.focus({preventScroll:true});heading?.scrollIntoView({block:'start'})}
  function finish(){void run(async(signal,current)=>{const next=await store.submit(attempt.id,attempt.revision,signal);if(current()){receive(next);confirming=false;render();area.querySelector('.hz-reading-answer-sheet')?.scrollIntoView({block:'start'})}})}
- function render(){clearInterval(timer);area.replaceChildren();const head=el('header',undefined,'hz-exam-hero');head.append(el('p','TCF CANADA · COMPRÉHENSION ÉCRITE','hz-eyebrow'),el('h3',attempt?.paper.title||'TCF Reading · Test 01'));area.append(head);
+ function render(){clearInterval(timer);area.replaceChildren();const head=el('header',undefined,'hz-exam-hero');head.append(el('p','TCF CANADA · COMPRÉHENSION ÉCRITE','hz-eyebrow'),el('h3',attempt?.paper.title||(catalog.tests.length===20?'TCF Reading · 20 tests':'TCF Reading · Test 01')));area.append(head);
   area.append(button('← TEF/TCF AI Tests',()=>navigate(()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))),false,true));
+  if(pending&&attempt&&pending.id!==attempt.id)area.append(button('Recover unsaved answer from another test',()=>{void open(pending.id)}));
   if(!attempt){
    area.append(el('p','39 questions · 60 minutes · Choose one answer per question. You can change your choices before submitting. Your marked answer sheet and total score appear at the end.'));
-   for(const paper of catalog.tests)area.append(button('Start Reading Test 01',()=>{void run(async(signal,current)=>{const next=await store.start(crypto.randomUUID(),paper,signal);if(current()){receive(next);index=0;render()}})}));
+   if(!catalog.tests.some(p=>p.id===selectedTestId))selectedTestId=catalog.tests[0].id;
+   const select=el('select');select.id='hz-reading-paper';select.setAttribute('aria-label','Choose a TCF reading test');
+   for(const p of catalog.tests){const option=el('option',p.title+(p.topic?' · '+p.topic:''));option.value=p.id;option.selected=p.id===selectedTestId;select.append(option)}
+   select.onchange=()=>{selectedTestId=select.value;render()};area.append(select);
+   const paper=catalog.tests.find(p=>p.id===selectedTestId);
+   area.append(button('Start Reading Test '+paper.id.slice(-2),()=>{void run(async(signal,current)=>{const next=await store.start(crypto.randomUUID(),paper,signal);if(current()){receive(next);index=0;render()}})},!!pending));
    if(pending)area.append(button('Recover unsaved answer',()=>{void open(pending.id)},false,true));
-   const saved=el('section',undefined,'hz-writing-history');saved.append(el('h4','Your saved reading tests'));for(const row of catalog.history)saved.append(button(`Test 01 · ${new Date(row.startedAt).toLocaleDateString()} · ${row.status==='completed'?'View answer sheet':'Resume test'}`,()=>{void open(row.id)},false,true));if(!catalog.history.length)saved.append(el('p','Your saved tests will appear here.'));area.append(saved);
+   const saved=el('section',undefined,'hz-writing-history');saved.append(el('h4','Your saved reading tests'));for(const row of catalog.history)saved.append(button(`Test ${row.testId.slice(-2)} · ${new Date(row.startedAt).toLocaleDateString()} · ${row.status==='completed'?'View answer sheet':'Resume test'}`,()=>{void open(row.id)},false,true));if(!catalog.history.length)saved.append(el('p','Your saved tests will appear here.'));area.append(saved);
   }else{
    if(attempt.status==='completed'){renderResults();area.append(button('Reading tests',()=>{void open()},false,true))}
-   else renderQuestion();
+   else {area.append(button('All reading tests',()=>navigate(()=>{void open()}),false,true));renderQuestion()}
   }
   const id=attempt?.id;recordView(root,'tcf-reading:'+(id||'home'),()=>open(id));controls();
  }

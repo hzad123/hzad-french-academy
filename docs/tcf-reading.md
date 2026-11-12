@@ -102,3 +102,59 @@ evidence are recorded in PR35 after publication.
 Review screenshots (local fixture data):
 [desktop question](images/tcf-reading-test01-desktop.png) ·
 [mobile marked correction](images/tcf-reading-test01-correction-mobile.png).
+
+## Twenty-paper expansion — 12 November 2026
+
+The owner authorized Tests02–20 with different topics/themes and the same format,
+plus publication under the standing instruction. The approved PDF-based Test01
+and all existing paper/attempt/result records remain unchanged.
+
+Nineteen original frozen papers live in `supabase/exams/tcf-reading-v2/`, version
+`tcf-reading-2026-11-original-v2`:741new questions,780total. Every paper has39
+questions, four choices each,3600seconds and the original699practice-point bands.
+Each new question has a distinct passage and a passage-based explanation. Notices,
+messages, practical articles and more analytical final texts cover housing/work/
+travel/environment/culture/food/health/science/education/solidarity/rural life/
+digital tools/media/consumption/heritage/generations/landscapes/energy/daily life.
+The new answer positions are varied and balanced; no runtime content generation
+or AI marking is introduced. Practice sums remain distinct from official equated
+TCF scores; no unsupported NCLC conversion is added.
+
+The shared selector shows each paper and its theme. Saved history identifies its
+test number. Starting another paper can create a separate unfinished attempt;
+returning resumes only the selected paper/version with its own original clock.
+Pending unsaved choices require explicit recovery before starting another paper.
+All20 use the same answer controls, confirmation, end-only marked answer sheet,
+right/wrong/unanswered explanations and bottom totals.
+
+Migration `20261112212313_tcf_reading_twenty_tests.sql` inserts only19new banks,
+changes the active-attempt uniqueness from per-account to per-account/paper/version,
+and updates the existing authenticated RPC to validate against the private bank.
+It adds immutable saved identity and immutable paper triggers. Existing tables,
+Test01 content, results, answers, revisions and deadlines are not rewritten.
+Authentication/entitlement/ownership, private RLS tables and narrow function
+permissions remain. No price, credit, wallet, cap, access or other module changes.
+
+All230 Node tests and build pass (224baseline). Six new tests cover780unique
+passages, all formats/seeds, all20 server-selected prompt/answer keys and perfect
+scores, sanitized active outputs, concurrent paper resumption/fixed clocks,
+identity/score forgery, cross-account and revoked/unverified denial, timer expiry,
+Test01 rollback/preservation, immutable identities/banks and exact idempotent
+release transactions preserving both old and new results. Existing reading
+mobile/desktop acceptance checks also run against the actual PostgreSQL RPC in
+PGlite. The additional all20 browser suite verifies both widths, independent
+unfinished attempts, selection, fixed clocks, original-paper reopening, marked
+right/wrong/blank rows, scores and account changes. Browser Auth/users remain
+fixtures; a live entitled-account walkthrough is not part of these checks.
+
+Release reuses `release-tcf-marking.yml` with the explicit
+`release/tcf-reading-twenty-tests` branch and `scripts/release/tcf-reading-twenty.py`.
+It rehearses the additive migration under rollback and checks hashes of all
+existing reading attempts/Test01, auth, entitlements, progress, other exams,
+wallets, requests, ledger, grants and settings before committing/recording it.
+It verifies all20deployed banks against the exact repository content, without
+printing student data or creating a synthetic account. Reruns preserve results.
+Then merge into development and verify Pages plus live GHL assets. No new Edge
+function or provider credential path is required. Keep the additive schema and
+all bank versions on rollback; revert frontend/RPC only with version support for
+saved new attempts. Deployment outcomes are recorded in the release PR.
