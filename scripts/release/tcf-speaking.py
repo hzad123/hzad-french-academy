@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location('release_api',Path(__file__).with_name('tcf-marking.py'))
 helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
 api,query,literal,migration_body=helper.api,helper.query,helper.literal,helper.migration_body
-FILES=['20261112002400_tcf_speaking_test01.sql','20261112002500_activate_tcf_speaking_test01.sql']
+FILES=['20261112002400_tcf_speaking_test01.sql','20261112002500_activate_tcf_speaking_test01.sql','20261112002600_speaking_final_upload_grace.sql']
 SNAPSHOT="""select jsonb_build_object(
  'progress',(select md5(coalesce(string_agg(to_jsonb(p)::text,'|' order by p.user_id,p.unit_id),'')) from public.academy_learning_progress p),
  'writing',(select md5(coalesce(string_agg(to_jsonb(a)::text,'|' order by a.id),'')) from academy_tcf_writing.attempts a),
@@ -33,7 +33,7 @@ def transaction(files,commit=False):
     return '\n'.join(parts)
 
 def pending_files():
-    records=query("select version,statements from supabase_migrations.schema_migrations where version in('20261112002400','20261112002500')")
+    records=query("select version,statements from supabase_migrations.schema_migrations where version in('20261112002400','20261112002500','20261112002600')")
     stored={row['version']:row['statements'] for row in records};pending=[]
     for name in FILES:
         version=name.split('_',1)[0];source=(ROOT/'supabase/migrations'/name).read_text()
@@ -60,7 +60,7 @@ def main():
     print('::notice title=Reviewed speaking source settings::'+json.dumps(settings,separators=(',',':')))
     # Rehearse the entire change before any persistent write.
     query(transaction(pending));print('Speaking migration/activation rehearsal and preservation checks passed.')
-    schema=[name for name in pending if name==FILES[0]]
+    schema=[name for name in pending if name!=FILES[1]]
     if schema:query(transaction(schema,True))
     deploy(args.bundle)
     activate=[name for name in pending if name==FILES[1]]
