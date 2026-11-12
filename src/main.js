@@ -9,6 +9,7 @@ import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
 import {wireAiLearning} from './ai/ui.js';
 import {wireExams} from './exams/ui.js';
+import {wireTcfSpeaking} from './exams/tcf-speaking/ui.js';
 import {wireTcfWriting} from './exams/tcf-writing/ui.js';
 import {wireExamAudioAdmin} from './exams/audio-admin.js';
 import {wireRewardInitialization} from './achievements/ui.js';
@@ -118,6 +119,7 @@ export function mountAcademy(host,createClient){
   wireAiLearning(root,client);
   wireExams(root,client);
   wireTcfWriting(root,client);
+  wireTcfSpeaking(root,client);
   wireExamAudioAdmin(root,client);
   wireRewardInitialization(root,client);
   mountVerification($('hz-auth'));
