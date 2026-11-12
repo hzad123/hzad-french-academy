@@ -239,3 +239,11 @@ Per-action credits, total CAD10 student budgets and the existing CAD100 owner
 testing cap remain authoritative. Preserve balances/spend/history, no shared
 cap, no payment fabrication or allowance refill. This supersedes earlier daily
 AI limits. Non-AI placement/certificate assessment rules are outside this change.
+
+### Approved TCF speaking expansion — 12 November 2026
+
+The owner approved the deployed Test01 and explicitly authorized implementing,
+merging and publishing twenty speaking papers. Preserve its approved three-task
+flow, continuous Task3, saved history and current credits/budgets. Each attempt
+must retain its server-validated original paper/version; private examiner briefs
+stay server-side. See `docs/tcf-speaking.md` for migration and release evidence.

@@ -31,12 +31,38 @@ with sync_playwright() as p:
   page.evaluate('fixture.reopen(1,300)');page.wait_for_function('fixture.phase===2 && fixture.recording');assert page.evaluate('fixture.charges')==50
   submit.click();page.wait_for_function('fixture.phase===3 && fixture.recording');assert page.evaluate('fixture.recordingLimit')==270;assert 'Response 30s' not in page.locator('#hz-tcf-speaking').inner_text();assert page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).count()==0;assert page.evaluate('fixture.charges')==60
   submit.click();page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).wait_for();assert page.evaluate('fixture.phase')==4
+  status_box=page.get_by_text('TCF speaking score /20 and NCLC: awaiting assessment',exact=True).bounding_box();button_box=page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).bounding_box();assert button_box['y']>=status_box['y']+status_box['height']+5
   page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).click();page.get_by_role('heading',name='Your TCF speaking result',exact=True).wait_for()
   page.get_by_text('Estimated TCF speaking 12/20 · NCLC 8',exact=True).wait_for();assert page.locator('.hz-writing-criterion').count()==3;page.get_by_text('Total TCF speaking score: 12/20 · NCLC 8',exact=True).wait_for()
   assert page.evaluate('fixture.charges')==71;assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   page.evaluate('fixture.ui.open("11111111-1111-4111-8111-111111111111")');page.get_by_role('heading',name='Your TCF speaking result',exact=True).wait_for();assert page.evaluate('fixture.charges')==71
   page.evaluate('fixture.signOut()');assert page.locator('#hz-tcf-speaking').inner_text()=='';assert errors==[],errors
   print(json.dumps({'viewport':width,'result':'one Submit, examiner-first recording, explicit transport retry, pending reconciliation, timed submit/advance/preparation, TCF/NCLC feedback, free review, signout passed'}));page.close()
+ # Every paper: selector, original prompts after reopening, shared three-card layout and spacing.
+ for width in [390,1440]:
+  for number in range(1,21):
+   page=b.new_page(viewport={'width':width,'height':900});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+   page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-speaking.html');page.wait_for_function('fixtureReady');page.evaluate('fixture.open()')
+   select=page.get_by_label('Choose a TCF speaking test');select.wait_for();assert select.locator('option').count()==20
+   paper='tcf-speaking-'+str(number).zfill(2);select.select_option(paper)
+   # Keyboard selection remains usable after rerender.
+   page.get_by_label('Choose a TCF speaking test').focus();assert page.get_by_label('Choose a TCF speaking test').evaluate('(n)=>document.activeElement===n')
+   page.get_by_role('button',name='Start speaking Test '+str(number).zfill(2),exact=True).click();page.wait_for_function('fixture.recording')
+   assert page.evaluate('fixture.sent.find(x=>x.kind==="start").testId')==paper
+   expected=page.evaluate('fixture.catalog.tests.find(t=>t.id===fixture.paper.id).phases[0].prompt')
+   assert expected in page.locator('#hz-tcf-speaking').inner_text();assert page.locator('#hz-tcf-speaking > .hz-writing-task').count()==3
+   page.evaluate('fixture.reopen(3)');page.wait_for_function('fixture.recording && fixture.recordingLimit===270')
+   opinion=page.evaluate('fixture.paper.phases[3].prompt');assert opinion in page.locator('#hz-tcf-speaking').inner_text()
+   page.evaluate('fixture.open()');page.get_by_label('Choose a TCF speaking test').wait_for();assert not page.evaluate('fixture.recording')
+   page.get_by_label('Choose a TCF speaking test').select_option('tcf-speaking-01' if number!=1 else 'tcf-speaking-02')
+   page.evaluate('fixture.reopen(4)');page.get_by_text('TCF speaking score /20 and NCLC: awaiting assessment',exact=True).wait_for()
+   assert page.get_by_role('heading',name='TCF Speaking · Test '+str(number).zfill(2),exact=True).count()==1
+   assert opinion in page.locator('#hz-tcf-speaking').inner_text()
+   status_box=page.get_by_text('TCF speaking score /20 and NCLC: awaiting assessment',exact=True).bounding_box();button_box=page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).bounding_box()
+   assert button_box['y']>=status_box['y']+status_box['height']+5
+   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');assert errors==[],errors
+   page.close()
+  print(json.dumps({'viewport':width,'papers':20,'result':'all selectors, original saved prompts, three cards, continuous Task3, microphone navigation cleanup and feedback spacing passed'}))
  # Real browser microphone/AudioContext/PCM encoder. Fixture only replaces network/provider.
  page=b.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-speaking.html?real');page.wait_for_function('fixtureReady');page.evaluate('fixture.open()');page.get_by_role('button',name='Start speaking Test 01',exact=True).click()
