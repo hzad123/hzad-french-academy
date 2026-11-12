@@ -328,3 +328,16 @@ tokens, CAD0.018768 at the documented reference prices/FX buffer, below CAD0.02.
 All builds passed. These are isolated native-transport fixtures, not a new live
 OpenAI assessment. Publication is recorded in the PR; the owner must explicitly
 retry their existing saved attempt to verify the changed native transport.
+
+## Feedback placement and empty improvement copy — 12 November 2026
+
+The owner requested the completed result below all three writing tasks and
+removal of empty “How to improve this criterion / No criterion-specific
+correction identified” blocks. Feedback now renders once after Task3, keeping
+the total estimated TCF /20 score, NCLC equivalent and criterion sections
+together. Improvement headings and paragraphs render only when a nonempty
+suggestion exists. Existing numeric scores and NCLC mapping are unchanged.
+This is a frontend-only change: no Supabase migration/function deployment,
+AI call, saved-result rewrite or additional charge is required. Refresh/reopen
+an existing result to see the new layout. Desktop/mobile UI checks verify
+feedback follows every task, empty sections disappear and score/NCLC remain.
