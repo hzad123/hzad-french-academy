@@ -29,6 +29,7 @@ French interlocutor text is read by browser speech synthesis, with a replay
 button and visible text when device voices are unavailable. No typed student
 answers are accepted. Streams are stopped on navigation/account change.
 
+Server-measured WAV durations are saved and capped at each task’s speaking allowance; the grader can assess development without inventing fixed duration penalties.
 Server timers enforce preparation and recording eligibility, never trust client
 phase/score. Finishing a speaking stage early requires a saved turn unless its
 window expired. The learner explicitly advances tasks. Pending inference blocks

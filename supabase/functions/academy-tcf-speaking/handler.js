@@ -24,7 +24,13 @@ export function createSpeakingHandler({authenticate,db,provider}){return async r
   if(!uuid(input.callId)||!Number.isSafeInteger(input.expectedCredits)||input.expectedCredits<1)return reply({error:'Refresh the speaking price'},400);
   let attempt=await command('read',input.id);if(input.kind==='feedback'&&attempt.calls.some(c=>c.kind==='feedback'&&c.status==='completed'))return reply(attempt);
   if(!provider.ready())return reply({error:'Speaking examiner is unavailable'},503);
-  if(input.kind==='turn')inspectAudio(input.audio);
+  let recordingSeconds;
+  if(input.kind==='turn'){
+   recordingSeconds=inspectAudio(input.audio).seconds;
+   if(![0,2,3].includes(attempt.phase))return reply({error:'This speaking task is not active'},409);
+   const used=attempt.calls.filter(c=>c.id!==input.callId&&c.kind==='turn'&&c.phase===attempt.phase&&c.status==='completed').reduce((n,c)=>n+(c.result?.seconds||0),0);
+   if(used+recordingSeconds>TEST.phases[attempt.phase].seconds+.01)return reply({error:'Recorded speaking time for this task is complete'},409);
+  }
   else if(input.audio||attempt.phase!==4)return reply({error:'Finish all three tasks before feedback'},409);
   if(input.kind==='feedback'&&!attempt.calls.some(c=>c.kind==='turn'&&c.status==='completed'&&c.result?.intelligible))return reply({error:'Record intelligible French before requesting a score.'},409);
   const kind='tcf-speaking-'+(input.kind==='turn'?'turn':'feedback'),hash=await fingerprint({attempt:input.id,phase:attempt.phase,kind:input.kind,audio:input.audio||null});
@@ -38,7 +44,7 @@ export function createSpeakingHandler({authenticate,db,provider}){return async r
    let generated;try{generated=await provider.run({kind:input.kind,audio:input.audio,attempt},claim)}catch(error){
     const failure=failureMetadata(error);await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:input.callId});await command('read',input.id);return reply({error:'The examiner could not finish. Credits returned; saved speaking turns remain available. Reference: '+(failure.providerCode||failure.code),failure},502);
    }
-   try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.callId,p_result:generated.result,p_usage:generated.usage,p_student_text:null})}catch{return reply({processing:true},202)}
+   try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.callId,p_result:input.kind==='turn'?{...generated.result,seconds:recordingSeconds}:generated.result,p_usage:generated.usage,p_student_text:null})}catch{return reply({processing:true},202)}
    return reply(await command('read',input.id));
   }catch(error){await command('unlock',input.id,{callId:input.callId}).catch(()=>{});throw error}
  }catch(error){
