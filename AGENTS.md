@@ -6,14 +6,14 @@
 1. Confirm you are working from the **`development`** branch; `main` is not the live application source.
 2. Inspect current code, tests, Supabase migration files and existing GitHub PRs rather than assuming old documentation is current.
 3. **Current highest-priority feature:** implement the **non-AI A0–C2 French placement test**, automatically recommend a student's starting level, save results and allow immediate navigation to that level. Use the detailed specification in `MASTER_PLAN.md`.
-4. Make a separate feature branch. Run `npm test` and `npm run build`. Open a pull request against `development`; do not merge or deploy without user review.
+4. Make a separate feature branch. Run `npm test` and `npm run build`. Open a pull request against `development`. The owner has standing authorization (12 November 2026) to merge and publish completed, tested changes without asking again; verify backend and live deployment before reporting success.
 
 ## Guardrails
 - Preserve the one-block GHL loader and hosted `academy.js`/`academy.css`, existing Supabase login/email verification, WordPress purchase entitlements, secure lesson RPCs, instant-feedback quizzes, student progress and responsive A0–C2 course navigation.
 - Treat all seven course cards as **Available now**; do not relabel them “Early-access drafts.” That wording does **not** establish certified CEFR proficiency or finished editorial QA.
 - Placement scoring, normal quizzes, core curriculum and progress must be deterministic/non-AI. Do not expose scoring keys, privileges, credit logic or secrets to frontend code.
 - Never put Supabase `service_role`/secret keys, AI keys or webhook secrets in public code. Use identity-based data protection (RLS/RPC/ownership) and server-side purchase validation.
-- Do not modify production Supabase data, run destructive migrations, merge to `development` or change pricing/credit costs without explicit authorization.
+- Publish requested, tested changes and safe additive migrations under the owner’s standing authorization. Preserve existing student data, access, prices and credit costs; destructive data operations or unrelated pricing/access changes remain outside routine publication.
 - Avoid resetting students' progress or changing existing lesson IDs. Keep any SQL changes versioned and reversible.
 - If repository docs and the actual database disagree, inspect and document the discrepancy before editing.
 

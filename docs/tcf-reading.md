@@ -94,9 +94,10 @@ inference is required. After backend checks, merge reviewed frontend into
 `development`, verify Pages and live GHL assets, then a normal entitled sign-in.
 Rollback removes the frontend entry/reverts UI while retaining saved data.
 
-Current status: implemented and locally validated for review. The migration
-remains **unapplied**; no production data, backend or Pages was changed for this
-reading pilot. Publishing is gated on owner review under AGENTS.md.
+Publication authorized on12November2026 under the owner’s standing instruction
+to publish tested changes without further confirmation. Local tests/build and
+desktop/mobile fixtures pass. Backend/Pages release outcomes and live-verification
+evidence are recorded in PR35 after publication.
 
 Review screenshots (local fixture data):
 [desktop question](images/tcf-reading-test01-desktop.png) ·
