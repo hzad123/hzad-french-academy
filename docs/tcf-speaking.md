@@ -126,3 +126,35 @@ checks progress/writing/wallet/policy/other-activity hashes in one transaction,
 with a full rolled-back rehearsal. No native inference or synthetic login is
 part of deployment; the owner's signed-in trial is the next verification step.
 Live release outcomes are recorded in PR28 before merging its frontend.
+
+
+## Recording and timer repair — 12 November 2026
+
+The owner’s native trial exposed separate Stop/Send controls that could send
+before PCM finalization, and countdowns without an expiry action. Replace them
+with a single **Submit response** control. Starting the test requests microphone
+permission; the examiner speaks first and capture then starts automatically.
+Submit stops/finalizes the active recording and sends that WAV. A visible
+30-second response countdown automatically submits a new answer at its limit;
+Task3 continues across such clips, while manual Submit ends the opinion.
+Task deadlines save the final buffer and advance automatically; Task2 retains
+its full two-minute preparation and advances automatically afterward. Examiner
+processing is still excluded from the server task timer by the existing rule.
+
+Migration20261112002600 only grants ten seconds to upload a final buffer stopped
+at the task deadline. Actual recorded seconds remain capped server-side; it
+does not reset deadlines, change preparation, pricing, allowances or progress.
+No student data is rewritten. Silence/too-short audio is rejected locally
+before charging. Uncertain network requests retain the WAV and call ID for an
+explicit retry; pending requests are read/reconciled without redispatch. New
+timer submissions and their ten-credit charge are explained before Start.
+Final feedback remains a separately priced one-credit action below the tasks.
+
+Regression checks now include single-button interaction, examiner-first capture,
+automatic answer submission, task/preparation advance, saved-audio retry and
+pending reconciliation on390px/1440px. A Chromium fake microphone feeds real
+AudioContext PCM capture and the WAV encoder; both Submit and recording timeout
+produce one server-validated mono WAV each. These checks mock the authenticated
+network/provider, so the owner’s physical microphone and native AI turn remain
+a signed-in live verification step. The release rehearses/applies only pending
+versioned changes with the same preservation and JWT checks.

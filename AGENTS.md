@@ -51,6 +51,9 @@ For each task, state exactly: what was implemented, what was tested, what was no
   activities, impressions), why it was important, and **120–150 words**. Vary
   topics/content only; do not replace the task with a review, advice, complaint
   or recommendation. Preserve earlier saved papers with their original prompts.
+- Speaking tests use one Submit response button: start recording after the examiner,
+  finalize and send on Submit/response timeout, and advance tasks automatically
+  at expiry while preserving Task 2 preparation and explicit paid retries.
 - Provide top-left Back navigation across app views, preserve saved progress,
   and clear navigation history when the account/session changes.
 - Use distinctive achievement artwork and modern certificate presentation.

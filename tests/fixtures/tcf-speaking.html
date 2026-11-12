@@ -1,12 +1,25 @@
 <!doctype html><html><meta charset="utf-8"><link rel="stylesheet" href="/src/styles/academy.css"><body><div id="host"></div><script type="module">
 import {template} from '/src/ui/template.js';import {wireNavigation} from '/src/ui/navigation.js';import {wireTcfSpeaking} from '/src/exams/tcf-speaking/ui.js';import {TEST} from '/supabase/functions/academy-tcf-speaking/test.js';
+import {createSpeakingRecorder} from '/src/exams/tcf-speaking/recorder.js';import {inspectAudio} from '/supabase/functions/academy-ai/contracts.js';
+// Deterministic examiner playback: recording must wait until it ends.
+let spoken;Object.defineProperty(window,'speechSynthesis',{value:{cancel(){spoken?.onend?.();spoken=null},speak(utterance){spoken=utterance;if(!fixture.holdExaminer)setTimeout(()=>{utterance.onend?.();spoken=null},10)}}});
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
-const f=window.fixture={phase:0,calls:[],charges:0,disposed:0,callbacks:[],sent:[],user:'owner'},id='11111111-1111-4111-8111-111111111111';
-const snapshot=()=>({id,phase:f.phase,deadline:new Date(Date.now()+60000).toISOString(),serverNow:new Date().toISOString(),pending:null,calls:f.calls});
-const catalog={test:TEST,enabled:true,activities:{'tcf-speaking-turn':{enabled:true,credits:10},'tcf-speaking-feedback':{enabled:true,credits:1}},wallet:{available:500,budgetAvailable:true,expiresAt:'2099-01-01'},history:[]};
-f.catalog=catalog;
-const fetcher=async(url,init)=>{if(init.method==='GET')return Response.json(url.includes('?attempt=')?snapshot():catalog);const input=JSON.parse(init.body);f.sent.push(input);if(input.kind==='advance')f.phase++;if(input.kind==='turn'){f.charges+=10;f.calls.push({id:input.callId,phase:f.phase,kind:'turn',status:'completed',result:{transcript:'Je présente mon opinion.',reply:f.phase===3?'':'Pouvez-vous préciser ?',intelligible:true,observations:['Clear vowel.']}})}if(input.kind==='feedback'){f.charges++;f.calls.push({kind:'feedback',status:'completed',result:{score:12,nclc:'8',summary:'Add a concrete example to the argument.',missingTasks:[],criteria:['linguistic','pragmatic','sociolinguistic'].map(id=>({id,task:1,evidence:'Je présente mon opinion.',audioEvidence:['Clear vowel.'],reason:'The argument needs development.',improvement:'Give one example from work.'}))}})}return Response.json(snapshot())};
+const f=window.fixture={phase:0,calls:[],charges:0,disposed:0,callbacks:[],sent:[],user:'owner',holdExaminer:false,failNext:false,pending:false},id='11111111-1111-4111-8111-111111111111';
+const snapshot=()=>({id,phase:f.phase,deadline:new Date(Date.now()+(f.remaining??60000)).toISOString(),serverNow:new Date().toISOString(),pending:f.pending,calls:f.calls});
+const catalog={test:TEST,enabled:true,activities:{'tcf-speaking-turn':{enabled:true,credits:10},'tcf-speaking-feedback':{enabled:true,credits:1}},wallet:{available:500,budgetAvailable:true,expiresAt:'2099-01-01'},history:[]};f.catalog=catalog;
+function complete(input){f.charges+=10;f.calls.push({id:input.callId,phase:f.phase,kind:'turn',status:'completed',result:{transcript:'Je présente mon opinion.',reply:f.phase===3?'':'Pouvez-vous préciser ?',intelligible:true,observations:['Clear vowel.']}})}
+const fetcher=async(url,init)=>{if(init.method==='GET')return Response.json(url.includes('?attempt=')?snapshot():catalog);const input=JSON.parse(init.body);f.sent.push(input);
+ if(input.kind==='advance'){f.phase++;f.remaining=60000}
+ if(input.kind==='turn'){
+  if(f.real){const info=inspectAudio(input.audio);f.audioInfo={seconds:info.seconds,bytes:atob(input.audio).length}}
+  if(f.failNext){f.failNext=false;throw Error('Connection interrupted. Press Submit response to retry the saved audio.')}
+  if(f.deferNext){f.deferNext=false;f.pending=input.callId;f.finishPending=()=>{complete(input);f.pending=null};return Response.json({processing:true},{status:202})}
+  complete(input);
+ }
+ if(input.kind==='feedback'){f.charges++;f.calls.push({kind:'feedback',status:'completed',result:{score:12,nclc:'8',summary:'Add a concrete example to the argument.',missingTasks:[],criteria:['linguistic','pragmatic','sociolinguistic'].map(id=>({id,task:1,evidence:'Je présente mon opinion.',audioEvidence:['Clear vowel.'],reason:'The argument needs development.',improvement:'Give one example from work.'}))}})}return Response.json(snapshot())};
 const client={auth:{onAuthStateChange:fn=>f.callbacks.push(fn),getSession:async()=>({data:{session:{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:f.user}}}})}};
-f.ui=wireTcfSpeaking(root,client,{fetcher,recorderFactory:parent=>{parent.append(document.createElement('p'));return {getAudio:()=> 'fixture-wav',dispose:()=>f.disposed++}}});
-f.open=()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-speaking'));f.toRole=()=>{f.phase=2;return f.ui.open(id)};f.signOut=()=>f.callbacks.forEach(fn=>fn('SIGNED_OUT',null));window.fixtureReady=true;
+f.real=new URLSearchParams(location.search).has('real');let callbacks,recording=false;
+const fakeRecorder=options=>{callbacks=options;return {prepare:async()=>{if(f.denyMic)throw Error('Permission denied')},start:async()=>{f.starts=(f.starts||0)+1;recording=true;f.recording=true;options.onStatus('● Recording — speak now.')},stop:()=>{const was=recording;recording=false;f.recording=false;return was?'fixture-wav':null},isRecording:()=>recording,getAudio:()=>null,dispose:()=>{recording=false;f.recording=false;f.disposed++}}};
+f.ui=wireTcfSpeaking(root,client,{fetcher,recorderFactory:f.real?options=>{const recorder=createSpeakingRecorder(options);f.recorder=recorder;return recorder}:fakeRecorder});
+f.open=()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-speaking'));f.expireResponse=()=>{recording=false;f.recording=false;callbacks.onLimit('fixture-wav')};f.silentResponse=()=>{recording=false;f.recording=false;callbacks.onLimit(null)};f.finishExaminer=()=>{spoken?.onend?.();spoken=null};f.reopen=(phase,remaining=60000)=>{f.phase=phase;f.remaining=remaining;return f.ui.open(id)};f.signOut=()=>f.callbacks.forEach(fn=>fn('SIGNED_OUT',null));window.fixtureReady=true;
 </script></body></html>
