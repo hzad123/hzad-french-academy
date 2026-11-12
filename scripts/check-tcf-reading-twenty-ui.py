@@ -11,8 +11,8 @@ with sync_playwright() as p:
   page=browser.new_page(viewport={'width':width,'height':900});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
   page.goto('http://127.0.0.1:8765/tests/fixtures/tcf-reading.html');page.wait_for_function('window.fixtureReady',timeout=60000)
   page.get_by_role('button',name='Open TCF Reading tests',exact=True).click()
-  selector=page.get_by_label('Choose a TCF reading test');selector.wait_for();assert selector.locator('option').count()==20
-  rows=page.evaluate("async()=> (await fixture.db.query('select content from academy_tcf_reading.papers order by id')).rows.map(r=>r.content)")
+  selector=page.get_by_label('Choose a TCF reading test');selector.wait_for();assert selector.locator('option').all_text_contents()==[f'Test {n:02}' for n in range(1,21)]
+  rows=page.evaluate("async()=> (await fixture.db.query('select p.content from academy_tcf_reading.papers p join academy_tcf_reading.published_papers c on c.test_id=p.id and c.version=p.version order by p.id')).rows.map(r=>r.content)")
   saved=[]
   for number,paper in enumerate(rows,1):
    selector=page.get_by_label('Choose a TCF reading test');selector.select_option(paper['id'])
@@ -20,7 +20,7 @@ with sync_playwright() as p:
    page.get_by_role('heading',name=f'TCF Reading · Test {number:02}',exact=True).wait_for()
    page.get_by_role('heading',name='Question 1 sur 39',exact=True).wait_for();assert page.get_by_role('radio').count()==4
    assert page.get_by_role('navigation',name='Reading questions').get_by_role('button').count()==39
-   assert paper['questions'][0]['passage'] in page.locator('.hz-reading-passage').inner_text()
+   assert paper['questions'][0]['passage'] in page.locator('.hz-reading-passage').inner_text();assert page.get_by_role('heading',name='Texte :',exact=True).count()==1
    identity=page.evaluate('({id:fixture.last.id,deadline:fixture.last.deadline,testId:fixture.last.testId,version:fixture.last.version})');assert identity['testId']==paper['id'];assert identity['version']==paper['version']
    correct=paper['questions'][0]['correct'];page.get_by_role('radio').nth(ord(correct)-65).check();page.get_by_text('1/39 answers saved',exact=True).wait_for()
    # Visit another paper while this one remains unfinished. Neither paper's clock resets.

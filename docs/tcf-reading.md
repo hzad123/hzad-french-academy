@@ -158,3 +158,44 @@ Then merge into development and verify Pages plus live GHL assets. No new Edge
 function or provider credential path is required. Keep the additive schema and
 all bank versions on rollback; revert frontend/RPC only with version support for
 saved new attempts. Deployment outcomes are recorded in the release PR.
+
+### Reference-length correction — 12 November 2026
+
+The owner identified that Tests02–20 were much shorter than Test01, particularly
+at the end, and requested numbered labels without theme names. The selector now
+reads `Test 01` through `Test 20`. Questions show `Texte :`, the passage in
+paragraphs, the question and four selectable answers; review preserves paragraphs.
+
+New immutable banks in `supabase/exams/tcf-reading-v3` revise all741 passages,
+retaining their distinct topics and original question/answer evidence. Each
+passage is checked against the same position in Test01, using whitespace-delimited
+word counts with a tolerance of10% or5words, whichever is larger. The final four
+passages are120–151words, comparable to Test01's129–137words. Added material
+provides concrete situations, explanations and contrasting perspectives specific
+to the passage. Existing options, keys, explanations, points and timing remain.
+
+Migration `20261112222727_reading_reference_length.sql` adds19revised banks and a
+private RLS publication map selecting exactly20current papers. It replaces only
+the authenticated reading RPC's catalog/start routing. Test01 and all19v2banks
+remain immutable; saved attempts keep their original text, answers, results,
+version and deadline. Old versions can be reopened by their owning attempt ID,
+but new attempts use the published version. An unfinished v2attempt and a new
+v3attempt have distinct identities and retain their own clocks.
+
+Four additional Node tests cover every revised length, unique passages, exact
+migration seeds, all20perfect-score runs, key hiding, publication/legacy routing,
+rollback, preserved original banks/attempts/results, RLS and exact idempotent
+production transactions. The all20browser suite loads the current publication
+map and checks exact numbered labels at390px and1440px, plus independent clocks,
+answer selection, marked corrections and saved-paper reopening. The existing
+recovery/timer/account-isolation suite also uses the new migration.
+
+Publication uses the explicit `release/tcf-reading-reference-length` branch and
+`scripts/release/tcf-reading-reference.py`. It rehearses under rollback, checks
+existing data/settings/attempt hashes and every historical bank, commits the
+exact reviewed migration, then compares all39bank versions and20published papers
+with repository JSON. No student account creation or credential extraction is
+used. Database rollback should restore the previous RPC/publication mapping
+while retaining all bank versions needed by saved attempts. Live release and
+verification evidence is recorded in the PR; signed-in production student flows
+are tested using local Auth/entitlement fixtures rather than real credentials.
