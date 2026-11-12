@@ -15,7 +15,7 @@ with sync_playwright() as p:
   page.evaluate('fixture.catalog.wallet.available=0;fixture.open()');assert start.is_disabled();assert page.evaluate('fixture.charges')==0
   page.evaluate('fixture.catalog.wallet.available=500;fixture.open();fixture.holdExaminer=true');start.click()
   page.get_by_text('Examiner speaking…',exact=True).wait_for();assert not page.evaluate('fixture.recording');page.get_by_role('button',name='Submit response',exact=True).click();assert page.evaluate('fixture.charges')==0;page.evaluate('fixture.holdExaminer=false;fixture.finishExaminer()');page.wait_for_function('fixture.recording');assert page.evaluate('fixture.starts')==1
-  submit=page.get_by_role('button',name='Submit response',exact=True);assert submit.count()==1
+  submit=page.get_by_role('button',name='Submit response',exact=True);assert submit.count()==1;assert page.locator('#hz-tcf-speaking > .hz-writing-task').count()==3
   assert page.get_by_role('button',name='Stop recording',exact=True).count()==0
   submit.click();page.wait_for_function('fixture.charges===10 && fixture.recording');assert len(page.evaluate('fixture.sent.filter(x=>x.kind==="turn")'))==1
   # A new response times out: one automatic send, then next question/recording.

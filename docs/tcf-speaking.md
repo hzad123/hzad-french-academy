@@ -158,3 +158,12 @@ produce one server-validated mono WAV each. These checks mock the authenticated
 network/provider, so the owner’s physical microphone and native AI turn remain
 a signed-in live verification step. The release rehearses/applies only pending
 versioned changes with the same preservation and JWT checks.
+
+
+### Three-task presentation repair
+
+Display exactly three task cards, with preparation and speaking inside Task2.
+Keep the four server timing phases and saved attempts unchanged. Each completed
+examiner reply appears once in its conversation; the initial question appears
+only before the first saved turn. Recording status stays beside active controls.
+This is frontend-only, with no database migration or provider/policy changes.
