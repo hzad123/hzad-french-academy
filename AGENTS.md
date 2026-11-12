@@ -62,3 +62,7 @@ For each task, state exactly: what was implemented, what was tested, what was no
   top-right AI Learning button. The owner selected OpenAI for these trainers.
   Configure its key only in server-side secrets, and keep inference disabled
   until the credit prices, cost ceilings and provider setup are reviewed.
+
+- AI practice and AI test starts have no daily count limit. Use existing per-action
+  credits and total spending caps: CAD10 per student, CAD100 for the previously
+  granted owner testing account. Never refill/reset balances to remove a daily block.

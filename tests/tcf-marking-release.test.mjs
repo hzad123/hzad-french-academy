@@ -11,7 +11,7 @@ s=importlib.util.spec_from_file_location('release','scripts/release/tcf-marking.
 print(json.dumps(m.transaction(${JSON.stringify(files)},${commit?'True':'False'})))`],{encoding:'utf8'});
  assert.equal(result.status,0,result.stderr);return JSON.parse(result.stdout);
 }
-test('release transaction rehearses without writes, preserves student data, grants once, records exact migrations and rejects ambiguous owners',async()=>{
+test('release preserves student data and grants once; daily-count removal permits owner/student use while retaining total caps',async()=>{
  const db=new PGlite();const q=async(sql,args=[])=> (await db.query(sql,args)).rows;
  try{
  await db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;
@@ -46,5 +46,33 @@ test('release transaction rehearses without writes, preserves student data, gran
  for(let i=0;i<pending.length;i++)assert.deepEqual(records[i].statements,[await readFile('supabase/migrations/'+pending[i],'utf8')]);
  await q('select public.academy_tcf_writing_note_failure($1,$2,$3)',[owner,id,{code:'FEEDBACK_BOUNDS'}]);assert.equal((await q('select usage from academy_ai.requests where id=$1',[id]))[0].usage.failure.code,'FEEDBACK_BOUNDS');
  await db.exec(transaction([],true));assert.deepEqual(await q('select * from academy_ai.wallets order by user_id'),after);assert.equal((await q('select count(*)::int n from academy_ai.testing_grants'))[0].n,1);
+
+ // Latest owner instruction: no daily counts; monetary caps and balances remain.
+ await db.exec(await readFile('supabase/migrations/20261112002400_tcf_speaking_test01.sql','utf8'));
+ const usageTransaction=(apply,commit)=>{
+  const r=spawnSync('python3',['-c',`import importlib.util,json
+s=importlib.util.spec_from_file_location('usage','scripts/release/ai-total-credits.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+print(json.dumps(m.transaction(${apply?'True':'False'},${commit?'True':'False'})))`],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);return JSON.parse(r.stdout);
+ };
+ const signatures=['academy_ai.reserve(uuid,uuid,text,text,text,integer,uuid,text)','public.academy_tcf_writing_command(uuid,text,uuid,jsonb)','public.academy_tcf_speaking_command(uuid,text,uuid,jsonb)','public.academy_exam_command(uuid,text,uuid,jsonb)'];
+ const definition=async sig=>(await q('select pg_get_functiondef($1::regprocedure) d',[sig]))[0].d;
+ const originals=await Promise.all(signatures.map(definition));
+ await db.exec(usageTransaction(true,false));assert.deepEqual(await Promise.all(signatures.map(definition)),originals);
+ await db.exec(usageTransaction(true,true));
+ for(let i=0;i<signatures.length;i++){
+  const modified=await definition(signatures[i]);assert.equal(modified,originals[i].replace(/if \(select count\(\*\)[^\n]+raise exception 'Daily [^\n]+end if;/,'-- Daily AI usage is governed by credits and total budget.'));
+ }
+ assert.deepEqual(await q('select * from academy_ai.wallets order by user_id'),after);
+ await db.exec('update academy_ai.policy set daily_limit=1');
+ // Both ordinary student and owner can exceed the old daily count; no dispatch.
+ for(const user of [student,owner])for(let i=0;i<25;i++){
+  const call=crypto.randomUUID();await q("select public.academy_ai_reserve($1,$2,'tcf-writing','B2',$3,1,null,null)",[user,call,'b'.repeat(64)]);await q('select public.academy_ai_fail($1,$2)',[user,call]);
+ }
+ // The owner still cannot reserve past CAD100; students still cannot pass CAD10.
+ for(const user of [owner,student]){
+  await q('update academy_ai.wallets set spent_microcad=cap_microcad where user_id=$1',[user]);
+  await assert.rejects(()=>q("select public.academy_ai_reserve($1,$2,'tcf-writing','B2',$3,1,null,null)",[user,crypto.randomUUID(),'c'.repeat(64)]),/allowance reached/);
+ }
+ await db.exec(usageTransaction(false,true));
  }finally{await db.close()}
 });

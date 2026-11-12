@@ -231,3 +231,11 @@ its speaking NCLC equivalent. Hear actual student audio for pronunciation/
 fluency, use concrete evidence and keep feedback below all tasks. Preserve
 accounting, writing/results/progress and server-side secrets. Pilot details,
 validation and additive release/activation requirements: `docs/tcf-speaking.md`.
+
+### AI usage limit correction — 12 November 2026
+
+Owner explicitly removed daily AI request/test-start counts for all students.
+Per-action credits, total CAD10 student budgets and the existing CAD100 owner
+testing cap remain authoritative. Preserve balances/spend/history, no shared
+cap, no payment fabrication or allowance refill. This supersedes earlier daily
+AI limits. Non-AI placement/certificate assessment rules are outside this change.
