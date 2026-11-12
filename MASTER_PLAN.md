@@ -274,3 +274,16 @@ format, with different topics/themes and the same selectable answers, end-only
 correction sheet and totals. Publication is authorized by the standing instruction.
 Preserve all saved papers, responses, scores, auth/access and accounting. See
 `docs/tcf-reading.md` for versioned banks, additive migration and release evidence.
+
+### Reading reference-length correction — 12 November 2026
+
+The owner requested Tests02–20 match Test01's per-question passage lengths and
+format, especially its longer final questions, and remove theme names from all
+selector labels. The v3banks provide741revised passages; automated checks compare
+each with the corresponding Test01 passage (10% or5words tolerance). The final
+four texts are120–151words. Labels are `Test 01`–`Test 20`. Test01 and historical
+v2banks stay immutable; a private publication map exposes exactly20current papers
+while saved attempts retain their original versions/results/clocks. See
+`docs/tcf-reading.md` and the additive reference-length migration/release helper.
+The owner's standing publication authorization applies; verify backend and Pages
+before reporting live success.

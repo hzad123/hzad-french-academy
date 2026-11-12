@@ -29,7 +29,7 @@ export function wireTcfReading(root,client){
    area.append(el('p','39 questions · 60 minutes · Choose one answer per question. You can change your choices before submitting. Your marked answer sheet and total score appear at the end.'));
    if(!catalog.tests.some(p=>p.id===selectedTestId))selectedTestId=catalog.tests[0].id;
    const select=el('select');select.id='hz-reading-paper';select.setAttribute('aria-label','Choose a TCF reading test');
-   for(const p of catalog.tests){const option=el('option',p.title+(p.topic?' · '+p.topic:''));option.value=p.id;option.selected=p.id===selectedTestId;select.append(option)}
+   for(const p of catalog.tests){const option=el('option','Test '+p.id.slice(-2));option.value=p.id;option.selected=p.id===selectedTestId;select.append(option)}
    select.onchange=()=>{selectedTestId=select.value;render()};area.append(select);
    const paper=catalog.tests.find(p=>p.id===selectedTestId);
    area.append(button('Start Reading Test '+paper.id.slice(-2),()=>{void run(async(signal,current)=>{const next=await store.start(crypto.randomUUID(),paper,signal);if(current()){receive(next);index=0;render()}})},!!pending));
@@ -54,7 +54,7 @@ export function wireTcfReading(root,client){
   }
   const q=attempt.paper.questions[index],card=el('section',undefined,'hz-reading-question');card.lang='fr';
   const title=el('h4',`Question ${q.number} sur 39`);title.id='hz-reading-question-title';title.tabIndex=-1;card.append(title,el('p',`${q.points} points`,'hz-small'));
-  const passage=el('div',undefined,'hz-reading-passage');for(const para of q.passage.split('\n\n'))passage.append(el('p',para));card.append(passage);
+  card.append(el('h5','Texte :'));const passage=el('div',undefined,'hz-reading-passage');for(const para of q.passage.split('\n\n'))passage.append(el('p',para));card.append(passage);
   const fieldset=el('fieldset'),legend=el('legend',q.question);fieldset.append(legend);
   q.options.forEach((text,i)=>{const letter=String.fromCharCode(65+i),label=el('label',undefined,'hz-reading-option'),input=el('input');input.type='radio';input.name='reading-'+q.number;input.value=letter;input.checked=(pending?.id===attempt.id&&pending.number===q.number?pending.choice:attempt.answers[q.number])===letter;input.dataset.locked=String(!!pending||!remaining());input.onchange=()=>choose(q.number,letter);label.append(input,el('span',letter+'. '+text));fieldset.append(label)});card.append(fieldset);area.append(card);
   const actions=el('div',undefined,'hz-reading-actions');actions.append(button('Previous',()=>move(index-1),index===0,true),button('Next',()=>move(index+1),index===38,true));area.append(actions);
@@ -67,7 +67,7 @@ export function wireTcfReading(root,client){
   for(const row of result.rows){const q=attempt.paper.questions[row.number-1],card=el('article',undefined,'hz-reading-correction '+(row.isCorrect?'is-correct':'is-incorrect'));card.lang='fr';
    card.append(el('h5',`Question ${row.number} · ${row.isCorrect?'✓ Correct':row.selected?'✕ Incorrect':'— Unanswered'} · ${row.points}/${row.maxPoints} points`),el('p',q.question));
    const list=el('ul');q.options.forEach((text,i)=>{const letter=String.fromCharCode(65+i),correct=letter===row.correct,selected=letter===row.selected,option=el('li',`${letter}. ${text}${correct?' · ✓ Correct answer':''}${selected?' · Your answer':''}`,correct?'is-correct':selected?'is-incorrect':'');list.append(option)});card.append(list);if(!row.selected)card.append(el('p','Your answer: unanswered.'));card.append(el('p',row.explanation));
-   const source=el('details');source.append(el('summary','Revoir le texte'),el('p',q.passage));card.append(source);sheet.append(card);
+   const source=el('details');source.append(el('summary','Revoir le texte'));for(const para of q.passage.split('\n\n'))source.append(el('p',para));card.append(source);sheet.append(card);
   }
   sheet.append(el('strong',`Total score: ${result.correct}/39 correct · ${result.points}/${result.maxPoints} points`,'hz-reading-total'));area.append(sheet);
  }
