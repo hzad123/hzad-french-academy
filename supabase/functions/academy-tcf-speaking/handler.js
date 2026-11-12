@@ -17,22 +17,22 @@ export function createSpeakingHandler({authenticate,db,provider}){return async r
    return reply({test,activities:state.activities,wallet:state.wallet,enabled:state.enabled&&provider.ready(),history});
   }
   const reader=request.body?.getReader();let bytes=0,parts=[];if(!reader)return reply({error:'Choose a speaking action'},400);
-  while(true){const x=await reader.read();if(x.done)break;bytes+=x.value.length;if(bytes>1400000){await reader.cancel();return reply({error:'Recording too large'},413)}parts.push(x.value)}
+  while(true){const x=await reader.read();if(x.done)break;bytes+=x.value.length;if(bytes>11600000){await reader.cancel();return reply({error:'Recording too large'},413)}parts.push(x.value)}
   const all=new Uint8Array(bytes);let offset=0;for(const part of parts){all.set(part,offset);offset+=part.length}const input=JSON.parse(new TextDecoder().decode(all));
-  if(!input||Object.keys(input).some(k=>!['kind','id','callId','audio','expectedCredits'].includes(k))||!uuid(input.id)||!['start','advance','turn','feedback'].includes(input.kind))return reply({error:'Invalid speaking request'},400);
-  if(['start','advance'].includes(input.kind))return reply(await command(input.kind,input.id));
+  if(!input||Object.keys(input).some(k=>!['kind','id','callId','audio','expectedCredits'].includes(k))||!uuid(input.id)||!['start','advance','begin_monologue','turn','feedback'].includes(input.kind))return reply({error:'Invalid speaking request'},400);
+  if(['start','advance','begin_monologue'].includes(input.kind))return reply(await command(input.kind,input.id));
   if(!uuid(input.callId)||!Number.isSafeInteger(input.expectedCredits)||input.expectedCredits<1)return reply({error:'Refresh the speaking price'},400);
   let attempt=await command('read',input.id);if(input.kind==='feedback'&&attempt.calls.some(c=>c.kind==='feedback'&&c.status==='completed'))return reply(attempt);
   if(!provider.ready())return reply({error:'Speaking examiner is unavailable'},503);
   let recordingSeconds;
   if(input.kind==='turn'){
-   recordingSeconds=inspectAudio(input.audio).seconds;
+   recordingSeconds=inspectAudio(input.audio,attempt.phase===3?270:30).seconds;
    if(![0,2,3].includes(attempt.phase))return reply({error:'This speaking task is not active'},409);
    const used=attempt.calls.filter(c=>c.id!==input.callId&&c.kind==='turn'&&c.phase===attempt.phase&&c.status==='completed').reduce((n,c)=>n+(c.result?.seconds||0),0);
    if(used+recordingSeconds>TEST.phases[attempt.phase].seconds+.01)return reply({error:'Recorded speaking time for this task is complete'},409);
   }
   else if(input.audio||attempt.phase!==4)return reply({error:'Finish all three tasks before feedback'},409);
-  if(input.kind==='feedback'&&!attempt.calls.some(c=>c.kind==='turn'&&c.status==='completed'&&c.result?.intelligible))return reply({error:'Record intelligible French before requesting a score.'},409);
+  if(input.kind==='feedback'&&!attempt.calls.some(c=>c.kind==='turn'&&c.status==='completed'&&c.result?.intelligible&&c.result?.transcript?.trim()))return reply({error:'Record intelligible French before requesting a score.'},409);
   const kind='tcf-speaking-'+(input.kind==='turn'?'turn':'feedback'),hash=await fingerprint({attempt:input.id,phase:attempt.phase,kind:input.kind,audio:input.audio||null});
   await command('lock',input.id,{callId:input.callId,hash,kind:input.kind});
   try{

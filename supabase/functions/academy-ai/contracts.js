@@ -6,12 +6,13 @@ function text(value,max,label,{empty=false}={}){
  if(typeof value!=='string'||value.length>max||(!empty&&!value.trim()))throw new AiError(`Check ${label}.`);
  return value.trim();
 }
-export function inspectAudio(base64){
- if(typeof base64!=='string'||base64.length>1280060||!/^[A-Za-z0-9+/]*={0,2}$/.test(base64))throw new AiError('Record up to 30 seconds of French audio.');
+export function inspectAudio(base64,maxSeconds=30){
+ if(![30,270].includes(maxSeconds))throw new AiError('Invalid recording limit.');
+ if(typeof base64!=='string'||base64.length>Math.ceil((44+32000*maxSeconds)/3)*4||!/^[A-Za-z0-9+/]*={0,2}$/.test(base64))throw new AiError(`Record up to ${maxSeconds} seconds of French audio.`);
  let raw;try{raw=atob(base64)}catch{throw new AiError('Please record your audio again.')}
- const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0)),view=new DataView(bytes.buffer);
+ const bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);const view=new DataView(bytes.buffer);
  const str=(start,n)=>String.fromCharCode(...bytes.subarray(start,start+n));
- if(bytes.length<16044||bytes.length>960044||str(0,4)!=='RIFF'||str(8,8)!=='WAVEfmt '||str(36,4)!=='data'||view.getUint32(4,true)!==bytes.length-8||view.getUint32(16,true)!==16
+ if(bytes.length<16044||bytes.length>44+32000*maxSeconds||str(0,4)!=='RIFF'||str(8,8)!=='WAVEfmt '||str(36,4)!=='data'||view.getUint32(4,true)!==bytes.length-8||view.getUint32(16,true)!==16
  ||view.getUint16(20,true)!==1||view.getUint16(22,true)!==1||view.getUint32(24,true)!==16000||view.getUint32(28,true)!==32000||view.getUint16(32,true)!==2||view.getUint16(34,true)!==16||view.getUint32(40,true)!==bytes.length-44||(bytes.length-44)%2)throw new AiError('Please record your audio again.');
  let energy=0;for(let i=44;i<bytes.length;i+=2)energy+=(view.getInt16(i,true)/32768)**2;
  if(Math.sqrt(energy/((bytes.length-44)/2))<.003)throw new AiError('The recording is too quiet. Move closer to your microphone and try again.');

@@ -34,6 +34,6 @@ export function createSpeakingRecorder({onLimit=()=>{},onStatus=()=>{}}={}){
   }catch(error){stream?.getTracks().forEach(t=>t.stop());stream=null;void activeContext.close().catch(()=>{});context=null;throw error}
  }
  function finish(){if(!recording||disposed)return;const audio=stop();queueMicrotask(()=>{if(!disposed)onLimit(audio)})}
- async function start(seconds=30){await prepare();if(disposed)return;stop();data=null;chunks=[];frames=0;limit=Math.min(30,Math.max(.5,seconds));recording=true;onStatus('● Recording — speak now. Press Submit response when finished.');timer=setTimeout(finish,limit*1000)}
+ async function start(seconds=30){await prepare();if(disposed)return;stop();data=null;chunks=[];frames=0;limit=Math.min(270,Math.max(.5,seconds));recording=true;onStatus('● Recording — speak now. Press Submit response when finished.');timer=setTimeout(finish,limit*1000)}
  return {prepare,start,stop,isRecording:()=>recording,getAudio:()=>data,dispose(){disposed=true;recording=false;clearTimeout(timer);stream?.getTracks().forEach(t=>t.stop());for(const node of [source,processor,gain])try{node?.disconnect()}catch{};void context?.close().catch(()=>{});chunks=[];data=null}};
 }

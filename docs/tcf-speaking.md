@@ -179,3 +179,40 @@ saved clip also carry manual advance intent; pending reconciliation preserves it
 Final feedback repeats the same holistic TCF/20 and NCLC total below criterion
 sections, without inventing a score when any task lacks audible evidence.
 No migration, policy, pricing or provider changes are required.
+
+
+### Continuous Task3 and explicit score status — 12 November 2026
+
+Owner requires Task3 to be one uninterrupted270second monologue, with optional
+manual Submit early and automatic submission/completion at expiry. Browser and
+server now support one full PCM WAV (8,640,044bytes;11,520,060base64characters).
+Only Task3 accepts more than30seconds; pronunciation/conversation/other tasks
+retain their30second bounds. No Task3 follow-up questions or intermediate paid
+requests. Begin-monologue command arms its270second server clock once after
+examiner playback; reopening/repeating cannot extend it. Existing partial old
+monologues keep their remaining clock. One-minute transport grace for Task3
+allows the final full recording to upload; recorded seconds stay capped.
+
+Migration28 adds the private clock marker and raises only speaking-turn maximum
+output tokens1200to2000, with the same10credits, gpt-audio-mini model and
+CAD0.20 reserved ceiling. Provider Task3 transcript bound5000characters supports
+the longer answer. Provider wait<=90seconds and large-upload client wait<=150s.
+At reference gpt-audio-mini audio input USD10/M,25tokens/second, text input
+USD0.60/M and text output USD2.40/M, the enforced40,000UTF8byte text-input bound,
+270seconds and2000output tokens give USD0.0963, or CAD0.1926 at the2x FX buffer,
+below the existing CAD0.20 reservation. Analytical bound, not a measured native
+provider benchmark; no live inference is part of release validation.
+
+Final usable results still show holistic TCF/20 and NCLC above and below the
+criteria. Empty transcripts now identify missing tasks even if a provider
+incorrectly marked them intelligible; they cannot silently withhold the total
+with an empty missing-task list. Blank transcript rows show a recognition error
+rather than an empty You label. No score is invented for missing speech.
+Pending score labels explain that assessment is required. Saved earlier
+attempts/results remain intact; no wallet/policy or daily-count changes.
+
+Tests include real encoding of270seconds PCM with no callback at31seconds and
+one final validated WAV, denial of long WAVs outside Task3, one-time server
+clock arming, unchanged budgets/history, correct missing-task identification,
+and visible valid TCF/NCLC totals in desktop/mobile fixtures. Physical microphone
+and native full-length AI recognition/marking still require a signed-in trial.
