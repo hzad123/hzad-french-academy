@@ -47,10 +47,17 @@ with sync_playwright() as p:
   assert page.locator('.hz-writing-criterion').count()==3
   for name in ['Linguistic competence','Pragmatic competence','Sociolinguistic competence']:page.get_by_role('heading',name=name,exact=True).wait_for()
   assert page.get_by_role('heading',name='How to improve this criterion',exact=True).count()==3
+  assert page.evaluate("[...document.querySelectorAll('.hz-writing-task')].every(task=>Boolean(task.compareDocumentPosition(document.querySelector('.hz-writing-feedback'))&Node.DOCUMENT_POSITION_FOLLOWING))")
   page.get_by_text('Total estimated TCF writing score',exact=True).wait_for();page.get_by_text('NCLC equivalent',exact=True).wait_for()
   page.get_by_text('Tâche 2: link the activities to your impressions and explain why the experience mattered.',exact=True).wait_for()
   assert page.get_by_role('button',name='Update TCF feedback · 1 credit',exact=True).count()==0
   assert page.evaluate('fixture.charges')==1;assert page.evaluate('fixture.providerCalls')==1
+  page.evaluate("[...fixture.requests.values()][0].result.criteria[1].improvement='';fixture.ui.open([...fixture.rows.keys()][0])")
+  page.get_by_role('heading',name='Your writing result',exact=True).wait_for()
+  assert page.get_by_role('heading',name='How to improve this criterion',exact=True).count()==2
+  assert page.get_by_text('No criterion-specific correction identified.',exact=True).count()==0
+  page.get_by_text('12/20',exact=True).wait_for();page.get_by_text('NCLC 8',exact=True).wait_for()
+  assert page.evaluate("document.querySelector('.hz-writing-feedback').getBoundingClientRect().top>=document.querySelectorAll('.hz-writing-task')[2].getBoundingClientRect().bottom")
   page.screenshot(path=str(out/f'feedback-{width}.png'),full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   page.get_by_role('button',name='All 20 writing tests',exact=True).click();page.get_by_role('button',name='Test 01 ·',exact=False).click();page.get_by_text('12/20',exact=True).wait_for()
   assert page.evaluate('fixture.charges')==1;assert page.evaluate('fixture.providerCalls')==1
