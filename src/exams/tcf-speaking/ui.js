@@ -4,11 +4,11 @@ import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeakingRecorder}={}){
  const area=root.querySelector('#hz-tcf-speaking'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeSpeakingStore(client,fetcher);let catalog,attempt,recorder,timer,pollTimer,controller,cancelSpeech,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0;
+ const store=makeSpeakingStore(client,fetcher);let selectedTestId, catalog,attempt,recorder,timer,pollTimer,controller,cancelSpeech,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0;
  const left=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-offset)/1000)):0;
  const accept=value=>{attempt=value;offset=Date.parse(value.serverNow)-Date.now()};
  function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);cancelSpeech?.();globalThis.speechSynthesis?.cancel();capture=null;bootKey=null;answerDeadline=0;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();catalog=null;attempt=null;viewer=null}
+ function reset(){clear();catalog=null;attempt=null;viewer=null;selectedTestId=null}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset();if(session?.user?.id)viewer=session.user.id});
  function status(text){let p=area.querySelector('.hz-speaking-status');if(!p){p=el('p',undefined,'hz-speaking-status');p.setAttribute('role','status');area.append(p)}p.textContent=text}
@@ -33,7 +33,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   if(!visible||busy||!attempt||attempt.pending||capture||![0,2,3].includes(attempt.phase)||bootKey===key())return;
   if(!left()){void advance();return}
   const current=key(),ticket=epoch,answerTicket=++answerEpoch;bootKey=current;
-  try{await microphone().prepare();if(ticket!==epoch||answerTicket!==answerEpoch||current!==key())return;const same=completed().filter(c=>c.phase===attempt.phase);const question=same.length?same.at(-1).result.reply:catalog.test.phases[attempt.phase].opening;
+  try{await microphone().prepare();if(ticket!==epoch||answerTicket!==answerEpoch||current!==key())return;const same=completed().filter(c=>c.phase===attempt.phase);const question=same.length?same.at(-1).result.reply:attempt.test.phases[attempt.phase].opening;
    status(question?'Examiner speaking…':'The examiner is listening. Continue your opinion.');await speak(question);
    if(ticket!==epoch||answerTicket!==answerEpoch||current!==key()||busy)return;
    if(attempt.phase===3){accept(await store.send({kind:'begin_monologue',id:attempt.id}));if(ticket!==epoch||answerTicket!==answerEpoch)return}
@@ -55,7 +55,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   });
  }
  function schedulePoll(){clearTimeout(pollTimer);if(!visible||!attempt?.pending||pollCount>=40)return;pollTimer=setTimeout(()=>{pollCount++;void run(async(signal,current)=>{await reconcile(signal);if(current())render()})},1500)}
- function render(){clearInterval(timer);clearTimeout(pollTimer);area.replaceChildren();area.append(el('h3','TCF Speaking · Test 01'),button('← TEF/TCF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))));
+ function render(){clearInterval(timer);clearTimeout(pollTimer);area.replaceChildren();area.append(el('h3',attempt?.test?.title||'TCF Speaking'),button('← TEF/TCF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams'))));
  const turn=catalog.activities?.['tcf-speaking-turn'],grade=catalog.activities?.['tcf-speaking-feedback'];const ready=catalog.enabled&&turn?.enabled&&grade?.enabled;
  const canPay=cost=>ready&&Number.isSafeInteger(cost)&&catalog.wallet?.available>=cost&&catalog.wallet.budgetAvailable&&Date.parse(catalog.wallet.expiresAt)>Date.now();
  if(!attempt){
@@ -63,11 +63,17 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   area.append(el('p','Allow microphone access. The examiner asks a question, then recording starts automatically. Press Submit response to save your answer and move to the next task. Only Task 3 finishes the test. Tasks 1 and 2 save 30-second recordings during the conversation. Task 3 records continuously for the full 4 minutes 30 seconds.'));
   if(turn?.credits&&grade?.credits)area.append(el('p',`${turn.credits} AI credits per submitted response, including timer submissions; ${grade.credits} credit for final feedback. Up to 30 responses. Saved review is free.`));
   if(!ready)area.append(el('p','The AI speaking examiner is being prepared.'));
-  area.append(button('Start speaking Test 01',()=>{void run(async(signal,current)=>{try{await microphone().prepare()}catch{throw Error('Allow microphone access in your browser, then start the test again.')}const next=await store.send({kind:'start',id:crypto.randomUUID()},signal);if(current()){accept(next);render()}})},!canPay(3*(turn?.credits||0)+(grade?.credits||0))));
-  for(const row of catalog.history)area.append(button('Saved speaking test · '+new Date(row.createdAt).toLocaleDateString(),()=>{void open(row.id)}));
+  const papers=catalog.tests||[catalog.test];
+  if(!papers.some(p=>p.id===selectedTestId))selectedTestId=papers[0].id;
+  const select=el('select');select.id='hz-speaking-paper';select.setAttribute('aria-label','Choose a TCF speaking test');
+  for(const paper of papers){const option=el('option',paper.title+(paper.topic?' · '+paper.topic:''));option.value=paper.id;option.selected=paper.id===selectedTestId;select.append(option)}
+  select.onchange=()=>{selectedTestId=select.value;render()};area.append(select);
+  const selected=papers.find(p=>p.id===selectedTestId);
+  area.append(button('Start speaking Test '+selected.id.slice(-2),()=>{void run(async(signal,current)=>{try{await microphone().prepare()}catch{throw Error('Allow microphone access in your browser, then start the test again.')}const next=await store.send({kind:'start',id:crypto.randomUUID(),testId:selected.id,version:selected.version},signal);if(current()){accept(next);render()}})},!canPay(3*(turn?.credits||0)+(grade?.credits||0))));
+  for(const row of catalog.history)area.append(button('Saved speaking Test '+(row.test_id||'tcf-speaking-01').slice(-2)+' · '+new Date(row.createdAt).toLocaleDateString(),()=>{void open(row.id)}));
  }else{
   let roleBlock;
-  for(const [index,phase] of catalog.test.phases.entries()){
+  for(const [index,phase] of attempt.test.phases.entries()){
    const block=index===2?roleBlock:el('section',undefined,'hz-writing-task');
    if(index!==2){block.append(el('h4',index===1?'Task 2 · Information role-play':phase.name));area.append(block)}
    if(index===1)roleBlock=block;
@@ -97,7 +103,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
     for(const c of result.criteria){const card=el('article',undefined,'hz-writing-criterion');card.append(el('h5',labels[c.id]),el('blockquote','Task '+c.task+': '+c.evidence),el('p',c.reason));for(const observation of c.audioEvidence)card.append(el('p',observation,'hz-small'));if(c.improvement)card.append(el('h6','What to fix'),el('p',c.improvement));feedback.append(card)}
     if(result.score!==null)feedback.append(el('strong',`Total TCF speaking score: ${result.score}/20 · NCLC ${result.nclc}`));
     for(const task of result.missingTasks)feedback.append(el('p','Task '+task+': no usable speech was recognized. A TCF/NCLC total needs an audible response for all three tasks.'));area.append(feedback);
-   }else if(!attempt.pending){area.append(el('strong','TCF speaking score /20 and NCLC: awaiting assessment'));area.append(button(`Get TCF speaking feedback · ${grade?.credits??'—'} ${grade?.credits===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{const next=await store.send({kind:'feedback',id:attempt.id,callId:crypto.randomUUID(),expectedCredits:grade.credits},signal);if(next.processing)accept(await store.read(attempt.id,signal));else accept(next);if(current())render()})},!canPay(grade?.credits)));}
+   }else if(!attempt.pending){const assessment=el('div',undefined,'hz-speaking-assessment');area.append(assessment);assessment.append(el('strong','TCF speaking score /20 and NCLC: awaiting assessment'));assessment.append(button(`Get TCF speaking feedback · ${grade?.credits??'—'} ${grade?.credits===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{const next=await store.send({kind:'feedback',id:attempt.id,callId:crypto.randomUUID(),expectedCredits:grade.credits},signal);if(next.processing)accept(await store.read(attempt.id,signal));else accept(next);if(current())render()})},!canPay(grade?.credits)));}
    else area.append(button('Check saved feedback',()=>{void run(async(signal,current)=>{await reconcile(signal);if(current())render()})}));
   }
  }

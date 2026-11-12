@@ -1,14 +1,16 @@
 <!doctype html><html><meta charset="utf-8"><link rel="stylesheet" href="/src/styles/academy.css"><body><div id="host"></div><script type="module">
-import {template} from '/src/ui/template.js';import {wireNavigation} from '/src/ui/navigation.js';import {wireTcfSpeaking} from '/src/exams/tcf-speaking/ui.js';import {TEST} from '/supabase/functions/academy-tcf-speaking/test.js';
+import {template} from '/src/ui/template.js';import {wireNavigation} from '/src/ui/navigation.js';import {wireTcfSpeaking} from '/src/exams/tcf-speaking/ui.js';import {TESTS,publicTest} from '/supabase/functions/academy-tcf-speaking/bank.js';
+const TEST=TESTS[0];
 import {createSpeakingRecorder} from '/src/exams/tcf-speaking/recorder.js';import {inspectAudio} from '/supabase/functions/academy-ai/contracts.js';
 // Deterministic examiner playback: recording must wait until it ends.
 let spoken;Object.defineProperty(window,'speechSynthesis',{value:{cancel(){spoken?.onend?.();spoken=null},speak(utterance){spoken=utterance;if(!fixture.holdExaminer)setTimeout(()=>{utterance.onend?.();spoken=null},10)}}});
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
 const f=window.fixture={phase:0,calls:[],charges:0,disposed:0,callbacks:[],sent:[],user:'owner',holdExaminer:false,failNext:false,pending:false},id='11111111-1111-4111-8111-111111111111';
-const snapshot=()=>({id,phase:f.phase,deadline:new Date(Date.now()+(f.remaining??60000)).toISOString(),serverNow:new Date().toISOString(),pending:f.pending,calls:f.calls});
-const catalog={test:TEST,enabled:true,activities:{'tcf-speaking-turn':{enabled:true,credits:10},'tcf-speaking-feedback':{enabled:true,credits:1}},wallet:{available:500,budgetAvailable:true,expiresAt:'2099-01-01'},history:[]};f.catalog=catalog;
+const snapshot=()=>({id,test_id:f.paper?.id||TEST.id,version:f.paper?.version||TEST.version,test:publicTest(f.paper||TEST),phase:f.phase,deadline:new Date(Date.now()+(f.remaining??60000)).toISOString(),serverNow:new Date().toISOString(),pending:f.pending,calls:f.calls});
+const catalog={test:publicTest(TEST),tests:TESTS.map(publicTest),enabled:true,activities:{'tcf-speaking-turn':{enabled:true,credits:10},'tcf-speaking-feedback':{enabled:true,credits:1}},wallet:{available:500,budgetAvailable:true,expiresAt:'2099-01-01'},history:[]};f.catalog=catalog;
 function complete(input){f.charges+=10;f.calls.push({id:input.callId,phase:f.phase,kind:'turn',status:'completed',result:{transcript:'Je présente mon opinion.',reply:f.phase===3?'':'Pouvez-vous préciser ?',intelligible:true,observations:['Clear vowel.']}})}
 const fetcher=async(url,init)=>{if(init.method==='GET')return Response.json(url.includes('?attempt=')?snapshot():catalog);const input=JSON.parse(init.body);f.sent.push(input);
+ if(input.kind==='start')f.paper=TESTS.find(t=>t.id===input.testId);
  if(input.kind==='begin_monologue'&&!f.monologueBegun){f.monologueBegun=true;f.remaining=270000}
  if(input.kind==='advance'){f.phase++;f.remaining=60000}
  if(input.kind==='turn'){

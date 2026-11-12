@@ -216,3 +216,45 @@ one final validated WAV, denial of long WAVs outside Task3, one-time server
 clock arming, unchanged budgets/history, correct missing-task identification,
 and visible valid TCF/NCLC totals in desktop/mobile fixtures. Physical microphone
 and native full-length AI recognition/marking still require a signed-in trial.
+
+## Twenty-paper release — 12 November 2026
+
+The owner approved Test01 and authorized expansion/publication. This supersedes
+all pilot-only scope restrictions above. Test01's version, prompts and private
+brief are unchanged. `bank.js` adds nineteen original v2 papers with different
+personal interviews, candidate-led scenarios/private fictional facts and opinion
+topics. The authenticated public catalog strips private roles/briefs. The shared
+speaking selector remains inside TEF/TCF AI Tests, separate from AI Learning.
+
+Migration `20261112203619_speaking_twenty_papers.sql` adds `test_id`, defaults
+existing attempts to Test01, checks allowed paper/version pairs and prevents
+identity updates. The service-only command validates starts and refuses reused
+attempt IDs for a different paper. Reads return the saved public paper; both
+interlocutor and grader resolve the private version from saved server identity.
+The bank's existing versions must remain immutable in future releases. Saved
+Test01 calls/results and all clocks remain unchanged. A shared flex-column layout
+puts final-feedback purchase below the awaiting-score status with a small gap.
+
+Use the existing `release-tcf-speaking.yml` and `tcf-speaking.py --papers` path.
+It rehearses the additive migration in a rolled-back transaction, then applies
+and records the exact migration, deploying the bundled JWT-protected function.
+Within-transaction hashes preserve auth, entitlements, learning progress, all
+exam/writing/speaking attempts and calls, wallets, requests, ledger, testing grants,
+policy and activity settings. Only the new default identity field is excluded.
+Checks retain 10-credit voice / 1-credit feedback, CAD10 students, CAD100 existing
+owner and no shared cap. No account creation, key extraction, refill or inference.
+Rollback: revert frontend and speaking function to the previous build; retain the
+additive column, immutable identity trigger, all new attempts and existing bank
+versions. Do not drop data or rewrite saved versions.
+
+Validation: 217 Node tests pass (213 baseline), including all20 distinct papers,
+server-side selection for conversations and feedback, safe catalog/read output,
+legacy identity/preservation, rollback rehearsal, per-account isolation, reused
+IDs, immutable identity, tampered prices and one-time monologue clocks. Existing
+continuous270second WAV, duplicate-charge, pending/recovery and score tests pass.
+Desktop/mobile browser fixtures additionally exercise all20 selectors, saved
+paper reopening after selecting another paper, exactly3cards, continuous Task3,
+shared spacing and navigation microphone cleanup; existing Submit/preparation/
+score/signout checks and Chromium fake-device PCM capture also run. These are
+fixture/provider mocks, not a physical microphone or native OpenAI session.
+Publication outcome will be recorded after the release and Pages checks.

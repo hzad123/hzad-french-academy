@@ -51,8 +51,10 @@ def deploy(bundle):
     print(json.dumps({k:result.get(k) for k in ['slug','status','version','verify_jwt']}))
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--bundle',type=Path,required=True);parser.add_argument('--apply',action='store_true',required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--bundle',type=Path,required=True);parser.add_argument('--apply',action='store_true',required=True);parser.add_argument('--papers',action='store_true');args=parser.parse_args()
     if not args.bundle.is_file():raise RuntimeError('Build the speaking Edge bundle first.')
+    if args.papers:
+        spec=importlib.util.spec_from_file_location('papers',Path(__file__).with_name('speaking-papers.py'));papers=importlib.util.module_from_spec(spec);spec.loader.exec_module(papers);papers.release(args.bundle,deploy);return
     pending=pending_files()
     names={row['name'] for row in api('/secrets')}
     if 'OPENAI_API_KEYfrench' not in names:raise RuntimeError('Existing OpenAI secret binding is missing.')

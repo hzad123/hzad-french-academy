@@ -1,7 +1,7 @@
 name: Release TCF speaking Test01
 on:
   push:
-    branches: [feature/tcf-speaking-test-01-20261112, fix/tcf-speaking-submit-flow-20261112]
+    branches: [feature/tcf-speaking-test-01-20261112, fix/tcf-speaking-submit-flow-20261112, feature/tcf-speaking-twenty-papers]
 permissions:
   contents: read
 concurrency:
@@ -25,4 +25,4 @@ jobs:
       - name: Preserve data, deploy and activate Test01
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-        run: python3 scripts/release/tcf-speaking.py --apply --bundle /tmp/tcf-speaking-release.ts
+        run: python3 scripts/release/tcf-speaking.py --apply --bundle /tmp/tcf-speaking-release.ts ${{ github.ref_name == 'feature/tcf-speaking-twenty-papers' && '--papers' || '' }}
