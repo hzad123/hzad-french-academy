@@ -29,7 +29,7 @@ with sync_playwright() as p:
   page.evaluate('fixture.reopen(0,800)');page.wait_for_function('fixture.phase===1');assert page.evaluate('fixture.charges')==50;assert not page.evaluate('fixture.recording');assert submit.count()==0
   # Preparation expiry is free and starts candidate-led role-play automatically.
   page.evaluate('fixture.reopen(1,300)');page.wait_for_function('fixture.phase===2 && fixture.recording');assert page.evaluate('fixture.charges')==50
-  submit.click();page.wait_for_function('fixture.phase===3 && fixture.recording');assert page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).count()==0;assert page.evaluate('fixture.charges')==60
+  submit.click();page.wait_for_function('fixture.phase===3 && fixture.recording');assert page.evaluate('fixture.recordingLimit')==270;assert 'Response 30s' not in page.locator('#hz-tcf-speaking').inner_text();assert page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).count()==0;assert page.evaluate('fixture.charges')==60
   submit.click();page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).wait_for();assert page.evaluate('fixture.phase')==4
   page.get_by_role('button',name='Get TCF speaking feedback · 1 credit',exact=True).click();page.get_by_role('heading',name='Your TCF speaking result',exact=True).wait_for()
   page.get_by_text('Estimated TCF speaking 12/20 · NCLC 8',exact=True).wait_for();assert page.locator('.hz-writing-criterion').count()==3;page.get_by_text('Total TCF speaking score: 12/20 · NCLC 8',exact=True).wait_for()

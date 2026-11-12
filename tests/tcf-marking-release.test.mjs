@@ -49,6 +49,7 @@ test('release preserves student data and grants once; daily-count removal permit
 
  // Latest owner instruction: no daily counts; monetary caps and balances remain.
  await db.exec(await readFile('supabase/migrations/20261112002400_tcf_speaking_test01.sql','utf8'));
+ await db.exec(await readFile('supabase/migrations/20261112002600_speaking_final_upload_grace.sql','utf8'));
  const usageTransaction=(apply,commit)=>{
   const r=spawnSync('python3',['-c',`import importlib.util,json
 s=importlib.util.spec_from_file_location('usage','scripts/release/ai-total-credits.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
@@ -74,5 +75,15 @@ print(json.dumps(m.transaction(${apply?'True':'False'},${commit?'True':'False'})
   await assert.rejects(()=>q("select public.academy_ai_reserve($1,$2,'tcf-writing','B2',$3,1,null,null)",[user,crypto.randomUUID(),'c'.repeat(64)]),/allowance reached/);
  }
  await db.exec(usageTransaction(false,true));
+ await db.exec("update academy_ai.activities set enabled=true,credits=10,model='gpt-audio-mini',ceiling_microcad=200000,max_output_tokens=1200 where kind='tcf-speaking-turn'");
+ const monoTransaction=(commit)=>{const r=spawnSync('python3',['-c',`import importlib.util,json
+s=importlib.util.spec_from_file_location('mono','scripts/release/continuous-monologue.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+print(json.dumps(m.transaction(True,${commit?'True':'False'})))`],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);return JSON.parse(r.stdout)};
+ await db.exec(monoTransaction(false));await db.exec(monoTransaction(true));
+ const attempt=crypto.randomUUID();await q("select academy_tcf_speaking_command($1,'start',$2)",[owner,attempt]);await q("update academy_tcf_speaking.attempts set phase=3,deadline=now()+interval '1 second' where id=$1",[attempt]);
+ const cmd=async()=>(await q("select academy_tcf_speaking_command($1,'begin_monologue',$2) v",[owner,attempt]))[0].v;
+ const armed=await cmd();assert(Date.parse(armed.deadline)-Date.parse(armed.serverNow)>=269000);const again=await cmd();assert.equal(again.deadline,armed.deadline);
+ const cols=await q('select * from academy_ai.wallets order by user_id');assert.equal(cols[0].cap_microcad,100000000);assert.equal(cols[1].cap_microcad,10000000);
+
  }finally{await db.close()}
 });

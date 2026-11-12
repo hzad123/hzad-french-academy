@@ -66,3 +66,7 @@ For each task, state exactly: what was implemented, what was tested, what was no
 - AI practice and AI test starts have no daily count limit. Use existing per-action
   credits and total spending caps: CAD10 per student, CAD100 for the previously
   granted owner testing account. Never refill/reset balances to remove a daily block.
+
+- Task3 speaking is one continuous270second monologue, no30second sends or
+  examiner follow-ups. Start its clock after the opening prompt, once only.
+  Show total TCF/20 and NCLC for usable evidence; identify missing speech explicitly.

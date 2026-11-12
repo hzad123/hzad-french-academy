@@ -1,0 +1,27 @@
+name: Release continuous speaking monologue
+on:
+  push:
+    branches: [fix/tcf-continuous-monologue]
+permissions:
+  contents: read
+concurrency:
+  group: continuous-monologue-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - run: npm test
+      - run: npm run build
+      - name: Bundle JWT-protected speaking function
+        run: node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-tcf-speaking/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/continuous-monologue.ts'});"
+      - name: Rehearse and preserve all balances before removing daily counts
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/release/continuous-monologue.py
