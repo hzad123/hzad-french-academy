@@ -266,3 +266,11 @@ Complete tests, create/update the PR, apply safe additive backend changes, merge
 to development, publish and verify live assets without requesting confirmation
 again. Retain rollback paths and all student data, auth/access and accounting
 guardrails. This is not a request to alter prices, reset wallets or destroy data.
+
+### Twenty TCF reading tests — 12 November 2026
+
+The owner requested Tests02–20, preserving Test01 and the39-question/60-minute
+format, with different topics/themes and the same selectable answers, end-only
+correction sheet and totals. Publication is authorized by the standing instruction.
+Preserve all saved papers, responses, scores, auth/access and accounting. See
+`docs/tcf-reading.md` for versioned banks, additive migration and release evidence.
