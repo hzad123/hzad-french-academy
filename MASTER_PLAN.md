@@ -301,3 +301,14 @@ Preserve auth/access, existing tests/results/progress and accounting. This
 standalone deterministic practice follows reading's non-AI marking pattern;
 standing publication authorization applies. Source evidence, additive schema,
 audio provenance, validation and release: `docs/tcf-listening.md`.
+
+
+### Listening Next and final Submit — 13 November 2026
+
+The owner requested **Next** on listening questions 1–38 and exactly one
+**Submit test** action on question 39. Remove the early Submit/confirmation
+controls and the always-visible Continue audio button; show audio recovery only
+when playback needs it. Persist forward navigation on the server without
+resetting the original 35-minute clock or changing saved answers/results,
+question banks or recordings. See `docs/tcf-listening.md` for the additive
+navigation migration and release. Standing publication authorization applies.
