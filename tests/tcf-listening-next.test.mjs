@@ -76,3 +76,36 @@ test('reviewed Next release rehearses and reruns while preserving earlier academ
  const advanced=await cmd(bob,'next',active.id,{number:1,revision:0});await db.exec(transaction('False','False'));await db.exec(transaction('False','True'));const reopened=await cmd(bob,'read',active.id);assert.equal(reopened.currentQuestion,2);assert.equal(reopened.questionStartedAt,advanced.questionStartedAt);assert.equal(reopened.deadline,active.deadline);assert.deepEqual((await cmd(alice,'read',old.id)).result,old.result);assert.equal((await q('select count(*)::int n from supabase_migrations.schema_migrations'))[0].n,1);
  }finally{await db.close()}
 });
+
+
+test('explicit fresh start begins at question one and preserves an earlier active attempt as a marked result',async()=>{
+ const {db,cmd,start}=await fixture();try{
+  await db.exec(pilotMigration);await db.exec(migration);
+  const freshMigration=await readFile('supabase/migrations/20261113194000_tcf_listening_fresh_start.sql','utf8');
+  await db.exec(freshMigration);
+  let prior=await start();const priorId=prior.id,priorDeadline=prior.deadline;
+  prior=await cmd(alice,'answer',priorId,{number:1,choice:paper.questions[0].correct,revision:prior.revision});
+  prior=await cmd(alice,'next',priorId,{number:1,revision:prior.revision});
+  assert.equal(prior.currentQuestion,2);
+  const nextId=crypto.randomUUID();
+  const fresh=await cmd(alice,'restart',nextId,identity);
+  assert.equal(fresh.id,nextId);assert.notEqual(fresh.id,priorId);
+  assert.equal(fresh.currentQuestion,1);assert.equal(fresh.status,'active');
+  assert.deepEqual(fresh.answers,{});assert.equal(fresh.revision,0);
+  assert.equal(Date.parse(fresh.deadline)-Date.parse(fresh.startedAt),2100000);
+  assert.equal(fresh.questionStartedAt,fresh.startedAt);
+  const earlier=await cmd(alice,'read',priorId);
+  assert.equal(earlier.status,'completed');assert.equal(earlier.deadline,priorDeadline);
+  assert.equal(earlier.result.correct,1);assert.equal(earlier.result.unanswered,38);
+  assert.equal(earlier.answers[1],paper.questions[0].correct);
+  assert.equal((await cmd(alice,'restart',nextId,identity)).id,nextId);
+  assert.equal((await start()).id,nextId);
+  assert.equal((await cmd(alice,'read',priorId)).result.correct,1);
+  await assert.rejects(()=>cmd(bob,'restart',priorId,identity),/not found/);
+  await assert.rejects(()=>cmd(alice,'restart',crypto.randomUUID(),{testId:'tcf-listening-02',version:identity.version}),/changed/);
+  await assert.rejects(()=>cmd(alice,'restart',crypto.randomUUID(),{...identity,score:39}),/Invalid/);
+  const history=await cmd(alice,'catalog');assert.equal(history.history.length,2);
+  assert(history.history.some(row=>row.id===priorId&&row.status==='completed'));
+  assert(history.history.some(row=>row.id===nextId&&row.status==='active'));
+ }finally{await db.close()}
+});
