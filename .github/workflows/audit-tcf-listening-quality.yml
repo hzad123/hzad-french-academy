@@ -1,0 +1,27 @@
+name: Editorial QA - TCF listening uniqueness and distractors
+on:
+  push:
+    branches: [fix/tcf-listening-unique-content-distractors-qa]
+    paths:
+      - .github/workflows/audit-tcf-listening-quality.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/tcf-listening-unique-content-distractors-qa
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit 18 published source banks against repetition and answer-length cues
+        run: node scripts/audit-tcf-listening-quality.mjs
+      - name: Save quality report even when tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcf-listening-editorial-qa-report
+          path: reports/tcf-listening-editorial-qa.json
