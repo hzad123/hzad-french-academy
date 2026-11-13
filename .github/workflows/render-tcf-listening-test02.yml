@@ -44,4 +44,6 @@ jobs:
           git add assets/tcf-listening/tcf-listening-2026-11-test02-v1 supabase/exams/tcf-listening-test02.json
           if git diff --cached --quiet; then echo "No audio changes"; exit 0; fi
           git commit -m "Build and verify 39 real French recordings for TCF Listening Test 02"
+          git fetch origin feature/tcf-listening-multitest-engine
+          git rebase origin/feature/tcf-listening-multitest-engine
           git push origin HEAD:feature/tcf-listening-multitest-engine
