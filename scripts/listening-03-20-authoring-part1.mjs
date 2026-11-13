@@ -57,3 +57,5 @@ const qgens=[
 (c)=>S(c,20,'dialogue',"Quelle est l'inquiétude principale de la visiteuse ?",[narrator("Votre projet me plaît et les horaires sont pratiques, mais j'aimerais revenir avant de confirmer mon inscription."),speaker("Y a-t-il une information qui vous manque ?"),narrator("Oui, je voudrais comprendre comment vous protégez "+c.concern+". J'ai eu une mauvaise expérience ailleurs et je préfère poser mes questions avant de m'engager."),speaker("C'est tout à fait normal. Je peux vous présenter nos procédures en détail.")],"Elle souhaite obtenir des garanties sur "+c.concern+".",["Elle trouve le prix trop élevé.","Elle ne connaît pas le lieu de rendez-vous.","Elle veut reporter une réservation de transport."],"Elle juge les horaires adaptés mais souhaite éclaircir la question de "+c.concern+".")
 ];
 if(qgens.length!==20)throw Error('First part expected 20 items');
+
+export {qgens,input,source,S,narrator,speaker,voice};
