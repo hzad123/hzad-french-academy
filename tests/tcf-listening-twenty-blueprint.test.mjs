@@ -27,8 +27,16 @@ test('twenty listening paper plan retains exact first-pilot navigation, question
   }
  }
 });
-test('required listening release assets cannot be spoofed by editorial briefs',()=>{
+test('editorial briefs cannot masquerade as complete papers; finished papers require real media',async()=>{
  const out=execFileSync('node',['scripts/check-tcf-listening-twenty.mjs'],{encoding:'utf8'});
  assert.match(out,/NOT playable tests/i);
- assert.throws(()=>execFileSync('node',['scripts/check-tcf-listening-twenty.mjs','--verify-release'],{encoding:'utf8',stdio:'pipe'}),/Missing complete listening bank/);
+ const lastPaper=await readFile('supabase/exams/tcf-listening-test20.json','utf8').catch(()=>null);
+ if(lastPaper){
+  // After final audio production the original release validator must pass,
+  // rather than continue expecting the 18 independent test files to be absent.
+  const verified=execFileSync('node',['scripts/check-tcf-listening-twenty.mjs','--verify-release'],{encoding:'utf8'});
+  assert.match(verified,/Ready for independent human audio\/editorial review/);
+ }else{
+  assert.throws(()=>execFileSync('node',['scripts/check-tcf-listening-twenty.mjs','--verify-release'],{encoding:'utf8',stdio:'pipe'}),/Missing complete listening bank/);
+ }
 });

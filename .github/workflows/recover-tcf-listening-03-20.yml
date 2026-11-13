@@ -1,0 +1,79 @@
+name: Recover verified TCF Listening 03-20 audio without stale files
+on:
+  push:
+    branches:
+      - feature/tcf-listening-tests03-to20-production
+    paths:
+      - .github/workflows/recover-tcf-listening-03-20.yml
+permissions:
+  contents: write
+  actions: read
+jobs:
+  assemble-verified:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-tests03-to20-production
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore independently revised scripts and all 72 illustrations
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43518769456
+          github-token: ${{ github.token }}
+          name: editorial-source
+          path: .
+      - name: Retrieve each separately verified audio batch without merging its contents
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43518769456
+          github-token: ${{ github.token }}
+          pattern: recorded-group-*
+          path: tcf-artifact-groups
+      - name: Select ONLY the three validated recordings/papers from each batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          for start in 3 6 9 12 15 18; do
+            for n in $(seq "$start" $((start + 2))); do
+              label=$(printf '%02d' "$n")
+              version="tcf-listening-2026-11-test${label}-v1"
+              src="tcf-artifact-groups/recorded-group-${start}/assets/tcf-listening/${version}"
+              dst="assets/tcf-listening/${version}"
+              test -f "${src}/manifest.json"
+              test -f "tcf-artifact-groups/recorded-group-${start}/supabase/exams/tcf-listening-test${label}.json"
+              rm -rf "${dst}/audio"
+              mkdir -p "${dst}/audio"
+              cp "${src}/audio/"q-*.mp3 "${dst}/audio/"
+              cp "${src}/manifest.json" "${dst}/manifest.json"
+              cp "${src}/AUDIO-LICENSES.md" "${dst}/AUDIO-LICENSES.md"
+              cp "tcf-artifact-groups/recorded-group-${start}/supabase/exams/tcf-listening-test${label}.json" "supabase/exams/tcf-listening-test${label}.json"
+            done
+          done
+      - name: Check ALL 702 actual MP3s and immutable bank metadata together
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          node scripts/check-tcf-listening-tests03-20.mjs --ready
+      - name: Stage 18 release migrations for later production publication
+        run: node scripts/write-tcf-listening-03-20-release.mjs
+      - name: Commit and safely push ONLY complete verified paper versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tcf-listening/tcf-listening-2026-11-test??-v1 supabase/exams/tcf-listening-test??.json supabase/migrations/202611132340*_tcf_listening_test??_release.sql
+          if git diff --cached --quiet; then echo "Already committed"; exit 0; fi
+          git commit -m "Publish verified revised French scripts and 702 matching MP3 recordings"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin feature/tcf-listening-tests03-to20-production
+            git rebase origin/feature/tcf-listening-tests03-to20-production
+            if git push origin HEAD:feature/tcf-listening-tests03-to20-production; then exit 0; fi
+            sleep 3
+          done
+          echo "Failed to push verified TCF media safely" >&2
+          exit 1
