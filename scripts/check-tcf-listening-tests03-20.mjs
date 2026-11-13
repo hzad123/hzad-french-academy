@@ -12,6 +12,7 @@ const genres=new Set(['image','response','announcement','dialogue','radio-news',
 const assert=(p,msg)=>{if(!p)throw Error(msg)};
 const textSeen=new Set(ref.questions.map(q=>q.transcript));
 const keys=new Map();
+const answersByNumber=new Map();
 for(const num of paperNos){
  const id=String(num).padStart(2,'0'),context=contexts.find(c=>c.n===num);
  const source=ready?'supabase/exams/tcf-listening-test'+id+'.json':'curriculum/tcf-listening-build/test'+id+'-audio-pending.json';
@@ -31,6 +32,13 @@ for(const num of paperNos){
   assert(Array.isArray(q.segments)&&q.segments.length>=2&&q.segments.every(s=>['female','male'].includes(s.voice)&&s.text?.length>5),'Missing complete voice segments: '+label);
   assert(!textSeen.has(q.transcript),'Duplicate transcript across tests: '+label);textSeen.add(q.transcript);
   assert(!q.transcript.includes('undefined')&&!q.transcript.includes('null'),'Unfilled authoring field: '+label);
+  const editorialText=q.transcript+' '+q.options.join(' ');
+  assert(!/\\b(?:de\\s+(?:le|un|une)|à\\s+le|que\\s+un(?:e)?)\\b/i.test(editorialText),
+   'Unidiomatic French contraction: '+label);
+  if(q.number>8){
+   if(!answersByNumber.has(q.number))answersByNumber.set(q.number,[]);
+   answersByNumber.get(q.number).push(q.options['ABCD'.indexOf(q.correct)]);
+  }
   assert(q.transcript.includes('Question '+q.number+'.'),'Missing spoken question index: '+label);
   const spoken=q.segments.map(s=>s.text).join('\n');
   assert(spoken===q.transcript,'Transcript and spoken audio segments mismatch: '+label);
@@ -62,5 +70,12 @@ for(const num of paperNos){
  for(const kind of genres)assert(forms.has(kind),'Missing required listening genre '+kind+': '+id);
  assert(rawLength>13000,'Missing substantial source French material: '+id);
  keys.set(id,rawLength);
+}
+if(paperNos.length===18){
+ for(const [question,answers] of answersByNumber){
+  // Except for the four intentionally repeated research-method concepts at
+  // Q31, prevent copy-and-paste answer choices across separate exams.
+  if(question!==31)assert(new Set(answers).size>=16,'Repeated correct response patterns at Q'+question);
+ }
 }
 console.log((ready?'READY':'DRAFT')+' TCF listening validation PASSED: '+paperNos.length+' papers; '+(39*paperNos.length)+' unique items; 35min/test; all 14 genres; forward-only Test02 format preserved; '+(ready?'audio hashed':'no unpublished audio claims')+'.');
