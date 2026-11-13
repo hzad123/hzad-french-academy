@@ -89,7 +89,7 @@ const advanced=[
 "Le débat oppose deux lieux sans rapport avec l’évaluation."
 ],"L’opposition porte sur l’importance relative des chiffres et des observations de terrain."),
 (c)=>S(c,30,'interview',"Quelle conception du patrimoine ou de l'héritage collectif l'invitée défend-elle ?",[
- speaker('Votre établissement doit évoluer. Certaines personnes craignent qu’il perde son identité. Que leur répondez-vous ?'),
+ speaker('Votre établissement, où se déroule '+c.activity+', doit évoluer. Certaines personnes craignent qu’il perde son identité. Que leur répondez-vous ?'),
  narrator('Nous ne devons pas confondre conservation et immobilité. Les éléments qui racontent l’histoire d’un endroit méritent d’être documentés et protégés. Mais si un bâtiment ou une institution ne répond plus aux besoins actuels, son avenir peut aussi passer par de nouveaux usages. Il faut expliquer les transformations, garder les traces significatives et écouter les personnes attachées au lieu. Le projet ne réussira pas si l’on gomme toute mémoire ; il ne réussira pas davantage si l’on interdit toute adaptation. L’enjeu est de transmettre un sens sans empêcher la vie de continuer.')
 ],"Conserver les traces significatives tout en permettant des usages adaptés aux besoins actuels.",[
 "Interdire chaque modification, même mineure, pour toujours.",
