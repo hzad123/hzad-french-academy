@@ -1,0 +1,63 @@
+name: Record original listening Tests04–06 v2
+on:
+  push:
+    branches: [feature/tcf-listening-04-20-original-v2]
+    paths:
+      - .github/workflows/render-original-listening-04-06.yml
+permissions:
+  contents: write
+jobs:
+  author-and-record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-04-20-original-v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile separately authored French question banks
+        run: |
+          node scripts/assemble-original-listening-v2.mjs 4
+          node scripts/assemble-original-listening-v2.mjs 5
+          node scripts/assemble-original-listening-v2.mjs 6
+      - name: Install pinned offline French speech tools
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Download French voices to temporary runner storage
+        run: |
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium fr_FR-upmc-medium
+      - name: Record Test04, then Test05, then Test06 independently
+        run: |
+          for number in 4 5 6; do
+            python scripts/render-original-listening-v2.py --models "$RUNNER_TEMP/models" --test "$number" || exit 1
+          done
+      - name: Verify actual MP3s, paraphrases, picture originality and answer balance
+        run: node --test tests/tcf-listening-04-06-original-v2.test.mjs
+      - name: Stage the immutable release migrations
+        run: node scripts/write-listening-original-04-06-v2-release.mjs
+      - name: Commit verified exam media and question banks
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for number in 04 05 06; do
+            cp assets/tcf-listening/tcf-listening-2026-11-test02-v1/AUDIO-LICENSES.md "assets/tcf-listening/tcf-listening-2026-11-test${number}-v2/AUDIO-LICENSES.md"
+          done
+          git add assets/tcf-listening/tcf-listening-2026-11-test0?-v2 supabase/exams/tcf-listening-test0?-v2.json supabase/migrations/2026111323590?_tcf_listening_test0?_v2_editorial.sql
+          git commit -m "Deliver three original listening papers, 117 validated audio recordings, twelve new pictures"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin feature/tcf-listening-04-20-original-v2
+            git rebase origin/feature/tcf-listening-04-20-original-v2
+            if git push origin HEAD:feature/tcf-listening-04-20-original-v2; then exit 0; fi
+            sleep 3
+          done
+          exit 1
