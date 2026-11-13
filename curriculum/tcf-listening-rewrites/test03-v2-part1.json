@@ -1,0 +1,291 @@
+{
+  "paper": 3,
+  "version": "tcf-listening-2026-11-test03-v2",
+  "state": "ORIGINAL_UNRECORDED",
+  "questions": [
+    {
+      "number": 1,
+      "kind": "image",
+      "question": "Quelle description correspond à l’image ?",
+      "scene": "pharmacy-prescription",
+      "speech": "",
+      "options": [
+        "Le pharmacien explique une ordonnance à une cliente.",
+        "Le pharmacien remet un colis à une cliente.",
+        "La cliente signe un formulaire de livraison.",
+        "La cliente demande où se trouve le médecin."
+      ],
+      "answer": 0,
+      "why": "Le professionnel indique une ligne sur l'ordonnance que la cliente tient devant lui."
+    },
+    {
+      "number": 2,
+      "kind": "image",
+      "question": "Quelle description correspond à l’image ?",
+      "scene": "clinic-number-display",
+      "speech": "",
+      "options": [
+        "Une patiente remplit un dossier au guichet.",
+        "Une patiente vérifie son numéro sur l'écran.",
+        "Une patiente règle une facture au secrétariat.",
+        "Une patiente demande un rendez-vous à l'accueil."
+      ],
+      "answer": 1,
+      "why": "La patiente consulte le numéro lumineux affiché au-dessus des sièges."
+    },
+    {
+      "number": 3,
+      "kind": "image",
+      "question": "Quelle description correspond à l’image ?",
+      "scene": "nurse-gloves-demonstration",
+      "speech": "",
+      "options": [
+        "L'infirmière prépare une injection devant son collègue.",
+        "L'infirmière met ses gants après une consultation.",
+        "L'infirmière montre un geste d'hygiène à son collègue.",
+        "L'infirmière vérifie une prescription avec son collègue."
+      ],
+      "answer": 2,
+      "why": "L'infirmière fait une démonstration du port de gants à une autre personne."
+    },
+    {
+      "number": 4,
+      "kind": "image",
+      "question": "Quelle description correspond à l’image ?",
+      "scene": "blood-pressure",
+      "speech": "",
+      "options": [
+        "Le médecin examine une blessure sur le bras du patient.",
+        "Le médecin mesure la température de son patient.",
+        "Le patient règle lui-même le bracelet de son appareil.",
+        "Le médecin vérifie la tension artérielle de son patient."
+      ],
+      "answer": 3,
+      "why": "Le brassard et le tensiomètre servent à mesurer la pression artérielle."
+    },
+    {
+      "number": 5,
+      "kind": "response",
+      "question": "Quelle réponse convient à la situation ?",
+      "speech": "F|Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?",
+      "options": [
+        "Ils seront disponibles demain dès neuf heures.",
+        "Ils ont été prélevés ce matin à neuf heures.",
+        "Ils doivent être présentés avant votre rendez-vous.",
+        "Ils sont conservés à l'hôpital depuis lundi."
+      ],
+      "answer": 0,
+      "why": "L'employée répond à la disponibilité des résultats, et précise que ce sera demain."
+    },
+    {
+      "number": 6,
+      "kind": "response",
+      "question": "Quelle réponse convient à la situation ?",
+      "speech": "M|Je me suis trompé de jour pour mon rendez-vous. Que dois-je faire ?",
+      "options": [
+        "Présentez-vous un quart d'heure avant l'heure prévue.",
+        "Téléphonez à l'accueil pour demander un autre créneau.",
+        "Gardez le reçu de paiement jusqu'à votre prochaine visite.",
+        "Attendez près de la porte jusqu'à l'arrivée du médecin."
+      ],
+      "answer": 1,
+      "why": "La réponse utile à une erreur de date est de demander un autre rendez-vous."
+    },
+    {
+      "number": 7,
+      "kind": "response",
+      "question": "Quelle réponse convient à la situation ?",
+      "speech": "F|Est-ce que cette consultation est possible par téléphone ?",
+      "options": [
+        "Cette consultation dure généralement une vingtaine de minutes.",
+        "Cette consultation nécessite une ordonnance du médecin.",
+        "Oui, la médecin peut vous rappeler dans l'après-midi.",
+        "Oui, le cabinet reçoit encore des patients cet après-midi."
+      ],
+      "answer": 2,
+      "why": "La troisième proposition confirme explicitement la possibilité d'une consultation téléphonique."
+    },
+    {
+      "number": 8,
+      "kind": "response",
+      "question": "Quelle réponse convient à la situation ?",
+      "speech": "M|J'ai perdu la carte avec le numéro du cabinet. Vous pouvez m'aider ?",
+      "options": [
+        "Vous pouvez laisser vos affaires à la réception.",
+        "Vous trouverez les tarifs sur la porte d'entrée.",
+        "Vous pouvez reporter le rendez-vous au mois prochain.",
+        "Je vais vous écrire le numéro sur une feuille."
+      ],
+      "answer": 3,
+      "why": "La réponse fournit de nouveau le numéro demandé, plutôt qu'une information secondaire."
+    },
+    {
+      "number": 9,
+      "kind": "announcement",
+      "question": "Où les patients doivent-ils se présenter ce matin ?",
+      "speech": "F|Mesdames et messieurs, l'accueil des consultations externes a été déplacé aujourd'hui. Le rez-de-chaussée est réservé aux urgences pendant la maintenance informatique. Les patients ayant un rendez-vous sont invités à rejoindre le premier étage par l'escalier de droite. Un agent les attend devant le bureau douze. Le service reprendra son emplacement habituel demain.",
+      "options": [
+        "Au premier étage, près du bureau douze.",
+        "Au rez-de-chaussée, près du bureau douze.",
+        "Au premier étage, près du bureau quatorze.",
+        "Au rez-de-chaussée, près du bureau quatorze."
+      ],
+      "answer": 0,
+      "why": "L'accueil temporaire se trouve au premier étage, vers le bureau douze."
+    },
+    {
+      "number": 10,
+      "kind": "dialogue",
+      "question": "Pourquoi la cliente ne repart-elle pas avec son traitement habituel ?",
+      "speech": "F|Bonjour, je viens renouveler mon traitement. Voici mon ordonnance.\nM|Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique.\nF|Ma médecin m'avait recommandé de ne pas changer sans la prévenir.\nM|Dans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution.\nF|Je préfère cette solution, merci.",
+      "options": [
+        "Elle souhaite vérifier la substitution avec son médecin.",
+        "Elle préfère un traitement de dosage différent.",
+        "Elle a perdu le renouvellement de son ordonnance.",
+        "Elle attend un appel sur les délais de livraison."
+      ],
+      "answer": 0,
+      "why": "Elle ne souhaite pas accepter le générique sans confirmation médicale."
+    },
+    {
+      "number": 11,
+      "kind": "announcement",
+      "question": "Quel document doit-on présenter lors du don ?",
+      "speech": "M|Le centre de collecte remercie les personnes inscrites à la séance de samedi. Afin de faciliter l'enregistrement, présentez une pièce d'identité avec photographie. Le questionnaire de santé pourra être rempli sur place. Il n'est pas nécessaire d'imprimer le courriel de confirmation, mais pensez à respecter l'heure de votre réservation.",
+      "options": [
+        "Le courriel portant le numéro de réservation.",
+        "Une pièce d'identité avec photographie.",
+        "Le questionnaire de santé signé à l'avance.",
+        "Un certificat du médecin datant de moins d'un mois."
+      ],
+      "answer": 1,
+      "why": "La pièce d'identité avec photo est exigée; les autres documents ne le sont pas."
+    },
+    {
+      "number": 12,
+      "kind": "dialogue",
+      "question": "Quel arrangement les deux personnes choisissent-elles ?",
+      "speech": "M|Le camion de consultation sera au village mardi, mais ma mère ne peut pas se déplacer seule jusqu'à la place.\nF|Il passera ensuite à la résidence, à quinze heures.\nM|C'est beaucoup plus simple. Est-ce que je dois appeler pour réserver ?\nF|Oui, demandez un rendez-vous pour la permanence à la résidence. Elle n'aura pas besoin de venir au centre du village.",
+      "options": [
+        "Un passage à la place du village en matinée.",
+        "Un transport vers le cabinet mardi après-midi.",
+        "Une consultation à la résidence dans l'après-midi.",
+        "Un rendez-vous au domicile du fils mercredi matin."
+      ],
+      "answer": 2,
+      "why": "Ils retiennent la permanence de quinze heures à la résidence."
+    },
+    {
+      "number": 13,
+      "kind": "announcement",
+      "question": "Pourquoi le rendez-vous de vaccination est-il reporté ?",
+      "speech": "F|Nous informons les personnes inscrites à la campagne de vaccination de mercredi que les injections auront lieu vendredi aux mêmes horaires. La livraison de doses attendue lundi est arrivée incomplète et un nouveau lot sera disponible jeudi. Toutes les réservations sont conservées; aucun nouvel enregistrement n'est nécessaire.",
+      "options": [
+        "Une livraison arrivée après l'heure des rendez-vous.",
+        "Un changement de personnel prévu en milieu de semaine.",
+        "Une commande passée dans le mauvais établissement.",
+        "Une quantité de doses reçues inférieure aux besoins."
+      ],
+      "answer": 3,
+      "why": "Le report résulte d'une livraison de doses incomplète."
+    },
+    {
+      "number": 14,
+      "kind": "dialogue",
+      "question": "Quelle consigne l'infirmière donne-t-elle au parent ?",
+      "speech": "M|Ma fille a de la fièvre depuis hier. Elle boit encore, mais elle est très fatiguée. Dois-je venir tout de suite ?\nF|Je ne peux pas poser un diagnostic par téléphone. Surveillez son état et contactez votre médecin aujourd'hui. Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours.\nM|Je comprends. Je vais téléphoner à son cabinet.",
+      "options": [
+        "Demander un avis médical et rester attentive à l'évolution.",
+        "Se rendre au cabinet seulement si la fièvre dure longtemps.",
+        "Se présenter immédiatement aux urgences malgré l'état stable.",
+        "Changer la posologie avant de contacter le médecin."
+      ],
+      "answer": 0,
+      "why": "L'infirmière demande un avis médical aujourd'hui et indique des signes d'urgence."
+    },
+    {
+      "number": 15,
+      "kind": "radio-news",
+      "question": "Quel est l'objectif principal du dispositif présenté ?",
+      "speech": "F|Dans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps.",
+      "options": [
+        "Mieux suivre les prises et transmettre les difficultés au prescripteur.",
+        "Changer les doses selon les observations recueillies en pharmacie.",
+        "Faire intervenir le pharmacien à la place du médecin traitant.",
+        "Réorienter les patients vers un nouveau traitement systématique."
+      ],
+      "answer": 0,
+      "why": "Le service vise l'observance et la transmission d'informations au médecin, pas le remplacement du prescripteur."
+    },
+    {
+      "number": 16,
+      "kind": "dialogue",
+      "question": "Pourquoi la séance de conseil nutritionnel est-elle raccourcie ?",
+      "speech": "F|Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.\nM|Est-ce à cause du nombre de patients ?\nF|Non, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires.\nM|D'accord, je préparerai mon carnet de repas.",
+      "options": [
+        "Le dossier de la patiente exige un examen complémentaire.",
+        "La professionnelle doit assurer une autre visite après la séance.",
+        "Le patient souhaite écourter les échanges sur ses habitudes.",
+        "Une urgence médicale retarde toutes les consultations du jeudi."
+      ],
+      "answer": 1,
+      "why": "La professionnelle doit assurer une autre visite, et propose un échange complémentaire."
+    },
+    {
+      "number": 17,
+      "kind": "announcement",
+      "question": "Par quelle entrée faut-il rejoindre le cabinet ?",
+      "speech": "M|En raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi. Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. La signalisation a été installée ce matin, et la réception est assurée normalement.",
+      "options": [
+        "Par l'entrée située directement sur l'avenue.",
+        "Par l'accès de la cour depuis la rue des Écoles.",
+        "Par la porte des consultations d'urgence de l'établissement.",
+        "Par l'entrée du personnel derrière la réception."
+      ],
+      "answer": 1,
+      "why": "L'accès temporaire se fait par la cour depuis la rue des Écoles."
+    },
+    {
+      "number": 18,
+      "kind": "telephone",
+      "question": "Pourquoi la secrétaire propose-t-elle un nouvel appel ?",
+      "speech": "F|Cabinet du docteur Perrin, bonjour.\nM|Je viens d'avoir un message pour un rendez-vous en cardiologie, mais j'avais demandé la dermatologie.\nF|Je vois deux dossiers au même nom. Je préfère vérifier votre date de naissance sans discuter de renseignements médicaux au téléphone. Le secrétariat spécialisé pourra vous rappeler dans l'heure.\nM|Très bien, je garde mon téléphone près de moi.",
+      "options": [
+        "Le patient souhaite un autre spécialiste dans le même service.",
+        "Le secrétariat doit confirmer l'horaire d'un rendez-vous prévu.",
+        "Une erreur possible d'attribution de dossier doit être contrôlée.",
+        "La consultation doit être validée auprès du médecin référent."
+      ],
+      "answer": 2,
+      "why": "Le patient mentionne une spécialité différente de sa demande; un rappel permettra de vérifier."
+    },
+    {
+      "number": 19,
+      "kind": "announcement",
+      "question": "Quelle activité aura lieu en dehors du bâtiment ?",
+      "speech": "F|La journée de prévention de samedi proposera des démonstrations à l'intérieur du centre et une courte marche accompagnée dans le parc voisin. Les conseils sur l'alimentation auront lieu dans la salle bleue. En cas de forte pluie, seule la marche sera remplacée par une séance de mobilité sous le préau.",
+      "options": [
+        "Une séance sur les habitudes alimentaires dans la salle bleue.",
+        "Une démonstration du matériel de prévention sous le préau.",
+        "Une discussion avec les intervenants dans le hall d'accueil.",
+        "Une marche encadrée sur les chemins du parc voisin."
+      ],
+      "answer": 3,
+      "why": "La marche accompagnée se déroulera dans le parc."
+    },
+    {
+      "number": 20,
+      "kind": "dialogue",
+      "question": "Qu'est-ce qui inquiète surtout la patiente ?",
+      "speech": "M|Les résultats sont encourageants. Vous pourrez bientôt reprendre la marche.\nF|Je suis soulagée, mais j'habite au quatrième étage et l'ascenseur tombe régulièrement en panne.\nM|Dans ce cas, commençons par de petits trajets sur terrain plat et prévoyons une évaluation avec la kinésithérapeute.\nF|Oui, je ne veux pas me retrouver bloquée dans l'escalier.",
+      "options": [
+        "Elle craint les escaliers de son immeuble au retour des soins.",
+        "Elle craint de manquer les séances de rééducation à domicile.",
+        "Elle redoute les longs trajets pour se rendre au cabinet.",
+        "Elle s'inquiète des douleurs pendant les prochaines séances."
+      ],
+      "answer": 0,
+      "why": "La patiente craint les escaliers de son immeuble alors qu'elle reprend la marche."
+    }
+  ]
+}
