@@ -1,0 +1,140 @@
+name: Produce original TCF Listening Tests 03-20
+on:
+  push:
+    branches:
+      - feature/tcf-listening-tests03-to20-production
+    paths:
+      - .github/workflows/produce-tcf-listening-03-20.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tcf-listening-03-to20-source
+  cancel-in-progress: false
+jobs:
+  editorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-tests03-to20-production
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Author every French paper with a fixed TCF structural contract
+        run: node scripts/listening-03-20-authoring-part2.mjs
+      - name: Render 72 original picture listening stimuli
+        run: node scripts/generate-tcf-listening-03-20-images.mjs
+      - name: Audit all 702 distinct authored scripts and picture stimuli
+        run: node scripts/check-tcf-listening-tests03-20.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: editorial-source
+          retention-days: 7
+          path: |
+            curriculum/tcf-listening-build/test??-audio-pending.json
+            assets/tcf-listening/tcf-listening-2026-11-test??-v1/images/*.svg
+  audio:
+    needs: editorial
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        start: [3, 6, 9, 12, 15, 18]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-tests03-to20-production
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve already-audited editorial source and artwork
+        uses: actions/download-artifact@v4
+        with:
+          name: editorial-source
+          path: .
+      - name: Install pinned offline French speech renderer
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Download original French voice models
+        run: |
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium fr_FR-upmc-medium
+      - name: Build and verify a small batch of three separate exams
+        shell: bash
+        env:
+          START: ${{ matrix.start }}
+        run: |
+          set -euo pipefail
+          for n in $(seq "$START" $((START + 2))); do
+            echo "::group::Original French Test $(printf '%02d' "$n")"
+            python scripts/render-tcf-listening-tests03-20.py --models "$RUNNER_TEMP/models" --test "$n"
+            node scripts/check-tcf-listening-tests03-20.mjs --ready --test "$n"
+            version=$(printf 'tcf-listening-2026-11-test%02d-v1' "$n")
+            cp assets/tcf-listening/tcf-listening-2026-11-test02-v1/AUDIO-LICENSES.md "assets/tcf-listening/$version/AUDIO-LICENSES.md"
+            echo "::endgroup::"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recorded-group-${{ matrix.start }}
+          retention-days: 7
+          compression-level: 0
+          path: |
+            supabase/exams/tcf-listening-test??.json
+            assets/tcf-listening/tcf-listening-2026-11-test??-v1/audio/*.mp3
+            assets/tcf-listening/tcf-listening-2026-11-test??-v1/manifest.json
+            assets/tcf-listening/tcf-listening-2026-11-test??-v1/AUDIO-LICENSES.md
+  collect:
+    needs: audio
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-tests03-to20-production
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore original illustrated scenes
+        uses: actions/download-artifact@v4
+        with:
+          name: editorial-source
+          path: .
+      - name: Restore 702 verified original French recordings
+        uses: actions/download-artifact@v4
+        with:
+          pattern: recorded-group-*
+          merge-multiple: true
+          path: .
+      - name: Confirm all 18 papers, audio hashes, timing and test formats
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          node scripts/check-tcf-listening-tests03-20.mjs --ready
+      - name: Stage separate immutable database migrations
+        run: node scripts/write-tcf-listening-03-20-release.mjs
+      - name: Commit completed assets and banks as one verified set
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tcf-listening/tcf-listening-2026-11-test??-v1 supabase/exams/tcf-listening-test??.json supabase/migrations/202611132340*_tcf_listening_test??_release.sql
+          if git diff --cached --quiet; then echo "Already committed"; exit 0; fi
+          git commit -m "Build 18 independently recorded TCF Listening exams, 702 MP3s and 72 illustrations"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin feature/tcf-listening-tests03-to20-production
+            git rebase origin/feature/tcf-listening-tests03-to20-production
+            if git push origin HEAD:feature/tcf-listening-tests03-to20-production; then exit 0; fi
+            sleep 3
+          done
+          echo "Could not safely publish the checked media commit" >&2
+          exit 1
