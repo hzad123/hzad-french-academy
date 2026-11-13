@@ -3,7 +3,7 @@
 import {qgens,input,source,S,narrator,speaker,voice} from './listening-03-20-authoring-part1.mjs';
 const advanced=[
 (c)=>S(c,21,'announcement',"Pour quelle raison les volontaires doivent-ils préciser leurs disponibilités ?",[
- narrator('Message de '+c.place+'. Dans le cadre de '+c.event+', nous recherchons des volontaires pour l’accueil, la préparation des salles et l’orientation des visiteurs. Certaines personnes pourront rester toute la journée, d’autres seulement une heure. Afin d’éviter de réunir trop de monde en début de matinée et de manquer d’aide en fin d’après-midi, veuillez indiquer vos horaires avant mercredi. Vous recevrez ensuite un planning personnalisé. Aucune expérience préalable n’est exigée.')
+ narrator('Annonce locale. Dans '+c.place+', à l’occasion de '+c.event+', nous recherchons des volontaires pour l’accueil, la préparation des salles et l’orientation des visiteurs. Certaines personnes pourront rester toute la journée, d’autres seulement une heure. Afin d’éviter de réunir trop de monde en début de matinée et de manquer d’aide en fin d’après-midi, veuillez indiquer vos horaires avant mercredi. Vous recevrez ensuite un planning personnalisé. Aucune expérience préalable n’est exigée.')
 ],"Pour répartir les équipes selon les besoins des différents créneaux.",[
 "Pour sélectionner uniquement les personnes ayant déjà travaillé dans le secteur.",
 "Pour annuler les activités prévues après midi.",
@@ -76,7 +76,7 @@ const advanced=[
 ],"L’experte critique une conception descendante sans consultation préalable."),
 (c)=>S(c,29,'debate',"Quelle divergence méthodologique oppose les intervenants ?",[
  narrator('Vous écoutez un débat consacré à '+c.theme.toLowerCase()+'.'),
- speaker('Pour évaluer le projet, regardons des indicateurs vérifiables. '+c.metric.charAt(0).toUpperCase()+c.metric.slice(1)+' permettrait de comparer les périodes et de guider nos choix.'),
+ speaker('Pour évaluer le projet, regardons des indicateurs vérifiables. Nous pourrions mesurer '+c.metric+' et comparer les périodes avant de décider.'),
  narrator('C’est utile, mais il faut aussi rencontrer les personnes concernées. '+c.problem.charAt(0).toUpperCase()+c.problem.slice(1)+'. Cette réalité risque de disparaître derrière une moyenne flatteuse.'),
  speaker('Je ne nie pas l’intérêt des témoignages. Mais nous ne pouvons pas attendre plusieurs années avant d’ajuster le programme.'),
  narrator('Nous pouvons suivre des chiffres dès maintenant et mener des observations sur le terrain. Le désaccord porte sur ce que nous considérons comme une preuve suffisante, pas sur le besoin d’agir.')
@@ -86,7 +86,7 @@ const advanced=[
 "Le débat oppose deux lieux sans rapport avec l’évaluation."
 ],"L’opposition porte sur l’importance relative des chiffres et des observations de terrain."),
 (c)=>S(c,30,'interview',"Quelle conception du patrimoine ou de l'héritage collectif l'invitée défend-elle ?",[
- speaker('Le lieu consacré à '+c.theme.toLowerCase()+' doit évoluer. Certaines personnes craignent qu’il perde son identité. Que leur répondez-vous ?'),
+ speaker('Votre établissement doit évoluer. Certaines personnes craignent qu’il perde son identité. Que leur répondez-vous ?'),
  narrator('Nous ne devons pas confondre conservation et immobilité. Les éléments qui racontent l’histoire d’un endroit méritent d’être documentés et protégés. Mais si un bâtiment ou une institution ne répond plus aux besoins actuels, son avenir peut aussi passer par de nouveaux usages. Il faut expliquer les transformations, garder les traces significatives et écouter les personnes attachées au lieu. Le projet ne réussira pas si l’on gomme toute mémoire ; il ne réussira pas davantage si l’on interdit toute adaptation. L’enjeu est de transmettre un sens sans empêcher la vie de continuer.')
 ],"Conserver les traces significatives tout en permettant des usages adaptés aux besoins actuels.",[
 "Interdire chaque modification, même mineure, pour toujours.",
@@ -105,7 +105,7 @@ return S(c,31,'academic-monologue',"Quelle précaution méthodologique la confé
 narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche porte sur '+c.theme.toLowerCase()+' et, plus précisément, sur '+c.metric+'. '+v[1]+' Cette prudence est particulièrement importante ici : '+c.problem+'. Les décideurs ont besoin de résultats compréhensibles, mais la simplicité d’une présentation ne doit jamais faire oublier les limites de la méthode. Une interprétation responsable indique à la fois ce que l’on sait, ce que l’on suppose et ce qui reste à examiner.')
 ],v[2],v[3],"La conférencière recommande de "+v[2].charAt(0).toLowerCase()+v[2].slice(1))},
 (c)=>S(c,32,'interview',"Comment la spécialiste souhaite-t-elle communiquer les limites de ses prévisions ?",[
- speaker('Vous avancez des projections concernant '+c.theme.toLowerCase()+', mais sans annoncer de résultat certain. Cela ne risque-t-il pas de troubler le public ?'),
+ speaker('Vous avancez des projections concernant '+c.service+', mais sans annoncer de résultat certain. Cela ne risque-t-il pas de troubler le public ?'),
  narrator('Au contraire, il faut expliquer ce que nos données permettent d’affirmer. Nous pouvons décrire des tendances, identifier des facteurs de risque et proposer plusieurs scénarios. Mais nous ne connaissons pas à l’avance chaque décision individuelle ni toutes les conditions qui modifieront le résultat. Cette incertitude n’annule pas l’utilité de la recherche : elle invite à préparer des mesures adaptées et à les réévaluer. Un chiffre extrêmement précis, présenté sans contexte, peut donner une fausse impression de certitude. Il vaut mieux communiquer les hypothèses, une fourchette raisonnable et ce qui pourrait modifier nos conclusions.')
 ],"Expliquer les hypothèses, les marges d'incertitude et les conditions de révision.",[
 "Présenter une prédiction unique comme absolument certaine.",
@@ -113,14 +113,14 @@ narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche
 "Mettre sur le même plan toutes les estimations, indépendamment des preuves."
 ],"Elle défend une communication transparente sur les limites et la robustesse des prévisions."),
 (c)=>S(c,33,'commentary',"Quelle critique la chroniqueuse formule-t-elle à propos des chiffres présentés ?",[
- narrator('Les responsables de '+c.place+' mettent en avant un résultat spectaculaire : la fréquentation a augmenté depuis '+c.change+'. C’est une information utile, mais elle ne suffit pas à juger de la qualité du dispositif. Qui a pu en bénéficier ? Les personnes les plus éloignées du service y ont-elles réellement accès ? Et surtout, comment observer '+c.metric+' ? Un indicateur de volume n’est pas automatiquement un indicateur de progrès. Il faut aussi regarder les effets indirects, les coûts pour certains groupes et la stabilité des résultats dans le temps. Sans cela, un succès de communication peut masquer un problème qui n’a pas été résolu.')
+ narrator('Dans '+c.place+', les responsables mettent en avant un résultat spectaculaire : la fréquentation a augmenté depuis '+c.change+'. C’est une information utile, mais elle ne suffit pas à juger de la qualité du dispositif. Qui a pu en bénéficier ? Les personnes les plus éloignées du service y ont-elles réellement accès ? Et surtout, comment observer '+c.metric+' ? Un indicateur de volume n’est pas automatiquement un indicateur de progrès. Il faut aussi regarder les effets indirects, les coûts pour certains groupes et la stabilité des résultats dans le temps. Sans cela, un succès de communication peut masquer un problème qui n’a pas été résolu.')
 ],"Le nombre de visiteurs ou de participants ne suffit pas à mesurer les bénéfices réels.",[
 "La hausse de fréquentation prouve à elle seule le succès de toutes les mesures.",
 "Les données chiffrées ne peuvent jamais apporter d’information utile.",
 "L’évaluation doit porter exclusivement sur le coût du matériel."
 ],"La chroniqueuse distingue un indicateur de fréquentation et une véritable mesure des effets."),
 (c)=>S(c,34,'roundtable',"Quelle condition commune les participants retiennent-ils ?",[
- narrator('Vous écoutez une table ronde consacrée à '+c.service+'.'),
+ narrator('Vous écoutez une table ronde sur les difficultés rencontrées dans '+c.place+'.'),
  speaker('Nous avons mis en place des outils, mais les usagers signalent encore des difficultés inattendues.'),
  narrator('Certaines personnes n’arrivent pas à terminer la démarche sans aide. Cela pose notamment la question de '+c.concern+'.'),
  speaker('Dans notre évaluation, nous avons surtout compté les connexions ou les visites, pas l’achèvement des démarches.'),
@@ -133,7 +133,7 @@ narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche
 "Limiter toute consultation aux personnes ayant conçu le dispositif."
 ],"Les intervenants conviennent d’associer les usagers à l’évaluation et de maintenir une assistance."),
 (c)=>S(c,35,'interview',"Quelle idée la spécialiste conteste-t-elle ?",[
- speaker('Le nouvel équipement de '+c.feature+' affiche d’excellentes performances. Pourquoi les résultats observés restent-ils décevants ?'),
+ speaker('Le dispositif que vous avez installé dans '+c.venue+' affiche d’excellentes performances. Pourquoi les résultats observés restent-ils décevants ?'),
  narrator('Les chiffres du fabricant ont été obtenus dans des conditions idéales. Sur le terrain, les personnes utilisent les équipements d’une manière plus variée. Les conditions matérielles changent aussi d’un lieu à l’autre. Nous avons sous-estimé le temps nécessaire pour l’entretien, et certains réglages sont difficiles à comprendre. Il serait injuste d’en conclure que les utilisateurs sont simplement responsables. Nous devons comparer les hypothèses techniques aux pratiques réelles, former les équipes et revoir les procédures. Un appareil efficace en laboratoire ne garantit pas à lui seul une amélioration dans tous les contextes.')
 ],"Un équipement performant sur le papier garantit automatiquement un résultat sur le terrain.",[
 "Les usages réels et l’entretien influencent les résultats obtenus.",
@@ -149,7 +149,7 @@ narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche
 "Lorsque le seul critère retenu est le nombre de présences."
 ],"L’invitée met l’accent sur le volontariat, le choix et la réciprocité."),
 (c)=>S(c,37,'interview',"Pourquoi la chercheuse conserve-t-elle des témoignages contradictoires ?",[
- speaker('Dans votre étude sur '+c.theme.toLowerCase()+', les participants racontent parfois des expériences très différentes. Comment traiter ces contradictions ?'),
+ speaker('Dans votre étude concernant '+c.service+', les participants racontent parfois des expériences très différentes. Comment traiter ces contradictions ?'),
  narrator('Nous commençons par vérifier les faits que les documents permettent de confirmer. Les dates, les décisions et les chiffres ne sont pas de simples opinions. Mais il arrive que plusieurs personnes aient vécu le même événement depuis des positions différentes. Leurs récits nous renseignent alors sur ce qu’elles ont observé, ce qu’elles craignaient et ce qu’elles ignoraient. Notre travail consiste à conserver le contexte des entretiens et à confronter les versions, plutôt qu’à en choisir une uniquement parce qu’elle paraît plus convaincante. Cela ne signifie pas que toutes les affirmations se valent. Au contraire, leurs différences nous obligent à préciser la nature des preuves.')
 ],"Leurs différences révèlent des points de vue qu'il faut confronter aux faits vérifiables.",[
 "Parce que toutes les affirmations contradictoires sont nécessairement exactes.",
@@ -157,14 +157,14 @@ narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche
 "Parce que la version la plus émouvante doit toujours être retenue."
 ],"Elle distingue les faits vérifiables des expériences vécues et situe les témoignages dans leur contexte."),
 (c)=>S(c,38,'public-lecture',"Quel paradoxe l'exposé met-il principalement en évidence ?",[
- narrator('Vous écoutez une conférence publique consacrée à '+c.theme.toLowerCase()+'. Une initiative conçue pour résoudre un problème peut parfois le déplacer ou en créer de nouveaux. Ainsi, '+c.change+' peut susciter un véritable enthousiasme. Mais si le nombre de participants augmente sans adaptation des moyens, '+c.problem+'. Il serait tentant de célébrer immédiatement la fréquentation, sans examiner '+c.concern+'. Nous devons distinguer le succès d’un lancement de ses effets durables. Une politique pertinente doit pouvoir évoluer lorsque de nouveaux besoins apparaissent. Il ne s’agit ni de refuser toute innovation ni de considérer qu’une forte demande suffit à prouver une réussite. Il s’agit de choisir les conditions dans lesquelles les bénéfices peuvent se maintenir sans fragiliser ceux qui en dépendent.')
+ narrator('Vous écoutez une conférence publique sur la manière d’évaluer les politiques locales. Le cas étudié relève du domaine de '+c.theme.toLowerCase()+'.  Une initiative conçue pour résoudre un problème peut parfois le déplacer ou en créer de nouveaux. Ainsi, '+c.change+' peut susciter un véritable enthousiasme. Mais si le nombre de participants augmente sans adaptation des moyens, '+c.problem+'. Il serait tentant de célébrer immédiatement la fréquentation, sans examiner '+c.concern+'. Nous devons distinguer le succès d’un lancement de ses effets durables. Une politique pertinente doit pouvoir évoluer lorsque de nouveaux besoins apparaissent. Il ne s’agit ni de refuser toute innovation ni de considérer qu’une forte demande suffit à prouver une réussite. Il s’agit de choisir les conditions dans lesquelles les bénéfices peuvent se maintenir sans fragiliser ceux qui en dépendent.')
 ],"Une initiative populaire peut fragiliser les conditions mêmes de sa réussite.",[
 "Une forte fréquentation garantit toujours la durabilité d’un projet.",
 "La prudence exige de refuser toute expérimentation nouvelle.",
 "Le seul enjeu est de rendre la communication plus spectaculaire."
 ],"L’exposé souligne le risque de confondre popularité immédiate et progrès durable."),
 (c)=>S(c,39,'interview',"Quelle approche la spécialiste juge-t-elle nécessaire pour assurer l'avenir du projet ?",[
- speaker('Votre programme sur '+c.theme.toLowerCase()+' a suscité beaucoup d’intérêt durant ses premiers mois. Pourquoi ne pas conserver exactement son organisation actuelle ?'),
+ speaker('Votre programme, qui concerne '+c.service+', a suscité beaucoup d’intérêt durant ses premiers mois. Pourquoi ne pas conserver exactement son organisation actuelle ?'),
  narrator('Parce que cet essai a bénéficié de circonstances exceptionnelles. Une partie du matériel a été prêtée et plusieurs bénévoles ont fourni un effort qu’il serait difficile de maintenir chaque semaine. La fréquentation démontre un besoin, mais ne nous dit pas comment répartir équitablement le travail ni comment financer les frais réguliers. Il faut aussi anticiper '+c.short+'. Nous proposons donc d’établir un budget réaliste, de discuter des responsabilités et de suivre '+c.metric+'. L’idée n’est pas d’abandonner l’ambition de départ : '+c.longterm+'. Pour durer, une initiative doit pouvoir fonctionner lorsque l’enthousiasme des premiers jours se transforme en activité quotidienne.')
 ],"Prévoir des ressources durables, répartir les responsabilités et évaluer les effets réels.",[
 "Prolonger indéfiniment l’effort exceptionnel des premiers bénévoles.",
