@@ -9,6 +9,8 @@ const items=parts.flatMap(p=>p.questions);
 if(items.length!==39)throw Error('Test03 must have 39 distinct authored questions');
 const voice=t=>({voice:t[0]==='M'?'male':'female',text:t.slice(2)});
 const real=new Set,slots=ref.questions.map(q=>q.slotSeconds);
+const letterCounts=[0,0,0,0];
+const latestLetters=[];
 const assembled=items.map((item,i)=>{
  const n=i+1,expected=ref.questions[i].kind,kind=item.kind;
  if(item.number!==n||kind!==expected)throw Error('TCF format changed at question '+n);
@@ -17,9 +19,16 @@ const assembled=items.map((item,i)=>{
  // Randomize the answer position from the actual question, not the question number.
  // This avoids the visible A-B-C-D pattern in the first editorial draft.
  const digest=createHash('sha256').update(item.speech+'|'+item.question+'|'+item.options.join('|')).digest();
- const order=[0,1,2,3].sort((a,b)=>digest[a]-digest[b]||a-b);
+ const candidateSlots=[0,1,2,3].sort((a,b)=>{
+   const streakPenalty=x=>latestLetters.slice(-2).every(v=>v===x)?1:0;
+   return letterCounts[a]-letterCounts[b]||streakPenalty(a)-streakPenalty(b)||digest[4+a]-digest[4+b]||a-b;
+ });
+ const target=candidateSlots[0];
+ const distractors=[0,1,2,3].filter(i=>i!==item.answer).sort((a,b)=>digest[a]-digest[b]||a-b);
+ const order=Array(4).fill(null);order[target]=item.answer;
+ let j=0;for(let k=0;k<4;k++)if(order[k]===null)order[k]=distractors[j++];
  const options=order.map(i=>item.options[i]);
- const answerIndex=order.indexOf(item.answer);
+ const answerIndex=target;letterCounts[target]++;latestLetters.push(target);
  const explanation=item.why;
  if(!explanation||explanation.length<45)throw Error('Explanation incomplete '+n);
  const segments=[{voice:'female',text:'Question '+n+'.'}];
@@ -45,6 +54,7 @@ const assembled=items.map((item,i)=>{
  return {number:n,kind,question:item.question,options:optionList,correct:'ABCD'[answerIndex],explanation,transcript,segments,audio:'q-'+String(n).padStart(2,'0')+'.mp3',audioSeconds:null,slotSeconds:slots[i],...(n<=4?{image:'q-'+String(n).padStart(2,'0')+'.svg'}:{})};
 });
 if(assembled.reduce((n,q)=>n+q.slotSeconds,0)!==2100)throw Error('Original 35-minute exam rules modified');
+if(Math.max(...letterCounts)-Math.min(...letterCounts)>1)throw Error('Answer positions are not balanced');
 await mkdir('curriculum/tcf-listening-build',{recursive:true});
 await writeFile('curriculum/tcf-listening-build/test03-v2-audio-pending.json',JSON.stringify({id:'tcf-listening-03',version:'tcf-listening-2026-11-test03-v2',title:'TCF Listening · Test 03',seconds:2100,questions:assembled},null,2)+'\n');
 console.log('Original editorial Test03 v2: 39 independently authored situations, matching Test02 genres and 35-minute format. Not yet recorded.');
