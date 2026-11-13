@@ -3,6 +3,7 @@ import {join} from 'node:path';
 // Higher-level listening passages: interview, report, debate, academic
 // lecture, group discussion and public presentation. All authored French.
 import {qgens,input,source,S,narrator,speaker,voice} from './listening-03-20-authoring-part1.mjs';
+const formats=source.questions.map(q=>q.kind);
 const advanced=[
 (c)=>S(c,21,'announcement',"Pour quelle raison les volontaires doivent-ils préciser leurs disponibilités ?",[
  narrator('Annonce locale. Dans '+c.place+', à l’occasion de '+c.event+', nous recherchons des volontaires pour l’accueil, la préparation des salles et l’orientation des visiteurs. Certaines personnes pourront rester toute la journée, d’autres seulement une heure. Afin d’éviter de réunir trop de monde en début de matinée et de manquer d’aide en fin d’après-midi, veuillez indiquer vos horaires avant mercredi. Vous recevrez ensuite un planning personnalisé. Aucune expérience préalable n’est exigée.')
