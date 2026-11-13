@@ -312,3 +312,21 @@ when playback needs it. Persist forward navigation on the server without
 resetting the original 35-minute clock or changing saved answers/results,
 question banks or recordings. See `docs/tcf-listening.md` for the additive
 navigation migration and release. Standing publication authorization applies.
+
+
+### TCF Listening 20-test expansion — 13 November 2026
+
+The owner requested 19 additional full listening tests, for 20 total, with the
+same Test01 **39 questions / 35 minutes / four choices / one listen / forward-only
+navigation / automatic response-window advancement / Next Q1–38 / final Submit
+Q39 / marked correction sheet / estimated TCF and NCLC** behavior.
+Maintain the genre mix: image and response items, announcements, daily dialogues,
+telephone calls, radio/TV news, interviews, debates, multi-speaker roundtables,
+academic monologues and public presentations. Themes and transcripts vary; do
+not replace the established engine rules. Save original immutable paper versions,
+audio and attempts. This request does not authorize placeholder questions or
+reusing Test01 audio. A 19-paper/741-slot editorial blueprint and strict release
+validator are recorded in `docs/tcf-listening-twenty.md` and
+`curriculum/tcf-listening-20-paper-blueprint.json`. The blueprint is **not**
+a bank of 19 completed, playable tests; real French scripts, MP3s and visual
+assets must exist and pass validation before these tests are shown to students.
