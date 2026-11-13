@@ -51,7 +51,7 @@ const revise=(q,c)=>{
  14:'Conserver '+c.activity+' et envoyer ensuite la démonstration manquante.',
  15:'Dans '+c.place+', la nouvelle mesure répond à un besoin, mais certaines difficultés persistent.',
  16:'Réorganiser les permanences afin de maintenir un accueil pour '+c.service+' toute la journée.',
- 17:'Les personnes qui n’arrivent pas à utiliser le service habituel.',
+ 17:'Les personnes qui rencontrent des obstacles dans '+c.place+'.',
  18:'La personne travaille à l’heure prévue pour '+c.event+'.',
  19:'Le petit groupe permet d’échanger davantage pendant '+c.event+'.',
  20:'La visiteuse souhaite des précisions sur '+c.concern+'.',
@@ -67,12 +67,12 @@ const revise=(q,c)=>{
  30:'Conserver l’identité du lieu accueillant '+c.activity+' tout en permettant de nouveaux usages.',
  31:null,
  32:'Exposer les hypothèses et incertitudes des projections concernant '+c.service+'.',
- 33:'La hausse de fréquentation ne suffit pas à évaluer les résultats du nouveau dispositif.',
+ 33:'La hausse de fréquentation dans '+c.place+' ne suffit pas à mesurer les résultats durables.',
  34:'Faire tester '+c.service+' par différents publics et maintenir une aide humaine.',
  35:'Une technologie installée dans '+c.venue+' garantit un bon résultat sans tenir compte des usages.',
  36:'Permettre une participation volontaire et réciproque à '+c.activity+'.',
  37:'Comparer les récits concernant '+c.service+' aux faits vérifiables.',
- 38:'Le succès initial du changement annoncé peut fragiliser les ressources et les usagers.',
+ 38:'Une initiative comme '+c.change+' peut devenir victime de son succès et fragiliser les usagers.',
  39:'Organiser des ressources durables et suivre '+c.metric+' pour poursuivre '+c.service+'.'
  };
  if(n<=8){
