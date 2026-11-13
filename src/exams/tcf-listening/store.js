@@ -10,5 +10,5 @@ export function makeListeningStore(client){
   if(!data)throw Error('Listening could not connect.');return data;
   }finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
  }
- return {catalog:signal=>call('catalog',null,{},signal),read:(id,signal)=>call('read',id,{},signal),start:(id,paper,signal)=>call('start',id,{testId:paper.id,version:paper.version},signal),answer:(id,revision,number,choice,signal)=>call('answer',id,{revision,number,choice},signal),next:(id,revision,number,signal)=>call('next',id,{revision,number},signal),submit:(id,revision,signal)=>call('submit',id,{revision},signal)};
+ return {catalog:signal=>call('catalog',null,{},signal),read:(id,signal)=>call('read',id,{},signal),start:(id,paper,signal)=>call('start',id,{testId:paper.id,version:paper.version},signal),startNew:(id,paper,signal)=>call('restart',id,{testId:paper.id,version:paper.version},signal),answer:(id,revision,number,choice,signal)=>call('answer',id,{revision,number,choice},signal),next:(id,revision,number,signal)=>call('next',id,{revision,number},signal),submit:(id,revision,signal)=>call('submit',id,{revision},signal)};
 }
