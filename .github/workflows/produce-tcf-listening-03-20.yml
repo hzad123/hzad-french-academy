@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Author every French paper with a fixed TCF structural contract
         run: node scripts/listening-03-20-authoring-part2.mjs
+      - name: Independently edit French grammar, answer variety and contextual relevance
+        run: node scripts/revise-tcf-listening-03-20-french.mjs
       - name: Render 72 original picture listening stimuli
         run: node scripts/generate-tcf-listening-03-20-images.mjs
       - name: Audit all 702 distinct authored scripts and picture stimuli
