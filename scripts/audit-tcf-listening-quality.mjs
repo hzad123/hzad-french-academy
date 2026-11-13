@@ -23,7 +23,7 @@ if(!files.length)throw Error('No listening banks to review');
 const prev=new Map, imageFingerprints=new Map;
 const results=[];
 for(const paper of files){
- const violations=[],checks={};
+ const violations=[];let checks={};
  const add=(kind,message)=>{violations.push({kind,message})};
  if(paper.questions.length!==39||paper.seconds!==2100)add('structure','39 questions and 35 minutes required');
  let longCorrect=0, offBalance=0, weakDistractors=0, repeated=0, repeatedVisual=0, imageMiss=0;
