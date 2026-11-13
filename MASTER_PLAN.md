@@ -287,3 +287,17 @@ while saved attempts retain their original versions/results/clocks. See
 `docs/tcf-reading.md` and the additive reference-length migration/release helper.
 The owner's standing publication authorization applies; verify backend and Pages
 before reporting live success.
+
+### TCF listening Test01 pilot —13November2026
+
+The owner requested looking up the TCF listening format and building **one** exam
+with question audio and marking. Follow FEI's39MCQ/four choices/35minutes,
+progressive difficulty and single-listen sequence. Use original illustrated,
+spoken-response and longer dialogue/announcement/interview content, prerecorded
+French voices and automatic timed advancement. Keep transcripts/keys until the
+end; mark correct/wrong/unanswered responses and total raw correct/39. Do not
+fabricate an official calibrated TCF/NCLC conversion from an original raw score.
+Preserve auth/access, existing tests/results/progress and accounting. This
+standalone deterministic practice follows reading's non-AI marking pattern;
+standing publication authorization applies. Source evidence, additive schema,
+audio provenance, validation and release: `docs/tcf-listening.md`.
