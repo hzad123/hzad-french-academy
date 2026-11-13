@@ -9,7 +9,7 @@ const f=window.fixture={user:alice,callbacks:[],failNext:false,loseNext:false,fa
 f.paper=await (await fetch('/supabase/exams/tcf-listening-test01.json')).json();
 f.db=new PGlite();
 await f.db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;create table auth.users(id uuid primary key,email_confirmed_at timestamptz);create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;create table public.purchase_entitlements(user_id uuid,status text,verified_at timestamptz,access_starts_at timestamptz,access_ends_at timestamptz,product_code text);insert into auth.users values('${alice}',now()),('${bob}',now());insert into purchase_entitlements select id,'active',now(),now()-interval'1 day',null,'HZAD_FULL_ACADEMY' from auth.users;`);
-for(const file of ['20261029_academy_learning.sql','20261105001000_ai_learning.sql','20261113171848_tcf_listening_test01.sql','20261113185622_tcf_listening_next_final_submit.sql'])await f.db.exec(await (await fetch('/supabase/migrations/'+file)).text());
+for(const file of ['20261029_academy_learning.sql','20261105001000_ai_learning.sql','20261113171848_tcf_listening_test01.sql','20261113185622_tcf_listening_next_final_submit.sql','20261113194000_tcf_listening_fresh_start.sql'])await f.db.exec(await (await fetch('/supabase/migrations/'+file)).text());
 const command=f.command=async args=>{
  await f.db.query("select set_config('request.jwt.claim.sub',$1,false)",[f.user||'']);
  return (await f.db.query('select public.academy_tcf_listening_command($1,$2,$3) v',[args.p_action,args.p_id,args.p_payload||{}])).rows[0].v;
