@@ -69,11 +69,11 @@ export function wireTcfListening(root,client,{audioFactory=()=>new Audio(),asset
   const estimate=estimateListeningPractice(result);
   if(estimate){
    const summary=el('div',undefined,'hz-listening-estimate');
-   summary.append(el('h5','Estimated TCF listening result · practice only'));
+   summary.append(el('h5','Estimated TCF listening result'));
    const labels=el('div',undefined,'hz-listening-estimate-stats');
    const metric=(label,value)=>{const cell=el('div',undefined,'hz-listening-estimate-stat');cell.append(el('span',label),el('strong',value));return cell};
    labels.append(metric('Estimated TCF score',String(estimate.score)+'/699'),metric('Estimated NCLC',estimate.nclc),metric('Indicative TCF range',estimate.lower+'–'+estimate.upper));
-   summary.append(labels,el('p','Estimated NCLC range: '+estimate.nclcLow+' to '+estimate.nclcHigh+'. Based on a transparent HZad difficulty-weighted model, not official TCF item calibration. Use this result to guide practice, not for immigration or official proficiency claims.','hz-small'));
+   summary.append(labels);
    sheet.append(summary);
   }else sheet.append(el('p','Practice result available; an estimate could not be calculated from this answer sheet.','hz-small'));
   for(const row of result.rows){const item=attempt.paper.questions[row.number-1],card=el('article',undefined,'hz-reading-correction '+(row.isCorrect?'is-correct':'is-incorrect'));card.lang='fr';card.append(el('h5',`Question ${row.number} · ${row.isCorrect?'✓ Correct':row.selected?'✕ Incorrect':'— Unanswered'}`),el('p',item.question));const list=el('ul');item.options.forEach((text,i)=>{const letter=String.fromCharCode(65+i);list.append(el('li',`${letter}. ${text}${letter===row.correct?' · ✓ Correct answer':''}${letter===row.selected?' · Your answer':''}`,letter===row.correct?'is-correct':letter===row.selected?'is-incorrect':''))});card.append(list);if(!row.selected)card.append(el('p','Your answer: unanswered.'));card.append(el('p',row.explanation));const details=el('details');details.append(el('summary','Transcription et enregistrement'));for(const line of row.transcript.split('\n'))details.append(el('p',line));const audio=el('audio');audio.controls=true;audio.preload='none';audio.src=media('audio',item.audio);audio.setAttribute('aria-label',`Review recording ${row.number}`);details.append(audio);card.append(details);sheet.append(card)}
