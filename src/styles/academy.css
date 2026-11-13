@@ -539,3 +539,13 @@
 #hzad-french-academy #hz-reading-paper { display:block; max-width:100%; margin:1rem 0; padding:.75rem; border:1px solid #cbd7e3; border-radius:10px; }
 #hzad-french-academy #hz-tcf-listening audio{display:block;width:100%;margin:16px 0}
 #hzad-french-academy .hz-listening-image{display:block;width:100%;max-width:480px;height:auto;margin:16px auto;border-radius:14px;background:#f4f7fb}
+
+
+/* TCF listening: provisional score panel, clear and mobile-friendly. */
+#hzad-french-academy .hz-listening-estimate{margin:20px 0;padding:18px;border:1px solid #bfd3ef;border-radius:16px;background:#f5f9ff}
+#hzad-french-academy .hz-listening-estimate h5{margin:0 0 12px;color:var(--navy);font-size:17px}
+#hzad-french-academy .hz-listening-estimate-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#hzad-french-academy .hz-listening-estimate-stat{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid #d7e4f4;border-radius:12px;padding:12px}
+#hzad-french-academy .hz-listening-estimate-stat span{font-size:12px;color:var(--muted);font-weight:650}
+#hzad-french-academy .hz-listening-estimate-stat strong{font-size:clamp(18px,3vw,24px);color:var(--navy)}
+@media(max-width:600px){#hzad-french-academy .hz-listening-estimate-stats{grid-template-columns:1fr}}
