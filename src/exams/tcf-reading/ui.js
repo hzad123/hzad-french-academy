@@ -63,7 +63,7 @@ export function wireTcfReading(root,client){
   tick();
  }
  function renderResults(){
-  const result=attempt.result,sheet=el('section',undefined,'hz-reading-answer-sheet');sheet.append(el('h4','Your marked answer sheet'),el('strong',`${result.correct}/39 correct`,'hz-reading-score'),el('p',`${result.unanswered} unanswered · Practice score ${result.points}/${result.maxPoints} points`),el('p','Points follow this paper’s scoring bands.','hz-small'));
+  const result=attempt.result,sheet=el('section',undefined,'hz-reading-answer-sheet');sheet.append(el('h4','Your marked answer sheet'),el('strong',`${result.correct}/39 correct`,'hz-reading-score'),el('p',`${result.unanswered} unanswered · Practice score ${result.points}/${result.maxPoints} points`),el('span',''));
   for(const row of result.rows){const q=attempt.paper.questions[row.number-1],card=el('article',undefined,'hz-reading-correction '+(row.isCorrect?'is-correct':'is-incorrect'));card.lang='fr';
    card.append(el('h5',`Question ${row.number} · ${row.isCorrect?'✓ Correct':row.selected?'✕ Incorrect':'— Unanswered'} · ${row.points}/${row.maxPoints} points`),el('p',q.question));
    const list=el('ul');q.options.forEach((text,i)=>{const letter=String.fromCharCode(65+i),correct=letter===row.correct,selected=letter===row.selected,option=el('li',`${letter}. ${text}${correct?' · ✓ Correct answer':''}${selected?' · Your answer':''}`,correct?'is-correct':selected?'is-incorrect':'');list.append(option)});card.append(list);if(!row.selected)card.append(el('p','Your answer: unanswered.'));card.append(el('p',row.explanation));
