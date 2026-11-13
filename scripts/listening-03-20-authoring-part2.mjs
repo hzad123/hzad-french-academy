@@ -102,7 +102,7 @@ const variants=[
 ];
 const v=variants[c.n%4];
 return S(c,31,'academic-monologue',"Quelle précaution méthodologique la conférencière recommande-t-elle ?",[
-narrator('Vous écoutez un extrait de conférence universitaire. Notre recherche porte sur '+c.theme.toLowerCase()+' et, plus précisément, sur '+c.metric+'. '+v[1]+' Cette prudence est particulièrement importante ici : '+c.problem+'. Les décideurs ont besoin de résultats compréhensibles, mais la simplicité d’une présentation ne doit jamais faire oublier les limites de la méthode. Une interprétation responsable indique à la fois ce que l’on sait, ce que l’on suppose et ce qui reste à examiner.')
+narrator('Vous écoutez un extrait de conférence universitaire. Nous examinons plusieurs projets locaux et, plus précisément, '+c.metric+'. '+v[1]+' Cette prudence est particulièrement importante ici : '+c.problem+'. Les décideurs ont besoin de résultats compréhensibles, mais la simplicité d’une présentation ne doit jamais faire oublier les limites de la méthode. Une interprétation responsable indique à la fois ce que l’on sait, ce que l’on suppose et ce qui reste à examiner.')
 ],v[2],v[3],"La conférencière recommande de "+v[2].charAt(0).toLowerCase()+v[2].slice(1))},
 (c)=>S(c,32,'interview',"Comment la spécialiste souhaite-t-elle communiquer les limites de ses prévisions ?",[
  speaker('Vous avancez des projections concernant '+c.service+', mais sans annoncer de résultat certain. Cela ne risque-t-il pas de troubler le public ?'),
