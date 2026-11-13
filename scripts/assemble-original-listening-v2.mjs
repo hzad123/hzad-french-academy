@@ -12,15 +12,22 @@ const all=parts.flatMap(p=>p.questions);
 if(all.length!==39)throw Error('Each independently authored paper must contain 39 questions');
 const voices=t=>{const [gender,...pieces]=t.split('|');if(!['M','F'].includes(gender)||!pieces.length)throw Error('Invalid spoken dialogue');return {voice:gender==='M'?'male':'female',text:pieces.join('|')}};
 const originals=new Set(),slots=baseline.questions.map(q=>q.slotSeconds);
+const letterCounts=[0,0,0,0],recent=[];
 const paper=all.map((item,index)=>{
  const question=index+1,kind=item.kind;
  if(item.number!==question||kind!==baseline.questions[index].kind)throw Error('Format mismatch Test'+label+' Q'+question);
  if(item.options?.length!==4||new Set(item.options).size!==4||!Number.isInteger(item.answer)||item.answer<0||item.answer>3)throw Error('Invalid answers Q'+question);
  if(item.why?.length<45)throw Error('Missing correction rationale Q'+question);
  const seed=createHash('sha256').update(item.question+'|'+item.speech+'|'+item.options.join('|')).digest();
- const order=[0,1,2,3].sort((a,b)=>seed[a]-seed[b]||a-b);
+ const slot=[0,1,2,3].sort((a,b)=>{
+  const penalty=x=>recent.length>=2&&recent.slice(-2).every(v=>v===x)?1:0;
+  return letterCounts[a]-letterCounts[b]||penalty(a)-penalty(b)||seed[4+a]-seed[4+b]||a-b;
+ })[0];
+ const others=[0,1,2,3].filter(i=>i!==item.answer).sort((a,b)=>seed[a]-seed[b]||a-b);
+ const order=Array(4).fill(null);order[slot]=item.answer;
+ let d=0;for(let k=0;k<4;k++)if(order[k]===null)order[k]=others[d++];
  const options=order.map(i=>item.options[i]);
- const key='ABCD'[order.indexOf(item.answer)];
+ const key='ABCD'[slot];letterCounts[slot]++;recent.push(slot);
  const segments=[{voice:'female',text:'Question '+question+'.'}];
  if(question<=4){
   if(!item.scene)throw Error('No original illustration scene Q'+question);
@@ -46,6 +53,7 @@ const paper=all.map((item,index)=>{
  return {number:question,kind,question:item.question,options:question<=8?['Proposition A','Proposition B','Proposition C','Proposition D']:options,correct:key,explanation:item.why,transcript,segments,audio:'q-'+String(question).padStart(2,'0')+'.mp3',audioSeconds:null,slotSeconds:slots[index],...(question<=4?{image:'q-'+String(question).padStart(2,'0')+'.svg'}:{})};
 });
 if(paper.reduce((s,q)=>s+q.slotSeconds,0)!==2100)throw Error('35-minute timer changed');
+if(Math.max(...letterCounts)-Math.min(...letterCounts)>1)throw Error('Unbalanced correct answer positions');
 await mkdir('curriculum/tcf-listening-build',{recursive:true});
 await writeFile('curriculum/tcf-listening-build/test'+label+'-v2-audio-pending.json',JSON.stringify({id:'tcf-listening-'+label,version:'tcf-listening-2026-11-test'+label+'-v2',title:'TCF Listening · Test '+label,seconds:2100,questions:paper},null,2)+'\n');
 console.log('Authored Test'+label+': 39 independent scripts and four balanced choices each; awaiting recording and editorial verification');
