@@ -33,18 +33,23 @@ then announcements, conversations and longer interviews/arguments. Two distinct
 French voices separate speakers. No browser speech synthesis or live speech
 provider is required. Provenance: [audio licenses](../assets/tcf-listening/v1/AUDIO-LICENSES.md).
 
-The35minute server clock starts once. The schedule includes each recording plus
-response time and automatically advances through all39questions. There is no
-question jump, rewind or replay during an active attempt. Continue audio resumes
-at the current scheduled point, including after reload/return, without resetting
-the deadline. The final question is spoken after its document; its written prompt
-appears after the recording. Illustrated/spoken-response answer buttons remain
-lettered, so understanding the audio is necessary.
+The 35-minute server clock starts once. Questions 1–38 show **Next**, which moves
+forward one question and starts its recording. On question 39, a single
+**Submit test** button submits the complete exam directly. There is no early
+Submit button or extra confirmation step. Questions still advance when their
+timed response window expires; the final question remains until submission or
+the original deadline. Moving forward never resets or extends the test clock.
 
-Choices save immediately; students can change the current question's answer until
-its window ends. Revision checks handle another tab; failed saves retain a retry
-until the question ends. A late/recovered response cannot rewrite an earlier
-window. Early submission requires confirmation. Deadline expiry grades saved
+There is no backward navigation or replay during an active attempt. Reloading
+resumes the saved question and current audio position. A **Play audio** recovery
+button appears only if playback is blocked or fails. The spoken question follows
+its document, and the written prompt appears after the recording. Illustrated
+and spoken-response answer buttons remain lettered.
+
+Choices save immediately; Next/Submit waits for a pending save to resolve. A
+failed save can be retried while that question is current. Server revision and
+question checks prevent double-clicks, delayed replies or another tab from
+advancing twice or changing a previous answer. Deadline expiry grades saved
 responses. Leaving the page does not pause the clock.
 
 The end-only answer sheet marks correct, incorrect and unanswered items, identifies
@@ -114,3 +119,32 @@ Three independently transcribed audio samples include image options, a dialogue
 and the final long extract; the replacement voice preserves their answer-bearing
 content. All39scripts/options and four SVGs received editorial/visual review;
 full human pronunciation review and native Safari testing remain unverified.
+
+
+## Next and final submission correction — 13 November 2026
+
+The owner requested Next between questions and only one final Submit action.
+Migration `20261113185622_tcf_listening_next_final_submit.sql` adds a private RLS
+navigation table containing only per-attempt skipped timeline seconds. No
+existing attempt, answer, result, paper, recording, start or deadline is rewritten.
+The authenticated `next` action accepts only the current question and revision,
+moves forward once and increments the revision. Active snapshots retain their
+previous shape. New and resumed attempts use this flow; completed results remain
+unchanged. Submit is server-enforced on question 39 only; expiry still marks
+saved work from any question.
+
+The release helper `scripts/release/tcf-listening-next.py` rehearses and publishes
+this exact migration through `release/tcf-listening-next`, protecting hashes of
+existing listening, reading and other academy data/settings. Keep the original
+migration and immutable bank intact. Revert the UI/RPC flow if necessary while
+retaining navigation rows required to resume saved progress. Backend and browser
+acceptance checks cover all 39 forward transitions, save/transport recovery,
+double requests, final-only submission, fixed clocks, old results and access.
+
+Validation for this correction: all 248 Node tests and the build pass. The updated
+390 px / 1440 px browser suite performs all 38 real Next actions, checks one final
+Submit without confirmation, and verifies new-question audio, pending-save guards,
+double-click/lost-response recovery, resume, original clocks, correct/wrong/blank
+marking, fallback timer advancement, expiry and account isolation. Signed-in
+production interaction and native Safari remain unverified; release evidence is
+recorded in the PR.

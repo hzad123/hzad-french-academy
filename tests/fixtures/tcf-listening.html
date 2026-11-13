@@ -5,28 +5,28 @@ import {wireNavigation} from '/src/ui/navigation.js';
 import {wireExams} from '/src/exams/ui.js';
 import {wireTcfListening} from '/src/exams/tcf-listening/ui.js';
 const alice='11111111-1111-4111-8111-111111111111',bob='22222222-2222-4222-8222-222222222222';
-const f=window.fixture={user:alice,callbacks:[],failNext:false,loseNext:false,calls:[],audios:[]};
+const f=window.fixture={user:alice,callbacks:[],failNext:false,loseNext:false,failAction:null,loseAction:null,calls:[],audios:[]};
 f.paper=await (await fetch('/supabase/exams/tcf-listening-test01.json')).json();
 f.db=new PGlite();
 await f.db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;create table auth.users(id uuid primary key,email_confirmed_at timestamptz);create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;create table public.purchase_entitlements(user_id uuid,status text,verified_at timestamptz,access_starts_at timestamptz,access_ends_at timestamptz,product_code text);insert into auth.users values('${alice}',now()),('${bob}',now());insert into purchase_entitlements select id,'active',now(),now()-interval'1 day',null,'HZAD_FULL_ACADEMY' from auth.users;`);
-for(const file of ['20261029_academy_learning.sql','20261105001000_ai_learning.sql','20261113171848_tcf_listening_test01.sql'])await f.db.exec(await (await fetch('/supabase/migrations/'+file)).text());
+for(const file of ['20261029_academy_learning.sql','20261105001000_ai_learning.sql','20261113171848_tcf_listening_test01.sql','20261113185622_tcf_listening_next_final_submit.sql'])await f.db.exec(await (await fetch('/supabase/migrations/'+file)).text());
 const command=f.command=async args=>{
  await f.db.query("select set_config('request.jwt.claim.sub',$1,false)",[f.user||'']);
  return (await f.db.query('select public.academy_tcf_listening_command($1,$2,$3) v',[args.p_action,args.p_id,args.p_payload||{}])).rows[0].v;
 };
 const client={auth:{getSession:async()=>({data:{session:f.user?{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:f.user}}:null}}),onAuthStateChange:fn=>f.callbacks.push(fn)},rpc:async(name,args)=>{
  f.calls.push(args);
- if(args.p_action==='answer'&&f.failNext){f.failNext=false;return {error:{message:'Connection interrupted. Retry saving your answer.'}}}
+ if((args.p_action==='answer'&&f.failNext)||args.p_action===f.failAction){f.failNext=false;f.failAction=null;return {error:{message:'Connection interrupted. Retry your action.'}}}
  try{const data=await command(args);f.last=data;
- if(args.p_action==='answer'&&f.loseNext){f.loseNext=false;return {error:{message:'Reply was lost. Your saved answer has been recovered.'}}}
+ if((args.p_action==='answer'&&f.loseNext)||args.p_action===f.loseAction){f.loseNext=false;f.loseAction=null;return {error:{message:'Reply was lost. Your saved progress has been recovered.'}}}
  return {data};}catch(e){return {error:{message:e.message}}}
 }};
 document.querySelector('#host').innerHTML=template();const root=document.querySelector('#hzad-french-academy');root.querySelector('#hz-auth').classList.add('hz-hidden');root.querySelector('#hz-dashboard').classList.remove('hz-hidden');wireNavigation(root);
-f.ui=wireTcfListening(root,client,{assetBase:'/assets/tcf-listening/v1/',audioFactory:()=>{const a=new Audio();f.audios.push(a);return a}});
+f.ui=wireTcfListening(root,client,{assetBase:'/assets/tcf-listening/v1/',audioFactory:()=>{const a=new Audio(),nativePlay=a.play.bind(a);a.play=()=>{if(f.blockNextPlay){f.blockNextPlay=false;return Promise.reject(new DOMException('Test playback permission block','NotAllowedError'))}return nativePlay()};f.audios.push(a);return a}});
 f.open=()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-listening'));
 f.signOut=()=>{f.user=null;f.callbacks.forEach(fn=>fn('SIGNED_OUT',null))};
 f.switchUser=()=>{f.user=bob;f.callbacks.forEach(fn=>fn('SIGNED_IN',{access_token:'fixture',expires_at:Date.now()/1000+3600,user:{id:bob}}))};
-f.atQuestion=async(number,extra=1)=>{const seconds=f.paper.questions.slice(0,number-1).reduce((n,q)=>n+q.slotSeconds,0)+extra;return f.db.query("update academy_tcf_listening.attempts set started_at=now()-$2*interval'1 second',deadline=now()+(2100-$2)*interval'1 second' where id=$1",[f.last.id,seconds])};
+f.atQuestion=async(number,extra=1)=>{await f.db.query('delete from academy_tcf_listening.navigation where attempt_id=$1',[f.last.id]);const seconds=f.paper.questions.slice(0,number-1).reduce((n,q)=>n+q.slotSeconds,0)+extra;return f.db.query("update academy_tcf_listening.attempts set started_at=now()-$2*interval'1 second',deadline=now()+(2100-$2)*interval'1 second' where id=$1",[f.last.id,seconds])};
 f.expire=()=>f.db.query("update academy_tcf_listening.attempts set deadline=now()+interval'1 second' where id=$1",[f.last.id]);
 f.externalAnswer=number=>command({p_action:'answer',p_id:f.last.id,p_payload:{revision:f.last.revision,number,choice:'A'}});
 f.rpcAnswerError=async number=>{try{await command({p_action:'answer',p_id:f.last.id,p_payload:{revision:f.last.revision,number,choice:'A'}});return null}catch(e){return e.message}};
