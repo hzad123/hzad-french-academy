@@ -1,0 +1,56 @@
+name: Record independently authored TCF Listening Test03 v2
+on:
+  push:
+    branches:
+      - feature/tcf-listening-test03-original-v2
+    paths:
+      - .github/workflows/render-listening-test03-v2.yml
+permissions:
+  contents: write
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tcf-listening-test03-original-v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Assemble all 39 authored scripts and close multiple-choice answers
+        run: node scripts/assemble-tcf-listening-test03-v2.mjs
+      - name: Install offline French speech synthesis and FFmpeg
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Download temporary original French TTS models
+        run: |
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium fr_FR-upmc-medium
+      - name: Record every new healthcare comprehension question
+        run: python scripts/render-tcf-listening-test03-v2.py --models "$RUNNER_TEMP/models" --test 3
+      - name: Verify unique scripts, audio, illustrations, answer lengths and timing
+        run: node --test tests/tcf-listening-test03-v2.test.mjs
+      - name: Stage safe immutable Test03 v2 publication
+        run: node scripts/write-tcf-listening-test03-v2-release.mjs
+      - name: Commit validated media and versioned question bank
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp assets/tcf-listening/tcf-listening-2026-11-test02-v1/AUDIO-LICENSES.md assets/tcf-listening/tcf-listening-2026-11-test03-v2/AUDIO-LICENSES.md
+          git add assets/tcf-listening/tcf-listening-2026-11-test03-v2 supabase/exams/tcf-listening-test03-v2.json supabase/migrations/20261113235900_tcf_listening_test03_v2_editorial.sql
+          git commit -m "Deliver original Test03 v2, 39 recordings and four distinct medical illustrations"
+          for i in 1 2 3 4 5; do
+            git fetch origin feature/tcf-listening-test03-original-v2
+            git rebase origin/feature/tcf-listening-test03-original-v2
+            if git push origin HEAD:feature/tcf-listening-test03-original-v2; then exit 0; fi
+            sleep 3
+          done
+          exit 1
