@@ -1,3 +1,5 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {join} from 'node:path';
 // Higher-level listening passages: interview, report, debate, academic
 // lecture, group discussion and public presentation. All authored French.
 import {qgens,input,source,S,narrator,speaker,voice} from './listening-03-20-authoring-part1.mjs';
