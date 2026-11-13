@@ -38,7 +38,7 @@ def render(models):
    number=q['number'];target=OUT/q['audio'];raw=temp/'combined.wav'
    with wave.open(str(raw),'wb') as joined:
     joined.setnchannels(1);joined.setsampwidth(2);joined.setframerate(22050)
-    joined.writeframes(b'\\0'*int(22050*0.3)*2)
+    joined.writeframes(b'\0'*int(22050*0.3)*2)
     use_alt=False
     for i,segment in enumerate(q['segments']):
      gender=segment['voice']
@@ -51,7 +51,7 @@ def render(models):
      with wave.open(str(part),'rb') as wavepart:
       assert wavepart.getframerate()==22050 and wavepart.getnchannels()==1 and wavepart.getsampwidth()==2
       joined.writeframes(wavepart.readframes(wavepart.getnframes()))
-     joined.writeframes(b'\\0'*int(22050*(0.5 if i<len(q['segments'])-1 else 0.25))*2)
+     joined.writeframes(b'\0'*int(22050*(0.5 if i<len(q['segments'])-1 else 0.25))*2)
    subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(raw),'-af','loudnorm=I=-18:TP=-2:LRA=11','-ar','22050','-ac','1','-c:a','libmp3lame','-b:a','64k',str(target)],check=True)
    q['audioSeconds']=round(metadata(target),3)
    manifest.append({'file':q['audio'],'seconds':q['audioSeconds'],'sourceHash':hashlib.sha256(json.dumps(q['segments'],ensure_ascii=False,sort_keys=True).encode()).hexdigest(),'sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
@@ -75,8 +75,8 @@ def render(models):
   if slot<q['audioSeconds']+12:raise RuntimeError('Question '+str(q['number'])+' has too little response time')
  assert sum(slots)==2100
  PUBLISHED.parent.mkdir(parents=True,exist_ok=True)
- PUBLISHED.write_text(json.dumps(paper,ensure_ascii=False,indent=2)+'\\n')
- (OUT.parent/'manifest.json').write_text(json.dumps({'version':paper['version'],'seconds':2100,'voices':voice_hashes,'files':manifest},indent=2)+'\\n')
+ PUBLISHED.write_text(json.dumps(paper,ensure_ascii=False,indent=2)+'\n')
+ (OUT.parent/'manifest.json').write_text(json.dumps({'version':paper['version'],'seconds':2100,'voices':voice_hashes,'files':manifest},indent=2)+'\n')
  print('Prepared immutable Test02 bank, media and manifest; editorial listening QA still required.')
 if __name__=='__main__':
  import argparse
