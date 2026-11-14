@@ -1,0 +1,3739 @@
+{
+  "policy": "listening-comprehension-qc-v1",
+  "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+  "test": "tcf-listening-01",
+  "version": "tcf-listening-2026-11-test01-v4",
+  "source": "supabase/exams/tcf-listening-test01.json",
+  "sourceVersion": "tcf-listening-2026-11-v1",
+  "paperHash": "386b5497aca40de6f8b11d09336b1ba407a0bfcda79476bdc20e0ab5240cca60",
+  "questions": [
+    {
+      "number": 1,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "fd7b60d52d2c6a7419b174c6671843273a09e5e087af1b307b76f1bdbbc51e02",
+      "imageHash": "67a51f14b0573f43c7e96dccb3da335e3af5b14b7615cc9df6c75d2b834c344a",
+      "question": {
+        "number": 1,
+        "kind": "image",
+        "question": "Quelle proposition correspond à l'image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "C",
+        "transcript": "Question 1.\nÉcoutez les quatre propositions. Choisissez celle qui correspond à l'image. A. Il porte un seul sac léger, comme s'il venait de faire un petit achat rapide. B. Il observe une étagère pleine de produits, hésitant à choisir ce qu'il va prendre. C. L'homme tient deux sacs bien remplis, un dans chaque main, et semble sortir d'un magasin. D. Il regarde un appareil électronique avec attention, assis et concentré.",
+        "explanation": "L'image montre clairement un homme debout tenant deux sacs bien remplis, un dans chaque main, ce qui correspond à la première proposition. Les autres choix décrivent des situations différentes qui ne correspondent pas à la scène visible.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 1."
+          },
+          {
+            "voice": "female",
+            "text": "Écoutez les quatre propositions. Choisissez celle qui correspond à l'image. A. Il porte un seul sac léger, comme s'il venait de faire un petit achat rapide. B. Il observe une étagère pleine de produits, hésitant à choisir ce qu'il va prendre. C. L'homme tient deux sacs bien remplis, un dans chaque main, et semble sortir d'un magasin. D. Il regarde un appareil électronique avec attention, assis et concentré."
+          }
+        ],
+        "image": "q-01.svg",
+        "audio": "q-01.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 35
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "ded6da5cf5ab47e8655f796b0c3d929aef84722c1cc666d28cee2b104a071186",
+        "blind": [
+          {
+            "order": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmpIN59Teas1fcrhVMWGa0DJypB",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.6,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mention of two full bags, a specific and vivid detail suggesting a clear image content"
+                  }
+                ],
+                "reason": "Option 2 provides a detailed and specific description (two full bags, one in each hand, leaving a store) that stands out compared to more general or less vivid options, making it the most likely correct choice."
+              },
+              "usage": {
+                "prompt_tokens": 338,
+                "completion_tokens": 103,
+                "total_tokens": 441,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003,
+              "inputHash": "3ff2fea153d1f3b71bc600088a040b42d26dcc51bb2d9754e9f5c6831a7c5a80",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:1:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.6,
+              "gap": 0.39999999999999997
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 provides a detailed and specific description (two full bags, one in each hand, leaving a store) that stands out compared to more general or less vivid options, making it the most likely correct choice.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mention of two full bags, a specific and vivid detail suggesting a clear image content"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 2,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "095877455a38fe01abb037537b9bdb3498d27d0cee77736f2d1bd41519a2ddb6",
+      "imageHash": "76fcfa91c301dd8ff88d47018284e8e7845598b24809ef97fca47a4528afe5c9",
+      "question": {
+        "number": 2,
+        "kind": "image",
+        "question": "Quelle proposition correspond à l'image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "D",
+        "transcript": "Question 2.\nÉcoutez les quatre propositions. A. Elle tient un pot de fleur en l’air comme pour vérifier son état. B. Elle déplace un arrosoir vide en s’éloignant de la plante sur le rebord de la fenêtre. C. Elle remplit un arrosoir à côté d’une plante posée près de la fenêtre. D. Elle verse de l’eau d’un arrosoir sur une plante placée devant une fenêtre.",
+        "explanation": "L’image montre clairement une personne en train d’arroser une plante avec un arrosoir, ce qui correspond précisément à la première proposition. Les autres options décrivent des actions différentes ou des intentions non visibles.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 2."
+          },
+          {
+            "voice": "female",
+            "text": "Écoutez les quatre propositions. A. Elle tient un pot de fleur en l’air comme pour vérifier son état. B. Elle déplace un arrosoir vide en s’éloignant de la plante sur le rebord de la fenêtre. C. Elle remplit un arrosoir à côté d’une plante posée près de la fenêtre. D. Elle verse de l’eau d’un arrosoir sur une plante placée devant une fenêtre."
+          }
+        ],
+        "image": "q-02.svg",
+        "audio": "q-02.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 31
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "a7982eb991cbf0d1694e12be26cbf9df6f1fd4fc71bb486efb5062f0b77ba717",
+        "blind": [
+          {
+            "order": [
+              1,
+              3,
+              2,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmoYfy6plxQGml3jCrcLT3lIFjG",
+              "result": {
+                "guess": 1,
+                "probabilities": [
+                  0.1,
+                  0.7,
+                  0.1,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 1,
+                    "cue": "most active and specific action involving watering a plant, which is a common and plausible scene"
+                  },
+                  {
+                    "option": 0,
+                    "cue": "less likely as moving an empty watering can away from a plant is less typical to highlight"
+                  },
+                  {
+                    "option": 2,
+                    "cue": "filling a watering can is plausible but less directly related to the plant itself"
+                  },
+                  {
+                    "option": 3,
+                    "cue": "holding a flower pot in the air is less specific and less common in typical watering scenes"
+                  }
+                ],
+                "reason": "Option 1 describes a clear and common gardening action (watering a plant), making it the most plausible match to an image involving a plant and watering can near a window."
+              },
+              "usage": {
+                "prompt_tokens": 342,
+                "completion_tokens": 165,
+                "total_tokens": 507,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0004008,
+              "inputHash": "6624fe3162c5a2bfe6ff7f23ecd665c91b61b74f017fd01debe61662f4d4908a",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:2:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.7,
+              "gap": 0.6
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 1 describes a clear and common gardening action (watering a plant), making it the most plausible match to an image involving a plant and watering can near a window.",
+          "cues": [
+            {
+              "option": 1,
+              "cue": "most active and specific action involving watering a plant, which is a common and plausible scene"
+            },
+            {
+              "option": 0,
+              "cue": "less likely as moving an empty watering can away from a plant is less typical to highlight"
+            },
+            {
+              "option": 2,
+              "cue": "filling a watering can is plausible but less directly related to the plant itself"
+            },
+            {
+              "option": 3,
+              "cue": "holding a flower pot in the air is less specific and less common in typical watering scenes"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 3,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "cc2148878149a3f844d49a5e82a3078312ed3b4bc5c96393d2ba1508e46271c8",
+      "imageHash": "eca9d77e8ad61586d923b592ba2f9b794ce68af1811b17bd16bf08bcf2eadc5a",
+      "question": {
+        "number": 3,
+        "kind": "image",
+        "question": "Quelle proposition correspond à l'image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "D",
+        "transcript": "Question 3.\nÉcoutez les quatre propositions. A. Ils attendent calmement un moyen de transport en discutant. B. Ils préparent ensemble une sortie pour une promenade en ville. C. Ils mettent en place un repas convivial entre amis dans la même pièce. D. Ils sont en train de jouer une partie d’échecs dans un environnement paisible.",
+        "explanation": "L'image montre clairement deux personnes assises face à face jouant aux échecs, ce qui correspond précisément à la première proposition. Les autres choix évoquent des situations différentes et ne correspondent pas à la disposition ni aux actions visibles sur l'image.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 3."
+          },
+          {
+            "voice": "male",
+            "text": "Écoutez les quatre propositions. A. Ils attendent calmement un moyen de transport en discutant. B. Ils préparent ensemble une sortie pour une promenade en ville. C. Ils mettent en place un repas convivial entre amis dans la même pièce. D. Ils sont en train de jouer une partie d’échecs dans un environnement paisible."
+          }
+        ],
+        "image": "q-03.svg",
+        "audio": "q-03.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 32
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "022c2e148aba2070662d7bdf1ce6872e0f639e3a2975ce124cb75b1a5c1cfeb4",
+        "blind": [
+          {
+            "order": [
+              3,
+              0,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmnKajfCLEH3h8sqyZjG48i7XFJ",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.4,
+                  0.2,
+                  0.2,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "The phrase 'une partie d’échecs' is very specific and concrete compared to more general social activities in other options."
+                  }
+                ],
+                "reason": "Option 0 mentions a specific activity (playing chess) in a peaceful environment, which is more concrete and distinctive than the other more general social scenarios, making it stand out as the likely correct choice."
+              },
+              "usage": {
+                "prompt_tokens": 322,
+                "completion_tokens": 109,
+                "total_tokens": 431,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00030320000000000005,
+              "inputHash": "45a14beeba0aff33d8ef9ff83512703aefaf593a11b3aae69bde8d49e8ca8aca",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:3:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 mentions a specific activity (playing chess) in a peaceful environment, which is more concrete and distinctive than the other more general social scenarios, making it stand out as the likely correct choice.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "The phrase 'une partie d’échecs' is very specific and concrete compared to more general social activities in other options."
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 4,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "4e49cd36d7304760f291af45a17d2c1a30a9db4432e2ec05efa66103bef7f9cb",
+      "imageHash": "44fd34e71f69f00d85b93a4faa183c1d8668ed0f15ab32f04b4d8dbd40c28c4f",
+      "question": {
+        "number": 4,
+        "kind": "image",
+        "question": "Quelle proposition correspond à l'image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "transcript": "Question 4.\nÉcoutez les quatre propositions. A. Il est en train de gonfler la roue de son vélo avec une pompe manuelle. B. Il règle la position de la selle avant de commencer à rouler. C. Il pousse doucement son vélo en marchant à côté, sans intervenir sur la roue. D. Il examine la roue du vélo pour voir si elle est crevée, sans utiliser d'outil.",
+        "explanation": "L'image montre clairement une personne utilisant une pompe à pied reliée à la roue d'un vélo, ce qui correspond à l'action de gonfler la roue avec une pompe manuelle.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 4."
+          },
+          {
+            "voice": "female",
+            "text": "Écoutez les quatre propositions. A. Il est en train de gonfler la roue de son vélo avec une pompe manuelle. B. Il règle la position de la selle avant de commencer à rouler. C. Il pousse doucement son vélo en marchant à côté, sans intervenir sur la roue. D. Il examine la roue du vélo pour voir si elle est crevée, sans utiliser d'outil."
+          }
+        ],
+        "image": "q-04.svg",
+        "audio": "q-04.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 32
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "958187099efd59ebd15cb63ff93727b36f6edefe6b3221f29e56920ff3fae367",
+        "blind": [
+          {
+            "order": [
+              2,
+              1,
+              0,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmnPwVzbE4lJ2rpCDpq5DPmM8S4",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.5,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mention of a specific action with a pump suggests a concrete and observable activity"
+                  }
+                ],
+                "reason": "Option 2 describes a specific, concrete action (inflating a tire with a manual pump) that is likely to be visually distinctive and directly corresponds to an image. The other options are more general or less specific, making option 2 stand out as the best guess."
+              },
+              "usage": {
+                "prompt_tokens": 336,
+                "completion_tokens": 112,
+                "total_tokens": 448,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00031360000000000003,
+              "inputHash": "9443f816598116bf5995bb174cb382c61beacb09ab4a7b34f05b497cb8308930",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:4:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 describes a specific, concrete action (inflating a tire with a manual pump) that is likely to be visually distinctive and directly corresponds to an image. The other options are more general or less specific, making option 2 stand out as the best guess.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mention of a specific action with a pump suggests a concrete and observable activity"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 5,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "1def298b317e5e5151bca7b7ff1c187a453c0f2bb70ed189125613b166ab5d15",
+      "imageHash": null,
+      "question": {
+        "number": 5,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Réponse A",
+          "Réponse B",
+          "Réponse C",
+          "Réponse D"
+        ],
+        "correct": "D",
+        "transcript": "Question 5.\nBonjour, cette place est libre ?\nA. Je crois que cette place est prise, il vaut mieux attendre la confirmation du serveur. B. Cette place est libre, mais quelqu’un a laissé son manteau dessus, il faut demander au personnel. C. Non, cette place est réservée pour un client qui revient bientôt. D. Oui, vous pouvez vous asseoir ici, elle est libre et personne ne l’a occupée.",
+        "explanation": "La réponse correcte confirme clairement que la place est libre et invite la personne à s’asseoir, ce qui correspond à la demande directe. Les autres options introduisent des doutes sur l’occupation de la place, soit en évoquant une réservation, soit en signalant la présence d’un manteau ou la nécessité de vérifier avec le personnel, ce qui complique la réponse.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 5."
+          },
+          {
+            "voice": "male",
+            "text": "Bonjour, cette place est libre ?"
+          },
+          {
+            "voice": "female",
+            "text": "A. Je crois que cette place est prise, il vaut mieux attendre la confirmation du serveur. B. Cette place est libre, mais quelqu’un a laissé son manteau dessus, il faut demander au personnel. C. Non, cette place est réservée pour un client qui revient bientôt. D. Oui, vous pouvez vous asseoir ici, elle est libre et personne ne l’a occupée."
+          }
+        ],
+        "audio": "q-05.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 32
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "c0a9f1f771c6477a913744b4f80870900c8ff9784d165ba65485be1b8453a5bf",
+        "blind": [
+          {
+            "order": [
+              0,
+              1,
+              3,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmoyrcHHab76f7hkRqO8WgdWZng",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.2,
+                  0.2,
+                  0.4,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "positive confirmation and clarity about the seat being free and unoccupied"
+                  }
+                ],
+                "reason": "Option 2 clearly states the seat is free and unoccupied, which directly answers the question about whether one can sit there. The other options introduce uncertainty or conditions, making option 2 stand out as the most straightforward and natural response."
+              },
+              "usage": {
+                "prompt_tokens": 337,
+                "completion_tokens": 103,
+                "total_tokens": 440,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0002996,
+              "inputHash": "ba90c09090fcd2a5361833db01f17b38d89ec62d727514c5b634a87e1733f121",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:5:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 clearly states the seat is free and unoccupied, which directly answers the question about whether one can sit there. The other options introduce uncertainty or conditions, making option 2 stand out as the most straightforward and natural response.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "positive confirmation and clarity about the seat being free and unoccupied"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 6,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "8f848394b9079c35dc575041b804402d806832a4e362ced85f8ed6f5f4db8b47",
+      "imageHash": null,
+      "question": {
+        "number": 6,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Réponse A",
+          "Réponse B",
+          "Réponse C",
+          "Réponse D"
+        ],
+        "correct": "A",
+        "transcript": "Question 6.\nExcusez-moi, où est l'arrêt du bus vingt-deux ?\nA. L'arrêt se trouve à côté de la bibliothèque, juste avant le café. B. Le bus vingt-deux ne circule que du lundi au vendredi, pas le week-end. C. Le ticket pour le bus vingt-deux coûte deux euros en semaine uniquement. D. Je ne suis pas sûr, mais je crois que le bus vingt-deux passe près du marché.",
+        "explanation": "La réponse correcte donne une indication précise et pertinente sur la localisation de l'arrêt, correspondant à une réponse naturelle à la question posée. Les autres propositions contiennent des erreurs sur les horaires, les tarifs ou une incertitude non exprimée dans l'enregistrement.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 6."
+          },
+          {
+            "voice": "female",
+            "text": "Excusez-moi, où est l'arrêt du bus vingt-deux ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. L'arrêt se trouve à côté de la bibliothèque, juste avant le café. B. Le bus vingt-deux ne circule que du lundi au vendredi, pas le week-end. C. Le ticket pour le bus vingt-deux coûte deux euros en semaine uniquement. D. Je ne suis pas sûr, mais je crois que le bus vingt-deux passe près du marché."
+          }
+        ],
+        "audio": "q-06.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 35
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "a77d9c2f4ed86cb5c8a51346c3eb2902983085d14cf34fb0d9567a89680c7e98",
+        "blind": [
+          {
+            "order": [
+              2,
+              3,
+              0,
+              1
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwmoTnBDGKdtZ51VNP3kTGxF5ucG",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.2,
+                  0.5
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "clear temporal restriction 'du lundi au vendredi, pas le week-end' is precise and natural"
+                  }
+                ],
+                "reason": "Option 3 provides a clear and natural-sounding temporal restriction about the bus schedule, which is a common type of information in such questions. The other options are plausible but less specific or less definitive, making option 3 stand out as the best guess."
+              },
+              "usage": {
+                "prompt_tokens": 334,
+                "completion_tokens": 113,
+                "total_tokens": 447,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003144,
+              "inputHash": "f5f1fa7447813fdc121719c1c163a732c72a16cff16be3bf04de55d0cc013382",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:6:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 provides a clear and natural-sounding temporal restriction about the bus schedule, which is a common type of information in such questions. The other options are plausible but less specific or less definitive, making option 3 stand out as the best guess.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "clear temporal restriction 'du lundi au vendredi, pas le week-end' is precise and natural"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 7,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "5b063710fbd564663514e817fb2c9b4583515c260f2412ba1e2f8cbddb4b2da1",
+      "imageHash": null,
+      "question": {
+        "number": 7,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Réponse A",
+          "Réponse B",
+          "Réponse C",
+          "Réponse D"
+        ],
+        "correct": "A",
+        "transcript": "Question 7.\nTu veux venir marcher avec nous dimanche matin ?\nA. Je dois d'abord voir si je peux changer mes plans de dimanche avant de te confirmer. B. Avec plaisir, on se retrouve dimanche matin ; tu as une heure précise en tête ? C. Est-ce que cette marche est organisée uniquement pour le groupe, ou peut-on inviter des amis ? D. Faut-il apporter des vêtements spécifiques pour la balade de dimanche matin ?",
+        "explanation": "La bonne réponse est celle où la personne indique qu'elle doit vérifier son emploi du temps avant de confirmer sa participation, ce qui est une réponse directe à une invitation. Les autres options portent sur des détails accessoires ou des questions complémentaires qui ne répondent pas directement à la demande de confirmation.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 7."
+          },
+          {
+            "voice": "male",
+            "text": "Tu veux venir marcher avec nous dimanche matin ?"
+          },
+          {
+            "voice": "female",
+            "text": "A. Je dois d'abord voir si je peux changer mes plans de dimanche avant de te confirmer. B. Avec plaisir, on se retrouve dimanche matin ; tu as une heure précise en tête ? C. Est-ce que cette marche est organisée uniquement pour le groupe, ou peut-on inviter des amis ? D. Faut-il apporter des vêtements spécifiques pour la balade de dimanche matin ?"
+          }
+        ],
+        "audio": "q-07.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 36
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "ef13f56a64ab66e63066ce1df4886a2dcd109c93caf9569a04b6b993faf819b4",
+        "blind": [
+          {
+            "order": [
+              0,
+              2,
+              3,
+              1
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwn9xBYt5G4iQG6NL6NtkF1L4ZTR",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.2,
+                  0.5
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "Polite and positive confirmation with a follow-up question about time suggests a suitable response to a meeting arrangement."
+                  }
+                ],
+                "reason": "Option 3 is a polite and positive response confirming the meeting and asking for a specific time, which fits well as a reply to an invitation or plan. The other options express uncertainty or ask logistical questions, which may not be as directly suitable as a response to a situation requiring confirmation."
+              },
+              "usage": {
+                "prompt_tokens": 335,
+                "completion_tokens": 122,
+                "total_tokens": 457,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00032920000000000003,
+              "inputHash": "cbc97a14074cb20bd278dac2b96065bd045cedde3bc31b25ede41c7269a215c8",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:7:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 is a polite and positive response confirming the meeting and asking for a specific time, which fits well as a reply to an invitation or plan. The other options express uncertainty or ask logistical questions, which may not be as directly suitable as a response to a situation requiring confirmation.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "Polite and positive confirmation with a follow-up question about time suggests a suitable response to a meeting arrangement."
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 8,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "b0c6eae2041b0dadedcfb11aa55ddfcf285ac040cfabef2ff3199b72120b4a15",
+      "imageHash": null,
+      "question": {
+        "number": 8,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Réponse A",
+          "Réponse B",
+          "Réponse C",
+          "Réponse D"
+        ],
+        "correct": "C",
+        "transcript": "Question 8.\nCette chemise est trop petite. Est-ce que je peux l'échanger ?\nA. Je vous conseille de porter la chemise un moment, elle pourrait se détendre naturellement. B. Les échanges sont réservés uniquement aux articles achetés pendant une promotion spécifique. C. Nous pouvons procéder à un échange pour une taille différente si cela vous convient. D. Cet article ne peut être échangé, mais un remboursement est envisageable sur présentation du ticket.",
+        "explanation": "L'option 3 répond précisément à la demande d'échange pour une taille différente, en proposant une solution concrète et positive, contrairement aux autres choix qui limitent ou détournent la réponse.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 8."
+          },
+          {
+            "voice": "female",
+            "text": "Cette chemise est trop petite. Est-ce que je peux l'échanger ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. Je vous conseille de porter la chemise un moment, elle pourrait se détendre naturellement. B. Les échanges sont réservés uniquement aux articles achetés pendant une promotion spécifique. C. Nous pouvons procéder à un échange pour une taille différente si cela vous convient. D. Cet article ne peut être échangé, mais un remboursement est envisageable sur présentation du ticket."
+          }
+        ],
+        "audio": "q-08.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 37
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "2fa22602d9dc4a89973b2cb64aacc0c8ac81a69167162623e4dd36cdd09d5793",
+        "blind": [
+          {
+            "order": [
+              1,
+              0,
+              2,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwn8SgNjJy1SWOR9dOdTUySrecne",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.5,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "most natural and customer-friendly response about exchange policy"
+                  }
+                ],
+                "reason": "Option 2 is the most straightforward and customer-friendly response about exchanging for a different size, which is a common and relevant reply in retail situations. The other options are either too restrictive, less natural, or less directly addressing an exchange request."
+              },
+              "usage": {
+                "prompt_tokens": 333,
+                "completion_tokens": 101,
+                "total_tokens": 434,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00029480000000000006,
+              "inputHash": "5222cecfd92b083861bffd63f1e62de66a3abdd924baf6804a82889f29674110",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:8:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 is the most straightforward and customer-friendly response about exchanging for a different size, which is a common and relevant reply in retail situations. The other options are either too restrictive, less natural, or less directly addressing an exchange request.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "most natural and customer-friendly response about exchange policy"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 9,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "0296ecdd15e6b4df4bf9b6df7b03169b5c1708f5dd2def47ca33b173b92340fc",
+      "imageHash": null,
+      "question": {
+        "number": 9,
+        "kind": "announcement",
+        "question": "Après l'annonce, sur quel quai les voyageurs doivent-ils se rendre pour prendre le train à destination de Tours ?",
+        "options": [
+          "Sur le quai quatre, où le train arrivera et partira à l'heure prévue sans changement.",
+          "Sur le quai cinq, car une réorganisation des voies a été décidée après l'annonce.",
+          "Sur le quai trois, en raison d'une modification temporaire qui pourrait être confirmée ultérieurement.",
+          "Sur le quai deux, conformément au planning initial malgré l'annonce récente."
+        ],
+        "correct": "A",
+        "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nAprès l'annonce, sur quel quai les voyageurs doivent-ils se rendre pour prendre le train à destination de Tours ?",
+        "explanation": "L'annonce précise clairement que le train pour Tours, initialement prévu sur le quai deux, arrivera finalement sur le quai quatre, et que son départ reste à l'heure prévue. Les voyageurs doivent donc attendre sur le quai quatre.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 9."
+          },
+          {
+            "voice": "female",
+            "text": "Votre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai."
+          },
+          {
+            "voice": "female",
+            "text": "Après l'annonce, sur quel quai les voyageurs doivent-ils se rendre pour prendre le train à destination de Tours ?"
+          }
+        ],
+        "audio": "q-09.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 36
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "fc5b8884f684ee512e6e6d56db7e8bae9e58a009144867cd1340a9cb0ba0459d",
+        "blind": [
+          {
+            "order": [
+              0,
+              2,
+              1,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnBdzEbmigpzDJ7f0ByK1qSuHYK",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.3,
+                  0.45,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mentions a reorganization decided after the announcement, implying a change that fits the question about 'after the announcement'."
+                  }
+                ],
+                "reason": "The question asks about the platform after an announcement, suggesting a change or update. Option 2 explicitly mentions a reorganization decided after the announcement, making it the most contextually relevant and specific choice. Other options either suggest no change or uncertainty, which is less likely given the question's focus on a definitive platform after the announcement."
+              },
+              "usage": {
+                "prompt_tokens": 354,
+                "completion_tokens": 133,
+                "total_tokens": 487,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003544,
+              "inputHash": "8f1eac339218b8daee2d0a1c286da89fcbdf06bb9e14681e3d0b97a8387c195e",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:9:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.45,
+              "gap": 0.15000000000000002
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The question asks about the platform after an announcement, suggesting a change or update. Option 2 explicitly mentions a reorganization decided after the announcement, making it the most contextually relevant and specific choice. Other options either suggest no change or uncertainty, which is less likely given the question's focus on a definitive platform after the announcement.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions a reorganization decided after the announcement, implying a change that fits the question about 'after the announcement'."
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 10,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "15ac1ace5cf2e0473d000c4a4342abde45ef9e0009023e630f9f4d653ad00f76",
+      "imageHash": null,
+      "question": {
+        "number": 10,
+        "kind": "dialogue",
+        "question": "À quelle heure les deux amis ont-ils finalement choisi de se retrouver au cinéma ?",
+        "options": [
+          "Ils ont préféré dix-huit heures, pensant que cela leur laissait plus de temps avant la séance.",
+          "Ils ont décidé dix-huit heures trente, pour que l’un ait juste le temps de finir son travail.",
+          "Ils ont finalement convenu dix-neuf heures, car l’un termine son travail à ce moment-là.",
+          "Ils ont fixé dix-sept heures, afin d’éviter de devoir attendre après le travail."
+        ],
+        "correct": "C",
+        "transcript": "Question 10.\nOn se retrouve à dix-huit heures devant le cinéma ?\nJe termine mon travail à dix-huit heures trente. Dix-neuf heures, ce serait mieux.\nD'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée.\nÀ quelle heure les deux amis ont-ils finalement choisi de se retrouver au cinéma ?",
+        "explanation": "Dans l'enregistrement, l'un des amis propose dix-neuf heures car il termine son travail à dix-huit heures trente, ce qui correspond à la raison donnée dans la première option. Les autres choix reflètent des erreurs d'interprétation sur l'heure exacte ou la motivation derrière le rendez-vous.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 10."
+          },
+          {
+            "voice": "male",
+            "text": "On se retrouve à dix-huit heures devant le cinéma ?"
+          },
+          {
+            "voice": "female",
+            "text": "Je termine mon travail à dix-huit heures trente. Dix-neuf heures, ce serait mieux."
+          },
+          {
+            "voice": "male",
+            "text": "D'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée."
+          },
+          {
+            "voice": "female",
+            "text": "À quelle heure les deux amis ont-ils finalement choisi de se retrouver au cinéma ?"
+          }
+        ],
+        "audio": "q-10.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 39
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "2192cc8b676d48980a2da929dea734e75f809292801e5a86dd0d4c2c2a9a4ad7",
+        "blind": [
+          {
+            "order": [
+              1,
+              2,
+              3,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnDVN7xiHY5f9wINhgOcS8lw2AV",
+              "result": {
+                "guess": 1,
+                "probabilities": [
+                  0.2,
+                  0.5,
+                  0.15,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 1,
+                    "cue": "mentions a specific reason tied to work ending at that time, making it a natural final choice"
+                  }
+                ],
+                "reason": "Option 1 stands out because it provides a clear, logical reason for the chosen time (work ending at that moment), which is a common and natural basis for scheduling a meeting. The other options are plausible but less directly tied to a definitive event."
+              },
+              "usage": {
+                "prompt_tokens": 357,
+                "completion_tokens": 112,
+                "total_tokens": 469,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000322,
+              "inputHash": "184e91a97e4978cceda270e5c3d11b99ea141a5b1da709f4bcfe146e070a6961",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:10:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 1 stands out because it provides a clear, logical reason for the chosen time (work ending at that moment), which is a common and natural basis for scheduling a meeting. The other options are plausible but less directly tied to a definitive event.",
+          "cues": [
+            {
+              "option": 1,
+              "cue": "mentions a specific reason tied to work ending at that time, making it a natural final choice"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 11,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "bcf834bcd5d58f2501412555e870f22b73d14324561c8526e2735014038cbf5d",
+      "imageHash": null,
+      "question": {
+        "number": 11,
+        "kind": "announcement",
+        "question": "Quel élément est indispensable à apporter pour pouvoir participer à l’atelier de réparation ?",
+        "options": [
+          "Une pièce d’identité pour justifier votre identité lors de l’inscription sur place.",
+          "Une preuve d’inscription confirmée par mail avant de pouvoir accéder à l’atelier.",
+          "Le vêtement endommagé que vous souhaitez faire réparer pendant l’atelier.",
+          "Des outils personnels spécifiques si vous voulez réaliser des réparations complexes."
+        ],
+        "correct": "C",
+        "transcript": "Question 11.\nSamedi, notre atelier de réparation ouvre à quatorze heures. Nous fournissons les aiguilles, le fil et les ciseaux. Apportez simplement un vêtement que vous voulez réparer. L'inscription est gratuite, mais les places sont limitées.\nQuel élément est indispensable à apporter pour pouvoir participer à l’atelier de réparation ?",
+        "explanation": "Le locuteur indique clairement que les outils de base sont fournis et que la seule chose à apporter est le vêtement à réparer. Il ne mentionne pas de pièce d’identité, d’outils personnels obligatoires ou de confirmation préalable par mail.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 11."
+          },
+          {
+            "voice": "male",
+            "text": "Samedi, notre atelier de réparation ouvre à quatorze heures. Nous fournissons les aiguilles, le fil et les ciseaux. Apportez simplement un vêtement que vous voulez réparer. L'inscription est gratuite, mais les places sont limitées."
+          },
+          {
+            "voice": "female",
+            "text": "Quel élément est indispensable à apporter pour pouvoir participer à l’atelier de réparation ?"
+          }
+        ],
+        "audio": "q-11.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 40
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "9975e9bcc6292de5aaa490a66d17c5ab3fe27cacef6f2f9d9b2df30bdc66ae67",
+        "blind": [
+          {
+            "order": [
+              2,
+              1,
+              0,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnBGGnt7mm1s8p1CC7hApBYOVlj",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.6,
+                  0.15,
+                  0.15,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mention of 'vêtement endommagé' directly relates to repair workshop participation"
+                  }
+                ],
+                "reason": "The question asks for an indispensable item to bring to participate in a repair workshop. Bringing the damaged item to be repaired is logically essential, whereas the other options are less likely to be strictly required for participation."
+              },
+              "usage": {
+                "prompt_tokens": 339,
+                "completion_tokens": 101,
+                "total_tokens": 440,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00029720000000000007,
+              "inputHash": "d2510a3b53ba36901e6e67201d745afffcfd881851fc6a06b7e0371d3fd82129",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:11:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.6,
+              "gap": 0.44999999999999996
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The question asks for an indispensable item to bring to participate in a repair workshop. Bringing the damaged item to be repaired is logically essential, whereas the other options are less likely to be strictly required for participation.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mention of 'vêtement endommagé' directly relates to repair workshop participation"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 12,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "2b6a894a440dc1f9f163f763b4d62b0f66ac5b637a10e9693d7152395af4d65c",
+      "imageHash": null,
+      "question": {
+        "number": 12,
+        "kind": "dialogue",
+        "question": "Pourquoi la cliente se rend-elle au magasin cette fois ?",
+        "options": [
+          "Pour échanger une lampe achetée précédemment en magasin qui ne correspond pas à ses attentes.",
+          "Pour vérifier en magasin les caractéristiques d'une lampe avant de finaliser son achat en ligne.",
+          "Pour signaler un problème avec une lampe récemment livrée qu'elle souhaite retourner.",
+          "Pour récupérer une lampe qu'elle a déjà réglée en ligne et qui l'attend au comptoir."
+        ],
+        "correct": "D",
+        "transcript": "Question 12.\nBonjour, j'ai reçu votre message pour ma lampe.\nVous venez la chercher ? Elle est prête, au comptoir du fond.\nParfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande.\nPourquoi la cliente se rend-elle au magasin cette fois ?",
+        "explanation": "La cliente mentionne avoir déjà payé la lampe en ligne et qu'elle est prête à être retirée au magasin, ce qui indique clairement qu'elle vient la récupérer. Les autres options évoquent des raisons différentes, comme un échange, une vérification avant achat, ou un retour pour défaut, qui ne correspondent pas au dialogue.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 12."
+          },
+          {
+            "voice": "female",
+            "text": "Bonjour, j'ai reçu votre message pour ma lampe."
+          },
+          {
+            "voice": "male",
+            "text": "Vous venez la chercher ? Elle est prête, au comptoir du fond."
+          },
+          {
+            "voice": "female",
+            "text": "Parfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande."
+          },
+          {
+            "voice": "female",
+            "text": "Pourquoi la cliente se rend-elle au magasin cette fois ?"
+          }
+        ],
+        "audio": "q-12.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 38
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "8bf888673d36e7e623a538ceff1f2afd449207f84f7f1e2833b8caf4d18cbcb3",
+        "blind": [
+          {
+            "order": [
+              2,
+              3,
+              1,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnDvAFkzFBv9OgDfNA6HhlYAS7j",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.4,
+                  0.2,
+                  0.2,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "phrase 'souhaite retourner' indique une action claire et spécifique de retour, ce qui est un motif fréquent et direct pour se rendre en magasin."
+                  }
+                ],
+                "reason": "The first option explicitly mentions the customer wants to return a recently delivered lamp due to a problem, which is a common and straightforward reason to visit a store. The other options are plausible but less specific or less immediate in nature. Therefore, option 0 stands out as the most likely reason."
+              },
+              "usage": {
+                "prompt_tokens": 344,
+                "completion_tokens": 132,
+                "total_tokens": 476,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003488,
+              "inputHash": "9d6fff942759b72738b4103b42eb640b52f39252de37b489e6b8d96dde7eb233",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:12:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The first option explicitly mentions the customer wants to return a recently delivered lamp due to a problem, which is a common and straightforward reason to visit a store. The other options are plausible but less specific or less immediate in nature. Therefore, option 0 stands out as the most likely reason.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "phrase 'souhaite retourner' indique une action claire et spécifique de retour, ce qui est un motif fréquent et direct pour se rendre en magasin."
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 13,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "bdd4542c95caeeb66b5dcc2c59b52984bde0f0c64d718d58db4911eb545f7f89",
+      "imageHash": null,
+      "question": {
+        "number": 13,
+        "kind": "announcement",
+        "question": "Quel détail précis caractérise la fermeture de la piscine ce mercredi matin ?",
+        "options": [
+          "La piscine sera fermée de huit heures à midi mercredi matin pour une intervention technique.",
+          "La piscine sera fermée dès le matin jusqu'à la reprise des cours à quatorze heures, sans accès libre.",
+          "La piscine fermera exceptionnellement plus tôt mercredi matin, bien que les cours soient maintenus comme d'habitude.",
+          "Les cours de natation de mercredi matin seront annulés, mais la piscine restera accessible aux nageurs individuels."
+        ],
+        "correct": "A",
+        "transcript": "Question 13.\nEn raison d'une intervention technique, la piscine sera fermée mercredi de huit heures à midi. Les cours reprendront à quatorze heures. Les autres jours de la semaine, les horaires habituels seront conservés. Merci de votre compréhension.\nQuel détail précis caractérise la fermeture de la piscine ce mercredi matin ?",
+        "explanation": "Le texte précise clairement que la piscine sera fermée de huit heures à midi mercredi matin pour une intervention technique, avec reprise des cours à quatorze heures. Les autres propositions détournent ou imprécisent cette information.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 13."
+          },
+          {
+            "voice": "female",
+            "text": "En raison d'une intervention technique, la piscine sera fermée mercredi de huit heures à midi. Les cours reprendront à quatorze heures. Les autres jours de la semaine, les horaires habituels seront conservés. Merci de votre compréhension."
+          },
+          {
+            "voice": "female",
+            "text": "Quel détail précis caractérise la fermeture de la piscine ce mercredi matin ?"
+          }
+        ],
+        "audio": "q-13.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 40
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "e68af78fc9539b938f4bd93b4d17b46bc7aac18363a4157a5b568970dcb32a35",
+        "blind": [
+          {
+            "order": [
+              3,
+              0,
+              2,
+              1
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnWD8rxGlw16mcYZ5lcDolTnP5g",
+              "result": {
+                "guess": 1,
+                "probabilities": [
+                  0.1,
+                  0.6,
+                  0.15,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 1,
+                    "cue": "mentions a specific time frame 'de huit heures à midi' and a clear reason 'intervention technique'"
+                  }
+                ],
+                "reason": "Option 1 provides a precise time frame and a specific reason for closure, which directly answers the question about a precise detail characterizing the closure. Other options are less specific or more general about timing or access."
+              },
+              "usage": {
+                "prompt_tokens": 358,
+                "completion_tokens": 107,
+                "total_tokens": 465,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00031440000000000005,
+              "inputHash": "63852499cc7ef5de5861eee69654117cfe927e14a6446094c48d65d9053a1833",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:13:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.6,
+              "gap": 0.44999999999999996
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 1 provides a precise time frame and a specific reason for closure, which directly answers the question about a precise detail characterizing the closure. Other options are less specific or more general about timing or access.",
+          "cues": [
+            {
+              "option": 1,
+              "cue": "mentions a specific time frame 'de huit heures à midi' and a clear reason 'intervention technique'"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 14,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "7442b2dbe701cadf28d5a61a643e6ebf8913cd9d6e97699b4dc0adc97f697ddc",
+      "imageHash": null,
+      "question": {
+        "number": 14,
+        "kind": "dialogue",
+        "question": "Quelle solution Paul propose-t-il pour résoudre le problème du dîner ?",
+        "options": [
+          "Il recommande de reporter le dîner à un autre jour, faute d'ingrédients essentiels.",
+          "Il conseille d'aller rapidement acheter du pain pour compléter le repas.",
+          "Il propose de commander un plat à emporter pour compenser l'absence de pain.",
+          "Il suggère de préparer une soupe avec les légumes et pommes de terre disponibles."
+        ],
+        "correct": "D",
+        "transcript": "Question 14.\nPaul, je n'ai pas eu le temps de faire les courses. Il n'y a plus de pain.\nCe n'est pas grave. On a des légumes et des pommes de terre. Je peux préparer une soupe.\nBonne idée, je vais mettre la table.\nQuelle solution Paul propose-t-il pour résoudre le problème du dîner ?",
+        "explanation": "Paul indique clairement qu'il peut préparer une soupe avec les légumes et pommes de terre, montrant une solution immédiate et adaptée au manque de pain. Les autres options interprètent mal sa proposition : il ne parle pas de commander à emporter, ni de reporter le dîner, ni d'acheter du pain rapidement.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 14."
+          },
+          {
+            "voice": "female",
+            "text": "Paul, je n'ai pas eu le temps de faire les courses. Il n'y a plus de pain."
+          },
+          {
+            "voice": "male",
+            "text": "Ce n'est pas grave. On a des légumes et des pommes de terre. Je peux préparer une soupe."
+          },
+          {
+            "voice": "female",
+            "text": "Bonne idée, je vais mettre la table."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle solution Paul propose-t-il pour résoudre le problème du dîner ?"
+          }
+        ],
+        "audio": "q-14.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 39
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "48b96ce4dd2fecba38e5f120d6dac7c01d79c7199916711151182e8a5118656a",
+        "blind": [
+          {
+            "order": [
+              0,
+              1,
+              3,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnWFfmghiQtPJUleV7Oc1xnddOb",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.5,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "suggestion to prepare a specific dish using available ingredients"
+                  }
+                ],
+                "reason": "Option 2 is the most specific and constructive solution, proposing to use available vegetables and potatoes to make a soup, which directly addresses the problem of missing ingredients. Other options involve postponing, buying bread, or ordering takeout, which are less proactive or less detailed."
+              },
+              "usage": {
+                "prompt_tokens": 336,
+                "completion_tokens": 108,
+                "total_tokens": 444,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00030720000000000004,
+              "inputHash": "9eb2cd55d46e508f3cb33e727d72adb01df947925c2b81604d336f50b8778acf",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:14:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 is the most specific and constructive solution, proposing to use available vegetables and potatoes to make a soup, which directly addresses the problem of missing ingredients. Other options involve postponing, buying bread, or ordering takeout, which are less proactive or less detailed.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "suggestion to prepare a specific dish using available ingredients"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 15,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "3746895123c63b24449953557cc1875074dc575efd2c18e925f5135c5b0bafe6",
+      "imageHash": null,
+      "question": {
+        "number": 15,
+        "kind": "announcement",
+        "question": "Comment les habitants peuvent-ils donner leur avis sur le projet d'aménagement de la place des Érables ?",
+        "options": [
+          "Ils sont invités uniquement à la réunion samedi à dix heures, le formulaire ne servant qu'à informer les élus.",
+          "Ils peuvent envoyer leurs commentaires par courrier postal uniquement, la réunion étant dédiée à la présentation du projet.",
+          "Ils doivent obligatoirement assister à la réunion samedi, car le formulaire n'est disponible qu'après cette date.",
+          "Ils doivent remplir un formulaire en ligne ou papier avant le vingt mai et peuvent aussi venir à la réunion samedi matin."
+        ],
+        "correct": "D",
+        "transcript": "Question 15.\nLa mairie prépare l'aménagement de la place des Érables et souhaite connaître vos habitudes. Un formulaire est disponible sur son site et à l'accueil jusqu'au vingt mai. Une réunion aura également lieu samedi à dix heures. Vous n'avez pas besoin d'assister à la réunion pour remplir le formulaire. Les propositions seront ensuite présentées au conseil municipal.\nComment les habitants peuvent-ils donner leur avis sur le projet d'aménagement de la place des Érables ?",
+        "explanation": "Le texte indique clairement que les habitants peuvent remplir un formulaire en ligne ou en version papier jusqu'au vingt mai et qu'une réunion aura lieu samedi à dix heures. La participation n'est pas conditionnée à la présence à la réunion, ni limitée à un seul mode d'expression.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 15."
+          },
+          {
+            "voice": "male",
+            "text": "La mairie prépare l'aménagement de la place des Érables et souhaite connaître vos habitudes. Un formulaire est disponible sur son site et à l'accueil jusqu'au vingt mai. Une réunion aura également lieu samedi à dix heures. Vous n'avez pas besoin d'assister à la réunion pour remplir le formulaire. Les propositions seront ensuite présentées au conseil municipal."
+          },
+          {
+            "voice": "female",
+            "text": "Comment les habitants peuvent-ils donner leur avis sur le projet d'aménagement de la place des Érables ?"
+          }
+        ],
+        "audio": "q-15.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 49
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "719af1c7e460e66c8124554a377672d921bc82c3adf460bfd4b6c23a6b33c21e",
+        "blind": [
+          {
+            "order": [
+              1,
+              3,
+              0,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnZoThlkeCVWXLRMFP6X7k3nwiI",
+              "result": {
+                "guess": 1,
+                "probabilities": [
+                  0.1,
+                  0.7,
+                  0.15,
+                  0.05
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 1,
+                    "cue": "mentions both online and paper forms plus attending the meeting, showing flexibility and completeness"
+                  }
+                ],
+                "reason": "Option 1 is the most comprehensive and reasonable, allowing multiple ways to give opinions and specifying a deadline, which fits typical public consultation methods. Other options are more restrictive or contradictory."
+              },
+              "usage": {
+                "prompt_tokens": 367,
+                "completion_tokens": 95,
+                "total_tokens": 462,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0002988,
+              "inputHash": "c31255a42242054f46227e394c9f40d4c032b7a983a867f31735588522144d22",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:15:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.7,
+              "gap": 0.5499999999999999
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 1 is the most comprehensive and reasonable, allowing multiple ways to give opinions and specifying a deadline, which fits typical public consultation methods. Other options are more restrictive or contradictory.",
+          "cues": [
+            {
+              "option": 1,
+              "cue": "mentions both online and paper forms plus attending the meeting, showing flexibility and completeness"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 16,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "089194a7a54c351c2ddcc073583892a21fa6b24850b16d10d4cc1ecba376561c",
+      "imageHash": null,
+      "question": {
+        "number": 16,
+        "kind": "dialogue",
+        "question": "Pourquoi la responsable doit-elle réorganiser le planning de la crèche ?",
+        "options": [
+          "Parce qu'une fermeture temporaire pour travaux est programmée, nécessitant une réorganisation des équipes.",
+          "Parce qu'un employé commencera sa journée plus tard, ce qui oblige à déplacer certaines permanences pour maintenir les horaires d'ouverture.",
+          "Parce que la crèche envisage d'étendre ses heures d'accueil le soir, demandant une adaptation des emplois du temps.",
+          "Parce que la responsable veut revoir la répartition des pauses pour équilibrer la charge de travail entre matin et après-midi."
+        ],
+        "correct": "B",
+        "transcript": "Question 16.\nKarim, tu m'as dit que les horaires de la crèche allaient changer ?\nOui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente.\nAlors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée. Comme cela, nous conserverons les mêmes heures d'ouverture.\nMerci, cette organisation me convient.\nPourquoi la responsable doit-elle réorganiser le planning de la crèche ?",
+        "explanation": "Le dialogue indique clairement que Karim ne pourra plus arriver avant 9h30, ce qui nécessite que la responsable prenne l'accueil du matin et lui assure la permanence de fin de journée, afin de conserver les mêmes horaires. Les autres propositions évoquent des changements non mentionnés dans l'enregistrement, comme une fermeture ou une extension des horaires.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 16."
+          },
+          {
+            "voice": "female",
+            "text": "Karim, tu m'as dit que les horaires de la crèche allaient changer ?"
+          },
+          {
+            "voice": "male",
+            "text": "Oui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente."
+          },
+          {
+            "voice": "female",
+            "text": "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée. Comme cela, nous conserverons les mêmes heures d'ouverture."
+          },
+          {
+            "voice": "male",
+            "text": "Merci, cette organisation me convient."
+          },
+          {
+            "voice": "female",
+            "text": "Pourquoi la responsable doit-elle réorganiser le planning de la crèche ?"
+          }
+        ],
+        "audio": "q-16.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 48
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "b4e616757df0b54bd491da0741488531ec4588c518f2844b591669192140cb15",
+        "blind": [
+          {
+            "order": [
+              2,
+              3,
+              0,
+              1
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnZ6GtDD5Ebo1Alb8p4qXJSZoBU",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.4
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "mention of a specific scheduling conflict due to an employee's later start time requiring adjustment to maintain opening hours"
+                  }
+                ],
+                "reason": "Option 3 provides a concrete and plausible reason directly related to scheduling adjustments, making it stand out as the most likely correct answer compared to more general or less directly connected options."
+              },
+              "usage": {
+                "prompt_tokens": 369,
+                "completion_tokens": 99,
+                "total_tokens": 468,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000306,
+              "inputHash": "b4927d64e381afe909b1628e3b65e5db80dd00f0ca08574c42a5d70bb46c083f",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:16:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 provides a concrete and plausible reason directly related to scheduling adjustments, making it stand out as the most likely correct answer compared to more general or less directly connected options.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "mention of a specific scheduling conflict due to an employee's later start time requiring adjustment to maintain opening hours"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 17,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "d4f77fae6e81b16c9252a2ba508779ad9afaad3b5753c3baae21334dddc93243",
+      "imageHash": null,
+      "question": {
+        "number": 17,
+        "kind": "announcement",
+        "question": "Quelle caractéristique distingue principalement le nouveau service de portage de livres pour les personnes à mobilité réduite proposé par la bibliothèque ?",
+        "options": [
+          "Le prêt à domicile nécessite une carte spécifique et un abonnement pour bénéficier du service.",
+          "La bibliothèque prolonge automatiquement la durée du prêt pour les usagers du service, sans démarche supplémentaire.",
+          "L'inscription au service déclenche une livraison immédiate des livres, sans besoin d'autres formalités.",
+          "Les livres sont livrés chez les bénéficiaires après un échange personnalisé sur leurs préférences avec un bénévole."
+        ],
+        "correct": "D",
+        "transcript": "Question 17.\nLa bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison.\nQuelle caractéristique distingue principalement le nouveau service de portage de livres pour les personnes à mobilité réduite proposé par la bibliothèque ?",
+        "explanation": "Le service décrit implique une sélection personnalisée de livres, choisie après un échange avec un bénévole, puis livrée à domicile. Le prêt n'est pas automatique à partir de la carte de bibliothèque ni prolongé sans accord, et la livraison ne se fait pas immédiatement à l'inscription sans autre démarche.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 17."
+          },
+          {
+            "voice": "female",
+            "text": "La bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle caractéristique distingue principalement le nouveau service de portage de livres pour les personnes à mobilité réduite proposé par la bibliothèque ?"
+          }
+        ],
+        "audio": "q-17.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 51
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "acb61e385d80ced57fc0f117f527d374a83aadf04d3322b7c5921dc7a703d1e9",
+        "blind": [
+          {
+            "order": [
+              0,
+              1,
+              3,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwncATzD8OwIsu3Ng9yd8JY0X4lU",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.5,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "personalized exchange with a volunteer suggests a distinctive feature"
+                  }
+                ],
+                "reason": "Option 2 mentions a personalized exchange with a volunteer, which is a specific and distinctive characteristic likely to differentiate the new service. Other options describe more generic or procedural features that are less unique."
+              },
+              "usage": {
+                "prompt_tokens": 362,
+                "completion_tokens": 92,
+                "total_tokens": 454,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000292,
+              "inputHash": "34bd61d9fcc4441c8668dfddecb0e4a93fa185ed1346260d4620c629d6415586",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:17:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 mentions a personalized exchange with a volunteer, which is a specific and distinctive characteristic likely to differentiate the new service. Other options describe more generic or procedural features that are less unique.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "personalized exchange with a volunteer suggests a distinctive feature"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 18,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "b1fefce994fed7f3fba92253122c8c06fb213c98cbc17a0187975d776225fd7c",
+      "imageHash": null,
+      "question": {
+        "number": 18,
+        "kind": "dialogue",
+        "question": "Quelle solution les collègues retiennent-ils pour gérer les problèmes de connexion lors de la présentation ?",
+        "options": [
+          "Ils décident de présenter uniquement à l’oral sans support visuel pour ne pas dépendre d’une connexion instable.",
+          "Ils utilisent une copie enregistrée sur l’ordinateur, bien qu’incomplète, et expliquent oralement le graphique manquant.",
+          "Ils impriment toutes les diapositives pour que chacun puisse suivre sans écran, évitant ainsi les coupures réseau.",
+          "Ils reportent la présentation pour préparer un fichier complet et éviter tout risque technique."
+        ],
+        "correct": "B",
+        "transcript": "Question 18.\nLa connexion coupe encore. Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre.\nJ'ai enregistré une copie sur mon ordinateur ce matin. Il manque seulement le dernier graphique.\nUtilisons cette version. Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion.\nD'accord, je branche mon ordinateur au projecteur.\nQuelle solution les collègues retiennent-ils pour gérer les problèmes de connexion lors de la présentation ?",
+        "explanation": "Le locuteur mentionne clairement qu'il a enregistré une copie sur son ordinateur avec seulement un graphique manquant, et propose d'utiliser cette version en expliquant le graphique à l'oral. Les collègues sont d'accord, ce qui correspond à la deuxième option.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 18."
+          },
+          {
+            "voice": "male",
+            "text": "La connexion coupe encore. Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre."
+          },
+          {
+            "voice": "female",
+            "text": "J'ai enregistré une copie sur mon ordinateur ce matin. Il manque seulement le dernier graphique."
+          },
+          {
+            "voice": "male",
+            "text": "Utilisons cette version. Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion."
+          },
+          {
+            "voice": "female",
+            "text": "D'accord, je branche mon ordinateur au projecteur."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle solution les collègues retiennent-ils pour gérer les problèmes de connexion lors de la présentation ?"
+          }
+        ],
+        "audio": "q-18.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 52
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "19a0a71638a159eeb1654960ecd64edc8d75d7d4a43172651738c0558b4ee021",
+        "blind": [
+          {
+            "order": [
+              1,
+              2,
+              3,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnbNAvDOpbPAWxCpI749KLxZ4vD",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.5,
+                  0.2,
+                  0.15,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mentions using a partial recorded copy and explaining missing parts, which is a practical compromise"
+                  }
+                ],
+                "reason": "Option 0 suggests a practical solution combining a backup and oral explanation, which is a common approach to handle connection issues. Other options are more extreme or less practical, making option 0 stand out as the most plausible answer."
+              },
+              "usage": {
+                "prompt_tokens": 368,
+                "completion_tokens": 105,
+                "total_tokens": 473,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00031520000000000007,
+              "inputHash": "8374fcb3ca68d07ea82025edb66fd3e83e5b093e60f6d5671017c1602536c78f",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:18:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 suggests a practical solution combining a backup and oral explanation, which is a common approach to handle connection issues. Other options are more extreme or less practical, making option 0 stand out as the most plausible answer.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions using a partial recorded copy and explaining missing parts, which is a practical compromise"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 19,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "number": 20,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "4400eda7d40e45a9803d5abefa4d70d6336b8bde0931e65a764f8f9e2344d25c",
+      "imageHash": null,
+      "question": {
+        "number": 20,
+        "kind": "dialogue",
+        "question": "Quelle est la principale hésitation de la locataire avant de déposer son dossier de location ?",
+        "options": [
+          "Elle veut s'assurer que le loyer correspond bien à son budget avant de s'engager.",
+          "Elle souhaite vérifier si l'immeuble est équipé d'un ascenseur avant de déposer sa candidature.",
+          "Elle préfère tester le trajet en bus à cause d'une correspondance qui pourrait compliquer ses déplacements.",
+          "Elle doute que la cuisine soit aussi lumineuse qu'indiqué sur le plan de l'appartement."
+        ],
+        "correct": "C",
+        "transcript": "Question 20.\nL'appartement me plaît. La cuisine est lumineuse et le loyer correspond à mon budget.\nVous souhaitez déposer un dossier aujourd'hui ?\nJe voudrais d'abord essayer le trajet en bus demain matin. Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance.\nBien sûr. Je vous enverrai les horaires des deux lignes, et nous pourrons nous rappeler ensuite.\nQuelle est la principale hésitation de la locataire avant de déposer son dossier de location ?",
+        "explanation": "Dans l'enregistrement, la locataire exprime clairement son souhait d'essayer le trajet en bus à cause d'une correspondance, avant de déposer son dossier. Les autres choix introduisent des hésitations non évoquées ou moins centrales dans le dialogue.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 20."
+          },
+          {
+            "voice": "female",
+            "text": "L'appartement me plaît. La cuisine est lumineuse et le loyer correspond à mon budget."
+          },
+          {
+            "voice": "male",
+            "text": "Vous souhaitez déposer un dossier aujourd'hui ?"
+          },
+          {
+            "voice": "female",
+            "text": "Je voudrais d'abord essayer le trajet en bus demain matin. Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance."
+          },
+          {
+            "voice": "male",
+            "text": "Bien sûr. Je vous enverrai les horaires des deux lignes, et nous pourrons nous rappeler ensuite."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle est la principale hésitation de la locataire avant de déposer son dossier de location ?"
+          }
+        ],
+        "audio": "q-20.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 51
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "d220d100ab8cb4539065d348a3aeebc9db51c4bc044193ee9935d87fe18aeb07",
+        "blind": [
+          {
+            "order": [
+              3,
+              1,
+              0,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwnvLibDwl2ydC7XbmzePwM3Ngxm",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.15,
+                  0.2,
+                  0.45,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "concern about budget is a common and central hesitation in rental decisions"
+                  }
+                ],
+                "reason": "The hesitation about budget (option 2) is a very common and central concern when deciding to submit a rental application, making it the most plausible main hesitation. Other options are plausible but less central or less likely to be the primary hesitation."
+              },
+              "usage": {
+                "prompt_tokens": 355,
+                "completion_tokens": 105,
+                "total_tokens": 460,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00031,
+              "inputHash": "73d3bd72d5566e6ef532a607e647f74cc5d0f4b778f35d947c804c69126e384a",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:20:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.45,
+              "gap": 0.25
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The hesitation about budget (option 2) is a very common and central concern when deciding to submit a rental application, making it the most plausible main hesitation. Other options are plausible but less central or less likely to be the primary hesitation.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "concern about budget is a common and central hesitation in rental decisions"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 21,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "9bb977a51bd7b2ee8bde0cee2160e66277dcd2ebcdfc38fd1862317fc4b31708",
+      "imageHash": null,
+      "question": {
+        "number": 21,
+        "kind": "announcement",
+        "question": "Pourquoi l’association demande-t-elle aux participants de s’inscrire avant vendredi ?",
+        "options": [
+          "Pour évaluer le nombre de participants et répartir les groupes selon leurs préférences exprimées.",
+          "Pour appliquer un tarif ajusté en fonction des activités sélectionnées lors de l’inscription.",
+          "Pour limiter la participation aux habitants ayant déjà une expérience en jardinage, garantissant ainsi une meilleure organisation.",
+          "Pour confirmer uniquement la présence de ceux qui s’engagent à rester jusqu’à la fin de l’événement."
+        ],
+        "correct": "A",
+        "transcript": "Question 21.\nNotre journée de jardinage collectif aura lieu dimanche, de neuf heures à midi. Tous les habitants sont les bienvenus, y compris ceux qui n'ont jamais jardiné. Merci de vous inscrire avant vendredi : nous pourrons prévoir assez d'outils et organiser les petits groupes. Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt. L'inscription ne vous engage pas à participer aux prochaines séances.\nPourquoi l’association demande-t-elle aux participants de s’inscrire avant vendredi ?",
+        "explanation": "Le texte mentionne que l'inscription avant vendredi permet de prévoir suffisamment d'outils et d'organiser les petits groupes, en tenant compte des préférences des participants, ce qui correspond à l'évaluation du nombre et à la répartition selon les préférences. Les autres options introduisent des conditions ou objectifs non évoqués dans l'annonce, comme un tarif variable, un engagement de présence totale, ou une restriction aux jardiniers expérimentés.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 21."
+          },
+          {
+            "voice": "female",
+            "text": "Notre journée de jardinage collectif aura lieu dimanche, de neuf heures à midi. Tous les habitants sont les bienvenus, y compris ceux qui n'ont jamais jardiné. Merci de vous inscrire avant vendredi : nous pourrons prévoir assez d'outils et organiser les petits groupes. Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt. L'inscription ne vous engage pas à participer aux prochaines séances."
+          },
+          {
+            "voice": "female",
+            "text": "Pourquoi l’association demande-t-elle aux participants de s’inscrire avant vendredi ?"
+          }
+        ],
+        "audio": "q-21.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 51
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "08f48b732d8befbb86fb282736929ccdba3ea182c86132465126302ef8fdf031",
+        "blind": [
+          {
+            "order": [
+              1,
+              2,
+              0,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwo0nxRe6Acq4RPx71JrqSUwhvQG",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.2,
+                  0.15,
+                  0.5,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mentions evaluation of participant number and group distribution, a common reason for early registration"
+                  }
+                ],
+                "reason": "Option 2 is the most plausible and common reason for early registration: to estimate participant numbers and organize groups accordingly. Other options are less typical or more restrictive, making option 2 stand out as the intended correct answer."
+              },
+              "usage": {
+                "prompt_tokens": 353,
+                "completion_tokens": 103,
+                "total_tokens": 456,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000306,
+              "inputHash": "bb2b7018dcb452a1b9ea03b730061f0dbdf17731ea0b8ed215ee48d109fb19e1",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:21:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 is the most plausible and common reason for early registration: to estimate participant numbers and organize groups accordingly. Other options are less typical or more restrictive, making option 2 stand out as the intended correct answer.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions evaluation of participant number and group distribution, a common reason for early registration"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 22,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "1abcce1c1bc5de04c4e59a14a4ce16f9ebadb3b0dc2fecda3b1d5b7e65136a1f",
+      "imageHash": null,
+      "question": {
+        "number": 22,
+        "kind": "interview",
+        "question": "Quel aspect de son trajet à vélo la cycliste valorise-t-elle principalement ?",
+        "options": [
+          "Elle évoque le fait que le vélo l’aide souvent à éviter les embouteillages, ce qui facilite ses déplacements en ville.",
+          "Elle insiste sur le fait que le vélo lui permet de découvrir des quartiers qu’elle ne connaissait pas auparavant, ce qui rend le trajet plus plaisant.",
+          "Elle explique que le vélo est une solution économique par rapport à l’abonnement au métro, ce qui l’encourage à continuer.",
+          "Elle indique que le vélo lui fait gagner du temps la plupart des jours, sauf quand il y a des travaux ou qu’il pleut."
+        ],
+        "correct": "B",
+        "transcript": "Question 22.\nDepuis un an, vous allez au travail à vélo. Vous gagnez du temps ?\nPas forcément. Quand il pleut ou qu'il y a des travaux, le métro serait parfois plus rapide. Mais j'ai découvert des rues que je ne traversais jamais, une petite librairie, un marché. Le trajet fait maintenant partie de ma journée, au lieu d'être seulement un temps à supprimer. C'est cela que j'apprécie le plus.\nQuel aspect de son trajet à vélo la cycliste valorise-t-elle principalement ?",
+        "explanation": "La cycliste met en avant la découverte de nouveaux endroits et le plaisir que cela lui procure, transformant le trajet en un moment agréable, contrairement aux autres aspects pratiques ou économiques mentionnés.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 22."
+          },
+          {
+            "voice": "male",
+            "text": "Depuis un an, vous allez au travail à vélo. Vous gagnez du temps ?"
+          },
+          {
+            "voice": "female",
+            "text": "Pas forcément. Quand il pleut ou qu'il y a des travaux, le métro serait parfois plus rapide. Mais j'ai découvert des rues que je ne traversais jamais, une petite librairie, un marché. Le trajet fait maintenant partie de ma journée, au lieu d'être seulement un temps à supprimer. C'est cela que j'apprécie le plus."
+          },
+          {
+            "voice": "female",
+            "text": "Quel aspect de son trajet à vélo la cycliste valorise-t-elle principalement ?"
+          }
+        ],
+        "audio": "q-22.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 50
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "d6ce908542c83f4c299e52a5b378435e8e587b22134f748fa2ca8d6404692951",
+        "blind": [
+          {
+            "order": [
+              1,
+              3,
+              2,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwnzb5It6S7gqt8kerzqVYbVZkX4",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.4,
+                  0.2,
+                  0.2,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mentions discovering new neighborhoods, a specific and positive personal experience that is often highlighted in such questions"
+                  }
+                ],
+                "reason": "Option 0 stands out because it focuses on a unique and positive aspect of the cycling experience—discovering new neighborhoods—which is a common theme in personal travel narratives. The other options are more practical and less distinctive, making option 0 the most likely intended answer."
+              },
+              "usage": {
+                "prompt_tokens": 386,
+                "completion_tokens": 115,
+                "total_tokens": 501,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003384,
+              "inputHash": "05a43a427ac4e6b58bad193ca40452bdfb68e12ecc1c27f4116a0ac9ec5d8da3",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:22:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 stands out because it focuses on a unique and positive aspect of the cycling experience—discovering new neighborhoods—which is a common theme in personal travel narratives. The other options are more practical and less distinctive, making option 0 the most likely intended answer.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions discovering new neighborhoods, a specific and positive personal experience that is often highlighted in such questions"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 23,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "f33f16c7c0a4fef29f86262e454ddcad1d02303ec9a6a9ac2b5da3373c7536b9",
+      "imageHash": null,
+      "question": {
+        "number": 23,
+        "kind": "dialogue",
+        "question": "Pourquoi les organisateurs veulent-ils réaménager les espaces dédiés aux activités lors de la prochaine journée ?",
+        "options": [
+          "Parce que les bénévoles ont proposé de regrouper les jeux à l’extérieur pour libérer la salle principale aux lectures, pensant que cela améliorerait la circulation.",
+          "Parce que les lectures seront déplacées dans une salle voisine pour offrir plus de place, même si le bruit des jeux n’était pas la cause principale du changement.",
+          "Parce que le bruit des jeux de construction à côté des lectures perturbait la compréhension, ce qui a motivé leur séparation dans des espaces différents.",
+          "Parce que la présence de tables inutilisées dans la salle principale gênait la circulation pendant les activités, rendant nécessaire leur retrait ou déplacement."
+        ],
+        "correct": "C",
+        "transcript": "Question 23.\nLa journée de samedi a bien fonctionné, mais plusieurs familles ont trouvé les lectures difficiles à entendre.\nOui, les jeux de construction étaient installés juste à côté. Nous avions prévu les espaces selon le nombre de tables, sans penser au bruit.\nLa prochaine fois, gardons les jeux dans la grande salle et installons les lectures dans la pièce voisine.\nIl faudra améliorer les panneaux pour que chacun trouve les deux espaces. Je peux préparer un plan simple et demander aux bénévoles d'accompagner les nouveaux arrivants.\nPourquoi les organisateurs veulent-ils réaménager les espaces dédiés aux activités lors de la prochaine journée ?",
+        "explanation": "Le texte explique clairement que le bruit des jeux de construction perturbait la compréhension des lectures, ce qui a conduit à la décision de séparer ces activités dans des espaces différents pour la prochaine fois.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 23."
+          },
+          {
+            "voice": "female",
+            "text": "La journée de samedi a bien fonctionné, mais plusieurs familles ont trouvé les lectures difficiles à entendre."
+          },
+          {
+            "voice": "male",
+            "text": "Oui, les jeux de construction étaient installés juste à côté. Nous avions prévu les espaces selon le nombre de tables, sans penser au bruit."
+          },
+          {
+            "voice": "female",
+            "text": "La prochaine fois, gardons les jeux dans la grande salle et installons les lectures dans la pièce voisine."
+          },
+          {
+            "voice": "male",
+            "text": "Il faudra améliorer les panneaux pour que chacun trouve les deux espaces. Je peux préparer un plan simple et demander aux bénévoles d'accompagner les nouveaux arrivants."
+          },
+          {
+            "voice": "female",
+            "text": "Pourquoi les organisateurs veulent-ils réaménager les espaces dédiés aux activités lors de la prochaine journée ?"
+          }
+        ],
+        "audio": "q-23.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 60
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "d3d43a5fbd504db8cd09f8db2f4f64e299e4d256eea00ca8472dc3d0ef985a99",
+        "blind": [
+          {
+            "order": [
+              3,
+              1,
+              2,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwo3tjKgJa8sCG8ZlbHyrjJle5mI",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.2,
+                  0.25,
+                  0.4,
+                  0.15
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mentions noise disturbing comprehension, a strong reason for rearrangement"
+                  }
+                ],
+                "reason": "Option 2 specifically addresses noise disturbing understanding, a clear and plausible reason for rearranging spaces, making it stand out as the most likely correct answer compared to others that mention circulation or space but less directly link to a problem causing the change."
+              },
+              "usage": {
+                "prompt_tokens": 404,
+                "completion_tokens": 103,
+                "total_tokens": 507,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003264,
+              "inputHash": "70937409d1f46d1b40fa18adc4aeebe0125b0244e4f15ae4f5f1536ceef56759",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:23:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.15000000000000002
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 specifically addresses noise disturbing understanding, a clear and plausible reason for rearranging spaces, making it stand out as the most likely correct answer compared to others that mention circulation or space but less directly link to a problem causing the change.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions noise disturbing comprehension, a strong reason for rearrangement"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 24,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "96d72769b6d09fc7c118f34e72cf8a138d36fa25c806c06bae1cfc8cd2dbedbf",
+      "imageHash": null,
+      "question": {
+        "number": 24,
+        "kind": "interview",
+        "question": "Quelle limite précise la chercheuse souligne-t-elle concernant la représentativité des réponses obtenues ?",
+        "options": [
+          "Le questionnaire a principalement été distribué aux usagers en journée, ce qui sous-représente les salariés de nuit et ceux ayant arrêté d'utiliser la ligne.",
+          "L'étude a recueilli les avis des travailleurs de nuit mais a négligé ceux des usagers qui n'ont pas utilisé la ligne récemment.",
+          "Les résultats reflètent seulement les opinions des voyageurs actuels, sans prendre en compte les usagers occasionnels ni les anciens abonnés.",
+          "Des biais dans la méthode de collecte des données pourraient avoir faussé la représentativité des réponses."
+        ],
+        "correct": "A",
+        "transcript": "Question 24.\nVotre enquête montre que les voyageurs sont satisfaits des nouveaux horaires. Peut-on dire que la réforme est un succès ?\nC'est un signal intéressant, mais notre questionnaire a surtout été distribué dans les bus en journée. Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne. Avant de conclure, il faut les contacter. Une enquête auprès des usagers actuels décrit une partie de la situation ; elle ne dit pas automatiquement ce que vivent les personnes absentes.\nQuelle limite précise la chercheuse souligne-t-elle concernant la représentativité des réponses obtenues ?",
+        "explanation": "La chercheuse insiste sur le fait que le questionnaire a été distribué surtout en journée, ce qui exclut les salariés de nuit et les anciens usagers, limitant ainsi la représentativité des résultats. Les autres options modifient ou omettent ces détails précis, rendant leur interprétation incorrecte au regard du stimulus.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 24."
+          },
+          {
+            "voice": "male",
+            "text": "Votre enquête montre que les voyageurs sont satisfaits des nouveaux horaires. Peut-on dire que la réforme est un succès ?"
+          },
+          {
+            "voice": "female",
+            "text": "C'est un signal intéressant, mais notre questionnaire a surtout été distribué dans les bus en journée. Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne. Avant de conclure, il faut les contacter. Une enquête auprès des usagers actuels décrit une partie de la situation ; elle ne dit pas automatiquement ce que vivent les personnes absentes."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle limite précise la chercheuse souligne-t-elle concernant la représentativité des réponses obtenues ?"
+          }
+        ],
+        "audio": "q-24.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 59
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "86f8093a566d53a02867100caedfe00dab32a9680f1f31130e08c3ecd020cc60",
+        "blind": [
+          {
+            "order": [
+              2,
+              3,
+              1,
+              0
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwo2oZqRahViwql1VZ5WaYcVp2ap",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.3,
+                  0.2,
+                  0.4
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "mentions specific groups underrepresented due to questionnaire distribution timing"
+                  }
+                ],
+                "reason": "Option 3 is the most specific and detailed about the limitation, mentioning the timing of questionnaire distribution and the specific groups underrepresented, which aligns well with the question about a precise limit on representativity. Other options are more general or less detailed."
+              },
+              "usage": {
+                "prompt_tokens": 384,
+                "completion_tokens": 103,
+                "total_tokens": 487,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00031840000000000004,
+              "inputHash": "7165803e6d661763bbcc40ce52b500307049b87312f3801f219513da55906630",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:24:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.10000000000000003
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 is the most specific and detailed about the limitation, mentioning the timing of questionnaire distribution and the specific groups underrepresented, which aligns well with the question about a precise limit on representativity. Other options are more general or less detailed.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "mentions specific groups underrepresented due to questionnaire distribution timing"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 25,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "e49635a80493be08d9c904d8ac95a86b3de1986464fdc9b92e2a8ffacabb289c",
+      "imageHash": null,
+      "question": {
+        "number": 25,
+        "kind": "announcement",
+        "question": "Quelle idée principale le reportage cherche-t-il à transmettre sur l’utilisation des outils dans cet atelier ?",
+        "options": [
+          "Les participants peuvent emprunter librement les outils mais doivent vérifier le matériel avant de commencer.",
+          "Les outils sont modernisés régulièrement pour éviter les accidents lors de leur usage.",
+          "La sécurité est assurée en formant les utilisateurs avant de leur prêter des outils.",
+          "Il est essentiel d’être accompagné pour apprendre à utiliser correctement les outils, même si on en possède déjà."
+        ],
+        "correct": "D",
+        "transcript": "Question 25.\nDans cet atelier de quartier, on peut emprunter une perceuse ou une ponceuse. Pourtant, la nouveauté n'est pas seulement dans les étagères remplies d'outils. Une bénévole prend le temps d'expliquer les gestes, de vérifier le matériau et de dire quand il vaut mieux renoncer. Un participant résume : j'avais déjà accès à une perceuse, mais je n'osais pas m'en servir. Le projet rappelle qu'un équipement partagé devient réellement utile quand les personnes savent l'utiliser et peuvent demander de l'aide.\nQuelle idée principale le reportage cherche-t-il à transmettre sur l’utilisation des outils dans cet atelier ?",
+        "explanation": "Le reportage insiste sur l’importance de l’accompagnement et de l’apprentissage pour que les outils partagés soient vraiment utiles, même si les personnes ont déjà accès à ces outils.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 25."
+          },
+          {
+            "voice": "male",
+            "text": "Dans cet atelier de quartier, on peut emprunter une perceuse ou une ponceuse. Pourtant, la nouveauté n'est pas seulement dans les étagères remplies d'outils. Une bénévole prend le temps d'expliquer les gestes, de vérifier le matériau et de dire quand il vaut mieux renoncer. Un participant résume : j'avais déjà accès à une perceuse, mais je n'osais pas m'en servir. Le projet rappelle qu'un équipement partagé devient réellement utile quand les personnes savent l'utiliser et peuvent demander de l'aide."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle idée principale le reportage cherche-t-il à transmettre sur l’utilisation des outils dans cet atelier ?"
+          }
+        ],
+        "audio": "q-25.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 57
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "05414ea7051977cf18375fa444f5c991f8cf5b377689b0d05c7a7be6a421d024",
+        "blind": [
+          {
+            "order": [
+              1,
+              0,
+              2,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwo5qUsPtKHCV104feMjElHu14wh",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "emphasis on accompaniment and learning despite prior ownership"
+                  }
+                ],
+                "reason": "Option 3 stands out because it highlights the importance of accompaniment and learning correct usage even if one already owns tools, which is a nuanced and central idea likely emphasized in a report about tool use in a workshop. Other options focus on safety, borrowing, or modernization but are less comprehensive or specific."
+              },
+              "usage": {
+                "prompt_tokens": 349,
+                "completion_tokens": 112,
+                "total_tokens": 461,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003188,
+              "inputHash": "92c048a5f5de89443f993976df58e35344bc2d5b049ce6c8af0d313eb69cf6c6",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:25:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.10000000000000003
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 stands out because it highlights the importance of accompaniment and learning correct usage even if one already owns tools, which is a nuanced and central idea likely emphasized in a report about tool use in a workshop. Other options focus on safety, borrowing, or modernization but are less comprehensive or specific.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "emphasis on accompaniment and learning despite prior ownership"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 26,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "number": 27,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "db3476174f5c087cbbbd9fe1c860a9fa9b4f3e14427aacf399382225952f4c37",
+      "imageHash": null,
+      "question": {
+        "number": 27,
+        "kind": "dialogue",
+        "question": "Quelle proposition les habitants font-ils pour concilier les usages de la place tout en respectant le calme ?",
+        "options": [
+          "Restreindre l'accès à la place selon l'âge, avec des plages réservées aux enfants et aux adultes.",
+          "Déplacer les bancs vers le jardin et instaurer des horaires pour les activités les plus bruyantes.",
+          "Mettre en place un groupe de voisins chargé de contrôler le bruit et de sanctionner les infractions.",
+          "Limiter uniquement les jeux bruyants aux heures creuses pour ne pas nuire aux commerces voisins."
+        ],
+        "correct": "B",
+        "transcript": "Question 27.\nLes joueurs de ballon demandent de garder la place ouverte, mais des voisins se plaignent du bruit près des bancs.\nOn ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là.\nNous pourrions déplacer les bancs vers le jardin et définir des horaires pour les jeux les plus bruyants.\nEssayons pendant un mois. Il faudra écouter aussi les personnes qui traversent la place et les commerçants. Le but n'est pas de faire disparaître les différences, mais d'éviter que chaque usage rende les autres impossibles.\nQuelle proposition les habitants font-ils pour concilier les usages de la place tout en respectant le calme ?",
+        "explanation": "Le locuteur suggère de déplacer les bancs vers le jardin et de fixer des horaires pour les jeux bruyants, afin de permettre un usage partagé sans gêner personne. Il rejette l'idée de restreindre l'accès selon l'âge et ne parle pas de sanctions ni d'une limitation exclusive aux heures creuses.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 27."
+          },
+          {
+            "voice": "female",
+            "text": "Les joueurs de ballon demandent de garder la place ouverte, mais des voisins se plaignent du bruit près des bancs."
+          },
+          {
+            "voice": "male",
+            "text": "On ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là."
+          },
+          {
+            "voice": "female",
+            "text": "Nous pourrions déplacer les bancs vers le jardin et définir des horaires pour les jeux les plus bruyants."
+          },
+          {
+            "voice": "male",
+            "text": "Essayons pendant un mois. Il faudra écouter aussi les personnes qui traversent la place et les commerçants. Le but n'est pas de faire disparaître les différences, mais d'éviter que chaque usage rende les autres impossibles."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle proposition les habitants font-ils pour concilier les usages de la place tout en respectant le calme ?"
+          }
+        ],
+        "audio": "q-27.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 60
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "c4014e889fbdfc261ce5b1c071e0f7998149fbb2d54c3df7c407f05c6efd155e",
+        "blind": [
+          {
+            "order": [
+              1,
+              3,
+              0,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwoPWNI2WQ8ISGAhaUlMR9utTJvJ",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.4,
+                  0.2,
+                  0.2,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mentions both relocating benches and scheduling noisy activities, showing a balanced and practical approach"
+                  }
+                ],
+                "reason": "Option 0 proposes a concrete and balanced solution addressing both spatial arrangement and timing to reconcile different uses while respecting calm, which aligns well with the question's focus on conciliation and respect for quiet. The other options are more restrictive or punitive and less about conciliation."
+              },
+              "usage": {
+                "prompt_tokens": 365,
+                "completion_tokens": 112,
+                "total_tokens": 477,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00032520000000000004,
+              "inputHash": "58972eb5ef87963e80f942202e5c7d30ea3dce5be6afcb5f65313e0290ccbfef",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:27:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 proposes a concrete and balanced solution addressing both spatial arrangement and timing to reconcile different uses while respecting calm, which aligns well with the question's focus on conciliation and respect for quiet. The other options are more restrictive or punitive and less about conciliation.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions both relocating benches and scheduling noisy activities, showing a balanced and practical approach"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 28,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "number": 29,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "number": 30,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    },
+    {
+      "number": 31,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "8ce7e3efe161e32fbd99d7713c1f7c59f9ccc6717aa3f1cfbb35f1c2209394e5",
+      "imageHash": null,
+      "question": {
+        "number": 31,
+        "kind": "interview",
+        "question": "Quelle nuance la sociologue apporte-t-elle pour mieux saisir le concept de temps libre ?",
+        "options": [
+          "Elle précise que le temps libre varie selon qu'il est passé en compagnie ou seul.",
+          "Elle explique que le temps libre déclaré inclut souvent des tâches domestiques non rémunérées.",
+          "Elle souligne la différence entre le temps libre qui semble disponible et celui réellement accessible sans contraintes.",
+          "Elle indique que le temps libre est distinct selon qu'il survient en semaine ou durant les congés."
+        ],
+        "correct": "C",
+        "transcript": "Question 31.\nOn affirme souvent que les personnes disposent de davantage de temps libre. Votre étude invite à nuancer cette idée. Pourquoi ?\nParce qu'une heure vide sur un calendrier n'est pas nécessairement une heure dont on peut disposer. Attendre le retour d'un proche, surveiller un enfant qui dort ou rester joignable pour son travail limite les possibilités. On peut lire quelques pages, mais pas forcément rejoindre une activité loin de chez soi. Nous avons donc demandé non seulement combien de temps restait, mais aussi ce que les personnes pouvaient en faire. Sans cette distinction, on risque d'interpréter une faible participation comme un manque d'intérêt alors qu'elle résulte de contraintes très concrètes.\nQuelle nuance la sociologue apporte-t-elle pour mieux saisir le concept de temps libre ?",
+        "explanation": "La sociologue insiste sur la distinction entre le temps libre qui paraît disponible sur le papier et celui que les individus peuvent effectivement utiliser sans être limités par des obligations implicites, comme surveiller un enfant ou rester joignable. Cette précision nuance l'idée selon laquelle les gens auraient plus de temps libre simplement parce que leur agenda semble moins chargé.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 31."
+          },
+          {
+            "voice": "female",
+            "text": "On affirme souvent que les personnes disposent de davantage de temps libre. Votre étude invite à nuancer cette idée. Pourquoi ?"
+          },
+          {
+            "voice": "male",
+            "text": "Parce qu'une heure vide sur un calendrier n'est pas nécessairement une heure dont on peut disposer. Attendre le retour d'un proche, surveiller un enfant qui dort ou rester joignable pour son travail limite les possibilités. On peut lire quelques pages, mais pas forcément rejoindre une activité loin de chez soi. Nous avons donc demandé non seulement combien de temps restait, mais aussi ce que les personnes pouvaient en faire. Sans cette distinction, on risque d'interpréter une faible participation comme un manque d'intérêt alors qu'elle résulte de contraintes très concrètes."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle nuance la sociologue apporte-t-elle pour mieux saisir le concept de temps libre ?"
+          }
+        ],
+        "audio": "q-31.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 71
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "76453e541df69397c4c5b31bdef89e1b5439d6b1ef0bdae7d8ed337138c831f6",
+        "blind": [
+          {
+            "order": [
+              3,
+              0,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwoVF67n6XKcZcFWI9YvuxM615md",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.15,
+                  0.15,
+                  0.2,
+                  0.5
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "phrasing 'différence entre le temps libre qui semble disponible et celui réellement accessible sans contraintes' suggests a nuanced sociological perspective"
+                  }
+                ],
+                "reason": "Option 3 introduces a subtle distinction about perceived versus actual free time, which aligns with sociological nuance. Other options are plausible but less sophisticated or specific in nuance."
+              },
+              "usage": {
+                "prompt_tokens": 349,
+                "completion_tokens": 102,
+                "total_tokens": 451,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003028,
+              "inputHash": "b9aa07c05b8eaa9bb9df8955640e8be92efc096ad86079bbf9887af9e0ef643c",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:31:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.3
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 introduces a subtle distinction about perceived versus actual free time, which aligns with sociological nuance. Other options are plausible but less sophisticated or specific in nuance.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "phrasing 'différence entre le temps libre qui semble disponible et celui réellement accessible sans contraintes' suggests a nuanced sociological perspective"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 32,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    },
+    {
+      "number": 33,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "a898a40fcd1182843ab1e1edf85f730d0248ef520f0649ea983db228cefaa449",
+      "imageHash": null,
+      "question": {
+        "number": 33,
+        "kind": "announcement",
+        "question": "Quelle critique précise le chroniqueur formule-t-il à propos de l'indicateur des nuitées pour évaluer la situation globale de la station ?",
+        "options": [
+          "Il souligne que cet indicateur intègre des séjours courts ou non touristiques, ce qui peut donner une image trompeuse de la fréquentation réelle.",
+          "Il déplore que les nuitées ne reflètent pas les difficultés des commerces locaux, masquant ainsi les enjeux économiques de la station.",
+          "Il critique le fait que les nuitées soient trop centrées sur les hébergements haut de gamme, excluant une partie de la population touristique.",
+          "Il rappelle que cet indicateur ne tient pas compte des évolutions saisonnières, ce qui limite sa pertinence pour un suivi annuel."
+        ],
+        "correct": "A",
+        "transcript": "Question 33.\nLa station annonce une saison exceptionnelle : les nuitées ont augmenté de douze pour cent. Ce résultat mérite d'être connu, mais il ne raconte pas toute l'année vécue sur place. Des restaurants ont manqué de personnel parce que les salariés ne trouvaient pas à se loger. La consommation d'eau a progressé pendant une période sèche, tandis que certains commerces ont fermé dès septembre. Le nombre de nuitées reste utile pour suivre la fréquentation. Il devient trompeur si on lui fait résumer à lui seul la qualité du développement local. Un bilan plus complet regarderait aussi les conditions d'emploi, les ressources mobilisées et la possibilité, pour ceux qui travaillent dans la station, d'y vivre durablement.\nQuelle critique précise le chroniqueur formule-t-il à propos de l'indicateur des nuitées pour évaluer la situation globale de la station ?",
+        "explanation": "Le chroniqueur met en garde contre l'utilisation exclusive de l'indicateur des nuitées, car il inclut des séjours qui peuvent être courts ou non liés au tourisme, ce qui fausse la perception de la fréquentation et ne reflète pas la réalité économique et sociale de la station.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 33."
+          },
+          {
+            "voice": "male",
+            "text": "La station annonce une saison exceptionnelle : les nuitées ont augmenté de douze pour cent. Ce résultat mérite d'être connu, mais il ne raconte pas toute l'année vécue sur place. Des restaurants ont manqué de personnel parce que les salariés ne trouvaient pas à se loger. La consommation d'eau a progressé pendant une période sèche, tandis que certains commerces ont fermé dès septembre. Le nombre de nuitées reste utile pour suivre la fréquentation. Il devient trompeur si on lui fait résumer à lui seul la qualité du développement local. Un bilan plus complet regarderait aussi les conditions d'emploi, les ressources mobilisées et la possibilité, pour ceux qui travaillent dans la station, d'y vivre durablement."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle critique précise le chroniqueur formule-t-il à propos de l'indicateur des nuitées pour évaluer la situation globale de la station ?"
+          }
+        ],
+        "audio": "q-33.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 73
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "c68cdb72ca20b5dbd586c45bf5211a7e695fc7892e38d42aae5bab1bc02fc257",
+        "blind": [
+          {
+            "order": [
+              0,
+              3,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwoesoGaFb2tZ0ulS7ssZNceno71",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.6,
+                  0.15,
+                  0.15,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mentions 'séjours courts ou non touristiques' as a specific limitation of the indicator"
+                  }
+                ],
+                "reason": "Option 0 provides a precise critique about the indicator including short or non-touristic stays, which directly questions the validity of the indicator for measuring real attendance. The other options are plausible but less specific or less commonly criticized aspects of the 'nuitées' indicator."
+              },
+              "usage": {
+                "prompt_tokens": 404,
+                "completion_tokens": 114,
+                "total_tokens": 518,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000344,
+              "inputHash": "9e7a7cbdc12a4ec025de6c8a82510590ab468ba153d76fbec49c6aa43a90cba0",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:33:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.6,
+              "gap": 0.44999999999999996
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 provides a precise critique about the indicator including short or non-touristic stays, which directly questions the validity of the indicator for measuring real attendance. The other options are plausible but less specific or less commonly criticized aspects of the 'nuitées' indicator.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions 'séjours courts ou non touristiques' as a specific limitation of the indicator"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 34,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "06f99c50381f6af1ebf1281c65a0091ceb55cd7bd88ea63487abe64c77cc8356",
+      "imageHash": null,
+      "question": {
+        "number": 34,
+        "kind": "dialogue",
+        "question": "Sur quel aspect les deux intervenants s'accordent-ils pour faciliter l'accès aux services en ligne ?",
+        "options": [
+          "Ils jugent prioritaire de multiplier les formations aux usagers avant toute modification des interfaces en ligne.",
+          "Ils estiment qu'il faut à la fois simplifier les interfaces et maintenir un accompagnement humain pour soutenir les usagers.",
+          "Ils croient que la solution est de généraliser uniquement les démarches numériques sans proposer d'assistance.",
+          "Ils pensent que remplacer totalement l'accueil physique par des outils numériques supprimera les erreurs des usagers et améliorera l'accès."
+        ],
+        "correct": "B",
+        "transcript": "Question 34.\nNous avons mis toutes les démarches en ligne, mais les files d'attente à l'accueil n'ont presque pas diminué.\nCela ne m'étonne pas. Une personne peut avoir un téléphone sans savoir joindre un document ou comprendre pourquoi son dossier est bloqué.\nIl faudrait donc multiplier les formations ?\nOui, pour certains besoins. Mais il faut aussi simplifier les écrans et garder un contact humain. Sinon, nous demandons aux usagers d'apprendre à contourner une difficulté que le service pourrait supprimer.\nEssayons les deux : une permanence accompagnée et des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement.\nSur quel aspect les deux intervenants s'accordent-ils pour faciliter l'accès aux services en ligne ?",
+        "explanation": "Le dialogue souligne la nécessité de simplifier les écrans tout en gardant un contact humain pour ne pas laisser les usagers seuls face aux difficultés, ce qui montre un accord sur cette double approche.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 34."
+          },
+          {
+            "voice": "female",
+            "text": "Nous avons mis toutes les démarches en ligne, mais les files d'attente à l'accueil n'ont presque pas diminué."
+          },
+          {
+            "voice": "male",
+            "text": "Cela ne m'étonne pas. Une personne peut avoir un téléphone sans savoir joindre un document ou comprendre pourquoi son dossier est bloqué."
+          },
+          {
+            "voice": "female",
+            "text": "Il faudrait donc multiplier les formations ?"
+          },
+          {
+            "voice": "male",
+            "text": "Oui, pour certains besoins. Mais il faut aussi simplifier les écrans et garder un contact humain. Sinon, nous demandons aux usagers d'apprendre à contourner une difficulté que le service pourrait supprimer."
+          },
+          {
+            "voice": "female",
+            "text": "Essayons les deux : une permanence accompagnée et des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement."
+          },
+          {
+            "voice": "female",
+            "text": "Sur quel aspect les deux intervenants s'accordent-ils pour faciliter l'accès aux services en ligne ?"
+          }
+        ],
+        "audio": "q-34.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 70
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "22b8e29f42cd11cb054311013203edd6f4afef2537db56b8ce5acbe17db8da8e",
+        "blind": [
+          {
+            "order": [
+              0,
+              3,
+              2,
+              1
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwonRw0dwNbAeQx21Q95V99Hjhvj",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.7
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "combines simplification and human support, a balanced and plausible consensus"
+                  }
+                ],
+                "reason": "Option 3 presents a balanced approach combining interface simplification and human support, which is a common consensus in discussions about facilitating access to online services. The other options are more extreme or less practical, making option 3 stand out as the likely agreement point."
+              },
+              "usage": {
+                "prompt_tokens": 368,
+                "completion_tokens": 108,
+                "total_tokens": 476,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00032,
+              "inputHash": "19fc9679312a4db07f7a0a237d9a4cc0c35bb3d4f17227ac61d308dd7ac0380a",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:34:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.7,
+              "gap": 0.6
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 presents a balanced approach combining interface simplification and human support, which is a common consensus in discussions about facilitating access to online services. The other options are more extreme or less practical, making option 3 stand out as the likely agreement point.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "combines simplification and human support, a balanced and plausible consensus"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 35,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "ef364cb107816d84594e7c35757586ae6e4e99a10a1c39725552e29ff1d30649",
+      "imageHash": null,
+      "question": {
+        "number": 35,
+        "kind": "interview",
+        "question": "Quelle idée fausse l’architecte cherche-t-il à corriger dans son exposé ?",
+        "options": [
+          "Penser que la performance technique d’un appareil suffit à assurer une consommation conforme, sans prendre en compte le comportement des occupants.",
+          "Croire que l’entretien régulier des équipements garantit à lui seul que la consommation énergétique respecte les prévisions initiales.",
+          "Estimer que laisser les usagers gérer toutes les commandes est indispensable pour obtenir une optimisation réelle du bâtiment.",
+          "Supposer qu’un diagnostic basé sur des hypothèses standards d’utilisation permet de prévoir exactement la consommation future du bâtiment."
+        ],
+        "correct": "B",
+        "transcript": "Question 35.\nVotre bâtiment a reçu plusieurs équipements très performants. Pourtant, les consommations dépassent les prévisions. Comment l'expliquez-vous ?\nOn a évalué chaque élément séparément, avec des hypothèses d'utilisation qui ne correspondaient pas toujours à la vie du lieu. Certains réglages se contredisaient. Les occupants, de leur côté, évitaient une commande trop complexe et ouvraient les fenêtres quand ils avaient trop chaud. Ce n'est pas une raison pour leur reprocher de ne pas vivre comme dans une simulation. Il faut regarder l'ensemble : conception, installation, entretien et gestes quotidiens. Une fiche technique peut nous renseigner sur un appareil ; elle ne décrit pas automatiquement le service réellement obtenu. Nous avons donc commencé par observer les usages avant d'ajouter du matériel.\nQuelle idée fausse l’architecte cherche-t-il à corriger dans son exposé ?",
+        "explanation": "L’architecte explique que l’entretien seul des appareils ne suffit pas à garantir la conformité des consommations aux prévisions, car ces dernières reposent sur des hypothèses d’usage qui ne correspondent pas toujours à la réalité. Il insiste sur l’importance de considérer l’ensemble : conception, installation, entretien et comportements des occupants.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 35."
+          },
+          {
+            "voice": "female",
+            "text": "Votre bâtiment a reçu plusieurs équipements très performants. Pourtant, les consommations dépassent les prévisions. Comment l'expliquez-vous ?"
+          },
+          {
+            "voice": "male",
+            "text": "On a évalué chaque élément séparément, avec des hypothèses d'utilisation qui ne correspondaient pas toujours à la vie du lieu. Certains réglages se contredisaient. Les occupants, de leur côté, évitaient une commande trop complexe et ouvraient les fenêtres quand ils avaient trop chaud. Ce n'est pas une raison pour leur reprocher de ne pas vivre comme dans une simulation. Il faut regarder l'ensemble : conception, installation, entretien et gestes quotidiens. Une fiche technique peut nous renseigner sur un appareil ; elle ne décrit pas automatiquement le service réellement obtenu. Nous avons donc commencé par observer les usages avant d'ajouter du matériel."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle idée fausse l’architecte cherche-t-il à corriger dans son exposé ?"
+          }
+        ],
+        "audio": "q-35.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 75
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "f5e88b11d12d66f5196087059a832f06a040238b65e8af6f9393c01072a98377",
+        "blind": [
+          {
+            "order": [
+              0,
+              3,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjwoqQKOQA44eRDPCB1lGOvrrRcAc",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.4,
+                  0.3,
+                  0.2,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "mentions 'performance technique' vs 'comportement des occupants', a common misconception in energy discussions"
+                  }
+                ],
+                "reason": "Option 0 addresses a common and central misconception in building energy performance: that technical performance alone ensures consumption targets, ignoring occupant behavior. This is a frequent theme in architectural and energy efficiency discussions, making it the most plausible intended correct answer. Other options are plausible but less central or less commonly highlighted as misconceptions."
+              },
+              "usage": {
+                "prompt_tokens": 370,
+                "completion_tokens": 124,
+                "total_tokens": 494,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00034639999999999996,
+              "inputHash": "4ef4983fdeb19b8c1c02c4d66c7b425e3c25b14f8ad207b4fafa08eee23c2cd0",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:35:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.4,
+              "gap": 0.10000000000000003
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 0 addresses a common and central misconception in building energy performance: that technical performance alone ensures consumption targets, ignoring occupant behavior. This is a frequent theme in architectural and energy efficiency discussions, making it the most plausible intended correct answer. Other options are plausible but less central or less commonly highlighted as misconceptions.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions 'performance technique' vs 'comportement des occupants', a common misconception in energy discussions"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 36,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "f18e6dccf28386b507a9bdc2bdea1baa5ca2f0dc88a057fffee67d7eafb0d21d",
+      "imageHash": null,
+      "question": {
+        "number": 36,
+        "kind": "interview",
+        "question": "Selon l’invitée, quelle condition facilite vraiment la création d’un lien intergénérationnel dans la résidence ?",
+        "options": [
+          "Que chaque résident choisisse librement ses activités, même sans interaction garantie.",
+          "Que les jeunes soient systématiquement chargés d’enseigner l’informatique aux retraités.",
+          "Que les repas partagés offrent un moment naturel pour des échanges libres.",
+          "Que les activités collectives soient obligatoires pour assurer la participation de tous."
+        ],
+        "correct": "C",
+        "transcript": "Question 36.\nVotre résidence rassemble des étudiants et des retraités. Peut-on considérer que la proximité règle à elle seule le problème de l'isolement ?\nNon. Elle crée des occasions de rencontre, ce qui est précieux, mais elle ne fabrique pas automatiquement une relation. Au début, nous avions prévu beaucoup d'activités collectives. Certains habitants se sentaient obligés de venir pour ne pas paraître indifférents. Nous avons revu le programme. Chacun peut refuser une invitation et proposer une activité qui l'intéresse. Nous évitons aussi de supposer que les jeunes apprendront forcément l'informatique aux plus âgés, qui leur raconteront ensuite le passé. Les envies circulent autrement. Une personne de quatre-vingts ans peut vouloir parler de cinéma contemporain et un étudiant découvrir le jardinage. Ce qui compte, c'est la possibilité de choisir et la confiance qui se construit, pas le nombre de rencontres inscrit dans notre bilan.\nSelon l’invitée, quelle condition facilite vraiment la création d’un lien intergénérationnel dans la résidence ?",
+        "explanation": "L'invitée insiste sur l'importance d'un moment privilégié favorisant des échanges spontanés, comme lors des repas partagés, plutôt que sur des obligations ou des transmissions systématiques. Elle souligne aussi que la liberté de choix est essentielle, mais sans garantie d’interaction, ce qui est moins efficace pour créer des liens que ces moments naturels d’échange.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 36."
+          },
+          {
+            "voice": "male",
+            "text": "Votre résidence rassemble des étudiants et des retraités. Peut-on considérer que la proximité règle à elle seule le problème de l'isolement ?"
+          },
+          {
+            "voice": "female",
+            "text": "Non. Elle crée des occasions de rencontre, ce qui est précieux, mais elle ne fabrique pas automatiquement une relation. Au début, nous avions prévu beaucoup d'activités collectives. Certains habitants se sentaient obligés de venir pour ne pas paraître indifférents. Nous avons revu le programme. Chacun peut refuser une invitation et proposer une activité qui l'intéresse. Nous évitons aussi de supposer que les jeunes apprendront forcément l'informatique aux plus âgés, qui leur raconteront ensuite le passé. Les envies circulent autrement. Une personne de quatre-vingts ans peut vouloir parler de cinéma contemporain et un étudiant découvrir le jardinage. Ce qui compte, c'est la possibilité de choisir et la confiance qui se construit, pas le nombre de rencontres inscrit dans notre bilan."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l’invitée, quelle condition facilite vraiment la création d’un lien intergénérationnel dans la résidence ?"
+          }
+        ],
+        "audio": "q-36.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 86
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "7783cf21fc5795c8af75ae37a66acd2052d38cc336c62b248fb447eb44ec3c91",
+        "blind": [
+          {
+            "order": [
+              1,
+              3,
+              0,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-EjworqkYa8HT1cBjvDW4PHoRhHzWY",
+              "result": {
+                "guess": 3,
+                "probabilities": [
+                  0.1,
+                  0.1,
+                  0.2,
+                  0.6
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 3,
+                    "cue": "natural setting for free exchanges suggests facilitation of intergenerational links"
+                  }
+                ],
+                "reason": "Option 3 mentions shared meals as a natural moment for free exchanges, which is a plausible condition facilitating intergenerational links, unlike the more rigid or less interactive conditions in other options."
+              },
+              "usage": {
+                "prompt_tokens": 346,
+                "completion_tokens": 94,
+                "total_tokens": 440,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0002888,
+              "inputHash": "1e83c4d70eb9736db5d3682e55af586da476c77f13c0d187203752f9dfc13fae",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:36:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.6,
+              "gap": 0.39999999999999997
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 3 mentions shared meals as a natural moment for free exchanges, which is a plausible condition facilitating intergenerational links, unlike the more rigid or less interactive conditions in other options.",
+          "cues": [
+            {
+              "option": 3,
+              "cue": "natural setting for free exchanges suggests facilitation of intergenerational links"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 37,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "f0b3371e5a128e14d3dc8711a3c50333f00f539ee69920553b5837b7fe70e24a",
+      "imageHash": null,
+      "question": {
+        "number": 37,
+        "kind": "interview",
+        "question": "Selon l’historienne, quel rôle jouent les divergences entre témoignages dans la reconstitution historique ?",
+        "options": [
+          "Elles remplacent souvent les archives absentes, servant de sources principales pour l’histoire.",
+          "Elles témoignent des points de vue variés des acteurs, enrichissant ainsi la compréhension de l’événement.",
+          "Elles posent problème en brouillant la vérité et en rendant difficile la validation des faits.",
+          "Elles nécessitent de privilégier la version la plus cohérente pour reconstituer fidèlement l’événement."
+        ],
+        "correct": "B",
+        "transcript": "Question 37.\nQuand deux témoins racontent différemment la fermeture d'une usine, comment décidez-vous lequel dit vrai ?\nNous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs. Mais toutes les différences ne se ramènent pas à une erreur. Un cadre, une ouvrière et un commerçant voisin n'ont pas vécu la même journée, même s'ils parlent du même événement. Leurs récits montrent ce qu'ils pouvaient voir, ce qu'ils redoutaient et ce qu'ils ont retenu. Nous gardons donc les circonstances de chaque entretien et comparons les témoignages avec les archives. Il ne s'agit pas de déclarer que tout se vaut, ni d'effacer les contradictions pour produire un récit plus confortable. Les écarts peuvent devenir une source d'information, à condition d'être examinés plutôt que simplement juxtaposés ou utilisés pour accuser d'emblée l'un des témoins de mentir.\nSelon l’historienne, quel rôle jouent les divergences entre témoignages dans la reconstitution historique ?",
+        "explanation": "L’historienne insiste sur le fait que les divergences entre témoignages reflètent les différentes expériences et perceptions des témoins, ce qui enrichit l’analyse historique, plutôt que de simplement compliquer la recherche ou remplacer les archives.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 37."
+          },
+          {
+            "voice": "female",
+            "text": "Quand deux témoins racontent différemment la fermeture d'une usine, comment décidez-vous lequel dit vrai ?"
+          },
+          {
+            "voice": "male",
+            "text": "Nous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs. Mais toutes les différences ne se ramènent pas à une erreur. Un cadre, une ouvrière et un commerçant voisin n'ont pas vécu la même journée, même s'ils parlent du même événement. Leurs récits montrent ce qu'ils pouvaient voir, ce qu'ils redoutaient et ce qu'ils ont retenu. Nous gardons donc les circonstances de chaque entretien et comparons les témoignages avec les archives. Il ne s'agit pas de déclarer que tout se vaut, ni d'effacer les contradictions pour produire un récit plus confortable. Les écarts peuvent devenir une source d'information, à condition d'être examinés plutôt que simplement juxtaposés ou utilisés pour accuser d'emblée l'un des témoins de mentir."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l’historienne, quel rôle jouent les divergences entre témoignages dans la reconstitution historique ?"
+          }
+        ],
+        "audio": "q-37.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 80
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "89833f357ed18d2249b8bba83fe5c363cc25890b39683e26fac0d295f0237909",
+        "blind": [
+          {
+            "order": [
+              3,
+              0,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwow1UeTtjMHVsiAWYFKSwyOmC0L",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.15,
+                  0.2,
+                  0.45,
+                  0.2
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "phrase 'témoignent des points de vue variés des acteurs' suggère une fonction enrichissante et nuancée des divergences"
+                  }
+                ],
+                "reason": "The third option highlights that divergences reflect varied perspectives and enrich understanding, which aligns with common historical methodology valuing multiple viewpoints. Other options either suggest oversimplification or negative impact, less likely to be the intended nuanced answer."
+              },
+              "usage": {
+                "prompt_tokens": 364,
+                "completion_tokens": 115,
+                "total_tokens": 479,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.00032960000000000004,
+              "inputHash": "f484a2ded0e476fcb9142b7fafa9c222d54d54f5b3e87d9e6b641971d8465873",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:37:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.45,
+              "gap": 0.25
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The third option highlights that divergences reflect varied perspectives and enrich understanding, which aligns with common historical methodology valuing multiple viewpoints. Other options either suggest oversimplification or negative impact, less likely to be the intended nuanced answer.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "phrase 'témoignent des points de vue variés des acteurs' suggère une fonction enrichissante et nuancée des divergences"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    },
+    {
+      "number": 38,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "number": 39,
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+      "sourceHash": "fe3c8540dba54180e43fe5c01be7afdcdbdb0186b5ee1a084b35ea90f0b437f2",
+      "imageHash": null,
+      "question": {
+        "number": 39,
+        "kind": "interview",
+        "question": "Quelle approche l’économiste recommande-t-il pour pérenniser le café associatif après la phase d’essai ?",
+        "options": [
+          "Continuer l’activité sans changement tant que la motivation des bénévoles perdure.",
+          "Évaluer le succès uniquement sur l’enthousiasme des bénévoles et l’affluence temporaire.",
+          "Établir un bilan financier précis, répartir les responsabilités entre plusieurs personnes, et diversifier les sources de financement pour assurer la continuité.",
+          "Interrompre le projet dès la fin du prêt du local, même si la fréquentation reste élevée."
+        ],
+        "correct": "C",
+        "transcript": "Question 39.\nLe café associatif a fait le plein pendant ses trois mois d'essai. Pourquoi ne pas le maintenir exactement sous cette forme ?\nParce que l'essai reposait sur des conditions particulières. Le local était prêté et plusieurs bénévoles avaient accepté un effort exceptionnel. Leur enthousiasme montre que le lieu répond à une envie, mais il ne crée pas à lui seul un budget ni du temps disponible chaque semaine. Il faut maintenant préciser les coûts, partager les responsabilités et envisager plusieurs soutiens. Cela peut conduire à réduire certains horaires ou à rémunérer une partie de l'accueil. Ce n'est pas trahir l'expérience : c'est chercher les conditions de sa durée. Nous devons écouter les visiteurs et ceux qui font fonctionner le service. Le succès d'un projet temporaire constitue une information précieuse ; il ne dispense pas de transformer son organisation lorsqu'on souhaite en faire une institution quotidienne.\nQuelle approche l’économiste recommande-t-il pour pérenniser le café associatif après la phase d’essai ?",
+        "explanation": "Le passage insiste sur la nécessité d’adapter l’organisation initiale en précisant les coûts, partageant les responsabilités et cherchant plusieurs soutiens, ce qui correspond à l’analyse économique recommandée pour garantir la pérennité du café associatif.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 39."
+          },
+          {
+            "voice": "female",
+            "text": "Le café associatif a fait le plein pendant ses trois mois d'essai. Pourquoi ne pas le maintenir exactement sous cette forme ?"
+          },
+          {
+            "voice": "male",
+            "text": "Parce que l'essai reposait sur des conditions particulières. Le local était prêté et plusieurs bénévoles avaient accepté un effort exceptionnel. Leur enthousiasme montre que le lieu répond à une envie, mais il ne crée pas à lui seul un budget ni du temps disponible chaque semaine. Il faut maintenant préciser les coûts, partager les responsabilités et envisager plusieurs soutiens. Cela peut conduire à réduire certains horaires ou à rémunérer une partie de l'accueil. Ce n'est pas trahir l'expérience : c'est chercher les conditions de sa durée. Nous devons écouter les visiteurs et ceux qui font fonctionner le service. Le succès d'un projet temporaire constitue une information précieuse ; il ne dispense pas de transformer son organisation lorsqu'on souhaite en faire une institution quotidienne."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle approche l’économiste recommande-t-il pour pérenniser le café associatif après la phase d’essai ?"
+          }
+        ],
+        "audio": "q-39.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 86
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "768c0797ce53e39ba28ceb919860c753d5194be9d0514945127f73bbbd9c07bd",
+        "blind": [
+          {
+            "order": [
+              1,
+              0,
+              2,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "210c1c477899d9c6b538523bc657bb61089f14c22fa834dd7d0f1b7e4309e8c3",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejwp5uBXMcG2CNckooCzts10KQKRw",
+              "result": {
+                "guess": 2,
+                "probabilities": [
+                  0.05,
+                  0.1,
+                  0.8,
+                  0.05
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 2,
+                    "cue": "mentions concrete steps like financial assessment, shared responsibilities, and diversified funding, which are typical recommendations for sustainability"
+                  }
+                ],
+                "reason": "Option 2 is the most comprehensive and practical approach to ensuring the sustainability of an associative café after a trial phase, involving financial evaluation and organizational measures, whereas other options are either unrealistic or counterproductive."
+              },
+              "usage": {
+                "prompt_tokens": 371,
+                "completion_tokens": 104,
+                "total_tokens": 475,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003148,
+              "inputHash": "03421e9cd58e48d2f2bcaaeeabb6b9db9766f646dc2de084cfdedd24536509cc",
+              "evaluationId": "44d3bc2928e274fbb519f7e6b3b35eea4592986bd266610206ceaf99740071e6:tcf-listening-01:39:screen:6:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.8,
+              "gap": 0.7000000000000001
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 2 is the most comprehensive and practical approach to ensuring the sustainability of an associative café after a trial phase, involving financial evaluation and organizational measures, whereas other options are either unrealistic or counterproductive.",
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions concrete steps like financial assessment, shared responsibilities, and diversified funding, which are typical recommendations for sustainability"
+            }
+          ]
+        }
+      },
+      "rounds": 6,
+      "blocked": true
+    }
+  ],
+  "paperAssessment": null
+}
