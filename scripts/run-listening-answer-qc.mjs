@@ -29,6 +29,34 @@ async function source(number) {
  const file=number>=3&&number<=6?`supabase/exams/tcf-listening-test${label}-v3.json`:`supabase/exams/tcf-listening-test${label}.json`;
  const paper=await read(file);return {paper,file,root:join('assets/tcf-listening',number===1?'v1':paper.version)};
 }
+if(args.includes('--calibrate-first')) {
+ const controls=[
+  {question:'Sur quel quai le train arrive-t-il ?',choices:['Sur le quai deux.','Sur le quai trois.','Sur le quai quatre.','Sur le quai cinq.'],clear:false},
+  {question:'À quelle heure la consultation commence-t-elle ?',choices:['À neuf heures dix.','À dix heures vingt.','À onze heures trente.','À huit heures quarante.'],clear:false},
+  {question:'Pourquoi le bus a-t-il du retard ?',choices:['À cause des travaux sur son trajet.','Parce que les passagers voyagent hier.','Pour changer le goût du café.','Parce que les trottoirs savent voler.'],clear:true}
+ ];
+ const calibration={policy:POLICY_VERSION,policyHash,controls:[],authoring:[],pass:false};
+ for(const [i,{clear,...input}] of controls.entries()) {
+  const receipt=await provider('blind',input,{nonce:'calibration-control:'+policyHash+':'+i});
+  calibration.controls.push({input,expectedClearCue:clear,receipt,pass:clear?!blindVerdict(receipt.result).pass:blindVerdict(receipt.result).pass});
+ }
+ // These two public source items expose the two principal authoring defects:
+ // embellished numeric distractors and a common-sense "main theme" question.
+ for(const [test,qNumber] of [[1,9],[2,22]]) {
+  const original=(await source(test)).paper.questions[qNumber-1];
+  const result=await repairQuestion(original,provider,{target:1,seed:'author-calibration:'+policyHash+':'+test+':'+qNumber,maxAttempts:4});
+  calibration.authoring.push({test,number:qNumber,...result});
+ }
+ calibration.pass=calibration.controls.every(c=>c.pass)&&calibration.authoring.every(c=>c.proof.pass&&!c.blocked);
+ await saveJson(join(directory,'calibration.json'),calibration);
+ console.log('Independent evaluator controls: '+calibration.controls.filter(c=>c.pass).length+'/3; real authoring probes: '+calibration.authoring.filter(c=>c.proof.pass).length+'/2.');
+ if(!calibration.pass) {
+  await saveJson(join(directory,'summary.json'),{policy:POLICY_VERSION,policyHash,tests:numbers,status:'calibration-blocked',readyForMedia:false,
+   reason:'Do not run a full paid batch until both the blind evaluator controls and the real authoring probes pass.'});
+  process.exitCode=1;
+  process.exit(1);
+ }
+}
 for(const number of numbers) {
  const label=String(number).padStart(2,'0'),src=await source(number),original=src.paper;
  const folder=join(directory,'test'+label);await mkdir(folder,{recursive:true});
@@ -96,6 +124,13 @@ for(const number of numbers) {
  await saveJson(join(folder,'bank.json'),paper);await saveJson(join(folder,'evidence.json'),evidence);
  await saveJson(join(directory,'baseline.json'),baseline);
  all.push(paper);proofs.push(evidence);
+ await saveJson(join(directory,'progress.json'),{policy:POLICY_VERSION,policyHash,updatedAt:new Date().toISOString(),
+  papers:proofs.map(p=>({test:p.test,acceptedItems:p.questions.filter(r=>r?.proof?.pass&&!r.blocked).length,
+   blockedItems:p.questions.filter(r=>!r?.proof?.pass||r.blocked).length,paperPassed:!!p.paperAssessment?.result.pass}))});
+ if(process.env.GITHUB_ACTIONS==='true'&&process.env.LISTENING_QC_PUBLISH_CHECKPOINT==='1') {
+  try{execFileSync('python3',['scripts/release/publish-listening-qc-progress.py'],{stdio:'inherit',timeout:60000});}
+  catch{console.log('Diagnostic Git checkpoint unavailable; local receipts remain saved.');}
+ }
 }
 // Freeze every candidate before touching held-out measurements. These guesses
 // are NEVER fed to authors or used to retain only individually wrong guesses.

@@ -6,7 +6,7 @@ if source.exists():
  if dest.exists():shutil.rmtree(dest)
  dest.mkdir(parents=True)
  run=json.loads((source/'run.json').read_text()) if (source/'run.json').exists() else None
- for name in ['run.json','summary.json','baseline.json','seed.json','model-receipts/cost-ledger.json']:
+ for name in ['run.json','progress.json','calibration.json','summary.json','baseline.json','seed.json','model-receipts/cost-ledger.json']:
   p=source/name
   if p.exists():
    target=dest/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,target)
