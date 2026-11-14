@@ -1,6 +1,6 @@
 {
   "policy": "listening-comprehension-qc-v1",
-  "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+  "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
   "controls": [
     {
       "input": {
@@ -16,46 +16,41 @@
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
-        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
-        "model": "gpt-4.1-mini-2025-04-14",
-        "responseId": "chatcmpl-Ejx7cEPUbN472TuAtig6rKEU7Tiph",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EjxCKNxKGbMHiiclBk40I3hz9UcRu",
         "result": {
           "guess": 0,
           "probabilities": [
-            0.4,
-            0.2,
-            0.2,
-            0.2
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
-          "standsOut": true,
-          "cues": [
-            {
-              "option": 0,
-              "cue": "quai deux is the lowest number, often the default or first mentioned in examples"
-            }
-          ],
-          "reason": "Without additional context, the lowest numbered quai (two) is slightly more likely as an answer since it is common to mention lower numbers first or as a default; the other options are equally plausible but less likely to stand out."
+          "standsOut": false,
+          "cues": [],
+          "reason": "No option has any wording advantage or contextual clue; all answers are structurally identical except for the number of the platform. With only the written question and four symmetric choices and no audio or additional context, there is no defensible basis to prefer one platform number over another. Therefore I cannot reliably determine the correct answer; probabilities are distributed uniformly and no option stands out."
         },
         "usage": {
-          "prompt_tokens": 287,
-          "completion_tokens": 105,
-          "total_tokens": 392,
+          "prompt_tokens": 411,
+          "completion_tokens": 246,
+          "total_tokens": 657,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 0,
+            "reasoning_tokens": 128,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0002828,
+        "costUsd": 0.00059475,
         "inputHash": "68d8814eb99e4f925538a6a54ced744d9120991a639698204684583e43c129d3",
-        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:0"
+        "evaluationId": "calibration-control:0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee:0"
       },
-      "pass": false
+      "pass": true
     },
     {
       "input": {
@@ -71,44 +66,44 @@
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
-        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
-        "model": "gpt-4.1-mini-2025-04-14",
-        "responseId": "chatcmpl-Ejx7epIBPTfRJxIhcVzUycMc11EHW",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EjxCOcZ9ZaBbdf6qGHVPqEbbHBkcg",
         "result": {
-          "guess": 0,
+          "guess": 2,
           "probabilities": [
-            0.4,
+            0.15,
             0.2,
-            0.2,
-            0.2
+            0.5,
+            0.15
           ],
           "standsOut": true,
           "cues": [
             {
-              "option": 0,
-              "cue": "first option is a common appointment time and is more precise (neuf heures dix)"
+              "option": 2,
+              "cue": "«Onze heures trente» is a round half-hour time that sounds more natural for scheduling a consultation than the more unusual minute offsets (10, 20, 40)."
             }
           ],
-          "reason": "The first option 'À neuf heures dix' stands out as a typical and precise appointment time, making it a more likely correct answer compared to the others which are less common or less precise times for a consultation start."
+          "reason": "I have no access to the recording, so I cannot know the correct answer. The choice of 11:30 (option 3) is favored only because it is a conventional rounded appointment time, whereas the others use less typical minute offsets; this gives a defensible but weak basis for guessing. Confidence is limited and the missing audio could easily indicate any of the four times."
         },
         "usage": {
-          "prompt_tokens": 288,
-          "completion_tokens": 104,
-          "total_tokens": 392,
+          "prompt_tokens": 412,
+          "completion_tokens": 517,
+          "total_tokens": 929,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 0,
+            "reasoning_tokens": 320,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0002816,
+        "costUsd": 0.001137,
         "inputHash": "05e2939f6232db86cda87891e53a6adecc2580649c16df2ad778121ab4d82efe",
-        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:1"
+        "evaluationId": "calibration-control:0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee:1"
       },
       "pass": false
     },
@@ -126,56 +121,44 @@
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
-        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
-        "model": "gpt-4.1-mini-2025-04-14",
-        "responseId": "chatcmpl-Ejx7fH9WILA0HCfn5OWJ26IzI3kG1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EjxCWLkIo3cTelR5vmzdPgaDsLXKB",
         "result": {
           "guess": 0,
           "probabilities": [
-            0.85,
-            0.05,
-            0.05,
-            0.05
+            0.88,
+            0.04,
+            0.04,
+            0.04
           ],
           "standsOut": true,
           "cues": [
             {
               "option": 0,
-              "cue": "logical and contextually relevant reason for bus delay"
-            },
-            {
-              "option": 1,
-              "cue": "grammatical inconsistency and temporal mismatch"
-            },
-            {
-              "option": 2,
-              "cue": "irrelevant to bus delay"
-            },
-            {
-              "option": 3,
-              "cue": "nonsensical statement"
+              "cue": "natural, plausible cause phrased correctly ('travaux sur son trajet')"
             }
           ],
-          "reason": "Option 0 provides a plausible and common reason for a bus delay (roadworks). Options 1, 2, and 3 are either grammatically incorrect, irrelevant, or nonsensical, making option 0 stand out clearly as the intended correct answer."
+          "reason": "Choice 1 is the only natural, logical explanation for a bus delay (roadworks on the route). The other options are ungrammatical (passengers 'voyagent hier') or nonsensical (changing coffee taste; sidewalks flying), so they can be eliminated. Given only the text, option 1 clearly stands out."
         },
         "usage": {
-          "prompt_tokens": 300,
-          "completion_tokens": 145,
-          "total_tokens": 445,
+          "prompt_tokens": 424,
+          "completion_tokens": 326,
+          "total_tokens": 750,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 0,
+            "reasoning_tokens": 192,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.000352,
+        "costUsd": 0.000758,
         "inputHash": "1d6d4d724d403fe777703f970dcc3b603488aefcc2f6e12f00afbab568e955c2",
-        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:2"
+        "evaluationId": "calibration-control:0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee:2"
       },
       "pass": true
     }
@@ -187,16 +170,16 @@
       "question": {
         "number": 9,
         "kind": "announcement",
-        "question": "Après l’annonce, où les passagers doivent-ils attendre le train pour Tours ?",
+        "question": "Sur quel quai les voyageurs doivent-ils se rendre pour prendre le train pour Tours ?",
         "options": [
-          "Sur le quai deux, puis passer au quai quatre selon la situation.",
-          "Sur le quai quatre.",
-          "Sur le quai deux uniquement.",
-          "Entre le quai deux et le quai quatre."
+          "Sur le quai trois, indiqué comme nouveau quai.",
+          "Sur le quai quatre, indiqué comme nouveau quai.",
+          "Sur le quai un, indiqué comme nouveau quai.",
+          "Sur le quai deux, indiqué comme nouveau quai."
         ],
         "correct": "B",
-        "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nAprès l’annonce, où les passagers doivent-ils attendre le train pour Tours ?",
-        "explanation": "L’annonce précise que le train pour Tours, initialement annoncé sur le quai deux, partira finalement du quai quatre. Les passagers doivent donc rejoindre ce nouveau quai.",
+        "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nSur quel quai les voyageurs doivent-ils se rendre pour prendre le train pour Tours ?",
+        "explanation": "L’annonce précise : « Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. (...) Merci de rejoindre ce nouveau quai. » Le « nouveau quai » mentionné est donc le quai quatre, où les voyageurs doivent désormais se rendre pour prendre le train.",
         "segments": [
           {
             "voice": "female",
@@ -208,7 +191,7 @@
           },
           {
             "voice": "female",
-            "text": "Après l’annonce, où les passagers doivent-ils attendre le train pour Tours ?"
+            "text": "Sur quel quai les voyageurs doivent-ils se rendre pour prendre le train pour Tours ?"
           }
         ],
         "audio": "q-09.mp3",
@@ -217,71 +200,71 @@
       },
       "proof": {
         "pass": false,
-        "contentHash": "49accb23c95f3fad0f092de6d26a115ecb8c0ad04a647cd4a4f4592609abb420",
+        "contentHash": "6f6216ee0d8dc47189bd03aad488cb975f30659fd1b039865541f362afb183dc",
         "blind": [
           {
             "order": [
-              3,
-              0,
               1,
-              2
+              2,
+              3,
+              0
             ],
             "receipt": {
               "stage": "blind",
               "policy": "listening-comprehension-qc-v1",
-              "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
-              "model": "gpt-4.1-mini-2025-04-14",
-              "responseId": "chatcmpl-Ejx7s6zAUCScY02HfoGVDwaewmkkK",
+              "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+              "model": "gpt-5-mini-2025-08-07",
+              "responseId": "chatcmpl-EjxDd5YSFxfWIXlArBm4uflUVEM1Z",
               "result": {
-                "guess": 1,
+                "guess": 2,
                 "probabilities": [
-                  0.1,
-                  0.7,
-                  0.1,
-                  0.1
+                  0.2,
+                  0.2,
+                  0.4,
+                  0.2
                 ],
                 "standsOut": true,
                 "cues": [
                   {
-                    "option": 1,
-                    "cue": "mentions waiting on quai two then possibly moving to quai four, indicating a conditional instruction"
+                    "option": 2,
+                    "cue": "weak prior that 'quai deux' is slightly more likely in short example announcements; no direct evidence from the prompt"
                   }
                 ],
-                "reason": "Option 1 is more detailed and flexible, suggesting passengers start on quai two and may move to quai four, which fits typical train announcements about platform changes. Other options are more absolute and less likely in such contexts."
+                "reason": "I have no recording or transcript, so I cannot know which platform was actually announced. The four choices are otherwise symmetric. I selected option 2 (quai deux) based on a very weak prior that 'quai deux' is a somewhat common example in brief prompts; this is not evidence and uncertainty remains high. If you can provide the audio or transcript, I can answer definitively."
               },
               "usage": {
-                "prompt_tokens": 308,
-                "completion_tokens": 103,
-                "total_tokens": 411,
+                "prompt_tokens": 438,
+                "completion_tokens": 539,
+                "total_tokens": 977,
                 "prompt_tokens_details": {
                   "cached_tokens": 0,
                   "audio_tokens": 0
                 },
                 "completion_tokens_details": {
-                  "reasoning_tokens": 0,
+                  "reasoning_tokens": 384,
                   "audio_tokens": 0,
                   "accepted_prediction_tokens": 0,
                   "rejected_prediction_tokens": 0
                 }
               },
-              "costUsd": 0.000288,
-              "inputHash": "ae6f3b3c98d33cd86464894784036f59d6df11e3611c730f3335362c51ecfc6d",
-              "evaluationId": "author-calibration:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:1:9:screen:4:0"
+              "costUsd": 0.0011875,
+              "inputHash": "12ca057b9085eb88242efb007b3b60fc2249e42ae6a51a9f80ca6bab190409f3",
+              "evaluationId": "author-calibration:0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee:1:9:screen:4:0"
             },
             "verdict": {
               "pass": false,
-              "maximum": 0.7,
-              "gap": 0.6
+              "maximum": 0.4,
+              "gap": 0.2
             }
           }
         ],
         "feedback": {
           "stage": "blind",
-          "reason": "Option 1 is more detailed and flexible, suggesting passengers start on quai two and may move to quai four, which fits typical train announcements about platform changes. Other options are more absolute and less likely in such contexts.",
+          "reason": "I have no recording or transcript, so I cannot know which platform was actually announced. The four choices are otherwise symmetric. I selected option 2 (quai deux) based on a very weak prior that 'quai deux' is a somewhat common example in brief prompts; this is not evidence and uncertainty remains high. If you can provide the audio or transcript, I can answer definitively.",
           "cues": [
             {
-              "option": 1,
-              "cue": "mentions waiting on quai two then possibly moving to quai four, indicating a conditional instruction"
+              "option": 2,
+              "cue": "weak prior that 'quai deux' is slightly more likely in short example announcements; no direct evidence from the prompt"
             }
           ]
         }
@@ -295,16 +278,16 @@
       "question": {
         "number": 22,
         "kind": "interview",
-        "question": "D'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?",
+        "question": "Selon la personne interrogée, qu’est-ce qui la fait revenir au jardin même quand la récolte échoue ?",
         "options": [
-          "Pour bénéficier surtout des produits récoltés chaque semaine.",
-          "Pour élargir ses relations avec des voisins de tout âge.",
-          "Pour perfectionner uniquement ses compétences en jardinage technique.",
-          "Pour améliorer la répartition des tâches entre membres du groupe."
+          "La conviction que le groupe progresse à chaque séance, même si les légumes manquent.",
+          "Le sentiment d’avoir tout de même passé un bon moment avec les autres jardiniers.",
+          "La satisfaction de voir que chacun trouve peu à peu sa propre manière de travailler dans le jardin.",
+          "L’impression que, séance après séance, elle tisse des relations plus solides avec ses voisins."
         ],
         "correct": "B",
-        "explanation": "La participante explique que ce qui la motive avant tout, c’est de discuter avec des voisins de tous âges et de tisser des liens, bien plus que la récolte ou l’aspect technique du jardinage.",
-        "transcript": "Question 22.\nVous participez depuis deux ans au jardin partagé. Est-ce que vous y venez surtout pour récolter des légumes ?\nJ'aime rapporter des tomates, bien sûr, mais ce n'est pas ce qui me retient ici. Avant, je connaissais à peine les habitants de mon immeuble. Aujourd'hui, je discute avec des voisins de tous âges. Nous apprenons à nous organiser, et parfois à accepter que chacun travaille autrement. Même quand une récolte échoue, je repars avec le sentiment d'avoir passé un bon moment.\nD'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?",
+        "explanation": "À la fin de l’extrait, la personne dit explicitement : « Même quand une récolte échoue, je repars avec le sentiment d’avoir passé un bon moment. » C’est donc ce ressenti-là, le fait d’avoir passé un bon moment, qui la fait revenir, plus que l’idée de progrès du groupe, de liens qui se renforcent ou de manières de travailler qui s’affinent.",
+        "transcript": "Question 22.\nVous participez depuis deux ans au jardin partagé. Est-ce que vous y venez surtout pour récolter des légumes ?\nJ'aime rapporter des tomates, bien sûr, mais ce n'est pas ce qui me retient ici. Avant, je connaissais à peine les habitants de mon immeuble. Aujourd'hui, je discute avec des voisins de tous âges. Nous apprenons à nous organiser, et parfois à accepter que chacun travaille autrement. Même quand une récolte échoue, je repars avec le sentiment d'avoir passé un bon moment.\nSelon la personne interrogée, qu’est-ce qui la fait revenir au jardin même quand la récolte échoue ?",
         "segments": [
           {
             "voice": "female",
@@ -320,7 +303,7 @@
           },
           {
             "voice": "female",
-            "text": "D'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?"
+            "text": "Selon la personne interrogée, qu’est-ce qui la fait revenir au jardin même quand la récolte échoue ?"
           }
         ],
         "audio": "q-22.mp3",
@@ -329,79 +312,95 @@
       },
       "proof": {
         "pass": false,
-        "contentHash": "64f500549950d1a64624c9d9906ee927d83ca993ec585a9ff3dd357777537ca0",
+        "contentHash": "e8afe3520f0828abd00538bc8214dedd92833204e732672bafd1dd6c5de206bf",
         "blind": [
           {
             "order": [
-              1,
               2,
               0,
+              1,
               3
             ],
             "receipt": {
               "stage": "blind",
               "policy": "listening-comprehension-qc-v1",
-              "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
-              "model": "gpt-4.1-mini-2025-04-14",
-              "responseId": "chatcmpl-Ejx87o7GFzaLhyzmctBrXxux3GDfL",
+              "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+              "model": "gpt-5-mini-2025-08-07",
+              "responseId": "chatcmpl-EjxEkkkgdHEUjbpwgkCdtRP2C63jr",
               "result": {
-                "guess": 0,
+                "guess": 3,
                 "probabilities": [
-                  0.5,
-                  0.1,
-                  0.3,
-                  0.1
+                  0.13,
+                  0.12,
+                  0.15,
+                  0.6
                 ],
                 "standsOut": true,
                 "cues": [
                   {
+                    "option": 3,
+                    "cue": "mentions building stronger relations with neighbors — a durable social motivation that plausibly explains returning despite poor harvests"
+                  },
+                  {
                     "option": 0,
-                    "cue": "social motivation is a common primary reason for community gardens"
+                    "cue": "focuses on individual work styles, which is plausible but less directly tied to returning when crops fail"
+                  },
+                  {
+                    "option": 1,
+                    "cue": "emphasizes group progress each session — similar to (0) but framed as collective improvement; possible but less compelling than social ties"
                   },
                   {
                     "option": 2,
-                    "cue": "benefiting from products is a plausible motivation"
+                    "cue": "having had a good time is a generic reason; plausible but less specific than forming stronger relationships"
                   }
                 ],
-                "reason": "The first option about socializing with neighbors stands out as a common and central motivation for participating in shared gardens, making it more likely than the others. The third option about benefiting from products is also plausible but less central. The other options are more specific or less likely to be the main reason."
+                "reason": "Without the recording I cannot know for sure. The only defensible elimination is that social bonds (option 3) provide a more durable reason to keep returning despite failed harvests than statements about work methods, abstract progress, or merely having had a good time. That wording asymmetry — long-term relational ties versus short-term outcomes or vague enjoyment — makes option 3 the best guess, though uncertainty remains."
               },
               "usage": {
-                "prompt_tokens": 325,
-                "completion_tokens": 128,
-                "total_tokens": 453,
+                "prompt_tokens": 479,
+                "completion_tokens": 558,
+                "total_tokens": 1037,
                 "prompt_tokens_details": {
                   "cached_tokens": 0,
                   "audio_tokens": 0
                 },
                 "completion_tokens_details": {
-                  "reasoning_tokens": 0,
+                  "reasoning_tokens": 256,
                   "audio_tokens": 0,
                   "accepted_prediction_tokens": 0,
                   "rejected_prediction_tokens": 0
                 }
               },
-              "costUsd": 0.0003348,
-              "inputHash": "21c7da2659d43e4f2b7efd9c6251f275894e730866aff9f06650784e915fcc94",
-              "evaluationId": "author-calibration:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:2:22:screen:4:0"
+              "costUsd": 0.00123575,
+              "inputHash": "a6fc405496f5a8956ce7f478d08604d1c8e0abaa93b8443224ee9b593e7ff62c",
+              "evaluationId": "author-calibration:0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee:2:22:screen:4:0"
             },
             "verdict": {
               "pass": false,
-              "maximum": 0.5,
-              "gap": 0.2
+              "maximum": 0.6,
+              "gap": 0.44999999999999996
             }
           }
         ],
         "feedback": {
           "stage": "blind",
-          "reason": "The first option about socializing with neighbors stands out as a common and central motivation for participating in shared gardens, making it more likely than the others. The third option about benefiting from products is also plausible but less central. The other options are more specific or less likely to be the main reason.",
+          "reason": "Without the recording I cannot know for sure. The only defensible elimination is that social bonds (option 3) provide a more durable reason to keep returning despite failed harvests than statements about work methods, abstract progress, or merely having had a good time. That wording asymmetry — long-term relational ties versus short-term outcomes or vague enjoyment — makes option 3 the best guess, though uncertainty remains.",
           "cues": [
             {
+              "option": 3,
+              "cue": "mentions building stronger relations with neighbors — a durable social motivation that plausibly explains returning despite poor harvests"
+            },
+            {
               "option": 0,
-              "cue": "social motivation is a common primary reason for community gardens"
+              "cue": "focuses on individual work styles, which is plausible but less directly tied to returning when crops fail"
+            },
+            {
+              "option": 1,
+              "cue": "emphasizes group progress each session — similar to (0) but framed as collective improvement; possible but less compelling than social ties"
             },
             {
               "option": 2,
-              "cue": "benefiting from products is a plausible motivation"
+              "cue": "having had a good time is a generic reason; plausible but less specific than forming stronger relationships"
             }
           ]
         }
