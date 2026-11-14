@@ -113,6 +113,8 @@ test('only the server-side administrator can invoke the evaluator; no student cr
   const response=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:token},body:JSON.stringify(input)}));assert.equal(response.status,401);
  }
  assert.equal(requests,0);
+ const health=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:'{"stage":"health"}'}));
+ assert.equal(health.status,200);assert.equal(requests,0);assert.equal((await health.json()).policyHash,policyHash);
  const bad=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:JSON.stringify({stage:'blind',input:{...input.input,correct:'A'}})}));
  assert.equal(bad.status,400);assert.equal(requests,0);
  const good=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:JSON.stringify(input)}));

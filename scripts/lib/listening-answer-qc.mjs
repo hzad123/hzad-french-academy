@@ -156,17 +156,26 @@ export async function createGatewayProvider({url,token,directory,maxUsd=20,fetch
  await mkdir(directory,{recursive:true});
  const ledgerFile=join(directory,'cost-ledger.json');
  const ledger=await exists(ledgerFile)?await loadJson(ledgerFile):{spentUsd:0,reservedUsd:0,requests:0};
- let writes=Promise.resolve();const persist=()=>writes=writes.then(()=>saveJson(ledgerFile,ledger));
+ let writes=Promise.resolve(),fatal=null;const persist=()=>writes=writes.then(()=>saveJson(ledgerFile,ledger));
  return async(stage,input,{nonce='default'}={})=>{
   validateInput(stage,input);const inputHash=hash(input),key=hash({stage,inputHash,policy:POLICY_VERSION,nonce});
   const file=join(directory,hash(key+policyHash)+'.json');
   if(await exists(file))return receiptValid(await loadJson(file),stage,input);
+  if(fatal)throw Error(fatal);
   const request=modelRequest(stage,input),textBytes=Buffer.byteLength(JSON.stringify(request.messages).replace(input.imageData||'__no_image__',''));
   const reserve=((textBytes+1024+(input.imageData?16000:0))*PRICES.inputPerMillion+MAX_OUTPUT[stage]*PRICES.outputPerMillion)/1e6;
   if(ledger.spentUsd+ledger.reservedUsd+reserve>maxUsd)throw Error('Offline authoring cost cap reached; progress saved');
   ledger.reservedUsd+=reserve;ledger.requests++;await persist();
-  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
-  if(!response.ok)throw Error('Authoring gateway failed: HTTP '+response.status+'; no automatic paid retry');
+  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
+  if(!response.ok) {
+   const detail=await response.json().catch(()=>({}));
+   const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';
+   if([401,403,404,409,503].includes(response.status)) {
+    ledger.reservedUsd-=reserve;await persist();
+    fatal='Private authoring gateway unavailable: HTTP'+response.status+' '+code+'; no further paid calls';
+   }
+   throw Error(fatal||'Authoring gateway failed: HTTP '+response.status+' '+code+(Number.isInteger(detail.providerStatus)?' providerHTTP'+detail.providerStatus:'')+'; no automatic paid retry');
+  }
   const receipt={...await response.json(),inputHash,evaluationId:nonce};receiptValid(receipt,stage,input);
   if(!Number.isFinite(receipt.costUsd)||receipt.costUsd<0||receipt.costUsd>reserve)throw Error('Authoring cost exceeded conservative reservation');
   ledger.reservedUsd-=reserve;ledger.spentUsd+=receipt.costUsd;await persist();await saveJson(file,receipt);

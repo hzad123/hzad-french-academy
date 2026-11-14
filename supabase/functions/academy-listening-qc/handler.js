@@ -11,7 +11,9 @@ export function createQcHandler({serviceKey,providerKey,fetcher=fetch}) {
   let stage,input,body,expectedPolicyHash;
   try {
    const bytes=await request.arrayBuffer();if(bytes.byteLength>350000)return reply(413,{error:'INPUT_LIMIT'});
-   ({stage,input,policyHash:expectedPolicyHash}=JSON.parse(new TextDecoder().decode(bytes)));body=modelRequest(stage,input);
+   ({stage,input,policyHash:expectedPolicyHash}=JSON.parse(new TextDecoder().decode(bytes)));
+   if(stage==='health')return reply(200,{ready:true,policy:POLICY_VERSION,policyHash:await policyFingerprint(),model:MODEL});
+   body=modelRequest(stage,input);
   }catch{return reply(400,{error:'QC_INPUT'});}
   const policyHash=await policyFingerprint();
   if(expectedPolicyHash!==policyHash)return reply(409,{error:'QC_POLICY_MISMATCH'});
