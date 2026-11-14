@@ -46,7 +46,8 @@ statistics. Changed content or reused/stale responses cannot pass.
 The bounded repair loop saves failed drafts and actual provider receipts.
 Resuming continues rejected drafts, preserving already accepted work. Provider
 errors do not cause automatic paid retries. The authoring ledger reserves a
-conservative request ceiling before each call and enforces a USD20 batch cap.
+conservative request ceiling before each call and enforces a USD35 batch cap
+(including saved expenditure from earlier runs).
 This uses no student wallet or testing-budget reset.
 
 Only a completely accepted cohort proceeds to offline Piper recording in new

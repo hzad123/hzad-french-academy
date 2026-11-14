@@ -35,7 +35,7 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.throws(()=>validateInput('blind',{...blindProjection(item),history:[]}),/only question/);
  const request=modelRequest('blind',blindProjection(item));
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
- assert.equal(request.model,'gpt-4.1-mini');
+ assert.equal(request.model,'gpt-5-mini');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
  assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-4.1');
  assert.equal(stagePrice('ground').outputPerMillion,8);
 });

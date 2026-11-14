@@ -1,0 +1,414 @@
+{
+  "policy": "listening-comprehension-qc-v1",
+  "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+  "controls": [
+    {
+      "input": {
+        "question": "Sur quel quai le train arrive-t-il ?",
+        "choices": [
+          "Sur le quai deux.",
+          "Sur le quai trois.",
+          "Sur le quai quatre.",
+          "Sur le quai cinq."
+        ]
+      },
+      "expectedClearCue": false,
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "responseId": "chatcmpl-Ejx7cEPUbN472TuAtig6rKEU7Tiph",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "quai deux is the lowest number, often the default or first mentioned in examples"
+            }
+          ],
+          "reason": "Without additional context, the lowest numbered quai (two) is slightly more likely as an answer since it is common to mention lower numbers first or as a default; the other options are equally plausible but less likely to stand out."
+        },
+        "usage": {
+          "prompt_tokens": 287,
+          "completion_tokens": 105,
+          "total_tokens": 392,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0002828,
+        "inputHash": "68d8814eb99e4f925538a6a54ced744d9120991a639698204684583e43c129d3",
+        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:0"
+      },
+      "pass": false
+    },
+    {
+      "input": {
+        "question": "À quelle heure la consultation commence-t-elle ?",
+        "choices": [
+          "À neuf heures dix.",
+          "À dix heures vingt.",
+          "À onze heures trente.",
+          "À huit heures quarante."
+        ]
+      },
+      "expectedClearCue": false,
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "responseId": "chatcmpl-Ejx7epIBPTfRJxIhcVzUycMc11EHW",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "first option is a common appointment time and is more precise (neuf heures dix)"
+            }
+          ],
+          "reason": "The first option 'À neuf heures dix' stands out as a typical and precise appointment time, making it a more likely correct answer compared to the others which are less common or less precise times for a consultation start."
+        },
+        "usage": {
+          "prompt_tokens": 288,
+          "completion_tokens": 104,
+          "total_tokens": 392,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0002816,
+        "inputHash": "05e2939f6232db86cda87891e53a6adecc2580649c16df2ad778121ab4d82efe",
+        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:1"
+      },
+      "pass": false
+    },
+    {
+      "input": {
+        "question": "Pourquoi le bus a-t-il du retard ?",
+        "choices": [
+          "À cause des travaux sur son trajet.",
+          "Parce que les passagers voyagent hier.",
+          "Pour changer le goût du café.",
+          "Parce que les trottoirs savent voler."
+        ]
+      },
+      "expectedClearCue": true,
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "responseId": "chatcmpl-Ejx7fH9WILA0HCfn5OWJ26IzI3kG1",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.85,
+            0.05,
+            0.05,
+            0.05
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "logical and contextually relevant reason for bus delay"
+            },
+            {
+              "option": 1,
+              "cue": "grammatical inconsistency and temporal mismatch"
+            },
+            {
+              "option": 2,
+              "cue": "irrelevant to bus delay"
+            },
+            {
+              "option": 3,
+              "cue": "nonsensical statement"
+            }
+          ],
+          "reason": "Option 0 provides a plausible and common reason for a bus delay (roadworks). Options 1, 2, and 3 are either grammatically incorrect, irrelevant, or nonsensical, making option 0 stand out clearly as the intended correct answer."
+        },
+        "usage": {
+          "prompt_tokens": 300,
+          "completion_tokens": 145,
+          "total_tokens": 445,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.000352,
+        "inputHash": "1d6d4d724d403fe777703f970dcc3b603488aefcc2f6e12f00afbab568e955c2",
+        "evaluationId": "calibration-control:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:2"
+      },
+      "pass": true
+    }
+  ],
+  "authoring": [
+    {
+      "test": 1,
+      "number": 9,
+      "question": {
+        "number": 9,
+        "kind": "announcement",
+        "question": "Après l’annonce, où les passagers doivent-ils attendre le train pour Tours ?",
+        "options": [
+          "Sur le quai deux, puis passer au quai quatre selon la situation.",
+          "Sur le quai quatre.",
+          "Sur le quai deux uniquement.",
+          "Entre le quai deux et le quai quatre."
+        ],
+        "correct": "B",
+        "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nAprès l’annonce, où les passagers doivent-ils attendre le train pour Tours ?",
+        "explanation": "L’annonce précise que le train pour Tours, initialement annoncé sur le quai deux, partira finalement du quai quatre. Les passagers doivent donc rejoindre ce nouveau quai.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 9."
+          },
+          {
+            "voice": "female",
+            "text": "Votre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai."
+          },
+          {
+            "voice": "female",
+            "text": "Après l’annonce, où les passagers doivent-ils attendre le train pour Tours ?"
+          }
+        ],
+        "audio": "q-09.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 36
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "49accb23c95f3fad0f092de6d26a115ecb8c0ad04a647cd4a4f4592609abb420",
+        "blind": [
+          {
+            "order": [
+              3,
+              0,
+              1,
+              2
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejx7s6zAUCScY02HfoGVDwaewmkkK",
+              "result": {
+                "guess": 1,
+                "probabilities": [
+                  0.1,
+                  0.7,
+                  0.1,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 1,
+                    "cue": "mentions waiting on quai two then possibly moving to quai four, indicating a conditional instruction"
+                  }
+                ],
+                "reason": "Option 1 is more detailed and flexible, suggesting passengers start on quai two and may move to quai four, which fits typical train announcements about platform changes. Other options are more absolute and less likely in such contexts."
+              },
+              "usage": {
+                "prompt_tokens": 308,
+                "completion_tokens": 103,
+                "total_tokens": 411,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.000288,
+              "inputHash": "ae6f3b3c98d33cd86464894784036f59d6df11e3611c730f3335362c51ecfc6d",
+              "evaluationId": "author-calibration:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:1:9:screen:4:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.7,
+              "gap": 0.6
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "Option 1 is more detailed and flexible, suggesting passengers start on quai two and may move to quai four, which fits typical train announcements about platform changes. Other options are more absolute and less likely in such contexts.",
+          "cues": [
+            {
+              "option": 1,
+              "cue": "mentions waiting on quai two then possibly moving to quai four, indicating a conditional instruction"
+            }
+          ]
+        }
+      },
+      "rounds": 4,
+      "blocked": true
+    },
+    {
+      "test": 2,
+      "number": 22,
+      "question": {
+        "number": 22,
+        "kind": "interview",
+        "question": "D'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?",
+        "options": [
+          "Pour bénéficier surtout des produits récoltés chaque semaine.",
+          "Pour élargir ses relations avec des voisins de tout âge.",
+          "Pour perfectionner uniquement ses compétences en jardinage technique.",
+          "Pour améliorer la répartition des tâches entre membres du groupe."
+        ],
+        "correct": "B",
+        "explanation": "La participante explique que ce qui la motive avant tout, c’est de discuter avec des voisins de tous âges et de tisser des liens, bien plus que la récolte ou l’aspect technique du jardinage.",
+        "transcript": "Question 22.\nVous participez depuis deux ans au jardin partagé. Est-ce que vous y venez surtout pour récolter des légumes ?\nJ'aime rapporter des tomates, bien sûr, mais ce n'est pas ce qui me retient ici. Avant, je connaissais à peine les habitants de mon immeuble. Aujourd'hui, je discute avec des voisins de tous âges. Nous apprenons à nous organiser, et parfois à accepter que chacun travaille autrement. Même quand une récolte échoue, je repars avec le sentiment d'avoir passé un bon moment.\nD'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 22."
+          },
+          {
+            "voice": "male",
+            "text": "Vous participez depuis deux ans au jardin partagé. Est-ce que vous y venez surtout pour récolter des légumes ?"
+          },
+          {
+            "voice": "female",
+            "text": "J'aime rapporter des tomates, bien sûr, mais ce n'est pas ce qui me retient ici. Avant, je connaissais à peine les habitants de mon immeuble. Aujourd'hui, je discute avec des voisins de tous âges. Nous apprenons à nous organiser, et parfois à accepter que chacun travaille autrement. Même quand une récolte échoue, je repars avec le sentiment d'avoir passé un bon moment."
+          },
+          {
+            "voice": "female",
+            "text": "D'après la participante, quelle est la principale raison qui la motive à fréquenter le jardin partagé ?"
+          }
+        ],
+        "audio": "q-22.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 50
+      },
+      "proof": {
+        "pass": false,
+        "contentHash": "64f500549950d1a64624c9d9906ee927d83ca993ec585a9ff3dd357777537ca0",
+        "blind": [
+          {
+            "order": [
+              1,
+              2,
+              0,
+              3
+            ],
+            "receipt": {
+              "stage": "blind",
+              "policy": "listening-comprehension-qc-v1",
+              "policyHash": "21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b",
+              "model": "gpt-4.1-mini-2025-04-14",
+              "responseId": "chatcmpl-Ejx87o7GFzaLhyzmctBrXxux3GDfL",
+              "result": {
+                "guess": 0,
+                "probabilities": [
+                  0.5,
+                  0.1,
+                  0.3,
+                  0.1
+                ],
+                "standsOut": true,
+                "cues": [
+                  {
+                    "option": 0,
+                    "cue": "social motivation is a common primary reason for community gardens"
+                  },
+                  {
+                    "option": 2,
+                    "cue": "benefiting from products is a plausible motivation"
+                  }
+                ],
+                "reason": "The first option about socializing with neighbors stands out as a common and central motivation for participating in shared gardens, making it more likely than the others. The third option about benefiting from products is also plausible but less central. The other options are more specific or less likely to be the main reason."
+              },
+              "usage": {
+                "prompt_tokens": 325,
+                "completion_tokens": 128,
+                "total_tokens": 453,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0,
+                  "audio_tokens": 0
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "audio_tokens": 0,
+                  "accepted_prediction_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                }
+              },
+              "costUsd": 0.0003348,
+              "inputHash": "21c7da2659d43e4f2b7efd9c6251f275894e730866aff9f06650784e915fcc94",
+              "evaluationId": "author-calibration:21b8fff456459ec8bf44a7da8fb05b9fdfd27d0c66fc5265fcbb03d4308d014b:2:22:screen:4:0"
+            },
+            "verdict": {
+              "pass": false,
+              "maximum": 0.5,
+              "gap": 0.2
+            }
+          }
+        ],
+        "feedback": {
+          "stage": "blind",
+          "reason": "The first option about socializing with neighbors stands out as a common and central motivation for participating in shared gardens, making it more likely than the others. The third option about benefiting from products is also plausible but less central. The other options are more specific or less likely to be the main reason.",
+          "cues": [
+            {
+              "option": 0,
+              "cue": "social motivation is a common primary reason for community gardens"
+            },
+            {
+              "option": 2,
+              "cue": "benefiting from products is a plausible motivation"
+            }
+          ]
+        }
+      },
+      "rounds": 4,
+      "blocked": true
+    }
+  ],
+  "pass": false
+}

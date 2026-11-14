@@ -1,5 +1,5 @@
 """Trusted runner: publish diagnostics after each paper, never bank activation."""
-import os,subprocess,sys
+import os,subprocess,sys,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 BRANCH='feature/listening-blind-answer-quality'
@@ -8,6 +8,12 @@ def git(*args):
 def main():
  if os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('GITHUB_REF_NAME')!=BRANCH:
   raise RuntimeError('Diagnostic publication requires the trusted authoring branch')
+ git('fetch','origin',BRANCH)
+ try:remote=json.loads(git('show','origin/'+BRANCH+':reports/listening-answer-qc-latest/run.json'))
+ except (subprocess.CalledProcessError,json.JSONDecodeError):remote={}
+ local=ROOT/'work/listening-answer-qc/run.json'
+ if local.exists() and remote.get('startedAt','')>json.loads(local.read_text()).get('startedAt',''):
+  print('A newer authoring run has already published diagnostics; older files stay in the artifact.');return
  subprocess.run([sys.executable,'scripts/save-listening-qc-progress.py'],cwd=ROOT,check=True)
  git('config','user.name','github-actions[bot]')
  git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
@@ -15,7 +21,7 @@ def main():
  if not git('diff','--cached','--name-only').strip():return
  git('commit','-m','Checkpoint actual listening question evaluations; candidates remain unpublished')
  git('fetch','origin',BRANCH)
- git('rebase','origin/'+BRANCH)
+ git('rebase','-X','theirs','origin/'+BRANCH)
  git('push','origin','HEAD:'+BRANCH)
  print('Saved per-paper diagnostic checkpoint on the feature branch.',flush=True)
 if __name__=='__main__':
