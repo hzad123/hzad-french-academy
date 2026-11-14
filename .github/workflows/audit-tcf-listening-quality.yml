@@ -1,9 +1,22 @@
 name: Editorial QA - TCF listening uniqueness and distractors
 on:
   push:
-    branches: [fix/tcf-listening-unique-content-distractors-qa]
+    branches: [feature/tcf-listening-03-20-reviewed]
     paths:
-      - .github/workflows/audit-tcf-listening-quality.yml
+      - '.github/workflows/audit-tcf-listening-quality.yml'
+      - 'scripts/*listening*'
+      - 'scripts/lib/listening-quality.mjs'
+      - 'curriculum/tcf-listening-*/**'
+      - 'supabase/exams/tcf-listening-*.json'
+      - 'assets/tcf-listening/**'
+  pull_request:
+    paths:
+      - '.github/workflows/audit-tcf-listening-quality.yml'
+      - 'scripts/*listening*'
+      - 'scripts/lib/listening-quality.mjs'
+      - 'curriculum/tcf-listening-*/**'
+      - 'supabase/exams/tcf-listening-*.json'
+      - 'assets/tcf-listening/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,16 +25,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: fix/tcf-listening-unique-content-distractors-qa
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Audit 18 published source banks against repetition and answer-length cues
-        run: node scripts/audit-tcf-listening-quality.mjs
+      - name: Install recording integrity tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Audit all 18 best existing candidates, media and pending editorial evidence
+        run: node scripts/audit-tcf-listening-quality.mjs --media
       - name: Save quality report even when tests fail
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tcf-listening-editorial-qa-report
-          path: reports/tcf-listening-editorial-qa.json
+          path: reports/tcf-listening-candidate-qa.json
