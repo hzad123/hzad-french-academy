@@ -1,5 +1,29 @@
 # Listening Tests 03–20: recovery checkpoint, not a completed release
 
+## Later owner instruction: activate Tests03–06 for checking
+
+After the code/media deployment, the owner explicitly requested: “do 3 to 6 and
+i will check”. This authorizes publishing the existing four v3 review candidates
+while their broader editorial issues remain open. It does not certify them as
+fully reviewed or authorize activating Tests07–20.
+
+Migration `20261114002258_tcf_listening_03_06_owner_review_v3.sql` inserts the exact
+four immutable v3 banks and publishes only their pointers. Its transaction checks
+the historical per-question format, preserves all existing papers and attempts,
+and compares snapshots of Auth, entitlements, progress, other exams and credits.
+It leaves the examination RPC and RLS unchanged. After this migration, the
+published catalogue is Tests01–06, with03–06 on v3. The pre-release status table
+and withdrawal notes below describe the earlier checkpoint.
+
+Rollback `supabase/rollbacks/tcf_listening_03_06_owner_review_v3.sql` hides only
+these four v3 pointers and preserves every bank, saved attempt and score.
+Local PostgreSQL tests cover rollback, idempotency, private keys, all39 forward
+transitions and final scoring for all four papers. The full suite has274 tests;
+the media's271 deployed files match their repository hashes. Authenticated native
+browser checking and final editorial acceptance are left to the owner's review.
+
+## Original recovery checkpoint
+
 The eighteen-test assignment is **incomplete**. No corrected examination is
 certified ready or activated by this branch. Keep Tests03–20 withdrawn.
 The current work is saved on `feature/tcf-listening-03-20-reviewed`.
