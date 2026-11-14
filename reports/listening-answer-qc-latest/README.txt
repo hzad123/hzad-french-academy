@@ -1,0 +1,1 @@
+Diagnostic candidates and actual independent evaluator results. A readyForMedia=false summary is NOT an accepted or published examination. No credentials, student submissions or accounts are stored here.

@@ -13,6 +13,7 @@ PUBLISHED=None
 def metadata(path):
  return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)]))
 def render(models,test_number):
+ raise RuntimeError('Historical recording path retired. Use render-listening-qc-media.py with accepted independent AI evidence and a new immutable version.')
  global PAPER,OUT,PUBLISHED
  if test_number<4 or test_number>20:raise ValueError('Only new editorial v2 tests 04 through 20 are supported')
  label=f'{test_number:02d}'

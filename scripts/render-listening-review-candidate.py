@@ -17,6 +17,7 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def render(models, number):
+    raise RuntimeError('Historical v3 recording path retired. Use render-listening-qc-media.py with a new immutable version and accepted independent AI evidence.')
     if number not in (3, 4, 5, 6):
         raise ValueError('Only the explicitly prepared Test03–06 v3 candidates are supported')
     bank = ROOT / f'supabase/exams/tcf-listening-test{number:02d}-v3.json'

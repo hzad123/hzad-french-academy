@@ -13,6 +13,7 @@ PUBLISHED=ROOT/'supabase/exams/tcf-listening-test02.json'
 def metadata(path):
  return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)]))
 def render(models):
+ raise RuntimeError('Historical recording path retired. Use render-listening-qc-media.py with accepted independent AI evidence and a new immutable version.')
  paper=json.loads(PAPER.read_text())
  assert paper['id']=='tcf-listening-02' and len(paper['questions'])==39
  OUT.mkdir(parents=True,exist_ok=True)

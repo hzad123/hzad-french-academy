@@ -1,3 +1,5 @@
+// Historical publication path retired; immutable prior migrations stay intact.
+throw Error('Use new immutable candidates with independent blind/grounded evidence; historical publication SQL must not be regenerated.');
 import {readFile,writeFile} from 'node:fs/promises';
 const p=JSON.parse(await readFile('supabase/exams/tcf-listening-test03-v2.json','utf8'));
 if(p.version!=='tcf-listening-2026-11-test03-v2'||p.questions.length!==39||p.questions.some(q=>!q.audioSeconds)||p.questions.reduce((n,q)=>n+q.slotSeconds,0)!==2100)throw Error('Incomplete new paper');

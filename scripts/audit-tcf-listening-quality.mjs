@@ -16,6 +16,7 @@ async function select(number) {
   const label = String(number).padStart(2, '0');
   const base = `supabase/exams/tcf-listening-test${label}`;
   const original = await read(base + '.json');
+  if (!legacy && await exists(base+'-v4.json'))return {paper:await read(base+'-v4.json'),original,file:base+'-v4.json',state:'independently-evaluated-candidate'};
   if (legacy || number < 3) return {paper: original, original, file: base + '.json', state: 'legacy'};
   for (const revision of [3, 2]) {
     const file = `${base}-v${revision}.json`;
@@ -42,8 +43,12 @@ async function select(number) {
 const selected = await Promise.all(Array.from({length:20},(_,i) => select(i+1)));
 const reports = [], items = [], fingerprints = new Map(), audioHashes = new Map();
 for (const {paper,original,file,state} of selected) {
-  const number = Number(paper.id.slice(-2)), affected = number >= 3;
+  const number = Number(paper.id.slice(-2)), affected = true;
   const violations = [], questions = [], add = (kind,question,detail) => violations.push({kind,question,detail});
+  if(state==='independently-evaluated-candidate') {
+    try{execFileSync('node',['scripts/check-listening-answer-quality.mjs','--bank',file],{stdio:'pipe'});}
+    catch(error){add('independent-answer-qc',null,'Blind, grounding, paper or frozen-cohort evidence is missing/stale.');}
+  } else add('independent-answer-qc',null,'Historical bank has not passed the new independent answer-quality protocol.');
   if (paper.questions.length !== 39 || paper.seconds !== 2100 || paper.questions.reduce((sum,q)=>sum+q.slotSeconds,0)!==2100)
     add('structure',null,'Exactly 39 questions and 2100 seconds required.');
   const root = join('assets/tcf-listening',paper.version === 'tcf-listening-2026-11-v1' ? 'v1' : paper.version);
@@ -66,7 +71,9 @@ for (const {paper,original,file,state} of selected) {
       written++; longest+=Number(stats.correctLongest); uniqueLongest+=Number(stats.uniqueCorrectLongest); longestCredit+=stats.longestCredit;
       shortestCredit+=stats.shortestCredit;
       maxRatio=Math.max(maxRatio,stats.ratio);
-      if (stats.ratio > 1.35) add('choice-length',q.number,`Character length ratio ${stats.ratio.toFixed(2)}; review against the 10–15% target.`);
+      // New policy checks exploitable length advantages across the library and
+      // wording with a blind evaluator; equal lengths are not a quality target.
+      if (state!=='independently-evaluated-candidate' && stats.ratio > 1.35) add('choice-length',q.number,`Historical character length ratio ${stats.ratio.toFixed(2)} requires review.`);
     }
     if (q.slotSeconds !== original.questions[i]?.slotSeconds) {
       changedSlots++;
@@ -128,7 +135,7 @@ for (const match of transcriptOverlaps) for (const side of ['left','right']) {
 for (const report of reports) report.verifiedForRelease = report.affected && report.violations.length===0 && media;
 const affected=reports.filter(r=>r.affected);
 const output={mode:legacy?'legacy':'best-existing-candidates',mediaDecoded:media,
-  automatedChecksDoNotEstablishSemanticQuality:true,scope:{tests:18,questions:702,pictures:72},
+  automatedChecksDoNotEstablishSemanticQuality:true,scope:{tests:20,questions:780,pictures:80},
   coverage:{selectedQuestions:affected.reduce((s,r)=>s+r.questionCount,0),existingRecordings:affected.reduce((s,r)=>s+r.metrics.existingRecordings,0),
     existingPictures:affected.reduce((s,r)=>s+r.metrics.existingPictures,0),decodedRecordings:affected.reduce((s,r)=>s+r.metrics.decodedRecordings,0),
     fullyVerifiedTests:affected.filter(r=>r.verifiedForRelease).length},transcriptOverlaps,results:reports};

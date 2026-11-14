@@ -1,3 +1,5 @@
+// Retired: historical template/keyword repair is not an accepted authoring path.
+throw Error('Retired listening generator: use scripts/run-listening-answer-qc.mjs and independent blind/grounded review before recording or publication.');
 // Stage immutable, idempotent, per-paper SQL publication migrations.
 // Never run these until their exact media paths are deployed and validated.
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
