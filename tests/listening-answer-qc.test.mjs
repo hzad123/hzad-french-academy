@@ -4,7 +4,7 @@ import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {createQcHandler} from '../supabase/functions/academy-listening-qc/handler.js';
-import {POLICY_VERSION,MODEL,validateInput,validateResult,modelRequest} from '../supabase/functions/academy-listening-qc/contracts.js';
+import {POLICY_VERSION,MODEL,MODELS,stagePrice,validateInput,validateResult,modelRequest} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {hash,contentHash,policyHash,spokenChoices,stimulus,blindProjection,blindVerdict,groundingVerdict,balancedPositions,
  applyAlternatives,assessQuestion,repairQuestion,binomialUpperTail,attackStatistics,createGatewayProvider,assertAnswerQuality,frozenCohort,assertCohortQuality} from '../scripts/lib/listening-answer-qc.mjs';
 const adminToken='a'.repeat(64);
@@ -15,7 +15,7 @@ function ground(input) {
  return {supportedIndices:[index],ambiguous:false,questionSupported:true,options:input.choices.map((_,i)=>({index:i,supported:i===index,plausibleMisunderstanding:i!==index,evidence:['aura finalement lieu jeudi à neuf heures'],reason:i===index?'L’annonce fixe le nouvel horaire à jeudi neuf heures.':'La réponse confond un jour ou une heure avec le rendez-vous finalement retenu.'})),summary:'Une seule combinaison correspond au nouvel horaire.'};
 }
 let fixtureId=0;
-function receipt(stage,input,result) {return {stage,policy:POLICY_VERSION,policyHash,model:MODEL,responseId:'chatcmpl-unit-test-fixture-'+fixtureId++,inputHash:hash(input),result,costUsd:0.0001,usage:{prompt_tokens:100,completion_tokens:100}};}
+function receipt(stage,input,result) {return {stage,policy:POLICY_VERSION,policyHash,model:MODELS[stage],responseId:'chatcmpl-unit-test-fixture-'+fixtureId++,inputHash:hash(input),result,costUsd:0.0001,usage:{prompt_tokens:100,completion_tokens:100}};}
 
 test('blind boundary allowlists ONLY question and four choices, never key/transcript/explanation/history',async()=>{
  const item=q(),seen=[];
@@ -35,6 +35,9 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.throws(()=>validateInput('blind',{...blindProjection(item),history:[]}),/only question/);
  const request=modelRequest('blind',blindProjection(item));
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
+ assert.equal(request.model,'gpt-4.1-mini');
+ assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-4.1');
+ assert.equal(stagePrice('ground').outputPerMillion,8);
 });
 
 test('a conspicuous WRONG choice also rejects an item; author cannot game a blind guess',async()=>{

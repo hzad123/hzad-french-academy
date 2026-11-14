@@ -13,6 +13,9 @@ const selection=value('--tests','1-20');
 const numbers=selection.includes('-')?(()=>{const [a,b]=selection.split('-').map(Number);return Array.from({length:b-a+1},(_,i)=>a+i)})():selection.split(',').map(Number);
 if(numbers.some(n=>!Number.isInteger(n)||n<1||n>20)||new Set(numbers).size!==numbers.length)throw Error('Select distinct listening tests01–20');
 await mkdir(directory,{recursive:true});
+await saveJson(join(directory,'run.json'),{policy:POLICY_VERSION,policyHash,tests:numbers,startedAt:new Date().toISOString(),status:'running'});
+await saveJson(join(directory,'summary.json'),{policy:POLICY_VERSION,policyHash,tests:numbers,readyForMedia:false,status:'running'});
+await saveJson(join(directory,'baseline.json'),[]);
 const seedFile=join(directory,'seed.json');
 const seed=await exists(seedFile)?(await read(seedFile)).seed:randomBytes(32).toString('hex');
 await saveJson(seedFile,{seed});
@@ -30,7 +33,7 @@ for(const number of numbers) {
  const label=String(number).padStart(2,'0'),src=await source(number),original=src.paper;
  const folder=join(directory,'test'+label);await mkdir(folder,{recursive:true});
  const paper=structuredClone(original);paper.version=`tcf-listening-2026-11-test${label}-v4`;
- const positions=balancedPositions(39,seed+':positions:'+paper.id),records=Array(39),images=new Map();
+ const positions=balancedPositions(39,seed+':positions:'+paper.id),records=Array(39).fill(null),images=new Map();
  for(const q of original.questions.slice(0,4)) {
   const from=join(src.root,'images',q.image),to=join(folder,'images',q.image);
   await mkdir(join(folder,'images'),{recursive:true});await copyFile(from,to);
@@ -91,6 +94,7 @@ for(const number of numbers) {
  const evidence={policy:POLICY_VERSION,policyHash,test:paper.id,version:paper.version,source:src.file,sourceVersion:original.version,
   paperHash:hash(paper.questions.map(contentHash)),questions:records,paperAssessment};
  await saveJson(join(folder,'bank.json'),paper);await saveJson(join(folder,'evidence.json'),evidence);
+ await saveJson(join(directory,'baseline.json'),baseline);
  all.push(paper);proofs.push(evidence);
 }
 // Freeze every candidate before touching held-out measurements. These guesses
@@ -108,7 +112,7 @@ const statistics=attackStatistics(all,proofs);
 const ready=proofs.every(e=>e.questions.length===39&&e.questions.every(r=>r.proof?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&e.paperAssessment.result.patterns.length===0)&&statistics.heldout.passes&&
  !statistics.positionPatterns.some(p=>p.suspiciousFourItemDeck)&&
  Object.values(statistics.heuristicAttacks).every(a=>a.sample<100||binomialUpperTail(a.sample,Math.ceil(a.credit))>=0.01);
-const summary={policy:POLICY_VERSION,policyHash,tests:numbers,frozenPapers:frozenCohort(all,proofs),readyForMedia:ready,acceptedItems:proofs.reduce((n,p)=>n+p.questions.filter(r=>r.proof?.pass&&!r.blocked).length,0),
+const summary={policy:POLICY_VERSION,policyHash,tests:numbers,status:ready?'accepted':'blocked',completedAt:new Date().toISOString(),frozenPapers:frozenCohort(all,proofs),readyForMedia:ready,acceptedItems:proofs.reduce((n,p)=>n+p.questions.filter(r=>r.proof?.pass&&!r.blocked).length,0),
  totalItems:39*numbers.length,errors,statistics,baseline:{sample:baseline.length,correct:baseline.filter(r=>r.correct).length,accuracy:baseline.length?baseline.filter(r=>r.correct).length/baseline.length:null},
  note:'25% is assessed on unseen frozen written-choice items. Spoken/image choice diagnostics are separate; no fabricated model results or hand-adjusted success rate.'};
 await saveJson(join(directory,'baseline.json'),baseline);await saveJson(join(directory,'summary.json'),summary);

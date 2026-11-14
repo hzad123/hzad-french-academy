@@ -1,10 +1,10 @@
 import {createHash,randomBytes} from 'node:crypto';
 import {readFile,writeFile,mkdir,copyFile,access} from 'node:fs/promises';
 import {join} from 'node:path';
-import {POLICY_VERSION,MODEL,PROMPTS,validateInput,validateResult,modelRequest,MAX_OUTPUT,PRICES} from '../../supabase/functions/academy-listening-qc/contracts.js';
+import {POLICY_VERSION,MODELS,PROMPTS,validateInput,validateResult,modelRequest,MAX_OUTPUT,stagePrice} from '../../supabase/functions/academy-listening-qc/contracts.js';
 import {keyPattern,choiceStats} from './listening-quality.mjs';
 export const hash=x=>createHash('sha256').update(typeof x==='string'||Buffer.isBuffer(x)?x:JSON.stringify(x)).digest('hex');
-export const policyHash=hash({policy:POLICY_VERSION,model:MODEL,prompts:PROMPTS});
+export const policyHash=hash({policy:POLICY_VERSION,model:MODELS,prompts:PROMPTS});
 export const letters='ABCD';
 export const exists=path=>access(path).then(()=>true,()=>false);
 export const loadJson=async path=>JSON.parse(await readFile(path,'utf8'));
@@ -51,6 +51,7 @@ export function applyAlternatives(original,result,target,seed) {
 }
 function receiptValid(receipt,stage,input) {
  if(receipt?.stage!==stage||receipt.policy!==POLICY_VERSION||typeof receipt.model!=='string'||!receipt.responseId?.startsWith('chatcmpl-')||receipt.inputHash!==hash(input))throw Error('Missing/stale real-model receipt');
+ if(receipt.model!==MODELS[stage]&&!receipt.model.startsWith(MODELS[stage]+'-20'))throw Error('Unexpected independent evaluator model');
  if(receipt.policyHash!==policyHash)throw Error('Evaluation prompts/model changed; old receipt cannot approve new content');
  validateResult(stage,receipt.result);
  return receipt;
@@ -163,7 +164,8 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
   if(await exists(file))return receiptValid(await loadJson(file),stage,input);
   if(fatal)throw Error(fatal);
   const request=modelRequest(stage,input),textBytes=Buffer.byteLength(JSON.stringify(request.messages).replace(input.imageData||'__no_image__',''));
-  const reserve=((textBytes+1024+(input.imageData?16000:0))*PRICES.inputPerMillion+MAX_OUTPUT[stage]*PRICES.outputPerMillion)/1e6;
+  const price=stagePrice(stage);
+  const reserve=((textBytes+1024+(input.imageData?16000:0))*price.inputPerMillion+MAX_OUTPUT[stage]*price.outputPerMillion)/1e6;
   if(ledger.spentUsd+ledger.reservedUsd+reserve>maxUsd)throw Error('Offline authoring cost cap reached; progress saved');
   ledger.reservedUsd+=reserve;ledger.requests++;await persist();
   const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
