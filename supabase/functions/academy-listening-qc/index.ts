@@ -1,5 +1,5 @@
 import {createQcHandler} from './handler.js';
 Deno.serve(createQcHandler({
- serviceKey:Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')||'',
+ adminToken:Deno.env.get('LISTENING_QC_ADMIN_TOKEN')||'',
  providerKey:Deno.env.get('OPENAI_API_KEYfrench')||Deno.env.get('OPENAI_API_KEY')||''
 }));

@@ -16,7 +16,7 @@ await mkdir(directory,{recursive:true});
 const seedFile=join(directory,'seed.json');
 const seed=await exists(seedFile)?(await read(seedFile)).seed:randomBytes(32).toString('hex');
 await saveJson(seedFile,{seed});
-const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,token:process.env.LISTENING_QC_TOKEN,
+const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,token:process.env.LISTENING_QC_TOKEN,adminToken:process.env.LISTENING_QC_ADMIN_TOKEN,
  directory:join(directory,'model-receipts'),maxUsd:Number(value('--max-usd','20'))});
 const all=[],proofs=[],errors=[],baseline=[];
 const workers=Number(value('--workers','6'));

@@ -1,11 +1,11 @@
 import {modelRequest,validateResult,MODEL,MAX_OUTPUT,PRICES,POLICY_VERSION,policyFingerprint} from './contracts.js';
 const reply=(status,body)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
-export function createQcHandler({serviceKey,providerKey,fetcher=fetch}) {
+export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
  return async request=>{
   // This endpoint is exclusively for a trusted offline authoring runner.
   // Students and the public cannot call the model or spend provider funds.
-  const supplied=request.headers.get('authorization');
-  if(!serviceKey||supplied!=='Bearer '+serviceKey)return reply(401,{error:'QC_ADMIN_REQUIRED'});
+  const supplied=request.headers.get('x-listening-qc-token');
+  if(typeof adminToken!=='string'||adminToken.length<32||supplied!==adminToken)return reply(401,{error:'QC_ADMIN_REQUIRED'});
   if(request.method!=='POST')return reply(405,{error:'METHOD'});
   if(!providerKey)return reply(503,{error:'QC_PROVIDER_NOT_CONFIGURED'});
   let stage,input,body,expectedPolicyHash;

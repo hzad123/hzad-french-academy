@@ -151,8 +151,8 @@ export async function measureHeldout(q,provider,{seed}={}) {
  const receipt=receiptValid(await provider('blind',input,{nonce:seed+':measurement'}),'blind',input);
  return {order,receipt,correct:order[receipt.result.guess]===letters.indexOf(q.correct)};
 }
-export async function createGatewayProvider({url,token,directory,maxUsd=20,fetcher=fetch}) {
- if(!url?.startsWith('https://')||!token)throw Error('Trusted authoring gateway configuration missing');
+export async function createGatewayProvider({url,token,adminToken,directory,maxUsd=20,fetcher=fetch}) {
+ if(!url?.startsWith('https://')||!token||typeof adminToken!=='string'||adminToken.length<32)throw Error('Trusted authoring gateway configuration missing');
  await mkdir(directory,{recursive:true});
  const ledgerFile=join(directory,'cost-ledger.json');
  const ledger=await exists(ledgerFile)?await loadJson(ledgerFile):{spentUsd:0,reservedUsd:0,requests:0};
@@ -166,7 +166,7 @@ export async function createGatewayProvider({url,token,directory,maxUsd=20,fetch
   const reserve=((textBytes+1024+(input.imageData?16000:0))*PRICES.inputPerMillion+MAX_OUTPUT[stage]*PRICES.outputPerMillion)/1e6;
   if(ledger.spentUsd+ledger.reservedUsd+reserve>maxUsd)throw Error('Offline authoring cost cap reached; progress saved');
   ledger.reservedUsd+=reserve;ledger.requests++;await persist();
-  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
+  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
   if(!response.ok) {
    const detail=await response.json().catch(()=>({}));
    const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';

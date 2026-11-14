@@ -7,6 +7,7 @@ import {createQcHandler} from '../supabase/functions/academy-listening-qc/handle
 import {POLICY_VERSION,MODEL,validateInput,validateResult,modelRequest} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {hash,policyHash,spokenChoices,stimulus,blindProjection,blindVerdict,groundingVerdict,balancedPositions,
  applyAlternatives,assessQuestion,repairQuestion,binomialUpperTail,attackStatistics,createGatewayProvider,assertAnswerQuality} from '../scripts/lib/listening-answer-qc.mjs';
+const adminToken='a'.repeat(64);
 const uncertain=()=>({guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
 const q=()=>({number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi à neuf heures.','Mercredi à neuf heures.','Jeudi à dix heures.','Vendredi à dix heures.'],correct:'A',explanation:'PRIVATE_EXPLANATION_NOT_FOR_THE_BLIND_MODEL',segments:[{voice:'female',text:'Question 9.'},{voice:'female',text:'Le rendez-vous prévu mercredi aura finalement lieu jeudi à neuf heures, sans changement de salle.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],audio:'q-09.mp3',audioSeconds:17,slotSeconds:40});
 function ground(input) {
@@ -107,17 +108,17 @@ test('25% is measured on a held-out cohort, not forced per item or inferred from
 
 test('only the server-side administrator can invoke the evaluator; no student credits or data API writes',async()=>{
  let requests=0;
- const handler=createQcHandler({serviceKey:'server-only-test',providerKey:'private-provider-key',fetcher:async()=>{requests++;return Response.json({id:'chatcmpl-test',model:MODEL,choices:[{finish_reason:'stop',message:{content:JSON.stringify(uncertain())}}],usage:{prompt_tokens:100,completion_tokens:100}})}});
+ const handler=createQcHandler({adminToken,providerKey:'private-provider-key',fetcher:async()=>{requests++;return Response.json({id:'chatcmpl-test',model:MODEL,choices:[{finish_reason:'stop',message:{content:JSON.stringify(uncertain())}}],usage:{prompt_tokens:100,completion_tokens:100}})}});
  const input={stage:'blind',policyHash,input:blindProjection(q())};
  for(const token of ['', 'Bearer student-jwt','Bearer anon-key']) {
   const response=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:token},body:JSON.stringify(input)}));assert.equal(response.status,401);
  }
  assert.equal(requests,0);
- const health=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:'{"stage":"health"}'}));
+ const health=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test','x-listening-qc-token':adminToken},body:'{"stage":"health"}'}));
  assert.equal(health.status,200);assert.equal(requests,0);assert.equal((await health.json()).policyHash,policyHash);
- const bad=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:JSON.stringify({stage:'blind',input:{...input.input,correct:'A'}})}));
+ const bad=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test','x-listening-qc-token':adminToken},body:JSON.stringify({stage:'blind',input:{...input.input,correct:'A'}})}));
  assert.equal(bad.status,400);assert.equal(requests,0);
- const good=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test'},body:JSON.stringify(input)}));
+ const good=await handler(new Request('https://example/qc',{method:'POST',headers:{Authorization:'Bearer server-only-test','x-listening-qc-token':adminToken},body:JSON.stringify(input)}));
  assert.equal(good.status,200);assert.equal(requests,1);const body=await good.text();assert(!body.includes('private-provider-key'));assert(!body.includes('server-only-test'));
 });
 
@@ -125,9 +126,9 @@ test('offline cost cap fails before spending; provider errors are not automatica
  const dir=await mkdtemp(join(tmpdir(),'listening-qc-'));
  try {
   let calls=0;
-  const provider=await createGatewayProvider({url:'https://example/qc',token:'secret',directory:dir,maxUsd:0,fetcher:async()=>{calls++;return Response.json({})}});
+  const provider=await createGatewayProvider({url:'https://example/qc',token:'secret',adminToken,directory:dir,maxUsd:0,fetcher:async()=>{calls++;return Response.json({})}});
   await assert.rejects(()=>provider('blind',blindProjection(q())),/cost cap/);assert.equal(calls,0);
-  const available=await createGatewayProvider({url:'https://example/qc',token:'secret',directory:join(dir,'second'),maxUsd:1,fetcher:async()=>{calls++;return new Response('private error',{status:502})}});
+  const available=await createGatewayProvider({url:'https://example/qc',token:'secret',adminToken,directory:join(dir,'second'),maxUsd:1,fetcher:async()=>{calls++;return new Response('private error',{status:502})}});
   await assert.rejects(()=>available('blind',blindProjection(q())),/HTTP 502/);assert.equal(calls,1);
  } finally {await rm(dir,{recursive:true,force:true});}
 });

@@ -9,7 +9,7 @@ on:
       - 'supabase/functions/academy-listening-qc/**'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   actions: read
 concurrency:
   group: listening-independent-answer-qc
@@ -35,10 +35,13 @@ jobs:
           path: work/listening-answer-qc
           key: listening-answer-qc-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: listening-answer-qc-v1-
+      - name: Bundle only the private authoring evaluator
+        run: >-
+          node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-listening-qc/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/listening-qc.ts'});"
       - name: Independent blind and grounded evaluations for Tests01–20
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-        run: python scripts/release/run-listening-answer-qc.py --tests 1-20 --out work/listening-answer-qc --workers 6 --max-usd 20
+        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --tests 1-20 --out work/listening-answer-qc --workers 6 --max-usd 20
       - name: Save resumable receipts and rejected candidates even on failure
         if: always()
         uses: actions/cache/save@v4
@@ -52,3 +55,20 @@ jobs:
           name: listening-independent-qc-${{ github.run_id }}
           path: work/listening-answer-qc
           retention-days: 30
+      - name: Preserve diagnostic results on the feature branch
+        if: always() && github.ref_name == 'feature/listening-blind-answer-quality'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/save-listening-qc-progress.py
+          if [ -d reports/listening-answer-qc-latest ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add reports/listening-answer-qc-latest
+            if ! git diff --cached --quiet; then
+              git commit -m "Save actual independent listening QC results and unresolved candidates"
+              git fetch origin feature/listening-blind-answer-quality
+              git rebase origin/feature/listening-blind-answer-quality
+              git push origin HEAD:feature/listening-blind-answer-quality
+            fi
+          fi
