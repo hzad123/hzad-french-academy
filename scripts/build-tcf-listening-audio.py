@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def duration(path):
  return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)]))
 def build(models):
+ raise RuntimeError('Historical recording path retired. Use render-listening-qc-media.py with accepted independent AI evidence and a new immutable version.')
  paper_path=ROOT/'supabase/exams/tcf-listening-test01.json';paper=json.loads(paper_path.read_text());out=ROOT/'assets/tcf-listening/v1/audio';out.mkdir(parents=True,exist_ok=True)
  recipe_voices={k:{'modelSha256':hashlib.sha256((models/(k+'.onnx')).read_bytes()).hexdigest(),'speakerId':None,'lengthScale':1.08 if k=='male' else 1.12,'noiseScale':.55,'noiseWScale':.7} for k in ['female','male']}
  voices={k:PiperVoice.load(str(models/(k+'.onnx'))) for k in ['female','male']}

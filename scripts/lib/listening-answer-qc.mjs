@@ -184,6 +184,7 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
 }
 export async function assertAnswerQuality(paper,evidence,{imageHashes={},imageDataByNumber={}}={}) {
  if(evidence?.policy!==POLICY_VERSION||evidence.policyHash!==policyHash||evidence.paperHash!==hash(paper.questions.map(contentHash))||evidence.version!==paper.version||evidence.questions?.length!==39||!evidence.paperAssessment?.result?.pass||evidence.paperAssessment?.result?.patterns?.length)throw Error('Missing or stale independent answer-quality evidence for '+paper.version);
+ if(paper.questions.length!==39||paper.questions.some((q,i)=>q.number!==i+1)||new Set(evidence.questions.map(r=>r.number)).size!==39)throw Error('Expected exactly39 uniquely numbered questions');
  for(const q of paper.questions) {
   const record=evidence.questions.find(r=>r.number===q.number);
   if(!record?.proof?.pass||record.proof.contentHash!==contentHash(q)||record.proof.blind?.length!==3||!record.heldout)throw Error('Question not independently accepted: '+q.number);
@@ -205,5 +206,44 @@ export async function assertAnswerQuality(paper,evidence,{imageHashes={},imageDa
   if(!groundingVerdict(q,record.proof.grounded.result).pass)throw Error('Grounding failed: '+q.number);
  }
  receiptValid(evidence.paperAssessment,'paper',paperInput(paper));
+ return true;
+}
+
+// Bind the library experiment to the exact frozen choices and receipts. A
+// manually edited accuracy/ready flag or a result from an earlier draft cannot
+// approve a later paper. Held-out guesses are never used to rewrite one item.
+export function frozenCohort(papers,proofs) {
+ return papers.map((paper,index)=>({test:paper.id,version:paper.version,paperHash:hash(paper.questions.map(contentHash)),
+  questions:paper.questions.map(q=>({number:q.number,kind:q.kind,contentHash:contentHash(q),...blindProjection(q),correct:q.correct,
+   heldout:proofs[index].questions.find(r=>r.number===q.number)?.heldout??null}))}));
+}
+export function assertCohortQuality(paper,evidence,cohort) {
+ if(cohort?.policy!==POLICY_VERSION||cohort.policyHash!==policyHash||!cohort.readyForMedia||!Array.isArray(cohort.frozenPapers)||!cohort.frozenPapers.length)throw Error('Frozen library experiment is incomplete');
+ const members=cohort.frozenPapers,ids=new Set(),responses=new Set();
+ const papers=[],proofs=[];
+ for(const member of members) {
+  if(ids.has(member.test)||member.questions?.length!==39||member.questions.some((q,i)=>q.number!==i+1))throw Error('Duplicate/incomplete frozen paper');
+  ids.add(member.test);
+  for(const item of member.questions) {
+   const held=item.heldout;
+   if(!held||!Array.isArray(held.order)||[...held.order].sort().join('')!=='0123')throw Error('Missing frozen measurement');
+   receiptValid(held.receipt,'blind',{question:item.question,choices:held.order.map(i=>item.choices[i])});
+   if(responses.has(held.receipt.responseId))throw Error('Frozen measurement response reused');
+   responses.add(held.receipt.responseId);
+   if(!blindVerdict(held.receipt.result).pass||held.correct!==(held.order[held.receipt.result.guess]===letters.indexOf(item.correct)))throw Error('Frozen measurement cue/correctness mismatch');
+  }
+  papers.push({id:member.test,questions:member.questions.map(item=>({...item,options:item.choices}))});
+  proofs.push({questions:member.questions});
+ }
+ const member=members.find(m=>m.test===paper.id&&m.version===paper.version);
+ if(!member||member.paperHash!==hash(paper.questions.map(contentHash))||member.paperHash!==evidence.paperHash)throw Error('Frozen cohort belongs to another paper revision');
+ for(const q of paper.questions) {
+  const item=member.questions[q.number-1],record=evidence.questions.find(r=>r.number===q.number);
+  if(item.contentHash!==contentHash(q)||hash({question:item.question,choices:item.choices})!==hash(blindProjection(q))||item.correct!==q.correct||hash(item.heldout)!==hash(record.heldout))throw Error('Frozen cohort question/receipt changed');
+ }
+ const statistics=attackStatistics(papers,proofs);
+ if(hash(statistics)!==hash(cohort.statistics))throw Error('Frozen library statistics were changed or are stale');
+ if(!statistics.heldout.passes||statistics.positionPatterns.some(p=>p.suspiciousFourItemDeck)||
+  Object.values(statistics.heuristicAttacks).some(a=>a.sample>=100&&binomialUpperTail(a.sample,Math.ceil(a.credit))<0.01))throw Error('Frozen library blind/heuristic guessing exceeds the acceptance threshold');
  return true;
 }

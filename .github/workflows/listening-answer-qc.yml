@@ -72,3 +72,55 @@ jobs:
               git push origin HEAD:feature/listening-blind-answer-quality
             fi
           fi
+  record:
+    needs: evaluate
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm install --no-package-lock
+      - uses: actions/download-artifact@v4
+        with:
+          name: listening-independent-qc-${{ github.run_id }}
+          path: work/listening-answer-qc
+      - name: Install pinned offline French speech renderer
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium fr_FR-upmc-medium
+      - name: Generate matching complete recordings only after all independent checks pass
+        run: python scripts/render-listening-qc-media.py --root work/listening-answer-qc --models "$RUNNER_TEMP/models"
+      - name: Verify exact frozen evidence, existing scoring and application build
+        run: |
+          for number in $(seq -w 1 20); do
+            node scripts/check-listening-answer-quality.mjs --bank "supabase/exams/tcf-listening-test${number}-v4.json"
+          done
+          npm test
+          npm run build
+      - name: Preserve verified immutable candidates for release review
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tcf-listening/*-v4 supabase/exams/*-v4.json curriculum/tcf-listening-answer-qc
+          git commit -m "Record all twenty independently evaluated listening v4 candidates with frozen quality evidence"
+          git fetch origin feature/listening-blind-answer-quality
+          git rebase origin/feature/listening-blind-answer-quality
+          git push origin HEAD:feature/listening-blind-answer-quality
+      - name: Retain media diagnostics if recording or verification fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: listening-media-diagnostics-${{ github.run_id }}
+          path: |
+            assets/tcf-listening/*-v4
+            curriculum/tcf-listening-answer-qc
+            supabase/exams/*-v4.json

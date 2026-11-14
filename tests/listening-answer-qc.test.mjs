@@ -5,8 +5,8 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {createQcHandler} from '../supabase/functions/academy-listening-qc/handler.js';
 import {POLICY_VERSION,MODEL,validateInput,validateResult,modelRequest} from '../supabase/functions/academy-listening-qc/contracts.js';
-import {hash,policyHash,spokenChoices,stimulus,blindProjection,blindVerdict,groundingVerdict,balancedPositions,
- applyAlternatives,assessQuestion,repairQuestion,binomialUpperTail,attackStatistics,createGatewayProvider,assertAnswerQuality} from '../scripts/lib/listening-answer-qc.mjs';
+import {hash,contentHash,policyHash,spokenChoices,stimulus,blindProjection,blindVerdict,groundingVerdict,balancedPositions,
+ applyAlternatives,assessQuestion,repairQuestion,binomialUpperTail,attackStatistics,createGatewayProvider,assertAnswerQuality,frozenCohort,assertCohortQuality} from '../scripts/lib/listening-answer-qc.mjs';
 const adminToken='a'.repeat(64);
 const uncertain=()=>({guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
 const q=()=>({number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi à neuf heures.','Mercredi à neuf heures.','Jeudi à dix heures.','Vendredi à dix heures.'],correct:'A',explanation:'PRIVATE_EXPLANATION_NOT_FOR_THE_BLIND_MODEL',segments:[{voice:'female',text:'Question 9.'},{voice:'female',text:'Le rendez-vous prévu mercredi aura finalement lieu jeudi à neuf heures, sans changement de salle.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],audio:'q-09.mp3',audioSeconds:17,slotSeconds:40});
@@ -131,4 +131,40 @@ test('offline cost cap fails before spending; provider errors are not automatica
   const available=await createGatewayProvider({url:'https://example/qc',token:'secret',adminToken,directory:join(dir,'second'),maxUsd:1,fetcher:async()=>{calls++;return new Response('private error',{status:502})}});
   await assert.rejects(()=>available('blind',blindProjection(q())),/HTTP 502/);assert.equal(calls,1);
  } finally {await rm(dir,{recursive:true,force:true});}
+});
+
+test('cohort gate recomputes statistics and rejects stale drafts, changed keys or reused model responses',()=>{
+ // Synthetic receipts test integrity only; they are never published as AI QA.
+ const papers=Array.from({length:4},(_,test)=>({id:'fixture-'+test,version:'unit-test-only-'+test,
+  questions:balancedPositions(39,'cohort-fixture-'+test).map((key,i)=>{
+   const item=q();item.number=i+1;item.correct='ABCD'[key];
+   item.options=['Départ mardi matin.','Départ jeudi matin.','Départ lundi matin.','Départ samedi matin.'];
+   if(i<8)item.segments.push({voice:'female',text:item.options.map((s,j)=>'ABCD'[j]+'. '+s).join(' ')});
+   return item;
+  })}));
+ const proofs=papers.map(p=>({paperHash:hash(p.questions.map(contentHash)),
+  questions:p.questions.map(item=>({number:item.number,heldout:{order:[0,1,2,3],receipt:receipt('blind',blindProjection(item),uncertain()),correct:item.correct==='A'}}))}));
+ const cohort={policy:POLICY_VERSION,policyHash,readyForMedia:true,frozenPapers:frozenCohort(papers,proofs),statistics:attackStatistics(papers,proofs)};
+ assert(assertCohortQuality(papers[0],proofs[0],cohort));
+ const tampered=structuredClone(cohort);tampered.statistics.heldout.correct=0;
+ assert.throws(()=>assertCohortQuality(papers[0],proofs[0],tampered),/statistics/);
+ const changed=structuredClone(papers[0]);changed.questions[10].options[0]='Une nouvelle proposition.';
+ assert.throws(()=>assertCohortQuality(changed,proofs[0],cohort),/revision/);
+ const reused=structuredClone(cohort);reused.frozenPapers[1].questions[0].heldout.receipt.responseId=reused.frozenPapers[0].questions[0].heldout.receipt.responseId;
+ assert.throws(()=>assertCohortQuality(papers[0],proofs[0],reused),/reused/);
+ const key=structuredClone(cohort);key.frozenPapers[0].questions[0].correct=key.frozenPapers[0].questions[0].correct==='A'?'B':'A';
+ assert.throws(()=>assertCohortQuality(papers[0],proofs[0],key),/mismatch|changed/);
+});
+
+test('held-out measurement nonce cannot reuse a screening response with identical choices',async()=>{
+ const dir=await mkdtemp(join(tmpdir(),'qc-freshness-'));let calls=0;
+ try {
+  const provider=await createGatewayProvider({url:'https://example/qc',token:'test',adminToken,directory:dir,maxUsd:1,fetcher:async()=>{
+   calls++;return Response.json(receipt('blind',blindProjection(q()),uncertain()));
+  }});
+  const screen=await provider('blind',blindProjection(q()),{nonce:'screen'});
+  const held=await provider('blind',blindProjection(q()),{nonce:'heldout'});
+  assert.equal(calls,2);assert.notEqual(screen.responseId,held.responseId);
+  await provider('blind',blindProjection(q()),{nonce:'heldout'});assert.equal(calls,2);
+ }finally{await rm(dir,{recursive:true,force:true});}
 });

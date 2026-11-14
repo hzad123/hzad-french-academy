@@ -1,3 +1,5 @@
+// Retired: historical template/keyword repair is not an accepted authoring path.
+throw Error('Retired listening generator: use scripts/run-listening-answer-qc.mjs and independent blind/grounded review before recording or publication.');
 // Second editorial pass: context-specific answers, idiomatic French, diversified
 // scenario introductions. Applied before ANY final audio recording is generated.
 import {readFile,writeFile} from 'node:fs/promises';

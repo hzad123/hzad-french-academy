@@ -6,7 +6,7 @@ import {join,resolve} from 'node:path';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {hash,exists,loadJson,saveJson,loadJson as read,contentHash,balancedPositions,repairQuestion,measureHeldout,policyHash,blindVerdict,binomialUpperTail,
- createGatewayProvider,paperInput,attackStatistics,blindProjection,stimulus,mode,applyAlternatives} from './lib/listening-answer-qc.mjs';
+ createGatewayProvider,paperInput,attackStatistics,blindProjection,stimulus,mode,applyAlternatives,frozenCohort} from './lib/listening-answer-qc.mjs';
 const args=process.argv.slice(2),value=(key,fallback)=>args.includes(key)?args[args.indexOf(key)+1]:fallback;
 const directory=resolve(value('--out','work/listening-answer-qc'));
 const selection=value('--tests','1-20');
@@ -42,6 +42,7 @@ for(const number of numbers) {
  await parallel(original.questions,async(q,index)=>{
   const checkpoint=join(folder,`q-${String(q.number).padStart(2,'0')}.json`),image=images.get(q.number);
   try {
+   let draft=q,resume='';
    if(q.number>=9) {
     const measured=await measureHeldout(q,provider,{seed:seed+':baseline:'+paper.id+':'+q.number});
     baseline.push({test:paper.id,number:q.number,correct:measured.correct,assessment:measured});
@@ -51,8 +52,11 @@ for(const number of numbers) {
     if(saved.policyHash===policyHash&&saved.sourceHash===contentHash(q)&&saved.imageHash===(image?.sourceHash??null)&&saved.proof?.pass&&saved.proof.contentHash===contentHash(saved.question)) {
      paper.questions[index]=saved.question;records[index]=saved;return;
     }
+    if(saved.policyHash===policyHash&&saved.sourceHash===contentHash(q)&&saved.imageHash===(image?.sourceHash??null)&&saved.blocked&&saved.question) {
+     draft=saved.question;resume=':resume:'+contentHash(draft);
+    }
    }
-   const result=await repairQuestion(q,provider,{target:positions[index],seed:seed+':'+paper.id+':'+q.number,imageData:image?.data,maxAttempts:6,
+   const result=await repairQuestion(draft,provider,{target:positions[index],seed:seed+':'+paper.id+':'+q.number+resume,imageData:image?.data,maxAttempts:6,
     onAttempt:attempt=>saveJson(join(folder,`attempt-${q.number}.json`),attempt)});
    const record={number:q.number,policy:POLICY_VERSION,policyHash,sourceHash:contentHash(q),imageHash:image?.sourceHash??null,...result};
    records[index]=record;paper.questions[index]=result.question;await saveJson(checkpoint,record);
@@ -104,7 +108,7 @@ const statistics=attackStatistics(all,proofs);
 const ready=proofs.every(e=>e.questions.length===39&&e.questions.every(r=>r.proof?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&e.paperAssessment.result.patterns.length===0)&&statistics.heldout.passes&&
  !statistics.positionPatterns.some(p=>p.suspiciousFourItemDeck)&&
  Object.values(statistics.heuristicAttacks).every(a=>a.sample<100||binomialUpperTail(a.sample,Math.ceil(a.credit))>=0.01);
-const summary={policy:POLICY_VERSION,tests:numbers,readyForMedia:ready,acceptedItems:proofs.reduce((n,p)=>n+p.questions.filter(r=>r.proof?.pass&&!r.blocked).length,0),
+const summary={policy:POLICY_VERSION,policyHash,tests:numbers,frozenPapers:frozenCohort(all,proofs),readyForMedia:ready,acceptedItems:proofs.reduce((n,p)=>n+p.questions.filter(r=>r.proof?.pass&&!r.blocked).length,0),
  totalItems:39*numbers.length,errors,statistics,baseline:{sample:baseline.length,correct:baseline.filter(r=>r.correct).length,accuracy:baseline.length?baseline.filter(r=>r.correct).length/baseline.length:null},
  note:'25% is assessed on unseen frozen written-choice items. Spoken/image choice diagnostics are separate; no fabricated model results or hand-adjusted success rate.'};
 await saveJson(join(directory,'baseline.json'),baseline);await saveJson(join(directory,'summary.json'),summary);
