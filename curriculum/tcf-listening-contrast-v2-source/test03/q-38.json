@@ -2,16 +2,16 @@
   "question": {
     "number": 38,
     "kind": "public-lecture",
-    "question": "Selon le document, sur quel indicateur précis les responsables ne devraient-ils pas se contenter de juger leur campagne de prévention ?",
+    "question": "Pour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?",
     "options": [
-      "Le nombre de personnes sensibilisées par la campagne.",
-      "Le nombre de demandes d'examens déclenchées.",
-      "La proportion de personnes vulnérables prises en charge.",
-      "Le volume de consultations effectivement réalisées."
+      "Les personnes les plus vulnérables.",
+      "Les habitants devenus inquiets en découvrant un risque.",
+      "Toutes les personnes sensibilisées par la campagne.",
+      "Les habitants qui demandent un examen après le message."
     ],
     "correct": "A",
-    "explanation": "Le document précise que les responsables ne devraient pas évaluer leur campagne uniquement au nombre de personnes sensibilisées, ce qui en fait l’indicateur explicitement écarté comme seul critère de jugement.",
-    "transcript": "Question 38.\nUne campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.\nSelon le document, sur quel indicateur précis les responsables ne devraient-ils pas se contenter de juger leur campagne de prévention ?",
+    "explanation": "Le texte précise que les responsables doivent « vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge », et non l’ensemble des autres groupes évoqués.",
+    "transcript": "Question 38.\nUne campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.\nPour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?",
     "segments": [
       {
         "voice": "female",
@@ -23,17 +23,17 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, sur quel indicateur précis les responsables ne devraient-ils pas se contenter de juger leur campagne de prévention ?"
+        "text": "Pour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?"
       }
     ],
     "audio": "q-38.mp3",
     "audioSeconds": null,
     "slotSeconds": 80
   },
-  "contentHash": "594fb051e18a656b031f776be60f7b4673ff9a21509aa8d478d80e4df69fe333",
+  "contentHash": "44ff355fab4d8cebbcc33ddf196aa47cb174ce4bd95cb867a317e013c6f7f65e",
   "sourceHash": "9964b73785d4c38c9c98c209e46c112e334d00ea8ac18d217abc7516265d9887",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
+  "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
   "rounds": 6,
   "pass": false,
   "blocked": true,
@@ -42,64 +42,52 @@
       "order": [
         1,
         3,
-        0,
-        2
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
-        "model": "gpt-5-mini-2025-08-07",
-        "responseId": "chatcmpl-EkvzWsEwz9j8PqiXY0dQUDdcAOK9p",
+        "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkwDIKX2ejnjnwsWZblK6aT1u86x2",
         "result": {
           "guess": 1,
           "probabilities": [
-            0.15,
-            0.5,
-            0.25,
-            0.1
+            0.2,
+            0.4,
+            0.2,
+            0.2
           ],
-          "standsOut": true,
-          "cues": [
-            {
-              "option": 1,
-              "severity": "clear",
-              "cue": "Mesure concrète et observable (consultations effectivement réalisées) qui paraît plus robuste qu'un simple déclenchement de demandes ou d'indicateurs d'atteinte de population."
-            }
-          ],
-          "reason": "Le libellé laisse penser que l'auteur met en garde contre l'évaluation fondée uniquement sur des mesures superficielles ou facilement gonflables. \"Volume de consultations effectivement réalisées\" se présente comme un indicateur plus concret et susceptible d'être privilégié dans une critique méthodologique ; cependant les autres options (demandes d'examens, personnes sensibilisées, prise en charge des vulnérables) restent plausibles selon le contexte absent, d'où une incertitude modérée."
+          "standsOut": false,
+          "cues": [],
+          "reason": "Le libellé « les habitants qui demandent un examen après le message » correspond bien à une situation où l’on demanderait explicitement de vérifier qu’une prise en charge effective a bien eu lieu. Les autres options sont plus générales ou floues et ne renvoient pas directement à une action explicite de vérification après une demande précise."
         },
         "usage": {
-          "prompt_tokens": 398,
-          "completion_tokens": 578,
-          "total_tokens": 976,
+          "prompt_tokens": 395,
+          "completion_tokens": 191,
+          "total_tokens": 586,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 384,
+            "reasoning_tokens": 75,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0012555,
-        "inputHash": "9e92ceca430be2346c3fe37586c7c1249c5bc5bf92f6f86f8125a24023eed4ee",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:37:e4f942bc98a83077ff0a6170:screen:6:0"
+        "costUsd": 0.00240375,
+        "inputHash": "6c6e6599b232fd47f6a36978c8195c19d94c1c5018b8a689ba2ec28e70759dc0",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:37:1e7f6570412851682b92d25d:screen:6:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le libellé laisse penser que l'auteur met en garde contre l'évaluation fondée uniquement sur des mesures superficielles ou facilement gonflables. \"Volume de consultations effectivement réalisées\" se présente comme un indicateur plus concret et susceptible d'être privilégié dans une critique méthodologique ; cependant les autres options (demandes d'examens, personnes sensibilisées, prise en charge des vulnérables) restent plausibles selon le contexte absent, d'où une incertitude modérée.",
-    "cues": [
-      {
-        "option": 1,
-        "severity": "clear",
-        "cue": "Mesure concrète et observable (consultations effectivement réalisées) qui paraît plus robuste qu'un simple déclenchement de demandes ou d'indicateurs d'atteinte de population."
-      }
-    ]
+    "reason": "Le libellé « les habitants qui demandent un examen après le message » correspond bien à une situation où l’on demanderait explicitement de vérifier qu’une prise en charge effective a bien eu lieu. Les autres options sont plus générales ou floues et ne renvoient pas directement à une action explicite de vérification après une demande précise.",
+    "cues": []
   },
   "imageHash": null
 }
