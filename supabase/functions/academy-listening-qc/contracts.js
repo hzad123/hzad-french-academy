@@ -36,6 +36,12 @@ const authorSchema={type:'object',additionalProperties:false,required:['question
  question:{type:'string'},choices:{type:'array',items:{type:'string'},minItems:4,maxItems:4},correctIndex:{type:'integer',enum:[0,1,2,3]},explanation:{type:'string'},design:{type:'string'},
  distractorReasons:{type:'array',minItems:3,maxItems:3,items:{type:'object',additionalProperties:false,required:['index','reason','operation','anchors'],properties:{index:{type:'integer',enum:[0,1,2,3]},reason:{type:'string'},operation:{type:'string',enum:['role_swap','causal_reversal','condition_transfer','time_swap','proposal_attribution','scope_shift']},anchors:{type:'array',items:{type:'string'}}}}}
 }};
+const groundSchema={type:'object',additionalProperties:false,required:['supportedIndices','ambiguous','questionSupported','options','summary'],properties:{
+ supportedIndices:{type:'array',items:{type:'integer',enum:[0,1,2,3]},maxItems:4},ambiguous:{type:'boolean'},questionSupported:{type:'boolean'},summary:{type:'string'},
+ options:{type:'array',minItems:4,maxItems:4,items:{type:'object',additionalProperties:false,required:['index','supported','plausibleMisunderstanding','evidence','reason','misunderstanding'],properties:{index:{type:'integer',enum:[0,1,2,3]},supported:{type:'boolean'},plausibleMisunderstanding:{type:'boolean'},evidence:{type:'array',items:{type:'string'}},reason:{type:'string'},misunderstanding:{type:['string','null']}}}}
+}};
+const paperSchema={type:'object',additionalProperties:false,required:['pass','patterns','summary'],properties:{pass:{type:'boolean'},summary:{type:'string'},patterns:{type:'array',items:{type:'object',additionalProperties:false,required:['questions','kind','reason'],properties:{questions:{type:'array',items:{type:'integer',minimum:1,maximum:39},minItems:1},kind:{type:'string'},reason:{type:'string'}}}}}};
+const outputSchemas={author:authorSchema,ground:groundSchema,paper:paperSchema};
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
 const exact=(x,keys)=>object(x)&&Object.keys(x).every(k=>keys.includes(k));
 const choices=x=>Array.isArray(x)&&x.length===4&&x.every(s=>typeof s==='string'&&s.trim().length>=2&&s.length<=500)&&new Set(x.map(s=>s.trim().toLowerCase())).size===4;
@@ -73,7 +79,7 @@ export function modelRequest(stage,input) {
  const {imageData,...text}=input;
  const content=imageData?[{type:'text',text:JSON.stringify(text)},{type:'image_url',image_url:{url:imageData,detail:'low'}}]:JSON.stringify(text);
  const settings=MODELS[stage].startsWith('gpt-5')?{reasoning_effort:['blind','challenge','author'].includes(stage)?'low':'medium',max_completion_tokens:MAX_OUTPUT[stage]}:{temperature:0.2,max_tokens:MAX_OUTPUT[stage]};
- return {model:MODELS[stage],...settings,store:false,response_format:stage==='author'?{type:'json_schema',json_schema:{name:'listening_author',strict:true,schema:authorSchema}}:{type:'json_object'},messages:[{role:'system',content:PROMPTS[stage]},{role:'user',content}]};
+ return {model:MODELS[stage],...settings,store:false,response_format:outputSchemas[stage]?{type:'json_schema',json_schema:{name:'listening_'+stage,strict:true,schema:outputSchemas[stage]}}:{type:'json_object'},messages:[{role:'system',content:PROMPTS[stage]},{role:'user',content}]};
 }
 export async function policyFingerprint() {
  const bytes=new TextEncoder().encode(JSON.stringify({policy:POLICY_VERSION,model:MODELS,prompts:PROMPTS}));

@@ -102,7 +102,10 @@ if(probe.some(([p,i])=>!evidence[p].questions[i]?.pass)){
 const pilot=all.filter(([,i])=>[29,37,38].includes(i));await parallel(pilot.filter(([p,i])=>!probe.some(([a,b])=>a===p&&b===i)),processQuestion);await save();
 if(pilot.some(([p,i])=>!evidence[p].questions[i]?.pass)){
  await saveJson(join(root,'summary.json'),{protocol,policy:POLICY_VERSION,policyHash,status:'pilot-blocked',readyForMedia:false,pilotSample:18,pilotPassed:pilot.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});
- process.exit(1);
+ // Finish independent screening across the requested six-paper scope even
+ // when some pilot items need further work. This changes scheduling only:
+ // ready()/assertCohort still require every question and both experiments.
+ if(!args.includes('--finish-batch'))process.exit(1);
 }
 for(const [stage,bucket] of [['blind',baseline],['challenge',baselineMini]]){
  await parallel(all.filter(([p,i])=>i>=8&&!bucket.some(r=>r.test===p+1&&r.number===i+1)),async([p,i])=>{try{

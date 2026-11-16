@@ -54,6 +54,9 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
  assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-5.1');
+ const groundedFormat=modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).response_format;
+ assert.equal(groundedFormat.type,'json_schema');assert.equal(groundedFormat.json_schema.schema.properties.options.maxItems,4);
+ assert.equal(request.response_format.type,'json_object');
  assert.equal(stagePrice('ground').outputPerMillion,10);
  const challenge=modelRequest('challenge',blindProjection(item));assert.equal(challenge.model,'gpt-5-mini');
  assert(request.messages[0].content.includes('FIRST assess EACH'));assert(!challenge.messages[0].content.includes('FIRST assess EACH'));
