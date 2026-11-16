@@ -3,9 +3,8 @@ import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION} from '../supabase/functions/academy-listening-qc/contracts.js';
-import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict} from './lib/listening-answer-qc.mjs';
+import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
 import {protocol,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
-import {spokenChoices,stimulus,mode} from './lib/listening-answer-qc.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
@@ -55,7 +54,15 @@ async function processQuestion([p,index]){
   evidence[p].questions[index]=saved;papers[p].questions[index]=saved.question;return;
  }
  try{
-  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting:saved?.policyHash===policyHash?saved.question:null,imageData:image?.data,maxAttempts:6,
+  let starting=saved?.policyHash===policyHash?saved.question:null;
+  if(saved?.policyHash===policyHash&&saved.regenerateFrom){
+   // Only the blind reviewer's observable cue is diagnostic. Whether its
+   // mandatory guess happened to match the key is never sent to the author.
+   const authored=await provider('author',authorInput(original,{imageData:image?.data,feedback:saved.regenerateFrom}),{nonce:`heldout-cue-repair:${runNonce}:${p}:${index}`});
+   if(!contrastPlan(original,authored.result).pass)throw Error('Held-out cue repair lacks faithful anchors');
+   starting=rewrite(original,authored.result,positions[p][index],`${seed}:heldout-cue:${runNonce}:${p}:${index}`);
+  }
+  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,imageData:image?.data,maxAttempts:6,
    onAttempt:r=>saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`attempt-${original.number}.json`),r)});
   result.imageHash=image?.hash??null;await saveJson(file,result);evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
   console.log(`Test${p+1} Q${index+1}: ${result.pass?'STRICT PASS':'BLOCKED'} (${result.rounds??0} rewrites)`);
@@ -63,9 +70,22 @@ async function processQuestion([p,index]){
 }
 // A fresh baseline is descriptive only; no baseline guess is fed to authors.
 const all=originals.flatMap((p,i)=>p.questions.map((q,index)=>[i,index]));
-await parallel(all.filter(([,i])=>i>=8),async([p,i])=>{try{const r=await measure(originals[p].questions[i],provider,`baseline-v2:${seed}:${p}:${i}`);baseline.push({test:p+1,number:i+1,...r});}catch(error){errors.push({stage:'baseline',test:p+1,number:i+1,error:error.message});}});
+// Historical baseline receipts remain descriptive evidence if their exact
+// displayed source is unchanged. They cannot approve any replacement content.
+const previousBaseline=await exists(join(root,'baseline.json'))?await loadJson(join(root,'baseline.json')):[];
+for(const r of previousBaseline){
+ const q=originals[r.test-1]?.questions[r.number-1];
+ if(q&&q.number>=9&&r.receipt?.stage==='blind'&&r.receipt.responseId?.startsWith('chatcmpl-')&&[...r.order].sort().join('')==='0123'&&r.receipt.inputHash===hash({question:q.question,choices:r.order.map(i=>q.options[i])})&&r.correct===(r.order[r.receipt.result.guess]===letters.indexOf(q.correct))&&!baseline.some(x=>x.test===r.test&&x.number===r.number))baseline.push(r);
+}
+await parallel(all.filter(([p,i])=>i>=8&&!baseline.some(r=>r.test===p+1&&r.number===i+1)),async([p,i])=>{try{const r=await measure(originals[p].questions[i],provider,`baseline-v2:${seed}:${p}:${i}`);baseline.push({test:p+1,number:i+1,...r});}catch(error){errors.push({stage:'baseline',test:p+1,number:i+1,error:error.message});}});
 await saveJson(join(root,'baseline.json'),baseline);
-const pilot=all.filter(([,i])=>[29,37,38].includes(i));await parallel(pilot,processQuestion);await save();
+// Stop a weak design after three different source situations, before paying
+// for the18-item pilot or the complete cohort. Final coverage remains234.
+const probe=[[0,29],[2,37],[5,38]];await parallel(probe,processQuestion);await save();
+if(probe.some(([p,i])=>!evidence[p].questions[i]?.pass)){
+ await saveJson(join(root,'summary.json'),{protocol,policyHash,status:'design-probe-blocked',readyForMedia:false,probeSample:3,probePassed:probe.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});process.exit(1);
+}
+const pilot=all.filter(([,i])=>[29,37,38].includes(i));await parallel(pilot.filter(([p,i])=>!probe.some(([a,b])=>a===p&&b===i)),processQuestion);await save();
 if(pilot.some(([p,i])=>!evidence[p].questions[i]?.pass)){
  await saveJson(join(root,'summary.json'),{protocol,policy:POLICY_VERSION,policyHash,status:'pilot-blocked',readyForMedia:false,pilotSample:18,pilotPassed:pilot.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});
  process.exit(1);
@@ -98,6 +118,17 @@ if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessmen
  const freezeHash=hash(papers.map(p=>p.questions.map(contentHash))),file=join(root,'freeze.json');let freeze=await exists(file)?await loadJson(file):null;
  if(freeze?.hash!==freezeHash)freeze={hash:freezeHash,nonce:randomBytes(32).toString('hex')};await saveJson(file,freeze);
  await parallel(all,async([p,i])=>{try{evidence[p].questions[i].heldout=await measure(papers[p].questions[i],provider,`frozen-v2:${freeze.nonce}:${p}:${i}`);}catch(error){errors.push({stage:'heldout',test:p+1,number:i+1,error:error.message});}});
+ // Retain the complete experiment, including every successful blind guess.
+ // A clear cue rejects that item for the next authoring pass. Accuracy alone
+ // never selects individual questions for rewriting or permits rerolling.
+ await saveJson(join(root,'experiments',freeze.hash+'.json'),{freeze,papers,evidence,statistics:summarize(papers,evidence)});
+ for(const [p,i] of all){
+  const r=evidence[p].questions[i],result=r.heldout?.receipt.result;
+  if(result&&!blindVerdict(result).pass){
+   r.pass=false;r.blocked=true;r.regenerateFrom={stage:'blind',reason:result.reason,cues:result.cues};
+   await saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`q-${i+1}.json`),r);
+  }
+ }
 }
 const stats=summarize(papers,evidence),accepted=ready(papers,evidence,stats);
 await save();await saveJson(join(root,'cohort.json'),{protocol,policy:POLICY_VERSION,policyHash,papers:papers.map((p,i)=>({paper:p,evidence:evidence[i],images:Object.fromEntries(imageMaps[i])})),statistics:stats});

@@ -30,6 +30,7 @@ export function sourceInvariant(original,candidate){
  if(original.id!==candidate.id||candidate.questions.length!==39||candidate.seconds!==2100)throw Error('Paper identity/format changed');
  for(const [i,q] of candidate.questions.entries()){
   const old=original.questions[i];
+  if(q.transcript!==q.segments.map(s=>s.text).join('\n'))throw Error('Transcript and spoken segments differ at '+q.number);
   const body=item=>{const spoken=item.number<=8?item.segments.findLast(s=>/\bA\.\s/.test(s.text)):null;return item.segments.filter(s=>s!==spoken&&!/^Question \d+\.$/.test(s.text)&&s.text!==item.question);};
   if(q.number!==old.number||q.kind!==old.kind||q.slotSeconds!==old.slotSeconds||q.image!==old.image||stimulus(q)!==stimulus(old)||hash(body(q))!==hash(body(old)))throw Error('Topic, recorded situation, actors or clock changed at '+q.number);
  }
@@ -91,7 +92,7 @@ export function summarize(papers,evidence){
 }
 export function ready(papers,evidence,stats){
  return papers.length===6&&evidence.every(e=>e.questions.length===39&&e.questions.every(r=>r?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&
-  stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&!stats.patterns.positionPatterns.some(p=>p.suspiciousFourItemDeck)&&
+  stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&
   Object.values(stats.patterns.heuristicAttacks).every(a=>binomialUpperTail(a.sample,Math.ceil(a.credit))>=.01);
 }
 export function assertPaper(paper,evidence,original,images){

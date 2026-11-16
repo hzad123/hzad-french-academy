@@ -47,6 +47,12 @@ test('six-test publication rejects missing audio and never accepts another test 
  const bad=structuredClone(fixtures);bad[0].questions[0].audioSeconds=null;
  assert.throws(()=>publicationSQL6(bad),/Incomplete mechanical/);
  const source=publicationSQL6(fixtures);assert(!source.includes('create or replace function'));assert(!/update\s+academy_ai\./i.test(source));
+ const strict=fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
+ assert.throws(()=>publicationSQL6(strict),/Incomplete mechanical/);
+ const strictSql=publicationSQL6(strict,protectedTables,{revision:5});
+ assert(strictSql.startsWith('-- Strict Listening01–06 v5:'));assert(!strictSql.includes('Review release, not a declaration'));
+ assert(strictSql.includes('protected_before is distinct from protected_after'));
+ assert(strictSql.includes('old_before is distinct from old_after'));assert(strictSql.includes('engine_before is distinct from engine_after'));
 });
 test('committed six-test migration matches the exact final banks when recorded candidates are present',async()=>{
  if(!present.every(Boolean))return;
@@ -57,7 +63,7 @@ test('committed six-test migration matches the exact final banks when recorded c
   assert.deepEqual(p.questions.map(q=>q.slotSeconds),current[i].questions.map(q=>q.slotSeconds));
  }
 });
-test('v4 publication rolls back, preserves pending/completed results and old banks, and scores all six exact versions',async()=>{
+test('review and strict publication roll back, preserve historical results and score all six exact versions',async()=>{
  const db=new PGlite();try{
   await db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;create table auth.users(id uuid primary key,email_confirmed_at timestamptz);
    create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
@@ -98,5 +104,17 @@ test('v4 publication rolls back, preserves pending/completed results and old ban
   assert.equal((await db.query('select count(*) n from academy_tcf_listening.papers')).rows[0].n,30);
   const changed=structuredClone(fixtures);changed[0].questions[0].explanation+=' Modified immutable bank.';
   await assert.rejects(()=>db.exec(publicationSQL6(changed)),/Immutable review version differs/);
+  // These are transaction fixtures, never evidence of real authoring quality.
+  // Validate the new revision's preservation/rollback behavior independently.
+  const strict=fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
+  const attemptsBefore=(await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows;
+  const strictSql=publicationSQL6(strict,protectedTables,{revision:5});
+  await db.exec('begin;'+strictSql);assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v5')));await db.exec('rollback;');
+  assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v4')));
+  await db.exec('begin;'+strictSql+'commit;');await db.exec('begin;'+strictSql+'commit;');
+  assert.deepEqual((await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows,attemptsBefore);
+  assert.equal((await db.query('select count(*) n from academy_tcf_listening.papers')).rows[0].n,36);
+  const a=await cmd(alice,'start',crypto.randomUUID(),{testId:strict[0].id,version:strict[0].version});
+  assert.equal(a.paper.version,strict[0].version);assert.equal(Date.parse(a.deadline)-Date.parse(a.startedAt),2100000);
  }finally{await db.close();}
 });

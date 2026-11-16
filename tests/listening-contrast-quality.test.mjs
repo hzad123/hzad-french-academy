@@ -2,7 +2,15 @@ import {test} from 'node:test';import assert from 'node:assert/strict';import {r
 import {displayProjection,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput} from '../scripts/lib/listening-contrast-quality.mjs';
 import {hash,policyHash,blindVerdict} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
+import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
+test('new releases require all six immutable replacements; historical warnings are not declared passes',()=>{
+ const old=Array.from({length:6},(_,i)=>`tcf-listening-test${String(i+1).padStart(2,'0')}-v4.json`);
+ assert.deepEqual(selectStrictBanks(old),[]);
+ assert.throws(()=>selectStrictBanks([...old,'tcf-listening-test01-v5.json']),/all six/);
+ const next=old.map(f=>f.replace('-v4','-v5'));assert.deepEqual(selectStrictBanks([...old,...next]),next.map(f=>'supabase/exams/'+f));
+ assert.throws(()=>selectStrictBanks([...old,...next,'tcf-listening-test06-v6.json']),/all six/);
+});
 test('rewriting starts from the unchanged recording without anchoring to a defective written key',()=>{
  const q=paper.questions[29],input=authorInput(q,{feedback:{stage:'blind'}});
  assert(!input.choices.some(c=>q.options.includes(c)));assert.notEqual(input.question,q.question);
@@ -19,7 +27,11 @@ test('existing spoken keys stay frozen; written keys are balanced without a four
 });
 test('recorded situations, genre, images and slots are preserved bytewise',()=>{
  const next=structuredClone(paper);next.version='new';assert(sourceInvariant(paper,next));next.questions[29].segments[1].text+=' Une nouvelle histoire.';
- assert.throws(()=>sourceInvariant(paper,next),/situation/);
+ assert.throws(()=>sourceInvariant(paper,next),/Transcript|situation/);
+ const transcript=structuredClone(paper);transcript.questions[29].transcript+=' Added unsupported evidence.';
+ assert.throws(()=>sourceInvariant(paper,transcript),/Transcript/);
+ const voices=structuredClone(paper);voices.questions[29].segments[1].voice='female_alt';
+ assert.throws(()=>sourceInvariant(paper,voices),/actors/);
 });
 test('late distractors need two genuine anchors and an explicit recorded misunderstanding',()=>{
  const q=paper.questions[29],anchors=q.segments.filter(s=>s.text!==q.question&&!s.text.startsWith('Question ')).map(s=>s.text);

@@ -1,0 +1,32 @@
+name: Strict Listening01–06 release evidence
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/listening-six-release.yml'
+      - 'scripts/*listening*'
+      - 'scripts/lib/listening*'
+      - 'scripts/release/listening*'
+      - 'supabase/functions/academy-listening-qc/**'
+      - 'supabase/exams/tcf-listening-*.json'
+      - 'curriculum/tcf-listening-answer-qc/**'
+      - 'assets/tcf-listening/**'
+  push:
+    branches: [development]
+    paths:
+      - 'supabase/exams/tcf-listening-*.json'
+      - 'curriculum/tcf-listening-answer-qc/**'
+      - 'assets/tcf-listening/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Recompute exact question, cohort, image and media acceptance
+        run: node scripts/check-listening-six-release.mjs
