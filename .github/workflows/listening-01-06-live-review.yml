@@ -5,6 +5,11 @@ on:
     paths:
       - .github/workflows/listening-01-06-live-review.yml
       - scripts/prepare-listening-01-06-live-review.mjs
+      - scripts/lib/listening-answer-qc.mjs
+      - scripts/lib/listening-owner-review.mjs
+      - scripts/release/run-listening-answer-qc.py
+      - curriculum/tcf-listening-owner-review-editorial-fixes.json
+      - supabase/functions/academy-listening-qc/**
   workflow_dispatch:
 permissions:
   contents: write
