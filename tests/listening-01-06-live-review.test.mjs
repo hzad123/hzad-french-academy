@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,access,readdir} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
 import {publicationSQL6} from '../scripts/release/listening-01-06-v4.mjs';
 import {protectedTables} from '../scripts/release/listening-owner-review.mjs';
@@ -9,8 +9,14 @@ import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/
 import {policyHash,hash,contentHash,blindProjection,stimulus} from '../scripts/lib/listening-answer-qc.mjs';
 const read=async p=>JSON.parse(await readFile(p,'utf8'));
 const current=await Promise.all([1,2,3,4,5,6].map(n=>read(`supabase/exams/tcf-listening-test${String(n).padStart(2,'0')}${n>=3?'-v3':''}.json`)));
-// Mechanical/transaction fixtures, not fabricated authoring QA.
-const fixtures=current.map(p=>({...structuredClone(p),version:`tcf-listening-2026-11-test${p.id.slice(-2)}-v4`}));
+const candidateFiles=current.map(p=>`supabase/exams/tcf-listening-test${p.id.slice(-2)}-v4.json`);
+const present=await Promise.all(candidateFiles.map(p=>access(p).then(()=>true,()=>false)));
+if(present.some(Boolean)&&!present.every(Boolean))throw Error('The six-test release must include all six immutable banks');
+// During preparation, transaction fixtures are not fabricated authoring QA.
+// Once release banks exist, the same scoring/preservation tests use their real
+// text and answer keys, and the committed migration must match them bytewise.
+const fixtures=present.every(Boolean)?await Promise.all(candidateFiles.map(read)):
+ current.map(p=>({...structuredClone(p),version:`tcf-listening-2026-11-test${p.id.slice(-2)}-v4`}));
 const alice='11111111-1111-4111-8111-111111111111',bob='22222222-2222-4222-8222-222222222222';
 test('review exception retains failed blind evidence but cannot bypass a unique grounded key or exact scope',()=>{
  const summary={policy:POLICY_VERSION,policyHash,tests:[1,2,3,4,5,6],readyForMedia:false,readyForOwnerRequestedReview:true,groundedItems:234,totalItems:234,reviewAuthorization:{message:reviewRequest}};
@@ -36,6 +42,15 @@ test('six-test publication rejects missing audio and never accepts another test 
  const bad=structuredClone(fixtures);bad[0].questions[0].audioSeconds=null;
  assert.throws(()=>publicationSQL6(bad),/Incomplete mechanical/);
  const source=publicationSQL6(fixtures);assert(!source.includes('create or replace function'));assert(!/update\s+academy_ai\./i.test(source));
+});
+test('committed six-test migration matches the exact final banks when recorded candidates are present',async()=>{
+ if(!present.every(Boolean))return;
+ const matches=(await readdir('supabase/migrations')).filter(f=>/_tcf_listening_01_06_owner_review_v4\.sql$/.test(f));
+ assert.equal(matches.length,1);assert.equal(await readFile('supabase/migrations/'+matches[0],'utf8'),publicationSQL6(fixtures));
+ for(const [i,p] of fixtures.entries()){
+  assert.notDeepEqual(p.questions.map(q=>q.options),current[i].questions.map(q=>q.options));
+  assert.deepEqual(p.questions.map(q=>q.slotSeconds),current[i].questions.map(q=>q.slotSeconds));
+ }
 });
 test('v4 publication rolls back, preserves pending/completed results and old banks, and scores all six exact versions',async()=>{
  const db=new PGlite();try{
