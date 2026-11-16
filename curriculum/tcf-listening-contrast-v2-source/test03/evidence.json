@@ -1,0 +1,345 @@
+{
+  "protocol": "six-listening-contrast-v2",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+  "test": "tcf-listening-03",
+  "version": "tcf-listening-2026-11-test03-v5",
+  "source": "supabase/exams/tcf-listening-test03-v4.json",
+  "sourceVersion": "tcf-listening-2026-11-test03-v4",
+  "questions": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "question": {
+        "number": 30,
+        "kind": "interview",
+        "question": "Comment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?",
+        "options": [
+          "Elle estime qu’en raison de la charge de travail et de la fatigue, il faut d’abord renforcer les formations pour qu’ils puissent assurer davantage de soins, puis proposer éventuellement du répit et une orientation vers des services adaptés.",
+          "Elle distingue les situations : pour les proches qui travaillent encore, l’essentiel serait des formations et des renseignements pour assumer un rôle quasi professionnel, tandis que le répit concernerait surtout ceux qui ne sont plus en activité.",
+          "Elle admet que quelques formations peuvent être utiles, mais insiste surtout sur le répit, des informations fiables et l’orientation vers des services, pour éviter de transformer les proches en professionnels à temps plein.",
+          "Elle rappelle que, puisqu’ils connaissent bien le malade, il est logique de les former pour qu’ils réalisent la plupart des soins eux-mêmes, l’association n’intervenant qu’en complément lorsque la famille ne peut vraiment plus tout faire seule."
+        ],
+        "correct": "C",
+        "explanation": "L’intervenante reconnaît que « certaines formations sont utiles », mais précise que « notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés » et qu’il faut « éviter de transformer les proches en professionnels à temps plein ». La réponse 2 reprend exactement cet équilibre entre formations limitées et priorité au répit, à l’information et à l’orientation.",
+        "transcript": "Question 30.\nVotre association soutient les personnes qui accompagnent un parent dépendant. Faut-il les former à effectuer davantage de soins ?\nCertaines formations sont utiles, mais il faut éviter de transformer les proches en professionnels à temps plein. Beaucoup travaillent, élèvent leurs enfants et éprouvent déjà une grande fatigue. Notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés. Aider une famille, ce n'est pas lui demander de tout faire seule sous prétexte qu'elle connaît bien le malade.\nComment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 30."
+          },
+          {
+            "voice": "male",
+            "text": "Votre association soutient les personnes qui accompagnent un parent dépendant. Faut-il les former à effectuer davantage de soins ?"
+          },
+          {
+            "voice": "female",
+            "text": "Certaines formations sont utiles, mais il faut éviter de transformer les proches en professionnels à temps plein. Beaucoup travaillent, élèvent leurs enfants et éprouvent déjà une grande fatigue. Notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés. Aider une famille, ce n'est pas lui demander de tout faire seule sous prétexte qu'elle connaît bien le malade."
+          },
+          {
+            "voice": "female",
+            "text": "Comment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?"
+          }
+        ],
+        "audio": "q-30.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 68
+      },
+      "contentHash": "a5bfda3f747a76ec5def3e436aaa5871019d4e700a18eee03535abe505870a3b",
+      "sourceHash": "b0a847f0217c0e414c8b0eefc299c962e1bf6307334ce40146c78200e42ec011",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+            "model": "gpt-5-mini-2025-08-07",
+            "responseId": "chatcmpl-EkvKKwmJfjQtok0cnyB4KdKtHgxIT",
+            "result": {
+              "guess": 1,
+              "probabilities": [
+                0.05,
+                0.7,
+                0.1,
+                0.15
+              ],
+              "standsOut": true,
+              "cues": [
+                {
+                  "option": 1,
+                  "severity": "clear",
+                  "cue": "insists on respite, reliable information and orientation to services rather than turning relatives into full-time professionals; humane, balanced emphasis that fits typical caregiver-support messaging"
+                },
+                {
+                  "option": 0,
+                  "severity": "weak",
+                  "cue": "advocates training relatives to perform most care themselves, leaving association as backup — a more intervention-heavy stance"
+                },
+                {
+                  "option": 3,
+                  "severity": "weak",
+                  "cue": "draws a sharp employment-based distinction (training for working relatives, respite for non-working) which seems less balanced and somewhat uncommon"
+                },
+                {
+                  "option": 4,
+                  "severity": "weak",
+                  "cue": "prioritizes strengthening training first because of workload/fatigue, then respite/orientation; similar to other training-heavy options but less nuanced"
+                }
+              ],
+              "reason": "The options split between a training-heavy approach (0 and 4), a situational/employment-based split (2), and an emphasis on respite/information/orientation (1). Without the recording I cannot be certain, but option 1 stands out as the most balanced and humane response — it explicitly warns against turning relatives into full-time professionals and prioritizes respite and reliable guidance, which is a common, defensible stance in discussions about supporting family carers. That gives it the strongest posterior probability; the training-focused choices are less likely given the wording."
+            },
+            "usage": {
+              "prompt_tokens": 537,
+              "completion_tokens": 623,
+              "total_tokens": 1160,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 320,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00138025,
+            "inputHash": "ad6b6db09072c7e278f985ccf6e58f7e61ffc94bcdb72115ee2e002949be2787",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:29:initial:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "The options split between a training-heavy approach (0 and 4), a situational/employment-based split (2), and an emphasis on respite/information/orientation (1). Without the recording I cannot be certain, but option 1 stands out as the most balanced and humane response — it explicitly warns against turning relatives into full-time professionals and prioritizes respite and reliable guidance, which is a common, defensible stance in discussions about supporting family carers. That gives it the strongest posterior probability; the training-focused choices are less likely given the wording.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "insists on respite, reliable information and orientation to services rather than turning relatives into full-time professionals; humane, balanced emphasis that fits typical caregiver-support messaging"
+          },
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "advocates training relatives to perform most care themselves, leaving association as backup — a more intervention-heavy stance"
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "draws a sharp employment-based distinction (training for working relatives, respite for non-working) which seems less balanced and somewhat uncommon"
+          },
+          {
+            "option": 4,
+            "severity": "weak",
+            "cue": "prioritizes strengthening training first because of workload/fatigue, then respite/orientation; similar to other training-heavy options but less nuanced"
+          }
+        ]
+      },
+      "imageHash": null
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "question": {
+        "number": 38,
+        "kind": "public-lecture",
+        "question": "Selon l'oratrice, à quelle condition un message de prévention conserve-t-il une valeur durable ?",
+        "options": [
+          "Si les services de santé sont réellement capables de répondre à la demande d'examens que la campagne fait apparaître.",
+          "Si les responsables ne se contentent pas de compter le nombre de personnes sensibilisées, mais suivent aussi l'évolution des demandes d'examens.",
+          "S'il permet au moins aux personnes les plus vulnérables d'obtenir une prise en charge, quitte à allonger les délais pour les autres habitants.",
+          "S'il s'accompagne d'une bonne anticipation des consultations et d'une formation des équipes, même lorsque le système local est vite saturé."
+        ],
+        "correct": "A",
+        "explanation": "L'oratrice conclut : « Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée. » La condition porte donc sur la capacité réelle des services à absorber la demande générée, et non seulement sur les indicateurs de suivi, l'anticipation organisationnelle ou la priorité donnée aux plus vulnérables.",
+        "transcript": "Question 38.\nUne campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.\nSelon l'oratrice, à quelle condition un message de prévention conserve-t-il une valeur durable ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 38."
+          },
+          {
+            "voice": "female",
+            "text": "Une campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l'oratrice, à quelle condition un message de prévention conserve-t-il une valeur durable ?"
+          }
+        ],
+        "audio": "q-38.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 80
+      },
+      "contentHash": "be79349c66b23a1535d0cd7214ef107b0514480c0218e596dfffda610a81b7f1",
+      "sourceHash": "9964b73785d4c38c9c98c209e46c112e334d00ea8ac18d217abc7516265d9887",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+      "pass": false,
+      "blocked": true,
+      "feedback": {
+        "stage": "contrast-plan",
+        "errors": [
+          "Missing faithful recorded anchors for distractor 1",
+          "Missing faithful recorded anchors for distractor 2",
+          "Missing faithful recorded anchors for distractor 3"
+        ]
+      },
+      "imageHash": null
+    },
+    {
+      "question": {
+        "number": 39,
+        "kind": "interview",
+        "question": "Comment la responsable met-elle en relation la forte fréquentation du premier trimestre et la perspective d’étendre les tournées ?",
+        "options": [
+          "Elle considère que la forte fréquentation ne suffit pas à conclure à un besoin réel ; pour elle, ce sont surtout les avis des villages qui n’ont pas bénéficié du premier itinéraire qui permettront de décider d’ajouter ou non des destinations.",
+          "Elle estime que la forte fréquentation garantit déjà que la qualité des soins pourra être maintenue, et que les seuls freins à une extension rapide sont désormais le matériel prêté et les heures supplémentaires exceptionnelles.",
+          "Elle reconnaît que la forte fréquentation prouve l’existence d’un besoin, mais estime qu’on ne peut pas, sur cette base seule, décider d’ajouter des destinations tant qu’on ne sait pas si la qualité des soins pourra être maintenue et comment organiser le dispositif.",
+          "Elle interprète la forte fréquentation comme la preuve que le dispositif est déjà mûr pour être étendu à tous les villages, et que c’est justement en ajoutant rapidement des destinations qu’ils vérifieront ensuite comment suivre les dossiers et orienter les patients."
+        ],
+        "correct": "C",
+        "explanation": "La responsable dit : « Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout. » Elle lie donc la fréquentation à la preuve d’un besoin, tout en refusant d’en déduire à elle seule une extension : « Avant d'ajouter des destinations, nous devons savoir qui financera les remplacements, comment les dossiers seront suivis… »",
+        "transcript": "Question 39.\nLe cabinet mobile a été très fréquenté durant son premier trimestre. Pourquoi ne pas multiplier immédiatement les tournées ?\nParce que les premiers mois reposaient sur du matériel prêté et des heures supplémentaires exceptionnelles. Avant d'ajouter des destinations, nous devons savoir qui financera les remplacements, comment les dossiers seront suivis entre deux passages et où orienter les patients qui ont besoin d'un examen. Nous devons aussi recueillir l'avis des villages qui n'ont pas bénéficié du premier itinéraire. Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout.\nComment la responsable met-elle en relation la forte fréquentation du premier trimestre et la perspective d’étendre les tournées ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 39."
+          },
+          {
+            "voice": "male",
+            "text": "Le cabinet mobile a été très fréquenté durant son premier trimestre. Pourquoi ne pas multiplier immédiatement les tournées ?"
+          },
+          {
+            "voice": "female",
+            "text": "Parce que les premiers mois reposaient sur du matériel prêté et des heures supplémentaires exceptionnelles. Avant d'ajouter des destinations, nous devons savoir qui financera les remplacements, comment les dossiers seront suivis entre deux passages et où orienter les patients qui ont besoin d'un examen. Nous devons aussi recueillir l'avis des villages qui n'ont pas bénéficié du premier itinéraire. Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout."
+          },
+          {
+            "voice": "female",
+            "text": "Comment la responsable met-elle en relation la forte fréquentation du premier trimestre et la perspective d’étendre les tournées ?"
+          }
+        ],
+        "audio": "q-39.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 82
+      },
+      "contentHash": "b05e6e7aa319eb9846d69220733fb7a0c0bdd8324f9c193a8cee536f1ccfae24",
+      "sourceHash": "9d7f5379eb400f79cbc731e3b3333b607cd078a4360f98c65a916c5d4e3f7aee",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+            "model": "gpt-5-mini-2025-08-07",
+            "responseId": "chatcmpl-EkvM8I5A9tpgSUZaaE4JrgXZMz81C",
+            "result": {
+              "guess": 3,
+              "probabilities": [
+                0.05,
+                0.1,
+                0.1,
+                0.75
+              ],
+              "standsOut": true,
+              "cues": [
+                {
+                  "option": 3,
+                  "severity": "clear",
+                  "cue": "nuanced qualification that acknowledges need but insists on assessing quality and organization before extending services"
+                }
+              ],
+              "reason": "Option 3 best balances recognition that high attendance demonstrates demand with a cautious requirement to verify whether quality can be maintained and how to organize extension—this mirrors typical managerial prudence. Option 1 is overly eager (immediately extending to all villages), option 2 is implausibly confident about quality, and option 0 shifts focus to feedback from villages not served which seems less directly connected to the stated strong attendance. Probabilities reflect substantial confidence in option 3 but retain uncertainty because the exact wording in the original recording is unavailable."
+            },
+            "usage": {
+              "prompt_tokens": 556,
+              "completion_tokens": 371,
+              "total_tokens": 927,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 192,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.000881,
+            "inputHash": "5f7b4d2e912366960cadeee6df0313c57d2531dbff3c5deceab8356817b73f0d",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:38:initial:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "Option 3 best balances recognition that high attendance demonstrates demand with a cautious requirement to verify whether quality can be maintained and how to organize extension—this mirrors typical managerial prudence. Option 1 is overly eager (immediately extending to all villages), option 2 is implausibly confident about quality, and option 0 shifts focus to feedback from villages not served which seems less directly connected to the stated strong attendance. Probabilities reflect substantial confidence in option 3 but retain uncertainty because the exact wording in the original recording is unavailable.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "nuanced qualification that acknowledges need but insists on assessing quality and organization before extending services"
+          }
+        ]
+      },
+      "imageHash": null
+    }
+  ],
+  "paperAssessment": null,
+  "paperHash": "2fe117e1453e9e6080c1551dca6b444763a14535e55bec40484be8295f0adadf"
+}

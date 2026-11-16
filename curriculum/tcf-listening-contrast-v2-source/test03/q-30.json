@@ -1,0 +1,139 @@
+{
+  "question": {
+    "number": 30,
+    "kind": "interview",
+    "question": "Comment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?",
+    "options": [
+      "Elle estime qu’en raison de la charge de travail et de la fatigue, il faut d’abord renforcer les formations pour qu’ils puissent assurer davantage de soins, puis proposer éventuellement du répit et une orientation vers des services adaptés.",
+      "Elle distingue les situations : pour les proches qui travaillent encore, l’essentiel serait des formations et des renseignements pour assumer un rôle quasi professionnel, tandis que le répit concernerait surtout ceux qui ne sont plus en activité.",
+      "Elle admet que quelques formations peuvent être utiles, mais insiste surtout sur le répit, des informations fiables et l’orientation vers des services, pour éviter de transformer les proches en professionnels à temps plein.",
+      "Elle rappelle que, puisqu’ils connaissent bien le malade, il est logique de les former pour qu’ils réalisent la plupart des soins eux-mêmes, l’association n’intervenant qu’en complément lorsque la famille ne peut vraiment plus tout faire seule."
+    ],
+    "correct": "C",
+    "explanation": "L’intervenante reconnaît que « certaines formations sont utiles », mais précise que « notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés » et qu’il faut « éviter de transformer les proches en professionnels à temps plein ». La réponse 2 reprend exactement cet équilibre entre formations limitées et priorité au répit, à l’information et à l’orientation.",
+    "transcript": "Question 30.\nVotre association soutient les personnes qui accompagnent un parent dépendant. Faut-il les former à effectuer davantage de soins ?\nCertaines formations sont utiles, mais il faut éviter de transformer les proches en professionnels à temps plein. Beaucoup travaillent, élèvent leurs enfants et éprouvent déjà une grande fatigue. Notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés. Aider une famille, ce n'est pas lui demander de tout faire seule sous prétexte qu'elle connaît bien le malade.\nComment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 30."
+      },
+      {
+        "voice": "male",
+        "text": "Votre association soutient les personnes qui accompagnent un parent dépendant. Faut-il les former à effectuer davantage de soins ?"
+      },
+      {
+        "voice": "female",
+        "text": "Certaines formations sont utiles, mais il faut éviter de transformer les proches en professionnels à temps plein. Beaucoup travaillent, élèvent leurs enfants et éprouvent déjà une grande fatigue. Notre priorité est de proposer des moments de répit, des renseignements fiables et une orientation vers des services adaptés. Aider une famille, ce n'est pas lui demander de tout faire seule sous prétexte qu'elle connaît bien le malade."
+      },
+      {
+        "voice": "female",
+        "text": "Comment l’intervenante répond-elle à la question « Faut-il les former à effectuer davantage de soins ? » ?"
+      }
+    ],
+    "audio": "q-30.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 68
+  },
+  "contentHash": "a5bfda3f747a76ec5def3e436aaa5871019d4e700a18eee03535abe505870a3b",
+  "sourceHash": "b0a847f0217c0e414c8b0eefc299c962e1bf6307334ce40146c78200e42ec011",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EkvKKwmJfjQtok0cnyB4KdKtHgxIT",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.05,
+            0.7,
+            0.1,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "insists on respite, reliable information and orientation to services rather than turning relatives into full-time professionals; humane, balanced emphasis that fits typical caregiver-support messaging"
+            },
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "advocates training relatives to perform most care themselves, leaving association as backup — a more intervention-heavy stance"
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "draws a sharp employment-based distinction (training for working relatives, respite for non-working) which seems less balanced and somewhat uncommon"
+            },
+            {
+              "option": 4,
+              "severity": "weak",
+              "cue": "prioritizes strengthening training first because of workload/fatigue, then respite/orientation; similar to other training-heavy options but less nuanced"
+            }
+          ],
+          "reason": "The options split between a training-heavy approach (0 and 4), a situational/employment-based split (2), and an emphasis on respite/information/orientation (1). Without the recording I cannot be certain, but option 1 stands out as the most balanced and humane response — it explicitly warns against turning relatives into full-time professionals and prioritizes respite and reliable guidance, which is a common, defensible stance in discussions about supporting family carers. That gives it the strongest posterior probability; the training-focused choices are less likely given the wording."
+        },
+        "usage": {
+          "prompt_tokens": 537,
+          "completion_tokens": 623,
+          "total_tokens": 1160,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00138025,
+        "inputHash": "ad6b6db09072c7e278f985ccf6e58f7e61ffc94bcdb72115ee2e002949be2787",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:29:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "The options split between a training-heavy approach (0 and 4), a situational/employment-based split (2), and an emphasis on respite/information/orientation (1). Without the recording I cannot be certain, but option 1 stands out as the most balanced and humane response — it explicitly warns against turning relatives into full-time professionals and prioritizes respite and reliable guidance, which is a common, defensible stance in discussions about supporting family carers. That gives it the strongest posterior probability; the training-focused choices are less likely given the wording.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "insists on respite, reliable information and orientation to services rather than turning relatives into full-time professionals; humane, balanced emphasis that fits typical caregiver-support messaging"
+      },
+      {
+        "option": 0,
+        "severity": "weak",
+        "cue": "advocates training relatives to perform most care themselves, leaving association as backup — a more intervention-heavy stance"
+      },
+      {
+        "option": 3,
+        "severity": "weak",
+        "cue": "draws a sharp employment-based distinction (training for working relatives, respite for non-working) which seems less balanced and somewhat uncommon"
+      },
+      {
+        "option": 4,
+        "severity": "weak",
+        "cue": "prioritizes strengthening training first because of workload/fatigue, then respite/orientation; similar to other training-heavy options but less nuanced"
+      }
+    ]
+  },
+  "imageHash": null
+}
