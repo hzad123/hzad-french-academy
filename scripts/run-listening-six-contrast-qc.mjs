@@ -13,6 +13,7 @@ const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,tok
  directory:join(root,'model-receipts'),maxUsd:Number(get('--max-usd','35'))});
 const papers=[],originals=[],evidence=[],imageMaps=[],positions=[],errors=[],baseline=[],runNonce=randomBytes(12).toString('hex');
 const workers=Number(get('--workers','8'));
+const designSeeds=await loadJson('curriculum/tcf-listening-contrast-design-seeds.json');
 const controls=[
  {question:'Dans quelle salle la réunion se tiendra-t-elle ?',choices:['Dans la salle deux.','Dans la salle trois.','Dans la salle quatre.','Dans la salle cinq.'],clear:false},
  {question:'À quelle heure commence la consultation ?',choices:['À huit heures quinze.','À neuf heures quinze.','À dix heures quinze.','À onze heures quinze.'],clear:false},
@@ -55,6 +56,11 @@ async function processQuestion([p,index]){
  }
  try{
   let starting=saved?.policyHash===policyHash?saved.question:null;
+  const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
+  if(!starting&&designSeed){
+   if(!contrastPlan(original,designSeed.authored).pass)throw Error('Design example lacks faithful anchors');
+   starting=rewrite(original,designSeed.authored,positions[p][index],`${seed}:human-design:${p}:${index}`);
+  }
   if(saved?.policyHash===policyHash&&saved.regenerateFrom){
    // Only the blind reviewer's observable cue is diagnostic. Whether its
    // mandatory guess happened to match the key is never sent to the author.

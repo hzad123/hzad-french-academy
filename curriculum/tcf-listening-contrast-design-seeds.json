@@ -1,0 +1,140 @@
+[
+  {
+    "test": 1,
+    "number": 30,
+    "sourceHash": "fd63e4848f9d02f7b7f78acbf772a9d1ae751d227b10314e90282b8b4c744ed1",
+    "authored": {
+      "question": "Quel objectif guide le choix des éléments industriels à conserver ?",
+      "choices": [
+        "Faire comprendre l'organisation du travail dans l'ancienne usine.",
+        "Montrer comment les techniques de production ont évolué.",
+        "Rappeler les liens entre les ouvriers et la vie du quartier.",
+        "Distinguer les époques de transformation de l'ancien bâtiment."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition correspond à la relation particulière attribuée dans le document ; les autres propositions attribuent aux mêmes éléments un rôle, une portée ou une chronologie différents.",
+      "design": "Four reasonable alternatives in the same semantic family; human-authored design probe, not a fabricated AI evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "certaines machines",
+            "comprendre le travail qui s'y faisait"
+          ],
+          "reason": "Confondre la lecture du travail avec une histoire des évolutions techniques, que la conservatrice ne présente pas comme son critère."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Les nouveaux usages peuvent lui donner une place dans la vie locale.",
+            "les habitants"
+          ],
+          "reason": "Attribuer à la conservation industrielle un objectif lié aux anciens ouvriers, alors que la vie locale est rattachée aux nouveaux usages et aux habitants actuels."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "rendre les transformations lisibles",
+            "les volumes, certaines machines, les circulations"
+          ],
+          "reason": "Confondre la lisibilité des interventions nouvelles avec une datation des transformations passées : le critère de conservation porte sur la compréhension du travail."
+        }
+      ]
+    }
+  },
+  {
+    "test": 3,
+    "number": 38,
+    "sourceHash": "9964b73785d4c38c9c98c209e46c112e334d00ea8ac18d217abc7516265d9887",
+    "authored": {
+      "question": "Quelle difficulté la conférencière dit-elle observer dans plusieurs villes ?",
+      "choices": [
+        "Le rythme des demandes dépasse les possibilités de suivi.",
+        "Les équipes tardent à adapter les examens aux risques signalés.",
+        "Les habitants sont sensibilisés avant que les équipes soient formées.",
+        "Les personnes les plus vulnérables participent peu aux examens proposés."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition correspond à la relation particulière attribuée dans le document ; les autres propositions attribuent aux mêmes éléments un rôle, une portée ou une chronologie différents.",
+      "design": "Four reasonable alternatives in the same semantic family; human-authored design probe, not a fabricated AI evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "causal_reversal",
+          "anchors": [
+            "davantage de demandes d'examens que le système local n'est capable d'en absorber",
+            "un risque sans pouvoir accéder rapidement au suivi annoncé"
+          ],
+          "reason": "Confondre un défaut de capacité à absorber la demande avec une adaptation insuffisante des examens aux risques, qui n'est pas le constat rapporté."
+        },
+        {
+          "index": 2,
+          "operation": "time_swap",
+          "anchors": [
+            "former les équipes",
+            "Informer les habitants est essentiel"
+          ],
+          "reason": "Transformer la recommandation de former les équipes en une chronologie observée dans les villes ; le paradoxe décrit concerne la demande et les capacités de suivi."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "les personnes les plus vulnérables obtiennent réellement une prise en charge",
+            "davantage de demandes d'examens"
+          ],
+          "reason": "Confondre le contrôle recommandé de la prise en charge avec un constat de faible participation des publics vulnérables."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 39,
+    "sourceHash": "8c74b36b64610ad4bd97917eaced764eb12b98ec7a9c9b38b7def43c39ea50ce",
+    "authored": {
+      "question": "À quel besoin répond la formation prévue dans la cuisine partagée ?",
+      "choices": [
+        "Préparer des personnes à remplacer l'équipe qui a lancé le projet.",
+        "Donner aux bénévoles présents des méthodes pour mieux répartir les tâches.",
+        "Apprendre aux bénévoles à calculer le coût réel des repas.",
+        "Accompagner les bénévoles dans l'ouverture de nouveaux sites."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition correspond à la relation particulière attribuée dans le document ; les autres propositions attribuent aux mêmes éléments un rôle, une portée ou une chronologie différents.",
+      "design": "Four reasonable alternatives in the same semantic family; human-authored design probe, not a fabricated AI evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "répartir équitablement le travail",
+            "former des personnes capables de remplacer l'équipe de départ"
+          ],
+          "reason": "Attribuer à la formation le rôle de la répartition équitable du travail ; elle vise explicitement la relève de l’équipe initiale."
+        },
+        {
+          "index": 2,
+          "operation": "condition_transfer",
+          "anchors": [
+            "connaître le coût réel des repas",
+            "former des personnes capables de remplacer l'équipe de départ"
+          ],
+          "reason": "Associer la formation au calcul du coût, deux préparatifs cités séparément ; sa finalité annoncée est le remplacement de l’équipe."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "adapter le modèle à d'autres lieux",
+            "remplacer l'équipe de départ"
+          ],
+          "reason": "Déplacer la cible de la formation vers les ouvertures futures, alors que les personnes formées doivent prendre la relève de l’équipe de départ."
+        }
+      ]
+    }
+  }
+]
