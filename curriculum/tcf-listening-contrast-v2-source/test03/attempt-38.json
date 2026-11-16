@@ -2,16 +2,16 @@
   "question": {
     "number": 38,
     "kind": "public-lecture",
-    "question": "Pour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?",
+    "question": "Dans le document, quel objectif précis est associé à la formation des équipes ?",
     "options": [
-      "Les personnes les plus vulnérables.",
-      "Les habitants devenus inquiets en découvrant un risque.",
-      "Toutes les personnes sensibilisées par la campagne.",
-      "Les habitants qui demandent un examen après le message."
+      "Préparer les équipes à faire face à l’augmentation attendue des consultations.",
+      "Aider à repérer si les personnes les plus vulnérables ont bien accès à une prise en charge.",
+      "Servir avant tout à calmer l’inquiétude créée chez les habitants après la campagne.",
+      "Permettre de mieux compter le nombre de personnes touchées par le message de prévention."
     ],
     "correct": "A",
-    "explanation": "Le texte précise que les responsables doivent « vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge », et non l’ensemble des autres groupes évoqués.",
-    "transcript": "Question 38.\nUne campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.\nPour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?",
+    "explanation": "Le texte place la formation des équipes dans la liste des moyens pour anticiper les consultations suscitées par la campagne, pas pour compter les sensibilisés, apaiser directement l’inquiétude ou vérifier l’accès des plus vulnérables. L’énumération \"anticiper les consultations, former les équipes\" montre que la formation sert à préparer les équipes à l’augmentation des demandes.",
+    "transcript": "Question 38.\nUne campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.\nDans le document, quel objectif précis est associé à la formation des équipes ?",
     "segments": [
       {
         "voice": "female",
@@ -23,7 +23,7 @@
       },
       {
         "voice": "female",
-        "text": "Pour quel public la vérification d’une prise en charge effective est-elle explicitement demandée dans le document ?"
+        "text": "Dans le document, quel objectif précis est associé à la formation des équipes ?"
       }
     ],
     "audio": "q-38.mp3",
@@ -35,53 +35,65 @@
   "blind": [
     {
       "order": [
+        0,
         1,
         3,
-        2,
-        0
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
-        "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+        "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkwDIKX2ejnjnwsWZblK6aT1u86x2",
+        "responseId": "chatcmpl-Ekx1Oje7lTpJqHs8mx9ewtsGanWV1",
         "result": {
           "guess": 1,
           "probabilities": [
-            0.2,
-            0.4,
-            0.2,
-            0.2
+            0.15,
+            0.55,
+            0.15,
+            0.15
           ],
-          "standsOut": false,
-          "cues": [],
-          "reason": "Le libellé « les habitants qui demandent un examen après le message » correspond bien à une situation où l’on demanderait explicitement de vérifier qu’une prise en charge effective a bien eu lieu. Les autres options sont plus générales ou floues et ne renvoient pas directement à une action explicite de vérification après une demande précise."
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Lie l’objectif de la formation à une compétence spécifique et plausible des équipes (repérage des personnes vulnérables), formulation plus ciblée que les effets généraux ou secondaires proposés par les autres choix."
+            }
+          ],
+          "reason": "La formation des équipes vise typiquement à développer une compétence précise (ici, repérer l’accès des plus vulnérables à la prise en charge). Les autres options décrivent davantage des effets indirects ou des objectifs organisationnels ou psychologiques moins directement liés au contenu d’une formation elle-même."
         },
         "usage": {
-          "prompt_tokens": 395,
-          "completion_tokens": 191,
-          "total_tokens": 586,
+          "prompt_tokens": 422,
+          "completion_tokens": 186,
+          "total_tokens": 608,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 75,
+            "reasoning_tokens": 29,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00240375,
-        "inputHash": "6c6e6599b232fd47f6a36978c8195c19d94c1c5018b8a689ba2ec28e70759dc0",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:37:1e7f6570412851682b92d25d:screen:6:0"
+        "costUsd": 0.0023875,
+        "inputHash": "c39b358e58fd6d1d1bf309b5f679cb35a2502827830a0c924be70b096f472a85",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:37:f6388e630891649695666c61:screen:6:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le libellé « les habitants qui demandent un examen après le message » correspond bien à une situation où l’on demanderait explicitement de vérifier qu’une prise en charge effective a bien eu lieu. Les autres options sont plus générales ou floues et ne renvoient pas directement à une action explicite de vérification après une demande précise.",
-    "cues": []
+    "reason": "La formation des équipes vise typiquement à développer une compétence précise (ici, repérer l’accès des plus vulnérables à la prise en charge). Les autres options décrivent davantage des effets indirects ou des objectifs organisationnels ou psychologiques moins directement liés au contenu d’une formation elle-même.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Lie l’objectif de la formation à une compétence spécifique et plausible des équipes (repérage des personnes vulnérables), formulation plus ciblée que les effets généraux ou secondaires proposés par les autres choix."
+      }
+    ]
   }
 }

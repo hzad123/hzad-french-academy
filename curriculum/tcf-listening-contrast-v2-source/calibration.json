@@ -14,9 +14,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekw5XLW6WjkrXim4tbKFlNapPH3F2",
+      "responseId": "chatcmpl-Ekwy1himp9BxS15qnJgT36mpOr5sx",
       "result": {
         "guess": 0,
         "probabilities": [
@@ -27,24 +27,24 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "Aucun indice contextuel dans l’énoncé ni asymétrie évidente entre les numéros de salle; toutes les options sont symétriques et également plausibles, donc répartition uniforme des probabilités."
+        "reason": "Aucune information contextuelle ne permet de distinguer une salle plutôt qu’une autre ; toutes les options sont symétriques et purement numériques, donc probabilité uniforme."
       },
       "usage": {
         "prompt_tokens": 363,
-        "completion_tokens": 105,
-        "total_tokens": 468,
+        "completion_tokens": 89,
+        "total_tokens": 452,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 17,
+          "reasoning_tokens": 10,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00150375,
+      "costUsd": 0.00134375,
       "inputHash": "d07f588bc9fb9fc538579e48d433d89e67d563dd265d4ec9f56b115eefb18311",
       "evaluationId": "v2-control:0"
     },
@@ -65,9 +65,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekw5ZlWyhkswOE6oOZuUoOu4yqGFo",
+      "responseId": "chatcmpl-Ekwy3BEEfifjIjlPLW37zkh86J6tT",
       "result": {
         "guess": 0,
         "probabilities": [
@@ -78,12 +78,12 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "Aucune information contextuelle n’indique l’heure correcte parmi les quatre horaires proposés, qui sont tous également plausibles. Attribution de probabilités uniformes par absence totale de repères pour discriminer."
+        "reason": "La question demande une heure précise, et les quatre propositions sont des horaires similaires différant seulement de l’heure. Sans autre indice contextuel (enregistrement ou texte supplémentaire), aucune option ne présente d’avantage logique ou rédactionnel ; les quatre réponses sont également plausibles."
       },
       "usage": {
         "prompt_tokens": 359,
-        "completion_tokens": 94,
-        "total_tokens": 453,
+        "completion_tokens": 107,
+        "total_tokens": 466,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
@@ -95,7 +95,7 @@
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00138875,
+      "costUsd": 0.00151875,
       "inputHash": "3dcf2948f85cb655e376e7dbd767a393c3b12c177756ff78e0bd0347ad222919",
       "evaluationId": "v2-control:1"
     },
@@ -116,37 +116,37 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekw5bNYfXxgrhy0s4Z6kptbVMaytn",
+      "responseId": "chatcmpl-Ekwy5Gv0Ay07ezPN9uP3WmocZbBgG",
       "result": {
         "guess": 0,
         "probabilities": [
-          0.4,
-          0.2,
-          0.2,
-          0.2
+          0.25,
+          0.25,
+          0.25,
+          0.25
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "La question est très générale. Parmi les motifs courants expliquant une décision (par ex. de report, d’annulation ou de modification), un changement d’horaire est légèrement plus fréquent et générique que les autres (adresse, équipe, tarif) sans indication contextuelle. Aucune option ne présente d’indice formel clair, donc la préférence pour l’option 0 reste faible et surtout fondée sur la plausibilité générale."
+        "reason": "La question est trop générale et aucun élément de contexte n’est fourni pour départager les quatre types de changement proposés. Aucune option ne se distingue par sa formulation ou sa plausibilité intrinsèque, donc il est impossible de faire une inférence raisonnable au-delà d’un pur tirage au sort."
       },
       "usage": {
         "prompt_tokens": 362,
-        "completion_tokens": 165,
-        "total_tokens": 527,
+        "completion_tokens": 125,
+        "total_tokens": 487,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 30,
+          "reasoning_tokens": 20,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0021025,
+      "costUsd": 0.0017025,
       "inputHash": "fae5a3d4fb62f9ae22997ade365f5b6cf61a313e9661058ffeb223c9d761c267",
       "evaluationId": "v2-control:2"
     },
@@ -167,43 +167,43 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekw5fRawCF0jfJABJ5PGggdY3hlrB",
+      "responseId": "chatcmpl-Ekwy7eGKA9nlPF0YIYNibqKJVWDhP",
       "result": {
         "guess": 0,
         "probabilities": [
-          0.88,
-          0.04,
-          0.04,
-          0.04
+          0.82,
+          0.06,
+          0.06,
+          0.06
         ],
         "standsOut": true,
         "cues": [
           {
             "option": 0,
             "severity": "clear",
-            "cue": "Seule réponse logique expliquant un retard de bus ; les autres sont absurdes ou temporellement impossibles."
+            "cue": "Seule réponse logique et pertinente comme cause réaliste de retard de bus; les autres sont absurdes ou temporellement incohérentes."
           }
         ],
-        "reason": "La question demande une cause plausible du retard d’un bus. Les travaux qui ralentissent le trajet constituent une explication réaliste et directe. Les autres propositions sont incohérentes (trottoirs qui volent, voyageurs arrivant hier matin, café qui change de couleur) et ne peuvent raisonnablement expliquer le retard."
+        "reason": "La question demande une cause plausible de retard de bus. Les travaux qui ralentissent le trajet sont une explication réaliste. Les autres options sont absurdes (trottoirs qui volent, café qui change de couleur) ou grammaticalement/chronologiquement incorrectes (les voyageurs arrivent hier matin) et ne répondent pas réellement à la question."
       },
       "usage": {
         "prompt_tokens": 370,
-        "completion_tokens": 154,
-        "total_tokens": 524,
+        "completion_tokens": 165,
+        "total_tokens": 535,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 8,
+          "reasoning_tokens": 7,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0020025,
+      "costUsd": 0.0021125,
       "inputHash": "d13e8f77cfa32c6a671658d1e1a665f262780ebcd13a5f74e153a6bb532851c7",
       "evaluationId": "v2-control:3"
     },
