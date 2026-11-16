@@ -60,7 +60,7 @@ async function processQuestion([p,index]){
  if(await exists(file))saved=await loadJson(file);
  const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
  const designSeedHash=designSeed?hash(designSeed.authored):null;
- if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)&&(!saved.designSeedHash||saved.designSeedHash===designSeedHash)){
+ if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)&&(!saved.designSeedHash||saved.designSeedHash===designSeedHash)&&(!designSeed?.requireSeedRevision||saved.designSeedHash===designSeedHash)){
   evidence[p].questions[index]=saved;papers[p].questions[index]=saved.question;return;
  }
  try{

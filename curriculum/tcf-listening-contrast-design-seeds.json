@@ -688,5 +688,52 @@
         }
       ]
     }
+  },
+  {
+    "test": 3,
+    "number": 30,
+    "sourceHash": "b0a847f0217c0e414c8b0eefc299c962e1bf6307334ce40146c78200e42ec011",
+    "requireSeedRevision": true,
+    "authored": {
+      "question": "Quelle limite à ces formations est explicitement énoncée ?",
+      "choices": [
+        "Qu’elles aident les proches sans en faire des soignants à plein temps.",
+        "Qu’elles transmettent des informations sans remplacer les services de proximité.",
+        "Qu’elles facilitent les soins sans se substituer aux moments de répit.",
+        "Qu’elles précisent les rôles sans imposer une organisation identique aux familles."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’intervenant formule la limite en demandant d’éviter que les proches deviennent des professionnels à temps plein ; les autres propositions déplacent des éléments du soutien vers des conditions de formation qui ne sont pas expressément formulées.",
+      "design": "Four equally responsible and qualified limits; the recording alone identifies the scope of the actual qualification. Human editorial prototype requiring fresh independent reviews.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "éviter de transformer les proches en professionnels à temps plein",
+            "des renseignements fiables"
+          ],
+          "reason": "Attribue à la formation les renseignements et l’orientation offerts par l’association, en les transformant en limite de substitution aux services ; la limite explicite concerne le rôle des proches."
+        },
+        {
+          "index": 2,
+          "operation": "condition_transfer",
+          "anchors": [
+            "éviter de transformer les proches en professionnels à temps plein",
+            "des moments de répit"
+          ],
+          "reason": "Transforme la priorité donnée au répit en condition explicitement posée à la formation ; cette condition est plausible mais le propos formulé vise la professionnalisation à plein temps des proches."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "éviter de transformer les proches en professionnels à temps plein",
+            "Beaucoup travaillent, élèvent leurs enfants"
+          ],
+          "reason": "Déduit de la diversité des charges familiales une règle de non-uniformisation ; cette règle n’est pas la limite expressément énoncée, qui porte sur l’étendue des soins confiés aux proches."
+        }
+      ]
+    }
   }
 ]
