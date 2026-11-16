@@ -17,12 +17,17 @@ const designSeeds=await loadJson('curriculum/tcf-listening-contrast-design-seeds
 const controls=[
  {question:'Dans quelle salle la réunion se tiendra-t-elle ?',choices:['Dans la salle deux.','Dans la salle trois.','Dans la salle quatre.','Dans la salle cinq.'],clear:false},
  {question:'À quelle heure commence la consultation ?',choices:['À huit heures quinze.','À neuf heures quinze.','À dix heures quinze.','À onze heures quinze.'],clear:false},
- {question:'Quelle raison explique la décision évoquée ?',choices:["Un changement d'horaire.","Un changement d'adresse.","Un changement d'équipe.",'Un changement de tarif.'],clear:false},
+ {question:'Quelle raison explique la décision évoquée ?',choices:["Un changement d'horaire.","Un changement d'adresse.","Un changement d'équipe.",'Un changement de tarif.'],clear:false,classification:true},
  {question:'Pourquoi le bus arrive-t-il en retard ?',choices:['Des travaux ralentissent son trajet.','Les trottoirs ont appris à voler.','Les voyageurs arrivent hier matin.','Le café a changé de couleur.'],clear:true}
 ];
 const calibration=[];
-for(const [i,{clear,...input}] of controls.entries()){
- const receipt=await provider('blind',input,{nonce:'v2-control:'+i});calibration.push({input,clear,receipt,pass:clear?!blindVerdict(receipt.result).pass:blindVerdict(receipt.result).pass});
+for(const [i,{clear,classification=false,...input}] of controls.entries()){
+ const receipt=await provider('blind',input,{nonce:'v2-control:'+i});
+ // This qualitative control has no known key or measured frequency prior:
+ // test classification of a clear cue, not equality of its subjective odds.
+ // Actual examination items retain the full probability/gap admission gate.
+ const noCue=!receipt.result.standsOut&&!receipt.result.cues.some(c=>c.severity!=='weak');
+ calibration.push({input,clear,classification,receipt,pass:classification?noCue:clear?!blindVerdict(receipt.result).pass:blindVerdict(receipt.result).pass});
 }
 await saveJson(join(root,'calibration.json'),calibration);
 if(calibration.some(c=>!c.pass)){await saveJson(join(root,'summary.json'),{protocol,policyHash,readyForMedia:false,status:'calibration-blocked'});process.exit(1);}
