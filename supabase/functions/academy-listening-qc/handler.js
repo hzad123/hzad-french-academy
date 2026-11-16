@@ -1,5 +1,14 @@
 import {modelRequest,validateResult,MODEL,MODELS,MAX_OUTPUT,stagePrice,POLICY_VERSION,policyFingerprint} from './contracts.js';
 const reply=(status,body)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
+// Exact duplicate output rows do not add a fifth judgement. Preserve the raw
+// model object for audit; conflicting rows remain invalid and fail validation.
+export function normalizeModelResult(stage,original){
+ if(stage!=='ground'||!Array.isArray(original?.options))return {result:original,corrections:[]};
+ const seen=new Set(),options=[];
+ for(const option of original.options){const encoded=JSON.stringify(option);if(!seen.has(encoded)){seen.add(encoded);options.push(option);}}
+ const removed=original.options.length-options.length;
+ return {result:removed?{...original,options}:original,corrections:removed?[{kind:'exact-duplicate-option-rows',removed}]:[]};
+}
 export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
  return async request=>{
   // This endpoint is exclusively for a trusted offline authoring runner.
@@ -22,13 +31,13 @@ export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
    if(!response.ok)return reply(502,{error:'QC_PROVIDER',providerStatus:response.status});
    const raw=await response.json();
    if(raw.choices?.[0]?.finish_reason!=='stop')return reply(502,{error:'QC_INCOMPLETE_OUTPUT'});
-   let result;
-   try{result=validateResult(stage,JSON.parse(raw.choices[0].message.content));}
+   let result,originalResult,formatCorrections;
+   try{originalResult=JSON.parse(raw.choices[0].message.content);const normalized=normalizeModelResult(stage,originalResult);formatCorrections=normalized.corrections;result=validateResult(stage,normalized.result);}
    catch{return reply(502,{error:'QC_'+stage.toUpperCase()+'_SCHEMA',diagnostic:{stage,responseId:raw.id,model:raw.model,usage:raw.usage,output:raw.choices?.[0]?.message?.content?.slice(0,32000)}});}
    const usage=raw.usage;
    if(!raw.id||!Number.isInteger(usage?.prompt_tokens)||!Number.isInteger(usage?.completion_tokens)||usage.prompt_tokens<0||usage.completion_tokens<0||usage.completion_tokens>MAX_OUTPUT[stage])return reply(502,{error:'QC_USAGE'});
    const price=stagePrice(stage);
-   return reply(200,{stage,policy:POLICY_VERSION,policyHash,model:raw.model||MODELS[stage],responseId:raw.id,result,usage,
+   return reply(200,{stage,policy:POLICY_VERSION,policyHash,model:raw.model||MODELS[stage],responseId:raw.id,result,usage,...(formatCorrections.length?{originalResult,formatCorrections}:{}),
     costUsd:(usage.prompt_tokens*price.inputPerMillion+usage.completion_tokens*price.outputPerMillion)/1e6});
   }catch{return reply(502,{error:'QC_PROVIDER_OR_SCHEMA'});}
  };
