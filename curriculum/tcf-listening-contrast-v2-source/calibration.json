@@ -14,37 +14,59 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekwy1himp9BxS15qnJgT36mpOr5sx",
+      "responseId": "chatcmpl-Ekx5kerhtdmwyG5sAWkWSr6CJb4bi",
       "result": {
-        "guess": 0,
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Lors d’une annonce au micro dans une entreprise, un employé demande où aura lieu la prochaine réunion. Le responsable répond : « Dans la salle deux. » pour indiquer clairement l’emplacement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Au téléphone, un collègue demande où se tiendra la réunion mensuelle. L’autre précise : « Dans la salle trois. » parce que cette salle est habituellement utilisée pour ces réunions."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Pendant un cours à l’université, un étudiant demande au professeur où se tiendra la réunion d’information. Le professeur répond : « Dans la salle quatre. » pour orienter les étudiants vers la bonne salle."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un centre de formation, un participant demande à l’accueil où la réunion aura lieu. L’agent d’accueil répond : « Dans la salle cinq. » en indiquant l’emplacement sur un plan."
+          }
+        ],
+        "cues": [],
+        "standsOut": false,
         "probabilities": [
           0.25,
           0.25,
           0.25,
           0.25
         ],
-        "standsOut": false,
-        "cues": [],
-        "reason": "Aucune information contextuelle ne permet de distinguer une salle plutôt qu’une autre ; toutes les options sont symétriques et purement numériques, donc probabilité uniforme."
+        "guess": 0,
+        "reason": "Les quatre réponses sont structurellement identiques, toutes directement pertinentes, grammaticales et plausibles dans un contexte ordinaire. Aucun indice textuel ne permet de privilégier un numéro de salle plutôt qu’un autre ; le choix du numéro dépend uniquement d’un enregistrement inconnu. En l’absence de tout indice, les probabilités sont uniformes et le choix du 0 comme clé reste arbitraire."
       },
       "usage": {
-        "prompt_tokens": 363,
-        "completion_tokens": 89,
-        "total_tokens": 452,
+        "prompt_tokens": 586,
+        "completion_tokens": 386,
+        "total_tokens": 972,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 10,
+          "reasoning_tokens": 45,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00134375,
+      "costUsd": 0.0045925,
       "inputHash": "d07f588bc9fb9fc538579e48d433d89e67d563dd265d4ec9f56b115eefb18311",
       "evaluationId": "v2-control:0"
     },
@@ -65,37 +87,59 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekwy3BEEfifjIjlPLW37zkh86J6tT",
+      "responseId": "chatcmpl-Ekx5pwZhVmpugyAkhoG18aXn6jNkr",
       "result": {
-        "guess": 0,
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un patient téléphone au cabinet médical et demande quand commence la consultation du matin. La secrétaire répond : « À huit heures quinze. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un étudiant renseigne un camarade sur l’horaire de la consultation gratuite à l’infirmerie universitaire : « Elle commence à neuf heures quinze. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une personne appelle un spécialiste (avocat, médecin, assistante sociale) pour confirmer l’heure de début de la consultation de l’après-midi, et on lui répond : « À dix heures quinze. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une clinique organise une permanence tardive et un employé précise à un usager : « La consultation commence à onze heures quinze. »"
+          }
+        ],
+        "cues": [],
+        "standsOut": false,
         "probabilities": [
           0.25,
           0.25,
           0.25,
           0.25
         ],
-        "standsOut": false,
-        "cues": [],
-        "reason": "La question demande une heure précise, et les quatre propositions sont des horaires similaires différant seulement de l’heure. Sans autre indice contextuel (enregistrement ou texte supplémentaire), aucune option ne présente d’avantage logique ou rédactionnel ; les quatre réponses sont également plausibles."
+        "guess": 0,
+        "reason": "Les quatre horaires répondent directement et de façon naturelle à la question ; aucun indice textuel ne favorise clairement une option plutôt qu’une autre, donc le choix reste arbitraire."
       },
       "usage": {
-        "prompt_tokens": 359,
-        "completion_tokens": 107,
-        "total_tokens": 466,
+        "prompt_tokens": 582,
+        "completion_tokens": 290,
+        "total_tokens": 872,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 8,
+          "reasoning_tokens": 31,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00151875,
+      "costUsd": 0.0036275,
       "inputHash": "3dcf2948f85cb655e376e7dbd767a393c3b12c177756ff78e0bd0347ad222919",
       "evaluationId": "v2-control:1"
     },
@@ -116,37 +160,59 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekwy5Gv0Ay07ezPN9uP3WmocZbBgG",
+      "responseId": "chatcmpl-Ekx5t6kCC07szySrM4i5vxJIaLbcU",
       "result": {
-        "guess": 0,
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un message vocal d’une secrétaire d’école aux parents, elle explique que la réunion de rentrée prévue jeudi soir est finalement annulée. Elle précise que cette décision a été prise en raison d’un changement d’horaire imposé par la mairie pour l’utilisation des salles. À la question « Quelle raison explique la décision évoquée ? », on répondrait : « Un changement d’horaire. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un enregistrement d’un responsable de club de sport, on annonce que la séance d’entraînement de samedi ne se déroulera pas comme d’habitude. Il explique que la décision de déplacer la séance a été prise parce que le club a déménagé et a une nouvelle adresse. À la question « Quelle raison explique la décision évoquée ? », la réponse serait : « Un changement d’adresse. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un message d’un directeur de projet à ses collaborateurs, il annonce qu’une réunion prévue est repoussée. Il précise que cette décision a été prise à cause d’un changement d’équipe, car plusieurs responsables ont été remplacés et doivent être intégrés avant de valider les choix. À la question « Quelle raison explique la décision évoquée ? », on pourrait répondre : « Un changement d’équipe. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une annonce d’un service client enregistrée, on explique que l’entreprise a décidé de résilier automatiquement certains anciens abonnements. Le message détaille que cette décision est due à un changement de tarif qui rend les anciens contrats obsolètes. À la question « Quelle raison explique la décision évoquée ? », on répondrait : « Un changement de tarif. »"
+          }
+        ],
+        "cues": [],
+        "standsOut": false,
         "probabilities": [
           0.25,
           0.25,
           0.25,
           0.25
         ],
-        "standsOut": false,
-        "cues": [],
-        "reason": "La question est trop générale et aucun élément de contexte n’est fourni pour départager les quatre types de changement proposés. Aucune option ne se distingue par sa formulation ou sa plausibilité intrinsèque, donc il est impossible de faire une inférence raisonnable au-delà d’un pur tirage au sort."
+        "guess": 0,
+        "reason": "Les quatre options sont grammaticalement correctes, de forme parallèle, toutes directement compatibles avec la question très générale (« la décision évoquée ») et chacune peut expliquer de façon naturelle une décision (annulation, report, modification). Aucun indice de rédaction, de longueur, de précision ou de registre ne favorise clairement une option par rapport aux autres ; l’incertitude reste donc élevée et la probabilité répartie uniformément. Le choix 0 est donné par convention, sans avantage objectif discernable."
       },
       "usage": {
-        "prompt_tokens": 362,
-        "completion_tokens": 125,
-        "total_tokens": 487,
+        "prompt_tokens": 585,
+        "completion_tokens": 588,
+        "total_tokens": 1173,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 20,
+          "reasoning_tokens": 75,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0017025,
+      "costUsd": 0.00661125,
       "inputHash": "fae5a3d4fb62f9ae22997ade365f5b6cf61a313e9661058ffeb223c9d761c267",
       "evaluationId": "v2-control:2"
     },
@@ -167,43 +233,65 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Ekwy7eGKA9nlPF0YIYNibqKJVWDhP",
+      "responseId": "chatcmpl-Ekx5zBXpn4nxzOmMPWWgkBDALBFOP",
       "result": {
-        "guess": 0,
-        "probabilities": [
-          0.82,
-          0.06,
-          0.06,
-          0.06
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un passager téléphone à un ami pour expliquer son retard : il dit qu’il y a des travaux sur la route qui ralentissent le trajet du bus, ce qui répond directement à la question sur la cause du retard."
+          },
+          {
+            "index": 1,
+            "credible": false,
+            "context": "L’idée que des trottoirs apprennent à voler est absurde et ne constitue pas une raison réelle ou compréhensible pour expliquer le retard d’un bus dans une situation de communication ordinaire."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "Dire que des voyageurs arrivent « hier matin » ne décrit pas une cause logique ou temporellement cohérente expliquant pourquoi le bus, maintenant, arrive en retard ; la phrase est grammaticalement et temporellement défectueuse dans ce contexte."
+          },
+          {
+            "index": 3,
+            "credible": false,
+            "context": "Le changement de couleur d’un café n’est pas, dans un contexte ordinaire, une cause pertinente ou rationnelle du retard d’un bus et ne répond pas de façon sensée à la question posée."
+          }
         ],
-        "standsOut": true,
         "cues": [
           {
             "option": 0,
             "severity": "clear",
-            "cue": "Seule réponse logique et pertinente comme cause réaliste de retard de bus; les autres sont absurdes ou temporellement incohérentes."
+            "cue": "Seule réponse causalement pertinente, réaliste et directement liée au fonctionnement d’un bus ; les autres sont absurdes ou incohérentes par rapport à la question, donnant à l’option 0 un avantage décisif."
           }
         ],
-        "reason": "La question demande une cause plausible de retard de bus. Les travaux qui ralentissent le trajet sont une explication réaliste. Les autres options sont absurdes (trottoirs qui volent, café qui change de couleur) ou grammaticalement/chronologiquement incorrectes (les voyageurs arrivent hier matin) et ne répondent pas réellement à la question."
+        "standsOut": true,
+        "probabilities": [
+          0.96,
+          0.01,
+          0.01,
+          0.02
+        ],
+        "guess": 0,
+        "reason": "La première option est la seule explication réaliste, cohérente et grammaticalement adaptée à la question ; les autres propositions sont manifestement absurdes ou non pertinentes, ce qui laisse très peu d’incertitude sur la clé attendue."
       },
       "usage": {
-        "prompt_tokens": 370,
-        "completion_tokens": 165,
-        "total_tokens": 535,
+        "prompt_tokens": 593,
+        "completion_tokens": 417,
+        "total_tokens": 1010,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 7,
+          "reasoning_tokens": 38,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0021125,
+      "costUsd": 0.00491125,
       "inputHash": "d13e8f77cfa32c6a671658d1e1a665f262780ebcd13a5f74e153a6bb532851c7",
       "evaluationId": "v2-control:3"
     },

@@ -1,7 +1,7 @@
 {
   "protocol": "six-listening-contrast-v2",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "test": "tcf-listening-05",
   "version": "tcf-listening-2026-11-test05-v5",
   "source": "supabase/exams/tcf-listening-test05-v4.json",
@@ -36,6 +36,159 @@
     null,
     null,
     null,
+    {
+      "question": {
+        "number": 30,
+        "kind": "interview",
+        "question": "D’après le document, quel est le principal motif évoqué pour conserver la grande charpente et certaines traces de machines ?",
+        "options": [
+          "Elles amélioreront directement le confort des futurs logements.",
+          "Elles permettent de réduire le coût global des travaux.",
+          "Elles sont indispensables pour atteindre de bonnes performances énergétiques.",
+          "Elles aident à rendre l’histoire du lieu lisible."
+        ],
+        "correct": "D",
+        "explanation": "Le locuteur relie explicitement la conservation de la grande charpente et des traces de machines au fait de rendre l’histoire du lieu compréhensible : il dit d’abord \"Oui, si nous rendons lisible son histoire\", puis enchaîne avec \"La grande charpente et certaines traces de machines méritent d'être conservées\" et termine sur \"ne pas effacer les éléments qui permettent de comprendre son ancien usage\". Aucun passage n’évoque un argument de coût, de confort ou de performance énergétique pour justifier cette conservation.",
+        "transcript": "Question 30.\nL'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?\nOui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage.\nD’après le document, quel est le principal motif évoqué pour conserver la grande charpente et certaines traces de machines ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 30."
+          },
+          {
+            "voice": "male",
+            "text": "L'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?"
+          },
+          {
+            "voice": "female",
+            "text": "Oui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage."
+          },
+          {
+            "voice": "female",
+            "text": "D’après le document, quel est le principal motif évoqué pour conserver la grande charpente et certaines traces de machines ?"
+          }
+        ],
+        "audio": "q-30.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 69
+      },
+      "contentHash": "5878fabd73beda4c1a8818d00adb343e48b1670edbbe40f608951ba13d84bbb2",
+      "sourceHash": "5ea66c97a48f3cd0eda33daea4c87c186c29fd45abea2db53516fed3f22aa838",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxGumklmK31EHbhjBIuqo7fazXkC",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Dans un reportage sur la réhabilitation d’une ancienne usine en logements, l’architecte explique qu’en conservant la grande charpente et certaines traces de machines, on évite des démolitions lourdes et des reconstructions complexes, ce qui limite le coût global des travaux."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Dans une émission sur l’architecture durable, l’ingénieur décrit comment la grande charpente permet de conserver un volume intérieur particulier et d’intégrer plus facilement une bonne isolation, en précisant que certaines structures ou éléments existants sont indispensables pour atteindre de bonnes performances énergétiques."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Dans un documentaire sur la transformation d’un ancien atelier industriel, l’architecte insiste sur la dimension patrimoniale du projet : garder la grande charpente et les traces des anciennes machines permet de comprendre l’usage d’origine du bâtiment et de rendre l’histoire du lieu lisible pour les visiteurs et futurs habitants."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Dans une présentation de projet immobilier, le promoteur affirme que la conservation de la charpente apparente et de quelques traces de machines donnera un caractère chaleureux et singulier aux appartements, ce qui améliorera directement la sensation de confort perçue par les futurs occupants."
+                }
+              ],
+              "cues": [
+                {
+                  "option": 2,
+                  "severity": "clear",
+                  "cue": "La question mentionne la conservation de la grande charpente et de traces de machines, ce qui évoque fortement une logique patrimoniale ou historique. Parmi les réponses, seule « Elles aident à rendre l’histoire du lieu lisible. » mentionne explicitement cet enjeu de lisibilité historique, alors que les autres invoquent des effets économiques, énergétiques ou de confort qui sont moins directement reliés à la notion de traces matérielles du passé."
+                }
+              ],
+              "standsOut": true,
+              "probabilities": [
+                0.15,
+                0.15,
+                0.55,
+                0.15
+              ],
+              "guess": 2,
+              "reason": "Le vocabulaire de la question (conserver la charpente, traces de machines) renvoie typiquement à un objectif de mise en valeur du patrimoine bâti. L’option 2 se distingue nettement en formulant précisément cette idée de lisibilité de l’histoire, ce qui lui donne un avantage clair sur les autres propositions, même si celles-ci restent concevables dans certains contextes."
+            },
+            "usage": {
+              "prompt_tokens": 627,
+              "completion_tokens": 577,
+              "total_tokens": 1204,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 64,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00655375,
+            "inputHash": "77e86bf21e3176da4213bc568b61fd54bf7cee971ea1a6b8fea4936d8494c954",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:29:e751e4423565d5ae9d61421f:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le vocabulaire de la question (conserver la charpente, traces de machines) renvoie typiquement à un objectif de mise en valeur du patrimoine bâti. L’option 2 se distingue nettement en formulant précisément cette idée de lisibilité de l’histoire, ce qui lui donne un avantage clair sur les autres propositions, même si celles-ci restent concevables dans certains contextes.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La question mentionne la conservation de la grande charpente et de traces de machines, ce qui évoque fortement une logique patrimoniale ou historique. Parmi les réponses, seule « Elles aident à rendre l’histoire du lieu lisible. » mentionne explicitement cet enjeu de lisibilité historique, alors que les autres invoquent des effets économiques, énergétiques ou de confort qui sont moins directement reliés à la notion de traces matérielles du passé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur la réhabilitation d’une ancienne usine en logements, l’architecte explique qu’en conservant la grande charpente et certaines traces de machines, on évite des démolitions lourdes et des reconstructions complexes, ce qui limite le coût global des travaux."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission sur l’architecture durable, l’ingénieur décrit comment la grande charpente permet de conserver un volume intérieur particulier et d’intégrer plus facilement une bonne isolation, en précisant que certaines structures ou éléments existants sont indispensables pour atteindre de bonnes performances énergétiques."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un documentaire sur la transformation d’un ancien atelier industriel, l’architecte insiste sur la dimension patrimoniale du projet : garder la grande charpente et les traces des anciennes machines permet de comprendre l’usage d’origine du bâtiment et de rendre l’histoire du lieu lisible pour les visiteurs et futurs habitants."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une présentation de projet immobilier, le promoteur affirme que la conservation de la charpente apparente et de quelques traces de machines donnera un caractère chaleureux et singulier aux appartements, ce qui améliorera directement la sensation de confort perçue par les futurs occupants."
+          }
+        ]
+      },
+      "imageHash": null
+    },
     null,
     null,
     null,
@@ -43,10 +196,545 @@
     null,
     null,
     null,
-    null,
-    null,
-    null
+    {
+      "question": {
+        "number": 38,
+        "kind": "public-lecture",
+        "question": "Selon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ?",
+        "options": [
+          "À l’échelle de la région",
+          "À l’échelle de la parcelle bâtie",
+          "À l’échelle du quartier",
+          "À l’échelle de la rue"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le document dit explicitement qu’«une solution [...] semble écologique à l’échelle de la région». C’est donc bien à cette échelle-là que la solution est présentée comme paraissant écologique, avant que soient mentionnés les effets négatifs à une autre échelle. B : Le texte ne parle jamais de «parcelle bâtie» ni d’une appréciation écologique à cette échelle. On pourrait se tromper en pensant que la réflexion sur la «parcelle» est implicite quand le texte évoque le remplacement «des cours plantées par des surfaces minérales», et en généraliser cette idée à l’échelle de la parcelle. Mais la seule échelle à laquelle la solution est dite «sembler écologique» est «à l’échelle de la région», pas à celle de la parcelle bâtie. C : Le mot «quartiers» apparaît dans le texte, ce qui peut inciter à croire que l’évaluation écologique se fait à cette échelle. Quelqu’un qui retient surtout l’idée que «les quartiers deviennent plus chauds» pourrait associer à tort cette phrase à la question de l’échelle. Cependant, lorsque le document parle d’une solution qui «semble écologique», il précise clairement l’échelle : «à l’échelle de la région», puis oppose cette échelle à «l’échelle de la rue», et non à celle du quartier. D : «À l’échelle de la rue» est bien mentionné, ce qui peut amener quelqu’un à retenir seulement cette expression sans faire attention à la structure de la phrase. En entendant «à l’échelle de la rue», on peut croire que c’est là que la solution paraît écologique. Pourtant, la phrase distingue deux niveaux : la solution «semble écologique à l’échelle de la région» mais produit des «effets négatifs à l’échelle de la rue». À l’échelle de la rue, la solution n’est donc pas présentée comme écologique, mais comme problématique.",
+        "transcript": "Question 38.\nDensifier les villes peut limiter l'étalement des constructions sur les terres agricoles. Mais si cette densification remplace systématiquement les cours plantées par des surfaces minérales, les quartiers deviennent plus chauds et moins agréables en été. L'objectif de réduction des distances parcourues ne doit donc pas faire oublier la qualité de vie locale. Il faut associer logements, transports, espaces ombragés et gestion de l'eau. Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue si l'on néglige ses conditions d'application.\nSelon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 38."
+          },
+          {
+            "voice": "female",
+            "text": "Densifier les villes peut limiter l'étalement des constructions sur les terres agricoles. Mais si cette densification remplace systématiquement les cours plantées par des surfaces minérales, les quartiers deviennent plus chauds et moins agréables en été. L'objectif de réduction des distances parcourues ne doit donc pas faire oublier la qualité de vie locale. Il faut associer logements, transports, espaces ombragés et gestion de l'eau. Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue si l'on néglige ses conditions d'application."
+          },
+          {
+            "voice": "female",
+            "text": "Selon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ?"
+          }
+        ],
+        "audio": "q-38.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 81
+      },
+      "sourceHash": "f36defc81bf5c63c158fcc00850a5bd990d121834eedd5f4c4325c2cee059673",
+      "contentHash": "20b543c453e48ad7d6e8104ca18b050aaf27d27c29614b2ab12b1275fddcb70d",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "rounds": 2,
+      "pass": true,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkxDed7Jdg0LQQAUqeeZBNtMYOn1Y",
+        "result": {
+          "question": "Selon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ?",
+          "choices": [
+            "À l’échelle de la parcelle bâtie",
+            "À l’échelle de la rue",
+            "À l’échelle du quartier",
+            "À l’échelle de la région"
+          ],
+          "correctIndex": 3,
+          "explanation": "Le texte précise qu’il s’agit d’une solution qui semble écologique à l’échelle de la région, avant de signaler ses effets négatifs possibles à l’échelle de la rue.",
+          "design": "L’item cible la relation précise entre une même solution et l’échelle territoriale à laquelle elle est décrite comme écologique (région vs rue). Toutes les réponses proposent des échelles spatiales plausibles dans un discours d’urbanisme (parcelle, rue, quartier, région), donc sans le document chacune pourrait raisonnablement être le niveau pertinent. Seule l’écoute permet d’identifier que le statut « semble écologique » est explicitement attribué à l’échelle régionale, tandis que d’autres échelles (rue, quartier) sont associées à des effets locaux négatifs ou à la qualité de vie.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Le candidat peut croire que l’évaluation écologique se joue au niveau très local de la parcelle, car le texte parle de cours plantées remplacées par des surfaces minérales. Il confond ainsi un lieu concret d’intervention avec l’échelle explicitement mentionnée pour juger du caractère écologique de la solution.",
+              "operation": "scope_shift",
+              "anchors": [
+                "les cours plantées",
+                "surfaces minérales"
+              ]
+            },
+            {
+              "index": 1,
+              "reason": "La présence de à l’échelle de la rue peut faire penser que c’est là que la solution est dite écologique, alors que ce niveau est associé aux effets négatifs et non au fait de sembler écologique. L’échelle de la rue est bien nommée, mais avec un rôle inverse à celui que suggère la réponse.",
+              "operation": "scope_shift",
+              "anchors": [
+                "à l'échelle de la rue",
+                "effets négatifs"
+              ]
+            },
+            {
+              "index": 2,
+              "reason": "Le texte évoque directement les quartiers et la qualité de vie locale, ce qui peut amener à supposer que l’appréciation écologique est formulée à l’échelle du quartier. En réalité, ces éléments servent à décrire des conséquences locales, tandis que l’appréciation écologique est située plus largement à l’échelle de la région.",
+              "operation": "scope_shift",
+              "anchors": [
+                "les quartiers deviennent plus chauds",
+                "qualité de vie locale"
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "prompt_tokens": 1989,
+          "completion_tokens": 2300,
+          "total_tokens": 4289,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1768,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.02548625,
+        "inputHash": "d37a1658a46de34027b65c26901464bb899007ab1e6a11608dfe6415af960f59",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:37:e751e4423565d5ae9d61421f:author:1:0"
+      },
+      "blind": [
+        {
+          "order": [
+            3,
+            0,
+            2,
+            1
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxE04G7ywCUf4VeleZ20s1TPm8Ns",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Dans un reportage sur l’aménagement urbain, un expert explique qu’un dispositif (par exemple la piétonnisation ou des bacs à fleurs) paraît très écologique à l’échelle de la rue, mais qu’en réalité son impact global reste limité."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Dans une émission sur les politiques environnementales, l’intervenant dit qu’une solution (par exemple un plan de transport en commun) semble écologique à l’échelle de la région, mais que son bilan se nuance quand on regarde les effets au niveau national ou européen."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Dans un débat sur l’urbanisme durable, un urbaniste indique qu’un projet (par exemple un écoquartier) apparaît écologique à l’échelle du quartier, mais que certains effets sont moins positifs si on considère l’ensemble de la ville."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Dans un cours sur l’architecture verte, le professeur précise qu’une technologie (par exemple une maison à énergie positive) semble écologique à l’échelle de la parcelle bâtie, mais que son intérêt doit être relativisé si on évalue la chaîne de production complète."
+                }
+              ],
+              "cues": [],
+              "standsOut": false,
+              "probabilities": [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              "guess": 2,
+              "reason": "Les quatre échelles proposées peuvent toutes être évoquées dans un document parlant d’une solution « semblant » écologique selon la précision d’analyse ; aucune option ne présente d’avantage rédactionnel ou contextuel net, d’où une forte incertitude et un choix d’indice arbitraire."
+            },
+            "usage": {
+              "prompt_tokens": 609,
+              "completion_tokens": 484,
+              "total_tokens": 1093,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 116,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00560125,
+            "inputHash": "21fd3024a5ca129685b878b6e641316a8ee1cf293b5a0c74abbef365443f5933",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:37:e751e4423565d5ae9d61421f:screen:2:0"
+          }
+        },
+        {
+          "order": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxE7iTp8bwXaYPaaLoBF4DeZrBoV",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Une émission de radio discute d’un projet d’énergie renouvelable (parc éolien, réseau de chaleur) mis en place sur plusieurs communes. Le journaliste demande : « Selon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ? » et l’invité répond que, telle qu’elle est décrite, elle paraît écologique à l’échelle de la région, car on insiste sur les bénéfices globaux régionaux plutôt que sur les impacts locaux."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Un reportage traite d’une expérimentation de circulation apaisée ou de verdissement (plantation d’arbres, piétonnisation) sur une seule rue. Le narrateur conclut en disant que, selon le document de présentation, la solution semble écologique à l’échelle de la rue, où l’on voit moins de voitures et plus de végétation, même si l’impact global sur la ville reste limité."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Un documentaire décrit un dispositif de compostage partagé, de jardins partagés ou de collecte de déchets mis en place pour tout un quartier. Le commentateur précise que, selon le document, cette solution paraît écologique à l’échelle du quartier, car on observe des améliorations locales (moindre trafic, plus d’espaces verts), même si l’effet à l’échelle de la ville ou de la région n’est pas détaillé."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Une présentation porte sur un immeuble ou une maison équipée de panneaux solaires, d’une toiture végétalisée ou d’une isolation performante. Le présentateur précise : « Selon le document, la solution évoquée semble écologique à l’échelle de la parcelle bâtie », c’est-à-dire au niveau du bâtiment individuel, en soulignant la baisse de consommation d’énergie pour ce seul lot."
+                }
+              ],
+              "cues": [],
+              "standsOut": false,
+              "probabilities": [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              "guess": 0,
+              "reason": "Les quatre réponses décrivent des échelles spatiales cohérentes avec la formulation de la question et répondent directement sans restriction implicite. Aucune option ne présente d’avantage clair de formulation, de précision ou de correction grammaticale permettant de la distinguer des autres, et l’énoncé isolé ne fournit aucun indice concret sur l’échelle réellement visée dans le document audio manquant. Les probabilités sont donc réparties uniformément, avec une forte incertitude sur la clé attendue."
+            },
+            "usage": {
+              "prompt_tokens": 609,
+              "completion_tokens": 610,
+              "total_tokens": 1219,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 56,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00686125,
+            "inputHash": "41b1bf4b38512bf881480a1a30d92628d9762fba81aaf4b499331dd14b795335",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:37:e751e4423565d5ae9d61421f:screen:2:1"
+          }
+        },
+        {
+          "order": [
+            0,
+            2,
+            1,
+            3
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxEFiEkOyziNnTBeFMHAFx5BZRU6",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Une émission de radio traite d’un projet de production d’énergie renouvelable pour une grande zone administrative. Le journaliste conclut : « Selon le document, cette solution semble écologique à l’échelle de la région, mais ses effets locaux restent discutés. »"
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Un débat sur l’aménagement urbain présente un système de compostage partagé. L’urbaniste explique : « D’après le document, cette solution semble écologique à l’échelle du quartier, car elle réduit les transports de déchets. »"
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Une réunion de copropriété discute d’une isolation par l’extérieur. L’architecte commente : « Selon le document, la solution semble écologique à l’échelle de la parcelle bâtie, mais son impact global sur le quartier est limité. »"
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Un reportage sur la végétalisation urbaine décrit une file d’arbres plantés. Le spécialiste dit : « Selon le document, cette solution semble écologique à l’échelle de la rue, en améliorant la qualité de l’air localement. »"
+                }
+              ],
+              "cues": [],
+              "standsOut": false,
+              "probabilities": [
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              "guess": 0,
+              "reason": "Les quatre réponses correspondent naturellement à la formulation « à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ? », sans différence claire de style, de portée ou de correction grammaticale permettant d’en privilégier une. Sans accès au document audio, aucune n’a d’avantage objectif observable, d’où des probabilités uniformes et un choix de réponse purement arbitraire."
+            },
+            "usage": {
+              "prompt_tokens": 609,
+              "completion_tokens": 519,
+              "total_tokens": 1128,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 140,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00595125,
+            "inputHash": "14c16fdfff4d7807528ff0821193128d2b2ded2829275a013957cd03a76a2c23",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:37:e751e4423565d5ae9d61421f:screen:2:2"
+          }
+        }
+      ],
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkxEN8KtjNZt1hpV84I7zTuTaNaIe",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue"
+              ],
+              "reason": "Le document dit explicitement qu’«une solution [...] semble écologique à l’échelle de la région». C’est donc bien à cette échelle-là que la solution est présentée comme paraissant écologique, avant que soient mentionnés les effets négatifs à une autre échelle."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue"
+              ],
+              "reason": "Le texte ne parle jamais de «parcelle bâtie» ni d’une appréciation écologique à cette échelle. On pourrait se tromper en pensant que la réflexion sur la «parcelle» est implicite quand le texte évoque le remplacement «des cours plantées par des surfaces minérales», et en généraliser cette idée à l’échelle de la parcelle. Mais la seule échelle à laquelle la solution est dite «sembler écologique» est «à l’échelle de la région», pas à celle de la parcelle bâtie.",
+              "misunderstanding": "inference_beyond_text"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les quartiers deviennent plus chauds et moins agréables en été",
+                "Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue"
+              ],
+              "reason": "Le mot «quartiers» apparaît dans le texte, ce qui peut inciter à croire que l’évaluation écologique se fait à cette échelle. Quelqu’un qui retient surtout l’idée que «les quartiers deviennent plus chauds» pourrait associer à tort cette phrase à la question de l’échelle. Cependant, lorsque le document parle d’une solution qui «semble écologique», il précise clairement l’échelle : «à l’échelle de la région», puis oppose cette échelle à «l’échelle de la rue», et non à celle du quartier.",
+              "misunderstanding": "scope_shift"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue"
+              ],
+              "reason": "«À l’échelle de la rue» est bien mentionné, ce qui peut amener quelqu’un à retenir seulement cette expression sans faire attention à la structure de la phrase. En entendant «à l’échelle de la rue», on peut croire que c’est là que la solution paraît écologique. Pourtant, la phrase distingue deux niveaux : la solution «semble écologique à l’échelle de la région» mais produit des «effets négatifs à l’échelle de la rue». À l’échelle de la rue, la solution n’est donc pas présentée comme écologique, mais comme problématique.",
+              "misunderstanding": "scope_confusion"
+            }
+          ],
+          "summary": "La seule échelle à laquelle le document présente la solution comme semblant écologique est «à l’échelle de la région» ; les autres échelles ne sont pas associées à cette appréciation positive."
+        },
+        "usage": {
+          "prompt_tokens": 622,
+          "completion_tokens": 1089,
+          "total_tokens": 1711,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 378,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0116675,
+        "inputHash": "6e883d56329be0047e25e86b93476a622c06d0933378df0dd8a8615f5ebba2ba",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:37:e751e4423565d5ae9d61421f:ground:2"
+      },
+      "feedback": null,
+      "imageHash": null
+    },
+    {
+      "question": {
+        "number": 39,
+        "kind": "interview",
+        "question": "Dans le document audio, quel élément lié au premier immeuble est présenté comme quelque chose qui ne se reproduira pas forcément pour un deuxième bâtiment ?",
+        "options": [
+          "La participation spontanée des membres aux décisions collectives.",
+          "Le nombre très élevé de demandes de logements reçues par la coopérative.",
+          "Le niveau actuel de capacité à entretenir les parties communes.",
+          "Les subventions de lancement obtenues pour le premier immeuble."
+        ],
+        "correct": "D",
+        "explanation": "L’intervenant précise que le premier immeuble a bénéficié de subventions de lancement qui ne se répéteront pas nécessairement, ce qui désigne clairement ces subventions comme un avantage financier ponctuel dont la reconduction n’est pas garantie pour un second bâtiment.",
+        "transcript": "Question 39.\nVotre coopérative de logements accueille de nombreuses demandes. Pourquoi ne pas ouvrir immédiatement un second bâtiment ?\nNous devons d'abord vérifier notre capacité à entretenir les parties communes et à financer les grosses réparations. Le premier immeuble a bénéficié de subventions de lancement qui ne se répéteront pas nécessairement. Il nous faut aussi former de nouveaux membres aux décisions collectives, car la participation ne s'improvise pas. Un nouveau bâtiment serait une bonne nouvelle seulement si les logements existants restent abordables et correctement entretenus.\nDans le document audio, quel élément lié au premier immeuble est présenté comme quelque chose qui ne se reproduira pas forcément pour un deuxième bâtiment ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 39."
+          },
+          {
+            "voice": "male",
+            "text": "Votre coopérative de logements accueille de nombreuses demandes. Pourquoi ne pas ouvrir immédiatement un second bâtiment ?"
+          },
+          {
+            "voice": "female",
+            "text": "Nous devons d'abord vérifier notre capacité à entretenir les parties communes et à financer les grosses réparations. Le premier immeuble a bénéficié de subventions de lancement qui ne se répéteront pas nécessairement. Il nous faut aussi former de nouveaux membres aux décisions collectives, car la participation ne s'improvise pas. Un nouveau bâtiment serait une bonne nouvelle seulement si les logements existants restent abordables et correctement entretenus."
+          },
+          {
+            "voice": "female",
+            "text": "Dans le document audio, quel élément lié au premier immeuble est présenté comme quelque chose qui ne se reproduira pas forcément pour un deuxième bâtiment ?"
+          }
+        ],
+        "audio": "q-39.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 81
+      },
+      "contentHash": "3b0addd9a0282d125c28bf648f4b8140e0c920e6194c22b5f1a746eef6eccf6a",
+      "sourceHash": "10c0eb7264aff2ceec8ff98e50b0b13efb42fb7b6806c392a0905b97c1c22dd9",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            3,
+            2,
+            0,
+            1
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxGgGA4CPsUzHrDR1aM5XxdfOywy",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Une représentante d’une coopérative d’habitation fait le bilan de la construction de leur premier immeuble et explique que, pour celui‑ci, ils ont bénéficié de subventions de lancement exceptionnelles. Elle précise ensuite qu’il n’est pas garanti qu’ils obtiennent à nouveau ce type d’aides pour un deuxième bâtiment, car les programmes publics peuvent changer."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Lors d’une réunion d’information, un membre du conseil d’administration décrit la situation actuelle de la coopérative : ils arrivent tout juste à entretenir correctement les parties communes du premier immeuble. Il ajoute que si un deuxième bâtiment voyait le jour, ils ne seraient pas forcément capables de maintenir le même niveau d’entretien, faute de temps ou de moyens humains."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Dans un enregistrement destiné aux futurs adhérents, une personne explique que, dans le premier immeuble, les membres participent spontanément aux assemblées générales et aux décisions collectives, mais qu’il ne faut pas s’attendre à ce que cette implication se reproduise automatiquement dans un deuxième bâtiment, car chaque groupe de résidents a sa propre dynamique."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Un responsable de coopérative commente le succès du premier immeuble en soulignant le nombre très élevé de demandes de logements reçues au lancement. Il nuance aussitôt en disant qu’il ne faut pas présumer que ce volume de demandes se reproduira pour un deuxième bâtiment, par exemple si la conjoncture ou la médiatisation changent."
+                }
+              ],
+              "cues": [
+                {
+                  "option": 0,
+                  "severity": "weak",
+                  "cue": "La formulation « Les subventions de lancement obtenues pour le premier immeuble » est étroitement et spécifiquement liée au premier bâtiment, ce qui correspond très naturellement à « un élément lié au premier immeuble » qui pourrait ne pas se reproduire. Les autres réponses sont davantage des caractéristiques générales de la coopérative ou de ses membres (participation, demandes, capacité d’entretien), moins ancrées dans le seul premier immeuble."
+                }
+              ],
+              "standsOut": true,
+              "probabilities": [
+                0.45,
+                0.2,
+                0.2,
+                0.15
+              ],
+              "guess": 0,
+              "reason": "Plusieurs options restent plausibles pour un enregistrement réel, mais le lien formulé explicitement entre les « subventions de lancement » et le « premier immeuble » fournit un léger avantage de cohérence avec la question qui demande un élément spécifiquement rattaché au premier bâtiment. Les autres choix décrivent plutôt des états généraux ou des comportements, d’où une préférence modérée pour l’option 0 malgré une incertitude notable."
+            },
+            "usage": {
+              "prompt_tokens": 636,
+              "completion_tokens": 941,
+              "total_tokens": 1577,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 365,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.010205,
+            "inputHash": "a23392d4a3d24000a205fc21737320261132acf38224e072fae5bd10e5076acf",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:38:e751e4423565d5ae9d61421f:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options restent plausibles pour un enregistrement réel, mais le lien formulé explicitement entre les « subventions de lancement » et le « premier immeuble » fournit un léger avantage de cohérence avec la question qui demande un élément spécifiquement rattaché au premier bâtiment. Les autres choix décrivent plutôt des états généraux ou des comportements, d’où une préférence modérée pour l’option 0 malgré une incertitude notable.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "La formulation « Les subventions de lancement obtenues pour le premier immeuble » est étroitement et spécifiquement liée au premier bâtiment, ce qui correspond très naturellement à « un élément lié au premier immeuble » qui pourrait ne pas se reproduire. Les autres réponses sont davantage des caractéristiques générales de la coopérative ou de ses membres (participation, demandes, capacité d’entretien), moins ancrées dans le seul premier immeuble."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une représentante d’une coopérative d’habitation fait le bilan de la construction de leur premier immeuble et explique que, pour celui‑ci, ils ont bénéficié de subventions de lancement exceptionnelles. Elle précise ensuite qu’il n’est pas garanti qu’ils obtiennent à nouveau ce type d’aides pour un deuxième bâtiment, car les programmes publics peuvent changer."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion d’information, un membre du conseil d’administration décrit la situation actuelle de la coopérative : ils arrivent tout juste à entretenir correctement les parties communes du premier immeuble. Il ajoute que si un deuxième bâtiment voyait le jour, ils ne seraient pas forcément capables de maintenir le même niveau d’entretien, faute de temps ou de moyens humains."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un enregistrement destiné aux futurs adhérents, une personne explique que, dans le premier immeuble, les membres participent spontanément aux assemblées générales et aux décisions collectives, mais qu’il ne faut pas s’attendre à ce que cette implication se reproduise automatiquement dans un deuxième bâtiment, car chaque groupe de résidents a sa propre dynamique."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un responsable de coopérative commente le succès du premier immeuble en soulignant le nombre très élevé de demandes de logements reçues au lancement. Il nuance aussitôt en disant qu’il ne faut pas présumer que ce volume de demandes se reproduira pour un deuxième bâtiment, par exemple si la conjoncture ou la médiatisation changent."
+          }
+        ]
+      },
+      "imageHash": null
+    }
   ],
   "paperAssessment": null,
-  "paperHash": "91bd9114da88246df93aaee99af573b21a79973b0bb0f499316476498a314ffa"
+  "paperHash": "05ea21d9d46385bea714d53720cb73bf7c5038823c89cf5c1b036594c8a52039"
 }

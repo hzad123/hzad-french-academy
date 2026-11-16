@@ -1,7 +1,7 @@
 {
   "protocol": "six-listening-contrast-v2",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "test": "tcf-listening-04",
   "version": "tcf-listening-2026-11-test04-v5",
   "source": "supabase/exams/tcf-listening-test04-v4.json",
@@ -36,6 +36,159 @@
     null,
     null,
     null,
+    {
+      "question": {
+        "number": 30,
+        "kind": "interview",
+        "question": "Sur quelle différence entre les publics l’intervenant s’appuie-t-il surtout pour expliquer que les parcours bilingues ne soient pas de simples traductions ?",
+        "options": [
+          "Leur niveau de maîtrise de la langue du pays",
+          "Les références culturelles qu’ils partagent ou non",
+          "Leur âge et la composition familiale des groupes",
+          "Leur fréquence de visite au musée"
+        ],
+        "correct": "B",
+        "explanation": "L’intervenant précise que « les visiteurs ne connaissent pas nécessairement les mêmes références culturelles ». C’est cette variation des références qui justifie qu’« certains concepts demandent une explication supplémentaire, des exemples différents ou des images plus précises », et donc que les parcours bilingues ne soient pas de simples traductions.",
+        "transcript": "Question 30.\nVotre musée propose désormais des parcours bilingues, mais ils ne sont pas tous de simples traductions. Pourquoi ?\nNous avons remarqué que les visiteurs ne connaissent pas nécessairement les mêmes références culturelles. Certains concepts demandent une explication supplémentaire, des exemples différents ou des images plus précises. Nous avons donc travaillé avec des médiateurs de plusieurs langues et consulté des familles. Notre objectif n'est pas de raconter deux histoires contradictoires, mais de rendre le même patrimoine compréhensible pour des publics divers.\nSur quelle différence entre les publics l’intervenant s’appuie-t-il surtout pour expliquer que les parcours bilingues ne soient pas de simples traductions ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 30."
+          },
+          {
+            "voice": "male",
+            "text": "Votre musée propose désormais des parcours bilingues, mais ils ne sont pas tous de simples traductions. Pourquoi ?"
+          },
+          {
+            "voice": "female",
+            "text": "Nous avons remarqué que les visiteurs ne connaissent pas nécessairement les mêmes références culturelles. Certains concepts demandent une explication supplémentaire, des exemples différents ou des images plus précises. Nous avons donc travaillé avec des médiateurs de plusieurs langues et consulté des familles. Notre objectif n'est pas de raconter deux histoires contradictoires, mais de rendre le même patrimoine compréhensible pour des publics divers."
+          },
+          {
+            "voice": "female",
+            "text": "Sur quelle différence entre les publics l’intervenant s’appuie-t-il surtout pour expliquer que les parcours bilingues ne soient pas de simples traductions ?"
+          }
+        ],
+        "audio": "q-30.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 69
+      },
+      "contentHash": "5f8338e21bd68520f698312da48c32e7b125772c831456b2a418ce499b81232a",
+      "sourceHash": "5620478f66c70fedb04b7fb011ebd78a7fb984e51422b8ec32d1aafbc85ebf28",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            1,
+            2,
+            0,
+            3
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxCdxlVlsDu1xb90Uxs2ChtIeqty",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Une médiatrice de musée explique à des stagiaires en médiation culturelle que, pour concevoir des parcours bilingues, elle adapte son discours non seulement à la langue mais aussi aux références culturelles partagées par les publics francophones et anglophones, ce qui fait que les parcours ne sont pas de simples traductions mot à mot."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Lors d’une réunion de préparation d’une exposition, un responsable pédagogique explique que les publics scolaires et les groupes d’adultes n’ont pas le même âge ni la même composition familiale, et que ces différences influencent la manière dont on conçoit les visites bilingues, qui ne peuvent donc pas être de simples traductions standardisées."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "Dans une formation pour guides touristiques, un intervenant explique que certains publics maîtrisent très bien la langue du pays alors que d’autres sont débutants, et que, pour cette raison, les parcours bilingues doivent être réécrits et simplifiés différemment pour chaque public au lieu d’être de simples traductions littérales."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Un responsable de médiation explique à son équipe que les visiteurs occasionnels et les habitués du musée n’ont pas les mêmes attentes, et que l’on adapte parfois davantage le contenu des parcours bilingues pour les publics rares ou novices, ce qui fait qu’il ne s’agit pas seulement de traduire le parcours existant."
+                }
+              ],
+              "cues": [
+                {
+                  "option": 0,
+                  "severity": "weak",
+                  "cue": "La différence de «références culturelles» est directement liée à l’idée que les contenus doivent être repensés plutôt que seulement traduits mot à mot, ce qui correspond bien à la justification que les parcours bilingues ne sont pas de simples traductions; la formulation est aussi légèrement plus nuancée et qualitative que les autres, qui décrivent des paramètres plus génériques (âge, niveau de langue, fréquence)."
+                }
+              ],
+              "standsOut": true,
+              "probabilities": [
+                0.4,
+                0.2,
+                0.25,
+                0.15
+              ],
+              "guess": 0,
+              "reason": "Les quatre options sont plausibles, mais l’argument spécifique selon lequel les parcours bilingues ne sont pas de simples traductions est le plus naturellement fondé sur la différence de références culturelles entre publics de langues différentes, plutôt que sur l’âge, la fréquence de visite ou même seulement le niveau de langue; cela donne à l’option 0 un léger avantage sans éliminer les autres."
+            },
+            "usage": {
+              "prompt_tokens": 625,
+              "completion_tokens": 703,
+              "total_tokens": 1328,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 164,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00781125,
+            "inputHash": "f5dc6fba4cd0e093a136cc387e2cfbf68d7379bf01290edf8acbb370f86c2e4a",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:29:e751e4423565d5ae9d61421f:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre options sont plausibles, mais l’argument spécifique selon lequel les parcours bilingues ne sont pas de simples traductions est le plus naturellement fondé sur la différence de références culturelles entre publics de langues différentes, plutôt que sur l’âge, la fréquence de visite ou même seulement le niveau de langue; cela donne à l’option 0 un léger avantage sans éliminer les autres.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "La différence de «références culturelles» est directement liée à l’idée que les contenus doivent être repensés plutôt que seulement traduits mot à mot, ce qui correspond bien à la justification que les parcours bilingues ne sont pas de simples traductions; la formulation est aussi légèrement plus nuancée et qualitative que les autres, qui décrivent des paramètres plus génériques (âge, niveau de langue, fréquence)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une médiatrice de musée explique à des stagiaires en médiation culturelle que, pour concevoir des parcours bilingues, elle adapte son discours non seulement à la langue mais aussi aux références culturelles partagées par les publics francophones et anglophones, ce qui fait que les parcours ne sont pas de simples traductions mot à mot."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de préparation d’une exposition, un responsable pédagogique explique que les publics scolaires et les groupes d’adultes n’ont pas le même âge ni la même composition familiale, et que ces différences influencent la manière dont on conçoit les visites bilingues, qui ne peuvent donc pas être de simples traductions standardisées."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une formation pour guides touristiques, un intervenant explique que certains publics maîtrisent très bien la langue du pays alors que d’autres sont débutants, et que, pour cette raison, les parcours bilingues doivent être réécrits et simplifiés différemment pour chaque public au lieu d’être de simples traductions littérales."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un responsable de médiation explique à son équipe que les visiteurs occasionnels et les habitués du musée n’ont pas les mêmes attentes, et que l’on adapte parfois davantage le contenu des parcours bilingues pour les publics rares ou novices, ce qui fait qu’il ne s’agit pas seulement de traduire le parcours existant."
+          }
+        ]
+      },
+      "imageHash": null
+    },
     null,
     null,
     null,
@@ -43,10 +196,161 @@
     null,
     null,
     null,
-    null,
-    null,
-    null
+    {
+      "question": {
+        "number": 38,
+        "kind": "public-lecture",
+        "question": "Dans le document, à quoi sert le fait de « mesurer les progrès réels » ?",
+        "options": [
+          "À répartir le temps des bénévoles entre les élèves inscrits.",
+          "À savoir si le programme améliore vraiment l’apprentissage, au‑delà du simple nombre d’inscrits.",
+          "À décider quels enfants devront attendre plusieurs semaines avant d’être pris en charge.",
+          "À fixer une limite de participants pour ne pas dépasser la capacité d’accueil."
+        ],
+        "correct": "B",
+        "explanation": "Le document relie directement « mesurer les progrès réels » à l’idée de démontrer une « amélioration de l’apprentissage », en contraste avec le simple fait d’annoncer « un grand nombre de participants ». La mesure des progrès sert donc à vérifier l’efficacité réelle du programme, pas à organiser les files d’attente, fixer un quota ni planifier le temps des bénévoles.",
+        "transcript": "Question 38.\nL'ouverture d'un programme de soutien scolaire gratuit a suscité un intérêt considérable. Pourtant, son succès peut le fragiliser. Lorsque les inscriptions dépassent la capacité d'accueil, les bénévoles disposent de moins de temps pour chaque élève; certains enfants qui ont les besoins les plus importants attendent plusieurs semaines. Annoncer un grand nombre de participants ne suffit donc pas à démontrer une amélioration de l'apprentissage. Il faut définir des priorités transparentes, préparer davantage de tuteurs et mesurer les progrès réels. Une initiative peut être populaire tout en échouant à offrir l'aide promise à ceux qui en ont le plus besoin.\nDans le document, à quoi sert le fait de « mesurer les progrès réels » ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 38."
+          },
+          {
+            "voice": "female",
+            "text": "L'ouverture d'un programme de soutien scolaire gratuit a suscité un intérêt considérable. Pourtant, son succès peut le fragiliser. Lorsque les inscriptions dépassent la capacité d'accueil, les bénévoles disposent de moins de temps pour chaque élève; certains enfants qui ont les besoins les plus importants attendent plusieurs semaines. Annoncer un grand nombre de participants ne suffit donc pas à démontrer une amélioration de l'apprentissage. Il faut définir des priorités transparentes, préparer davantage de tuteurs et mesurer les progrès réels. Une initiative peut être populaire tout en échouant à offrir l'aide promise à ceux qui en ont le plus besoin."
+          },
+          {
+            "voice": "female",
+            "text": "Dans le document, à quoi sert le fait de « mesurer les progrès réels » ?"
+          }
+        ],
+        "audio": "q-38.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 81
+      },
+      "contentHash": "f220dadc0f12e9afc11ef8f8c49531fd21a03fd00b290eebffb103d740786226",
+      "sourceHash": "6242b57dd87ced366e25e843649866c9fad60d9201ef3f9d7c95530640679601",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "rounds": 6,
+      "pass": false,
+      "blocked": true,
+      "blind": [
+        {
+          "order": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "receipt": {
+            "stage": "blind",
+            "policy": "listening-comprehension-qc-v2",
+            "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+            "model": "gpt-5.1-2025-11-13",
+            "responseId": "chatcmpl-EkxGXntaKkIRjaIUbQ97fFsPBe90R",
+            "result": {
+              "plausibility": [
+                {
+                  "index": 0,
+                  "credible": true,
+                  "context": "Une coordinatrice d’un programme de soutien scolaire explique en réunion : « On doit mesurer les progrès réels des enfants pour mieux répartir le temps de nos bénévoles entre les élèves inscrits. Ceux qui progressent moins vite auront davantage de séances individuelles. » Ici, mesurer les progrès réels sert directement à organiser la répartition du temps des bénévoles."
+                },
+                {
+                  "index": 1,
+                  "credible": true,
+                  "context": "Un responsable de projet éducatif présente un rapport : « Le nombre d’inscrits augmente, mais ce n’est pas suffisant. Il faut mesurer les progrès réels pour savoir si le programme améliore vraiment l’apprentissage, au‑delà du simple nombre d’inscrits. » Ici, la mesure des progrès sert explicitement à évaluer l’efficacité réelle du programme, indépendamment des chiffres d’inscription."
+                },
+                {
+                  "index": 2,
+                  "credible": true,
+                  "context": "La directrice d’un centre d’activités extrascolaires dit à son équipe : « On doit mesurer les progrès réels des enfants pour fixer une limite de participants : au‑delà d’un certain nombre, les progrès chutent. Ça nous permettra de ne pas dépasser notre capacité d’accueil pédagogique. » Dans ce contexte, mesurer les progrès sert de base à définir une limite de participants."
+                },
+                {
+                  "index": 3,
+                  "credible": true,
+                  "context": "Dans une association de soutien scolaire surchargée, le responsable explique : « Comme nous manquons de ressources, on va mesurer les progrès réels de chaque enfant. Ceux qui progressent le plus lentement seront pris en charge en priorité, les autres devront parfois attendre plusieurs semaines. » Ici, la mesure des progrès sert à décider quels enfants devront attendre avant d’être pris en charge."
+                }
+              ],
+              "cues": [
+                {
+                  "option": 1,
+                  "severity": "clear",
+                  "cue": "Le libellé « mesurer les progrès réels » est directement repris et précisé par « savoir si le programme améliore vraiment l’apprentissage, au‑delà du simple nombre d’inscrits » ; la mention explicite d’une comparaison avec « le simple nombre d’inscrits » fait écho à l’opposition implicite entre indicateurs de résultat (progrès) et de volume (inscriptions), ce qui en fait une réponse particulièrement alignée, plus nuancée et pertinente que les autres, qui projettent des usages plus indirects (répartition du temps, limite de capacité, mise en attente)."
+                }
+              ],
+              "standsOut": true,
+              "probabilities": [
+                0.1,
+                0.7,
+                0.1,
+                0.1
+              ],
+              "guess": 1,
+              "reason": "Le texte de la réponse 1 reformule presque littéralement l’idée de « mesurer les progrès réels » comme outil d’évaluation de l’impact réel du programme, en l’opposant explicitement au seul suivi du nombre d’inscrits. Les autres options décrivent des usages plus secondaires ou gestionnaires de cette mesure, qui ne découlent pas naturellement de la seule formulation de la question. Cette proximité de formulation et de logique évaluative donne à l’option 1 un net avantage, bien que les autres restent contextuellement concevables sans accès à l’enregistrement."
+            },
+            "usage": {
+              "prompt_tokens": 640,
+              "completion_tokens": 761,
+              "total_tokens": 1401,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 95,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "costUsd": 0.00841,
+            "inputHash": "222424cad01f479e5b6d84fa208f608d41d8a9631dcf9171e5ca3f16bc2683a4",
+            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:e751e4423565d5ae9d61421f:screen:6:0"
+          }
+        }
+      ],
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le texte de la réponse 1 reformule presque littéralement l’idée de « mesurer les progrès réels » comme outil d’évaluation de l’impact réel du programme, en l’opposant explicitement au seul suivi du nombre d’inscrits. Les autres options décrivent des usages plus secondaires ou gestionnaires de cette mesure, qui ne découlent pas naturellement de la seule formulation de la question. Cette proximité de formulation et de logique évaluative donne à l’option 1 un net avantage, bien que les autres restent contextuellement concevables sans accès à l’enregistrement.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Le libellé « mesurer les progrès réels » est directement repris et précisé par « savoir si le programme améliore vraiment l’apprentissage, au‑delà du simple nombre d’inscrits » ; la mention explicite d’une comparaison avec « le simple nombre d’inscrits » fait écho à l’opposition implicite entre indicateurs de résultat (progrès) et de volume (inscriptions), ce qui en fait une réponse particulièrement alignée, plus nuancée et pertinente que les autres, qui projettent des usages plus indirects (répartition du temps, limite de capacité, mise en attente)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une coordinatrice d’un programme de soutien scolaire explique en réunion : « On doit mesurer les progrès réels des enfants pour mieux répartir le temps de nos bénévoles entre les élèves inscrits. Ceux qui progressent moins vite auront davantage de séances individuelles. » Ici, mesurer les progrès réels sert directement à organiser la répartition du temps des bénévoles."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un responsable de projet éducatif présente un rapport : « Le nombre d’inscrits augmente, mais ce n’est pas suffisant. Il faut mesurer les progrès réels pour savoir si le programme améliore vraiment l’apprentissage, au‑delà du simple nombre d’inscrits. » Ici, la mesure des progrès sert explicitement à évaluer l’efficacité réelle du programme, indépendamment des chiffres d’inscription."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "La directrice d’un centre d’activités extrascolaires dit à son équipe : « On doit mesurer les progrès réels des enfants pour fixer une limite de participants : au‑delà d’un certain nombre, les progrès chutent. Ça nous permettra de ne pas dépasser notre capacité d’accueil pédagogique. » Dans ce contexte, mesurer les progrès sert de base à définir une limite de participants."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une association de soutien scolaire surchargée, le responsable explique : « Comme nous manquons de ressources, on va mesurer les progrès réels de chaque enfant. Ceux qui progressent le plus lentement seront pris en charge en priorité, les autres devront parfois attendre plusieurs semaines. » Ici, la mesure des progrès sert à décider quels enfants devront attendre avant d’être pris en charge."
+          }
+        ]
+      },
+      "imageHash": null
+    },
+    {
+      "pass": false,
+      "blocked": true,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    }
   ],
   "paperAssessment": null,
-  "paperHash": "48b2789f94ce83a04d83200e629c254d5f1deebf3efe10ea4ebf7f18be743cdf"
+  "paperHash": "adc1190ebcb2beec5f1f5e32fae581bc36804553a34ddf5af779c24bdf4b05d6"
 }

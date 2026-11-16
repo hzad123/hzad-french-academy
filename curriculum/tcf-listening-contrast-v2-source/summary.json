@@ -1,9 +1,16 @@
 {
   "protocol": "six-listening-contrast-v2",
-  "policyHash": "d59fe2a2d66c19b9aeff290bcd9c4c05bd2e8266d73ea5442dbf6f28c0ae3da1",
-  "status": "design-probe-blocked",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "status": "pilot-blocked",
   "readyForMedia": false,
-  "probeSample": 3,
-  "probePassed": 0,
-  "errors": []
+  "pilotSample": 18,
+  "pilotPassed": 5,
+  "errors": [
+    {
+      "test": 4,
+      "number": 39,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    }
+  ]
 }

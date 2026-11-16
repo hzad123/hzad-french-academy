@@ -2,16 +2,16 @@
   "question": {
     "number": 38,
     "kind": "public-lecture",
-    "question": "Dans cet extrait, lorsque l’intervenant invite à réfléchir aux périodes, aux modes de déplacement et aux conditions d’accueil, quel objectif spécifique attribue-t-il à cette réflexion ?",
+    "question": "Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ?",
     "options": [
-      "S’assurer que la diffusion d’images attractives du village n’entraîne plus de modification notable de la vie locale, en conservant commerces et logements pour les habitants.",
-      "Permettre à la communauté d’orienter un tourisme très demandé de façon compatible avec la vie quotidienne des habitants.",
-      "Déterminer des périodes de visite et des modes de déplacement qui restreignent fortement l’accès, dans l’idée de préserver les villages dans un état quasiment figé.",
-      "Offrir aux responsables un levier supplémentaire pour augmenter le nombre d’arrivées, dès lors que le village devient très recherché."
+      "La fluidité de la circulation sur les routes du village.",
+      "La hausse des arrivées de visiteurs.",
+      "Le maintien des commerces nécessaires au quotidien pour les habitants.",
+      "La réduction du nombre de logements transformés en locations temporaires."
     ],
     "correct": "B",
-    "explanation": "L’intervenant lie cette réflexion à « la communauté souhaite développer » et à la crainte qu’« une destination peut être très recherchée tout en devenant moins agréable à vivre » : il s’agit de paramétrer le tourisme avec les habitants pour préserver la qualité de vie, pas de maximiser les arrivées ni de figer le village.",
-    "transcript": "Question 38.\nVous écoutez un extrait de conférence publique sur le tourisme durable. Une photographie d'un village paisible peut susciter des milliers de visites, mais la réussite de sa diffusion transforme parfois profondément la vie locale. Les routes deviennent encombrées, certains logements se convertissent en locations temporaires et les habitants perdent des commerces nécessaires au quotidien. Les responsables ont alors tendance à célébrer la hausse des arrivées, sans toujours mesurer ce que cette affluence coûte au territoire. Il ne s'agit pas d'interdire toute visite ni de vouloir figer les villages. Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d'accueil que la communauté souhaite développer. Une destination peut être très recherchée tout en devenant moins agréable à vivre. Nous devons donc distinguer le succès d'une campagne et la qualité durable de ses conséquences.\nDans cet extrait, lorsque l’intervenant invite à réfléchir aux périodes, aux modes de déplacement et aux conditions d’accueil, quel objectif spécifique attribue-t-il à cette réflexion ?",
+    "explanation": "Le conférencier précise que « les responsables ont alors tendance à célébrer la hausse des arrivées », alors que les autres éléments (routes encombrées, commerces perdus, logements convertis) sont présentés comme des effets problématiques de cette affluence.",
+    "transcript": "Question 38.\nVous écoutez un extrait de conférence publique sur le tourisme durable. Une photographie d'un village paisible peut susciter des milliers de visites, mais la réussite de sa diffusion transforme parfois profondément la vie locale. Les routes deviennent encombrées, certains logements se convertissent en locations temporaires et les habitants perdent des commerces nécessaires au quotidien. Les responsables ont alors tendance à célébrer la hausse des arrivées, sans toujours mesurer ce que cette affluence coûte au territoire. Il ne s'agit pas d'interdire toute visite ni de vouloir figer les villages. Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d'accueil que la communauté souhaite développer. Une destination peut être très recherchée tout en devenant moins agréable à vivre. Nous devons donc distinguer le succès d'une campagne et la qualité durable de ses conséquences.\nDans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ?",
     "segments": [
       {
         "voice": "female",
@@ -23,7 +23,7 @@
       },
       {
         "voice": "female",
-        "text": "Dans cet extrait, lorsque l’intervenant invite à réfléchir aux périodes, aux modes de déplacement et aux conditions d’accueil, quel objectif spécifique attribue-t-il à cette réflexion ?"
+        "text": "Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ?"
       }
     ],
     "audio": "q-38.mp3",
@@ -35,64 +35,108 @@
   "blind": [
     {
       "order": [
+        3,
         2,
         1,
-        3,
         0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
-        "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
-        "model": "gpt-5-mini-2025-08-07",
-        "responseId": "chatcmpl-EkvcTI2ZE3UVwEnkFXtmAfHOAk7vq",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkxCiBzb2PuiQXKzhwBVUhEIbHlh1",
         "result": {
-          "guess": 1,
-          "probabilities": [
-            0.05,
-            0.6,
-            0.05,
-            0.3
-          ],
-          "standsOut": true,
-          "cues": [
+          "plausibility": [
             {
-              "option": 1,
-              "severity": "clear",
-              "cue": " formulation équilibrée: orientation du tourisme par la communauté pour compatibilité avec la vie quotidienne — correspond précisément aux éléments évoqués (périodes, modes de déplacement, conditions d’accueil) et paraît l’objectif le plus raisonnable et central."
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur les effets d’Airbnb dans un village touristique, un élu explique qu’ils ont mis en place des règles pour limiter les locations de courte durée et ajoute : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » La réponse évoque qu’ils se félicitent de la réduction du nombre de logements transformés en locations temporaires."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une émission consacrée à la vie dans les centres-villes, un maire décrit les actions menées pour éviter la désertification commerciale. On demande ensuite : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » L’option correspond au fait qu’ils se réjouissent de conserver des commerces de proximité indispensables aux habitants."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un sujet sur le développement touristique d’un petit village, un responsable de l’office de tourisme parle des résultats de la saison et se félicite de l’augmentation de la fréquentation. On pose ensuite la question : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » et la réponse est qu’ils célèbrent la hausse des arrivées de visiteurs."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un reportage sur la gestion du trafic dans un village très fréquenté en haute saison, un responsable municipal détaille les nouvelles mesures de circulation. L’animateur demande : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » et l’on indique qu’ils se félicitent désormais de la fluidité de la circulation sur les routes du village."
             }
           ],
-          "reason": "Les éléments mentionnés (périodes, modes de déplacement, conditions d’accueil) renvoient à une gestion pratique et collective du tourisme pour préserver la qualité de vie des habitants. L’option 1 exprime clairement cette finalité. L’option 3 est voisine mais plus focalisée sur la diffusion d’images et la conservation de commerces/logements (plus circonstancielle); l’option 0 suppose une stratégie de restriction radicale et l’option 2 vise à accroître les arrivées — toutes deux semblent moins cohérentes avec l’énoncé. Par prudence, j’assigne une probabilité non nulle aux alternatives proches."
+          "cues": [
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "Le verbe « célébrer » s’emploie très naturellement pour marquer la satisfaction face à une hausse de fréquentation (« la hausse des arrivées de visiteurs »), notamment dans un contexte touristique ou économique ; les autres formulations relèvent plutôt d’un ton de gestion ou de régulation (réduction, maintien, fluidité) moins typiquement associées à l’idée de « célébrer » dans un extrait audio généraliste."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.15,
+            0.6,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Le choix 2 correspond le mieux à l’expression « ont tendance à célébrer », qui évoque une satisfaction mise en avant de façon récurrente, typique d’un discours de responsables du tourisme se félicitant d’une hausse des arrivées de visiteurs ; les autres options sont plausibles mais leur lexique est moins directement associé à l’idée de célébration."
         },
         "usage": {
-          "prompt_tokens": 488,
-          "completion_tokens": 433,
-          "total_tokens": 921,
+          "prompt_tokens": 615,
+          "completion_tokens": 652,
+          "total_tokens": 1267,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 192,
+            "reasoning_tokens": 76,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.000988,
-        "inputHash": "fc193d799c7db0d55ce8c32a35b0738b8bba96ede70c3b69281873e09b6c7abb",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:37:b322096703aa4aa7aa0af672:screen:6:0"
+        "costUsd": 0.00728875,
+        "inputHash": "b24b849f8c3803757929f7833dd461265675b7f6ee8a0560a46637e77e2ced32",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:37:e751e4423565d5ae9d61421f:screen:6:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Les éléments mentionnés (périodes, modes de déplacement, conditions d’accueil) renvoient à une gestion pratique et collective du tourisme pour préserver la qualité de vie des habitants. L’option 1 exprime clairement cette finalité. L’option 3 est voisine mais plus focalisée sur la diffusion d’images et la conservation de commerces/logements (plus circonstancielle); l’option 0 suppose une stratégie de restriction radicale et l’option 2 vise à accroître les arrivées — toutes deux semblent moins cohérentes avec l’énoncé. Par prudence, j’assigne une probabilité non nulle aux alternatives proches.",
+    "reason": "Le choix 2 correspond le mieux à l’expression « ont tendance à célébrer », qui évoque une satisfaction mise en avant de façon récurrente, typique d’un discours de responsables du tourisme se félicitant d’une hausse des arrivées de visiteurs ; les autres options sont plausibles mais leur lexique est moins directement associé à l’idée de célébration.",
     "cues": [
       {
-        "option": 1,
+        "option": 2,
         "severity": "clear",
-        "cue": " formulation équilibrée: orientation du tourisme par la communauté pour compatibilité avec la vie quotidienne — correspond précisément aux éléments évoqués (périodes, modes de déplacement, conditions d’accueil) et paraît l’objectif le plus raisonnable et central."
+        "cue": "Le verbe « célébrer » s’emploie très naturellement pour marquer la satisfaction face à une hausse de fréquentation (« la hausse des arrivées de visiteurs »), notamment dans un contexte touristique ou économique ; les autres formulations relèvent plutôt d’un ton de gestion ou de régulation (réduction, maintien, fluidité) moins typiquement associées à l’idée de « célébrer » dans un extrait audio généraliste."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un reportage sur les effets d’Airbnb dans un village touristique, un élu explique qu’ils ont mis en place des règles pour limiter les locations de courte durée et ajoute : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » La réponse évoque qu’ils se félicitent de la réduction du nombre de logements transformés en locations temporaires."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une émission consacrée à la vie dans les centres-villes, un maire décrit les actions menées pour éviter la désertification commerciale. On demande ensuite : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » L’option correspond au fait qu’ils se réjouissent de conserver des commerces de proximité indispensables aux habitants."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un sujet sur le développement touristique d’un petit village, un responsable de l’office de tourisme parle des résultats de la saison et se félicite de l’augmentation de la fréquentation. On pose ensuite la question : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » et la réponse est qu’ils célèbrent la hausse des arrivées de visiteurs."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un reportage sur la gestion du trafic dans un village très fréquenté en haute saison, un responsable municipal détaille les nouvelles mesures de circulation. L’animateur demande : « Dans cet extrait, qu’est-ce que les responsables ont tendance à célébrer ? » et l’on indique qu’ils se félicitent désormais de la fluidité de la circulation sur les routes du village."
       }
     ]
   }
