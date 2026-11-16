@@ -16,6 +16,7 @@ test('rewriting starts from the unchanged recording without anchoring to a defec
  const q=paper.questions[29],input=authorInput(q,{feedback:{stage:'blind'}});
  assert(!input.choices.some(c=>q.options.includes(c)));assert.notEqual(input.question,q.question);
  assert(input.stimulus.includes(q.segments[2].text));assert.equal(input.feedback.advanced,true);
+ assert.equal(input.feedback.verifiedExamples.length,2);assert(input.feedback.verifiedExamples.every(e=>e.stimulus!==input.stimulus));
 });
 test('blind sees only displayed options; spoken answers cannot leak into display-only controls',()=>{
  const q=paper.questions[0],projection=displayProjection(q);assert.deepEqual(projection.choices,q.options);assert.deepEqual(Object.keys(projection),['question','choices']);

@@ -68,7 +68,7 @@ export function modelRequest(stage,input) {
  validateInput(stage,input);
  const {imageData,...text}=input;
  const content=imageData?[{type:'text',text:JSON.stringify(text)},{type:'image_url',image_url:{url:imageData,detail:'low'}}]:JSON.stringify(text);
- const settings=MODELS[stage].startsWith('gpt-5')?{reasoning_effort:['blind','challenge'].includes(stage)?'low':'medium',max_completion_tokens:MAX_OUTPUT[stage]}:{temperature:0.2,max_tokens:MAX_OUTPUT[stage]};
+ const settings=MODELS[stage].startsWith('gpt-5')?{reasoning_effort:['blind','challenge','author'].includes(stage)?'low':'medium',max_completion_tokens:MAX_OUTPUT[stage]}:{temperature:0.2,max_tokens:MAX_OUTPUT[stage]};
  return {model:MODELS[stage],...settings,store:false,response_format:{type:'json_object'},messages:[{role:'system',content:PROMPTS[stage]},{role:'user',content}]};
 }
 export async function policyFingerprint() {

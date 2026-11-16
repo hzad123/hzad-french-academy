@@ -1,0 +1,129 @@
+[
+  {
+    "test": 3,
+    "number": 38,
+    "sourceHash": "9964b73785d4c38c9c98c209e46c112e334d00ea8ac18d217abc7516265d9887",
+    "contentHash": "8068e177fbf8ee5229d9fca219e3cab5ce297dc6cde311c6fde146fbfb44d774",
+    "stimulus": "Une campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber. C'est le paradoxe que nous observons dans plusieurs villes. Informer les habitants est essentiel, mais s'ils découvrent un risque sans pouvoir accéder rapidement au suivi annoncé, l'inquiétude peut augmenter et la confiance diminuer. Les responsables ne devraient donc pas évaluer leur campagne seulement au nombre de personnes sensibilisées. Ils doivent anticiper les consultations, former les équipes et vérifier si les personnes les plus vulnérables obtiennent réellement une prise en charge. Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée.",
+    "question": "Quelle difficulté est décrite dans le document ?",
+    "choices": [
+      "L'afflux de demandes d'examens excède les consultations disponibles.",
+      "Les personnes les plus vulnérables participent peu aux examens proposés.",
+      "Les habitants sont sensibilisés avant que les équipes soient formées.",
+      "Les équipes tardent à adapter les examens aux risques signalés."
+    ],
+    "correctIndex": 0,
+    "keyEvidence": [
+      "Une campagne de prévention réussie peut provoquer davantage de demandes d'examens que le système local n'est capable d'en absorber.",
+      "Un message efficace n'a de valeur durable que si les services peuvent répondre à la demande qu'il crée."
+    ],
+    "wrongInterpretations": [
+      {
+        "index": 1,
+        "reason": "Le texte ne dit pas que «les personnes les plus vulnérables participent peu aux examens» ; il recommande seulement de «vérifier» qu'elles obtiennent une prise en charge, ce qui est un objectif de suivi et non une difficulté constatée. On pourrait mal comprendre en se focalisant sur «les personnes les plus vulnérables» et en inférant à tort qu'elles participent peu, alors que le problème décrit porte sur le volume global de demandes par rapport aux capacités du système."
+      },
+      {
+        "index": 2,
+        "reason": "Le document insiste sur la nécessité d’anticiper et de former les équipes, mais ne décrit pas comme difficulté que les habitants seraient systématiquement sensibilisés avant que les équipes soient formées. La phrase sur le risque sans accès rapide au suivi parle d’un manque de capacité ou d’organisation, pas d’un ordre chronologique explicite entre sensibilisation et formation. Un lecteur pourrait confondre l’avertissement («Ils doivent anticiper les consultations, former les équipes») avec une situation déjà observée, et en déduire à tort que la difficulté décrite serait une sensibilisation qui précède toujours la préparation des équipes."
+      },
+      {
+        "index": 3,
+        "reason": "Le texte souligne un problème d’accès rapide au suivi et de capacité globale, mais il ne parle pas d’«adapter les examens aux risques signalés». La difficulté est quantitative (demande > capacité), pas une lenteur à adapter le contenu des examens aux risques. Quelqu’un pourrait se laisser tromper par les mots «risque» et «suivi annoncé», en croyant que le suivi n’est pas adapté aux risques, alors que le document parle seulement d’impossibilité d’y accéder en volume et en rapidité suffisants."
+      }
+    ],
+    "validation": {
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "groundResponseId": "chatcmpl-Ekx6ZYpQcbRA0u3ioeipz75026HGt",
+      "blindResponseIds": [
+        "chatcmpl-Ekx68RMLbmucHJy1WMwm8jgpXcxab",
+        "chatcmpl-Ekx6G5aCMv0MMOoKT3jGUzcye61wG",
+        "chatcmpl-Ekx6PCpuvRQ3Qdp6zoSS547v3FqOl"
+      ],
+      "recordHash": "a5df1d2c3bab88524dc6675a027fbd5bd8cb3394fe693350b94217d6c513cc91"
+    }
+  },
+  {
+    "test": 5,
+    "number": 38,
+    "sourceHash": "f36defc81bf5c63c158fcc00850a5bd990d121834eedd5f4c4325c2cee059673",
+    "contentHash": "20b543c453e48ad7d6e8104ca18b050aaf27d27c29614b2ab12b1275fddcb70d",
+    "stimulus": "Densifier les villes peut limiter l'étalement des constructions sur les terres agricoles. Mais si cette densification remplace systématiquement les cours plantées par des surfaces minérales, les quartiers deviennent plus chauds et moins agréables en été. L'objectif de réduction des distances parcourues ne doit donc pas faire oublier la qualité de vie locale. Il faut associer logements, transports, espaces ombragés et gestion de l'eau. Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue si l'on néglige ses conditions d'application.",
+    "question": "Selon le document, à quelle échelle la solution évoquée est-elle présentée comme semblant écologique ?",
+    "choices": [
+      "À l’échelle de la région",
+      "À l’échelle de la parcelle bâtie",
+      "À l’échelle du quartier",
+      "À l’échelle de la rue"
+    ],
+    "correctIndex": 0,
+    "keyEvidence": [
+      "Une solution qui semble écologique à l'échelle de la région peut produire des effets négatifs à l'échelle de la rue"
+    ],
+    "wrongInterpretations": [
+      {
+        "index": 1,
+        "reason": "Le texte ne parle jamais de «parcelle bâtie» ni d’une appréciation écologique à cette échelle. On pourrait se tromper en pensant que la réflexion sur la «parcelle» est implicite quand le texte évoque le remplacement «des cours plantées par des surfaces minérales», et en généraliser cette idée à l’échelle de la parcelle. Mais la seule échelle à laquelle la solution est dite «sembler écologique» est «à l’échelle de la région», pas à celle de la parcelle bâtie."
+      },
+      {
+        "index": 2,
+        "reason": "Le mot «quartiers» apparaît dans le texte, ce qui peut inciter à croire que l’évaluation écologique se fait à cette échelle. Quelqu’un qui retient surtout l’idée que «les quartiers deviennent plus chauds» pourrait associer à tort cette phrase à la question de l’échelle. Cependant, lorsque le document parle d’une solution qui «semble écologique», il précise clairement l’échelle : «à l’échelle de la région», puis oppose cette échelle à «l’échelle de la rue», et non à celle du quartier."
+      },
+      {
+        "index": 3,
+        "reason": "«À l’échelle de la rue» est bien mentionné, ce qui peut amener quelqu’un à retenir seulement cette expression sans faire attention à la structure de la phrase. En entendant «à l’échelle de la rue», on peut croire que c’est là que la solution paraît écologique. Pourtant, la phrase distingue deux niveaux : la solution «semble écologique à l’échelle de la région» mais produit des «effets négatifs à l’échelle de la rue». À l’échelle de la rue, la solution n’est donc pas présentée comme écologique, mais comme problématique."
+      }
+    ],
+    "validation": {
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "groundResponseId": "chatcmpl-EkxEN8KtjNZt1hpV84I7zTuTaNaIe",
+      "blindResponseIds": [
+        "chatcmpl-EkxE04G7ywCUf4VeleZ20s1TPm8Ns",
+        "chatcmpl-EkxE7iTp8bwXaYPaaLoBF4DeZrBoV",
+        "chatcmpl-EkxEFiEkOyziNnTBeFMHAFx5BZRU6"
+      ],
+      "recordHash": "47a3a3e06ecf07256a2f8b886038b03f45070a29f4f1ad09164ee8cd1f582673"
+    }
+  },
+  {
+    "test": 6,
+    "number": 39,
+    "sourceHash": "8c74b36b64610ad4bd97917eaced764eb12b98ec7a9c9b38b7def43c39ea50ce",
+    "contentHash": "b4af1cbbaa0753e756edaf5cce24c2735b7c9ed7dbd2a9c0ffd07513be3b9f7b",
+    "stimulus": "Votre cuisine partagée sert désormais beaucoup de repas. Pourquoi ne pas reproduire exactement son organisation actuelle dans d'autres quartiers ?\nParce qu'elle dépend encore d'un local prêté gratuitement et de bénévoles présents presque tous les jours. Nous devons d'abord connaître le coût réel des repas, répartir équitablement le travail et former des personnes capables de remplacer l'équipe de départ. Nous pouvons ensuite adapter le modèle à d'autres lieux, mais seulement si sa gestion reste soutenable. La popularité des premières semaines ne paiera pas à elle seule les charges régulières.",
+    "question": "Quel est l'objectif de la formation évoquée ?",
+    "choices": [
+      "Préparer une nouvelle équipe à assurer la continuité du service.",
+      "Adapter l'organisation des bénévoles à l'ouverture d'autres cuisines.",
+      "Améliorer les méthodes de calcul du coût de chaque repas.",
+      "Rendre plus équilibrée la répartition du travail entre les bénévoles."
+    ],
+    "correctIndex": 0,
+    "keyEvidence": [
+      "former des personnes capables de remplacer l'équipe de départ"
+    ],
+    "wrongInterpretations": [
+      {
+        "index": 1,
+        "reason": "On pourrait croire que la formation vise l’« ouverture d'autres cuisines » parce que le locuteur parle de reproduction dans d’autres quartiers et d’« adapter le modèle à d'autres lieux ». Cependant, la formation est définie précisément comme le fait de « former des personnes capables de remplacer l'équipe de départ » : elle concerne le remplacement de l’équipe actuelle, pas l’adaptation de l’organisation des bénévoles à de nouveaux sites."
+      },
+      {
+        "index": 2,
+        "reason": "L’énoncé juxtapose « connaître le coût réel des repas » et « former des personnes capables de remplacer l'équipe de départ ». Quelqu’un qui suit mal la structure de la phrase peut penser que la formation sert à améliorer le calcul du coût. En réalité, « connaître le coût réel des repas » est une tâche distincte de « former des personnes » : la formation ne porte pas sur les méthodes de calcul, mais sur la capacité à remplacer l’équipe de départ."
+      },
+      {
+        "index": 3,
+        "reason": "La phrase liste plusieurs objectifs : « connaître le coût réel des repas », « répartir équitablement le travail » et « former des personnes capables de remplacer l'équipe de départ ». Un auditeur distrait peut croire que la formation vise à « rendre plus équilibrée la répartition du travail », en reliant la formation au segment immédiatement précédent. Mais grammaticalement, il s’agit de trois actions parallèles et distinctes ; la formation ne porte que sur le remplacement de l’équipe, pas sur l’équilibrage de la répartition du travail."
+      }
+    ],
+    "validation": {
+      "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+      "groundResponseId": "chatcmpl-Ekx6cUaDXizZ1QT9UYOeZnTXXw3e4",
+      "blindResponseIds": [
+        "chatcmpl-Ekx68QX5hdR6sYEEYnjcpJQxNkG6G",
+        "chatcmpl-Ekx6FvIS8q5VFCrjaxK8ZATNBVGuo",
+        "chatcmpl-Ekx6Rc3dDBMAnosel3vqvyHaVkThQ"
+      ],
+      "recordHash": "e15804875c54bdf099f94c983dde63f755bd3df02565e803a19a95b88463a243"
+    }
+  }
+]

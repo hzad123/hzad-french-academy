@@ -1,16 +1,24 @@
 import {POLICY_VERSION} from '../../supabase/functions/academy-listening-qc/contracts.js';
+import {readFile} from 'node:fs/promises';
 import {hash,policyHash,contentHash,spokenChoices,stimulus,mode,letters,permutation,applyAlternatives,receiptValid,blindVerdict,groundingVerdict,attackStatistics,binomialUpperTail} from './listening-answer-qc.mjs';
 export const protocol='six-listening-contrast-v2';
 export const displayProjection=q=>({question:q.question,choices:[...q.options]});
 export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
 export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
 const canon=t=>t.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr');
+const verifiedExamples=JSON.parse(await readFile(new URL('../../curriculum/tcf-listening-contrast-exemplars.json',import.meta.url),'utf8'));
 export function authorInput(q,{imageData,feedback}={}){
  // Do not anchor a rewrite to the failed stem/key. Written alternatives are
  // built afresh from the recording, rather than cosmetically rephrased.
+ const eligible=verifiedExamples.filter(e=>e.stimulus!==stimulus(q));
+ const examples=q.number>=9?permutation(eligible.length,hash(stimulus(q))).slice(0,2).map(i=>{
+  const {stimulus,question,choices,correctIndex,keyEvidence,wrongInterpretations}=eligible[i];
+  return {stimulus,question,choices,correctIndex,keyEvidence,wrongInterpretations};
+ }):[];
  return {question:q.number>=9?'Question d’interprétation à construire à partir du document.':q.question,
   choices:q.number>=9?[...letters].map(l=>'Proposition '+l+' à construire.'):spokenChoices(q),stimulus:stimulus(q),mode:mode(q),
-  feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback},...(imageData?{imageData}:{})};
+  feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback,
+   verifiedExamples:examples,exampleUse:'Independently screened examples of competitive design. Learn the distinction between four equally credible interpretations; keep the current source, invent no example topic, and vary focus and syntax.'},...(imageData?{imageData}:{})};
 }
 export function contrastPlan(q,authored){
  if(q.number<9)return {pass:true,errors:[]};
