@@ -1,0 +1,153 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Selon le document, comment le service de portage est-il déclenché pour un habitant ?",
+    "options": [
+      "Par un appel automatique aux personnes qui empruntent moins souvent.",
+      "Automatiquement dès qu’il possède une carte de bibliothèque.",
+      "À l’initiative d’un bénévole qui repère des lecteurs fragiles.",
+      "Par une demande faite auprès de l’accueil de la bibliothèque."
+    ],
+    "correct": "D",
+    "transcript": "Question 17.\nLa bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison.\nSelon le document, comment le service de portage est-il déclenché pour un habitant ?",
+    "explanation": "Le document précise que «pour demander ce service, contactez l'accueil» et ajoute qu’«une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison». Le déclencheur est donc bien une démarche du lecteur auprès de l’accueil, et non un automatisme lié à la carte ou à la fréquence des emprunts, ni une simple initiative d’un bénévole sans demande.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "female",
+        "text": "La bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, comment le service de portage est-il déclenché pour un habitant ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkymlCQ58L6LXaYp0e0v6sVzz2Hd1",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une bibliothèque municipale a mis en place un service de portage de livres à domicile destiné aux personnes ayant des difficultés à se déplacer. Dans un message audio diffusé lors d’une réunion publique, la responsable explique que le service n’est pas automatique : il est activé lorsqu’un habitant en fait la demande directement à l’accueil de la bibliothèque, sur place ou par téléphone, où le personnel enregistre alors la demande et programme les livraisons."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une association de bénévoles travaille en partenariat avec une bibliothèque pour apporter des livres à domicile aux personnes isolées. Dans un reportage radio, la coordinatrice précise que ce sont les bénévoles eux-mêmes qui identifient, dans leur quartier, des lecteurs âgés ou fragiles, et qu’ils proposent ensuite le service de portage sans attendre une demande formelle de la part des habitants concernés."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une grande médiathèque équipée d’un système informatique avancé présente son service de portage dans un enregistrement destiné aux usagers. Le directeur explique qu’un algorithme repère automatiquement les abonnés dont la fréquence d’emprunt diminue brusquement et qu’un appel téléphonique automatique est alors lancé pour leur proposer un service de portage de documents à domicile, déclenchant ainsi le service pour ces personnes si elles acceptent."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une ville très équipée numériquement, un enregistrement institutionnel décrit un nouveau service : toute personne qui obtient une carte de bibliothèque est automatiquement inscrite à un programme de services personnalisés, dont le portage à domicile. Le document précise que dès qu’un habitant possède une carte, le service de portage est déclenché d’office, sans démarche supplémentaire de sa part, et il peut ensuite choisir d’en profiter ou de le désactiver."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Le recours à un « appel automatique » ciblant les personnes qui empruntent moins souvent décrit un dispositif technique spécifique et relativement sophistiqué, moins courant pour un service de bibliothèque généraliste, ce qui peut en faire un distracteur plus marqué que les formulations plus simples."
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "L’activation « automatiquement dès qu’il possède une carte de bibliothèque » paraît très large et peu nuancée pour un service de portage, généralement réservé à certains publics ou activé sur demande, ce qui peut donner à cette option un caractère moins plausible que les réponses reposant sur une initiative humaine ciblée."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.45,
+            0.3,
+            0.1,
+            0.15
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent correspondre à des dispositifs envisageables, mais les formules impliquant une automatisation généralisée (options 2 et 3) paraissent plus typiques de distracteurs. Entre les deux options reposant sur une initiative humaine, le déclenchement par une demande explicite de l’habitant à l’accueil (option 0) correspond au mode d’inscription le plus courant et le plus neutre pour un service de portage, d’où une probabilité légèrement supérieure sans certitude absolue."
+        },
+        "usage": {
+          "prompt_tokens": 627,
+          "completion_tokens": 945,
+          "total_tokens": 1572,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 249,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01023375,
+        "inputHash": "2ea3160311df40fdf771290518a40ca6edcd94054ea129cf3bf4fab3ba29652f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:ce40c9091f7f36b9e4c06d49:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Les quatre réponses peuvent correspondre à des dispositifs envisageables, mais les formules impliquant une automatisation généralisée (options 2 et 3) paraissent plus typiques de distracteurs. Entre les deux options reposant sur une initiative humaine, le déclenchement par une demande explicite de l’habitant à l’accueil (option 0) correspond au mode d’inscription le plus courant et le plus neutre pour un service de portage, d’où une probabilité légèrement supérieure sans certitude absolue.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "Le recours à un « appel automatique » ciblant les personnes qui empruntent moins souvent décrit un dispositif technique spécifique et relativement sophistiqué, moins courant pour un service de bibliothèque généraliste, ce qui peut en faire un distracteur plus marqué que les formulations plus simples."
+      },
+      {
+        "option": 3,
+        "severity": "weak",
+        "cue": "L’activation « automatiquement dès qu’il possède une carte de bibliothèque » paraît très large et peu nuancée pour un service de portage, généralement réservé à certains publics ou activé sur demande, ce qui peut donner à cette option un caractère moins plausible que les réponses reposant sur une initiative humaine ciblée."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une bibliothèque municipale a mis en place un service de portage de livres à domicile destiné aux personnes ayant des difficultés à se déplacer. Dans un message audio diffusé lors d’une réunion publique, la responsable explique que le service n’est pas automatique : il est activé lorsqu’un habitant en fait la demande directement à l’accueil de la bibliothèque, sur place ou par téléphone, où le personnel enregistre alors la demande et programme les livraisons."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une association de bénévoles travaille en partenariat avec une bibliothèque pour apporter des livres à domicile aux personnes isolées. Dans un reportage radio, la coordinatrice précise que ce sont les bénévoles eux-mêmes qui identifient, dans leur quartier, des lecteurs âgés ou fragiles, et qu’ils proposent ensuite le service de portage sans attendre une demande formelle de la part des habitants concernés."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Une grande médiathèque équipée d’un système informatique avancé présente son service de portage dans un enregistrement destiné aux usagers. Le directeur explique qu’un algorithme repère automatiquement les abonnés dont la fréquence d’emprunt diminue brusquement et qu’un appel téléphonique automatique est alors lancé pour leur proposer un service de portage de documents à domicile, déclenchant ainsi le service pour ces personnes si elles acceptent."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une ville très équipée numériquement, un enregistrement institutionnel décrit un nouveau service : toute personne qui obtient une carte de bibliothèque est automatiquement inscrite à un programme de services personnalisés, dont le portage à domicile. Le document précise que dès qu’un habitant possède une carte, le service de portage est déclenché d’office, sans démarche supplémentaire de sa part, et il peut ensuite choisir d’en profiter ou de le désactiver."
+      }
+    ]
+  }
+}

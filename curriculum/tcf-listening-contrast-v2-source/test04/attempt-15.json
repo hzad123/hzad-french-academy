@@ -1,0 +1,318 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "Selon le document, quelle difficulté précise liée aux transports est signalée par plusieurs candidats ?",
+    "options": [
+      "La forte saturation des bus et des métros à l’heure de pointe.",
+      "La mauvaise coordination des correspondances avant vingt heures.",
+      "Le coût jugé trop élevé des abonnements aux transports collectifs.",
+      "L’absence de transports collectifs après vingt-deux heures."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : La formulation de l’option reprend exactement la difficulté décrite dans le document : plusieurs candidats regrettent « le manque de transports collectifs après vingt-deux heures », ce qui correspond à « l’absence de transports collectifs après vingt-deux heures ». A : Le texte parle d’un « manque de transports collectifs après vingt-deux heures », c’est donc un problème d’offre tard le soir, pas une « forte saturation des bus et des métros à l’heure de pointe ». Aucune mention n’est faite des heures de pointe ni de bus ou métros surchargés. B : On pourrait se laisser tromper par « une correspondance supplémentaire » et penser à un problème de coordination générale des correspondances. Mais le texte précise que la difficulté signalée par plusieurs candidats est le « manque de transports collectifs après vingt-deux heures », non « la mauvaise coordination des correspondances avant vingt heures ». Le problème est l’absence de service tardif, pas l’organisation des correspondances plus tôt dans la soirée. C : On pourrait supposer que beaucoup de personnes se plaignent habituellement du prix des transports, et donc choisir « le coût jugé trop élevé des abonnements ». Mais le document ne parle à aucun moment de tarifs ou d’abonnements ; la seule difficulté explicitement mentionnée est le « manque de transports collectifs après vingt-deux heures ». Le problème est qualitatif (absence de service), pas financier.",
+    "transcript": "Question 15.\nÀ Rennes, une université populaire ouvre trois nouveaux cours du soir à destination des adultes en emploi. Les inscriptions sont nombreuses, notamment pour la bureautique et les langues. Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures. L'établissement discute avec la métropole d'une correspondance supplémentaire, sans annoncer encore de calendrier.\nSelon le document, quelle difficulté précise liée aux transports est signalée par plusieurs candidats ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "À Rennes, une université populaire ouvre trois nouveaux cours du soir à destination des adultes en emploi. Les inscriptions sont nombreuses, notamment pour la bureautique et les langues. Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures. L'établissement discute avec la métropole d'une correspondance supplémentaire, sans annoncer encore de calendrier."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quelle difficulté précise liée aux transports est signalée par plusieurs candidats ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 49
+  },
+  "sourceHash": "752aa71c8aa2f361f51c404917417d77ff2ab528261fc3b36d795a17298b8a76",
+  "contentHash": "34501b30f34d8655d11c409d4eae04f7d6b86f679ccdefa3e2fc537e89919476",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyQ6nFRqpvMaX3a6lXkXmWeHL2IU",
+    "result": {
+      "question": "Selon le document, quelle difficulté précise liée aux transports est signalée par plusieurs candidats ?",
+      "choices": [
+        "L’absence de transports collectifs après vingt-deux heures.",
+        "Le coût jugé trop élevé des abonnements aux transports collectifs.",
+        "La forte saturation des bus et des métros à l’heure de pointe.",
+        "La mauvaise coordination des correspondances avant vingt heures."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique que « plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures ». La difficulté rapportée porte donc sur l’absence de transports après 22 h, et non sur les tarifs, la fréquentation aux heures de pointe ou la coordination des lignes plus tôt dans la soirée.",
+      "design": "Axe choisi : la difficulté concrète évoquée par les candidats concernant les transports. Les quatre réponses décrivent toutes des problèmes plausibles et proches (coût, saturation, horaires tardifs, coordination), qui pourraient faire l’objet de plaintes d’usagers dans une situation de cours du soir. Sans le document, aucune ne ressort comme absurde ; seule l’écoute permet d’identifier que la difficulté signalée est précisément le manque de transports collectifs après 22 h.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse transforme une plainte sur l’absence de service en une plainte sur le coût. On peut être tenté de l’accepter car une métropole et un établissement discutant de transports font souvent penser aux tarifs. Mais le texte parle d’un « manque de transports collectifs » lié à l’horaire tardif, pas d’un prix trop élevé.",
+          "operation": "scope_shift",
+          "anchors": [
+            "manque de transports collectifs",
+            "après vingt-deux heures"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, la difficulté est déplacée de la disponibilité temporelle vers la surcharge des véhicules. La saturation est un problème courant et donc crédible dans un contexte urbain, mais le document n’évoque ni « heure de pointe » ni bus ou métros pleins : il signale seulement que des transports manquent après 22 h.",
+          "operation": "scope_shift",
+          "anchors": [
+            "transports collectifs",
+            "après vingt-deux heures"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option conserve l’idée de correspondances et de coordination, qui sont bien mentionnées, mais inverse la contrainte d’horaire : le document parle d’une « correspondance supplémentaire » liée au manque de transports après 22 h, pas d’un problème avant 20 h.",
+          "operation": "time_swap",
+          "anchors": [
+            "correspondance supplémentaire",
+            "après vingt-deux heures"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4404,
+      "completion_tokens": 766,
+      "total_tokens": 5170,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 225,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.013165,
+    "inputHash": "f61b6bc3aeaceb15c4faecf957ea529b9789a849688e6f364c49937465c9f423",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:14:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyQCmNLTrmVyvsvJu7U5vn0sYxgD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement présentant les retours de candidats à un emploi ou à une formation, plusieurs personnes expliquent qu’elles ont du mal à rentrer chez elles après une journée de travail ou de cours, parce qu’il n’y a plus de bus ni de métro après 22 heures. Le narrateur résume en disant que plusieurs candidats signalent l’absence de transports collectifs après vingt-deux heures."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un bilan d’entretiens avec des candidats, l’intervenant précise que beaucoup se plaignent du prix des déplacements quotidiens. Plusieurs candidats indiquent que les abonnements aux transports collectifs sont trop chers pour leur budget, et le document relève cette difficulté en parlant du coût jugé trop élevé des abonnements."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un reportage sur l’accès à un centre d’examen ou de formation, un responsable explique que plusieurs candidats rencontrent des problèmes pour se déplacer aux heures de pointe, car les bus et les métros sont bondés. Le document dit alors que plusieurs candidats signalent la forte saturation des bus et des métros à l’heure de pointe."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une enquête auprès de candidats venant de différentes communes, l’animateur souligne que plusieurs d’entre eux ont des difficultés pour enchaîner les trajets : les correspondances sont mal synchronisées en début de soirée, ce qui les oblige à de longues attentes avant 20 heures. Le document rapporte qu’ils mentionnent la mauvaise coordination des correspondances avant vingt heures."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre formulations décrivent chacune une difficulté précise, réaliste et fréquente liée aux transports, qui pourrait être mentionnée par plusieurs candidats dans un document audio. Aucune option ne présente d’avantage formel évident (longueur, précision particulière, style, portée ou correction linguistique) permettant de la distinguer clairement des autres. Sans autre indice provenant du document source, il reste impossible de privilégier raisonnablement l’une des réponses, d’où une incertitude forte et une répartition de probabilité uniforme malgré l’obligation de proposer un choix."
+        },
+        "usage": {
+          "prompt_tokens": 623,
+          "completion_tokens": 571,
+          "total_tokens": 1194,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 74,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00648875,
+        "inputHash": "63a4614f229dbeaa5add0c93e70035884b806d247a669f362c907a3600d82168",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:14:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyQIFRKPOo9Lo2DTb11NjOUTkKN6",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un reportage sur un forum de recrutement interroge plusieurs candidats sur les obstacles à l’acceptation d’un poste. Plusieurs d’entre eux expliquent que les bus et métros sont déjà pleins à craquer aux heures de pointe, ce qui rend les trajets quotidiens très pénibles. L’animateur résume en disant que la forte saturation des bus et des métros à l’heure de pointe est souvent mentionnée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une enquête radio sur les difficultés de mobilité pour accéder à des formations en soirée, plusieurs candidats expliquent qu’ils ratent régulièrement leurs cours car les correspondances entre bus et tram sont mal coordonnées avant vingt heures. Le journaliste parle alors de la mauvaise coordination des correspondances avant vingt heures comme problème souvent signalé."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un document audio sur l’accès à l’emploi dans une zone périurbaine recueille les témoignages de candidats qui doivent parfois travailler tard. Plusieurs déclarent qu’ils n’acceptent pas certains postes, car il n’y a plus de bus ni de train après vingt-deux heures. Le journaliste résume en disant que l’absence de transports collectifs après vingt-deux heures est une difficulté majeure citée par plusieurs candidats."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une émission de radio consacrée aux obstacles financiers à la reprise d’études ou à l’acceptation d’un emploi interroge des candidats. Plusieurs indiquent que le prix de l’abonnement mensuel de transport est trop élevé pour leur budget. Le présentateur conclut que le coût trop élevé des abonnements aux transports collectifs est une difficulté souvent signalée."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses décrivent chacune une difficulté précise et plausible liée aux transports que plusieurs candidats pourraient signaler. Aucune formulation ne présente d’avantage rédactionnel, de nuance particulière ou de préférence évidente par rapport à la question; l’absence totale d’accès au document audio empêche de distinguer une option sans s’appuyer sur des spéculations. Les probabilités sont donc réparties également et le choix de 0 comme réponse proposée reste arbitraire sous forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 623,
+          "completion_tokens": 676,
+          "total_tokens": 1299,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 169,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00753875,
+        "inputHash": "31978ca54bf6341f69c7d6084aea74d85913ce00852860493f59a3b18fa2c385",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:14:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyQPtz1QaTGbWZhja6lxe5uthUtL",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document signale précisément que plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures, ce qui correspond à l’absence de transports collectifs après cette heure.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures."
+          ],
+          "reason": "Le texte parle d’un « manque de transports collectifs après vingt-deux heures », c’est donc un problème d’offre tard le soir, pas une « forte saturation des bus et des métros à l’heure de pointe ». Aucune mention n’est faite des heures de pointe ni de bus ou métros surchargés.",
+          "misunderstanding": "timing_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'établissement discute avec la métropole d'une correspondance supplémentaire, sans annoncer encore de calendrier.",
+            "plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures."
+          ],
+          "reason": "On pourrait se laisser tromper par « une correspondance supplémentaire » et penser à un problème de coordination générale des correspondances. Mais le texte précise que la difficulté signalée par plusieurs candidats est le « manque de transports collectifs après vingt-deux heures », non « la mauvaise coordination des correspondances avant vingt heures ». Le problème est l’absence de service tardif, pas l’organisation des correspondances plus tôt dans la soirée.",
+          "misunderstanding": "scope_shift"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures."
+          ],
+          "reason": "On pourrait supposer que beaucoup de personnes se plaignent habituellement du prix des transports, et donc choisir « le coût jugé trop élevé des abonnements ». Mais le document ne parle à aucun moment de tarifs ou d’abonnements ; la seule difficulté explicitement mentionnée est le « manque de transports collectifs après vingt-deux heures ». Le problème est qualitatif (absence de service), pas financier.",
+          "misunderstanding": "background_assumption"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures."
+          ],
+          "reason": "La formulation de l’option reprend exactement la difficulté décrite dans le document : plusieurs candidats regrettent « le manque de transports collectifs après vingt-deux heures », ce qui correspond à « l’absence de transports collectifs après vingt-deux heures ».",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 734,
+      "completion_tokens": 960,
+      "total_tokens": 1694,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 390,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0105175,
+    "inputHash": "d98100ab6fde1f867cfb701055a34f53640a3a76d6efd969b6ee0e1016197b1f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:14:initial:ground:2"
+  },
+  "feedback": null
+}

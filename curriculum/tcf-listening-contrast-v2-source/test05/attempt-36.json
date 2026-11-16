@@ -1,0 +1,400 @@
+{
+  "question": {
+    "number": 36,
+    "kind": "interview",
+    "question": "Quel exemple concret d'habitude est mentionné comme pouvant être déduit des données techniques ?",
+    "options": [
+      "Les températures préférées dans chaque logement.",
+      "Les horaires habituels de douche des résidents.",
+      "Les périodes d'absence des résidents.",
+      "Les heures auxquelles les habitants prennent leurs repas."
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question demande l’exemple concret d’habitude mentionné. Le passage cite explicitement « les périodes d’absence » comme exemple d’habitude déductible des données techniques, ce qui correspond exactement à la proposition. A : Le texte donne un seul exemple précis d’habitude déduite des données techniques : « les périodes d’absence ». Il ne mentionne nulle part des « températures préférées dans chaque logement ». Quelqu’un qui comprend seulement que les capteurs mesurent des paramètres techniques dans les logements pourrait extrapoler aux températures préférées, mais ce n’est pas dit. B : Le document parle d’« habitudes » révélées par des données techniques, mais l’unique exemple explicite est « les périodes d’absence ». Il n’est jamais question des « horaires habituels de douche ». Un auditeur qui retient seulement l’idée d’habitudes liées à la consommation d’eau ou d’énergie pourrait imaginer les douches comme exemple, mais ce n’est pas celui qui est donné. D : Le texte n’évoque pas les « heures auxquelles les habitants prennent leurs repas ». Il ne fournit comme exemple d’habitude déduite que « les périodes d’absence ». Un auditeur qui généralise à toutes sortes d’habitudes quotidiennes (repas, douches, etc.) à partir de la formule « certaines habitudes » pourrait croire que les repas en font partie, mais ce n’est pas cité.",
+    "transcript": "Question 36.\nVotre immeuble teste des capteurs de consommation. Pourquoi demandez-vous l'avis des habitants alors que les appareils ne filment personne ?\nDes données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence. Les résidents doivent savoir ce qui est mesuré, combien de temps les données seront conservées et qui pourra y accéder. Ils doivent aussi disposer d'un moyen de poser des questions et de contester un usage inapproprié. La transparence ne se résume pas à une phrase dans un contrat.\nQuel exemple concret d'habitude est mentionné comme pouvant être déduit des données techniques ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 36."
+      },
+      {
+        "voice": "male",
+        "text": "Votre immeuble teste des capteurs de consommation. Pourquoi demandez-vous l'avis des habitants alors que les appareils ne filment personne ?"
+      },
+      {
+        "voice": "female",
+        "text": "Des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence. Les résidents doivent savoir ce qui est mesuré, combien de temps les données seront conservées et qui pourra y accéder. Ils doivent aussi disposer d'un moyen de poser des questions et de contester un usage inapproprié. La transparence ne se résume pas à une phrase dans un contrat."
+      },
+      {
+        "voice": "female",
+        "text": "Quel exemple concret d'habitude est mentionné comme pouvant être déduit des données techniques ?"
+      }
+    ],
+    "audio": "q-36.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 71
+  },
+  "sourceHash": "8dec1ed56cd457e158c35806d349e9437a397a6ec6f2bb827cdb04cffc926c86",
+  "contentHash": "910edd6eff1a7de866e282807f421be1ba9506b58320624040ec28d3a13efd17",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyaM9MXu7oZbH289btS0IRTRBBFo",
+    "result": {
+      "question": "Quel exemple concret d'habitude est mentionné comme pouvant être déduit des données techniques ?",
+      "choices": [
+        "Les périodes d'absence des résidents.",
+        "Les heures auxquelles les habitants prennent leurs repas.",
+        "Les températures préférées dans chaque logement.",
+        "Les horaires habituels de douche des résidents."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence». A reprend exactement cet exemple. Les autres propositions sont des habitudes plausibles que des capteurs pourraient révéler, mais elles ne sont jamais mentionnées dans l'extrait.",
+      "design": "On teste l’exemple précis d’habitude que les capteurs peuvent révéler. L’axe unique est : «quel type d’habitude concrète est donné comme exemple ?». Les quatre réponses sont toutes des habitudes de vie réalistes qu’un système de capteurs de consommation pourrait potentiellement révéler (présence/absence, heures de repas, températures préférées, horaires de douche). Sans l’enregistrement, aucune ne paraît absurde ni trop générale ; seule l’écoute permet d’identifier que l’exemple cité est la période d’absence, et non un autre type d’habitude de consommation ou de confort.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut généraliser l’idée que «des données techniques peuvent révéler indirectement certaines habitudes» et imaginer que les heures de repas en font partie. Cependant, l’unique exemple donné dans le document concerne les périodes d’absence, pas les moments des repas.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes",
+            "comme les périodes d'absence"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Comme il est question de capteurs de consommation, il est tentant de penser que les températures de chauffage préférées sont un exemple d’habitude mentionné. Or le passage n’évoque que les «périodes d'absence» comme habitude déductible, sans parler du confort thermique.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Votre immeuble teste des capteurs de consommation.",
+            "comme les périodes d'absence"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Les horaires de douche sont une habitude intime que des capteurs d’eau ou d’énergie pourraient effectivement laisser deviner. Mais dans le texte, la seule habitude explicitement citée comme exemple est celle des «périodes d'absence», et aucune référence n’est faite aux douches ou à des usages précis de l’eau.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes",
+            "comme les périodes d'absence"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4528,
+      "completion_tokens": 1310,
+      "total_tokens": 5838,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 755,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01876,
+    "inputHash": "b944a295b12ae11d996f34f34d3f9a76877521218f9f609167ad653a96885fe0",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:35:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyabPAbkbTpI8ZwPMAEeNzSxF3ZR",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un intervenant présente un système de capteurs et explique qu’en analysant les relevés d’ouverture/fermeture de portes et l’activité électrique, on peut en déduire certaines habitudes, par exemple les périodes d’absence des résidents."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une conférence sur la domotique, le technicien dit que les données de consommation d’eau chaude permettent de reconstituer certaines routines, par exemple les horaires habituels de douche des résidents."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une vidéo sur l’analyse de données dans une résidence, l’orateur explique qu’en étudiant les pics d’utilisation des plaques de cuisson et du micro-ondes, on peut déduire des habitudes concrètes comme les heures auxquelles les habitants prennent leurs repas."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un spécialiste des compteurs intelligents explique que les relevés de chauffage et de climatisation montrent des préférences stables, par exemple les températures préférées dans chaque logement."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options peuvent servir d’exemple concret d’habitude déduite de données techniques dans un contexte ordinaire, sans indice textuel clair permettant de privilégier l’une d’elles ; le choix du key reste fortement incertain."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 401,
+          "total_tokens": 1010,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 79,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00477125,
+        "inputHash": "1e6175a1ecff553b4dab8586e857537e3bbdb6aadb149b7d8f53e6e2964df047",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:35:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyafCsqk98WvnLG9PRcU37TyYJ7g",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement sur la domotique dans une résidence, un technicien explique que grâce aux capteurs d’ouverture de porte et aux détecteurs de mouvement, on peut déduire les périodes d’absence des résidents, ce qui constitue une habitude révélée par les données techniques."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une présentation sur l’analyse des compteurs connectés dans un immeuble, un ingénieur décrit qu’en observant les pics de consommation électrique liés à la cuisine, on peut en déduire les heures auxquelles les habitants prennent leurs repas, comme exemple concret d’habitude."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une conférence sur la gestion intelligente de l’eau chaude sanitaire, un spécialiste explique qu’en étudiant les courbes de consommation d’eau chaude on peut déduire les horaires habituels de douche des résidents, et il donne cela comme exemple concret d’habitude tirée de données techniques."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un échange sur les thermostats connectés, un intervenant indique que l’analyse des réglages et ajustements automatiques permet de connaître les températures préférées dans chaque logement, cité comme exemple précis d’habitude déduite de données techniques."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation très précise et directement liée à un usage typique des capteurs techniques (consommation d’eau chaude mesurable), présentée comme une ‘habitude’ temporelle concrète (‘horaires habituels’), ce qui correspond bien au type d’exemple souvent donné dans des discours sur les données techniques des bâtiments."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.22,
+            0.22,
+            0.36,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Tous les choix pourraient être déduits de données techniques dans un contexte domotique, mais la mention des ‘horaires habituels de douche’ correspond de manière légèrement plus typique à un exemple concret et souvent cité d’habitude déduite de capteurs (profil de consommation d’eau chaude), d’où un léger avantage sans certitude forte."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 688,
+          "total_tokens": 1297,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 219,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00764125,
+        "inputHash": "d6dee7c49d1f7dfa157e0c98b077bc8a1ee44329dbd173c5e55aaea68934f50b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:35:initial:screen:3:1"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyaoSaFQXIOJM40oS7PQ6b9a9rpD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un technicien domotique présente les capacités d’un système de chauffage intelligent qui enregistre les réglages des thermostats et explique qu’en analysant ces données techniques, on peut déduire les températures préférées dans chaque logement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un spécialiste des compteurs intelligents décrit comment l’analyse des pics de consommation électrique dans la cuisine et l’usage des plaques ou du four permet de déduire les heures auxquelles les habitants prennent leurs repas."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un ingénieur explique que, grâce aux capteurs d’eau chaude et aux compteurs intelligents, on peut observer des pics réguliers de consommation et ainsi déduire les horaires habituels de douche des résidents."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un expert en bâtiments connectés décrit comment les capteurs de mouvement et d’ouverture de porte permettent de repérer les périodes d’inactivité et d’absence, ce qui permet de déduire les périodes d’absence des résidents."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "La notion de \"températures préférées\" se rattache très directement à des données techniques (réglages de thermostat) explicitement mesurées, alors que les autres habitudes nécessitent une inférence plus indirecte à partir de plusieurs types de capteurs."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.3,
+            0.23,
+            0.23,
+            0.24
+          ],
+          "guess": 0,
+          "reason": "Toutes les options correspondent à des habitudes déductibles de données techniques, mais la formulation sur les températures préférées est légèrement plus directement liée à un type de donnée technique évident, d’où un léger avantage sans certitude forte."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 584,
+          "total_tokens": 1193,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 199,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00660125,
+        "inputHash": "ff03919cd6fdf706ec28a307fc4da87f3d8b1c65fb0775dcc153bb6fa0f109b3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:35:initial:screen:3:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyatoexnksosLd98iJ9EHOtR82E0",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’exemple concret d’habitude mentionné est celui des périodes d’absence des résidents.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence."
+          ],
+          "reason": "Le texte donne un seul exemple précis d’habitude déduite des données techniques : « les périodes d’absence ». Il ne mentionne nulle part des « températures préférées dans chaque logement ». Quelqu’un qui comprend seulement que les capteurs mesurent des paramètres techniques dans les logements pourrait extrapoler aux températures préférées, mais ce n’est pas dit.",
+          "misunderstanding": "inférence_au_delà_du_texte"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence."
+          ],
+          "reason": "Le document parle d’« habitudes » révélées par des données techniques, mais l’unique exemple explicite est « les périodes d’absence ». Il n’est jamais question des « horaires habituels de douche ». Un auditeur qui retient seulement l’idée d’habitudes liées à la consommation d’eau ou d’énergie pourrait imaginer les douches comme exemple, mais ce n’est pas celui qui est donné.",
+          "misunderstanding": "inférence_au_delà_du_texte"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence."
+          ],
+          "reason": "La question demande l’exemple concret d’habitude mentionné. Le passage cite explicitement « les périodes d’absence » comme exemple d’habitude déductible des données techniques, ce qui correspond exactement à la proposition.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Des données techniques peuvent révéler indirectement certaines habitudes, comme les périodes d'absence."
+          ],
+          "reason": "Le texte n’évoque pas les « heures auxquelles les habitants prennent leurs repas ». Il ne fournit comme exemple d’habitude déduite que « les périodes d’absence ». Un auditeur qui généralise à toutes sortes d’habitudes quotidiennes (repas, douches, etc.) à partir de la formule « certaines habitudes » pourrait croire que les repas en font partie, mais ce n’est pas cité.",
+          "misunderstanding": "surinterprétation_des_habitudes"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 755,
+      "completion_tokens": 733,
+      "total_tokens": 1488,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 185,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00827375,
+    "inputHash": "660a0547b99058a7e60443f719ae6123504315202d0e9351b2727ae7c9e2086c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:35:initial:ground:3"
+  },
+  "feedback": null
+}

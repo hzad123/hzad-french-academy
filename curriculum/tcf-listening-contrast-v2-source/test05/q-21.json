@@ -1,0 +1,180 @@
+{
+  "question": {
+    "number": 21,
+    "kind": "announcement",
+    "question": "À quoi serviront les informations sur les créneaux possibles indiqués par les résidents ?",
+    "options": [
+      "À réserver en priorité les rendez-vous du samedi aux personnes en horaires décalés.",
+      "À répartir les rendez-vous pour éviter de concentrer tous les échanges sur le même après-midi.",
+      "À séparer strictement les plannings des entretiens du soir et ceux du samedi.",
+      "À regrouper les rendez-vous sur le créneau où le plus grand nombre de résidents est disponible."
+    ],
+    "correct": "B",
+    "explanation": "Les informations demandées (« au moins deux créneaux possibles ») ont pour finalité explicite de « répartir les rendez-vous sans concentrer tous les échanges sur le même après-midi ». Il s’agit donc d’étaler les rendez-vous, non de privilégier le samedi, de séparer systématiquement soir et samedi, ni de regrouper la majorité sur un même créneau.",
+    "transcript": "Question 21.\nLe conseil de quartier prépare une consultation des résidents sur l'usage de la cour commune. Les entretiens individuels auront lieu le soir et le samedi. Comme plusieurs personnes travaillent en horaires décalés, nous vous invitons à indiquer au moins deux créneaux possibles. Ces informations permettront de répartir les rendez-vous sans concentrer tous les échanges sur le même après-midi.\nÀ quoi serviront les informations sur les créneaux possibles indiqués par les résidents ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 21."
+      },
+      {
+        "voice": "female",
+        "text": "Le conseil de quartier prépare une consultation des résidents sur l'usage de la cour commune. Les entretiens individuels auront lieu le soir et le samedi. Comme plusieurs personnes travaillent en horaires décalés, nous vous invitons à indiquer au moins deux créneaux possibles. Ces informations permettront de répartir les rendez-vous sans concentrer tous les échanges sur le même après-midi."
+      },
+      {
+        "voice": "female",
+        "text": "À quoi serviront les informations sur les créneaux possibles indiqués par les résidents ?"
+      }
+    ],
+    "audio": "q-21.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 53
+  },
+  "contentHash": "8b84fa64b8480c0c5aea358507134a365eaf1fcfa1aa5150cce7f55d97e41bba",
+  "sourceHash": "ad1b32430974929b486882cdfdc061ae17e84071c4ef3c6358dfaf68b64aa7ef",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyY7VOeBLHNoSCEUaIP2622tik4X",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une résidence, on a demandé aux résidents d’indiquer tous les créneaux où ils seraient disponibles pour un entretien. Lors d’une réunion d’organisation, le responsable explique : « Les informations sur les créneaux possibles que vous avez indiqués nous serviront à regrouper les rendez-vous sur le créneau où le plus grand nombre de résidents est disponible, afin de limiter le nombre de plages à mobiliser. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une résidence organise des entretiens individuels avec les résidents, qui ont rempli un formulaire en précisant leurs disponibilités, notamment s’ils ne peuvent venir qu’en dehors des horaires classiques. Lors d’un message d’information, l’organisateur dit : « Les informations sur les créneaux possibles que vous avez indiquées nous serviront à réserver en priorité les rendez-vous du samedi aux personnes en horaires décalés, afin de leur faciliter l’accès. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un gestionnaire de résidence a proposé des entretiens le soir et le samedi, et a recueilli les créneaux possibles indiqués par les résidents. Lors d’une réunion interne, il explique : « Les informations sur les créneaux possibles serviront à séparer strictement les plannings des entretiens du soir et ceux du samedi, pour qu’il n’y ait pas de mélange d’équipes et de créneaux. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une résidence, un coordinateur a demandé aux résidents d’indiquer tous les créneaux où ils seraient disponibles pour un entretien. Lors d’un message audio, il précise : « Les informations sur les créneaux possibles indiqués par les résidents nous serviront à répartir les rendez-vous pour éviter de concentrer tous les échanges sur le même après-midi, afin de mieux gérer l’affluence. »"
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "clear",
+              "cue": "La réponse 0 vise à regrouper les rendez‑vous sur un seul créneau, alors que le libellé de la question parle de ‘créneaux possibles’ au pluriel, ce qui suggère plutôt une utilisation pour répartir ou lisser les rendez‑vous que pour les concentrer ; elle ne fait pas écho à une logique de gestion équilibrée du planning."
+            },
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "La réponse 1 introduit des éléments nouveaux (les rendez‑vous du samedi, les personnes en horaires décalés) qui ne sont pas du tout mentionnés dans la question ; elle suppose une priorité spécifique non indiquée par le texte."
+            },
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "La réponse 2 ajoute une opposition précise entre ‘entretiens du soir’ et ‘ceux du samedi’, qui ne figure pas dans la question. Cette séparation stricte de deux types de planning est une contrainte supplémentaire sans appui dans l’énoncé."
+            },
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "La réponse 3 reprend directement l’idée de ‘créneaux possibles’ pour expliquer une répartition des rendez‑vous et parle d’éviter la concentration sur un même après‑midi, ce qui correspond naturellement à l’usage d’informations de disponibilité pour lisser les échanges sur plusieurs plages, sans introduire de nouveaux paramètres (samedi, horaires décalés, soir)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.15,
+            0.1,
+            0.65
+          ],
+          "guess": 3,
+          "reason": "Les options 1 et 2 ajoutent des contraintes spécifiques (samedi, horaires décalés, distinction soir/samedi) absentes de la question. L’option 0 va à l’encontre d’une utilisation naturelle de ‘créneaux possibles’ en visant la concentration sur un seul créneau. L’option 3 correspond directement à l’idée d’utiliser ces informations pour répartir les rendez‑vous de manière équilibrée, sans introduire d’éléments externes, ce qui lui donne un net avantage malgré l’absence du document audio."
+        },
+        "usage": {
+          "prompt_tokens": 652,
+          "completion_tokens": 1141,
+          "total_tokens": 1793,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 274,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.012225,
+        "inputHash": "712428bce9da5799dc7619c1ead73e5dcaf267572350f179ddca31fc7f0c3792",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:20:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Les options 1 et 2 ajoutent des contraintes spécifiques (samedi, horaires décalés, distinction soir/samedi) absentes de la question. L’option 0 va à l’encontre d’une utilisation naturelle de ‘créneaux possibles’ en visant la concentration sur un seul créneau. L’option 3 correspond directement à l’idée d’utiliser ces informations pour répartir les rendez‑vous de manière équilibrée, sans introduire d’éléments externes, ce qui lui donne un net avantage malgré l’absence du document audio.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "clear",
+        "cue": "La réponse 0 vise à regrouper les rendez‑vous sur un seul créneau, alors que le libellé de la question parle de ‘créneaux possibles’ au pluriel, ce qui suggère plutôt une utilisation pour répartir ou lisser les rendez‑vous que pour les concentrer ; elle ne fait pas écho à une logique de gestion équilibrée du planning."
+      },
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "La réponse 1 introduit des éléments nouveaux (les rendez‑vous du samedi, les personnes en horaires décalés) qui ne sont pas du tout mentionnés dans la question ; elle suppose une priorité spécifique non indiquée par le texte."
+      },
+      {
+        "option": 2,
+        "severity": "clear",
+        "cue": "La réponse 2 ajoute une opposition précise entre ‘entretiens du soir’ et ‘ceux du samedi’, qui ne figure pas dans la question. Cette séparation stricte de deux types de planning est une contrainte supplémentaire sans appui dans l’énoncé."
+      },
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "La réponse 3 reprend directement l’idée de ‘créneaux possibles’ pour expliquer une répartition des rendez‑vous et parle d’éviter la concentration sur un même après‑midi, ce qui correspond naturellement à l’usage d’informations de disponibilité pour lisser les échanges sur plusieurs plages, sans introduire de nouveaux paramètres (samedi, horaires décalés, soir)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une résidence, on a demandé aux résidents d’indiquer tous les créneaux où ils seraient disponibles pour un entretien. Lors d’une réunion d’organisation, le responsable explique : « Les informations sur les créneaux possibles que vous avez indiqués nous serviront à regrouper les rendez-vous sur le créneau où le plus grand nombre de résidents est disponible, afin de limiter le nombre de plages à mobiliser. »"
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une résidence organise des entretiens individuels avec les résidents, qui ont rempli un formulaire en précisant leurs disponibilités, notamment s’ils ne peuvent venir qu’en dehors des horaires classiques. Lors d’un message d’information, l’organisateur dit : « Les informations sur les créneaux possibles que vous avez indiquées nous serviront à réserver en priorité les rendez-vous du samedi aux personnes en horaires décalés, afin de leur faciliter l’accès. »"
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un gestionnaire de résidence a proposé des entretiens le soir et le samedi, et a recueilli les créneaux possibles indiqués par les résidents. Lors d’une réunion interne, il explique : « Les informations sur les créneaux possibles serviront à séparer strictement les plannings des entretiens du soir et ceux du samedi, pour qu’il n’y ait pas de mélange d’équipes et de créneaux. »"
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une résidence, un coordinateur a demandé aux résidents d’indiquer tous les créneaux où ils seraient disponibles pour un entretien. Lors d’un message audio, il précise : « Les informations sur les créneaux possibles indiqués par les résidents nous serviront à répartir les rendez-vous pour éviter de concentrer tous les échanges sur le même après-midi, afin de mieux gérer l’affluence. »"
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

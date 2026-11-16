@@ -1,0 +1,151 @@
+{
+  "question": {
+    "number": 25,
+    "kind": "television-report",
+    "question": "Dans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?",
+    "options": [
+      "Les résultats scolaires des élèves",
+      "Les écarts d’accès aux devoirs entre élèves selon leur équipement à la maison",
+      "Le nombre de devoirs rendus à temps",
+      "Le temps de préparation des cours pour les enseignants"
+    ],
+    "correct": "A",
+    "explanation": "Le texte indique que «les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Le point contrôlé est donc l’amélioration des résultats scolaires, pas d’autres effets possibles du dispositif.",
+    "transcript": "Question 25.\nDans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux.\nMais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous.\nL'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils.\nDans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 25."
+      },
+      {
+        "voice": "female",
+        "text": "Dans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux."
+      },
+      {
+        "voice": "male",
+        "text": "Mais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous."
+      },
+      {
+        "voice": "female",
+        "text": "L'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils."
+      },
+      {
+        "voice": "female",
+        "text": "Dans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?"
+      }
+    ],
+    "audio": "q-25.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 71
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkySt2H7w1DwqxnWjVNU9i3WXKF6S",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion de direction dans un collège ayant équipé plusieurs classes de tablettes. Un responsable pédagogique présente un premier bilan : les enseignants observent que les élèves semblent plus engagés. Avant d’envisager une nouvelle commande de tablettes pour d’autres classes, l’équipe décide de vérifier si le nombre de devoirs rendus à temps a effectivement augmenté grâce à l’outil numérique."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Conseil d’administration d’un établissement scolaire pilote pour le numérique. Un inspecteur expose que des tablettes ont été introduites dans certaines classes. Avant de généraliser et de commander davantage de matériel, les responsables expliquent qu’ils veulent d’abord analyser l’évolution des résultats scolaires des élèves pour voir s’il y a un réel gain académique."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Réunion entre l’équipe de direction et un groupe d’enseignants après une phase test de tablettes en classe. Les professeurs évoquent le temps nécessaire pour préparer des cours interactifs. Avant de décider d’acheter plus de tablettes, les responsables expliquent qu’ils souhaitent d’abord vérifier si, avec l’habitude et les ressources partagées, le temps de préparation des cours pour les enseignants diminue réellement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Présentation d’un rapport sur une expérimentation de tablettes dans un collège socialement mixte. Les responsables expliquent qu’au départ ils craignaient d’accentuer les inégalités, certains élèves ayant peu ou pas d’équipement à la maison. Avant de commander davantage de tablettes, ils affirment vouloir d’abord vérifier une amélioration sur un point précis : la réduction des écarts d’accès aux devoirs entre élèves selon leur équipement à la maison, pour voir si le dispositif corrige ou aggrave ces disparités."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation plus longue, nuancée et spécifique (référence explicite aux écarts d’accès, aux devoirs et à l’équipement à la maison), qui correspond à un indicateur d’équité très ciblé et responsable plutôt qu’à un simple résultat ou volume de devoirs ; ce type de précision est typiquement celle d’un item-clé construit pour se distinguer des autres, plus génériques."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.15,
+            0.2,
+            0.45
+          ],
+          "guess": 3,
+          "reason": "Toutes les options pourraient être évoquées dans un bilan d’usage des tablettes, mais la quatrième se distingue par sa précision, sa longueur et son orientation vers la réduction des inégalités d’accès, ce qui correspond à un objectif fréquemment mis en avant dans des documents institutionnels sur le numérique éducatif. Les trois autres sont plus génériques et moins finement ciblées, ce qui donne à l’option 3 un avantage concret malgré une incertitude réelle sur l’enregistrement absent."
+        },
+        "usage": {
+          "prompt_tokens": 624,
+          "completion_tokens": 761,
+          "total_tokens": 1385,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 130,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00839,
+        "inputHash": "3f4e3e4540cda5fb9052ae8301ec5fba6530db016bcd95f824231431d8fe4254",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Toutes les options pourraient être évoquées dans un bilan d’usage des tablettes, mais la quatrième se distingue par sa précision, sa longueur et son orientation vers la réduction des inégalités d’accès, ce qui correspond à un objectif fréquemment mis en avant dans des documents institutionnels sur le numérique éducatif. Les trois autres sont plus génériques et moins finement ciblées, ce qui donne à l’option 3 un avantage concret malgré une incertitude réelle sur l’enregistrement absent.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation plus longue, nuancée et spécifique (référence explicite aux écarts d’accès, aux devoirs et à l’équipement à la maison), qui correspond à un indicateur d’équité très ciblé et responsable plutôt qu’à un simple résultat ou volume de devoirs ; ce type de précision est typiquement celle d’un item-clé construit pour se distinguer des autres, plus génériques."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Réunion de direction dans un collège ayant équipé plusieurs classes de tablettes. Un responsable pédagogique présente un premier bilan : les enseignants observent que les élèves semblent plus engagés. Avant d’envisager une nouvelle commande de tablettes pour d’autres classes, l’équipe décide de vérifier si le nombre de devoirs rendus à temps a effectivement augmenté grâce à l’outil numérique."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Conseil d’administration d’un établissement scolaire pilote pour le numérique. Un inspecteur expose que des tablettes ont été introduites dans certaines classes. Avant de généraliser et de commander davantage de matériel, les responsables expliquent qu’ils veulent d’abord analyser l’évolution des résultats scolaires des élèves pour voir s’il y a un réel gain académique."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Réunion entre l’équipe de direction et un groupe d’enseignants après une phase test de tablettes en classe. Les professeurs évoquent le temps nécessaire pour préparer des cours interactifs. Avant de décider d’acheter plus de tablettes, les responsables expliquent qu’ils souhaitent d’abord vérifier si, avec l’habitude et les ressources partagées, le temps de préparation des cours pour les enseignants diminue réellement."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Présentation d’un rapport sur une expérimentation de tablettes dans un collège socialement mixte. Les responsables expliquent qu’au départ ils craignaient d’accentuer les inégalités, certains élèves ayant peu ou pas d’équipement à la maison. Avant de commander davantage de tablettes, ils affirment vouloir d’abord vérifier une amélioration sur un point précis : la réduction des écarts d’accès aux devoirs entre élèves selon leur équipement à la maison, pour voir si le dispositif corrige ou aggrave ces disparités."
+      }
+    ]
+  }
+}

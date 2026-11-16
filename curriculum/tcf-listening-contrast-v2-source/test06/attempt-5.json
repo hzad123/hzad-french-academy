@@ -1,0 +1,189 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question demande explicitement si les tomates viennent de l’exploitation de l’interlocuteur. La réponse « Oui, elles viennent bien d’ici. » confirme clairement cette origine (« d’ici » renvoie à l’exploitation en question). Il y a adéquation parfaite entre la demande d’information et la réponse. A : La question porte sur l’origine des tomates (« de votre exploitation »), donc sur le lieu de production. La réponse « Elles seront là toute la semaine. » donne une information de durée de disponibilité, pas d’origine : on ne sait toujours pas d’où viennent les tomates. Un auditeur distrait peut confondre parce que les deux phrases parlent des mêmes tomates et semblent s’enchaîner naturellement, mais le contenu ne répond pas à la question posée. C : On demande l’origine des tomates, pas leur prix. « Elles sont à deux euros cinquante. » répond à une question du type « Elles sont à combien ? » ou « Quel est leur prix ? », mais ne dit rien sur le fait qu’elles viennent ou non de l’exploitation. Un auditeur peu attentif peut se laisser tromper parce que c’est une réponse typique entendue sur un marché à propos de tomates, mais elle n’apporte aucune information sur leur provenance. D : La réponse « On les reçoit fraîches chaque matin. » parle de la fréquence et de la fraîcheur de la livraison, pas du lieu de production. Dire qu’on les « reçoit » suggère même plutôt qu’elles viennent d’un autre fournisseur que de sa propre exploitation. Un auditeur pourrait mal comprendre en se disant que des produits reçus chaque matin sont peut-être locaux, donc associer à tort la fraîcheur avec l’idée d’exploitation locale, mais la phrase ne confirme jamais qu’elles viennent de « votre exploitation ».",
+    "transcript": "Question 5.\nCes tomates viennent-elles de votre exploitation ?\nA. Elles seront là toute la semaine. B. Oui, elles viennent bien d'ici. C. Elles sont à deux euros cinquante. D. On les reçoit fraîches chaque matin.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "female",
+        "text": "Ces tomates viennent-elles de votre exploitation ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Elles seront là toute la semaine. B. Oui, elles viennent bien d'ici. C. Elles sont à deux euros cinquante. D. On les reçoit fraîches chaque matin."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": 16.3,
+    "slotSeconds": 35
+  },
+  "sourceHash": "d62108af0292b5f1c4db057b70eaa8d6d3e12c917d9bfc32223bc38a9736c8a2",
+  "contentHash": "5746501f76f35063ad625d74f75f6dc5bab9ca60ea6cf8cb21e896938b33cf81",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyZzcx69C0ZJqFRrp64NPZSREXl6",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice de compréhension orale, l’enseignant fait écouter quatre affirmations numérotées A, B, C et D, puis demande : « Quelle réponse convient ? » L’élève répond simplement par le libellé : « Proposition D. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un QCM audio, la voix présente quatre propositions étiquetées A, B, C et D. À la fin, on entend : « Quelle réponse convient ? » L’auditeur choisit : « Proposition A. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un test, le narrateur décrit une situation puis énumère quatre propositions A, B, C, D. Ensuite : « Quelle réponse convient ? » L’apprenant répond à haute voix : « Proposition B. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant un enregistrement d’examen, on demande à l’élève de sélectionner la bonne option parmi A, B, C, D. À la question « Quelle réponse convient ? », il dit : « Proposition C. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Le texte de la question est totalement neutre et ne fournit aucun indice pour privilégier une lettre plutôt qu’une autre ; les quatre réponses sont symétriques et chaque libellé peut répondre naturellement à la consigne « Quelle réponse convient ? », d’où une incertitude complète et des probabilités uniformes."
+        },
+        "usage": {
+          "prompt_tokens": 574,
+          "completion_tokens": 418,
+          "total_tokens": 992,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 68,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0048975,
+        "inputHash": "f6f4911a8db4c67a2886004e526a74520df8e4dcd881ccc49bb969904095ecee",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:4:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekya33kjtAquA81A4Q16GJB8ku5sP",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui répond directement à la question sur l’origine des tomates (« votre exploitation ») est : « Oui, elles viennent bien d’ici. » Les autres réponses parlent de durée de disponibilité, de prix ou de fréquence de livraison, sans indiquer qu’elles viennent de l’exploitation de l’interlocuteur.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ces tomates viennent-elles de votre exploitation ?",
+            "Elles seront là toute la semaine."
+          ],
+          "reason": "La question porte sur l’origine des tomates (« de votre exploitation »), donc sur le lieu de production. La réponse « Elles seront là toute la semaine. » donne une information de durée de disponibilité, pas d’origine : on ne sait toujours pas d’où viennent les tomates. Un auditeur distrait peut confondre parce que les deux phrases parlent des mêmes tomates et semblent s’enchaîner naturellement, mais le contenu ne répond pas à la question posée.",
+          "misunderstanding": "temporal_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ces tomates viennent-elles de votre exploitation ?",
+            "Oui, elles viennent bien d'ici."
+          ],
+          "reason": "La question demande explicitement si les tomates viennent de l’exploitation de l’interlocuteur. La réponse « Oui, elles viennent bien d’ici. » confirme clairement cette origine (« d’ici » renvoie à l’exploitation en question). Il y a adéquation parfaite entre la demande d’information et la réponse.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ces tomates viennent-elles de votre exploitation ?",
+            "Elles sont à deux euros cinquante."
+          ],
+          "reason": "On demande l’origine des tomates, pas leur prix. « Elles sont à deux euros cinquante. » répond à une question du type « Elles sont à combien ? » ou « Quel est leur prix ? », mais ne dit rien sur le fait qu’elles viennent ou non de l’exploitation. Un auditeur peu attentif peut se laisser tromper parce que c’est une réponse typique entendue sur un marché à propos de tomates, mais elle n’apporte aucune information sur leur provenance.",
+          "misunderstanding": "lexical_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ces tomates viennent-elles de votre exploitation ?",
+            "On les reçoit fraîches chaque matin."
+          ],
+          "reason": "La réponse « On les reçoit fraîches chaque matin. » parle de la fréquence et de la fraîcheur de la livraison, pas du lieu de production. Dire qu’on les « reçoit » suggère même plutôt qu’elles viennent d’un autre fournisseur que de sa propre exploitation. Un auditeur pourrait mal comprendre en se disant que des produits reçus chaque matin sont peut-être locaux, donc associer à tort la fraîcheur avec l’idée d’exploitation locale, mais la phrase ne confirme jamais qu’elles viennent de « votre exploitation ».",
+          "misunderstanding": "pragmatic_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 684,
+      "completion_tokens": 1068,
+      "total_tokens": 1752,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 416,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.011535,
+    "inputHash": "54a5c2581cb68da60809f454a33306a2ec37fc751c65beae96ace5395f761b0b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:4:initial:ground:0"
+  },
+  "feedback": null
+}

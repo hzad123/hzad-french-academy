@@ -1,0 +1,387 @@
+{
+  "question": {
+    "number": 29,
+    "kind": "announcement",
+    "question": "Selon le document, sur quel type d’éléments l’équipe a-t-elle fondé sa nouvelle analyse du service ?",
+    "options": [
+      "Sur les messages de réclamation envoyés par les inscrits",
+      "Sur les objets proposés qui n’ont jamais été empruntés",
+      "Sur les comptes d’utilisateurs supprimés après l’inscription",
+      "Sur les demandes d’emprunt abandonnées en cours de route"
+    ],
+    "correct": "D",
+    "transcript": "Question 29.\nL'application de prêt d'objets du quartier compte déjà deux mille inscrits. Un chiffre impressionnant, qui ne dit pourtant pas combien de voisins ont effectivement emprunté quelque chose. L'équipe vient donc d'étudier les demandes abandonnées. Certains objets étaient trop loin ; d'autres ne pouvaient être récupérés qu'aux heures de travail. Les responsables vont proposer des points de rencontre et préciser les disponibilités. Leur prochain bilan distinguera les comptes créés, les prêts réalisés et les difficultés rencontrées. La popularité annoncée est un début d'information, pas encore la preuve que le service répond aux besoins quotidiens.\nSelon le document, sur quel type d’éléments l’équipe a-t-elle fondé sa nouvelle analyse du service ?",
+    "explanation": "Réponse D : La phrase précise directement le support de la nouvelle analyse : \"L'équipe vient donc d'étudier les demandes abandonnées.\" Cela correspond exactement aux \"demandes d’emprunt abandonnées en cours de route\". A : Le document indique explicitement que l’équipe a étudié \"les demandes abandonnées\", pas des messages de réclamation. Aucune mention n’est faite de messages envoyés par les inscrits. On pourrait se laisser tromper par l’expression \"les difficultés rencontrées\" et imaginer des réclamations, mais ces difficultés sont déduites de l’analyse des demandes abandonnées (distance, horaires), pas de messages de plainte. B : L’équipe a étudié \"les demandes abandonnées\" et, à partir de celles-ci, a constaté que \"certains objets étaient trop loin\" ou difficiles à récupérer. Elle ne dit pas avoir analysé les \"objets proposés qui n’ont jamais été empruntés\" en tant que tels. On peut confondre car on entend parler d’objets et de problèmes de distance, et croire que l’étude porte sur les objets restés sans prêt, alors qu’elle porte sur les demandes interrompues. C : Le texte précise que l’étude actuelle concerne \"les demandes abandonnées\". Les comptes d’utilisateurs sont seulement mentionnés pour un \"prochain bilan\" qui distinguera les comptes créés, sans évoquer de comptes supprimés. Quelqu’un peu attentif pourrait retenir le mot \"comptes\" et croire que l’analyse repose sur des comptes supprimés après inscription, mais cela ne figure pas dans le document.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 29."
+      },
+      {
+        "voice": "female",
+        "text": "L'application de prêt d'objets du quartier compte déjà deux mille inscrits. Un chiffre impressionnant, qui ne dit pourtant pas combien de voisins ont effectivement emprunté quelque chose. L'équipe vient donc d'étudier les demandes abandonnées. Certains objets étaient trop loin ; d'autres ne pouvaient être récupérés qu'aux heures de travail. Les responsables vont proposer des points de rencontre et préciser les disponibilités. Leur prochain bilan distinguera les comptes créés, les prêts réalisés et les difficultés rencontrées. La popularité annoncée est un début d'information, pas encore la preuve que le service répond aux besoins quotidiens."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, sur quel type d’éléments l’équipe a-t-elle fondé sa nouvelle analyse du service ?"
+      }
+    ],
+    "audio": "q-29.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 64
+  },
+  "sourceHash": "998481f6f57a6d28dd624950b4f8431d1c31672eb5df8323f81cf8ebc0e1041f",
+  "contentHash": "58f4662c5fee029a98a1cec92c10e8f216c8049270ac6a28b5458db86507e84f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyBZjVzrtl9D92QlrLqQhj8NG5A7",
+    "result": {
+      "question": "Selon le document, sur quel type d’éléments l’équipe a-t-elle fondé sa nouvelle analyse du service ?",
+      "choices": [
+        "Sur les demandes d’emprunt abandonnées en cours de route",
+        "Sur les comptes d’utilisateurs supprimés après l’inscription",
+        "Sur les objets proposés qui n’ont jamais été empruntés",
+        "Sur les messages de réclamation envoyés par les inscrits"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique que «L'équipe vient donc d'étudier les demandes abandonnées». C’est ce matériau précis qui sert de base à la nouvelle analyse, pour comprendre pourquoi certains emprunts n’aboutissent pas. Il n’est jamais question de comptes supprimés, d’objets jamais empruntés ni de messages de réclamation comme support de cette étude.",
+      "design": "Axe choisi : le type de données concrètes utilisées pour analyser le fonctionnement réel du service d’emprunt. Les quatre propositions sont toutes des sources d’information plausibles sur les obstacles à l’emprunt (abandons, comptes supprimés, objets jamais sortis, réclamations). Sans le document, aucune ne paraît absurde ; il faut écouter précisément quel matériau l’équipe dit avoir étudié. Le texte ne fournit qu’un seul type d’éléments : les demandes abandonnées.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option est tentante car analyser les comptes supprimés est une démarche courante pour comprendre les blocages d’un service après l’inscription. Cependant, le document ne mentionne à aucun moment une suppression de comptes : il précise seulement que l’équipe «vient donc d'étudier les demandes abandonnées», ce qui renvoie aux tentatives d’emprunt inachevées, pas au statut des comptes.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "L'application de prêt d'objets du quartier compte déjà deux mille inscrits",
+            "L'équipe vient donc d'étudier les demandes abandonnées"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que l’équipe a examiné les objets jamais empruntés, car le texte insiste sur certains objets «trop loin» ou «ne pouvant être récupérés qu'aux heures de travail». Mais ces caractéristiques sont déduites des demandes d’emprunt abandonnées, non d’une simple liste d’objets jamais sortis : le document dit explicitement que l’étude porte sur «les demandes abandonnées», qui permettent d’identifier ces freins concrets.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "L'équipe vient donc d'étudier les demandes abandonnées",
+            "Certains objets étaient trop loin ; d'autres ne pouvaient être récupérés qu'aux heures de travail"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Il serait logique que l’équipe analyse des messages de réclamation pour repérer les problèmes. Pourtant, le passage décrit une démarche proactive centrée sur les comportements d’usage : «étudier les demandes abandonnées» puis distinguer «les comptes créés, les prêts réalisés et les difficultés rencontrées». Aucune allusion n’est faite à des messages envoyés par les inscrits ; les difficultés sont inférées des abandons, pas recueillies via des réclamations.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "L'équipe vient donc d'étudier les demandes abandonnées",
+            "leur prochain bilan distinguera les comptes créés, les prêts réalisés et les difficultés rencontrées"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4347,
+      "completion_tokens": 836,
+      "total_tokens": 5183,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 132,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01379375,
+    "inputHash": "d685d154870f5d387853ca7163a021e0fbfce337c1f2edac88484cfc20d9a250",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:28:initial:author:5:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBii3pibuqR2LPs99n4qxqVzNqk",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’évaluation d’un service de prêt d’objets en bibliothèque ou en entreprise : l’équipe explique qu’elle a étudié tous les objets jamais empruntés pour comprendre quels types d’articles n’intéressent pas les usagers, et qu’elle a fondé sa nouvelle analyse du service sur ces éléments."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Bilan d’une plateforme en ligne avec un système de comptes : l’équipe dresse un rapport en expliquant qu’elle a concentré son analyse sur les comptes d’utilisateurs qui sont supprimés juste après l’inscription, afin de comprendre pourquoi certains abandonnent immédiatement le service."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Compte rendu d’un service de location ou de prêt (véhicules, matériel, livres, etc.) : l’équipe précise qu’elle a examiné de près toutes les demandes d’emprunt commencées mais jamais finalisées, et qu’elle a basé sa nouvelle analyse du service sur ces demandes abandonnées en cours de route."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion de suivi d’un service client : l’équipe annonce avoir relu et catégorisé tous les messages de réclamation envoyés par les inscrits, et qu’elle s’est appuyée sur ces éléments pour construire une nouvelle analyse du service et de ses problèmes principaux."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre options peuvent plausiblement être la base d’une nouvelle analyse du service et sont toutes bien rédigées, sans avantage lexical ou structurel évident ; l’option 2 est choisie comme meilleure hypothèse par légère intuition, mais l’incertitude reste forte et les probabilités sont réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 631,
+          "completion_tokens": 571,
+          "total_tokens": 1202,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 167,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00649875,
+        "inputHash": "37e74e42f98e6374eca3ca206d13ee644d6f95b5e9bd4dff04160b0b476598d4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:28:initial:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBnMFyTOYBbKdnbDoIYqCgarHoN",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’une équipe qui gère un service de prêt d’objets (médiathèque, bibliothèque d’outils). Ils expliquent avoir mené une nouvelle analyse du service en se basant spécifiquement sur les objets du catalogue qui n’ont jamais été empruntés, pour comprendre ce qui ne suscite aucun intérêt et ajuster l’offre."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Bilan d’un service en ligne d’emprunt où l’équipe dresse un état des lieux de l’adhésion des utilisateurs. Ils indiquent avoir fondé leur nouvelle analyse sur les comptes d’utilisateurs qui se sont inscrits puis ont rapidement supprimé leur compte, afin de comprendre les causes de ce désengagement précoce."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Présentation de résultats d’un audit qualité d’un service de prêt. L’intervenant explique que la nouvelle analyse du service s’appuie principalement sur les messages de réclamation que les personnes inscrites ont envoyés (délais, disponibilité, fonctionnement du site) pour cibler les points faibles à améliorer."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Compte rendu d’une équipe qui gère une plateforme de réservation d’objets. Ils précisent que leur nouvelle analyse du service s’est appuyée sur les demandes d’emprunt entamées par les utilisateurs mais finalement abandonnées, afin d’identifier à quel moment du parcours les usagers renoncent."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre éléments sont des bases d’analyse plausibles et cohérentes avec un « service » d’emprunt ; aucune option ne présente d’avantage rédactionnel ou de pertinence nettement identifiable sans entendre le document, d’où une incertitude réelle et une répartition à peu près uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 631,
+          "completion_tokens": 556,
+          "total_tokens": 1187,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 127,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00634875,
+        "inputHash": "3497e8459f5f7f1d47b5dd2ec6c0d543997cd3962fa0aa01faa7deb0fac44089",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:28:initial:screen:6:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBtGOsnJe4Rh9wOUAJn9C49EXDd",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’évaluation d’un service de prêt en ligne : l’équipe explique qu’elle a étudié les comptes d’utilisateurs qui se sont inscrits puis ont supprimé leur compte rapidement, pour comprendre les causes d’abandon du service."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Bilan de performance d’une plateforme de prêt : un responsable indique que la nouvelle analyse du service s’est appuyée sur les demandes d’emprunt commencées mais jamais finalisées, afin d’identifier les points de blocage dans le parcours utilisateur."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Présentation des résultats d’un audit : l’orateur précise que l’équipe a centré sa nouvelle analyse du service sur les objets proposés au catalogue qui n’ont jamais été empruntés, pour comprendre pourquoi certaines offres ne trouvent pas preneur."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion qualité d’un service d’emprunt : la responsable annonce que la nouvelle analyse du service repose sur les messages de réclamation envoyés par les inscrits, afin de repérer les dysfonctionnements les plus fréquents."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options décrivent des types de données pertinents pour analyser un service, sans indice linguistique fort permettant de privilégier clairement l’une d’elles à partir de l’énoncé seul ; en l’absence de cue objectif, la probabilité est répartie uniformément et un choix arbitraire est fait pour le guess."
+        },
+        "usage": {
+          "prompt_tokens": 631,
+          "completion_tokens": 474,
+          "total_tokens": 1105,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 116,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00552875,
+        "inputHash": "54b74158050a3b35eee7abb8feca3f539506f75a8940e1d52b5407405249c5b9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:28:initial:screen:6:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyC16wv2piW9aqIBX9pOt3ElSjp6",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’équipe a fondé sa nouvelle analyse sur les demandes d’emprunt abandonnées, afin de comprendre pourquoi certains prêts n’aboutissent pas.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'équipe vient donc d'étudier les demandes abandonnées.",
+            "Leur prochain bilan distinguera les comptes créés, les prêts réalisés et les difficultés rencontrées."
+          ],
+          "reason": "Le document indique explicitement que l’équipe a étudié \"les demandes abandonnées\", pas des messages de réclamation. Aucune mention n’est faite de messages envoyés par les inscrits. On pourrait se laisser tromper par l’expression \"les difficultés rencontrées\" et imaginer des réclamations, mais ces difficultés sont déduites de l’analyse des demandes abandonnées (distance, horaires), pas de messages de plainte.",
+          "misunderstanding": "overgeneralization"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'équipe vient donc d'étudier les demandes abandonnées.",
+            "Certains objets étaient trop loin ; d'autres ne pouvaient être récupérés qu'aux heures de travail."
+          ],
+          "reason": "L’équipe a étudié \"les demandes abandonnées\" et, à partir de celles-ci, a constaté que \"certains objets étaient trop loin\" ou difficiles à récupérer. Elle ne dit pas avoir analysé les \"objets proposés qui n’ont jamais été empruntés\" en tant que tels. On peut confondre car on entend parler d’objets et de problèmes de distance, et croire que l’étude porte sur les objets restés sans prêt, alors qu’elle porte sur les demandes interrompues.",
+          "misunderstanding": "referent_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'équipe vient donc d'étudier les demandes abandonnées.",
+            "Leur prochain bilan distinguera les comptes créés, les prêts réalisés et les difficultés rencontrées."
+          ],
+          "reason": "Le texte précise que l’étude actuelle concerne \"les demandes abandonnées\". Les comptes d’utilisateurs sont seulement mentionnés pour un \"prochain bilan\" qui distinguera les comptes créés, sans évoquer de comptes supprimés. Quelqu’un peu attentif pourrait retenir le mot \"comptes\" et croire que l’analyse repose sur des comptes supprimés après inscription, mais cela ne figure pas dans le document.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "L'équipe vient donc d'étudier les demandes abandonnées."
+          ],
+          "reason": "La phrase précise directement le support de la nouvelle analyse : \"L'équipe vient donc d'étudier les demandes abandonnées.\" Cela correspond exactement aux \"demandes d’emprunt abandonnées en cours de route\".",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 799,
+      "completion_tokens": 1113,
+      "total_tokens": 1912,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 492,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01212875,
+    "inputHash": "cfc26fee07b0513941d7977e64cbd007d65ad0370b4749805d12cb6723a77440",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:28:initial:ground:6"
+  },
+  "feedback": null
+}

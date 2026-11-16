@@ -1,0 +1,264 @@
+{
+  "question": {
+    "number": 10,
+    "kind": "dialogue",
+    "question": "Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?",
+    "options": [
+      "Jusqu'à vendredi",
+      "Jusqu'à jeudi",
+      "Jusqu'à mercredi",
+      "Jusqu'à la fin du mois"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : L'administration répond explicitement qu'elle gardera la place de l'étudiant « jusqu'à vendredi ». C'est la seule formulation temporelle donnée comme limite de garantie, ce qui correspond exactement à la réponse « Jusqu'à vendredi ». B : Un étudiant pouvant confondre les jours pourrait entendre « demain » et croire que la limite est le lendemain (par exemple jeudi s'il imagine que la scène se passe un mercredi). Cependant, la phrase clé est « nous garderons votre place jusqu'à vendredi », qui exclut « Jusqu'à jeudi » : le jour explicitement nommé est vendredi, pas jeudi. C : Quelqu'un qui suit mal la chronologie peut se focaliser sur « Je peux vous l'apporter demain » et supposer à tort que la place n'est garantie que très peu de temps, par exemple jusqu'au mercredi dans son propre schéma mental. Mais la réponse précise clairement la limite réelle : « jusqu'à vendredi », ce qui rend « Jusqu'à mercredi » incorrect. D : On pourrait mal interpréter « Ensuite, nous confirmerons l'inscription » comme une garantie prolongée jusqu'à une date plus vague, par exemple « la fin du mois ». Mais l'administration fixe une limite précise : « jusqu'à vendredi ». Après ce jour, il s'agit de confirmer l'inscription, non de continuer à « garder la place ». Il n'est jamais question de « la fin du mois », donc cette option ne correspond pas aux propos tenus.",
+    "transcript": "Question 10.\nJ'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants.\nVotre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise.\nJe peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription.\nJusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 10."
+      },
+      {
+        "voice": "male",
+        "text": "J'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants."
+      },
+      {
+        "voice": "female",
+        "text": "Votre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise."
+      },
+      {
+        "voice": "male",
+        "text": "Je peux vous l'apporter demain."
+      },
+      {
+        "voice": "female",
+        "text": "Oui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription."
+      },
+      {
+        "voice": "female",
+        "text": "Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?"
+      }
+    ],
+    "audio": "q-10.mp3",
+    "audioSeconds": 25.731,
+    "slotSeconds": 42
+  },
+  "sourceHash": "1ef946cc973b812289ec0920f0f239f57244f80cdf817308ab6589c43dc0cca4",
+  "contentHash": "3c9dc267f14466790e70d2e22d367c3ecb16179e3a8372ee1952c27aaafad11f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyP6aw4XzfDZ8K7wGCm3mp8gE1NL",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement d’une réunion d’information universitaire, une secrétaire explique aux nouveaux inscrits : « Nous gardons votre place pendant une semaine. Donc, jusqu’à vendredi, votre inscription est garantie. Après, elle sera proposée à quelqu’un sur liste d’attente. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un message vocal d’un service de scolarité, l’employée précise : « Vous avez confirmé votre inscription, donc nous garantissons votre place jusqu’à mercredi. Au-delà, elle ne sera plus réservée automatiquement. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant une réunion d’accueil, un responsable administratif dit : « L’administration garantit votre place jusqu’à jeudi. Si, d’ici jeudi, vous n’avez pas finalisé vos démarches, nous devrons la libérer. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une vidéo explicative sur les procédures d’inscription, la responsable annonce : « L’administration garantit la place de l’étudiant jusqu’à la fin du mois. Passé cette date, les dossiers non finalisés seront annulés. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options répondent directement et grammaticalement à la question, avec des contextes ordinaires plausibles. Aucun indice textuel clair ne privilégie un jour plutôt qu’un autre ou la formule « jusqu’à la fin du mois », donc aucune option ne se démarque nettement et l’incertitude reste élevée."
+        },
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 406,
+          "total_tokens": 1004,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 52,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0048075,
+        "inputHash": "d81b5f1e23237c3dec327320599383aa202a6a8ac98f523e96bc4951e88ec720",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyPAOkWIDzwSaqLPY5Gm0mHgU1gL",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une réunion d’information à l’université, une secrétaire explique aux nouveaux inscrits : « Vous avez jusqu’à jeudi pour confirmer votre inscription. Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? – Jusqu'à jeudi. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Au téléphone, un employé du service des admissions précise à un candidat admis sur liste principale : « Ne vous inquiétez pas, nous vous gardons la place jusqu'à vendredi. Après, elle sera proposée à quelqu’un d’autre. » À la question « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? », on répond : « Jusqu'à vendredi. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Sur un message vocal automatique de l’université, on entend : « Une fois votre admission prononcée, l’administration garantit votre place jusqu'à la fin du mois. Passé ce délai, elle pourra être attribuée à un autre étudiant. » La question « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? » reçoit alors la réponse : « Jusqu'à la fin du mois. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réunion de rentrée, un responsable administratif dit : « Nous vous gardons votre place jusqu'à mercredi. Après mercredi, si vous ne vous êtes pas présentés, nous considérerons que vous renoncez. » Interrogé ensuite, un étudiant répond à « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? » par « Jusqu'à mercredi. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre réponses sont structurellement et pragmatiquement plausibles, de forme très proche, sans indice grammatical ou stylistique distinctif. Aucune ne se détache nettement, mais dans les exercices administratifs de ce type, « jusqu’à vendredi » est légèrement plus fréquent comme date butoir arbitraire que les deux autres jours précis, d’où un mince avantage intuitif sans certitude."
+        },
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 511,
+          "total_tokens": 1109,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 44,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0058575,
+        "inputHash": "5f02acbb0b917695cb2286f4e59cf6fae8877be048e3928ee1d435885b4a9a49",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyPGee65ezpnjSFLuTdNJSGfV4ZT",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L'administration précise clairement qu'elle gardera la place de l'étudiant « jusqu'à vendredi », ce qui correspond à la première option uniquement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Oui, nous garderons votre place jusqu'à vendredi."
+          ],
+          "reason": "L'administration répond explicitement qu'elle gardera la place de l'étudiant « jusqu'à vendredi ». C'est la seule formulation temporelle donnée comme limite de garantie, ce qui correspond exactement à la réponse « Jusqu'à vendredi ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi."
+          ],
+          "reason": "Un étudiant pouvant confondre les jours pourrait entendre « demain » et croire que la limite est le lendemain (par exemple jeudi s'il imagine que la scène se passe un mercredi). Cependant, la phrase clé est « nous garderons votre place jusqu'à vendredi », qui exclut « Jusqu'à jeudi » : le jour explicitement nommé est vendredi, pas jeudi.",
+          "misunderstanding": "confusion_temporelle"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi."
+          ],
+          "reason": "Quelqu'un qui suit mal la chronologie peut se focaliser sur « Je peux vous l'apporter demain » et supposer à tort que la place n'est garantie que très peu de temps, par exemple jusqu'au mercredi dans son propre schéma mental. Mais la réponse précise clairement la limite réelle : « jusqu'à vendredi », ce qui rend « Jusqu'à mercredi » incorrect.",
+          "misunderstanding": "approximation_du_jour"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Oui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription."
+          ],
+          "reason": "On pourrait mal interpréter « Ensuite, nous confirmerons l'inscription » comme une garantie prolongée jusqu'à une date plus vague, par exemple « la fin du mois ». Mais l'administration fixe une limite précise : « jusqu'à vendredi ». Après ce jour, il s'agit de confirmer l'inscription, non de continuer à « garder la place ». Il n'est jamais question de « la fin du mois », donc cette option ne correspond pas aux propos tenus.",
+          "misunderstanding": "généralisation_excessive"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 709,
+      "completion_tokens": 680,
+      "total_tokens": 1389,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 131,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00768625,
+    "inputHash": "d1411000683fad81b6d9d8601b460b96bf1cb1f60ce504628af5d05d6c50a60f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:ground:0"
+  },
+  "feedback": null
+}

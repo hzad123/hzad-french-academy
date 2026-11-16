@@ -1,0 +1,329 @@
+{
+  "question": {
+    "number": 12,
+    "kind": "dialogue",
+    "question": "Dans quelles conditions le fournisseur accepte-t-il d’avancer la livraison des fromages ?",
+    "options": [
+      "À condition que le camion puisse accéder normalement au marché le dimanche.",
+      "À condition que les fromages soient mis tout de suite au frais à leur arrivée.",
+      "À condition qu’une personne soit présente pour ouvrir la chambre froide.",
+      "À condition que le quai de déchargement reste libre le samedi soir."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le fournisseur accepte d’avancer la livraison (« Oui, vers dix-huit heures trente. ») et ajoute la condition « Mais il faudra les placer immédiatement au frais. ». Cela correspond exactement à l’énoncé « À condition que les fromages soient mis tout de suite au frais à leur arrivée. ». A : On pourrait croire que l’accès du camion au marché le dimanche est une condition, car on parle d’« accéder au marché » et de la livraison. Mais la phrase dit au contraire que le camion ne pourra pas accéder au marché dimanche, ce qui est précisément la raison pour laquelle on veut avancer la livraison. Ce n’est donc pas une condition posée par le fournisseur, mais un problème à éviter. C : On pourrait penser que la présence d’une personne pour ouvrir la chambre froide est la condition exigée par le fournisseur, car elle est évoquée juste après sa demande de mise au frais. En réalité, c’est le client qui rassure en ajoutant cet élément ; le fournisseur n’a pas posé cette condition, il a seulement exigé que les fromages soient mis immédiatement au frais. D : Le quai de déchargement libre samedi soir est avancé par le client comme argument pour demander d’avancer la livraison, pas comme condition imposée par le fournisseur. Celui-ci ne le reprend pas comme exigence ; sa seule condition explicite concerne la mise au frais immédiate. Confondre motif de la demande et condition d’acceptation peut amener à choisir cette réponse.",
+    "transcript": "Question 12.\nNotre camion ne pourra pas accéder au marché pendant la course cycliste de dimanche.\nLe quai de déchargement sera encore libre samedi soir. Pouvez-vous avancer la livraison des fromages ?\nOui, vers dix-huit heures trente. Mais il faudra les placer immédiatement au frais.\nNous aurons une personne sur place pour ouvrir la chambre froide.\nDans quelles conditions le fournisseur accepte-t-il d’avancer la livraison des fromages ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 12."
+      },
+      {
+        "voice": "male",
+        "text": "Notre camion ne pourra pas accéder au marché pendant la course cycliste de dimanche."
+      },
+      {
+        "voice": "female",
+        "text": "Le quai de déchargement sera encore libre samedi soir. Pouvez-vous avancer la livraison des fromages ?"
+      },
+      {
+        "voice": "male",
+        "text": "Oui, vers dix-huit heures trente. Mais il faudra les placer immédiatement au frais."
+      },
+      {
+        "voice": "female",
+        "text": "Nous aurons une personne sur place pour ouvrir la chambre froide."
+      },
+      {
+        "voice": "female",
+        "text": "Dans quelles conditions le fournisseur accepte-t-il d’avancer la livraison des fromages ?"
+      }
+    ],
+    "audio": "q-12.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 44
+  },
+  "sourceHash": "03574028a3b657a41a716bcfd910abfac3605cbc75951525a9d8a0611452c72b",
+  "contentHash": "5eca64f338e1d3fbe69c9f2a300839a137cab60f22d2afdab4f86da3a7789818",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekyb0rIIavCY9Ro14iNjY7wfSNx9y",
+    "result": {
+      "question": "Dans quelles conditions le fournisseur accepte-t-il d’avancer la livraison des fromages ?",
+      "choices": [
+        "À condition que les fromages soient mis tout de suite au frais à leur arrivée.",
+        "À condition que le quai de déchargement reste libre le samedi soir.",
+        "À condition qu’une personne soit présente pour ouvrir la chambre froide.",
+        "À condition que le camion puisse accéder normalement au marché le dimanche."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le fournisseur répond « Oui, vers dix-huit heures trente. Mais il faudra les placer immédiatement au frais. » La seule condition qu’il formule pour accepter d’avancer la livraison est donc que les fromages soient placés tout de suite au frais. Le quai libre et la présence d’une personne pour ouvrir la chambre froide sont évoqués par le client, et l’accès du camion au marché le dimanche est présenté comme impossible, pas comme une condition d’acceptation.",
+      "design": "Axe choisi : la condition précise posée par le fournisseur pour accepter l’avancement de la livraison. Les quatre options proposent chacune une condition plausible dans un contexte logistique et de chaîne du froid (quai disponible, présence d’un responsable, accès au marché, mise immédiate au frais). Sans le document audio, toutes paraissent raisonnables et répondent directement à la question. Seule l’écoute permet d’identifier que la condition formulée par le fournisseur porte spécifiquement sur le fait de placer les fromages immédiatement au frais, et non sur le quai, la présence sur place ou l’accès du camion le dimanche.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le quai de déchargement « sera encore libre samedi soir » est avancé par le client pour justifier sa demande, pas comme condition posée par le fournisseur. La confusion vient d’y voir la contrainte logistique principale, alors que la condition explicite du fournisseur porte sur la conservation des fromages.",
+          "operation": "role_swap",
+          "anchors": [
+            "Le quai de déchargement sera encore libre samedi soir.",
+            "Oui, vers dix-huit heures trente. Mais il faudra les placer immédiatement au frais."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La présence d’« une personne sur place pour ouvrir la chambre froide » est une assurance donnée après coup par le client, pas une condition énoncée par le fournisseur pour accepter. On peut se tromper en reliant cette phrase à l’avertissement sur la mise au frais, mais le fournisseur n’exige que la mise immédiate au frais, sans mentionner la présence d’une personne précise.",
+          "operation": "role_swap",
+          "anchors": [
+            "Mais il faudra les placer immédiatement au frais.",
+            "Nous aurons une personne sur place pour ouvrir la chambre froide."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’impossibilité d’accès du camion au marché pendant la course cycliste est la raison de la demande d’avancer la livraison, et non une condition pour l’accepter. Inverser la relation conduit à prendre le problème initial d’accès comme si c’était une exigence posée par le fournisseur.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Notre camion ne pourra pas accéder au marché pendant la course cycliste de dimanche.",
+            "Pouvez-vous avancer la livraison des fromages ?"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4408,
+      "completion_tokens": 1029,
+      "total_tokens": 5437,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 364,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0158,
+    "inputHash": "5e2b8c2837faf62ec8eb5e4d5401a77edf1bd61c0fdcdf0a2b8aaf0d7b026aae",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:11:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekyb94k3E4q8KCayc8ciQFYs3YRFz",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un commerçant de marché téléphone à son fournisseur pour demander une livraison de fromages plus tôt que prévu, par exemple tôt le matin. Le fournisseur accepte à condition que, dès l’arrivée de la marchandise, les fromages soient immédiatement mis en chambre froide ou au réfrigérateur pour respecter la chaîne du froid et éviter tout problème de qualité ou de responsabilité sanitaire."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un responsable de magasin veut avancer la livraison de fromages à une heure inhabituelle, par exemple très tôt le matin ou tard le soir. Le fournisseur répond qu’il peut modifier l’horaire seulement si une personne est sur place pour ouvrir la chambre froide, afin qu’il puisse déposer les fromages directement au bon endroit sans les laisser dehors ni attendre."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un vendeur sur un marché hebdomadaire demande au fournisseur s’il peut livrer les fromages plus tôt, par exemple dès le dimanche au lieu d’un autre jour. Le fournisseur précise qu’il accepte d’avancer la livraison à condition que son camion puisse accéder normalement au marché le dimanche (rues non fermées, pas de restriction de circulation ou de stationnement empêchant le déchargement)."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un responsable de la réception des marchandises dans un entrepôt ou un grand magasin souhaite avancer une livraison de fromages à la veille de l’ouverture, le samedi soir au lieu du dimanche matin. Le fournisseur accepte, mais pose la condition que le quai de déchargement reste libre le samedi soir afin que le camion puisse se garer et décharger sans retard ni blocage logistique."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent toutes constituer des conditions ordinaires et cohérentes pour avancer une livraison de fromages, sans indice formel dans l’énoncé ou la rédaction permettant d’en privilégier une de façon fiable ; aucune option ne se distingue nettement par la formulation ou la portée, d’où une forte incertitude et une distribution de probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 640,
+          "total_tokens": 1270,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 167,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0071875,
+        "inputHash": "58ee833957d7148808745a42f6822ff90b845430f3fdffcfca3c823742c5c5f4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:11:initial:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybGK9IDPnUYmlpXP1ik1qkOHMt7",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un responsable de supermarché discute avec le fournisseur de fromages pour recevoir la livraison plus tôt que prévu. Le fournisseur explique qu’il peut avancer la livraison uniquement si quelqu’un est présent sur place pour ouvrir la chambre froide à l’arrivée du camion, sinon il refuse pour des raisons de sécurité et de conservation."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un gérant d’entrepôt demande au fournisseur d’avancer la livraison de fromages au samedi soir au lieu du dimanche matin. Le fournisseur précise qu’il accepte seulement si le quai de déchargement reste libre le samedi soir, afin que le camion puisse se garer et décharger sans gêner les autres livraisons."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un commerçant de marché souhaite être livré plus tôt, par exemple très tôt le dimanche matin avant l’ouverture. Le fournisseur accepte d’avancer la livraison à condition que le camion ait un accès normal au marché le dimanche (pas de rues barrées, de marché encore fermé à la circulation, etc.), sinon il ne peut pas garantir l’horaire demandé."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un restaurateur veut recevoir ses fromages plus tôt que prévu pour un événement. Le fournisseur explique qu’il peut avancer la livraison seulement si, dès l’arrivée, les fromages sont immédiatement mis au frais pour respecter la chaîne du froid; sinon, il refuse de livrer plus tôt pour éviter tout problème de conservation."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Tous les choix peuvent répondre naturellement à la question dans un contexte ordinaire, sans indice clair dans la seule formulation qui privilégie une option plutôt qu’une autre, d’où une forte incertitude et une distribution uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 604,
+          "total_tokens": 1234,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 200,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0068275,
+        "inputHash": "be7871a16a98aa868d0bf08a7921b0ebd327eafc31e7a06a11a5b94128bf9ccd",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:11:initial:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkybOO1pvB4svJa4Fl30pgajsxms8",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le fournisseur accepte d’avancer la livraison à condition que les fromages soient placés immédiatement au frais à leur arrivée.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Notre camion ne pourra pas accéder au marché pendant la course cycliste de dimanche."
+          ],
+          "reason": "On pourrait croire que l’accès du camion au marché le dimanche est une condition, car on parle d’« accéder au marché » et de la livraison. Mais la phrase dit au contraire que le camion ne pourra pas accéder au marché dimanche, ce qui est précisément la raison pour laquelle on veut avancer la livraison. Ce n’est donc pas une condition posée par le fournisseur, mais un problème à éviter.",
+          "misunderstanding": "opposition_inversion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Oui, vers dix-huit heures trente. Mais il faudra les placer immédiatement au frais."
+          ],
+          "reason": "Le fournisseur accepte d’avancer la livraison (« Oui, vers dix-huit heures trente. ») et ajoute la condition « Mais il faudra les placer immédiatement au frais. ». Cela correspond exactement à l’énoncé « À condition que les fromages soient mis tout de suite au frais à leur arrivée. ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous aurons une personne sur place pour ouvrir la chambre froide."
+          ],
+          "reason": "On pourrait penser que la présence d’une personne pour ouvrir la chambre froide est la condition exigée par le fournisseur, car elle est évoquée juste après sa demande de mise au frais. En réalité, c’est le client qui rassure en ajoutant cet élément ; le fournisseur n’a pas posé cette condition, il a seulement exigé que les fromages soient mis immédiatement au frais.",
+          "misunderstanding": "speaker_role_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le quai de déchargement sera encore libre samedi soir. Pouvez-vous avancer la livraison des fromages ?"
+          ],
+          "reason": "Le quai de déchargement libre samedi soir est avancé par le client comme argument pour demander d’avancer la livraison, pas comme condition imposée par le fournisseur. Celui-ci ne le reprend pas comme exigence ; sa seule condition explicite concerne la mise au frais immédiate. Confondre motif de la demande et condition d’acceptation peut amener à choisir cette réponse.",
+          "misunderstanding": "condition_vs_context"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 741,
+      "completion_tokens": 1087,
+      "total_tokens": 1828,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 534,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01179625,
+    "inputHash": "afa1d6ac124b38da37c6d7c4fe1a42c1a6142c0a453e074686a12602143deea9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:11:initial:ground:1"
+  },
+  "feedback": null
+}

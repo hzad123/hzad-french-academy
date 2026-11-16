@@ -1,0 +1,401 @@
+{
+  "question": {
+    "number": 26,
+    "kind": "interview",
+    "question": "D’après le document, sur quel critère le restaurant dit-il sélectionner désormais quelques recettes ?",
+    "options": [
+      "Selon les habitudes de commande observées chez les clients.",
+      "Selon les livraisons des producteurs avec qui il travaille.",
+      "Selon le coût des produits utilisés dans chaque recette.",
+      "Selon le temps de préparation nécessaire pour chaque plat."
+    ],
+    "correct": "B",
+    "transcript": "Question 26.\nDepuis ce printemps, votre restaurant propose moins de plats. Vous cherchez surtout à aller plus vite ?\nLa rapidité compte, mais nous voulions surtout mieux travailler. Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle. Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs. Les cuisiniers peuvent les préparer avec davantage d'attention. Certains clients ont d'abord regretté leurs habitudes ; nous leur expliquons les changements et gardons toujours une possibilité végétarienne. Réduire le nombre de lignes n'a pas réduit notre envie de bien accueillir.\nD’après le document, sur quel critère le restaurant dit-il sélectionner désormais quelques recettes ?",
+    "explanation": "Réponse B : La phrase indique clairement le critère utilisé : les recettes sont choisies \"selon les livraisons des producteurs\". C’est exactement ce que propose cette réponse. A : Le document mentionne les \"habitudes\" des clients comme quelque chose qu’ils regrettent, mais ce n’est pas un critère de sélection des recettes. Le critère explicite est \"selon les livraisons des producteurs\". On ne dit jamais que les recettes sont choisies en fonction des habitudes de commande des clients. C : On comprend que le restaurant veut éviter le gaspillage de produits, ce qui peut faire penser à une recherche d’économie. Cependant, le texte ne parle jamais de \"coût\" des produits comme critère de sélection. Le seul critère formulé est le fait de suivre les livraisons des producteurs. D : Le journaliste insiste sur la rapidité (\"aller plus vite\") et le répondant admet que \"La rapidité compte\", ce qui peut faire croire que le temps de préparation détermine le choix des plats. Mais le texte précise ensuite un tout autre critère : les recettes sont choisies \"selon les livraisons des producteurs\", sans aucune mention du temps nécessaire pour les préparer.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 26."
+      },
+      {
+        "voice": "female",
+        "text": "Depuis ce printemps, votre restaurant propose moins de plats. Vous cherchez surtout à aller plus vite ?"
+      },
+      {
+        "voice": "male",
+        "text": "La rapidité compte, mais nous voulions surtout mieux travailler. Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle. Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs. Les cuisiniers peuvent les préparer avec davantage d'attention. Certains clients ont d'abord regretté leurs habitudes ; nous leur expliquons les changements et gardons toujours une possibilité végétarienne. Réduire le nombre de lignes n'a pas réduit notre envie de bien accueillir."
+      },
+      {
+        "voice": "female",
+        "text": "D’après le document, sur quel critère le restaurant dit-il sélectionner désormais quelques recettes ?"
+      }
+    ],
+    "audio": "q-26.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 66
+  },
+  "sourceHash": "bfe68d61cb7054dc12d5b2d9a88960240c07f11c73a76fd1a180a769f0fe0325",
+  "contentHash": "128c33746de38e08c55ee8b55115cae13970edaf0fdba8b8f4743a0f8a041407",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky9q4msX6irC3s7ctwLfW3P8nWUc",
+    "result": {
+      "question": "D’après le document, sur quel critère le restaurant dit-il sélectionner désormais quelques recettes ?",
+      "choices": [
+        "Selon le temps de préparation nécessaire pour chaque plat.",
+        "Selon les livraisons des producteurs avec qui il travaille.",
+        "Selon les habitudes de commande observées chez les clients.",
+        "Selon le coût des produits utilisés dans chaque recette."
+      ],
+      "correctIndex": 1,
+      "explanation": "Le document précise : \"Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs.\" Le critère de sélection évoqué est donc bien l’approvisionnement par les producteurs, et non la rapidité, les habitudes de commande ou le coût des produits.",
+      "design": "Axe unique : le critère concret utilisé pour choisir les recettes mises à la carte après la réduction du nombre de plats. Les quatre réponses proposent des critères de sélection réalistes dans un restaurant (rapidité de préparation, livraisons des producteurs, habitudes de commande des clients, coût des produits). Sans le document, chacun pourrait sembler plausible : un restaurant peut légitimement réduire sa carte pour aller plus vite, pour s’adapter aux producteurs, pour suivre la demande des clients ou pour maîtriser les coûts. Le document tranche explicitement en attribuant ce rôle de critère aux livraisons des producteurs, ce qui rend les trois autres interprétations erronées mais naturellement tentantes.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Cette réponse transforme une précision secondaire en véritable critère de sélection. Le document reconnaît que «la rapidité compte», ce qui peut faire croire que les recettes ont été choisies en fonction du temps de préparation. En réalité, il ajoute aussitôt que l’objectif principal était de «mieux travailler», puis énonce le seul critère explicite : les livraisons des producteurs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "La rapidité compte",
+            "Nous voulions surtout mieux travailler",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse attribue à tort aux «habitudes» des clients le rôle de critère de tri. Le document mentionne bien que certains clients ont regretté leurs habitudes, ce qui peut suggérer qu’elles avaient servi à construire la carte. Mais ce passage décrit une réaction des clients et le besoin d’explication, pas le critère actuel de choix des recettes, qui reste fondé sur les livraisons des producteurs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Certains clients ont d'abord regretté leurs habitudes",
+            "nous leur expliquons les changements",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse projette un critère économique plausible mais non mentionné. Le texte parle d’un gaspillage lié à «trop de produits différents» dont «certains finissaient à la poubelle», ce qui pourrait faire penser à un souci de coût ou de marge. Toutefois, le locuteur ne dit jamais qu’il choisit les recettes en fonction du coût : il relie la nouvelle sélection uniquement aux livraisons des producteurs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "nous conservions trop de produits différents",
+            "certains finissaient à la poubelle",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4425,
+      "completion_tokens": 1131,
+      "total_tokens": 5556,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 441,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01684125,
+    "inputHash": "225fa631312117beda037cdbb51b6a861687f1f8635ad97e73107b5c0fedfeaf",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyA3QT0Ul1S75OvwCRTietR96cvV",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un restaurateur explique dans une interview radio qu’il a décidé de proposer certains plats uniquement lorsque les producteurs locaux livrent les ingrédients nécessaires : « Désormais, on sélectionne quelques recettes en fonction des livraisons de nos producteurs. » Ainsi le critère de sélection devient la disponibilité liée aux livraisons."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un reportage sur la gestion d’un restaurant présente le responsable qui raconte avoir analysé les statistiques de ventes : « On a remarqué que certains plats se commandaient beaucoup plus que d’autres, alors désormais on sélectionne quelques recettes d’après les habitudes de commande de nos clients. » Le critère est alors le comportement de la clientèle."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une émission économique consacrée à la restauration, le gérant explique qu’avec l’augmentation des prix il doit revoir sa carte : « On sélectionne désormais quelques recettes selon le coût des produits utilisés, pour garder des prix raisonnables. » Le critère de sélection est ici le coût des ingrédients."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un podcast sur l’optimisation du service en salle, le chef déclare qu’il doit réduire les temps d’attente : « On choisit désormais quelques recettes en fonction du temps de préparation nécessaire pour chaque plat, pour pouvoir servir plus vite le midi. » Le critère devient le temps de préparation."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Chaque option propose un critère plausible et grammatical sans avantage rédactionnel net ni indice explicite dans l’énoncé isolé ; sans accès au document sonore, aucune ne se détache objectivement, mais il est nécessaire de fournir un choix, donc 0 est donné avec forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 581,
+          "total_tokens": 1197,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 170,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00658,
+        "inputHash": "9247165df0b88b1267c04ca24eab6837ba955cbea55b9c65df233415e1f3e615",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyA9wFKRQ8ekEZcfN640dA0S5dVF",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un responsable de restaurant explique dans un reportage radio qu’en raison de la hausse des prix, l’établissement a décidé de ne garder que certaines recettes en fonction du coût des ingrédients, pour maintenir des tarifs raisonnables."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une interview sur une web-radio locale, le gérant d’un restaurant raconte qu’après avoir analysé les tickets de caisse et les statistiques de vente, ils ont choisi de conserver ou mettre en avant seulement les recettes qui correspondent le mieux aux habitudes de commande de leurs clients."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un sujet sur les circuits courts, un restaurateur explique qu’il adapte désormais sa carte et ne retient que certaines recettes en fonction de ce que ses producteurs peuvent livrer régulièrement, afin de travailler uniquement des produits locaux et de saison."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un reportage sur les difficultés de recrutement en cuisine, un restaurateur indique qu’il a décidé de sélectionner désormais certaines recettes en fonction du temps de préparation, pour alléger la charge de travail de l’équipe et garantir un service rapide."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Formulation assez nuancée et typique d’un discours professionnel («habitudes de commande observées chez les clients»), directement liée à l’idée d’adaptation aux comportements des clients après analyse, ce qui correspond bien au «désormais» sans être technique comme la référence aux producteurs ou trop limitée comme le seul coût des produits ou le seul temps de préparation."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.3,
+            0.2,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Tous les choix peuvent répondre naturellement à la question, mais la réponse fondée sur les habitudes de commande des clients correspond bien à un discours courant sur l’adaptation de la carte au comportement réel de la clientèle, avec une formulation particulièrement soignée et spécifique, d’où un léger avantage mais une incertitude importante demeure."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 627,
+          "total_tokens": 1243,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 191,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00704,
+        "inputHash": "d2908320aaefe727aa47f5f88a624fb8e18fe16c3c308110871c7514fb8c351e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:initial:screen:3:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyALOazKgtRSKg8nFS3oyG9M3Jyx",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement où le gérant explique qu’avec la hausse des prix, le restaurant doit faire plus attention à la rentabilité et choisit désormais certaines recettes en fonction du coût des ingrédients utilisés, pour maintenir des marges correctes ou éviter d’augmenter trop les prix."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un message interne ou une interview, le chef explique que, pour accélérer le service ou réduire la pression en cuisine, le restaurant sélectionne désormais quelques recettes en fonction du temps de préparation nécessaire, en privilégiant les plats plus rapides à exécuter aux heures de pointe."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un reportage sur les circuits courts, le restaurateur dit qu’il adapte désormais sa carte et ne retient certaines recettes qu’en fonction des livraisons de ses producteurs partenaires, en utilisant ce qu’ils peuvent fournir régulièrement ou en saison."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une chronique sur l’évolution de la carte, le responsable explique que le restaurant analyse maintenant les statistiques de ventes et sélectionne certaines recettes selon les habitudes de commande des clients, en gardant les plats les plus demandés et en retirant ceux qui se vendent peu."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre critères sont plausibles et répondent directement à la question sans indice textuel clair permettant de privilégier l’un d’eux ; le choix de la réponse 3 reste une supposition avec forte incertitude et probabilité répartie à parts égales."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 491,
+          "total_tokens": 1107,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 125,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00568,
+        "inputHash": "cccd0b03fee30957d6ff19486150bde86d5eed4ad4ee4fc4648f2d813738d346",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:initial:screen:3:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyARMN3VFLXfnLhQ8S5ctn9YfU3S",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le restaurant précise qu’il sélectionne désormais quelques recettes en fonction des livraisons reçues de ses producteurs.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Certains clients ont d'abord regretté leurs habitudes ; nous leur expliquons les changements",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "Le document mentionne les \"habitudes\" des clients comme quelque chose qu’ils regrettent, mais ce n’est pas un critère de sélection des recettes. Le critère explicite est \"selon les livraisons des producteurs\". On ne dit jamais que les recettes sont choisies en fonction des habitudes de commande des clients.",
+          "misunderstanding": "referent_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "La phrase indique clairement le critère utilisé : les recettes sont choisies \"selon les livraisons des producteurs\". C’est exactement ce que propose cette réponse.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle.",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "On comprend que le restaurant veut éviter le gaspillage de produits, ce qui peut faire penser à une recherche d’économie. Cependant, le texte ne parle jamais de \"coût\" des produits comme critère de sélection. Le seul critère formulé est le fait de suivre les livraisons des producteurs.",
+          "misunderstanding": "causal_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Depuis ce printemps, votre restaurant propose moins de plats. Vous cherchez surtout à aller plus vite ?",
+            "La rapidité compte, mais nous voulions surtout mieux travailler.",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "Le journaliste insiste sur la rapidité (\"aller plus vite\") et le répondant admet que \"La rapidité compte\", ce qui peut faire croire que le temps de préparation détermine le choix des plats. Mais le texte précise ensuite un tout autre critère : les recettes sont choisies \"selon les livraisons des producteurs\", sans aucune mention du temps nécessaire pour les préparer.",
+          "misunderstanding": "scope_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 783,
+      "completion_tokens": 1444,
+      "total_tokens": 2227,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 879,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01541875,
+    "inputHash": "84a6b399325da72bd6b2b9c2ded301e5d18a03b9152153c714eded9521c3ff49",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:initial:ground:3"
+  },
+  "feedback": null
+}

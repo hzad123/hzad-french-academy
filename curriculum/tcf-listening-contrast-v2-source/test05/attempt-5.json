@@ -1,0 +1,189 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Un robinet qui fuit dans un appartement d’immeuble est un problème courant à signaler en premier lieu au gardien, responsable de l’entretien courant et du relais avec le propriétaire ou les artisans. Les autres propositions visent des interlocuteurs inadaptés à ce type de petit souci domestique. A : On parle d’un problème localisé au robinet de la cuisine dans un logement, ce qui relève de l’entretien de l’immeuble ou du logement, pas du réseau d’eau public. Le « service des eaux » gère la distribution d’eau, pas la réparation d’un robinet individuel. Un candidat qui associe immédiatement « robinet » et « eau » peut croire que le service des eaux est responsable, mais l’énoncé ne parle pas de coupure d’eau générale ni de problème de réseau. C : L’énoncé décrit seulement un « robinet de la cuisine [qui] fuit », sans dommage déclaré (dégât des eaux, inondation, biens abîmés, etc.). Une assurance n’intervient qu’en cas de sinistre constitué, pas pour signaler un simple problème d’entretien ou de réparation. Un candidat qui associe « fuite d’eau » et « assurance » peut penser au dégât des eaux, mais ici rien n’indique un sinistre à déclarer, seulement un défaut à faire réparer. D : La question demande à qui signaler la fuite, pas qui pourrait éventuellement subir des conséquences si l’eau traversait le plancher. L’énoncé ne dit pas que l’eau coule chez la voisine, seulement que « le robinet de la cuisine fuit ». On prévient d’abord le responsable de l’entretien (le gardien), pas la voisine, sauf s’il y a déjà un dégât chez elle, ce qui n’est pas mentionné. Un candidat peut imaginer par anticipation que la voisine d’en dessous risque un dégât des eaux et croire logique de la prévenir, mais cette conséquence n’est pas donnée dans l’audio.",
+    "transcript": "Question 5.\nLe robinet de la cuisine fuit. À qui dois-je le signaler ?\nA. Directement au service des eaux. B. Au gardien de l’immeuble. C. À l’assurance pour déclarer un sinistre. D. À la voisine qui habite dessous.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "female",
+        "text": "Le robinet de la cuisine fuit. À qui dois-je le signaler ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Directement au service des eaux. B. Au gardien de l’immeuble. C. À l’assurance pour déclarer un sinistre. D. À la voisine qui habite dessous."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": 17.685,
+    "slotSeconds": 33
+  },
+  "sourceHash": "384c18307e89436bd392f8fc0418ef394878edbdbd78fbd530152565245773a7",
+  "contentHash": "c28056ad4f9433dc29fcdae7fd428905b6a043074bfbc67a96e8da3a57a83b9c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyUQguvYd90vOF70jziBR9wgl1nm",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un exercice en classe, l’enseignant projette un QCM et demande : « Quelle réponse convient ? » L’élève qui a identifié la bonne solution répond simplement : « Proposition D. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion de travail, plusieurs options sont listées (A, B, C, D). Le responsable conclut : « Quelle réponse convient pour notre situation ? » Un collègue, pensant que la deuxième est la bonne, répond : « Proposition B. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant un quiz radiophonique, l’animateur lit une question à choix multiples et termine par : « Quelle réponse convient ? » L’auditeur au téléphone donne son choix en disant : « Proposition A. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’une formation en ligne, le formateur lit un QCM affichant les réponses numérotées par lettres. Après avoir demandé : « Quelle réponse convient ? », un participant annonce sa sélection : « Proposition C. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options sont purement formelles (A, B, C, D) et répondent de manière symétrique à la question générique « Quelle réponse convient ? ». Aucun indice textuel ne distingue une lettre comme plus pertinente qu’une autre, donc aucune clé ne se dégage ; un choix reste nécessaire et arbitraire, d’où la sélection de l’index 0 avec probabilité uniforme et forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 574,
+          "completion_tokens": 432,
+          "total_tokens": 1006,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 62,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0050375,
+        "inputHash": "cdb66899f38e7135a6791732ae41024c3a79923b4dd82851039cf711d5509043",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:4:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyUWv3edbIcAzB00FfUPR6bhuoAz",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Il s’agit d’un simple robinet de cuisine qui fuit dans un immeuble : on doit en informer le gardien de l’immeuble, et non le service des eaux, l’assurance ou la voisine du dessous.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le robinet de la cuisine fuit.",
+            "A. Directement au service des eaux."
+          ],
+          "reason": "On parle d’un problème localisé au robinet de la cuisine dans un logement, ce qui relève de l’entretien de l’immeuble ou du logement, pas du réseau d’eau public. Le « service des eaux » gère la distribution d’eau, pas la réparation d’un robinet individuel. Un candidat qui associe immédiatement « robinet » et « eau » peut croire que le service des eaux est responsable, mais l’énoncé ne parle pas de coupure d’eau générale ni de problème de réseau.",
+          "misunderstanding": "attribution"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le robinet de la cuisine fuit. À qui dois-je le signaler ?",
+            "B. Au gardien de l’immeuble."
+          ],
+          "reason": "Un robinet qui fuit dans un appartement d’immeuble est un problème courant à signaler en premier lieu au gardien, responsable de l’entretien courant et du relais avec le propriétaire ou les artisans. Les autres propositions visent des interlocuteurs inadaptés à ce type de petit souci domestique.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le robinet de la cuisine fuit.",
+            "C. À l’assurance pour déclarer un sinistre."
+          ],
+          "reason": "L’énoncé décrit seulement un « robinet de la cuisine [qui] fuit », sans dommage déclaré (dégât des eaux, inondation, biens abîmés, etc.). Une assurance n’intervient qu’en cas de sinistre constitué, pas pour signaler un simple problème d’entretien ou de réparation. Un candidat qui associe « fuite d’eau » et « assurance » peut penser au dégât des eaux, mais ici rien n’indique un sinistre à déclarer, seulement un défaut à faire réparer.",
+          "misunderstanding": "condition"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le robinet de la cuisine fuit.",
+            "D. À la voisine qui habite dessous."
+          ],
+          "reason": "La question demande à qui signaler la fuite, pas qui pourrait éventuellement subir des conséquences si l’eau traversait le plancher. L’énoncé ne dit pas que l’eau coule chez la voisine, seulement que « le robinet de la cuisine fuit ». On prévient d’abord le responsable de l’entretien (le gardien), pas la voisine, sauf s’il y a déjà un dégât chez elle, ce qui n’est pas mentionné. Un candidat peut imaginer par anticipation que la voisine d’en dessous risque un dégât des eaux et croire logique de la prévenir, mais cette conséquence n’est pas donnée dans l’audio.",
+          "misunderstanding": "result"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 698,
+      "completion_tokens": 1232,
+      "total_tokens": 1930,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 543,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0131925,
+    "inputHash": "8fc930c2aa7f51965093011829e97e94872fd1d86197ec0d149655cba8766c06",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:4:initial:ground:0"
+  },
+  "feedback": null
+}

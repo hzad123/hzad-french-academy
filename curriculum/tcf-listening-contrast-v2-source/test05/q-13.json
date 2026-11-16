@@ -1,0 +1,150 @@
+{
+  "question": {
+    "number": 13,
+    "kind": "announcement",
+    "question": "Selon le document, qu’est-ce qui est soumis au règlement de l’immeuble ?",
+    "options": [
+      "L’autorisation des opérations silencieuses en dehors des horaires de 8 h 30 à 17 h 30.",
+      "Les horaires précis d’utilisation des outils très bruyants en semaine.",
+      "La possibilité d’utiliser des outils très bruyants le dimanche.",
+      "Le choix de réaliser ou non les travaux de façade pendant la journée."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise que «les opérations silencieuses, comme la peinture intérieure, restent possibles en dehors de ces horaires selon le règlement de l'immeuble». C’est donc bien la possibilité d’effectuer ces opérations silencieuses en dehors de 8 h 30–17 h 30 qui dépend du règlement de l’immeuble, et non les horaires des outils bruyants, leur usage le dimanche ou le choix de faire les façades le jour.",
+    "transcript": "Question 13.\nDans le cadre des travaux de façade, la mairie rappelle que les outils très bruyants ne peuvent être utilisés avant huit heures trente ni après dix-sept heures trente en semaine. Ils sont interdits le dimanche. Les opérations silencieuses, comme la peinture intérieure, restent possibles en dehors de ces horaires selon le règlement de l'immeuble.\nSelon le document, qu’est-ce qui est soumis au règlement de l’immeuble ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 13."
+      },
+      {
+        "voice": "female",
+        "text": "Dans le cadre des travaux de façade, la mairie rappelle que les outils très bruyants ne peuvent être utilisés avant huit heures trente ni après dix-sept heures trente en semaine. Ils sont interdits le dimanche. Les opérations silencieuses, comme la peinture intérieure, restent possibles en dehors de ces horaires selon le règlement de l'immeuble."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, qu’est-ce qui est soumis au règlement de l’immeuble ?"
+      }
+    ],
+    "audio": "q-13.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "contentHash": "ca00ca92df4fc35a9c91860f7db326882fc7b20abbc868e0af281edf25bb9adb",
+  "sourceHash": "884e41051cf597e734cd99b52239f90df1a053272337cedb6033b32d6e68694d",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyWw1qSKyIVAW3AMIyfwwJ0bbSqe",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une gardienne lit un extrait du règlement de l’immeuble à un nouveau copropriétaire : elle lui explique qu’en vertu de ce règlement, la possibilité ou non d’utiliser des outils très bruyants le dimanche est explicitement encadrée (par exemple, strictement interdite ou limitée à certaines plages horaires)."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion de copropriété, le syndic rappelle que le règlement de l’immeuble fixe précisément les horaires d’utilisation des outils très bruyants en semaine, et lit les plages horaires autorisées inscrites dans le document officiel de l’immeuble."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un gestionnaire d’immeuble commente un document envoyé aux résidents : il y est écrit que la décision de faire ou non des travaux de façade dans la journée doit respecter les dispositions prévues par le règlement de l’immeuble (par exemple, obligation de les faire dans certaines tranches horaires ou avec accord préalable)."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un message audio adressé aux habitants, le syndic explique que même les opérations silencieuses (comme le bricolage léger sans bruit) restent soumises au règlement de l’immeuble, qui conditionne leur autorisation en dehors de la plage 8 h 30 – 17 h 30 (par exemple, interdiction totale après 22 h)."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "L’expression « soumis au règlement » renvoie typiquement à des règles de fonctionnement détaillées comme des horaires précis. Parmi les formulations proposées, « Les horaires précis d’utilisation des outils très bruyants en semaine » correspond le plus naturellement à un contenu explicitement fixé par un règlement écrit, plutôt qu’à une simple possibilité générale (A), un « choix » de faire des travaux (C) ou une autorisation formulée négativement en dehors d’une plage (D)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.45,
+            0.15,
+            0.2
+          ],
+          "guess": 1,
+          "reason": "Le libellé « soumis au règlement de l’immeuble » suggère un élément formalisé et encadré de manière détaillée ; la réponse B, qui parle des horaires précis fixés pour l’usage d’outils très bruyants, correspond le mieux à ce type de contenu réglementaire. Les autres options restent plausibles mais paraissent légèrement moins directement alignées avec la formulation, d’où une préférence modérée pour B."
+        },
+        "usage": {
+          "prompt_tokens": 638,
+          "completion_tokens": 879,
+          "total_tokens": 1517,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 329,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0095875,
+        "inputHash": "a11dc7a2d3408dd1cb54d32d443f9ed2da7c033007c063a9f22057df809b6cb6",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:12:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Le libellé « soumis au règlement de l’immeuble » suggère un élément formalisé et encadré de manière détaillée ; la réponse B, qui parle des horaires précis fixés pour l’usage d’outils très bruyants, correspond le mieux à ce type de contenu réglementaire. Les autres options restent plausibles mais paraissent légèrement moins directement alignées avec la formulation, d’où une préférence modérée pour B.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "weak",
+        "cue": "L’expression « soumis au règlement » renvoie typiquement à des règles de fonctionnement détaillées comme des horaires précis. Parmi les formulations proposées, « Les horaires précis d’utilisation des outils très bruyants en semaine » correspond le plus naturellement à un contenu explicitement fixé par un règlement écrit, plutôt qu’à une simple possibilité générale (A), un « choix » de faire des travaux (C) ou une autorisation formulée négativement en dehors d’une plage (D)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une gardienne lit un extrait du règlement de l’immeuble à un nouveau copropriétaire : elle lui explique qu’en vertu de ce règlement, la possibilité ou non d’utiliser des outils très bruyants le dimanche est explicitement encadrée (par exemple, strictement interdite ou limitée à certaines plages horaires)."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une réunion de copropriété, le syndic rappelle que le règlement de l’immeuble fixe précisément les horaires d’utilisation des outils très bruyants en semaine, et lit les plages horaires autorisées inscrites dans le document officiel de l’immeuble."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un gestionnaire d’immeuble commente un document envoyé aux résidents : il y est écrit que la décision de faire ou non des travaux de façade dans la journée doit respecter les dispositions prévues par le règlement de l’immeuble (par exemple, obligation de les faire dans certaines tranches horaires ou avec accord préalable)."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un message audio adressé aux habitants, le syndic explique que même les opérations silencieuses (comme le bricolage léger sans bruit) restent soumises au règlement de l’immeuble, qui conditionne leur autorisation en dehors de la plage 8 h 30 – 17 h 30 (par exemple, interdiction totale après 22 h)."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

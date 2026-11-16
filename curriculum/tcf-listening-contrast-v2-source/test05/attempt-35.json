@@ -1,0 +1,147 @@
+{
+  "question": {
+    "number": 35,
+    "kind": "interview",
+    "question": "Dans quel cas précis le document indique-t-il que le système peut créer un inconfort ?",
+    "options": [
+      "Quand il abaisse la température alors qu’une personne fragile est présente.",
+      "Quand il coupe totalement le chauffage dès que tous les occupants quittent l’immeuble.",
+      "Quand il retarde le chauffage jusqu’au retour des occupants du travail.",
+      "Quand il maintient la même température même si les fenêtres sont ouvertes."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise que «si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort». La situation problématique est donc bien l’abaissement de la température en présence d’une personne fragile, et non une coupure totale à l’absence, une mauvaise réaction à l’ouverture des fenêtres ou un simple retard au retour au logement.",
+    "transcript": "Question 35.\nLes nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?\nPas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne.\nDans quel cas précis le document indique-t-il que le système peut créer un inconfort ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 35."
+      },
+      {
+        "voice": "male",
+        "text": "Les nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?"
+      },
+      {
+        "voice": "female",
+        "text": "Pas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne."
+      },
+      {
+        "voice": "female",
+        "text": "Dans quel cas précis le document indique-t-il que le système peut créer un inconfort ?"
+      }
+    ],
+    "audio": "q-35.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 69
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyauJsKGMwaOKIb7sLbu3N3xmahl",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une notice audio d’un système de chauffage automatique explique qu’il peut être source d’inconfort s’il maintient la consigne de température sans tenir compte de l’ouverture des fenêtres, ce qui crée des courants d’air froid et une sensation désagréable pour les occupants malgré le chauffage en marche."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un enregistrement de présentation d’un système de régulation intelligente précise qu’il existe un cas particulier d’inconfort : si le système abaisse automatiquement la température pour économiser l’énergie alors qu’une personne âgée ou malade, donc fragile, est présente, cela peut être ressenti comme inconfortable ou inadapté."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une formation audio sur la programmation d’un chauffage, le narrateur note qu’un certain réglage peut créer un inconfort : si le système retarde trop le démarrage du chauffage et n’allume vraiment que juste au retour des occupants du travail, ils arrivent dans un logement encore froid, ce qui est désagréable."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un technicien décrit oralement les limites d’un système de gestion d’énergie en expliquant que couper totalement le chauffage dès que tous les occupants quittent l’immeuble peut provoquer un inconfort au moment de leur retour, car le bâtiment est alors très froid et long à réchauffer."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Formulation plus nuancée et précise (mention spécifique d’« une personne fragile ») correspondant bien à la demande de « cas précis » et à une mise en garde responsable typiquement soulignée dans un document explicatif, alors que les autres réponses décrivent surtout des réglages généraux sans mention explicite d’une catégorie vulnérable."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.22,
+            0.43,
+            0.15,
+            0.2
+          ],
+          "guess": 1,
+          "reason": "Tous les cas pourraient théoriquement créer un inconfort, mais la question insiste sur un « cas précis », et l’option 1 se distingue par une précision contextuelle (présence d’une personne fragile) et un ton de mise en garde plus conforme à ce qu’un document signalerait explicitement comme risque d’inconfort, d’où une probabilité plus élevée malgré une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 633,
+          "completion_tokens": 813,
+          "total_tokens": 1446,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 299,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00892125,
+        "inputHash": "2a99f355de8a376e14f83c4599e43a9e32a334adcc6c0319ad052201dc2225b4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les cas pourraient théoriquement créer un inconfort, mais la question insiste sur un « cas précis », et l’option 1 se distingue par une précision contextuelle (présence d’une personne fragile) et un ton de mise en garde plus conforme à ce qu’un document signalerait explicitement comme risque d’inconfort, d’où une probabilité plus élevée malgré une incertitude réelle.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Formulation plus nuancée et précise (mention spécifique d’« une personne fragile ») correspondant bien à la demande de « cas précis » et à une mise en garde responsable typiquement soulignée dans un document explicatif, alors que les autres réponses décrivent surtout des réglages généraux sans mention explicite d’une catégorie vulnérable."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une notice audio d’un système de chauffage automatique explique qu’il peut être source d’inconfort s’il maintient la consigne de température sans tenir compte de l’ouverture des fenêtres, ce qui crée des courants d’air froid et une sensation désagréable pour les occupants malgré le chauffage en marche."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un enregistrement de présentation d’un système de régulation intelligente précise qu’il existe un cas particulier d’inconfort : si le système abaisse automatiquement la température pour économiser l’énergie alors qu’une personne âgée ou malade, donc fragile, est présente, cela peut être ressenti comme inconfortable ou inadapté."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une formation audio sur la programmation d’un chauffage, le narrateur note qu’un certain réglage peut créer un inconfort : si le système retarde trop le démarrage du chauffage et n’allume vraiment que juste au retour des occupants du travail, ils arrivent dans un logement encore froid, ce qui est désagréable."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un technicien décrit oralement les limites d’un système de gestion d’énergie en expliquant que couper totalement le chauffage dès que tous les occupants quittent l’immeuble peut provoquer un inconfort au moment de leur retour, car le bâtiment est alors très froid et long à réchauffer."
+      }
+    ]
+  }
+}

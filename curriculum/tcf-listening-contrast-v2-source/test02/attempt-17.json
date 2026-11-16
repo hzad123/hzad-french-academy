@@ -1,0 +1,318 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Que dit le document à propos de la durée des difficultés de déplacement des personnes auxquelles s’adresse ce service de livraison ?",
+    "options": [
+      "Elles peuvent être temporaires, de quelques semaines seulement.",
+      "Elles doivent être durables, d’au moins plusieurs mois.",
+      "Elles doivent être indéterminées, sans date de fin prévue.",
+      "Elles doivent être permanentes et officiellement reconnues."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le document indique explicitement que le service s’adresse aussi aux personnes ayant des difficultés de déplacement « pour quelques semaines seulement ». Cela correspond exactement à l’idée que ces difficultés peuvent être temporaires et de courte durée. B : Quelqu’un pourrait associer « ne peuvent pas se déplacer facilement » à une situation lourde et penser qu’il faut une difficulté durable de plusieurs mois. Cependant, le texte précise au contraire « y compris pour quelques semaines seulement », ce qui exclut l’exigence d’une durée d’au moins plusieurs mois. C : On pourrait croire que la durée n’est pas encadrée et donc indéterminée, simplement parce que la condition principale est de ne pas pouvoir se déplacer facilement. Mais le document donne une indication précise de durée en ajoutant « y compris pour quelques semaines seulement », ce qui montre qu’une période limitée et connue est acceptée, et non une obligation d’absence de date de fin. D : Une personne pourrait associer ce type de service à des dispositifs réservés aux personnes handicapées reconnues officiellement et donc imaginer une condition de permanence. Pourtant, le texte ne mentionne aucune reconnaissance officielle ni permanence du handicap, et précise au contraire « y compris pour quelques semaines seulement », ce qui va à l’encontre d’une exigence de difficulté permanente.",
+    "transcript": "Question 17.\nLa médiathèque de Saint-Roch lance un service de livraison de livres à domicile. Il est destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement. Un bénévole discutera de vos préférences avant de préparer une sélection. L'inscription à ce service se fait par téléphone auprès de l'accueil. Les livres restent prêtés gratuitement.\nQue dit le document à propos de la durée des difficultés de déplacement des personnes auxquelles s’adresse ce service de livraison ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "female",
+        "text": "La médiathèque de Saint-Roch lance un service de livraison de livres à domicile. Il est destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement. Un bénévole discutera de vos préférences avant de préparer une sélection. L'inscription à ce service se fait par téléphone auprès de l'accueil. Les livres restent prêtés gratuitement."
+      },
+      {
+        "voice": "female",
+        "text": "Que dit le document à propos de la durée des difficultés de déplacement des personnes auxquelles s’adresse ce service de livraison ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "sourceHash": "ab1dbcfd7749b7af5f443eeb7aedb14f5233a36015ef526863a5d19740bcd3bb",
+  "contentHash": "0051a3c365727712e6bf4271b5eb2cf841075b88c34ba2e1ddcba4bf8ff2172c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyDITJMNdDvApYO8EgFIdnBPslC5",
+    "result": {
+      "question": "Que dit le document à propos de la durée des difficultés de déplacement des personnes auxquelles s’adresse ce service de livraison ?",
+      "choices": [
+        "Elles peuvent être temporaires, de quelques semaines seulement.",
+        "Elles doivent être durables, d’au moins plusieurs mois.",
+        "Elles doivent être permanentes et officiellement reconnues.",
+        "Elles doivent être indéterminées, sans date de fin prévue."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que le service est «destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement», ce qui inclut explicitement des difficultés temporaires de courte durée. A reprend cette idée. B, C et D transforment cette condition en exigence de durée longue, permanente ou indéterminée, alors que le texte ouvre au contraire le service à des situations même brèves.",
+      "design": "Question centrée sur une relation précise entre le service et la durée des difficultés de déplacement des bénéficiaires. Les quatre choix portent tous sur le même axe (durée minimale exigée) et restent plausibles pour un service public de livraison de livres. Sans le document, chacune de ces politiques paraît réaliste. Seule l’écoute permet de repérer que le texte insiste sur l’inclusion des situations courtes («quelques semaines seulement»), ce qui distingue la bonne réponse des trois interprétations qui restreignent abusivement la durée.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme l’ouverture du service à des difficultés même brèves en condition de durée longue («plusieurs mois»). C’est tentant car il est courant que des dispositifs d’aide ciblent surtout des situations durables, mais ici le texte insiste sur la courte durée possible.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "qui ne peuvent pas se déplacer facilement",
+            "y compris pour quelques semaines seulement"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse attribue au service une exigence de handicap permanent et officiel, en durcissant la condition réelle. Elle est crédible car le texte évoque des personnes ayant du mal à se déplacer, ce qui peut faire penser à un handicap, mais il ne parle jamais de permanence ni de reconnaissance officielle.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "destiné aux personnes qui ne peuvent pas se déplacer facilement",
+            "y compris pour quelques semaines seulement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option exige une immobilisation sans date de fin, en interprétant les difficultés comme nécessairement très longues. Elle est séduisante car un service de portage à domicile peut sembler réservé aux cas lourds, mais le document insiste au contraire sur l’inclusion des situations limitées dans le temps.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "ne peuvent pas se déplacer facilement",
+            "y compris pour quelques semaines seulement"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4407,
+      "completion_tokens": 1186,
+      "total_tokens": 5593,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 608,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01736875,
+    "inputHash": "9401a72cee096ea7aebcd13e56a20c2d1ea540d5a1bd1450413e1e2a111b606c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:16:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyDZTL1E6Ast8Nw4We1wGC9jsdfS",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Notice d’un service de courses à domicile proposé par la mairie aux personnes en situation de handicap reconnu : le document précise que le service est réservé aux personnes dont les difficultés de déplacement sont permanentes et justifiées par une reconnaissance officielle (carte d’invalidité, statut RQTH, etc.)."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Présentation d’un service de livraison destiné à des personnes dont l’état de santé ou la situation ne permet pas de prévoir une amélioration à une date donnée (maladie chronique évolutive, perte d’autonomie liée à l’âge) : le document explique que les difficultés de déplacement doivent être sans date de fin connue, donc d’une durée indéterminée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Brochure d’un service de livraison mis en place pour les personnes en limitation de mobilité après une opération lourde ou une maladie longue durée : le document précise que le service s’adresse à celles dont les difficultés de déplacement sont durables, d’au moins plusieurs mois, sans exiger qu’elles soient définitives."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Annonce d’un service de livraison solidaire temporaire pour personnes immobilisées quelques semaines (fracture, convalescence post-opératoire) : le document stipule que les difficultés de déplacement peuvent être temporaires, de quelques semaines seulement, pour justifier un service limité dans le temps."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre formulations pourraient figurer dans un document réel présentant les conditions d’accès à un service de livraison en fonction de la durée des difficultés de déplacement, sans qu’un avantage de rédaction ou de portée ne s’impose clairement ; faute d’indice décisif dans le seul libellé des réponses, le choix de l’option 2 reste une estimation incertaine parmi des possibilités à probabilité similaire."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 761,
+          "total_tokens": 1391,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 331,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0083975,
+        "inputHash": "6bab937007308514d3a28a7facee35501ca80a6e7ff67ab1bcaad36514b4b9f3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:16:initial:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyDin1K8ddy1a2SQWVF06snyyqCI",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans la présentation d’un service de livraison spécialement destiné aux personnes handicapées, le message précise : « Ce service s’adresse uniquement aux personnes dont les difficultés de déplacement sont permanentes et reconnues officiellement par une carte d’invalidité ou un justificatif médical. » L’exigence de permanence et de reconnaissance officielle est la condition d’accès au service."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une mairie décrit un service de livraison de courses réservé aux personnes ayant des difficultés de déplacement de longue durée : « Le service est accessible aux habitants dont les problèmes de mobilité sont durables, d’au moins plusieurs mois, par exemple en cas de convalescence prolongée ou de maladie chronique. » On insiste sur la durée minimale des difficultés sans exiger qu’elles soient définitives."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une association explique au téléphone son service de portage à domicile : « Le service s’adresse aux personnes dont les difficultés de déplacement sont appelées à durer, mais sans qu’on puisse fixer de date de fin précise. » Le document insiste sur le caractère indéterminé : pas de fin prévue, on ne sait pas quand la personne retrouvera sa mobilité."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un hôpital présente un service temporaire de livraison de médicaments et de repas pour les patients opérés récemment : « Ce service vise les personnes dont les difficultés de déplacement sont temporaires, de quelques semaines seulement, le temps de la rééducation. » Le document précise le caractère court et provisoire des difficultés."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre formulations peuvent correspondre à des consignes réalistes sur la durée des difficultés de déplacement pour un service de livraison ; sans accès à l’enregistrement ni indice textuel net (longueur, formulation privilégiée, registre ou précision particulière), aucune option ne présente d’avantage objectif clair, d’où une incertitude élevée et une répartition de probabilité uniforme malgré le choix obligé d’une réponse."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 640,
+          "total_tokens": 1270,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 181,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0071875,
+        "inputHash": "ad3203b1cce06e6f462e329b2199c2517951d8c12165230768faeccedef9a633",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:16:initial:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyDq4PFylXh9u82UOzuc9YvspFQQ",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise que les difficultés de déplacement peuvent être temporaires, même limitées à quelques semaines seulement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Il est destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement."
+          ],
+          "reason": "Le document indique explicitement que le service s’adresse aussi aux personnes ayant des difficultés de déplacement « pour quelques semaines seulement ». Cela correspond exactement à l’idée que ces difficultés peuvent être temporaires et de courte durée.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il est destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement."
+          ],
+          "reason": "Quelqu’un pourrait associer « ne peuvent pas se déplacer facilement » à une situation lourde et penser qu’il faut une difficulté durable de plusieurs mois. Cependant, le texte précise au contraire « y compris pour quelques semaines seulement », ce qui exclut l’exigence d’une durée d’au moins plusieurs mois.",
+          "misunderstanding": "duration_exaggeration"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il est destiné aux personnes qui ne peuvent pas se déplacer facilement",
+            "y compris pour quelques semaines seulement."
+          ],
+          "reason": "On pourrait croire que la durée n’est pas encadrée et donc indéterminée, simplement parce que la condition principale est de ne pas pouvoir se déplacer facilement. Mais le document donne une indication précise de durée en ajoutant « y compris pour quelques semaines seulement », ce qui montre qu’une période limitée et connue est acceptée, et non une obligation d’absence de date de fin.",
+          "misunderstanding": "overspecification_of_condition"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il est destiné aux personnes qui ne peuvent pas se déplacer facilement, y compris pour quelques semaines seulement."
+          ],
+          "reason": "Une personne pourrait associer ce type de service à des dispositifs réservés aux personnes handicapées reconnues officiellement et donc imaginer une condition de permanence. Pourtant, le texte ne mentionne aucune reconnaissance officielle ni permanence du handicap, et précise au contraire « y compris pour quelques semaines seulement », ce qui va à l’encontre d’une exigence de difficulté permanente.",
+          "misunderstanding": "requirement_invention"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 742,
+      "completion_tokens": 885,
+      "total_tokens": 1627,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 367,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0097775,
+    "inputHash": "098bb11268aea93212c8b4e143a5f5a0151cbde144f56ed8d08c931093bf86e2",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:16:initial:ground:1"
+  },
+  "feedback": null
+}

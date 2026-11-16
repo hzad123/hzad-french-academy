@@ -1,0 +1,337 @@
+{
+  "question": {
+    "number": 18,
+    "kind": "dialogue",
+    "question": "Pendant la réunion, que décident-ils de faire pour le dernier graphique ?",
+    "options": [
+      "Attendre le retour de la connexion pour l’afficher en ligne.",
+      "Reporter son commentaire à l’envoi du document après la réunion.",
+      "L’expliquer à l’oral sans l’afficher à l’écran.",
+      "Le remplacer par un autre graphique déjà présent."
+    ],
+    "correct": "C",
+    "transcript": "Question 18.\nLa connexion coupe encore. Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre.\nJ'ai enregistré une copie sur mon ordinateur ce matin. Il manque seulement le dernier graphique.\nUtilisons cette version. Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion.\nD'accord, je branche mon ordinateur au projecteur.\nPendant la réunion, que décident-ils de faire pour le dernier graphique ?",
+    "explanation": "Réponse C : La copie locale qu’ils décident d’utiliser ne contient pas le dernier graphique. Le locuteur précise alors : « Je pourrai expliquer le graphique à l’oral », ce qui montre qu’ils choisissent de ne pas l’afficher à l’écran et de le décrire verbalement pendant la réunion. A : On parle bien de problèmes de connexion et de diapositives « en ligne », ce qui peut faire croire qu’ils vont attendre le retour de la connexion pour l’afficher. Mais c’est l’inverse : comme la connexion coupe, ils décident explicitement de ne pas utiliser la version en ligne et de se servir d’une copie locale, sans le dernier graphique. Il n’est jamais question d’attendre la connexion pour montrer ce graphique. B : La mention « envoyer le document complet après la réunion » peut faire croire qu’ils repoussent aussi le commentaire du dernier graphique à plus tard. En réalité, ce qui est remis à après la réunion, c’est seulement l’envoi du document complet ; le commentaire du dernier graphique, lui, est bien prévu pendant la réunion, « à l’oral ». Ils ne reportent donc pas son commentaire. D : On pourrait mal interpréter « Utilisons cette version » comme l’idée de remplacer le dernier graphique manquant par un autre déjà présent. Cependant, ce n’est jamais énoncé : on dit seulement qu’il manque le dernier graphique et qu’on utilisera malgré tout cette version, en le compensant par une explication orale, pas par un remplacement par un autre graphique.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 18."
+      },
+      {
+        "voice": "male",
+        "text": "La connexion coupe encore. Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre."
+      },
+      {
+        "voice": "female",
+        "text": "J'ai enregistré une copie sur mon ordinateur ce matin. Il manque seulement le dernier graphique."
+      },
+      {
+        "voice": "male",
+        "text": "Utilisons cette version. Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion."
+      },
+      {
+        "voice": "female",
+        "text": "D'accord, je branche mon ordinateur au projecteur."
+      },
+      {
+        "voice": "female",
+        "text": "Pendant la réunion, que décident-ils de faire pour le dernier graphique ?"
+      }
+    ],
+    "audio": "q-18.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 52
+  },
+  "sourceHash": "ce315b932a4e198952a804fac1d2b70a4b14210741e64f89870c075694fecc96",
+  "contentHash": "f99fbd1b4eb5f4c43a9e94f98c9cdf47c7cc035255b5897164b98cad6bd70805",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky7neCosLyYCmZ7a2EReJ3viKjhz",
+    "result": {
+      "question": "Pendant la réunion, que décident-ils de faire pour le dernier graphique ?",
+      "choices": [
+        "L’expliquer à l’oral sans l’afficher à l’écran.",
+        "Attendre le retour de la connexion pour l’afficher en ligne.",
+        "Le remplacer par un autre graphique déjà présent.",
+        "Reporter son commentaire à l’envoi du document après la réunion."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le locuteur dit : \"Il manque seulement le dernier graphique\" dans la copie locale, puis propose : \"Utilisons cette version. Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion.\" Le dernier graphique sera donc expliqué à l’oral pendant la réunion, même s’il n’apparaît pas à l’écran.",
+      "design": "Axe précis : le traitement réservé au dernier graphique manquant pendant la réunion. Les quatre options décrivent toutes un mode de gestion possible d’un graphique absent (explication orale, attente de la connexion, remplacement par un autre, report du commentaire à plus tard). Sans le document audio, chaque solution est crédible dans une situation de diaporama incomplet. Le document permet de trancher en montrant que le compromis choisi est d’utiliser la version locale et de commenter ce graphique à l’oral, tout en envoyant ensuite le fichier complet.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transpose la condition liée à la connexion (ouvrir les diapositives en ligne) au traitement du dernier graphique. On pourrait croire qu’ils préfèrent attendre pour afficher la version complète, mais le locuteur rejette justement cette solution à cause des coupures et choisit immédiatement la version locale avec explication orale.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "La connexion coupe encore. Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre.",
+            "Utilisons cette version. Je pourrai expliquer le graphique à l'oral"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option repose sur une confusion entre les diapositives présentes et le seul élément manquant. Le document précise qu’il « manque seulement le dernier graphique » dans la copie locale, mais ne mentionne aucun remplacement par un autre graphique ; ils décident simplement d’utiliser tel quel ce fichier incomplet.",
+          "operation": "role_swap",
+          "anchors": [
+            "Il manque seulement le dernier graphique.",
+            "Utilisons cette version."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option élargit à tort la portée de l’envoi ultérieur : le locuteur prévoit d’« envoyer le document complet après la réunion », mais précise auparavant qu’il « pourra expliquer le graphique à l’oral ». Le commentaire du graphique a donc lieu pendant la réunion ; seul le support écrit complet est différé.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Je pourrai expliquer le graphique à l'oral",
+            "et envoyer le document complet après la réunion."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4443,
+      "completion_tokens": 1010,
+      "total_tokens": 5453,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 416,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01565375,
+    "inputHash": "010fae8a6369503840751632ec46b715dc4120f053acfd6d53b17837d63718b3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:17:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky7zVJenCNxveRCBuYN5OniYvrHk",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En réunion de service avec une présentation PowerPoint, ils se rendent compte que le dernier graphique fait doublon avec un autre déjà montré. Après en avoir discuté, quelqu’un propose de le remplacer par un autre graphique déjà présent dans le document pour éviter de répéter les mêmes informations."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion de projet, ils n’ont plus le temps de commenter en détail le dernier graphique. Le responsable suggère de ne pas en discuter tout de suite et de préciser son commentaire dans le compte rendu ou dans le document qui sera envoyé à tous les participants après la réunion."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant une réunion en visio, le dernier graphique ne s’affiche pas correctement sur l’écran partagé. Pour ne pas perdre de temps, l’animateur décide de l’expliquer oralement en décrivant les chiffres et les tendances, sans l’afficher à l’écran."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une réunion en ligne, la connexion Internet est instable et le dernier graphique ne se charge pas sur l’outil de visioconférence. Ils décident alors d’attendre le rétablissement de la connexion pour pouvoir l’afficher en ligne avant de continuer la présentation."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses décrivent des décisions plausibles et directement liées au « dernier graphique » pendant une réunion, sans indice explicite dans l’énoncé permettant de privilégier l’une plutôt que les autres ; aucune option ne bénéficie d’un avantage clair de formulation, d’exhaustivité ou de pertinence observable, d’où une forte incertitude et des probabilités réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 621,
+          "completion_tokens": 548,
+          "total_tokens": 1169,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 149,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00625625,
+        "inputHash": "17566ca71e3fc2e1efb86b2a5364e15b407d021f9aaa9496be9f426f62255699",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:17:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky869LqrNJpyj8EcM15k0uUH95QY",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une visioconférence, la connexion internet de la salle ou du présentateur tombe en panne au moment de montrer le dernier graphique. Ils se concertent et décident d’attendre que la connexion revienne pour pouvoir l’afficher en ligne à tous les participants distants."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "En réunion présentielle, le dernier graphique ne s’affiche pas correctement au projecteur (problème de fichier ou de compatibilité). Après avoir échangé, ils décident de ne pas perdre de temps à résoudre le problème technique et de simplement expliquer le graphique à l’oral, sans l’afficher à l’écran."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une présentation, ils se rendent compte que le dernier graphique est confus ou comporte une erreur. Pendant la réunion, l’équipe décide de le remplacer par un autre graphique déjà présent dans la présentation, jugé plus clair pour illustrer le même point."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours de la réunion, ils constatent qu’ils manquent de temps ou que le dernier graphique risquerait de compliquer les échanges. Ils décident alors de ne pas le commenter immédiatement et de reporter ses explications à un message ou un document qui sera envoyé aux participants après la réunion."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre options décrivent des décisions ordinaires et plausibles concernant un graphique en réunion, sans différence évidente de style, de portée ou de correction linguistique. Aucun indice textuel clair ne favorise une réponse précise, d’où une forte incertitude et un choix de réponse arbitraire parmi des probabilités uniformes."
+        },
+        "usage": {
+          "prompt_tokens": 621,
+          "completion_tokens": 497,
+          "total_tokens": 1118,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 101,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00574625,
+        "inputHash": "dbfbcabfee530a63ddc48cc04da9bafd76f4a6cc7c985a1ef357c0d5eb2db72d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:17:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8DqJobZhgVL9BKVMS4gUbzhKSE",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Ils décident d’expliquer le dernier graphique à l’oral sans l’afficher, en utilisant la version locale incomplète.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La connexion coupe encore.",
+            "Si nous ouvrons les diapositives en ligne, la présentation va s'interrompre.",
+            "Utilisons cette version."
+          ],
+          "reason": "On parle bien de problèmes de connexion et de diapositives « en ligne », ce qui peut faire croire qu’ils vont attendre le retour de la connexion pour l’afficher. Mais c’est l’inverse : comme la connexion coupe, ils décident explicitement de ne pas utiliser la version en ligne et de se servir d’une copie locale, sans le dernier graphique. Il n’est jamais question d’attendre la connexion pour montrer ce graphique.",
+          "misunderstanding": "condition_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il manque seulement le dernier graphique.",
+            "Je pourrai expliquer le graphique à l'oral et envoyer le document complet après la réunion."
+          ],
+          "reason": "La mention « envoyer le document complet après la réunion » peut faire croire qu’ils repoussent aussi le commentaire du dernier graphique à plus tard. En réalité, ce qui est remis à après la réunion, c’est seulement l’envoi du document complet ; le commentaire du dernier graphique, lui, est bien prévu pendant la réunion, « à l’oral ». Ils ne reportent donc pas son commentaire.",
+          "misunderstanding": "temporal_scope"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Il manque seulement le dernier graphique.",
+            "Utilisons cette version.",
+            "Je pourrai expliquer le graphique à l'oral"
+          ],
+          "reason": "La copie locale qu’ils décident d’utiliser ne contient pas le dernier graphique. Le locuteur précise alors : « Je pourrai expliquer le graphique à l’oral », ce qui montre qu’ils choisissent de ne pas l’afficher à l’écran et de le décrire verbalement pendant la réunion.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il manque seulement le dernier graphique.",
+            "Utilisons cette version."
+          ],
+          "reason": "On pourrait mal interpréter « Utilisons cette version » comme l’idée de remplacer le dernier graphique manquant par un autre déjà présent. Cependant, ce n’est jamais énoncé : on dit seulement qu’il manque le dernier graphique et qu’on utilisera malgré tout cette version, en le compensant par une explication orale, pas par un remplacement par un autre graphique.",
+          "misunderstanding": "content_substitution"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 739,
+      "completion_tokens": 997,
+      "total_tokens": 1736,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 417,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01089375,
+    "inputHash": "6fb697591dd92edbcd85b18a8414865b3c98bd22e0b24daceba8ef40e6bcdc27",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:17:initial:ground:2"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

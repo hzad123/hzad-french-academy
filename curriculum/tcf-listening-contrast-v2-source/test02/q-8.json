@@ -1,0 +1,191 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le client signale que « ce pantalon est un peu grand » et demande « la taille en dessous ». Répondre « Oui, je vais vérifier en réserve » répond précisément à la demande de taille plus petite et correspond à la réaction normale d’un vendeur qui ne sait pas encore si la taille est disponible. C’est la réponse la plus naturelle et directement adaptée à la situation décrite. A : Le client demande explicitement s’il existe « la taille en dessous ». Répondre qu’on n’a « que plus grand » contredit directement la demande et suppose que le vendeur connaît déjà le stock et n’a pas besoin de vérifier, ce qui n’est pas indiqué dans l’énoncé. L’exercice cherche la réponse qui convient le mieux à la situation type de magasin, où l’on propose au moins de vérifier. Cette réponse est donc possible dans l’absolu, mais moins adaptée que B et n’est pas la bonne attendue. C : Le client parle d’un pantalon « un peu grand » et demande une taille en dessous, ce qui renvoie à la taille générale (tour de taille, ampleur), pas à la longueur uniquement. Proposer de « le faire raccourcir » ne répond qu’à un problème de longueur et ne satisfait pas la demande explicite d’avoir une taille en dessous. Quelqu’un comprenant mal pourrait associer « grand » uniquement à la longueur du pantalon et croire que raccourcir est une solution, mais rien dans l’énoncé ne limite le problème à la longueur. D : La question porte sur la taille (« la taille en dessous »), pas sur la couleur. Dire « On l’a seulement dans une autre couleur » change de critère et répond à un problème de couleur, non de taille. Un candidat distrait pourrait retenir seulement l’idée qu’il n’y a pas exactement le pantalon demandé et croire que proposer une variante (autre couleur) est logique, mais cette réponse ne traite pas la demande de taille plus petite.",
+    "transcript": "Question 8.\nCe pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nA. Non, on n’a que plus grand. B. Oui, je vais vérifier en réserve. C. Je peux vous le faire raccourcir. D. On l’a seulement dans une autre couleur.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Non, on n’a que plus grand. B. Oui, je vais vérifier en réserve. C. Je peux vous le faire raccourcir. D. On l’a seulement dans une autre couleur."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 17.737,
+    "slotSeconds": 37
+  },
+  "sourceHash": "4c3d6fdb7ba62a11833c7508674415fe4f9d612e74847b0628686112d0054230",
+  "contentHash": "28e7c63bd33e856d9c41b3f7ad202633521799253a869532121d9d6f737f5035",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyCJLEqExkfMQR1fGZGC1izeKALs",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un jeu de rôle en classe de français, l’enseignant fait écouter un échange où quelqu’un propose une solution, puis demande aux élèves : « Quelle réponse convient à la situation ? » L’apprenant entend plusieurs réponses possibles et celle libellée “Proposition A” correspond exactement à ce qui a été dit dans l’enregistrement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un exercice audio, un personnage présente quatre réponses possibles à un problème. Après l’écoute, on lit : « Quelle réponse convient à la situation ? » L’option correcte entendue est intitulée “Proposition C” dans le questionnaire."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un test de compréhension orale, un dialogue propose différentes solutions à un désaccord. L’enseignant indique ensuite : « Quelle réponse convient à la situation ? » et, dans le QCM, la formulation qui reprend la bonne solution est simplement appelée “Proposition B”."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un enregistrement, une personne liste plusieurs propositions, chacune nommée A, B, C, D. L’audio précise que la bonne solution est la quatrième possibilité, et, dans le questionnaire, celle-ci apparaît comme “Proposition D”, qui répond alors directement à la question « Quelle réponse convient à la situation ? »."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre intitulés sont symétriques, purement formels et sans contenu sémantique différenciant ; aucun indice textuel ne favorise une option plutôt qu’une autre, d’où une incertitude totale et une distribution uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 577,
+          "completion_tokens": 428,
+          "total_tokens": 1005,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 37,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00500125,
+        "inputHash": "536305511ff50e891b5bd3080aa9389dee2cfe307709c05de2eba70686bfef99",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:7:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyCN0AgPbbknCYRYB6wcTSyFj4o2",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La cliente trouve le pantalon un peu grand et demande s’il existe la taille en dessous. La réponse la plus adaptée est de proposer d’aller vérifier en réserve s’il y a une taille plus petite, donc la réponse B.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?",
+            "Non, on n’a que plus grand."
+          ],
+          "reason": "Le client demande explicitement s’il existe « la taille en dessous ». Répondre qu’on n’a « que plus grand » contredit directement la demande et suppose que le vendeur connaît déjà le stock et n’a pas besoin de vérifier, ce qui n’est pas indiqué dans l’énoncé. L’exercice cherche la réponse qui convient le mieux à la situation type de magasin, où l’on propose au moins de vérifier. Cette réponse est donc possible dans l’absolu, mais moins adaptée que B et n’est pas la bonne attendue.",
+          "misunderstanding": "inference_beyond_stimulus"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?",
+            "Oui, je vais vérifier en réserve."
+          ],
+          "reason": "Le client signale que « ce pantalon est un peu grand » et demande « la taille en dessous ». Répondre « Oui, je vais vérifier en réserve » répond précisément à la demande de taille plus petite et correspond à la réaction normale d’un vendeur qui ne sait pas encore si la taille est disponible. C’est la réponse la plus naturelle et directement adaptée à la situation décrite.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?",
+            "Je peux vous le faire raccourcir."
+          ],
+          "reason": "Le client parle d’un pantalon « un peu grand » et demande une taille en dessous, ce qui renvoie à la taille générale (tour de taille, ampleur), pas à la longueur uniquement. Proposer de « le faire raccourcir » ne répond qu’à un problème de longueur et ne satisfait pas la demande explicite d’avoir une taille en dessous. Quelqu’un comprenant mal pourrait associer « grand » uniquement à la longueur du pantalon et croire que raccourcir est une solution, mais rien dans l’énoncé ne limite le problème à la longueur.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?",
+            "On l’a seulement dans une autre couleur."
+          ],
+          "reason": "La question porte sur la taille (« la taille en dessous »), pas sur la couleur. Dire « On l’a seulement dans une autre couleur » change de critère et répond à un problème de couleur, non de taille. Un candidat distrait pourrait retenir seulement l’idée qu’il n’y a pas exactement le pantalon demandé et croire que proposer une variante (autre couleur) est logique, mais cette réponse ne traite pas la demande de taille plus petite.",
+          "misunderstanding": "referent_shift"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 702,
+      "completion_tokens": 842,
+      "total_tokens": 1544,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 134,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0092975,
+    "inputHash": "387a0a3a3b68b65549fc21523ffd5975f7cde5c1858a0f599f708103776b6766",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:7:initial:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

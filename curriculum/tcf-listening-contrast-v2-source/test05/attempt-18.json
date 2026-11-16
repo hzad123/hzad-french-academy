@@ -1,0 +1,342 @@
+{
+  "question": {
+    "number": 18,
+    "kind": "telephone",
+    "question": "Quelle étape la personne du service annonce-t-elle avant de modifier le dossier de loyer ?",
+    "options": [
+      "Demander un justificatif de virement à la locataire.",
+      "Comparer les opérations reçues sur le compte et envoyer une confirmation.",
+      "Vérifier si la référence du logement a bien été modifiée.",
+      "Contacter directement la nouvelle banque de la locataire."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question porte sur l’étape annoncée avant la modification du dossier. La personne du service dit précisément : \"Je vais comparer les opérations reçues\" puis \"vous envoyer une confirmation\" \"avant de modifier votre dossier\". Cela correspond exactement au choix : comparer les opérations reçues sur le compte et envoyer une confirmation. A : Aucun moment la personne du service ne dit qu’elle va demander un justificatif de virement à la locataire. Elle décrit au contraire une vérification interne : \"comparer les opérations reçues\" puis \"envoyer une confirmation\". Quelqu’un qui comprend seulement qu’il y a un problème de paiement pourrait déduire à tort qu’on va exiger un justificatif, mais ce n’est pas ce qui est annoncé dans l’enregistrement. C : La référence du logement est mentionnée par la locataire (\"la référence du logement est restée la même\"), mais la personne du service n’annonce pas qu’elle va vérifier si cette référence a été modifiée. L’étape annoncée est la comparaison des opérations reçues, pas la vérification de la référence. Un auditeur qui s’accroche au mot \"référence\" pourrait croire que le service va justement vérifier cette référence, mais le texte indique seulement que cette information est déjà confirmée par la locataire. D : Le changement de banque est évoqué, mais la personne du service ne dit jamais qu’elle va contacter directement la nouvelle banque. Elle décrit uniquement une vérification des opérations reçues de son côté. Quelqu’un pourrait, par connaissance du monde, imaginer qu’un service comptable appelle la banque en cas de problème, mais c’est une supposition non dite et différente de l’étape réellement annoncée (comparaison des opérations et envoi d’une confirmation).",
+    "transcript": "Question 18.\nBonjour, j'ai réglé mon loyer le premier du mois, pourtant votre espace en ligne m'indique un retard.\nAvez-vous changé de banque récemment ?\nOui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même.\nJe vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier.\nMerci, je préfère éviter un rappel injustifié.\nQuelle étape la personne du service annonce-t-elle avant de modifier le dossier de loyer ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 18."
+      },
+      {
+        "voice": "female",
+        "text": "Bonjour, j'ai réglé mon loyer le premier du mois, pourtant votre espace en ligne m'indique un retard."
+      },
+      {
+        "voice": "male",
+        "text": "Avez-vous changé de banque récemment ?"
+      },
+      {
+        "voice": "female",
+        "text": "Oui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même."
+      },
+      {
+        "voice": "male",
+        "text": "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+      },
+      {
+        "voice": "female",
+        "text": "Merci, je préfère éviter un rappel injustifié."
+      },
+      {
+        "voice": "female",
+        "text": "Quelle étape la personne du service annonce-t-elle avant de modifier le dossier de loyer ?"
+      }
+    ],
+    "audio": "q-18.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "sourceHash": "f310220c3a59037fcba8c7bc8be710968d4fd0bbad34fc140186a5dabaa2457a",
+  "contentHash": "fcdc8d25eb44a8dad3c4b503ea1ca8a7dc50ebbe56c3bfb6a0f17e7ebdbf2e9d",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyW4S5qHhFBQG8B8qIQS0Usw7zqd",
+    "result": {
+      "question": "Quelle étape la personne du service annonce-t-elle avant de modifier le dossier de loyer ?",
+      "choices": [
+        "Comparer les opérations reçues sur le compte et envoyer une confirmation.",
+        "Contacter directement la nouvelle banque de la locataire.",
+        "Vérifier si la référence du logement a bien été modifiée.",
+        "Demander un justificatif de virement à la locataire."
+      ],
+      "correctIndex": 0,
+      "explanation": "La personne du service dit clairement : Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier. L’étape annoncée avant la modification du dossier est donc la comparaison des opérations reçues, assortie d’un envoi de confirmation. Elle ne parle ni de contacter la banque, ni de vérifier une référence modifiée, ni de demander un justificatif.",
+      "design": "On cible la séquence d’actions annoncées par l’interlocuteur du service avant la modification du dossier (étape préparatoire précise). Les quatre réponses proposent chacune une procédure administrative plausible dans ce contexte : comparaison d’opérations, contact avec la banque, contrôle d’une référence, demande de justificatif. Toutes répondent directement au « avant de modifier le dossier ? » et ont une importance comparable dans une gestion de loyers. Seule la première correspond exactement à ce que la personne du service déclare dans l’enregistrement, les autres réattribuant à tort un rôle d’« étape préalable » à d’autres éléments du dialogue ou à des procédures imaginables mais non mentionnées.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le document ne mentionne jamais un contact direct avec la nouvelle banque. La personne du service reste à l’intérieur de son propre système en disant qu’elle va comparer les opérations reçues et envoyer une confirmation ; imaginer qu’elle appelle la banque est tentant car ce serait une démarche logique pour éclaircir un virement, mais ce n’est pas ce qu’elle annonce comme étape avant de modifier le dossier.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier.",
+            "Avez-vous changé de banque récemment ?"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La référence du logement est évoquée, mais c’est la locataire qui précise qu’elle est restée la même. L’étape préalable annoncée par la personne du service concerne les opérations reçues, pas une vérification ou modification de la référence. L’auditeur peut se laisser piéger en reliant la question sur la banque et la mention de la référence à une opération de contrôle, alors que cette opération n’est pas annoncée comme telle.",
+          "operation": "role_swap",
+          "anchors": [
+            "Oui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même.",
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Dans ce type de situation, demander un justificatif de virement serait tout à fait crédible, ce qui rend l’option séduisante. Toutefois, ici la personne du service ne demande rien à la locataire ; elle indique qu’elle va elle-même comparer les opérations reçues puis envoyer une confirmation. Le rôle d’étape préalable est à tort transféré à une demande de document extérieur qui n’apparaît pas dans l’énoncé.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier.",
+            "Bonjour, j'ai réglé mon loyer le premier du mois, pourtant votre espace en ligne m'indique un retard."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4481,
+      "completion_tokens": 1018,
+      "total_tokens": 5499,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 274,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01578125,
+    "inputHash": "5b2bc5867732a6787df369ba12b231c3b5b75cc0419a26b6e9aea8822f0bfd69",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyWDcoQq50mjODdXkDSfuAc3eZ0D",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un appel avec le service de gestion locative, la locataire signale un changement de banque. L’employé explique qu’avant de modifier le dossier de loyer dans leur système, il devra d’abord contacter directement la nouvelle banque de la locataire pour vérifier les nouvelles coordonnées bancaires ou la mise en place du prélèvement automatique."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une vérification de paiements de loyer, l’employé du service explique à la locataire qu’avant de modifier officiellement son dossier de loyer, il va d’abord comparer les opérations reçues sur le compte (les virements ou prélèvements de loyer) et ensuite envoyer une confirmation par courrier ou par e‑mail une fois cette vérification effectuée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Au téléphone, une locataire signale un problème de prise en compte de son loyer. L’agent du service lui indique qu’avant de modifier son dossier de loyer, il faudra qu’elle envoie un justificatif de virement (relevé bancaire ou capture d’écran) pour prouver que le paiement a bien été effectué."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un service HLM ou une agence immobilière, une locataire demande une correction sur son dossier de loyer après un changement d’appartement ou de référence interne. L’employé précise qu’avant de modifier le dossier de loyer, il va d’abord vérifier si la référence du logement a bien été modifiée dans leur base de données afin d’éviter toute erreur d’imputation des paiements."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent des étapes administratives plausibles qu’un employé de service pourrait annoncer avant de modifier un dossier de loyer. Aucune formulation ne présente un avantage rédactionnel ou contextuel évident par rapport à la question; l’incertitude reste donc élevée et les probabilités sont réparties de manière uniforme, avec un choix de réponse finale purement obligé."
+        },
+        "usage": {
+          "prompt_tokens": 624,
+          "completion_tokens": 714,
+          "total_tokens": 1338,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 247,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00792,
+        "inputHash": "36d3053d3d73677f85359a8650140971249eb37fc21ac93f864d14119c5af67a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyWKMgKWm92KxCTPdAu5lTKeQq30",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une locataire téléphone au service de gestion des loyers car un virement n’a pas été pris en compte. L’employé explique qu’avant de modifier son dossier de loyer, il va lui demander un justificatif de virement (relevé ou capture d’écran) pour vérifier l’opération."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "La locataire a changé de banque et les loyers n’apparaissent plus correctement. L’employé du service loyers lui dit qu’avant de modifier son dossier de loyer, il va contacter directement sa nouvelle banque pour clarifier la situation des virements."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Le service loyers examine un problème de paiement signalé par la locataire. L’agent explique qu’avant de modifier le dossier de loyer, il va comparer les opérations reçues sur le compte avec les loyers attendus, puis envoyer une confirmation une fois la vérification terminée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une locataire a changé d’appartement dans le même immeuble et les loyers semblent mal affectés. L’employé indique qu’avant de modifier le dossier de loyer, il va vérifier si la référence du logement a bien été modifiée dans leur système."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "La formulation correspond très naturellement à une annonce faite au téléphone à la locataire (« je vais vous demander un justificatif… »), ce qui colle bien avec « la personne du service annonce-t-elle », davantage que des démarches internes comme contacter la banque ou comparer les opérations."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.35,
+            0.22,
+            0.22,
+            0.21
+          ],
+          "guess": 0,
+          "reason": "Toutes les options décrivent une étape plausible avant de modifier un dossier de loyer, sans impossibilité évidente. L’option 0 bénéficie toutefois d’un léger avantage de formulation : elle ressemble particulièrement à une phrase que l’agent annoncerait directement à la locataire, ce qui s’accorde bien avec la question, d’où une probabilité un peu plus élevée mais une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 624,
+          "completion_tokens": 861,
+          "total_tokens": 1485,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 389,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00939,
+        "inputHash": "1b4bd32680ca4daa526678ddf0ef74854a3b8fd8c36eec8e1f6eb0f55debb095",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyWUb5oeiVcl2fAbWvJfiZkNCdLm",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne du service annonce qu’elle va d’abord comparer les opérations reçues et envoyer une confirmation avant de modifier le dossier de loyer.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+          ],
+          "reason": "Aucun moment la personne du service ne dit qu’elle va demander un justificatif de virement à la locataire. Elle décrit au contraire une vérification interne : \"comparer les opérations reçues\" puis \"envoyer une confirmation\". Quelqu’un qui comprend seulement qu’il y a un problème de paiement pourrait déduire à tort qu’on va exiger un justificatif, mais ce n’est pas ce qui est annoncé dans l’enregistrement.",
+          "misunderstanding": "inference"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+          ],
+          "reason": "La question porte sur l’étape annoncée avant la modification du dossier. La personne du service dit précisément : \"Je vais comparer les opérations reçues\" puis \"vous envoyer une confirmation\" \"avant de modifier votre dossier\". Cela correspond exactement au choix : comparer les opérations reçues sur le compte et envoyer une confirmation.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Oui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même.",
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+          ],
+          "reason": "La référence du logement est mentionnée par la locataire (\"la référence du logement est restée la même\"), mais la personne du service n’annonce pas qu’elle va vérifier si cette référence a été modifiée. L’étape annoncée est la comparaison des opérations reçues, pas la vérification de la référence. Un auditeur qui s’accroche au mot \"référence\" pourrait croire que le service va justement vérifier cette référence, mais le texte indique seulement que cette information est déjà confirmée par la locataire.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous changé de banque récemment ?",
+            "Oui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même.",
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+          ],
+          "reason": "Le changement de banque est évoqué, mais la personne du service ne dit jamais qu’elle va contacter directement la nouvelle banque. Elle décrit uniquement une vérification des opérations reçues de son côté. Quelqu’un pourrait, par connaissance du monde, imaginer qu’un service comptable appelle la banque en cas de problème, mais c’est une supposition non dite et différente de l’étape réellement annoncée (comparaison des opérations et envoi d’une confirmation).",
+          "misunderstanding": "world_knowledge_inference"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 751,
+      "completion_tokens": 1079,
+      "total_tokens": 1830,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 407,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01172875,
+    "inputHash": "596ca8dafcfd9e616eafd03835a6def25791ba5c1c68d5077763365ba95f784d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:initial:ground:2"
+  },
+  "feedback": null
+}

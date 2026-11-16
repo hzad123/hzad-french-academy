@@ -1,0 +1,256 @@
+{
+  "question": {
+    "number": 11,
+    "kind": "announcement",
+    "question": "Comment et jusqu'à quelle date faut-il s'inscrire à l'atelier ?",
+    "options": [
+      "Par téléphone à la médiathèque, au plus tard vendredi.",
+      "Sur le formulaire de la médiathèque, avant jeudi.",
+      "Sur le site de l'association, avant jeudi.",
+      "En s'adressant à l'animateur, jusqu'à samedi."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Cette réponse reprend exactement les deux éléments demandés : le moyen (« sur le formulaire de la médiathèque ») et la date limite (« avant jeudi »). A : La proposition parle d’une inscription « par téléphone » et « au plus tard vendredi ». Or le document précise que l’inscription se fait « sur le formulaire disponible à la médiathèque » et que c’est « avant jeudi », pas vendredi. On peut se tromper en retenant seulement le mot « médiathèque » et en imaginant qu’on téléphone, et en repoussant la date parce que l’atelier a lieu samedi, mais le texte impose formulaire + jeudi. C : On pourrait croire que l’inscription se fait « sur le site de l’association » parce que c’est elle qui « propose » l’atelier. Cependant, le document indique clairement que la réservation se fait « sur le formulaire disponible à la médiathèque », pas sur le site de l’association, même si la date « avant jeudi » est correcte. D : Quelqu’un peut confondre la date de l’atelier (« samedi ») avec une date limite d’inscription et penser qu’on peut « s’adresser à l’animateur, jusqu’à samedi ». Mais le texte ne mentionne jamais l’animateur comme personne auprès de qui s’inscrire, et précise au contraire que l’inscription doit se faire avant jeudi via le formulaire de la médiathèque.",
+    "transcript": "Question 11.\nL'association Saveurs du quartier propose samedi un atelier consacré aux plats de saison. Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque. Les ingrédients seront fournis. Il n'est pas nécessaire d'apporter de matériel, mais un tablier personnel reste conseillé.\nComment et jusqu'à quelle date faut-il s'inscrire à l'atelier ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 11."
+      },
+      {
+        "voice": "male",
+        "text": "L'association Saveurs du quartier propose samedi un atelier consacré aux plats de saison. Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque. Les ingrédients seront fournis. Il n'est pas nécessaire d'apporter de matériel, mais un tablier personnel reste conseillé."
+      },
+      {
+        "voice": "female",
+        "text": "Comment et jusqu'à quelle date faut-il s'inscrire à l'atelier ?"
+      }
+    ],
+    "audio": "q-11.mp3",
+    "audioSeconds": 25.731,
+    "slotSeconds": 40
+  },
+  "sourceHash": "c43699ed2a539cf8dee046d58476d0c752bb89467cff115613aecaf72040c1ee",
+  "contentHash": "c9163259eb92addcabdbf0b162f16f3ee0ac5fbf70599c157abc6ca5da53a311",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyaU45BrEZIY60CbHi0eHNYc66V2",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Annonce dans une médiathèque pour un atelier de lecture : à la fin de la présentation, la responsable précise que les inscriptions se font par téléphone directement auprès de la médiathèque et qu’il faut appeler au plus tard le vendredi précédent l’atelier."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Enregistrement d’une association culturelle présentant un atelier de théâtre : le président explique que les participants doivent s’inscrire en ligne sur le site de l’association et que la date limite est fixée au jeudi avant l’atelier."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Présentation d’un atelier de peinture dans une maison de quartier : l’animateur indique que les personnes intéressées peuvent venir le voir directement à la fin de ses permanences pour s’inscrire, et que cela reste possible jusqu’au samedi précédant l’atelier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Annonce d’un atelier numérique dans une médiathèque : la bibliothécaire explique que les inscriptions se font en remplissant un formulaire spécifique de la médiathèque (en ligne ou papier), et qu’il faut le faire avant le jeudi pour que l’inscription soit prise en compte."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions répondent directement à la question en indiquant à la fois le mode d’inscription et une date limite, sans faute ni incohérence manifeste. Aucun indice textuel clair (grammatical, de style ou de portée) ne favorise nettement une option. En l’absence de tout élément sur l’enregistrement source, il reste impossible de départager de façon fiable ; le choix de 0 comme clé supposée est donc purement arbitraire sous forte incertitude, avec des probabilités réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 620,
+          "completion_tokens": 557,
+          "total_tokens": 1177,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 146,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006345,
+        "inputHash": "f1d4c075df4c9e73bc36346d4d192785ea3beac73dfd11eeb779fb7553de5a1d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:10:initial:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyabC5FbcqHOKBW8kqvOAJYXwQXP",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Annonce à propos d’un atelier organisé par une médiathèque : l’animatrice explique qu’il faut remplir un formulaire d’inscription fourni par la médiathèque (papier ou en ligne) et le rendre avant jeudi."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "En fin de réunion de présentation d’un atelier, l’intervenant précise qu’on s’inscrit directement auprès de l’animateur (par mail ou sur place) et qu’il accepte les inscriptions jusqu’à samedi."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Message vocal ou annonce dans une médiathèque : on indique qu’il faut téléphoner à la médiathèque pour réserver sa place à l’atelier, et que la date limite fixée est vendredi au plus tard."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Enregistrement présentant un atelier proposé par une association partenaire : on invite les gens à s’inscrire via le site de l’association, et on indique que les inscriptions se terminent avant jeudi."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses indiquent clairement un moyen d’inscription et une date limite, correspondent toutes naturellement à la question et sont formulées de manière similaire, sans avantage rédactionnel net pour l’une d’elles. Faute d’autre indice observable, l’incertitude reste élevée et la probabilité est répartie uniformément, avec un choix arbitraire de la réponse 0 comme meilleure hypothèse."
+        },
+        "usage": {
+          "prompt_tokens": 620,
+          "completion_tokens": 537,
+          "total_tokens": 1157,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 190,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006145,
+        "inputHash": "cdd43c1a759b53c1d5b5d765ebcbe5689e0b3f290c53cd3bc263f635bc1b04b4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:10:initial:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekyahn3lp25xnWou6ars5BgcxymOO",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Il faut s’inscrire à l’atelier avant jeudi en remplissant le formulaire de la médiathèque.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque."
+          ],
+          "reason": "La proposition parle d’une inscription « par téléphone » et « au plus tard vendredi ». Or le document précise que l’inscription se fait « sur le formulaire disponible à la médiathèque » et que c’est « avant jeudi », pas vendredi. On peut se tromper en retenant seulement le mot « médiathèque » et en imaginant qu’on téléphone, et en repoussant la date parce que l’atelier a lieu samedi, mais le texte impose formulaire + jeudi.",
+          "misunderstanding": "temporal_extension"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque."
+          ],
+          "reason": "Cette réponse reprend exactement les deux éléments demandés : le moyen (« sur le formulaire de la médiathèque ») et la date limite (« avant jeudi »).",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'association Saveurs du quartier propose samedi un atelier consacré aux plats de saison.",
+            "Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque."
+          ],
+          "reason": "On pourrait croire que l’inscription se fait « sur le site de l’association » parce que c’est elle qui « propose » l’atelier. Cependant, le document indique clairement que la réservation se fait « sur le formulaire disponible à la médiathèque », pas sur le site de l’association, même si la date « avant jeudi » est correcte.",
+          "misunderstanding": "source_of_action"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'association Saveurs du quartier propose samedi un atelier consacré aux plats de saison.",
+            "Les participants doivent réserver leur place avant jeudi sur le formulaire disponible à la médiathèque."
+          ],
+          "reason": "Quelqu’un peut confondre la date de l’atelier (« samedi ») avec une date limite d’inscription et penser qu’on peut « s’adresser à l’animateur, jusqu’à samedi ». Mais le texte ne mentionne jamais l’animateur comme personne auprès de qui s’inscrire, et précise au contraire que l’inscription doit se faire avant jeudi via le formulaire de la médiathèque.",
+          "misunderstanding": "timing_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 717,
+      "completion_tokens": 901,
+      "total_tokens": 1618,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 330,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00990625,
+    "inputHash": "80ec2d9f8a978b67ce624e5926ddecbd774dfe77593a738c241ceaeeb342b0c1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:10:initial:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

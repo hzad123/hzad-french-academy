@@ -1,0 +1,174 @@
+{
+  "question": {
+    "number": 2,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "transcript": "Question 2.\nÉcoutez les quatre propositions. A. Elle plante une graine dans le pot. B. Elle redresse une plante tombée. C. Elle arrose une plante en pot. D. Elle nettoie le sol près du pot.",
+    "explanation": "Réponse C : L’image montre une personne qui tient un arrosoir incliné au-dessus d’une plante en pot, avec des gouttes d’eau qui tombent dans le pot. Cette scène correspond exactement à la description \"Elle arrose une plante en pot.\", et aucune autre action (planter, redresser, nettoyer) n’est visible. A : On voit une personne tenir un arrosoir incliné vers la plante, avec de l’eau qui coule dans le pot. Rien n’indique qu’elle manipule une graine ou qu’elle mette quelque chose dans la terre : aucun petit objet n’est visible, seulement de l’eau. Quelqu’un qui comprend mal l’image pourrait confondre le geste dirigé vers le pot avec l’action de planter, mais l’illustration montre un arrosage, pas une plantation. B : La plante est bien droite, avec des feuilles orientées vers le haut, et le pot est stable au sol. La personne ne touche pas la plante ni le pot avec les mains ; elle tient uniquement un arrosoir. Un observateur inattentif pourrait croire qu’elle intervient sur la plante et imaginer qu’elle la \"redresse\", mais il n’y a aucun signe visible d’une plante tombée ni d’un geste de redressement, seulement l’arrosage. D : L’eau tombe clairement de l’arrosoir dans le pot, en direction de la plante. Le sol autour du pot n’est pas mis en avant et la personne ne tient aucun objet de nettoyage. Quelqu’un qui verrait seulement les gouttes près du bas de l’image pourrait imaginer qu’elle mouille le sol, donc qu’elle \"nettoie\" à proximité, mais la trajectoire des gouttes indique un arrosage de la plante, pas un nettoyage du sol.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 2."
+      },
+      {
+        "voice": "female",
+        "text": "Écoutez les quatre propositions. A. Elle plante une graine dans le pot. B. Elle redresse une plante tombée. C. Elle arrose une plante en pot. D. Elle nettoie le sol près du pot."
+      }
+    ],
+    "image": "q-02.svg",
+    "audio": "q-02.mp3",
+    "audioSeconds": 14.393,
+    "slotSeconds": 31
+  },
+  "sourceHash": "325e552811f5e573de1bed8d1ca6c14d44c7aeb8123ea3f8ed95c821654b087a",
+  "contentHash": "c74e4bfcd49c5769af5a73eeb8de11b516107bba48e7586f075882a3f49d3fd1",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekyka7me5I0ZcQbSgQAkKtJGFdOCb",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une vidéo de sensibilisation au jardinage, on voit une personne se pencher vers un pot renversé et remettre délicatement la plante droite. Le narrateur demande ensuite : « Quelle proposition correspond à l'image ? » et la bonne réponse serait qu’elle redresse une plante tombée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un tutoriel ménage, une personne est filmée en train de passer une éponge ou une balayette autour d’un pot de fleur pour enlever de la terre renversée. L’animateur pose alors la question « Quelle proposition correspond à l'image ? » et la description adéquate est qu’elle nettoie le sol près du pot."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une vidéo éducative sur la plantation, on voit une personne faire un trou dans la terre d’un pot et y déposer une graine avec les doigts avant de la recouvrir. On arrête l’image à ce moment-là et on demande : « Quelle proposition correspond à l'image ? » ; la réponse correspondante est qu’elle plante une graine dans le pot."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un spot de sensibilisation à l’économie d’eau, on voit une personne verser doucement de l’eau depuis un arrosoir sur une plante en pot posée au sol. On fige l’image et l’on demande : « Quelle proposition correspond à l'image ? », ce qui est bien décrit par le fait qu’elle arrose une plante en pot."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Tous les énoncés sont grammaticaux, concrets et décrivent des actions courantes possibles sur une image de personne et de pot de plante ; aucune formulation ne présente d’avantage lexical ou structurel évident, et sans accès à l’image il n’existe aucun indice fiable pour départager les choix."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 501,
+          "total_tokens": 1097,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 64,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005755,
+        "inputHash": "85414c375d3835313d1f73f38619fec299bc660fe026e6f507ae177d5e64acee",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:1:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekykf3JZ1iXMysDCPKOx70ycJPyMG",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Une personne arrose clairement une plante en pot avec un arrosoir ; aucune autre action décrite n’apparaît sur l’image.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit une personne tenir un arrosoir incliné vers la plante, avec de l’eau qui coule dans le pot. Rien n’indique qu’elle manipule une graine ou qu’elle mette quelque chose dans la terre : aucun petit objet n’est visible, seulement de l’eau. Quelqu’un qui comprend mal l’image pourrait confondre le geste dirigé vers le pot avec l’action de planter, mais l’illustration montre un arrosage, pas une plantation.",
+          "misunderstanding": "action_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "La plante est bien droite, avec des feuilles orientées vers le haut, et le pot est stable au sol. La personne ne touche pas la plante ni le pot avec les mains ; elle tient uniquement un arrosoir. Un observateur inattentif pourrait croire qu’elle intervient sur la plante et imaginer qu’elle la \"redresse\", mais il n’y a aucun signe visible d’une plante tombée ni d’un geste de redressement, seulement l’arrosage.",
+          "misunderstanding": "false_inference_from_context"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "L’image montre une personne qui tient un arrosoir incliné au-dessus d’une plante en pot, avec des gouttes d’eau qui tombent dans le pot. Cette scène correspond exactement à la description \"Elle arrose une plante en pot.\", et aucune autre action (planter, redresser, nettoyer) n’est visible.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "L’eau tombe clairement de l’arrosoir dans le pot, en direction de la plante. Le sol autour du pot n’est pas mis en avant et la personne ne tient aucun objet de nettoyage. Quelqu’un qui verrait seulement les gouttes près du bas de l’image pourrait imaginer qu’elle mouille le sol, donc qu’elle \"nettoie\" à proximité, mais la trajectoire des gouttes indique un arrosage de la plante, pas un nettoyage du sol.",
+          "misunderstanding": "objectif_mal_identifie"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 862,
+      "total_tokens": 1589,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 309,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00952875,
+    "inputHash": "93c332dd47b085902eb92431b20f707f2ee2795c695df6b485db7bcd1c700848",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:1:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null
+}

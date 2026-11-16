@@ -1,0 +1,335 @@
+{
+  "question": {
+    "number": 10,
+    "kind": "dialogue",
+    "question": "Où décident-ils finalement de se retrouver ?",
+    "options": [
+      "À l’intérieur de la bibliothèque, près du comptoir.",
+      "Devant l’entrée de la bibliothèque.",
+      "Devant le café près de l’école.",
+      "Devant l’école, à côté de la bibliothèque."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Ils décident d’abord du lieu général (« à la bibliothèque »), puis le précisent : « Je t'attendrai devant l'entrée ». Cela correspond exactement à « Devant l’entrée de la bibliothèque. ». A : On parle bien de la bibliothèque, ce qui pourrait faire croire à quelqu’un qui écoute trop vite qu’ils se retrouvent à l’intérieur. Mais la précision qui suit indique le lieu exact du rendez-vous : « Je t'attendrai devant l'entrée », donc pas « à l’intérieur de la bibliothèque, près du comptoir ». L’option ajoute un détail (près du comptoir) qui n’est jamais mentionné et contredit le fait d’être « devant l’entrée ». C : Le « café près de l’école » est mentionné, ce qui peut pousser un auditeur inattentif à retenir ce lieu. Cependant il est clairement dit que ce café « est fermé aujourd'hui », raison pour laquelle ils choisissent justement la bibliothèque à la place. Ils ne peuvent donc pas décider de se retrouver « devant le café près de l’école ». D : On entend « près de l'école » et « la bibliothèque », ce qui pourrait faire imaginer la zone de l’école et de la bibliothèque en général et conduire à inventer « devant l’école, à côté de la bibliothèque ». Mais l’énoncé exact est « Je t'attendrai devant l'entrée », sans jamais mentionner l’école comme point de rendez-vous. Le lieu précis est l’entrée de la bibliothèque, pas l’école à côté.",
+    "transcript": "Question 10.\nOn prend un café après ton cours de français ?\nLe café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures.\nAlors retrouvons-nous à la bibliothèque. Je t'attendrai devant l'entrée à dix-sept heures quinze.\nParfait, je pourrai aussi rendre mes livres.\nOù décident-ils finalement de se retrouver ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 10."
+      },
+      {
+        "voice": "female",
+        "text": "On prend un café après ton cours de français ?"
+      },
+      {
+        "voice": "male",
+        "text": "Le café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures."
+      },
+      {
+        "voice": "female",
+        "text": "Alors retrouvons-nous à la bibliothèque. Je t'attendrai devant l'entrée à dix-sept heures quinze."
+      },
+      {
+        "voice": "male",
+        "text": "Parfait, je pourrai aussi rendre mes livres."
+      },
+      {
+        "voice": "female",
+        "text": "Où décident-ils finalement de se retrouver ?"
+      }
+    ],
+    "audio": "q-10.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "sourceHash": "4434cfafb7ee28f8a3b2f1ca0f55b35f8a3af6cf4caba201124b52befa263a4c",
+  "contentHash": "6dec1422be6b180289144b71a745f8d6b710360847c472b2ce0d51ceff912282",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyCeHHpm165Xmy14OhiQy54pkpCC",
+    "result": {
+      "question": "Où décident-ils finalement de se retrouver ?",
+      "choices": [
+        "Devant l’entrée de la bibliothèque.",
+        "À l’intérieur de la bibliothèque, près du comptoir.",
+        "Devant le café près de l’école.",
+        "Devant l’école, à côté de la bibliothèque."
+      ],
+      "correctIndex": 0,
+      "explanation": "Ils décident finalement : \"retrouvons-nous à la bibliothèque\" et la personne précise \"Je t'attendrai devant l'entrée\". Le lieu exact du rendez-vous est donc devant l’entrée de la bibliothèque, et non à l’intérieur ni devant le café ou l’école.",
+      "design": "A single axis is tested: the exact agreed meeting place. All four options are ordinary, realistic meeting points in this context (library entrance, inside the library, in front of the café, in front of the school). Without the audio, any of them could plausibly be where two people decide to meet after a course. The recording specifically assigns the rendez-vous to \"devant l’entrée\" of the library, distinguishing it from nearby or previously mentioned places.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option déplace le point de rendez-vous de l’entrée vers l’intérieur de la bibliothèque. L’auditeur peut retenir seulement « la bibliothèque » et supposer qu’on se retrouve à l’intérieur, près du comptoir, ce qui est très courant. Mais le document précise qu’il attendra « devant l’entrée », pas à l’intérieur.",
+          "operation": "role_swap",
+          "anchors": [
+            "retrouvons-nous à la bibliothèque",
+            "Je t'attendrai devant l'entrée"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le café près de l’école est d’abord évoqué comme lieu naturel de rendez-vous, ce qui peut faire croire qu’ils maintiennent ce point de rencontre. Un auditeur inattentif peut oublier qu’on précise ensuite que ce café est fermé et qu’ils se replient sur la bibliothèque.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "On prend un café après ton cours de français ?",
+            "Le café près de l'école est fermé aujourd'hui",
+            "Alors retrouvons-nous à la bibliothèque."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option reste proche géographiquement en se plaçant devant l’école plutôt que devant la bibliothèque, ce qui semble logique car le café était « près de l’école ». Un auditeur qui mémorise surtout « près de l'école » peut généraliser le rendez-vous à l’école elle-même, alors que le document fixe clairement le rendez-vous à la bibliothèque, devant son entrée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Le café près de l'école",
+            "retrouvons-nous à la bibliothèque",
+            "Je t'attendrai devant l'entrée"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4329,
+      "completion_tokens": 879,
+      "total_tokens": 5208,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 321,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01420125,
+    "inputHash": "b76a5b987dd3bf499243d5dc28800771a511f06f5dfc8c241f454e8f67ee69fe",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:9:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyCnfi5WXsUDD6Rb4vg1Pr1loU3T",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux amis organisent un rendez-vous par téléphone. Après avoir hésité entre plusieurs lieux autour du campus, ils conviennent finalement : « Bon, on fait simple, on se retrouve devant l’entrée de la bibliothèque. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un étudiant cherche un endroit précis pour rencontrer un bibliothécaire afin de remplir un formulaire. Après avoir mentionné plusieurs lieux possibles, l’employé conclut : « Alors on se retrouve finalement à l’intérieur de la bibliothèque, près du comptoir. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Des élèves se parlent après les cours pour décider d’un lieu de rendez-vous avant d’aller travailler à la bibliothèque. Ils discutent de différents points de rencontre et finissent par dire : « On se retrouve finalement devant l’école, à côté de la bibliothèque. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Deux camarades de classe hésitent entre se voir directement à la bibliothèque ou prendre un café avant d’y aller. Après discussion, l’un conclut : « D’accord, on se retrouve finalement devant le café près de l’école. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre lieux proposés sont très proches dans le même environnement (école, bibliothèque, café), tous grammaticalement corrects et également plausibles dans un dialogue où l’on précise finalement un point de rendez-vous. Aucune formulation ne présente d’avantage rédactionnel net (longueur, précision, registre ou responsabilité) suffisant pour la distinguer des autres uniquement à partir de l’énoncé écrit, donc l’incertitude reste élevée et les probabilités sont réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 605,
+          "completion_tokens": 516,
+          "total_tokens": 1121,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 126,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00591625,
+        "inputHash": "a6fa85bda22c37c90f711c42937ba420d1c2a3883d853ea4439677e51e628221",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:9:initial:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyCtzYvRiUt59MrNwQM4yuSlzGpi",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux étudiants organisent un rendez-vous pour travailler ensemble. Après avoir hésité entre plusieurs endroits, ils conviennent finalement de se retrouver à l’intérieur de la bibliothèque, près du comptoir, pour pouvoir se voir facilement en entrant et demander des informations au personnel si besoin."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Deux parents discutent par téléphone pour convenir d’un point de rendez-vous après les cours de leurs enfants. Ils évoquent plusieurs lieux possibles (dans l’école, devant la bibliothèque voisine) puis décident finalement de se retrouver devant le café près de l’école, endroit qu’ils connaissent bien tous les deux."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Deux camarades de classe cherchent un lieu précis pour se donner rendez-vous avant d’aller travailler à la bibliothèque. Après avoir proposé l’intérieur, le café d’en face, ou la cour de l’école, ils décident finalement de se retrouver devant l’entrée de la bibliothèque pour être sûrs de ne pas se rater."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Deux amis se donnent rendez-vous dans un quartier où il y a à la fois une école et une bibliothèque côte à côte. Ils hésitent entre plusieurs points de rencontre (devant le café, à l’intérieur de la bibliothèque, directement dans la cour de l’école) et décident finalement de se retrouver devant l’école, à côté de la bibliothèque, car c’est l’endroit le plus facile à décrire."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Tous les choix sont grammaticalement corrects, précis et plausibles comme réponse directe à la question, sans indice clair dans la seule formulation textuelle permettant de privilégier l’un d’eux. Faute de véritable avantage observable, le choix de la réponse est très incertain et revient pratiquement à un tirage au sort ; l’index 2 est donc choisi comme meilleure hypothèse par défaut, avec reconnaissance d’une forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 605,
+          "completion_tokens": 561,
+          "total_tokens": 1166,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 110,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00636625,
+        "inputHash": "d31ffd94121f2aba366142e7c87bc365ac4fb2c62a1525ddd25cf94af39b6e01",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:9:initial:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyD0jvZkfR0LJpS3fDMF2xFg2P9u",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Ils décident clairement de se retrouver devant l’entrée de la bibliothèque.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Alors retrouvons-nous à la bibliothèque.",
+            "la bibliothèque est ouverte jusqu'à vingt heures."
+          ],
+          "reason": "On parle bien de la bibliothèque, ce qui pourrait faire croire à quelqu’un qui écoute trop vite qu’ils se retrouvent à l’intérieur. Mais la précision qui suit indique le lieu exact du rendez-vous : « Je t'attendrai devant l'entrée », donc pas « à l’intérieur de la bibliothèque, près du comptoir ». L’option ajoute un détail (près du comptoir) qui n’est jamais mentionné et contredit le fait d’être « devant l’entrée ».",
+          "misunderstanding": "scope"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Alors retrouvons-nous à la bibliothèque. Je t'attendrai devant l'entrée à dix-sept heures quinze."
+          ],
+          "reason": "Ils décident d’abord du lieu général (« à la bibliothèque »), puis le précisent : « Je t'attendrai devant l'entrée ». Cela correspond exactement à « Devant l’entrée de la bibliothèque. ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures."
+          ],
+          "reason": "Le « café près de l’école » est mentionné, ce qui peut pousser un auditeur inattentif à retenir ce lieu. Cependant il est clairement dit que ce café « est fermé aujourd'hui », raison pour laquelle ils choisissent justement la bibliothèque à la place. Ils ne peuvent donc pas décider de se retrouver « devant le café près de l’école ».",
+          "misunderstanding": "condition_ignored"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures.",
+            "Alors retrouvons-nous à la bibliothèque."
+          ],
+          "reason": "On entend « près de l'école » et « la bibliothèque », ce qui pourrait faire imaginer la zone de l’école et de la bibliothèque en général et conduire à inventer « devant l’école, à côté de la bibliothèque ». Mais l’énoncé exact est « Je t'attendrai devant l'entrée », sans jamais mentionner l’école comme point de rendez-vous. Le lieu précis est l’entrée de la bibliothèque, pas l’école à côté.",
+          "misunderstanding": "referent_shift"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 712,
+      "completion_tokens": 857,
+      "total_tokens": 1569,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 292,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00946,
+    "inputHash": "b17119ee2f0a4e83adeff8c0752c893d64351198b0b6591c74b81ecf9bb87139",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:9:initial:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

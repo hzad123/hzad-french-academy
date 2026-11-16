@@ -1,0 +1,247 @@
+{
+  "question": {
+    "number": 14,
+    "kind": "dialogue",
+    "question": "Dans cette scène, à quoi va servir la tâche de lecture que l’interlocuteur propose ?",
+    "options": [
+      "À occuper utilement le groupe qui attend pendant que l’autre fait l’exercice d’écoute.",
+      "À vérifier la compréhension de l’écoute après le passage de chaque groupe.",
+      "À préparer les étudiants à l’exercice d’écoute en leur faisant découvrir le texte à l’avance.",
+      "À remplacer l’exercice d’écoute pour toute la classe à cause de la panne du haut-parleur."
+    ],
+    "correct": "A",
+    "explanation": "La tâche de lecture est annoncée « pour ceux qui attendent », juste après la proposition de faire l’activité d’écoute « en deux groupes » et « l’un après l’autre ». Elle sert donc à occuper le groupe qui ne fait pas encore l’écoute, pas à préparer, remplacer ou vérifier l’exercice d’écoute.",
+    "transcript": "Question 14.\nLe haut-parleur de la salle ne fonctionne plus. Nous avons un exercice d'écoute dans dix minutes.\nLe laboratoire audio est occupé, mais j'ai réservé une petite salle avec huit ordinateurs.\nNous avons douze étudiants.\nOn pourrait les répartir en deux groupes et faire l'activité l'un après l'autre.\nD'accord, je prépare une tâche de lecture pour ceux qui attendent.\nDans cette scène, à quoi va servir la tâche de lecture que l’interlocuteur propose ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 14."
+      },
+      {
+        "voice": "male",
+        "text": "Le haut-parleur de la salle ne fonctionne plus. Nous avons un exercice d'écoute dans dix minutes."
+      },
+      {
+        "voice": "female",
+        "text": "Le laboratoire audio est occupé, mais j'ai réservé une petite salle avec huit ordinateurs."
+      },
+      {
+        "voice": "male",
+        "text": "Nous avons douze étudiants."
+      },
+      {
+        "voice": "female",
+        "text": "On pourrait les répartir en deux groupes et faire l'activité l'un après l'autre."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, je prépare une tâche de lecture pour ceux qui attendent."
+      },
+      {
+        "voice": "female",
+        "text": "Dans cette scène, à quoi va servir la tâche de lecture que l’interlocuteur propose ?"
+      }
+    ],
+    "audio": "q-14.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 47
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyRiZbu6ElZ4qOgVoSUU0WQI65iO",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enseignant explique à un étudiant stagiaire sa démarche : après un exercice d’écoute effectué par des petits groupes qui passent tour à tour, il prévoit une tâche de lecture à donner juste après le passage de chaque groupe pour vérifier qu’ils ont bien compris ce qu’ils viennent d’entendre."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une classe, l’enseignant organise un exercice d’écoute en demi-groupes, car il n’a qu’un seul lecteur audio. Pendant que le premier groupe fait l’écoute avec lui, il propose à l’autre groupe une tâche de lecture pour qu’ils s’occupent de manière utile en attendant leur tour."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un professeur décrit son scénario pédagogique à un collègue : avant l’activité d’écoute proprement dite, il fait lire aux étudiants un texte lié au même thème afin de les préparer, d’activer le vocabulaire et de faciliter la compréhension du futur enregistrement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une salle de classe, le haut-parleur tombe en panne au moment prévu pour un exercice d’écoute. L’enseignant se tourne vers les élèves et explique qu’il va remplacer l’activité d’écoute par une tâche de lecture pour toute la classe, puisque le matériel audio ne fonctionne plus."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Formulation pédagogique nuancée (« occuper utilement le groupe qui attend ») qui cadre bien avec une organisation en groupes alternés, sans mention d’élément extrême (comme une panne) ni focalisation uniquement sur la compréhension, ce qui en fait une option globalement plus modérée et réaliste."
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Mention très spécifique d’une « panne du haut-parleur », scénario plus extrême et circonstanciel que les autres formulations plus générales, ce qui la rend moins probable comme intention générique de la tâche dans la scène."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.32,
+            0.28,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "Plusieurs options restent plausibles sans le support audio, mais l’option 1 propose un but concret, modéré et courant d’une tâche de lecture dans une organisation en groupes (occuper utilement le groupe en attente), tandis que l’option 3 repose sur une panne très spécifique et les options 0 et 2 sont plus spécialisées (vérification systématique après chaque groupe ou préparation anticipée). Cela donne un léger avantage à l’option 1, sans certitude élevée."
+        },
+        "usage": {
+          "prompt_tokens": 646,
+          "completion_tokens": 712,
+          "total_tokens": 1358,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 152,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0079275,
+        "inputHash": "af888f077a7f724cda9ff6ae2662872c4f2bd9004ed577a4380feea698a76eaf",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:13:initial:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyRsfuxYff3RlOKyLZWl3sQpxMfJ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enseignant annonce un exercice d’écoute sur un texte. Avant de lancer l’audio, il explique qu’il va d’abord faire une activité de lecture du même texte pour que les étudiants découvrent le contenu et le vocabulaire, afin de les préparer à l’écoute qui suivra."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une salle de classe, l’enseignant avait prévu un exercice d’écoute avec un enregistrement. Le haut‑parleur tombe en panne au dernier moment, et il propose alors une tâche de lecture du script à la place, en expliquant que cette lecture remplace l’écoute pour toute la classe à cause du problème technique."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un cours de langue, la classe est divisée en deux groupes qui vont passer un exercice d’écoute l’un après l’autre avec l’enseignant ou au laboratoire. Pendant que le premier groupe fait l’écoute, l’enseignant propose une tâche de lecture à l’autre groupe pour qu’il reste concentré et travaille utilement en attendant son tour."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un enseignant fait passer un exercice d’écoute par groupes successifs. Après le passage de chaque groupe, il distribue une tâche de lecture portant sur le même texte ou sur un document lié, en expliquant que cette lecture servira à vérifier et consolider la compréhension de ce qui a été entendu."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Mention d’un détail très spécifique (« panne du haut-parleur ») qui n’est pas suggéré par l’énoncé, alors que les autres réponses restent générales et directement fonctionnelles par rapport à une scène de classe typique."
+            },
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation explicitant clairement deux groupes et l’occupation du groupe en attente, ce qui correspond bien à une organisation fréquente d’exercices d’écoute par groupes successifs et donne un rôle pragmatique évident à la tâche de lecture."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.15,
+            0.4,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Plusieurs usages sont plausibles, mais l’option 2 correspond très bien à une situation courante où un groupe attend pendant que l’autre passe l’écoute, et la lecture sert précisément à les occuper utilement. L’option 1 repose sur un incident technique non évoqué, et l’option 3 fait de la lecture un contrôle de compréhension après écoute, moins typique qu’une activité orale ou écrite ciblée. L’incertitude demeure, mais l’option 2 a un léger avantage contextuel et rédactionnel."
+        },
+        "usage": {
+          "prompt_tokens": 646,
+          "completion_tokens": 1017,
+          "total_tokens": 1663,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 434,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0109775,
+        "inputHash": "bd9606b78610609d33c0f1ed0e4e5daca1ce83686a620a767b594f586e120c60",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:13:initial:screen:6:1"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Plusieurs usages sont plausibles, mais l’option 2 correspond très bien à une situation courante où un groupe attend pendant que l’autre passe l’écoute, et la lecture sert précisément à les occuper utilement. L’option 1 repose sur un incident technique non évoqué, et l’option 3 fait de la lecture un contrôle de compréhension après écoute, moins typique qu’une activité orale ou écrite ciblée. L’incertitude demeure, mais l’option 2 a un léger avantage contextuel et rédactionnel.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "weak",
+        "cue": "Mention d’un détail très spécifique (« panne du haut-parleur ») qui n’est pas suggéré par l’énoncé, alors que les autres réponses restent générales et directement fonctionnelles par rapport à une scène de classe typique."
+      },
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "Formulation explicitant clairement deux groupes et l’occupation du groupe en attente, ce qui correspond bien à une organisation fréquente d’exercices d’écoute par groupes successifs et donne un rôle pragmatique évident à la tâche de lecture."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un enseignant annonce un exercice d’écoute sur un texte. Avant de lancer l’audio, il explique qu’il va d’abord faire une activité de lecture du même texte pour que les étudiants découvrent le contenu et le vocabulaire, afin de les préparer à l’écoute qui suivra."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une salle de classe, l’enseignant avait prévu un exercice d’écoute avec un enregistrement. Le haut‑parleur tombe en panne au dernier moment, et il propose alors une tâche de lecture du script à la place, en expliquant que cette lecture remplace l’écoute pour toute la classe à cause du problème technique."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un cours de langue, la classe est divisée en deux groupes qui vont passer un exercice d’écoute l’un après l’autre avec l’enseignant ou au laboratoire. Pendant que le premier groupe fait l’écoute, l’enseignant propose une tâche de lecture à l’autre groupe pour qu’il reste concentré et travaille utilement en attendant son tour."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un enseignant fait passer un exercice d’écoute par groupes successifs. Après le passage de chaque groupe, il distribue une tâche de lecture portant sur le même texte ou sur un document lié, en expliquant que cette lecture servira à vérifier et consolider la compréhension de ce qui a été entendu."
+      }
+    ]
+  }
+}

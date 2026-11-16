@@ -1,0 +1,154 @@
+{
+  "question": {
+    "number": 35,
+    "kind": "interview",
+    "question": "Selon le document, dans quel cas un même contenant réutilisable devient-il « beaucoup moins intéressant » ?",
+    "options": [
+      "Il nécessite un lavage industriel très gourmand en eau.",
+      "Il doit être renvoyé dans une usine lointaine pour être réparé.",
+      "Il est très peu réutilisé au cours de sa durée de vie.",
+      "Il parcourt des centaines de kilomètres après chaque livraison."
+    ],
+    "correct": "D",
+    "explanation": "Le document précise qu’«un contenant peut être excellent s'il circule longtemps près de son lieu d'utilisation, mais beaucoup moins intéressant s'il parcourt des centaines de kilomètres après chaque livraison». C’est donc bien la condition de trajets très longs après chaque livraison qui fait passer le même contenant de «excellent» à «beaucoup moins intéressant». Les autres éléments (durée de vie, nombre de réutilisations, eau de lavage) sont cités comme paramètres à mesurer, mais jamais comme la condition explicitement associée à l’expression «beaucoup moins intéressant».",
+    "transcript": "Question 35.\nLes nouveaux emballages réutilisables semblent très écologiques. Pourtant, vous demandez une évaluation plus complète. Pourquoi ?\nIl faut mesurer leur durée de vie, le nombre réel de réutilisations, les transports nécessaires au retour et l'eau utilisée pour le lavage. Un contenant peut être excellent s'il circule longtemps près de son lieu d'utilisation, mais beaucoup moins intéressant s'il parcourt des centaines de kilomètres après chaque livraison. L'étiquette « réutilisable » ne suffit donc pas à décrire son impact.\nSelon le document, dans quel cas un même contenant réutilisable devient-il « beaucoup moins intéressant » ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 35."
+      },
+      {
+        "voice": "male",
+        "text": "Les nouveaux emballages réutilisables semblent très écologiques. Pourtant, vous demandez une évaluation plus complète. Pourquoi ?"
+      },
+      {
+        "voice": "female",
+        "text": "Il faut mesurer leur durée de vie, le nombre réel de réutilisations, les transports nécessaires au retour et l'eau utilisée pour le lavage. Un contenant peut être excellent s'il circule longtemps près de son lieu d'utilisation, mais beaucoup moins intéressant s'il parcourt des centaines de kilomètres après chaque livraison. L'étiquette « réutilisable » ne suffit donc pas à décrire son impact."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, dans quel cas un même contenant réutilisable devient-il « beaucoup moins intéressant » ?"
+      }
+    ],
+    "audio": "q-35.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 68
+  },
+  "contentHash": "7508753eee86028b5d74cd86bb06dd0c2a42f36ac23666e0a1e3e492d7f992ae",
+  "sourceHash": "710d7133faa7f40afd4cb7e8c65260a2e786c5f81573adb1ec76addcfd622020",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyggfCcwlDYduDWhfSNXlGBlADRD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur l’impact environnemental des emballages réutilisables, un expert explique que si un contenant nécessite un lavage industriel très consommateur d’eau et d’énergie entre chaque usage, son bilan écologique devient beaucoup moins intéressant malgré sa réutilisation."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une émission sur la logistique des emballages consignés, un spécialiste indique que si un même contenant doit parcourir des centaines de kilomètres en camion après chaque livraison pour être récupéré et ramené, son intérêt environnemental devient beaucoup moins intéressant à cause des émissions de transport."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un documentaire sur l’économie circulaire, un ingénieur décrit des bacs réutilisables qui, lorsqu’ils sont endommagés, doivent être renvoyés dans une usine très éloignée pour être réparés, ce qui augmente fortement l’empreinte carbone et rend la solution beaucoup moins intéressante."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une capsule pédagogique sur le réemploi, l’animateur explique qu’un contenant réutilisable n’est vraiment pertinent que s’il sert de nombreuses fois, et que s’il est très peu réutilisé pendant sa durée de vie, il devient beaucoup moins intéressant qu’un emballage jetable."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation générale qui reprend directement le principe même du réemploi (« très peu réutilisé ») et répond de façon abstraite et globale à la question « dans quel cas un même contenant réutilisable devient-il beaucoup moins intéressant ? », tandis que les autres options ajoutent des scénarios techniques plus spécifiques qui paraissent dérivés ou secondaires par rapport au critère fondamental du nombre de réutilisations."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.2,
+            0.15,
+            0.5
+          ],
+          "guess": 3,
+          "reason": "Le nombre de réutilisations est le critère central et le plus directement lié à l’intérêt d’un contenant réutilisable ; l’option 3 formule une condition générale et principielle, là où les autres décrivent des cas techniques particuliers. Cela lui donne un avantage de formulation comme réponse attendue, même si les autres scénarios pourraient aussi être mentionnés dans le document."
+        },
+        "usage": {
+          "prompt_tokens": 629,
+          "completion_tokens": 671,
+          "total_tokens": 1300,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 173,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00749625,
+        "inputHash": "d82fe7937725146e909b32c00522a1abc5cf8507111be641dd6e9200c7c12d36",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:34:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Le nombre de réutilisations est le critère central et le plus directement lié à l’intérêt d’un contenant réutilisable ; l’option 3 formule une condition générale et principielle, là où les autres décrivent des cas techniques particuliers. Cela lui donne un avantage de formulation comme réponse attendue, même si les autres scénarios pourraient aussi être mentionnés dans le document.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation générale qui reprend directement le principe même du réemploi (« très peu réutilisé ») et répond de façon abstraite et globale à la question « dans quel cas un même contenant réutilisable devient-il beaucoup moins intéressant ? », tandis que les autres options ajoutent des scénarios techniques plus spécifiques qui paraissent dérivés ou secondaires par rapport au critère fondamental du nombre de réutilisations."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un reportage sur l’impact environnemental des emballages réutilisables, un expert explique que si un contenant nécessite un lavage industriel très consommateur d’eau et d’énergie entre chaque usage, son bilan écologique devient beaucoup moins intéressant malgré sa réutilisation."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une émission sur la logistique des emballages consignés, un spécialiste indique que si un même contenant doit parcourir des centaines de kilomètres en camion après chaque livraison pour être récupéré et ramené, son intérêt environnemental devient beaucoup moins intéressant à cause des émissions de transport."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un documentaire sur l’économie circulaire, un ingénieur décrit des bacs réutilisables qui, lorsqu’ils sont endommagés, doivent être renvoyés dans une usine très éloignée pour être réparés, ce qui augmente fortement l’empreinte carbone et rend la solution beaucoup moins intéressante."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une capsule pédagogique sur le réemploi, l’animateur explique qu’un contenant réutilisable n’est vraiment pertinent que s’il sert de nombreuses fois, et que s’il est très peu réutilisé pendant sa durée de vie, il devient beaucoup moins intéressant qu’un emballage jetable."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

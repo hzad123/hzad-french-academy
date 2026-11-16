@@ -1,0 +1,254 @@
+{
+  "question": {
+    "number": 6,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Réponse A",
+      "Réponse B",
+      "Réponse C",
+      "Réponse D"
+    ],
+    "correct": "C",
+    "transcript": "Question 6.\nExcusez-moi, où est l'arrêt du bus vingt-deux ?\nA. Le prochain passe dans dix minutes. B. Je ne connais pas cette ligne. C. L'arrêt est juste après le carrefour. D. Vous devez acheter le ticket dans le bus.",
+    "explanation": "Réponse C : La question porte explicitement sur l’emplacement : « où est l'arrêt du bus vingt-deux ? ». La réponse « L'arrêt est juste après le carrefour. » donne précisément une indication de lieu, localisant l’arrêt par rapport à un carrefour. Elle correspond donc exactement à la demande et convient pleinement à la situation. A : La personne demande « où est l'arrêt », donc elle cherche un lieu. La réponse « Le prochain passe dans dix minutes. » donne une information sur l’horaire, pas sur l’emplacement, et ne répond pas à la question de lieu. Un candidat qui comprend seulement « bus vingt-deux » pourrait penser à la fréquence ou à l’horaire des bus et choisir cette phrase, mais elle ne convient pas à la situation car elle ne dit pas où se trouve l’arrêt. B : La question est une demande d’indication : « où est l'arrêt du bus vingt-deux ? ». La réponse attendue doit informer sur l’emplacement. « Je ne connais pas cette ligne. » exprime une ignorance de la ligne, pas une indication de lieu ; elle ne répond donc pas à la demande d’orientation. Un candidat qui remarque seulement le mot « ligne » ou qui pense qu’il suffit de répondre quelque chose en lien avec le bus pourrait trouver cette phrase plausible, mais elle ne « convient » pas car elle n’apporte pas l’information demandée. D : La personne demande où se trouve l’arrêt : c’est une question de localisation. La réponse « Vous devez acheter le ticket dans le bus. » concerne la façon d’acheter un billet, pas le lieu de l’arrêt, donc elle ne répond pas à la question posée. Un candidat qui saisit « bus » et pense qu’on parle en général de l’utilisation du bus (ticket, montée, etc.) pourrait être tenté de choisir cette option, mais elle est hors sujet par rapport à la demande « où est l’arrêt ».",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 6."
+      },
+      {
+        "voice": "female",
+        "text": "Excusez-moi, où est l'arrêt du bus vingt-deux ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Le prochain passe dans dix minutes. B. Je ne connais pas cette ligne. C. L'arrêt est juste après le carrefour. D. Vous devez acheter le ticket dans le bus."
+      }
+    ],
+    "audio": "q-06.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "4330c0653f4e3c6dad959e6cdd46f61b35c8867a7def0d13703da5b1e0d385db",
+  "contentHash": "089585b0285e26d6380220081500f644c761b54c2c4434dfd952124527bc8630",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkykhcZaxrbnBnUZ7xkbN9z12NW3X",
+    "result": {
+      "question": "Quelle réponse convient à la situation ?",
+      "choices": [
+        "Je ne connais pas cette ligne.",
+        "Le prochain passe dans dix minutes.",
+        "L'arrêt est juste après le carrefour.",
+        "Vous devez acheter le ticket dans le bus."
+      ],
+      "correctIndex": 2,
+      "explanation": "La question porte sur l’emplacement de l’arrêt (« où est l’arrêt du bus vingt-deux ? »), seule la réponse 2 donne une indication de lieu pertinente (« juste après le carrefour »).",
+      "design": "Item de type réplique à partir d’un échange bref dans la rue : un passant demande où se trouve l’arrêt d’une ligne précise. L’axe testé est l’adéquation de l’acte de parole (type d’information fournie) à la demande : lieu, horaire, méconnaissance de la ligne, ou modalité d’achat du ticket. Toutes les réponses sont naturelles dans un contexte d’information sur un bus, mais seule l’une fournit une indication de localisation, ce qui exige de comprendre précisément la formulation « où est l’arrêt du bus vingt-deux ? ».",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "L’élève peut croire que la personne interrogée ne sait pas répondre et se focaliser sur « bus vingt-deux », mais ici on demande un lieu, pas si l’interlocuteur connaît la ligne.",
+          "operation": "role_swap",
+          "anchors": [
+            "Excusez-moi",
+            "où est l'arrêt du bus vingt-deux ?"
+          ]
+        },
+        {
+          "index": 1,
+          "reason": "On peut confondre une question sur l’arrêt avec une question sur l’horaire du bus, surtout en contexte de transport, mais le mot clé est « où », pas « quand ».",
+          "operation": "scope_shift",
+          "anchors": [
+            "où est",
+            "l'arrêt du bus vingt-deux ?"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On peut penser que la demande concerne les modalités de voyage (ticket) puisqu’il est question de bus, mais la question porte sur la localisation de l’arrêt, pas sur l’achat du billet.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "où est",
+            "l'arrêt du bus vingt-deux ?"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2069,
+      "completion_tokens": 890,
+      "total_tokens": 2959,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 447,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01148625,
+    "inputHash": "3801ced16e6fe1f05edfeb1925385413b5959b1b0d620e15939e6756d56efbd3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:5:ce40c9091f7f36b9e4c06d49:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkykqIWvRtkXb4abIuOVkBfJLZA2I",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un bus, un touriste demande au chauffeur : « Excusez-moi, je peux acheter un ticket ici ou je dois l’acheter avant ? » Le chauffeur répond : « Vous devez acheter le ticket dans le bus. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans la rue, quelqu’un demande : « Où est l’arrêt de bus pour la ligne 12 ? » L’autre répond : « L’arrêt est juste après le carrefour. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À un arrêt de bus, une personne demande : « Vous savez si cette ligne va jusqu’à la gare ? » L’autre répond : « Je ne connais pas cette ligne. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "À un arrêt de bus, quelqu’un demande : « Excusez-moi, quand passe le prochain bus ? » L’autre répond : « Le prochain passe dans dix minutes. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont grammaticalement correctes et correspondent chacune très naturellement à une question possible dans une situation de bus, sans indice textuel supplémentaire pour privilégier l’une d’elles. Sans accès à l’enregistrement, il n’y a aucun avantage de formulation clair, donc le choix du numéro 0 comme réponse supposée reste très incertain et essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 594,
+          "completion_tokens": 596,
+          "total_tokens": 1190,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 271,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0067025,
+        "inputHash": "232a5d4b9727f2248070335c9bea5303d294a605b9a3e353a034341e5e9e4617",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:5:ce40c9091f7f36b9e4c06d49:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkykxME5c0e5KtzQGxOfsdr1VdWiB",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur l’emplacement de l’arrêt du bus 22, donc la seule réponse qui donne une indication de lieu est « L’arrêt est juste après le carrefour. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, où est l'arrêt du bus vingt-deux ?",
+            "Le prochain passe dans dix minutes."
+          ],
+          "reason": "La personne demande « où est l'arrêt », donc elle cherche un lieu. La réponse « Le prochain passe dans dix minutes. » donne une information sur l’horaire, pas sur l’emplacement, et ne répond pas à la question de lieu. Un candidat qui comprend seulement « bus vingt-deux » pourrait penser à la fréquence ou à l’horaire des bus et choisir cette phrase, mais elle ne convient pas à la situation car elle ne dit pas où se trouve l’arrêt.",
+          "misunderstanding": "irrelevant_response"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, où est l'arrêt du bus vingt-deux ?",
+            "Je ne connais pas cette ligne."
+          ],
+          "reason": "La question est une demande d’indication : « où est l'arrêt du bus vingt-deux ? ». La réponse attendue doit informer sur l’emplacement. « Je ne connais pas cette ligne. » exprime une ignorance de la ligne, pas une indication de lieu ; elle ne répond donc pas à la demande d’orientation. Un candidat qui remarque seulement le mot « ligne » ou qui pense qu’il suffit de répondre quelque chose en lien avec le bus pourrait trouver cette phrase plausible, mais elle ne « convient » pas car elle n’apporte pas l’information demandée.",
+          "misunderstanding": "irrelevant_response"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Excusez-moi, où est l'arrêt du bus vingt-deux ?",
+            "L'arrêt est juste après le carrefour."
+          ],
+          "reason": "La question porte explicitement sur l’emplacement : « où est l'arrêt du bus vingt-deux ? ». La réponse « L'arrêt est juste après le carrefour. » donne précisément une indication de lieu, localisant l’arrêt par rapport à un carrefour. Elle correspond donc exactement à la demande et convient pleinement à la situation.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, où est l'arrêt du bus vingt-deux ?",
+            "Vous devez acheter le ticket dans le bus."
+          ],
+          "reason": "La personne demande où se trouve l’arrêt : c’est une question de localisation. La réponse « Vous devez acheter le ticket dans le bus. » concerne la façon d’acheter un billet, pas le lieu de l’arrêt, donc elle ne répond pas à la question posée. Un candidat qui saisit « bus » et pense qu’on parle en général de l’utilisation du bus (ticket, montée, etc.) pourrait être tenté de choisir cette option, mais elle est hors sujet par rapport à la demande « où est l’arrêt ».",
+          "misunderstanding": "irrelevant_response"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 694,
+      "completion_tokens": 2046,
+      "total_tokens": 2740,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1364,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0213275,
+    "inputHash": "fdbdd9bdd3b4e77a5480150acd713945c24c3f99cc3ccc337247577b2b66aa74",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:5:ce40c9091f7f36b9e4c06d49:ground:1"
+  },
+  "feedback": null
+}

@@ -1,0 +1,154 @@
+{
+  "question": {
+    "number": 32,
+    "kind": "interview",
+    "question": "D’après le document, que fait l’équipe chaque semaine avec les estimations fournies par le modèle ?",
+    "options": [
+      "Les compare aux admissions réelles pour ajuster les scénarios.",
+      "Les transforme en objectifs chiffrés fixes à atteindre par les services.",
+      "Les utilise pour figer définitivement les effectifs du mois suivant.",
+      "Les archive sans les utiliser tant qu’il n’y a pas de tension dans les services."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise : « Nous comparons ses estimations aux admissions réelles chaque semaine et nous ajustons les scénarios. » La pratique hebdomadaire décrite est donc bien la comparaison avec les admissions réelles pour ajuster les scénarios, et non l’archivage passif, la fixation d’objectifs rigides ou le gel définitif des effectifs.",
+    "transcript": "Question 32.\nVotre équipe prévoit l'occupation des lits à partir des admissions passées. Peut-on fixer définitivement les effectifs sur cette base ?\nNon. Le modèle nous aide à prévoir des fourchettes, mais il ne connaît ni toutes les épidémies futures ni les absences imprévues du personnel. Nous comparons ses estimations aux admissions réelles chaque semaine et nous ajustons les scénarios. Le danger serait de présenter une valeur précise comme une promesse. L'outil doit appuyer une décision humaine, notamment lorsque les services sont sous tension.\nD’après le document, que fait l’équipe chaque semaine avec les estimations fournies par le modèle ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 32."
+      },
+      {
+        "voice": "female",
+        "text": "Votre équipe prévoit l'occupation des lits à partir des admissions passées. Peut-on fixer définitivement les effectifs sur cette base ?"
+      },
+      {
+        "voice": "male",
+        "text": "Non. Le modèle nous aide à prévoir des fourchettes, mais il ne connaît ni toutes les épidémies futures ni les absences imprévues du personnel. Nous comparons ses estimations aux admissions réelles chaque semaine et nous ajustons les scénarios. Le danger serait de présenter une valeur précise comme une promesse. L'outil doit appuyer une décision humaine, notamment lorsque les services sont sous tension."
+      },
+      {
+        "voice": "female",
+        "text": "D’après le document, que fait l’équipe chaque semaine avec les estimations fournies par le modèle ?"
+      }
+    ],
+    "audio": "q-32.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 70
+  },
+  "contentHash": "9dac20f373c4d6cce88fa911fd69e957047e3cc2a11a01abf5f39e425e6742db",
+  "sourceHash": "7fbbb41ba3bfd46bfd93aeb8cb1424d8510018982978e8d08ff36fd1e783ffbb",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyOzL3rg536dnBGCp1Y9WfrmpXKX",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un hôpital ou une grande clinique, une équipe de planification utilise chaque semaine les estimations d’un modèle de prévision pour décider et figer les plannings et les effectifs du mois suivant, sans revenir dessus ensuite sauf cas de crise majeure."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une administration prudente vis-à-vis des nouveaux outils, une équipe reçoit chaque semaine les estimations du modèle mais se contente de les stocker et de les archiver, en attendant d’éventuels signes de tension dans les services avant de les exploiter réellement."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un service hospitalier ayant mis en place un modèle de prévision des admissions, l’équipe examine chaque semaine les estimations produites, les compare aux admissions réellement observées, et ajuste en conséquence les scénarios et paramètres de planification pour les semaines à venir."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une organisation très orientée pilotage par objectifs, l’équipe reçoit chaque semaine les estimations du modèle et les traduit directement en objectifs chiffrés fixes communiqués aux services, qui doivent s’organiser pour « atteindre » ces volumes prévus."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "Formulation nuancée et méthodologiquement responsable (« compare aux admissions réelles pour ajuster les scénarios ») qui décrit un usage classique d’un modèle de prévision, là où les autres réponses sont plus rigides ou extrêmes (figer définitivement, ne pas utiliser, transformer en objectifs fixes)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.15,
+            0.6,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "La réponse 2 correspond exactement à une bonne pratique attendue pour l’usage d’un modèle de prévision (validation régulière par comparaison au réel et ajustement des scénarios), tandis que les autres décrivent des usages excessivement rigides ou peu professionnels. L’avantage de rédaction et de pertinence rend cette option nettement plus probable malgré l’absence du document audio."
+        },
+        "usage": {
+          "prompt_tokens": 635,
+          "completion_tokens": 670,
+          "total_tokens": 1305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 213,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00749375,
+        "inputHash": "49eb455c1cc226b86edfe77e926ec2505488a70ad1626ffd5a6f794d50927b58",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:31:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La réponse 2 correspond exactement à une bonne pratique attendue pour l’usage d’un modèle de prévision (validation régulière par comparaison au réel et ajustement des scénarios), tandis que les autres décrivent des usages excessivement rigides ou peu professionnels. L’avantage de rédaction et de pertinence rend cette option nettement plus probable malgré l’absence du document audio.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "clear",
+        "cue": "Formulation nuancée et méthodologiquement responsable (« compare aux admissions réelles pour ajuster les scénarios ») qui décrit un usage classique d’un modèle de prévision, là où les autres réponses sont plus rigides ou extrêmes (figer définitivement, ne pas utiliser, transformer en objectifs fixes)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un hôpital ou une grande clinique, une équipe de planification utilise chaque semaine les estimations d’un modèle de prévision pour décider et figer les plannings et les effectifs du mois suivant, sans revenir dessus ensuite sauf cas de crise majeure."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une administration prudente vis-à-vis des nouveaux outils, une équipe reçoit chaque semaine les estimations du modèle mais se contente de les stocker et de les archiver, en attendant d’éventuels signes de tension dans les services avant de les exploiter réellement."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un service hospitalier ayant mis en place un modèle de prévision des admissions, l’équipe examine chaque semaine les estimations produites, les compare aux admissions réellement observées, et ajuste en conséquence les scénarios et paramètres de planification pour les semaines à venir."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une organisation très orientée pilotage par objectifs, l’équipe reçoit chaque semaine les estimations du modèle et les traduit directement en objectifs chiffrés fixes communiqués aux services, qui doivent s’organiser pour « atteindre » ces volumes prévus."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

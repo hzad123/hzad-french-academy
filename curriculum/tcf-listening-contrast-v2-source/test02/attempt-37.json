@@ -1,0 +1,147 @@
+{
+  "question": {
+    "number": 37,
+    "kind": "interview",
+    "question": "Dans le document, qu'est-il précisé que l'on choisit de conserver lorsqu'on utilise les témoignages dans l'exposition ?",
+    "options": [
+      "Le contexte des entretiens avec les témoins",
+      "Uniquement les passages qui coïncident avec les décisions et les dates",
+      "L'ordre exact dans lequel chaque témoin raconte les événements",
+      "L'anonymat complet des personnes interrogées"
+    ],
+    "correct": "A",
+    "explanation": "Le document indique explicitement : « Nous conservons donc le contexte des entretiens ». Il ne dit pas que l’on ne garde que les éléments vérifiés, ni que l’on respecte l’ordre du récit ou l’anonymat complet.",
+    "transcript": "Question 37.\nVous avez recueilli des récits très différents sur la fermeture de l'ancien port. Comment décidez-vous lequel raconter dans votre exposition ?\nNous vérifions d'abord ce qui peut l'être : les décisions municipales, les dates et le nombre de travailleurs concernés. Mais les différences entre les souvenirs ne proviennent pas toujours d'une erreur. Un docker, un commerçant et une habitante qui vivait près des quais n'ont pas perçu l'événement de la même manière. Leurs témoignages montrent ce qu'ils pouvaient observer, ce qu'ils craignaient et ce qu'ils ont retenu. Nous conservons donc le contexte des entretiens et nous les comparons aux documents d'époque. Cela ne signifie pas que toutes les affirmations se valent. Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine.\nDans le document, qu'est-il précisé que l'on choisit de conserver lorsqu'on utilise les témoignages dans l'exposition ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 37."
+      },
+      {
+        "voice": "male",
+        "text": "Vous avez recueilli des récits très différents sur la fermeture de l'ancien port. Comment décidez-vous lequel raconter dans votre exposition ?"
+      },
+      {
+        "voice": "female",
+        "text": "Nous vérifions d'abord ce qui peut l'être : les décisions municipales, les dates et le nombre de travailleurs concernés. Mais les différences entre les souvenirs ne proviennent pas toujours d'une erreur. Un docker, un commerçant et une habitante qui vivait près des quais n'ont pas perçu l'événement de la même manière. Leurs témoignages montrent ce qu'ils pouvaient observer, ce qu'ils craignaient et ce qu'ils ont retenu. Nous conservons donc le contexte des entretiens et nous les comparons aux documents d'époque. Cela ne signifie pas que toutes les affirmations se valent. Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine."
+      },
+      {
+        "voice": "female",
+        "text": "Dans le document, qu'est-il précisé que l'on choisit de conserver lorsqu'on utilise les témoignages dans l'exposition ?"
+      }
+    ],
+    "audio": "q-37.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 80
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKFEa3j9cUd7JRZmhZNTbz7lWqQ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion de préparation d’une exposition historique basée sur des témoignages, le commissaire explique : « Dans le document de présentation, il est précisé qu’on choisit de conserver l’ordre exact dans lequel chaque témoin raconte les événements, afin de respecter leur récit. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un atelier sur la scénarisation d’une exposition, un responsable dit : « Dans le document de travail, il est précisé qu’on choisit de conserver uniquement les passages qui coïncident avec les décisions officielles et les dates, pour rester strictement factuels. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une charte éthique accompagnant une exposition basée sur des entretiens sensibles, le document précise : « On choisit de conserver l’anonymat complet des personnes interrogées afin de les protéger. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un texte méthodologique qui accompagne une exposition, il est indiqué : « On choisit de conserver le contexte des entretiens avec les témoins (date, lieu, situation) pour que le public comprenne mieux leurs paroles. »"
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation plus nuancée et méthodologique (« le contexte des entretiens ») correspondant typiquement à un document explicatif d’exposition, tandis que 0 et 1 sont techniques ou restrictifs et 2 très court et générique ; 3 apparaît plus complet et pédagogique pour un document décrivant l’usage de témoignages."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.15,
+            0.25,
+            0.45
+          ],
+          "guess": 3,
+          "reason": "Tous les choix sont plausibles, mais la mention du « contexte des entretiens avec les témoins » correspond particulièrement bien à un document décrivant la méthodologie d’utilisation des témoignages dans une exposition ; la rédaction est plus explicative et adaptée à ce type de texte, d’où une probabilité plus élevée pour l’option 3 malgré une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 629,
+          "completion_tokens": 624,
+          "total_tokens": 1253,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 169,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00702625,
+        "inputHash": "84cc0a9a1f0f3fbff0b3a650cbe3b10a76c903a242a91a41de41548735ac9179",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:36:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix sont plausibles, mais la mention du « contexte des entretiens avec les témoins » correspond particulièrement bien à un document décrivant la méthodologie d’utilisation des témoignages dans une exposition ; la rédaction est plus explicative et adaptée à ce type de texte, d’où une probabilité plus élevée pour l’option 3 malgré une incertitude réelle.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation plus nuancée et méthodologique (« le contexte des entretiens ») correspondant typiquement à un document explicatif d’exposition, tandis que 0 et 1 sont techniques ou restrictifs et 2 très court et générique ; 3 apparaît plus complet et pédagogique pour un document décrivant l’usage de témoignages."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une réunion de préparation d’une exposition historique basée sur des témoignages, le commissaire explique : « Dans le document de présentation, il est précisé qu’on choisit de conserver l’ordre exact dans lequel chaque témoin raconte les événements, afin de respecter leur récit. »"
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’un atelier sur la scénarisation d’une exposition, un responsable dit : « Dans le document de travail, il est précisé qu’on choisit de conserver uniquement les passages qui coïncident avec les décisions officielles et les dates, pour rester strictement factuels. »"
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans une charte éthique accompagnant une exposition basée sur des entretiens sensibles, le document précise : « On choisit de conserver l’anonymat complet des personnes interrogées afin de les protéger. »"
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un texte méthodologique qui accompagne une exposition, il est indiqué : « On choisit de conserver le contexte des entretiens avec les témoins (date, lieu, situation) pour que le public comprenne mieux leurs paroles. »"
+      }
+    ]
+  }
+}

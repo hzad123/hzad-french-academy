@@ -1,0 +1,178 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle phrase décrit correctement la scène ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : On voit une personne debout près d’une table, avec plusieurs objets rectangulaires posés en rang sur cette table. Le bras tendu vers ces objets suggère qu’elle est en train de les disposer/aligner. Cela correspond bien à l’énoncé d’une personne qui aligne des boîtes sur une table. B : Le mot « MÉDIATHÈQUE » pourrait faire penser à quelqu’un qui lit un roman, ce qui peut tromper un observateur inattentif. Cependant, la personne est debout, non assise, et aucun livre tenu ouvert ou posture de lecture n’est visible, ni véritable bureau au sens d’un poste de travail ; il s’agit clairement d’une table avec des boîtes alignées, pas d’une scène de lecture. C : Le texte « MÉDIATHÈQUE » peut inciter à imaginer l’entrée d’un tel lieu avec des gens qui discutent devant, ce qui pourrait pousser quelqu’un à choisir cette option. Mais l’image ne montre qu’une seule personne à l’intérieur, occupée à manipuler des objets sur une table ; il n’y a ni deuxième personne, ni porte ou façade d’entrée, ni situation de dialogue visible. D : On voit bien des étagères avec des objets rectangulaires qui peuvent évoquer des livres, ce qui peut amener quelqu’un à penser qu’ils sont en train d’être empilés. Toutefois, la personne se tient à côté d’une table basse, non devant les étagères, et elle semble manipuler les objets posés sur cette table. Rien n’indique qu’elle empile des livres sur des étagères, encore moins « hautes » : l’action se déroule au niveau de la table, loin des rayonnages.",
+    "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes."
+      }
+    ],
+    "audio": "q-01.mp3",
+    "audioSeconds": 19.644,
+    "slotSeconds": 33,
+    "image": "q-01.svg"
+  },
+  "sourceHash": "89b4ca72ce4935ebb5127f5385e40108ff12322efe3099a5f694126d5dca8df9",
+  "contentHash": "23ae385a51e68299e747fea601bdf606702c692e1fa4001eb5f77c0252bf14c6",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyOFT7pMpHxHUtt1aItq3okvR1Yf",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice, quatre descriptions écrites d’une image sont proposées sur une fiche et numérotées « Proposition A, Proposition B, Proposition C, Proposition D ». L’enregistrement demande : « Quelle phrase décrit correctement la scène ? » L’élève répond en citant l’étiquette de la bonne description : « Proposition D. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Même type d’exercice de compréhension orale : l’enseignant a affiché quatre textes sous les titres « Proposition A, Proposition B, Proposition C, Proposition D ». Après avoir décrit une scène au tableau, il pose la question : « Quelle phrase décrit correctement la scène ? » L’élève qui pense que c’est la troisième description répond : « Proposition C. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un test audio, le candidat a sous les yeux quatre descriptions intitulées « Proposition A » à « Proposition D ». La voix demande : « Quelle phrase décrit correctement la scène ? » Le candidat choisit la première description et répond simplement : « Proposition A. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "En classe, les élèves doivent associer une image à la bonne description parmi quatre textes nommés « Proposition A, Proposition B, Proposition C, Proposition D ». L’enseignant, après avoir montré brièvement la scène, demande : « Quelle phrase décrit correctement la scène ? » Un élève répond : « Proposition B. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre choix sont formellement parallèles et renvoient tous de manière crédible à des descriptions préalablement nommées Proposition A, B, C ou D. Aucune différence de formulation, de précision, de registre ou de grammaire ne permet d’identifier une préférence claire ; sans accès à la scène ni à ces propositions, il n’existe aucun indice objectif pour départager les réponses. La probabilité est donc répartie uniformément, avec un choix arbitraire de l’index 0 comme meilleure hypothèse par défaut."
+        },
+        "usage": {
+          "prompt_tokens": 577,
+          "completion_tokens": 574,
+          "total_tokens": 1151,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 105,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00646125,
+        "inputHash": "e41a626871f1a6903b6b43c7b56560d0767ad4d9c24afc65a97250b896e95af9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:0:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyONuZ3fUCKM5fBUMP3f5LnL980t",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre une seule personne dans une médiathèque qui dispose plusieurs boîtes alignées sur une table. Aucune lecture assise, aucun dialogue entre deux personnes et aucune action sur des étagères hautes ne sont visibles.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "On voit une personne debout près d’une table, avec plusieurs objets rectangulaires posés en rang sur cette table. Le bras tendu vers ces objets suggère qu’elle est en train de les disposer/aligner. Cela correspond bien à l’énoncé d’une personne qui aligne des boîtes sur une table.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le mot « MÉDIATHÈQUE » pourrait faire penser à quelqu’un qui lit un roman, ce qui peut tromper un observateur inattentif. Cependant, la personne est debout, non assise, et aucun livre tenu ouvert ou posture de lecture n’est visible, ni véritable bureau au sens d’un poste de travail ; il s’agit clairement d’une table avec des boîtes alignées, pas d’une scène de lecture.",
+          "misunderstanding": "referent"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le texte « MÉDIATHÈQUE » peut inciter à imaginer l’entrée d’un tel lieu avec des gens qui discutent devant, ce qui pourrait pousser quelqu’un à choisir cette option. Mais l’image ne montre qu’une seule personne à l’intérieur, occupée à manipuler des objets sur une table ; il n’y a ni deuxième personne, ni porte ou façade d’entrée, ni situation de dialogue visible.",
+          "misunderstanding": "referent"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit bien des étagères avec des objets rectangulaires qui peuvent évoquer des livres, ce qui peut amener quelqu’un à penser qu’ils sont en train d’être empilés. Toutefois, la personne se tient à côté d’une table basse, non devant les étagères, et elle semble manipuler les objets posés sur cette table. Rien n’indique qu’elle empile des livres sur des étagères, encore moins « hautes » : l’action se déroule au niveau de la table, loin des rayonnages.",
+          "misunderstanding": "attribution"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 741,
+      "completion_tokens": 1170,
+      "total_tokens": 1911,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 613,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01262625,
+    "inputHash": "b0d289271add6dda8e7e2c3cb3171552c933f0f78215b72aa4afec21710f8edc",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:0:initial:ground:0"
+  },
+  "feedback": null
+}

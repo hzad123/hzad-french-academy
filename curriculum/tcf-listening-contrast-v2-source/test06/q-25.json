@@ -1,0 +1,158 @@
+{
+  "question": {
+    "number": 25,
+    "kind": "television-report",
+    "question": "D’après le document, que met actuellement en place la coopérative à titre d’essai ?",
+    "options": [
+      "Des livraisons séparées pour chaque village éloigné des axes de transport.",
+      "Un retour systématique du camion à vide après chaque tournée.",
+      "Un service de transport confié à une entreprise extérieure spécialisée.",
+      "Des points de regroupement et des jours de livraison communs."
+    ],
+    "correct": "D",
+    "explanation": "Le document précise que «la coopérative teste désormais des points de regroupement et des jours de livraison communs». Les autres éléments (camion peu rempli, villages éloignés) sont évoqués comme problèmes potentiels, pas comme solutions testées, et aucun transporteur extérieur n’est mentionné.",
+    "transcript": "Question 25.\nDans les Alpes, une coopérative propose aux restaurateurs des produits issus de petites exploitations. Les commandes sont centralisées pour éviter que chaque producteur effectue une longue tournée.\nMais certains villages restent loin des axes de transport, explique le coordinateur. Un camion peu rempli peut annuler une partie des gains économiques et environnementaux.\nLa coopérative teste désormais des points de regroupement et des jours de livraison communs, sans promettre que toutes les exploitations pourront être desservies chaque semaine.\nD’après le document, que met actuellement en place la coopérative à titre d’essai ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 25."
+      },
+      {
+        "voice": "female",
+        "text": "Dans les Alpes, une coopérative propose aux restaurateurs des produits issus de petites exploitations. Les commandes sont centralisées pour éviter que chaque producteur effectue une longue tournée."
+      },
+      {
+        "voice": "male",
+        "text": "Mais certains villages restent loin des axes de transport, explique le coordinateur. Un camion peu rempli peut annuler une partie des gains économiques et environnementaux."
+      },
+      {
+        "voice": "female",
+        "text": "La coopérative teste désormais des points de regroupement et des jours de livraison communs, sans promettre que toutes les exploitations pourront être desservies chaque semaine."
+      },
+      {
+        "voice": "female",
+        "text": "D’après le document, que met actuellement en place la coopérative à titre d’essai ?"
+      }
+    ],
+    "audio": "q-25.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 72
+  },
+  "contentHash": "f383b92f0c0917026f04ede92833ad9c51cba07ed78d6c7801478bd2586854ad",
+  "sourceHash": "1a65f4ccd856fb762a6698bf2cab05c74ba1ead709a889d05a03148658743c45",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyeWacavW965Q1JLJL1l3ZliVOp8",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’une coopérative agricole sur l’optimisation des tournées : le responsable logistique explique qu’ils testent des points de regroupement et des jours de livraison communs pour limiter les déplacements et réduire les coûts de transport."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Assemblée de la coopérative dans une région très rurale : le président présente un essai de livraisons séparées pour chaque village éloigné des axes de transport afin d’améliorer le service aux adhérents isolés."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Compte rendu en réunion : la direction annonce qu’à titre d’essai, la coopérative confie le transport à une entreprise extérieure spécialisée pour voir si cela permet de gagner en fiabilité et en ponctualité des livraisons."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Discussion interne sur la logistique : le responsable explique qu’ils testent, pour des raisons réglementaires ou d’hygiène, un retour systématique du camion à vide après chaque tournée, sans rechargement chez les adhérents."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "Formulation détaillée et constructive (regroupement de points + jours communs) correspondant typiquement à un « essai » d’optimisation logistique d’une coopérative ; les options 2 et 4 décrivent des pratiques plus coûteuses ou paradoxales, et 3 un changement plus radical de modèle, moins typiquement présenté comme simple test ponctuel."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.45,
+            0.2,
+            0.2,
+            0.15
+          ],
+          "guess": 0,
+          "reason": "La tournure « met actuellement en place à titre d’essai » correspond le mieux à une mesure d’optimisation graduelle comme l’organisation de points de regroupement et de jours de livraison communs ; les autres choix restent possibles mais paraissent soit plus extrêmes, soit moins naturellement décrits comme simple essai."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 859,
+          "total_tokens": 1487,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 421,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.009375,
+        "inputHash": "0e41914f8072a9535ac90f06591bd299d8713fae299858831381ca09e0f7725c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:24:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La tournure « met actuellement en place à titre d’essai » correspond le mieux à une mesure d’optimisation graduelle comme l’organisation de points de regroupement et de jours de livraison communs ; les autres choix restent possibles mais paraissent soit plus extrêmes, soit moins naturellement décrits comme simple essai.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "weak",
+        "cue": "Formulation détaillée et constructive (regroupement de points + jours communs) correspondant typiquement à un « essai » d’optimisation logistique d’une coopérative ; les options 2 et 4 décrivent des pratiques plus coûteuses ou paradoxales, et 3 un changement plus radical de modèle, moins typiquement présenté comme simple test ponctuel."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Réunion d’une coopérative agricole sur l’optimisation des tournées : le responsable logistique explique qu’ils testent des points de regroupement et des jours de livraison communs pour limiter les déplacements et réduire les coûts de transport."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Assemblée de la coopérative dans une région très rurale : le président présente un essai de livraisons séparées pour chaque village éloigné des axes de transport afin d’améliorer le service aux adhérents isolés."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Compte rendu en réunion : la direction annonce qu’à titre d’essai, la coopérative confie le transport à une entreprise extérieure spécialisée pour voir si cela permet de gagner en fiabilité et en ponctualité des livraisons."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Discussion interne sur la logistique : le responsable explique qu’ils testent, pour des raisons réglementaires ou d’hygiène, un retour systématique du camion à vide après chaque tournée, sans rechargement chez les adhérents."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

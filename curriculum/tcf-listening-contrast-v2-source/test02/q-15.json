@@ -1,0 +1,150 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "Selon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?",
+    "options": [
+      "À financer les travaux de réaménagement autour de la gare.",
+      "À préparer le bilan annoncé dans trois mois.",
+      "À compenser les pertes liées à la baisse de fréquentation des rues.",
+      "À adapter leurs horaires d’ouverture."
+    ],
+    "correct": "D",
+    "explanation": "Le document précise que «les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation». L’usage concret indiqué pour cette aide est donc bien l’adaptation des horaires d’ouverture (ou l’amélioration de la signalisation), et non le financement des travaux, la compensation directe des pertes ou la préparation du bilan des élus.",
+    "transcript": "Question 15.\nVoici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois.\nSelon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "Voici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 49
+  },
+  "contentHash": "6fff422ab25b0f3101ea7b29d5bf61af8287c0a39a4257dd61b5b93368369ab9",
+  "sourceHash": "2318934c56291c894c4eef711f9ffbe32aa2b16dc50a73d7ac9594f77c21053b",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyFL7BdWGubClMYOebn45WFYiWXq",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une mairie diffuse un message audio aux commerçants pour expliquer qu’une subvention exceptionnelle va être accordée pendant la durée de travaux en centre-ville afin qu’ils puissent adapter leurs horaires d’ouverture (ouvrir plus tôt, plus tard ou le week-end) et mieux répondre aux nouveaux flux de clients."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un reportage radio évoque des aides temporaires versées aux commerces touchés par des travaux de voirie qui ont fait chuter la fréquentation des rues ; le journaliste précise que cette aide servira concrètement à compenser les pertes liées à la baisse de fréquentation des rues."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion publique enregistrée et diffusée en podcast, un élu explique qu’une enveloppe d’aide temporaire est prévue spécifiquement pour financer les travaux de réaménagement autour de la gare, en complément du budget principal du chantier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une capsule audio administrative, un responsable explique qu’une aide temporaire est octroyée à un service ou à une équipe de projet pour recruter un cabinet d’audit et rassembler des données nécessaires à préparer le bilan annoncé dans trois mois."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Le syntagme « compenser les pertes liées à la baisse de fréquentation des rues » cadre très typiquement avec la formulation « aide temporaire », en décrivant un usage direct, ciblé et financier de l’aide, tandis que les autres réponses évoquent soit un objectif plus organisationnel (horaires), soit un financement d’infrastructures lourdes (travaux de réaménagement), soit une action administrative plus abstraite (préparer un bilan), qui correspondent un peu moins naturellement à l’idée d’« aide temporaire » telle qu’elle est généralement formulée."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.45,
+            0.25,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "Sans le document sonore, plusieurs réponses restent envisageables, mais l’option 1 correspond le plus naturellement à ce qu’on appelle une « aide temporaire » dans les communications publiques ou médiatiques : une aide destinée à compenser, de manière transitoire, des pertes économiques liées à une situation ponctuelle (ici, la baisse de fréquentation des rues). Les autres options décrivent des usages possibles mais paraissent légèrement moins en phase avec cette formulation, d’où une probabilité plus élevée pour l’option 1 malgré une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 900,
+          "total_tokens": 1516,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 349,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00977,
+        "inputHash": "765042e18d9d4dff938375be9e442fddace386d74020fab631f8b7f326db471a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Sans le document sonore, plusieurs réponses restent envisageables, mais l’option 1 correspond le plus naturellement à ce qu’on appelle une « aide temporaire » dans les communications publiques ou médiatiques : une aide destinée à compenser, de manière transitoire, des pertes économiques liées à une situation ponctuelle (ici, la baisse de fréquentation des rues). Les autres options décrivent des usages possibles mais paraissent légèrement moins en phase avec cette formulation, d’où une probabilité plus élevée pour l’option 1 malgré une incertitude réelle.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "weak",
+        "cue": "Le syntagme « compenser les pertes liées à la baisse de fréquentation des rues » cadre très typiquement avec la formulation « aide temporaire », en décrivant un usage direct, ciblé et financier de l’aide, tandis que les autres réponses évoquent soit un objectif plus organisationnel (horaires), soit un financement d’infrastructures lourdes (travaux de réaménagement), soit une action administrative plus abstraite (préparer un bilan), qui correspondent un peu moins naturellement à l’idée d’« aide temporaire » telle qu’elle est généralement formulée."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une mairie diffuse un message audio aux commerçants pour expliquer qu’une subvention exceptionnelle va être accordée pendant la durée de travaux en centre-ville afin qu’ils puissent adapter leurs horaires d’ouverture (ouvrir plus tôt, plus tard ou le week-end) et mieux répondre aux nouveaux flux de clients."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un reportage radio évoque des aides temporaires versées aux commerces touchés par des travaux de voirie qui ont fait chuter la fréquentation des rues ; le journaliste précise que cette aide servira concrètement à compenser les pertes liées à la baisse de fréquentation des rues."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une réunion publique enregistrée et diffusée en podcast, un élu explique qu’une enveloppe d’aide temporaire est prévue spécifiquement pour financer les travaux de réaménagement autour de la gare, en complément du budget principal du chantier."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une capsule audio administrative, un responsable explique qu’une aide temporaire est octroyée à un service ou à une équipe de projet pour recruter un cabinet d’audit et rassembler des données nécessaires à préparer le bilan annoncé dans trois mois."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

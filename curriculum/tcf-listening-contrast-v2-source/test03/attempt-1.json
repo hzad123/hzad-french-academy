@@ -1,0 +1,178 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle description correspond à l’image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Sur l’image, on voit une personne derrière un comptoir identifié par l’enseigne « PHARMACIE », tendant un objet rectangulaire de type boîte à la personne située de l’autre côté du comptoir. Cela correspond à un pharmacien qui donne une boîte de médicaments à une cliente. B : Encaisser un paiement impliquerait de voir de l’argent, une carte bancaire, un terminal de paiement ou une caisse. Ici, on voit seulement un objet rectangulaire, sans aucun indice de transaction monétaire. Quelqu’un pourrait confondre cet objet avec un terminal ou une carte de paiement, mais rien dans l’image ne montre explicitement un encaissement. C : Le texte mentionne que la cliente remet une ordonnance au pharmacien, ce qui impliquerait un mouvement de la cliente vers le pharmacien. Or, le geste représenté montre plutôt la personne derrière le comptoir qui tend l’objet vers la cliente. On peut se tromper car les deux personnages ont les bras tendus vers l’objet, mais la posture typique derrière le comptoir et l’enseigne « PHARMACIE » indiquent que c’est le pharmacien qui remet l’objet, non l’inverse. D : Une carte de fidélité serait généralement un petit rectangle mince, alors que l’objet illustré ressemble davantage à une boîte de médicaments (par sa taille et ses proportions). Dans un contexte de pharmacie, on peut imaginer des cartes de fidélité, ce qui peut induire en erreur quelqu’un qui ne regarde pas bien la forme de l’objet, mais l’image ne justifie pas spécifiquement une carte de fidélité.",
+    "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. Le pharmacien tend une boîte de médicaments à la cliente. B. Le pharmacien encaisse le paiement de la cliente. C. La cliente remet une ordonnance au pharmacien. D. La cliente récupère une carte de fidélité au comptoir.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Le pharmacien tend une boîte de médicaments à la cliente. B. Le pharmacien encaisse le paiement de la cliente. C. La cliente remet une ordonnance au pharmacien. D. La cliente récupère une carte de fidélité au comptoir."
+      }
+    ],
+    "audio": "q-01.mp3",
+    "audioSeconds": 21.159,
+    "slotSeconds": 34,
+    "image": "q-01.svg"
+  },
+  "sourceHash": "7a97181348143e0e2b97695151d7bf06b8aab0bab3102c44397975d5d5a5c43e",
+  "contentHash": "3f40439cf92a837a8f1161a7f9f8fd89a1aa00a50c3547da0d6970a300ce7ec9",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyIGb3I8kmkz6p7ywSr7vDX541CI",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En classe, un professeur de français montre une image projetée au tableau et a distribué une fiche où quatre descriptions sont notées sous les labels ‘Proposition A’, ‘Proposition B’, ‘Proposition C’ et ‘Proposition D’. Il demande aux élèves : « Quelle description correspond à l’image ? » Un élève qui pense que la bonne description est celle étiquetée A répond : « Proposition A. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un exercice de compréhension orale avec support visuel, l’enseignant affiche une photo. Sur la feuille d’exercices, quatre descriptions possibles sont indiquées sous les titres ‘Proposition A’, ‘Proposition B’, ‘Proposition C’ et ‘Proposition D’. À la question « Quelle description correspond à l’image ? », un élève répond : « Proposition D. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un test de compréhension en ligne, l’écran affiche une image et, en dessous, la consigne : « Quelle description correspond à l’image ? » Les quatre descriptions sont référencées par ‘Proposition A’, ‘Proposition B’, ‘Proposition C’ et ‘Proposition D’. L’étudiant clique sur la réponse qui lui semble correcte et dit éventuellement à voix haute : « Proposition B. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un enregistrement de préparation à un examen, on entend la consigne : « Regardez l’image. Quelle description correspond à l’image ? » Sur le livret du candidat, les descriptions sont numérotées uniquement par des étiquettes ‘Proposition A’, ‘Proposition B’, ‘Proposition C’ et ‘Proposition D’. Le candidat choisit la description jugée correcte et répond : « Proposition C. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre choix sont purement des étiquettes (‘Proposition A’, ‘B’, ‘C’, ‘D’) et correspondent tous naturellement à la consigne « Quelle description correspond à l’image ? » dans un exercice où les descriptions sont nommées ainsi. Aucune option ne présente d’avantage lexical, grammatical ou de contenu observable ; aucune ne se distingue, donc la clé est indéterminable à partir du seul libellé. Un choix reste néanmoins obligatoire, d’où une sélection arbitraire avec probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 577,
+          "completion_tokens": 622,
+          "total_tokens": 1199,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 81,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00694125,
+        "inputHash": "ae602214de2171f00ea350fda9ae5c3e9c6775157a0e691ea09c0d4173d62766",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:0:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyINxAHXNFuqeZ43lijXGMFAB55C",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description clairement compatible avec l’image est celle du pharmacien qui tend une boîte (probablement de médicaments) à la cliente.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "Sur l’image, on voit une personne derrière un comptoir identifié par l’enseigne « PHARMACIE », tendant un objet rectangulaire de type boîte à la personne située de l’autre côté du comptoir. Cela correspond à un pharmacien qui donne une boîte de médicaments à une cliente.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Encaisser un paiement impliquerait de voir de l’argent, une carte bancaire, un terminal de paiement ou une caisse. Ici, on voit seulement un objet rectangulaire, sans aucun indice de transaction monétaire. Quelqu’un pourrait confondre cet objet avec un terminal ou une carte de paiement, mais rien dans l’image ne montre explicitement un encaissement.",
+          "misunderstanding": "objet_pris_pour_paiement"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le texte mentionne que la cliente remet une ordonnance au pharmacien, ce qui impliquerait un mouvement de la cliente vers le pharmacien. Or, le geste représenté montre plutôt la personne derrière le comptoir qui tend l’objet vers la cliente. On peut se tromper car les deux personnages ont les bras tendus vers l’objet, mais la posture typique derrière le comptoir et l’enseigne « PHARMACIE » indiquent que c’est le pharmacien qui remet l’objet, non l’inverse.",
+          "misunderstanding": "inversion_du_sens_du_geste"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Une carte de fidélité serait généralement un petit rectangle mince, alors que l’objet illustré ressemble davantage à une boîte de médicaments (par sa taille et ses proportions). Dans un contexte de pharmacie, on peut imaginer des cartes de fidélité, ce qui peut induire en erreur quelqu’un qui ne regarde pas bien la forme de l’objet, mais l’image ne justifie pas spécifiquement une carte de fidélité.",
+          "misunderstanding": "mauvaise_identification_de_l_objet"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 738,
+      "completion_tokens": 961,
+      "total_tokens": 1699,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 431,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0105325,
+    "inputHash": "f852cd31dba7b345a7d7728147ee9eb30df55a34dbb81bd8d7dd0c93d3c42f78",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:0:initial:ground:0"
+  },
+  "feedback": null
+}

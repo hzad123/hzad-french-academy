@@ -1,0 +1,191 @@
+{
+  "question": {
+    "number": 7,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : À la question « Avez-vous une copie du règlement de l'immeuble ? », répondre « Oui, je peux vous l’imprimer » signifie qu’on dispose du règlement (au moins en version numérique) et qu’on peut en produire une copie papier. Cela répond directement et utilement à la demande de copie. A : La question demande si la personne a « une copie » du règlement, donc s’il existe un document disponible. Dire « Oui, je l’ai fait modifier hier » répond au fait que le règlement a été modifié, pas à la disponibilité d’une copie. On ne sait pas si une copie est en sa possession ou non. Quelqu’un pourrait choisir cette réponse parce qu’elle parle bien du « règlement de l’immeuble », mais elle ne répond pas au besoin de copie exprimé dans la question. B : La question demande l’existence d’une copie du règlement. La réponse « Oui, je dois le rediscuter en réunion » évoque un futur échange en réunion, pas la possession actuelle d’un exemplaire. Quelqu’un pourrait se laisser tromper car on parle bien du même règlement et d’une action à son sujet, mais le fait de devoir le rediscuter n’implique pas qu’on ait une copie disponible à donner ou montrer. D : La question porte sur la possession d’« une copie » du règlement, c’est-à-dire d’un document que la personne pourrait fournir. Répondre « Oui, il est affiché dans l’entrée » indique seulement où le règlement est visible, pas que l’interlocuteur possède une copie à remettre. On décrit un lieu d’affichage, pas une copie détenue. On peut être tenté de choisir cette réponse parce qu’elle rend le règlement accessible à la personne qui pose la question, mais elle ne correspond pas littéralement à la demande sur la possession d’une copie.",
+    "transcript": "Question 7.\nAvez-vous une copie du règlement de l'immeuble ?\nA. Oui, je l’ai fait modifier hier. B. Oui, je dois le rediscuter en réunion. C. Oui, je peux vous l’imprimer. D. Oui, il est affiché dans l’entrée.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 7."
+      },
+      {
+        "voice": "female",
+        "text": "Avez-vous une copie du règlement de l'immeuble ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Oui, je l’ai fait modifier hier. B. Oui, je dois le rediscuter en réunion. C. Oui, je peux vous l’imprimer. D. Oui, il est affiché dans l’entrée."
+      }
+    ],
+    "audio": "q-07.mp3",
+    "audioSeconds": 19.513,
+    "slotSeconds": 33
+  },
+  "sourceHash": "898afb8549d3e5b8505fa5530ea394feb6cb7b2be94e7120bc25c27d783fb370",
+  "contentHash": "afc0cc05b96230b799f8c8cb8bf28c9db0236891a17fad75184aaeb7fb251ad8",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyURhDxaED8gAzrM7v9TVwFj9PFb",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice de compréhension orale, après avoir fait écouter un court dialogue, l’enseignant demande : « Quelle réponse convient ? » et la bonne option entendue dans l’enregistrement est simplement nommée dans le corrigé comme « Proposition A »."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un QCM audio de formation interne, le narrateur présente plusieurs scénarios puis conclut : « Quelle réponse convient ? » Le support écrit liste des réponses codées par lettres, dont l’une est libellée « Proposition B », qui est la bonne selon ce scénario."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une évaluation de compréhension où les réponses ne sont pas rédigées mais seulement référencées, on lit sous l’énoncé « Quelle réponse convient ? » une série de réponses potentiellement décrites ailleurs dans le livret, dont « Proposition D », qui correspond au contenu du document audio."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un exercice où les propositions détaillées figurent sur une autre page ou ont été présentées oralement, la question récapitulative est : « Quelle réponse convient ? » et l’élève doit choisir la bonne étiquette, ici « Proposition C », qui renvoie à la réponse adéquate décrite précédemment."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options sont purement nominales (« Proposition A/B/C/D ») et aucune ne présente d’avantage lexical, grammatical ou contextuel observable par rapport à la question « Quelle réponse convient ? ». Sans accès à l’enregistrement ni à un contenu associé aux lettres, il est impossible de distinguer rationnellement une bonne réponse ; toutes sont symétriques et également plausibles comme étiquettes de la bonne solution. Le choix de l’indice 0 comme guess est donc arbitraire sous forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 574,
+          "completion_tokens": 470,
+          "total_tokens": 1044,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 34,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0054175,
+        "inputHash": "474c6de375cf28e28a186a933bc0de473d3dd6c8e2790489ef52e18453706f22",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:6:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyUXXa1sUyM12OKDwbVKvIyuAHY8",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur la possession d’une copie du règlement et la possibilité implicite de la fournir. Seule la réponse C y répond directement et de manière utile.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je l’ai fait modifier hier."
+          ],
+          "reason": "La question demande si la personne a « une copie » du règlement, donc s’il existe un document disponible. Dire « Oui, je l’ai fait modifier hier » répond au fait que le règlement a été modifié, pas à la disponibilité d’une copie. On ne sait pas si une copie est en sa possession ou non. Quelqu’un pourrait choisir cette réponse parce qu’elle parle bien du « règlement de l’immeuble », mais elle ne répond pas au besoin de copie exprimé dans la question.",
+          "misunderstanding": "scope"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je dois le rediscuter en réunion."
+          ],
+          "reason": "La question demande l’existence d’une copie du règlement. La réponse « Oui, je dois le rediscuter en réunion » évoque un futur échange en réunion, pas la possession actuelle d’un exemplaire. Quelqu’un pourrait se laisser tromper car on parle bien du même règlement et d’une action à son sujet, mais le fait de devoir le rediscuter n’implique pas qu’on ait une copie disponible à donner ou montrer.",
+          "misunderstanding": "task_substitution"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je peux vous l’imprimer."
+          ],
+          "reason": "À la question « Avez-vous une copie du règlement de l'immeuble ? », répondre « Oui, je peux vous l’imprimer » signifie qu’on dispose du règlement (au moins en version numérique) et qu’on peut en produire une copie papier. Cela répond directement et utilement à la demande de copie.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, il est affiché dans l’entrée."
+          ],
+          "reason": "La question porte sur la possession d’« une copie » du règlement, c’est-à-dire d’un document que la personne pourrait fournir. Répondre « Oui, il est affiché dans l’entrée » indique seulement où le règlement est visible, pas que l’interlocuteur possède une copie à remettre. On décrit un lieu d’affichage, pas une copie détenue. On peut être tenté de choisir cette réponse parce qu’elle rend le règlement accessible à la personne qui pose la question, mais elle ne correspond pas littéralement à la demande sur la possession d’une copie.",
+          "misunderstanding": "referent"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 1415,
+      "total_tokens": 2118,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 760,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01502875,
+    "inputHash": "6b6c333d9fc09d5fe16773b6088a17563777e7331a648c3d2226ffd5a9cd7a9b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:6:initial:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

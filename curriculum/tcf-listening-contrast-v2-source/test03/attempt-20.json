@@ -1,0 +1,155 @@
+{
+  "question": {
+    "number": 20,
+    "kind": "dialogue",
+    "question": "Compte tenu de la situation de la patiente, quelle modalité de reprise de la marche est finalement proposée ?",
+    "options": [
+      "Focaliser la rééducation sur la montée répétée des escaliers de l’immeuble.",
+      "Commencer par de petits trajets sur terrain plat, puis faire le point avec la kinésithérapeute.",
+      "Prolonger le repos complet à domicile tant que l’ascenseur reste en panne.",
+      "Remplacer la marche par des exercices de jambes effectués assise à la maison."
+    ],
+    "correct": "B",
+    "explanation": "La professionnelle répond « commençons par de petits trajets sur terrain plat et prévoyons une évaluation avec la kinésithérapeute » : il s’agit bien de débuter par de courtes marches sur terrain plat, avec une réévaluation ultérieure.",
+    "transcript": "Question 20.\nLes résultats sont encourageants. Vous pourrez bientôt reprendre la marche.\nJe suis soulagée, mais j'habite au quatrième étage et l'ascenseur tombe régulièrement en panne.\nDans ce cas, commençons par de petits trajets sur terrain plat et prévoyons une évaluation avec la kinésithérapeute.\nOui, je ne veux pas me retrouver bloquée dans l'escalier.\nCompte tenu de la situation de la patiente, quelle modalité de reprise de la marche est finalement proposée ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 20."
+      },
+      {
+        "voice": "male",
+        "text": "Les résultats sont encourageants. Vous pourrez bientôt reprendre la marche."
+      },
+      {
+        "voice": "female",
+        "text": "Je suis soulagée, mais j'habite au quatrième étage et l'ascenseur tombe régulièrement en panne."
+      },
+      {
+        "voice": "male",
+        "text": "Dans ce cas, commençons par de petits trajets sur terrain plat et prévoyons une évaluation avec la kinésithérapeute."
+      },
+      {
+        "voice": "female",
+        "text": "Oui, je ne veux pas me retrouver bloquée dans l'escalier."
+      },
+      {
+        "voice": "female",
+        "text": "Compte tenu de la situation de la patiente, quelle modalité de reprise de la marche est finalement proposée ?"
+      }
+    ],
+    "audio": "q-20.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyMlaF1dvi9sMAMlpZOyyhoZPUnt",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En consultation, une patiente fragile explique qu’elle ne peut plus sortir de chez elle car l’ascenseur est en panne. Le médecin considère que la marche n’est pas réaliste pour le moment et propose, comme modalité de reprise d’activité, de remplacer provisoirement la marche par des exercices de jambes effectués assise à la maison pour entretenir la musculature."
+            },
+            {
+              "index": 1,
+              "credible": false,
+              "context": "La question parle de \"modalité de reprise de la marche\", ce qui implique une forme de reprise et une manière de la mettre en œuvre. Prolonger le repos complet sans aucune marche tant que l’ascenseur est en panne ne décrit pas une modalité de reprise de la marche, mais au contraire une absence de reprise ; cela ne répond donc pas réellement à la question posée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un kinésithérapeute discute avec une patiente vivant au 4e étage sans ascenseur. Comme elle doit de toute façon prendre l’escalier pour sortir, il lui propose une reprise axée sur la montée répétée des escaliers de l’immeuble, encadrée et progressive, comme modalité principale de rééducation à la marche et au port de charge sur les membres inférieurs."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une visite à domicile, le médecin et la kinésithérapeute évaluent une patiente âgée après un épisode de chute. Ils conviennent avec elle de reprendre la marche par de petits trajets sur terrain plat dans l’appartement ou autour de l’immeuble, puis de refaire un point avec la kinésithérapeute pour adapter le programme de rééducation."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Seule option qui décrit une progression prudente et structurée de la marche elle-même (petits trajets sur terrain plat), avec réévaluation professionnelle (\"faire le point avec la kinésithérapeute\"), ce qui correspond précisément à une \"modalité de reprise de la marche\" en contexte médical ; formulation nuancée, complète et médicalement responsable par rapport aux autres choix."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.05,
+            0.25,
+            0.6
+          ],
+          "guess": 3,
+          "reason": "Le libellé met l’accent sur une modalité concrète de reprise de la marche. L’option 1 ne décrit aucune reprise, l’option 0 remplace la marche plutôt qu’en organiser la reprise, l’option 2 impose un exercice plus risqué (escaliers) sans nuance. L’option 3 propose exactement une reprise progressive de la marche sur terrain plat avec suivi par la kinésithérapeute, ce qui est la réponse la plus cohérente et soignée linguistiquement ; je la juge donc la plus probable malgré un reste d’incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 657,
+          "completion_tokens": 804,
+          "total_tokens": 1461,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 171,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00886125,
+        "inputHash": "7f636a17b3e551addb0ac935a58882dc4ee57d2c92ae98c228d58585b311eabd",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:19:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Le libellé met l’accent sur une modalité concrète de reprise de la marche. L’option 1 ne décrit aucune reprise, l’option 0 remplace la marche plutôt qu’en organiser la reprise, l’option 2 impose un exercice plus risqué (escaliers) sans nuance. L’option 3 propose exactement une reprise progressive de la marche sur terrain plat avec suivi par la kinésithérapeute, ce qui est la réponse la plus cohérente et soignée linguistiquement ; je la juge donc la plus probable malgré un reste d’incertitude.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "Seule option qui décrit une progression prudente et structurée de la marche elle-même (petits trajets sur terrain plat), avec réévaluation professionnelle (\"faire le point avec la kinésithérapeute\"), ce qui correspond précisément à une \"modalité de reprise de la marche\" en contexte médical ; formulation nuancée, complète et médicalement responsable par rapport aux autres choix."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "En consultation, une patiente fragile explique qu’elle ne peut plus sortir de chez elle car l’ascenseur est en panne. Le médecin considère que la marche n’est pas réaliste pour le moment et propose, comme modalité de reprise d’activité, de remplacer provisoirement la marche par des exercices de jambes effectués assise à la maison pour entretenir la musculature."
+      },
+      {
+        "index": 1,
+        "credible": false,
+        "context": "La question parle de \"modalité de reprise de la marche\", ce qui implique une forme de reprise et une manière de la mettre en œuvre. Prolonger le repos complet sans aucune marche tant que l’ascenseur est en panne ne décrit pas une modalité de reprise de la marche, mais au contraire une absence de reprise ; cela ne répond donc pas réellement à la question posée."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un kinésithérapeute discute avec une patiente vivant au 4e étage sans ascenseur. Comme elle doit de toute façon prendre l’escalier pour sortir, il lui propose une reprise axée sur la montée répétée des escaliers de l’immeuble, encadrée et progressive, comme modalité principale de rééducation à la marche et au port de charge sur les membres inférieurs."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Lors d’une visite à domicile, le médecin et la kinésithérapeute évaluent une patiente âgée après un épisode de chute. Ils conviennent avec elle de reprendre la marche par de petits trajets sur terrain plat dans l’appartement ou autour de l’immeuble, puis de refaire un point avec la kinésithérapeute pour adapter le programme de rééducation."
+      }
+    ]
+  }
+}

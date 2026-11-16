@@ -1,0 +1,325 @@
+{
+  "question": {
+    "number": 21,
+    "kind": "announcement",
+    "question": "Lors de l'inscription à la journée de jardinage, quel élément les habitants peuvent-ils indiquer, selon le document ?",
+    "options": [
+      "Qu’ils possèdent déjà leurs propres outils.",
+      "Qu’ils préfèrent une tâche assise.",
+      "Qu’ils ont déjà une expérience en jardinage.",
+      "Qu’ils s’engagent à revenir aux prochaines séances."
+    ],
+    "correct": "B",
+    "transcript": "Question 21.\nNotre journée de jardinage collectif aura lieu dimanche, de neuf heures à midi. Tous les habitants sont les bienvenus, y compris ceux qui n'ont jamais jardiné. Merci de vous inscrire avant vendredi : nous pourrons prévoir assez d'outils et organiser les petits groupes. Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt. L'inscription ne vous engage pas à participer aux prochaines séances.\nLors de l'inscription à la journée de jardinage, quel élément les habitants peuvent-ils indiquer, selon le document ?",
+    "explanation": "Réponse B : Le texte indique explicitement que, lors de l’inscription, les habitants peuvent signaler s’ils préfèrent une tâche assise. C’est exactement l’élément demandé dans la question. A : Le document mentionne que l’inscription sert à prévoir assez d’outils, mais il ne dit pas que les habitants peuvent signaler qu’ils possèdent déjà leurs propres outils. Une personne pourrait déduire à tort que, pour aider à prévoir le matériel, on leur demande d’indiquer s’ils ont des outils, mais cette possibilité n’est jamais formulée. C : Le document parle du fait que même ceux qui n’ont jamais jardiné sont les bienvenus, mais il ne dit pas que l’on puisse indiquer son expérience en jardinage lors de l’inscription. Quelqu’un comprenant partiellement pourrait penser que, puisqu’on évoque l’expérience (ou son absence), on demande de la préciser, alors que le seul choix à signaler concerne la tâche assise ou l’heure de départ. D : Le document précise au contraire que l’inscription ne constitue pas un engagement pour les prochaines séances. Une personne peu attentive pourrait retenir seulement l’idée de « prochaines séances » et croire qu’il faut s’y engager, mais le passage insiste justement sur la négation de cet engagement.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 21."
+      },
+      {
+        "voice": "female",
+        "text": "Notre journée de jardinage collectif aura lieu dimanche, de neuf heures à midi. Tous les habitants sont les bienvenus, y compris ceux qui n'ont jamais jardiné. Merci de vous inscrire avant vendredi : nous pourrons prévoir assez d'outils et organiser les petits groupes. Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt. L'inscription ne vous engage pas à participer aux prochaines séances."
+      },
+      {
+        "voice": "female",
+        "text": "Lors de l'inscription à la journée de jardinage, quel élément les habitants peuvent-ils indiquer, selon le document ?"
+      }
+    ],
+    "audio": "q-21.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "sourceHash": "3006710d3cda1c2d3655287da29cc4b501c56d2120d3ac337cd372d11ffbe260",
+  "contentHash": "5b852e2c724445b15fbbb4a4fd294b089139fb88909a887f86f8310a5c5dc41f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8ChaT0cGcXQvhNntpGpYXExpLF",
+    "result": {
+      "question": "Lors de l'inscription à la journée de jardinage, quel élément les habitants peuvent-ils indiquer, selon le document ?",
+      "choices": [
+        "Qu’ils préfèrent une tâche assise.",
+        "Qu’ils possèdent déjà leurs propres outils.",
+        "Qu’ils s’engagent à revenir aux prochaines séances.",
+        "Qu’ils ont déjà une expérience en jardinage."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : « Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt ». L’élément explicitement présenté comme pouvant être indiqué est donc la préférence pour une tâche assise. Rien n’indique qu’on doive signaler la possession d’outils, un engagement pour les prochaines séances ou son expérience préalable.",
+      "design": "On cible le type d’information personnelle que les habitants sont invités à signaler au moment de l’inscription. Les quatre réponses sont des informations plausiblement demandées pour organiser une journée de jardinage (préférences physiques, matériel, engagement futur, expérience). Seule la préférence pour une tâche assise est explicitement mentionnée comme devant être signalée à l’inscription ; les autres s’appuient sur des éléments vraiment présents (outils, prochaines séances, absence d’expérience) mais leur rôle est différent dans le document.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le texte mentionne la nécessité de « prévoir assez d'outils », ce qui peut faire croire que chacun doit indiquer s’il apporte son propre matériel. En réalité, il n’est jamais demandé de signaler la possession d’outils : c’est aux organisateurs de les prévoir en fonction du nombre d’inscriptions, pas aux participants de déclarer leur équipement.",
+          "operation": "role_swap",
+          "anchors": [
+            "prévoir assez d'outils",
+            "Merci de vous inscrire avant vendredi"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On pourrait penser que l’inscription sert à s’engager sur la durée, car il est question de « prochaines séances ». Pourtant, le texte précise l’inverse : « L'inscription ne vous engage pas à participer aux prochaines séances ». L’engagement futur n’est donc pas une information à indiquer, mais justement ce dont on est explicitement dispensé.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "L'inscription ne vous engage pas à participer aux prochaines séances",
+            "prochaines séances"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le document insiste sur le fait que tous les habitants sont bienvenus, « y compris ceux qui n'ont jamais jardiné ». Cette mention peut faire croire qu’on doit déclarer son niveau d’expérience. En réalité, cette précision sert à rassurer les débutants ; il n’est nulle part demandé de signaler son expérience lors de l’inscription.",
+          "operation": "role_swap",
+          "anchors": [
+            "Tous les habitants sont les bienvenus",
+            "y compris ceux qui n'ont jamais jardiné"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4202,
+      "completion_tokens": 977,
+      "total_tokens": 5179,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 383,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0150225,
+    "inputHash": "d4db27f665c384deb61fc52b1b14e6efa84a7a67bac34896681bc7c68e8f3755",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:20:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8NFAstr5ev6ZrmCCHZmZ6aUjYZ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une association de quartier organise une journée de jardinage collectif. Sur le formulaire d’inscription, il y a une case à cocher « Je m’engage à revenir aux prochaines séances de jardinage » pour planifier la continuité du projet. Le document audio explique que les habitants peuvent indiquer, lors de l’inscription, s’ils souhaitent s’engager à participer aux futures rencontres."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une municipalité propose une journée de jardinage dans un parc. Dans le formulaire, une question demande si les participants possèdent déjà leurs propres outils, afin de prévoir le matériel nécessaire. Le document audio précise qu’au moment de l’inscription, les habitants peuvent indiquer s’ils ont déjà leurs propres outils."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un centre social met en place une journée de jardinage pour créer un potager partagé. Sur le formulaire d’inscription, une rubrique « Votre expérience en jardinage » permet aux participants de signaler s’ils sont débutants ou déjà expérimentés. Le document audio mentionne que, lors de l’inscription, les habitants peuvent indiquer s’ils ont déjà une expérience en jardinage."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une commune organise une journée de jardinage inclusive. Le formulaire d’inscription propose une case « Je préfère une tâche assise » pour les personnes ayant des difficultés de mobilité ou souhaitant une activité moins physique. Le document audio explique que les habitants peuvent, au moment de l’inscription, indiquer s’ils préfèrent une tâche assise, afin d’adapter les activités."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Formulation plus précise et inclusive (« qu’ils préfèrent une tâche assise ») correspondant typiquement à une information logistique/organisationnelle qu’un document demanderait pour adapter les tâches, plutôt qu’un engagement futur ou un détail moins directement nécessaire comme l’engagement à revenir ou la possession d’outils."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.2,
+            0.25,
+            0.35
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent correspondre à un formulaire d’inscription, mais la mention d’une préférence pour une tâche assise est une information pratique directement liée à l’organisation de la journée et à l’adaptation des activités, ce qui lui donne un léger avantage malgré une incertitude notable."
+        },
+        "usage": {
+          "prompt_tokens": 618,
+          "completion_tokens": 670,
+          "total_tokens": 1288,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 147,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0074725,
+        "inputHash": "8fd4520305558195f1b7ca13bc53987500aecf4777f84b058058a95ea660837d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:20:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8WpVi9Kqp24OAQUgQ4k3Sv5Eke",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un message d’information de la mairie explique qu’en s’inscrivant à la journée de jardinage participatif via un formulaire en ligne, les habitants peuvent préciser s’ils préfèrent une tâche assise (par exemple désherbage sur table, rempotage) plutôt que des travaux physiques plus lourds afin de mieux répartir les activités selon les capacités de chacun."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une annonce audio pour une journée de jardinage communautaire, l’animateur précise que lors de l’inscription, les habitants peuvent indiquer s’ils ont déjà une expérience en jardinage pour adapter les groupes, confier certaines tâches de conseil aux plus expérimentés et proposer des tâches simples aux débutants."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un enregistrement de la municipalité décrit l’organisation d’une journée de jardinage collaboratif et indique que, au moment de l’inscription, les habitants peuvent signaler s’ils possèdent déjà leurs propres outils, afin de limiter les achats ou les emprunts de matériel et de s’assurer que tout le monde sera équipé."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une association de quartier diffuse un message vocal expliquant qu’en s’inscrivant à une journée de jardinage, les habitants peuvent cocher une case pour indiquer qu’ils s’engagent à revenir aux prochaines séances, ce qui aide les organisateurs à anticiper la continuité du projet et la taille des futurs groupes."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent toutes correspondre à une information donnée dans un document décrivant une inscription à une journée de jardinage, sans indice textuel dans l’énoncé ou le style des choix permettant de privilégier clairement l’une d’elles ; aucune ne se distingue nettement par la formulation ou la pertinence, d’où une forte incertitude et des probabilités uniformes malgré l’obligation de proposer un index de réponse."
+        },
+        "usage": {
+          "prompt_tokens": 618,
+          "completion_tokens": 557,
+          "total_tokens": 1175,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 108,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0063425,
+        "inputHash": "a9118c5ada06710cdc2d42fd9340666b7a44194cb72178af5b07afb49629dc6e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:20:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8dHU64zq5ynIvMkmY6jY334G7d",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les habitants peuvent indiquer lors de l’inscription qu’ils préfèrent une tâche assise, et aucun autre élément proposé n’est mentionné comme pouvant être signalé.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "nous pourrons prévoir assez d'outils"
+          ],
+          "reason": "Le document mentionne que l’inscription sert à prévoir assez d’outils, mais il ne dit pas que les habitants peuvent signaler qu’ils possèdent déjà leurs propres outils. Une personne pourrait déduire à tort que, pour aider à prévoir le matériel, on leur demande d’indiquer s’ils ont des outils, mais cette possibilité n’est jamais formulée.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Vous pouvez signaler si vous préférez une tâche assise"
+          ],
+          "reason": "Le texte indique explicitement que, lors de l’inscription, les habitants peuvent signaler s’ils préfèrent une tâche assise. C’est exactement l’élément demandé dans la question.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Tous les habitants sont les bienvenus, y compris ceux qui n'ont jamais jardiné.",
+            "Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt."
+          ],
+          "reason": "Le document parle du fait que même ceux qui n’ont jamais jardiné sont les bienvenus, mais il ne dit pas que l’on puisse indiquer son expérience en jardinage lors de l’inscription. Quelqu’un comprenant partiellement pourrait penser que, puisqu’on évoque l’expérience (ou son absence), on demande de la préciser, alors que le seul choix à signaler concerne la tâche assise ou l’heure de départ.",
+          "misunderstanding": "topic_association"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'inscription ne vous engage pas à participer aux prochaines séances.",
+            "Vous pouvez signaler si vous préférez une tâche assise ou si vous devez partir plus tôt."
+          ],
+          "reason": "Le document précise au contraire que l’inscription ne constitue pas un engagement pour les prochaines séances. Une personne peu attentive pourrait retenir seulement l’idée de « prochaines séances » et croire qu’il faut s’y engager, mais le passage insiste justement sur la négation de cet engagement.",
+          "misunderstanding": "negation_ignored"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 744,
+      "completion_tokens": 859,
+      "total_tokens": 1603,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 314,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00952,
+    "inputHash": "b31613d729983c03b93d3ea204d7b0207863be5e8d0c8df4abd8e02e452024b0",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:20:initial:ground:2"
+  },
+  "feedback": null
+}

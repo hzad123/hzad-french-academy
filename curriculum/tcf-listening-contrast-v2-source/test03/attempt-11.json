@@ -1,0 +1,318 @@
+{
+  "question": {
+    "number": 11,
+    "kind": "announcement",
+    "question": "Que précise l'annonce à propos du questionnaire de santé ?",
+    "options": [
+      "Il doit être complété avant l'arrivée au centre.",
+      "Il est réservé aux personnes venant sans rendez-vous.",
+      "Il doit être apporté déjà imprimé et signé.",
+      "Il pourra être rempli sur place."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : L’option 3 reprend mot pour mot l’information donnée : l’annonce dit clairement que « Le questionnaire de santé pourra être rempli sur place. » Il s’agit donc de la précision apportée par l’annonce. A : L’option 0 affirme que le questionnaire doit être complété avant l’arrivée au centre. Or l’annonce dit explicitement qu’il « pourra être rempli sur place », ce qui indique l’inverse : on n’exige pas qu’il soit fait à l’avance. Quelqu’un pourrait confondre parce que l’annonce parle de « faciliter l'enregistrement », ce qui peut faire penser à des démarches préalables, mais ici la précision donnée concerne bien la possibilité de le remplir sur place, pas une obligation de le faire avant. B : L’option 1 prétend que le questionnaire est réservé aux personnes venant sans rendez-vous. Le message commence pourtant par remercier « les personnes inscrites à la séance de samedi », ce qui montre qu’on parle précisément de personnes avec réservation. Rien n’évoque un traitement particulier pour les personnes sans rendez-vous. Un auditeur peu attentif pourrait mal interpréter le passage sur l’organisation (« Afin de faciliter l'enregistrement ») comme une consigne visant ceux qui se présenteraient sans inscription, mais ce n’est jamais dit. C : L’option 2 indique qu’il faut apporter le questionnaire déjà imprimé et signé. Or l’annonce précise qu’il « pourra être rempli sur place », ce qui exclut l’obligation de l’apporter déjà complété, et elle ajoute qu’« il n'est pas nécessaire d'imprimer le courriel de confirmation », ce qui va dans le sens d’une réduction des documents imprimés à apporter. Un auditeur distrait pourrait entendre le mot « imprimer » et généraliser à tort cette exigence au questionnaire de santé, alors que le texte dit exactement le contraire.",
+    "transcript": "Question 11.\nLe centre de collecte remercie les personnes inscrites à la séance de samedi. Afin de faciliter l'enregistrement, présentez une pièce d'identité avec photographie. Le questionnaire de santé pourra être rempli sur place. Il n'est pas nécessaire d'imprimer le courriel de confirmation, mais pensez à respecter l'heure de votre réservation.\nQue précise l'annonce à propos du questionnaire de santé ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 11."
+      },
+      {
+        "voice": "male",
+        "text": "Le centre de collecte remercie les personnes inscrites à la séance de samedi. Afin de faciliter l'enregistrement, présentez une pièce d'identité avec photographie. Le questionnaire de santé pourra être rempli sur place. Il n'est pas nécessaire d'imprimer le courriel de confirmation, mais pensez à respecter l'heure de votre réservation."
+      },
+      {
+        "voice": "female",
+        "text": "Que précise l'annonce à propos du questionnaire de santé ?"
+      }
+    ],
+    "audio": "q-11.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 40
+  },
+  "sourceHash": "63352c1c35d5a539ed8bb7c9d6bcee220c693e15a6a224baf27a6ec835b9c90a",
+  "contentHash": "fbb0fb87bb55da6d0c8aff4a444a703cbcd9fc95881c89cbac3f4f0b25782996",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyKs21MKNUsnblCBTpJ5IRW9VLl5",
+    "result": {
+      "question": "Que précise l'annonce à propos du questionnaire de santé ?",
+      "choices": [
+        "Il pourra être rempli sur place.",
+        "Il doit être complété avant l'arrivée au centre.",
+        "Il doit être apporté déjà imprimé et signé.",
+        "Il est réservé aux personnes venant sans rendez-vous."
+      ],
+      "correctIndex": 0,
+      "explanation": "L'annonce indique explicitement : Le questionnaire de santé pourra être rempli sur place, ce qui correspond à la réponse A et contredit les autres modalités proposées.",
+      "design": "Axe unique : la modalité d’utilisation du questionnaire de santé. Les quatre réponses proposent chacune une consigne précise sur ce même questionnaire (lieu/temps ou condition de remplissage : sur place, avant l’arrivée, imprimé et signé, réservé à certains usagers). Sans le document, toutes paraissent des règles plausibles d’un centre de collecte. Seule l’écoute permet d’identifier que le texte dit exactement qu’il pourra être rempli sur place, sans exigence préalable ni restriction particulière.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le candidat peut raisonnablement supposer qu’un questionnaire de santé doit être rempli avant l’arrivée, comme dans de nombreux dispositifs en ligne. Mais le document précise au contraire qu’il pourra être rempli sur place et ne fixe aucune obligation de le compléter à l’avance.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Le questionnaire de santé pourra être rempli sur place.",
+            "Afin de faciliter l'enregistrement"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’annonce n’évoque jamais l’obligation d’apporter un questionnaire imprimé ou signé ; cette exigence peut sembler logique dans un contexte administratif, mais le texte indique seulement que le questionnaire pourra être rempli sur place, sans mention de signature préalable ni d’impression.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Le questionnaire de santé pourra être rempli sur place.",
+            "Il n'est pas nécessaire d'imprimer le courriel de confirmation"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On pourrait croire que le questionnaire ne concerne qu’un sous-groupe (par exemple les personnes sans rendez-vous), ce qui serait une règle crédible dans un centre de collecte. En réalité, l’annonce ne distingue aucun public : elle dit simplement que le questionnaire de santé pourra être rempli sur place, sans réserver cette démarche à une catégorie particulière.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Le questionnaire de santé pourra être rempli sur place.",
+            "Les personnes inscrites à la séance de samedi"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4350,
+      "completion_tokens": 777,
+      "total_tokens": 5127,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 279,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0132075,
+    "inputHash": "17688351189f6b8b4c37fd61fcbb30f01367fd1c1e5fbead168f0e7e1582f30d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:10:initial:author:5:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyL0iiAui79pCHrx4URGYEdK8fwu",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce d’un centre de vaccination, la personne au micro explique l’organisation : « Le questionnaire de santé est réservé aux personnes venant sans rendez-vous, les autres l’ont déjà rempli en ligne lors de la prise de rendez-vous. » La phrase répond directement à la question sur ce que l’annonce précise à propos du questionnaire de santé."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un message d’un centre d’imagerie médicale, l’annonce téléphonique indique : « Le questionnaire de santé doit être complété avant votre arrivée au centre, afin de réduire votre temps d’attente. » Cette précision répond directement à la question sur ce qui est dit du questionnaire."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message diffusé dans la salle d’attente d’un centre de dépistage, on entend : « Si vous ne l’avez pas encore fait, ne vous inquiétez pas, le questionnaire de santé pourra être rempli sur place. » L’annonce précise clairement cette modalité de remplissage du questionnaire."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une annonce sur le site d’un laboratoire d’analyses, on entend ou lit : « Le questionnaire de santé doit être apporté déjà imprimé et signé, sans quoi votre prise en charge pourrait être retardée. » La précision porte directement sur la forme exigée pour le questionnaire."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.26,
+            0.24,
+            0.3,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Plusieurs options sont plausibles dans un contexte d’annonce concernant un centre de santé. Aucun indice décisif ne permet d’écarter clairement une formulation. L’option « Il pourra être rempli sur place. » est légèrement privilégiée car elle est simple, générale, peu contraignante, et correspond très souvent au type d’information pratique donnée dans une annonce destinée à rassurer le public (on précise qu’il n’est pas nécessaire d’anticiper ou d’imprimer un document). L’incertitude reste toutefois importante et les autres réponses demeurent crédibles."
+        },
+        "usage": {
+          "prompt_tokens": 605,
+          "completion_tokens": 582,
+          "total_tokens": 1187,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 114,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00657625,
+        "inputHash": "0548309b28738e4ec8a063f76373fc89a9040bfab4f803d443a6b2591b0735af",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:10:initial:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyL6TQTjP20UTGlsY1XCyPVYMDYG",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un centre de vaccination très fréquenté, un message audio informe : \"Les personnes ayant déjà un rendez-vous n'ont pas besoin de remplir le questionnaire de santé à l'avance. Celui-ci est réservé aux personnes venant sans rendez-vous.\" L'annonce précise ainsi la restriction d'usage du questionnaire."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un message téléphonique d'un centre médical indique : \"Veuillez remplir le questionnaire de santé en ligne avant votre arrivée au centre.\" L'annonce précise clairement l'obligation de le compléter à l'avance."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un enregistrement d'information pour une clinique privée dit : \"Le questionnaire de santé doit être apporté déjà imprimé et signé le jour de votre rendez-vous.\" L'annonce insiste sur le fait de l'avoir en version papier déjà signée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un centre de dépistage, un haut-parleur annonce : \"Ne vous inquiétez pas si vous n'avez pas encore rempli le questionnaire de santé, vous pourrez le remplir sur place.\" L'annonce précise la possibilité de le faire au centre même."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre choix correspondent naturellement à des précisions possibles sur un questionnaire de santé dans une annonce, sans indice textuel clair permettant de privilégier l’un d’eux. En l’absence de tout autre signal, le choix est très incertain et la probabilité répartie uniformément ; la sélection de la réponse 3 est un simple meilleur essai forcé sans véritable avantage observable."
+        },
+        "usage": {
+          "prompt_tokens": 605,
+          "completion_tokens": 516,
+          "total_tokens": 1121,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 146,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00591625,
+        "inputHash": "c4b7c21851d98b1fcac0e36c6bb51eeb49b3788fd76ba1257fafa23fe8e67a89",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:10:initial:screen:6:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyLC0BIOByNkmwmXd2guRTBH7IF7",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L'annonce précise que le questionnaire de santé pourra être rempli directement sur place.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le questionnaire de santé pourra être rempli sur place."
+          ],
+          "reason": "L’option 0 affirme que le questionnaire doit être complété avant l’arrivée au centre. Or l’annonce dit explicitement qu’il « pourra être rempli sur place », ce qui indique l’inverse : on n’exige pas qu’il soit fait à l’avance. Quelqu’un pourrait confondre parce que l’annonce parle de « faciliter l'enregistrement », ce qui peut faire penser à des démarches préalables, mais ici la précision donnée concerne bien la possibilité de le remplir sur place, pas une obligation de le faire avant.",
+          "misunderstanding": "timing_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le centre de collecte remercie les personnes inscrites à la séance de samedi."
+          ],
+          "reason": "L’option 1 prétend que le questionnaire est réservé aux personnes venant sans rendez-vous. Le message commence pourtant par remercier « les personnes inscrites à la séance de samedi », ce qui montre qu’on parle précisément de personnes avec réservation. Rien n’évoque un traitement particulier pour les personnes sans rendez-vous. Un auditeur peu attentif pourrait mal interpréter le passage sur l’organisation (« Afin de faciliter l'enregistrement ») comme une consigne visant ceux qui se présenteraient sans inscription, mais ce n’est jamais dit.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le questionnaire de santé pourra être rempli sur place.",
+            "Il n'est pas nécessaire d'imprimer le courriel de confirmation"
+          ],
+          "reason": "L’option 2 indique qu’il faut apporter le questionnaire déjà imprimé et signé. Or l’annonce précise qu’il « pourra être rempli sur place », ce qui exclut l’obligation de l’apporter déjà complété, et elle ajoute qu’« il n'est pas nécessaire d'imprimer le courriel de confirmation », ce qui va dans le sens d’une réduction des documents imprimés à apporter. Un auditeur distrait pourrait entendre le mot « imprimer » et généraliser à tort cette exigence au questionnaire de santé, alors que le texte dit exactement le contraire.",
+          "misunderstanding": "overgeneralization"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le questionnaire de santé pourra être rempli sur place."
+          ],
+          "reason": "L’option 3 reprend mot pour mot l’information donnée : l’annonce dit clairement que « Le questionnaire de santé pourra être rempli sur place. » Il s’agit donc de la précision apportée par l’annonce.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 709,
+      "completion_tokens": 987,
+      "total_tokens": 1696,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 377,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01075625,
+    "inputHash": "59a556e8525e7ea274061b859edc066df1bd13144cc40807ea62e4db888edc1f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:10:initial:ground:6"
+  },
+  "feedback": null
+}

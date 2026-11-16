@@ -1,0 +1,318 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Selon l'annonce, par quel accès les patients doivent-ils entrer pendant les travaux ?",
+    "options": [
+      "Par la porte principale sur l’avenue, qui reste accessible aux patients.",
+      "Par une entrée située côté parking, à l’arrière du bâtiment.",
+      "Par un portail provisoire installé sur l’avenue.",
+      "Par la cour intérieure, en passant par la rue des Écoles."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : L’option reprend exactement l’indication de l’annonce : entrée par la cour intérieure, en y accédant depuis la rue des Écoles. C’est l’unique accès explicitement désigné pour les patients pendant les travaux. A : L’option parle d’une porte principale sur l’avenue qui resterait accessible, alors que l’annonce précise au contraire qu’elle « sera fermée jusqu’à vendredi ». Un auditeur inattentif pourrait seulement retenir « porte principale » et « avenue » sans noter la mention de la fermeture, croyant donc à tort que c’est encore l’accès à utiliser. B : L’annonce ne mentionne jamais un accès côté parking ni l’arrière du bâtiment, mais seulement la cour intérieure accessible depuis la rue des Écoles. Quelqu’un pourrait imaginer qu’une cour intérieure se trouve près d’un parking à l’arrière et assimiler cela à « côté parking », alors que ce n’est pas dit. C : Aucun « portail provisoire » n’est évoqué ; l’annonce indique explicitement que l’accès se fait par la cour intérieure via la rue des Écoles. Un auditeur pourrait associer les travaux devant le cabinet à l’installation d’un portail provisoire sur l’avenue, par extrapolation, alors que le message ne parle que de fermeture de la porte principale et de redirection vers la cour intérieure.",
+    "transcript": "Question 17.\nEn raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi. Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. La signalisation a été installée ce matin, et la réception est assurée normalement.\nSelon l'annonce, par quel accès les patients doivent-ils entrer pendant les travaux ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "male",
+        "text": "En raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi. Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. La signalisation a été installée ce matin, et la réception est assurée normalement."
+      },
+      {
+        "voice": "female",
+        "text": "Selon l'annonce, par quel accès les patients doivent-ils entrer pendant les travaux ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 48
+  },
+  "sourceHash": "16bfd11bf915a1444cb825fde2d7b1d4978124ee80ea2b3e9cfdb63a7724829c",
+  "contentHash": "97c57694957f48b434ae54802f90b2484f4c14a891ac4479667a45434bc91aaa",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyKeqnHBKDvMOkwmdggBqlJbymVx",
+    "result": {
+      "question": "Selon l'annonce, par quel accès les patients doivent-ils entrer pendant les travaux ?",
+      "choices": [
+        "Par la cour intérieure, en passant par la rue des Écoles.",
+        "Par un portail provisoire installé sur l’avenue.",
+        "Par une entrée située côté parking, à l’arrière du bâtiment.",
+        "Par la porte principale sur l’avenue, qui reste accessible aux patients."
+      ],
+      "correctIndex": 0,
+      "explanation": "L'annonce précise que la porte principale sur l’avenue est fermée et que les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. Les autres accès proposés ne sont jamais mentionnés.",
+      "design": "Axe choisi : lieu précis de l’accès à utiliser pendant les travaux. Les quatre réponses décrivent chacune un mode d’entrée concret, plausible et cohérent avec une situation de chantier autour d’un cabinet médical. Sans le document, il serait raisonnable d’imaginer un portail provisoire sur l’avenue, un accès par un parking à l’arrière ou même le maintien de l’entrée principale. Seul l’enregistrement permet de trancher que l’accès demandé est la cour intérieure par la rue des Écoles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le texte mentionne des travaux « devant le cabinet » et la fermeture de la porte sur l’avenue, ce qui peut faire croire à l’installation logique d’un portail provisoire au même endroit. En réalité, l’accès de remplacement n’est pas sur l’avenue mais par la cour intérieure via la rue des Écoles.",
+          "operation": "role_swap",
+          "anchors": [
+            "En raison des travaux devant le cabinet des Acacias",
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Un auditeur peut généraliser l’idée d’un accès secondaire en l’imaginant côté parking à l’arrière, ce qui est courant en cas de travaux en façade. Mais le document ne parle jamais de parking ni d’arrière du bâtiment : il désigne clairement la cour intérieure accessible depuis la rue des Écoles comme unique accès.",
+          "operation": "role_swap",
+          "anchors": [
+            "porte principale donnant sur l'avenue sera fermée",
+            "cour intérieure, accessible depuis la rue des Écoles"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On peut mal comprendre et croire que, malgré les travaux, l’entrée principale reste utilisable, en pensant que seule la zone de travaux est concernée. Pourtant, le message indique explicitement que la porte principale sur l’avenue « sera fermée » et que les patients « doivent entrer par la cour intérieure », ce qui exclut tout maintien de cet accès pour les patients.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi",
+            "Les patients doivent entrer par la cour intérieure"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4264,
+      "completion_tokens": 1076,
+      "total_tokens": 5340,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 480,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01609,
+    "inputHash": "321c9f4c23578bf7c32b2eefd2cb8f0fcdc3cff9ac411a0fc0669d7554f468f5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKqHF7BjsfIbF5hztcOYwsisC7Z",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une annonce dans un cabinet médical explique que, malgré les travaux de façade, les patients continuent d’entrer par la porte principale sur l’avenue, qui reste dégagée et signalée, tandis que d’autres accès sont temporairement fermés aux visiteurs mais utilisés par les ouvriers."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un centre de santé indique dans un message diffusé en salle d’attente que l’entrée habituelle est condamnée pendant les travaux et qu’il faut désormais passer par la cour intérieure, accessible en longeant le bâtiment et en entrant par la rue des Écoles, avec une signalisation mise en place pour guider les patients."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un hôpital fait une annonce informant qu’en raison d’un chantier bloquant l’entrée classique, un portail provisoire a été installé sur l’avenue ; les patients sont invités à l’utiliser le temps des travaux, le portail étant clairement identifié par des panneaux et un interphone."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une clinique diffuse un message téléphonique et un panneau à l’extérieur précisant que les travaux bloquent tout l’avant du bâtiment, et que les patients doivent désormais entrer par une entrée située côté parking, à l’arrière, spécialement ouverte pour la durée du chantier."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options sont grammaticales, plausibles et répondent directement à la question sans indication textuelle claire permettant de privilégier un accès particulier ; aucune formulation ne se distingue nettement en longueur, précision ou adéquation, d’où une forte incertitude et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 627,
+          "completion_tokens": 474,
+          "total_tokens": 1101,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 83,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00552375,
+        "inputHash": "5ef1fd529ad58c0d20e614ce8d0d489b08be6fb07cb20f02f1e10389d8b2078e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKvr8XnK9WUzRA3OFMfmfb5tYlf",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Annonce diffusée dans une clinique en travaux : le standard informe que l’entrée habituelle est fermée et que les patients doivent désormais passer par une entrée située côté parking, à l’arrière du bâtiment, indiquée par des panneaux de déviation."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Message dans un cabinet médical pendant des travaux de façade : le répondeur précise que, pendant la durée des travaux, les patients doivent accéder au cabinet par la cour intérieure, en y entrant par la rue des Écoles."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Annonce dans un centre de santé dont l’entrée principale est condamnée par un chantier : on explique qu’un portail provisoire a été installé sur l’avenue et que c’est par là que les patients doivent entrer le temps des travaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Information donnée dans un hôpital où les travaux n’affectent pas l’accès : l’annonce précise qu’en dépit du chantier, les patients continuent à entrer par la porte principale sur l’avenue, qui reste accessible et signalée."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options décrivent des accès plausibles pendant des travaux et répondent directement à la question sans avantage de formulation ou de portée clairement identifiable ; aucune ne se distingue nettement, d’où une forte incertitude et une probabilité répartie de manière égale."
+        },
+        "usage": {
+          "prompt_tokens": 627,
+          "completion_tokens": 497,
+          "total_tokens": 1124,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 155,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00575375,
+        "inputHash": "2dc57b96c2bb82f6627567ecaef9d9348d9b615cb64689dcd4a722f72bdd14de",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyL0Yeus1qefweKZAry8OBeZs4Tg",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les patients doivent entrer par la cour intérieure accessible depuis la rue des Écoles, car la porte principale sur l’avenue est fermée pendant les travaux.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi"
+          ],
+          "reason": "L’option parle d’une porte principale sur l’avenue qui resterait accessible, alors que l’annonce précise au contraire qu’elle « sera fermée jusqu’à vendredi ». Un auditeur inattentif pourrait seulement retenir « porte principale » et « avenue » sans noter la mention de la fermeture, croyant donc à tort que c’est encore l’accès à utiliser.",
+          "misunderstanding": "inattention_to_negation"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "L’annonce ne mentionne jamais un accès côté parking ni l’arrière du bâtiment, mais seulement la cour intérieure accessible depuis la rue des Écoles. Quelqu’un pourrait imaginer qu’une cour intérieure se trouve près d’un parking à l’arrière et assimiler cela à « côté parking », alors que ce n’est pas dit.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi.",
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "Aucun « portail provisoire » n’est évoqué ; l’annonce indique explicitement que l’accès se fait par la cour intérieure via la rue des Écoles. Un auditeur pourrait associer les travaux devant le cabinet à l’installation d’un portail provisoire sur l’avenue, par extrapolation, alors que le message ne parle que de fermeture de la porte principale et de redirection vers la cour intérieure.",
+          "misunderstanding": "invented_detail"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "L’option reprend exactement l’indication de l’annonce : entrée par la cour intérieure, en y accédant depuis la rue des Écoles. C’est l’unique accès explicitement désigné pour les patients pendant les travaux.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 787,
+      "total_tokens": 1514,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 227,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00877875,
+    "inputHash": "472341b440ebad0c3a19e1aff42d9ac9e7e68bf25b773d7679cc593dc6e82f4c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:initial:ground:2"
+  },
+  "feedback": null
+}

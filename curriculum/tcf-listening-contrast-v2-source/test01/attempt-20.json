@@ -1,0 +1,333 @@
+{
+  "question": {
+    "number": 20,
+    "kind": "dialogue",
+    "question": "Quel type d’information l’agent propose-t-il d’envoyer ?",
+    "options": [
+      "Une estimation mensuelle du coût des trajets en bus.",
+      "Les horaires des deux lignes de bus.",
+      "La liste des arrêts possibles sans correspondance.",
+      "Un plan détaillé du quartier et des arrêts."
+    ],
+    "correct": "B",
+    "transcript": "Question 20.\nL'appartement me plaît. La cuisine est lumineuse et le loyer correspond à mon budget.\nVous souhaitez déposer un dossier aujourd'hui ?\nJe voudrais d'abord essayer le trajet en bus demain matin. Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance.\nBien sûr. Je vous enverrai les horaires des deux lignes, et nous pourrons nous rappeler ensuite.\nQuel type d’information l’agent propose-t-il d’envoyer ?",
+    "explanation": "Réponse B : Le locataire évoque une correspondance entre deux lignes de bus. L’agent répond précisément : \"Je vous enverrai les horaires des deux lignes\", ce qui correspond exactement à l’option sur les horaires des deux lignes de bus. A : La locataire parle de son budget et du trajet en bus, ce qui peut faire penser au coût des trajets mensuels. Cependant, l’agent ne parle jamais de prix ni d’estimation de coût : il dit seulement qu’il enverra quelque chose en lien avec les lignes de bus, sans mention d’argent ou de \"coût\". C : On pourrait croire que, parce qu’il est question de correspondance, l’agent va détailler les arrêts pour éviter d’en faire. Mais il ne propose que d’envoyer \"les horaires des deux lignes\" : aucune \"liste des arrêts possibles sans correspondance\" n’est mentionnée ni suggérée. D : L’expression \"Sur le plan\" et la discussion sur la localisation peuvent faire penser à un plan détaillé du quartier. Toutefois, l’agent ne propose pas d’envoyer un plan : il annonce uniquement l’envoi des \"horaires des deux lignes\", sans référence à un document cartographique supplémentaire.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 20."
+      },
+      {
+        "voice": "female",
+        "text": "L'appartement me plaît. La cuisine est lumineuse et le loyer correspond à mon budget."
+      },
+      {
+        "voice": "male",
+        "text": "Vous souhaitez déposer un dossier aujourd'hui ?"
+      },
+      {
+        "voice": "female",
+        "text": "Je voudrais d'abord essayer le trajet en bus demain matin. Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance."
+      },
+      {
+        "voice": "male",
+        "text": "Bien sûr. Je vous enverrai les horaires des deux lignes, et nous pourrons nous rappeler ensuite."
+      },
+      {
+        "voice": "female",
+        "text": "Quel type d’information l’agent propose-t-il d’envoyer ?"
+      }
+    ],
+    "audio": "q-20.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "sourceHash": "b21e4a12d84029c7a1a85bc5f4340e451831e28006d96e1fefb19e13c71530b8",
+  "contentHash": "4e5a2b52e442aa9770243fb9aae157997f804dd3dbfc6e9c97888f864f9b597e",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8TdlM6z252ED0uSkHBd06HCiWH",
+    "result": {
+      "question": "Quel type d’information l’agent propose-t-il d’envoyer ?",
+      "choices": [
+        "Les horaires des deux lignes de bus.",
+        "Un plan détaillé du quartier et des arrêts.",
+        "Une estimation mensuelle du coût des trajets en bus.",
+        "La liste des arrêts possibles sans correspondance."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’agent dit clairement qu’il « enverra les horaires des deux lignes ». Il ne parle ni d’envoyer un plan, ni un calcul de coût, ni une liste d’arrêts sans correspondance.",
+      "design": "Axe choisi : la nature précise de l’information que l’agent promet d’envoyer après la visite. Les quatre réponses sont toutes des types d’informations de transport directement utiles pour évaluer le logement (horaires, plan, coût, arrêts), donc plausibles sans le document. Le fichier audio précise seulement « les horaires des deux lignes », ce qui distingue la bonne réponse des autres, qui réaffectent à tort au mail des éléments suggérés par le contexte (plan, correspondance, coût).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Confusion entre ce que la personne consulte déjà (« sur le plan ») et ce que l’agent promet d’envoyer. Le document mentionne un plan pour évaluer la distance, mais l’agent n’annonce l’envoi que des horaires, pas d’un plan supplémentaire.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance.",
+            "Je vous enverrai les horaires des deux lignes"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le coût des trajets est lié au « budget », ce qui peut faire penser à un calcul d’abonnement, mais la promesse explicite porte sur les horaires, pas sur une estimation de prix.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "le loyer correspond à mon budget",
+            "Je vous enverrai les horaires des deux lignes"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La personne mentionne une « correspondance », ce qui peut amener à imaginer un document listant les trajets sans changement. En réalité, l’agent propose seulement d’envoyer les horaires des deux lignes, pas une liste d’arrêts alternatifs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "il y a une correspondance",
+            "Je vous enverrai les horaires des deux lignes"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4568,
+      "completion_tokens": 928,
+      "total_tokens": 5496,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 423,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01499,
+    "inputHash": "2ff57fdbee67b81cdebc8f90b10096bcea74f40dc31e6d116a86cb88507c67b1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:19:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8f5e48rnXobxv1nw4MNin1oyvR",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un usager appelle une agence de transport pour trouver un trajet direct. L’agent regarde les options et dit qu’il peut lui envoyer par e-mail ou SMS la liste de tous les arrêts desservis par une ligne sans avoir à faire de correspondance, afin que l’usager choisisse celui qui lui convient le mieux."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une personne nouvelle dans la ville appelle un agent d’information des transports pour comprendre où prendre le bus. L’agent lui propose d’envoyer un plan détaillé du quartier, indiquant les arrêts de bus, pour l’aider à se repérer et à trouver le bon arrêt à proximité de son domicile ou de son hôtel."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un client appelle le service clientèle d’une compagnie de bus pour savoir combien lui coûterait l’abonnement ou les trajets quotidiens. L’agent, après avoir recueilli la fréquence et le type de trajets, propose de lui envoyer une estimation mensuelle du coût de ses déplacements en bus afin qu’il puisse comparer avec d’autres solutions."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un usager hésite entre deux lignes de bus et demande à quelle heure passent les bus le matin et le soir. L’agent lui propose de lui envoyer les horaires des deux lignes de bus par courriel ou par SMS, pour qu’il puisse les consulter tranquillement et organiser ses déplacements."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.22,
+            0.23,
+            0.18,
+            0.37
+          ],
+          "guess": 3,
+          "reason": "Tous les choix pourraient correspondre au type d’information qu’un agent de transport propose d’envoyer, sans contradiction avec l’énoncé. Faute d’indice explicite, une légère préférence va vers l’envoi d’horaires de lignes de bus, qui est un service très courant et directement associé aux échanges avec un agent, mais l’incertitude reste élevée et aucune option ne se détache nettement sur la seule base du libellé."
+        },
+        "usage": {
+          "prompt_tokens": 610,
+          "completion_tokens": 615,
+          "total_tokens": 1225,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 165,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0069125,
+        "inputHash": "cd4a1efe9d4ad5b79368953b1b2062b98d39612a79cac83fb058f44a95f54d07",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:19:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8m04yOCjvIoj8kJ3A1w9O7CuDs",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un usager appelle le service client des transports pour demander quels arrêts permettent d’aller à son travail sans devoir changer de bus. L’agent lui dit qu’il peut lui envoyer la liste des arrêts accessibles en trajet direct, sans correspondance, par e‑mail ou courrier."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un client téléphone pour comparer les coûts entre l’abonnement et l’achat de tickets à l’unité. Il explique ses habitudes de déplacement et l’agent propose de lui envoyer une estimation mensuelle du coût de ses trajets en bus, basée sur le nombre moyen de déplacements qu’il fera."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un usager hésite entre deux lignes qui desservent sa destination et veut connaître les heures de passage exactes. L’agent propose de lui envoyer les horaires des deux lignes de bus concernées, par courriel ou en format PDF, pour qu’il puisse planifier ses trajets."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une personne vient d’emménager dans un nouveau quartier et demande où se trouvent les arrêts de bus et comment les lignes sont organisées. L’agent propose de lui envoyer un plan détaillé du quartier avec l’emplacement des arrêts et le tracé des lignes."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Toutes les options décrivent un type d’information réaliste qu’un agent pourrait proposer d’envoyer à propos de trajets en bus, sans indice textuel clair pour en privilégier une. Faute de cue observable dans l’énoncé ou les formulations, le choix reste incertain et la sélection de la réponse 2 est essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 610,
+          "completion_tokens": 551,
+          "total_tokens": 1161,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 153,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0062725,
+        "inputHash": "38085d5286f035bc7e8ad4226372feac2eb2f5ae5f0f70b8e0c6a55409907d35",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:19:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8soYAOw3pHwbUIjAjBXJbOO4UK",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’agent propose d’envoyer les horaires des deux lignes de bus, rien d’autre.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La cuisine est lumineuse et le loyer correspond à mon budget.",
+            "Je voudrais d'abord essayer le trajet en bus demain matin."
+          ],
+          "reason": "La locataire parle de son budget et du trajet en bus, ce qui peut faire penser au coût des trajets mensuels. Cependant, l’agent ne parle jamais de prix ni d’estimation de coût : il dit seulement qu’il enverra quelque chose en lien avec les lignes de bus, sans mention d’argent ou de \"coût\".",
+          "misunderstanding": "mauvaise_inférence_contexte_financier"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "il y a une correspondance.",
+            "Je vous enverrai les horaires des deux lignes"
+          ],
+          "reason": "Le locataire évoque une correspondance entre deux lignes de bus. L’agent répond précisément : \"Je vous enverrai les horaires des deux lignes\", ce qui correspond exactement à l’option sur les horaires des deux lignes de bus.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais il y a une correspondance.",
+            "Je vous enverrai les horaires des deux lignes"
+          ],
+          "reason": "On pourrait croire que, parce qu’il est question de correspondance, l’agent va détailler les arrêts pour éviter d’en faire. Mais il ne propose que d’envoyer \"les horaires des deux lignes\" : aucune \"liste des arrêts possibles sans correspondance\" n’est mentionnée ni suggérée.",
+          "misunderstanding": "focalisation_sur_\"correspondance\""
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Sur le plan, ce n'est pas loin de mon travail, mais il y a une correspondance.",
+            "Je vous enverrai les horaires des deux lignes"
+          ],
+          "reason": "L’expression \"Sur le plan\" et la discussion sur la localisation peuvent faire penser à un plan détaillé du quartier. Toutefois, l’agent ne propose pas d’envoyer un plan : il annonce uniquement l’envoi des \"horaires des deux lignes\", sans référence à un document cartographique supplémentaire.",
+          "misunderstanding": "confusion_avec_le_mot_\"plan\""
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 735,
+      "completion_tokens": 851,
+      "total_tokens": 1586,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 312,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00942875,
+    "inputHash": "3797e055f13c4626db296b3966ff530a1aed655318d3f6903bbec0d7b89f2f16",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:19:initial:ground:3"
+  },
+  "feedback": null
+}

@@ -1,0 +1,191 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Réponse A",
+      "Réponse B",
+      "Réponse C",
+      "Réponse D"
+    ],
+    "correct": "D",
+    "transcript": "Question 8.\nCette chemise est trop petite. Est-ce que je peux l'échanger ?\nA. On peut la faire retoucher si vous voulez. B. Je peux seulement vous proposer un remboursement immédiat. C. Non, nous ne faisons pas d’échange sur les chemises. D. Oui, bien sûr, à condition d’avoir le ticket.",
+    "explanation": "Réponse D : La question porte explicitement sur la possibilité d’« échanger » la chemise. La réponse D répond directement et positivement (« Oui, bien sûr ») tout en ajoutant une condition classique en magasin (« à condition d’avoir le ticket »). C’est la seule réponse qui accepte l’échange demandé et qui respecte la formulation de la question. A : La question porte sur la possibilité d’« échanger » la chemise. La réponse A propose une autre solution (« la faire retoucher ») mais ne répond pas à la demande d’échange, ni positivement ni négativement. C’est donc inadapté à la demande précise d’échange. B : Le client veut savoir s’il peut l’« échanger ». La réponse B refuse implicitement l’échange en ne proposant « seulement » qu’un remboursement. Quelqu’un pourrait croire que c’est acceptable car le problème de la chemise trop petite serait réglé par le remboursement, mais ce n’est pas répondre positivement à la demande d’échange formulée dans la question. C : La question demande la possibilité d’échanger. La réponse C est un refus catégorique d’échange. On pourrait la choisir si l’on pense que le magasin a une politique stricte sans échange, mais rien dans l’énoncé n’indique une telle contrainte ; parmi les propositions, il existe une réponse qui accepte l’échange sous condition, ce qui convient mieux à la demande.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "female",
+        "text": "Cette chemise est trop petite. Est-ce que je peux l'échanger ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. On peut la faire retoucher si vous voulez. B. Je peux seulement vous proposer un remboursement immédiat. C. Non, nous ne faisons pas d’échange sur les chemises. D. Oui, bien sûr, à condition d’avoir le ticket."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 21.185,
+    "slotSeconds": 37
+  },
+  "sourceHash": "bf720c2d9eddaf304cdbd0c6f8b7fec526fb74ab6c9ff07541f9d7f8c8cb82f4",
+  "contentHash": "ec3ba503c06e331fc54ea1fc12bc718169c68006d8e4c7fe57c27c00e080c6af",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkykaUr9KR5xuNxVBQu7gEMJ8uX7M",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un client se plaint qu’une chemise achetée ne tombe pas très bien ou que les manches sont un peu longues. Le vendeur répond en proposant une solution : « On peut la faire retoucher si vous voulez. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un client demande s’il peut échanger ou retourner un article acheté récemment. Le vendeur accepte mais rappelle la règle du magasin : « Oui, bien sûr, à condition d’avoir le ticket. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un client souhaite échanger un article, mais le magasin ne peut plus faire d’échange (rupture de stock, fin de série). Le vendeur indique la seule solution possible : « Je peux seulement vous proposer un remboursement immédiat. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un client veut échanger une chemise achetée, mais le magasin a une politique stricte qui exclut les chemises des échanges. Le vendeur refuse clairement : « Non, nous ne faisons pas d’échange sur les chemises. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Toutes les réponses peuvent convenir à une situation courante de magasin (retouche, échange avec ticket, remboursement, refus d’échange). Aucune formulation ne se distingue nettement par la rédaction ou l’adéquation évidente à la consigne, d’où une forte incertitude et des probabilités équilibrées ; choix de 1 comme meilleure hypothèse par défaut."
+        },
+        "usage": {
+          "prompt_tokens": 608,
+          "completion_tokens": 645,
+          "total_tokens": 1253,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 292,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00721,
+        "inputHash": "43f0140811b71158142b06c2e6915acc864a363fad4367ffc1bc501c9862b37f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:7:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkykhGsA3mCjr3RhsACZlTFhnNcTc",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La cliente demande si elle peut échanger une chemise trop petite ; la réponse la plus adaptée est l’acceptation de l’échange avec la condition d’avoir le ticket, donc la réponse D.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Cette chemise est trop petite. Est-ce que je peux l'échanger ?",
+            "On peut la faire retoucher si vous voulez."
+          ],
+          "reason": "La question porte sur la possibilité d’« échanger » la chemise. La réponse A propose une autre solution (« la faire retoucher ») mais ne répond pas à la demande d’échange, ni positivement ni négativement. C’est donc inadapté à la demande précise d’échange.",
+          "misunderstanding": "changement_de_thème"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Cette chemise est trop petite. Est-ce que je peux l'échanger ?",
+            "Je peux seulement vous proposer un remboursement immédiat."
+          ],
+          "reason": "Le client veut savoir s’il peut l’« échanger ». La réponse B refuse implicitement l’échange en ne proposant « seulement » qu’un remboursement. Quelqu’un pourrait croire que c’est acceptable car le problème de la chemise trop petite serait réglé par le remboursement, mais ce n’est pas répondre positivement à la demande d’échange formulée dans la question.",
+          "misunderstanding": "objectif_différent"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Cette chemise est trop petite. Est-ce que je peux l'échanger ?",
+            "Non, nous ne faisons pas d’échange sur les chemises."
+          ],
+          "reason": "La question demande la possibilité d’échanger. La réponse C est un refus catégorique d’échange. On pourrait la choisir si l’on pense que le magasin a une politique stricte sans échange, mais rien dans l’énoncé n’indique une telle contrainte ; parmi les propositions, il existe une réponse qui accepte l’échange sous condition, ce qui convient mieux à la demande.",
+          "misunderstanding": "supposition_de_politique"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Cette chemise est trop petite. Est-ce que je peux l'échanger ?",
+            "Oui, bien sûr, à condition d’avoir le ticket."
+          ],
+          "reason": "La question porte explicitement sur la possibilité d’« échanger » la chemise. La réponse D répond directement et positivement (« Oui, bien sûr ») tout en ajoutant une condition classique en magasin (« à condition d’avoir le ticket »). C’est la seule réponse qui accepte l’échange demandé et qui respecte la formulation de la question.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 723,
+      "completion_tokens": 693,
+      "total_tokens": 1416,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 86,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00783375,
+    "inputHash": "b2e299a8fc0c4284b234260fb354773543aee65a44204bd5281a984165b37b7b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:7:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

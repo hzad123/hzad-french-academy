@@ -1,0 +1,150 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Selon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?",
+    "options": [
+      "Un certificat scolaire",
+      "Une photo d'identité",
+      "Un justificatif de domicile récent",
+      "Une pièce d'identité"
+    ],
+    "correct": "A",
+    "explanation": "Le document précise : « Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. » Le certificat scolaire est donc explicitement mentionné comme non exigé, alors que justificatif de domicile et pièce d'identité sont requis. La photo d'identité n'est jamais évoquée.",
+    "transcript": "Question 17.\nLa médiathèque accueillera les nouveaux inscrits samedi. Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement.\nSelon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "male",
+        "text": "La médiathèque accueillera les nouveaux inscrits samedi. Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+      },
+      {
+        "voice": "female",
+        "text": "Selon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 47
+  },
+  "contentHash": "0b839d83276b5d6a91bfc77f49917f9dacbe1ad4194274e5d053a63a1e57c5b0",
+  "sourceHash": "53805859e6dacaec0280cb0016f8c7f6d0f3b63d0106c6d6675bd5bae0a806a8",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyRW1DeQcAC8hsAbbCYYREtj1sxM",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce municipale pour l’inscription à la médiathèque, on énumère les pièces à fournir : une pièce d’identité, un justificatif de domicile et une photo d’identité. À la fin, on précise : « Aucun certificat scolaire n’est demandé. » Si la question reprend ensuite : « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », répondre « Une photo d’identité » serait possible dans une autre version de l’annonce où seuls la pièce d’identité et le justificatif de domicile sont exigés et la photo est explicitement écartée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une annonce destinée à tous les habitants, la médiathèque explique la procédure : « Pour établir votre carte, il vous faut une pièce d’identité, une photo d’identité et un justificatif de domicile récent. Nul besoin de certificat scolaire. » À la question « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », la réponse directe serait alors « Un certificat scolaire »."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une petite commune, la médiathèque précise par annonce : « Pour obtenir votre carte, merci de fournir une photo d’identité, un certificat scolaire pour les élèves, ainsi qu’un justificatif de domicile récent. Aucun document d’identité officiel n’est nécessaire. » Si l’on demande ensuite quel document n’est pas demandé, « Une pièce d’identité » répondrait alors directement à la question."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une annonce d’une médiathèque intégrée à un établissement scolaire, on précise : « L’inscription est gratuite. Pour établir votre carte, il suffit de présenter une pièce d’identité et une photo d’identité, ou pour les élèves, un certificat scolaire. Aucun justificatif de domicile récent n’est demandé. » À la question posée ensuite, on répondrait naturellement : « Un justificatif de domicile récent. »"
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Parmi les quatre, « Un certificat scolaire » est le seul document non standard dans les procédures classiques de création de carte de médiathèque (où sont habituellement demandés une pièce d’identité, un justificatif de domicile récent, éventuellement une photo). Les trois autres forment un ensemble administratif cohérent, alors que le certificat scolaire vise surtout des démarches scolaires, ce qui le désigne comme candidat privilégié pour le document explicitement « non demandé »."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.5,
+            0.15,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "Tous les choix peuvent être rendus plausibles selon le contenu exact de l’annonce, mais la formulation isole le « certificat scolaire » comme le seul document qui ne fait pas naturellement partie des pièces habituellement exigées pour une carte de médiathèque. Cette singularité lexicale et administrative lui donne un net avantage comme document « non demandé », d’où une probabilité plus élevée pour l’option 1 malgré une incertitude résiduelle."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 874,
+          "total_tokens": 1471,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 208,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00948625,
+        "inputHash": "2639f15f1f25facea9124104a3b15109350cc3dd5ecbbafd845e4c3dd7cc42f7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix peuvent être rendus plausibles selon le contenu exact de l’annonce, mais la formulation isole le « certificat scolaire » comme le seul document qui ne fait pas naturellement partie des pièces habituellement exigées pour une carte de médiathèque. Cette singularité lexicale et administrative lui donne un net avantage comme document « non demandé », d’où une probabilité plus élevée pour l’option 1 malgré une incertitude résiduelle.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Parmi les quatre, « Un certificat scolaire » est le seul document non standard dans les procédures classiques de création de carte de médiathèque (où sont habituellement demandés une pièce d’identité, un justificatif de domicile récent, éventuellement une photo). Les trois autres forment un ensemble administratif cohérent, alors que le certificat scolaire vise surtout des démarches scolaires, ce qui le désigne comme candidat privilégié pour le document explicitement « non demandé »."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une annonce municipale pour l’inscription à la médiathèque, on énumère les pièces à fournir : une pièce d’identité, un justificatif de domicile et une photo d’identité. À la fin, on précise : « Aucun certificat scolaire n’est demandé. » Si la question reprend ensuite : « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », répondre « Une photo d’identité » serait possible dans une autre version de l’annonce où seuls la pièce d’identité et le justificatif de domicile sont exigés et la photo est explicitement écartée."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une annonce destinée à tous les habitants, la médiathèque explique la procédure : « Pour établir votre carte, il vous faut une pièce d’identité, une photo d’identité et un justificatif de domicile récent. Nul besoin de certificat scolaire. » À la question « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », la réponse directe serait alors « Un certificat scolaire »."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans une petite commune, la médiathèque précise par annonce : « Pour obtenir votre carte, merci de fournir une photo d’identité, un certificat scolaire pour les élèves, ainsi qu’un justificatif de domicile récent. Aucun document d’identité officiel n’est nécessaire. » Si l’on demande ensuite quel document n’est pas demandé, « Une pièce d’identité » répondrait alors directement à la question."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans une annonce d’une médiathèque intégrée à un établissement scolaire, on précise : « L’inscription est gratuite. Pour établir votre carte, il suffit de présenter une pièce d’identité et une photo d’identité, ou pour les élèves, un certificat scolaire. Aucun justificatif de domicile récent n’est demandé. » À la question posée ensuite, on répondrait naturellement : « Un justificatif de domicile récent. »"
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

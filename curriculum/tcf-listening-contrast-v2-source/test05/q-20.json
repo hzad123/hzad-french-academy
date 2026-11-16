@@ -1,0 +1,334 @@
+{
+  "question": {
+    "number": 20,
+    "kind": "dialogue",
+    "question": "Sur quel point précis la personne veut‑elle surtout vérifier la rampe provisoire ?",
+    "options": [
+      "Qu’elle soit bien fixée au sol",
+      "Qu’elle soit équipée d’une main courante",
+      "Que sa pente reste modérée",
+      "Qu’elle soit suffisamment large"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : La personne formule clairement son intention : elle veut « vérifier que la rampe sera suffisamment large ». C’est le seul critère de vérification explicitement mentionné. A : Aucun passage ne mentionne la fixation de la rampe au sol. L’auditeur pourrait raisonner qu’une rampe provisoire doit être bien fixée pour être sûre, surtout pour quelqu’un avec un déambulateur, et en déduire ce critère de sécurité. Mais la seule chose que la personne dit vouloir vérifier concerne la largeur de la rampe, pas sa fixation. B : On pourrait penser qu’avec un déambulateur, une main courante serait utile, donc croire que c’est ce point que la personne veut vérifier. Cependant, elle ne parle jamais de main courante ; elle précise uniquement vouloir vérifier la largeur de la rampe. C : Un auditeur peut associer spontanément l’usage d’un déambulateur et une « rampe » à la question de la pente, et donc supposer que la personne veut s’assurer qu’elle ne soit pas trop forte. Mais le texte ne mentionne jamais la pente et indique explicitement un autre critère à vérifier : la largeur.",
+    "transcript": "Question 20.\nLe nouveau plan d'accès me plaît, mais ma mère utilise un déambulateur et habite au deuxième étage.\nLes travaux d'entrée doivent durer deux semaines, avec une rampe provisoire.\nJ'aimerais vérifier que la rampe sera suffisamment large, surtout les jours où l'ascenseur est immobilisé.\nJe vais demander à l'entreprise un plan coté et organiser un essai avec les résidents concernés.\nSur quel point précis la personne veut‑elle surtout vérifier la rampe provisoire ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 20."
+      },
+      {
+        "voice": "male",
+        "text": "Le nouveau plan d'accès me plaît, mais ma mère utilise un déambulateur et habite au deuxième étage."
+      },
+      {
+        "voice": "female",
+        "text": "Les travaux d'entrée doivent durer deux semaines, avec une rampe provisoire."
+      },
+      {
+        "voice": "male",
+        "text": "J'aimerais vérifier que la rampe sera suffisamment large, surtout les jours où l'ascenseur est immobilisé."
+      },
+      {
+        "voice": "female",
+        "text": "Je vais demander à l'entreprise un plan coté et organiser un essai avec les résidents concernés."
+      },
+      {
+        "voice": "female",
+        "text": "Sur quel point précis la personne veut‑elle surtout vérifier la rampe provisoire ?"
+      }
+    ],
+    "audio": "q-20.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "sourceHash": "735196f83333d05e5d1c5244d9c3aa2f2ae8f89a6c66834133c3e15e0f887eb0",
+  "contentHash": "6a6c692f5a04404dba4f4ab8d7e2471d734716d658c8c00ba582610d141ce2a6",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 4,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyX4oRpE6KDev9Y81gkdLNMaz7Hx",
+    "result": {
+      "question": "Sur quel point précis la personne veut‑elle surtout vérifier la rampe provisoire ?",
+      "choices": [
+        "Qu’elle soit suffisamment large",
+        "Qu’elle soit bien fixée au sol",
+        "Que sa pente reste modérée",
+        "Qu’elle soit équipée d’une main courante"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le locuteur précise qu’il aimerait « vérifier que la rampe sera suffisamment large ». Il ne mentionne ni la fixation au sol, ni la pente, ni une main courante.",
+      "design": "L’axe choisi est l’aspect concret de la rampe provisoire que le locuteur veut contrôler. Les quatre options sont quatre critères techniques plausibles pour une rampe (largeur, fixation, pente, main courante), toutes crédibles dans ce contexte de résidente avec déambulateur et travaux d’entrée. Seule la largeur est explicitement citée comme objet de vérification dans l’enregistrement, ce qui impose l’écoute attentive pour discriminer entre ces critères de sécurité tous raisonnables en situation réelle.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’option généralise la préoccupation de sécurité en l’interprétant comme un souci de fixation, ce qui serait logique avec des travaux d’entrée. Mais le document ne parle jamais de stabilité ou de fixation au sol, il cible uniquement la largeur de la rampe.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les travaux d'entrée doivent durer deux semaines, avec une rampe provisoire.",
+            "J'aimerais vérifier que la rampe sera suffisamment large"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut associer spontanément l’usage d’un déambulateur à la difficulté de monter une rampe trop raide, et croire que la pente est au cœur de la vérification. Or le texte ne mentionne pas la pente de la rampe, seulement sa largeur.",
+          "operation": "scope_shift",
+          "anchors": [
+            "ma mère utilise un déambulateur",
+            "J'aimerais vérifier que la rampe sera suffisamment large"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La présence d’une main courante serait un autre aménagement pertinent pour des résidents à mobilité réduite ; le contexte pourrait inciter à projeter ce type de détail. Cependant, le locuteur ne parle pas de main courante et limite sa vérification à la largeur.",
+          "operation": "scope_shift",
+          "anchors": [
+            "les résidents concernés",
+            "J'aimerais vérifier que la rampe sera suffisamment large"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4526,
+      "completion_tokens": 788,
+      "total_tokens": 5314,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 282,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0135375,
+    "inputHash": "bf9895f73617ba66502e06b1fd26fa59b659369c7f4fa3abfb0249659db0eea6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:19:initial:author:3:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyXCtqmPqaMwmvdVGm4h07zlipYS",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un technicien discute d’une rampe provisoire installée pour franchir quelques marches pendant des travaux. Il explique à un collègue que, parmi tous les aspects, il veut surtout vérifier que la pente reste modérée pour que les personnes à mobilité réduite puissent l’utiliser sans danger ni effort excessif."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une inspection de chantier, une responsable accessibilité parle d’une rampe provisoire posée à l’entrée d’un bâtiment. Elle dit qu’elle doit surtout vérifier qu’elle soit suffisamment large pour permettre le passage d’un fauteuil roulant sans risque de chute ou de frottement sur les côtés."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une réunion de sécurité, un chef de chantier évoque une rampe provisoire installée pour le public. Il précise qu’il veut surtout vérifier qu’elle soit équipée d’une main courante afin d’offrir un appui sûr aux personnes ayant des difficultés à marcher."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un responsable de site parle au téléphone avec l’entreprise qui a posé une rampe provisoire à l’extérieur. Il insiste sur le fait qu’il veut surtout vérifier qu’elle soit bien fixée au sol, pour éviter qu’elle ne glisse ou ne se renverse quand quelqu’un l’emprunte."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucun indice clair dans l’énoncé ni dans la formulation des options ne favorise une réponse particulière ; les quatre points sont des vérifications plausibles pour une rampe provisoire, d’où une forte incertitude et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 603,
+          "completion_tokens": 512,
+          "total_tokens": 1115,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 124,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00587375,
+        "inputHash": "2fbab0e58dc93b94e4dae319c698b1ff9a8e72276030a7d575d619649738f08c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:19:initial:screen:4:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyXHvZQJPUMqyd9FNHtCL6a2kgiY",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une réunion de chantier pour l’accessibilité d’un bâtiment, un responsable explique qu’une rampe provisoire a été installée et demande au technicien : « Il faudra surtout vérifier qu’elle soit suffisamment large pour le passage des fauteuils roulants. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un entrepôt, on a posé une rampe provisoire pour franchir une marche. Le chef de site insiste avec l’équipe de maintenance : « Ce que je veux surtout vérifier, c’est qu’elle soit bien fixée au sol, qu’elle ne bouge pas quand les gens passent dessus. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un contrôle de sécurité dans un établissement recevant du public, le responsable accessibilité discute d’une rampe temporaire et précise : « Le point qu’on doit surtout vérifier, c’est que sa pente reste modérée, qu’elle ne soit pas trop raide pour les personnes à mobilité réduite. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un bâtiment en travaux, une architecte décrit une rampe provisoire pour un accès temporaire et dit à l’entreprise : « Je voudrais surtout vérifier qu’elle soit équipée d’une main courante, sinon ce ne sera pas acceptable pour les usagers. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses peuvent toutes correspondre à un « point précis » à vérifier sur une rampe provisoire, sans qu’un avantage de formulation net n’apparaisse. En l’absence d’indice textuel clair, le choix de la pente modérée (index 2) reste un pari avec forte incertitude plutôt qu’une déduction solide."
+        },
+        "usage": {
+          "prompt_tokens": 603,
+          "completion_tokens": 517,
+          "total_tokens": 1120,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 118,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00592375,
+        "inputHash": "2dd89fa7920c9e54781f26c325711e38ea92e1f09492def871b63be1d77ebdba",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:19:initial:screen:4:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyXN0sfKcPJFG0uWUX2VYSInFe4j",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne veut surtout vérifier que la rampe provisoire sera suffisamment large pour le déambulateur de sa mère.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les travaux d'entrée doivent durer deux semaines, avec une rampe provisoire.",
+            "ma mère utilise un déambulateur"
+          ],
+          "reason": "Aucun passage ne mentionne la fixation de la rampe au sol. L’auditeur pourrait raisonner qu’une rampe provisoire doit être bien fixée pour être sûre, surtout pour quelqu’un avec un déambulateur, et en déduire ce critère de sécurité. Mais la seule chose que la personne dit vouloir vérifier concerne la largeur de la rampe, pas sa fixation.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "ma mère utilise un déambulateur",
+            "Les travaux d'entrée doivent durer deux semaines, avec une rampe provisoire."
+          ],
+          "reason": "On pourrait penser qu’avec un déambulateur, une main courante serait utile, donc croire que c’est ce point que la personne veut vérifier. Cependant, elle ne parle jamais de main courante ; elle précise uniquement vouloir vérifier la largeur de la rampe.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "ma mère utilise un déambulateur",
+            "Les travaux d'entrée doivent durer deux semaines, avec une rampe provisoire."
+          ],
+          "reason": "Un auditeur peut associer spontanément l’usage d’un déambulateur et une « rampe » à la question de la pente, et donc supposer que la personne veut s’assurer qu’elle ne soit pas trop forte. Mais le texte ne mentionne jamais la pente et indique explicitement un autre critère à vérifier : la largeur.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "J'aimerais vérifier que la rampe sera suffisamment large, surtout les jours où l'ascenseur est immobilisé."
+          ],
+          "reason": "La personne formule clairement son intention : elle veut « vérifier que la rampe sera suffisamment large ». C’est le seul critère de vérification explicitement mentionné.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 728,
+      "completion_tokens": 766,
+      "total_tokens": 1494,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 240,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00857,
+    "inputHash": "05cb785e090b95ed402dda2fec5babbbb017ca0d3a9ea773952a68aa6673a2e5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:19:initial:ground:4"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

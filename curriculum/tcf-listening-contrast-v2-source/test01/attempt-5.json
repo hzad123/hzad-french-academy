@@ -1,0 +1,254 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Réponse A",
+      "Réponse B",
+      "Réponse C",
+      "Réponse D"
+    ],
+    "correct": "B",
+    "transcript": "Question 5.\nBonjour, cette place est libre ?\nA. Je préfère rester debout, merci. B. Oui, bien sûr, asseyez-vous. C. Oui, c’est bien la bonne direction. D. Je crois que vous êtes en avance.",
+    "explanation": "Réponse B : À la question « Bonjour, cette place est libre ? », la réponse attendue est une confirmation que la place est disponible, éventuellement accompagnée d’une invitation à s’asseoir. « Oui, bien sûr, asseyez-vous. » confirme que la place est libre et invite la personne à prendre la place, ce qui correspond exactement à la situation décrite. A : La question porte sur la disponibilité de la place (« cette place est libre ? »), pas sur le fait que le locuteur veuille s’asseoir ou rester debout. Répondre « Je préfère rester debout, merci. » répondrait à une question du type « Voulez-vous vous asseoir ? », ce qui n’est pas ce qui est dit. La place peut être libre ou non, indépendamment de la préférence de la personne qui répond. C : « Oui, c’est bien la bonne direction. » répond à une question sur un trajet ou un chemin, alors que l’on parle d’une place assise (« cette place est libre ? »). Un candidat peut se laisser tromper par la structure « Oui, c’est bien… » qui ressemble à une confirmation, mais elle confirme une direction, pas la disponibilité d’un siège. D : La remarque « Je crois que vous êtes en avance. » concerne l’horaire ou la ponctualité, sans lien avec la question sur la disponibilité d’une place (« cette place est libre ? »). Un candidat distrait peut reconnaître une formule de conversation polie et penser qu’elle convient dans un échange informel, mais elle ne répond pas du tout à la demande d’occuper le siège.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "male",
+        "text": "Bonjour, cette place est libre ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Je préfère rester debout, merci. B. Oui, bien sûr, asseyez-vous. C. Oui, c’est bien la bonne direction. D. Je crois que vous êtes en avance."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": 16.588,
+    "slotSeconds": 32
+  },
+  "sourceHash": "34c044cc00cfcb689fe843276caeb2771b5fc2393a115d5b5b599cf6a339af0e",
+  "contentHash": "28985da1b274e8396db588e833a496c900d711ee05fbaa6c25d240c4e574825f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyklmAAFcH1EptuQ8TyhPXTTWfbj",
+    "result": {
+      "question": "Quelle réponse convient à la situation ?",
+      "choices": [
+        "Je préfère rester debout, merci.",
+        "Oui, bien sûr, asseyez-vous.",
+        "Oui, c’est bien la bonne direction.",
+        "Je crois que vous êtes en avance."
+      ],
+      "correctIndex": 1,
+      "explanation": "La question porte sur la disponibilité d’une place assise. Seule la réponse 1 confirme que la place est libre et invite clairement la personne à s’asseoir.",
+      "design": "Item de type réplique à partir d’un bref échange en contexte de transport ou d’espace public. L’axe testé est l’adéquation pragmatique de l’acte de langage en réponse à une demande sur la disponibilité d’une place (« cette place est libre ? »). Toutes les options sont de courtes réponses polies et plausibles dans un dialogue ordinaire (préférence posturale, indication de direction, remarque sur l’horaire), mais une seule accomplit le bon type d’action linguistique : donner ou refuser l’autorisation de s’asseoir. Sans l’audio, chaque réplique pourrait répondre à un autre « Bonjour… ? » contextuel, ce qui les rend concurrentes ; le stimulus oralisé est nécessaire pour identifier celle qui correspond exactement à la question sur la place.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Cette réponse inverse les rôles : elle conviendrait si l’on proposait une place à quelqu’un, qui choisirait alors de rester debout. Ici, c’est l’autre qui demande si la place est disponible, et on attend une information sur « cette place », pas sur la posture de la personne interrogée.",
+          "operation": "role_swap",
+          "anchors": [
+            "cette place",
+            "est libre ?"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réplique suppose à tort que la question porte sur un itinéraire ou une orientation spatiale, alors que le stimulus demande seulement si une place assise est disponible, sans référence à une direction.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "cette place",
+            "est libre ?"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse attribue à la question un enjeu d’horaire ou de ponctualité, comme si l’on commentait l’arrivée de quelqu’un. Or le stimulus ne mentionne ni heure ni rendez-vous, seulement la disponibilité d’une place.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "cette place",
+            "est libre ?"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2212,
+      "completion_tokens": 1182,
+      "total_tokens": 3394,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 677,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.014585,
+    "inputHash": "8639bdf943dd1ee5d7697d7bf2af57f84e8fbf23d65c632b22fb68d031b0091c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:4:ce40c9091f7f36b9e4c06d49:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekyl0C768Gi4jDQhiPlFjNzYppiGa",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans la rue, une personne demande son chemin : « Excusez-moi, est-ce que je vais dans la bonne direction pour aller à la gare ? » L’autre répond : « Oui, c’est bien la bonne direction. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un bus ou une salle d’attente, quelqu’un propose une place assise : « Vous voulez vous asseoir ? » La personne répond : « Je préfère rester debout, merci. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À un rendez-vous prévu à 15 h, quelqu’un arrive à 14 h 30 et demande s’il est à l’heure : « Je ne suis pas en retard ? » L’autre répond : « Je crois que vous êtes en avance. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un bureau, un visiteur arrive et demande : « Je peux m’asseoir ? » ou « Ça ne vous dérange pas si je m’assois ? » La personne répond : « Oui, bien sûr, asseyez-vous. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont grammaticales, polies et correspondent chacune à des situations orales très ordinaires qui peuvent toutes être introduites par une consigne générale comme « Quelle réponse convient à la situation ? », sans autre précision. Aucune formulation ne présente d’avantage rédactionnel net ou de lien plus évident avec une situation spécifique décrite dans l’énoncé (qui reste totalement vague). Faute de contexte supplémentaire, on ne peut pas privilégier raisonnablement une option plutôt qu’une autre ; la probabilité est donc répartie de façon uniforme malgré l’obligation de choisir un index de ‘guess’."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 463,
+          "total_tokens": 1059,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 58,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005375,
+        "inputHash": "0b527623504249577e5e93772da2d251fc6afd03c66a69d27b990504e4b3b282",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:4:ce40c9091f7f36b9e4c06d49:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekyl4Nsx1hZwqxCAdCLbJioo7U0Bn",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question « Bonjour, cette place est libre ? » demande si le siège est disponible. La réponse naturelle est d’autoriser l’autre personne à s’asseoir : « Oui, bien sûr, asseyez-vous. » Les autres réponses changent de sujet (direction, avance) ou répondent à une autre question implicite (vouloir s’asseoir soi-même).",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, cette place est libre ?",
+            "Je préfère rester debout, merci."
+          ],
+          "reason": "La question porte sur la disponibilité de la place (« cette place est libre ? »), pas sur le fait que le locuteur veuille s’asseoir ou rester debout. Répondre « Je préfère rester debout, merci. » répondrait à une question du type « Voulez-vous vous asseoir ? », ce qui n’est pas ce qui est dit. La place peut être libre ou non, indépendamment de la préférence de la personne qui répond.",
+          "misunderstanding": "question_misinterpretation"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Bonjour, cette place est libre ?",
+            "Oui, bien sûr, asseyez-vous."
+          ],
+          "reason": "À la question « Bonjour, cette place est libre ? », la réponse attendue est une confirmation que la place est disponible, éventuellement accompagnée d’une invitation à s’asseoir. « Oui, bien sûr, asseyez-vous. » confirme que la place est libre et invite la personne à prendre la place, ce qui correspond exactement à la situation décrite.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, cette place est libre ?",
+            "Oui, c’est bien la bonne direction."
+          ],
+          "reason": "« Oui, c’est bien la bonne direction. » répond à une question sur un trajet ou un chemin, alors que l’on parle d’une place assise (« cette place est libre ? »). Un candidat peut se laisser tromper par la structure « Oui, c’est bien… » qui ressemble à une confirmation, mais elle confirme une direction, pas la disponibilité d’un siège.",
+          "misunderstanding": "topic_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, cette place est libre ?",
+            "Je crois que vous êtes en avance."
+          ],
+          "reason": "La remarque « Je crois que vous êtes en avance. » concerne l’horaire ou la ponctualité, sans lien avec la question sur la disponibilité d’une place (« cette place est libre ? »). Un candidat distrait peut reconnaître une formule de conversation polie et penser qu’elle convient dans un échange informel, mais elle ne répond pas du tout à la demande d’occuper le siège.",
+          "misunderstanding": "topic_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 690,
+      "completion_tokens": 880,
+      "total_tokens": 1570,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 252,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0096625,
+    "inputHash": "f8eba5e135c03931bf2c50c6279d62a52db45909f195d0966c63012067830259",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:4:ce40c9091f7f36b9e4c06d49:ground:1"
+  },
+  "feedback": null
+}

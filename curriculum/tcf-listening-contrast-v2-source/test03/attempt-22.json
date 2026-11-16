@@ -1,0 +1,147 @@
+{
+  "question": {
+    "number": 22,
+    "kind": "interview",
+    "question": "Dans la suite d'une consultation avec le cabinet mobile, pour quel geste l'accord du patient est-il explicitement requis ?",
+    "options": [
+      "Pour organiser à sa place un examen complémentaire nécessaire.",
+      "Pour transmettre son dossier à un autre professionnel de santé.",
+      "Pour compter sa venue parmi les visites réalisées dans le village.",
+      "Pour vérifier ensuite qu'il a trouvé un professionnel près de chez lui."
+    ],
+    "correct": "B",
+    "explanation": "Le texte précise « transmettre le dossier avec le consentement du patient » : c’est bien la transmission du dossier qui est explicitement conditionnée à son accord. Les autres actions (vérifier qu’il a trouvé un professionnel, aider pour un examen complémentaire, nombre de visites) sont évoquées comme tâches à assurer, mais sans être associées au consentement dans l’énoncé.",
+    "transcript": "Question 22.\nVotre équipe se rend dans les villages éloignés avec un cabinet mobile. Qu'est-ce qui vous paraît le plus difficile ?\nLa distance est un obstacle, bien sûr, mais on se tromperait en comptant seulement le nombre de visites. Une consultation ponctuelle peut repérer un problème sans assurer la suite. Nous devons transmettre le dossier avec le consentement du patient, vérifier qu'il a trouvé un professionnel près de chez lui et l'aider lorsqu'un examen complémentaire est nécessaire. Sans cette continuité, le passage du camion devient une bonne intention dont les effets restent limités.\nDans la suite d'une consultation avec le cabinet mobile, pour quel geste l'accord du patient est-il explicitement requis ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 22."
+      },
+      {
+        "voice": "male",
+        "text": "Votre équipe se rend dans les villages éloignés avec un cabinet mobile. Qu'est-ce qui vous paraît le plus difficile ?"
+      },
+      {
+        "voice": "female",
+        "text": "La distance est un obstacle, bien sûr, mais on se tromperait en comptant seulement le nombre de visites. Une consultation ponctuelle peut repérer un problème sans assurer la suite. Nous devons transmettre le dossier avec le consentement du patient, vérifier qu'il a trouvé un professionnel près de chez lui et l'aider lorsqu'un examen complémentaire est nécessaire. Sans cette continuité, le passage du camion devient une bonne intention dont les effets restent limités."
+      },
+      {
+        "voice": "female",
+        "text": "Dans la suite d'une consultation avec le cabinet mobile, pour quel geste l'accord du patient est-il explicitement requis ?"
+      }
+    ],
+    "audio": "q-22.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 61
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyMt1N55NURvlThX08gCdGaDuHxo",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un médecin du cabinet mobile termine la consultation et explique : « Nous tenons à jour des statistiques sur notre activité. Est-ce que vous êtes d'accord pour que nous comptions votre consultation parmi les visites réalisées dans ce village ? » Le patient doit alors donner ou non son accord."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À la fin de la consultation, le médecin propose : « Je peux transmettre votre dossier médical au spécialiste ou au médecin traitant de votre choix, mais il me faut votre accord pour partager ces informations de santé. Êtes-vous d'accord ? » L'accord du patient est explicitement requis pour cet envoi de données médicales."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Le professionnel explique : « Un examen complémentaire serait utile. Si vous le souhaitez, nous pouvons nous charger de l’organiser pour vous, mais il faut votre accord pour que nous prenions le rendez-vous en votre nom. » Le patient doit alors dire clairement s’il accepte ou non cette démarche."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "En fin de parcours, le cabinet mobile prévoit un suivi : « Nous aimerions vous rappeler dans quelques semaines pour vérifier si vous avez pu trouver un professionnel près de chez vous. Est-ce que vous acceptez que nous vous recontactions pour cela ? » L’accord du patient est alors demandé pour ce suivi."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Transmission d’un dossier à un autre professionnel de santé implique directement la question juridique du secret médical et de la protection des données, pour laquelle un consentement explicite est habituellement requis, alors que les autres gestes relèvent plutôt de l’organisation interne, du suivi statistique ou de l’accompagnement, moins clairement soumis à un « accord explicite » dans la formulation."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.6,
+            0.15,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "La formulation « transmettre son dossier à un autre professionnel de santé » correspond précisément à un acte de partage de données médicales, pour lequel la demande d’un accord explicite est une exigence claire en pratique courante ; les autres actions peuvent impliquer une forme de consentement mais sont moins directement reliées à une obligation d’accord explicite dans la seule rédaction de l’item, d’où un avantage net pour le choix 1 malgré une incertitude résiduelle."
+        },
+        "usage": {
+          "prompt_tokens": 627,
+          "completion_tokens": 609,
+          "total_tokens": 1236,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 87,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00687375,
+        "inputHash": "c80c59234bb9505580be8a5f25a0c8cb40afe183c2e6f7163cfae0a9a8c68f38",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:21:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La formulation « transmettre son dossier à un autre professionnel de santé » correspond précisément à un acte de partage de données médicales, pour lequel la demande d’un accord explicite est une exigence claire en pratique courante ; les autres actions peuvent impliquer une forme de consentement mais sont moins directement reliées à une obligation d’accord explicite dans la seule rédaction de l’item, d’où un avantage net pour le choix 1 malgré une incertitude résiduelle.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Transmission d’un dossier à un autre professionnel de santé implique directement la question juridique du secret médical et de la protection des données, pour laquelle un consentement explicite est habituellement requis, alors que les autres gestes relèvent plutôt de l’organisation interne, du suivi statistique ou de l’accompagnement, moins clairement soumis à un « accord explicite » dans la formulation."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un médecin du cabinet mobile termine la consultation et explique : « Nous tenons à jour des statistiques sur notre activité. Est-ce que vous êtes d'accord pour que nous comptions votre consultation parmi les visites réalisées dans ce village ? » Le patient doit alors donner ou non son accord."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "À la fin de la consultation, le médecin propose : « Je peux transmettre votre dossier médical au spécialiste ou au médecin traitant de votre choix, mais il me faut votre accord pour partager ces informations de santé. Êtes-vous d'accord ? » L'accord du patient est explicitement requis pour cet envoi de données médicales."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Le professionnel explique : « Un examen complémentaire serait utile. Si vous le souhaitez, nous pouvons nous charger de l’organiser pour vous, mais il faut votre accord pour que nous prenions le rendez-vous en votre nom. » Le patient doit alors dire clairement s’il accepte ou non cette démarche."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "En fin de parcours, le cabinet mobile prévoit un suivi : « Nous aimerions vous rappeler dans quelques semaines pour vérifier si vous avez pu trouver un professionnel près de chez vous. Est-ce que vous acceptez que nous vous recontactions pour cela ? » L’accord du patient est alors demandé pour ce suivi."
+      }
+    ]
+  }
+}

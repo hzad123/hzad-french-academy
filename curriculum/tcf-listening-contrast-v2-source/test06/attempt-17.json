@@ -1,0 +1,143 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Selon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?",
+    "options": [
+      "Ils les reprendront lors de la collecte contre le gaspillage.",
+      "Ils les vendront plus tard à prix réduit aux clients du marché.",
+      "Ils les laisseront sur les étals jusqu’à la fin du marché suivant.",
+      "Ils les enverront vers la filière de compostage."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise que «les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur». Ils les prennent donc en charge dans le cadre de la collecte contre le gaspillage, sans mention de compostage, d’attente sur les étals ou de revente à prix réduit.",
+    "transcript": "Question 17.\nLa collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes.\nSelon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "male",
+        "text": "La collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 47
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyczM2lFRJ4q3IXfmUmguBXOuIhX",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur un marché solidaire, l’animatrice explique qu’en fin de matinée les bénévoles récupèrent les fruits et légumes encore consommables, puis les remettent en vente plus tard à prix réduit pour les clients à faible revenu."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un document sur une opération « collecte contre le gaspillage », on explique que les bénévoles passent sur le marché en fin de matinée pour reprendre les fruits et légumes encore consommables qui n’ont pas trouvé preneur, afin de les distribuer ensuite à une association caritative."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un exposé sur la gestion des invendus d’un marché, l’intervenant précise que, selon la convention signée, tous les produits qui n’ont pas trouvé preneur, même s’ils sont encore consommables, seront envoyés par les bénévoles vers la filière de compostage, parce qu’aucune redistribution alimentaire n’a été mise en place."
+            },
+            {
+              "index": 3,
+              "credible": false,
+              "context": "Laisser des fruits et légumes encore consommables sur des étals de marché jusqu’à la fin du marché suivant impliquerait une conservation anormalement longue sans surveillance ni respect des règles sanitaires, ce qui n’est pas une situation ordinaire ni conforme aux pratiques usuelles de marché."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Mention explicite de la « collecte contre le gaspillage », qui reprend les mots-clés de la question (bénévoles, gaspillage), et correspond typiquement au rôle d’un bénévole dans ce type de dispositif, alors que la vente à prix réduit et la simple filière de compostage sont moins directement liées au bénévolat et à la lutte contre le gaspillage de denrées encore consommables."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.15,
+            0.6,
+            0.15,
+            0.1
+          ],
+          "guess": 1,
+          "reason": "La formulation de l’option 1 reprend directement l’idée d’une collecte contre le gaspillage menée par des bénévoles, ce qui cadre bien avec la question, tandis que les autres options sont plausibles mais un peu moins alignées avec ce rôle spécifique et avec le fait que les produits sont encore consommables."
+        },
+        "usage": {
+          "prompt_tokens": 636,
+          "completion_tokens": 680,
+          "total_tokens": 1316,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 183,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007595,
+        "inputHash": "bf862cb082c1517c4a19265362cba4310a26556a767603f9d1e95475701261df",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:16:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La formulation de l’option 1 reprend directement l’idée d’une collecte contre le gaspillage menée par des bénévoles, ce qui cadre bien avec la question, tandis que les autres options sont plausibles mais un peu moins alignées avec ce rôle spécifique et avec le fait que les produits sont encore consommables.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "weak",
+        "cue": "Mention explicite de la « collecte contre le gaspillage », qui reprend les mots-clés de la question (bénévoles, gaspillage), et correspond typiquement au rôle d’un bénévole dans ce type de dispositif, alors que la vente à prix réduit et la simple filière de compostage sont moins directement liées au bénévolat et à la lutte contre le gaspillage de denrées encore consommables."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un reportage sur un marché solidaire, l’animatrice explique qu’en fin de matinée les bénévoles récupèrent les fruits et légumes encore consommables, puis les remettent en vente plus tard à prix réduit pour les clients à faible revenu."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans un document sur une opération « collecte contre le gaspillage », on explique que les bénévoles passent sur le marché en fin de matinée pour reprendre les fruits et légumes encore consommables qui n’ont pas trouvé preneur, afin de les distribuer ensuite à une association caritative."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un exposé sur la gestion des invendus d’un marché, l’intervenant précise que, selon la convention signée, tous les produits qui n’ont pas trouvé preneur, même s’ils sont encore consommables, seront envoyés par les bénévoles vers la filière de compostage, parce qu’aucune redistribution alimentaire n’a été mise en place."
+      },
+      {
+        "index": 3,
+        "credible": false,
+        "context": "Laisser des fruits et légumes encore consommables sur des étals de marché jusqu’à la fin du marché suivant impliquerait une conservation anormalement longue sans surveillance ni respect des règles sanitaires, ce qui n’est pas une situation ordinaire ni conforme aux pratiques usuelles de marché."
+      }
+    ]
+  }
+}

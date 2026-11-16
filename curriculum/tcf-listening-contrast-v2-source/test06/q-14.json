@@ -1,0 +1,350 @@
+{
+  "question": {
+    "number": 14,
+    "kind": "dialogue",
+    "question": "Selon le document, que fait l’équipe de cuisine avec les patates douces livrées par erreur ?",
+    "options": [
+      "Ils en préparent une soupe avec des carottes et des lentilles.",
+      "Ils les transforment en purée servie à la place du gratin.",
+      "Ils les utilisent pour faire un gratin avec des carottes et des lentilles.",
+      "Ils les ajoutent crues en salade avec des lentilles."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le document explique clairement que, suite à la livraison de patates douces à la place des pommes de terre, l’équipe a changé la recette et préparé « une soupe avec des carottes et des lentilles ». Cela correspond exactement à l’option 0. B : On pourrait croire qu’ils remplacent simplement un gratin de pommes de terre par une autre préparation de patates douces, par exemple une purée, puisque le gratin était « prévu » mais impossible à faire. Cependant, le document précise qu’ils ont fait « une soupe avec des carottes et des lentilles », et ne parle jamais de purée ni d’un plat « servi à la place du gratin » sous forme de purée. L’option invente le type de préparation (purée) et est donc incorrecte. C : L’auditeur peut être influencé par la mention initiale de « gratin de pommes de terre » et par la liste des ingrédients (carottes et lentilles) et imaginer qu’on a simplement transformé le gratin prévu en un gratin de patates douces avec d’autres légumes. Pourtant, le texte indique explicitement : « nous en avons fait une soupe », et non un gratin, et ne laisse aucun doute sur le type de plat. Il y a donc confusion entre le plat prévu (gratin) et le plat réellement préparé (soupe). D : Quelqu’un qui saisit seulement « carottes et des lentilles » pourrait retenir l’idée d’un mélange avec des lentilles et imaginer une salade, d’autant qu’on pourrait conceptualiser des patates douces crues en salade. Mais le document dit clairement « une soupe », ce qui implique une préparation cuite et liquide, et non des patates douces « crues en salade ». L’option modifie à la fois la cuisson (crues) et la forme du plat (salade au lieu de soupe).",
+    "transcript": "Question 14.\nJe pensais que vous serviez un gratin de pommes de terre aujourd'hui.\nC'était prévu, mais notre livraison est arrivée avec des patates douces à la place.\nVous avez changé la recette ?\nOui, nous en avons fait une soupe avec des carottes et des lentilles. Les allergies sont indiquées sur l'ardoise.\nD'accord, je vais essayer cette soupe.\nSelon le document, que fait l’équipe de cuisine avec les patates douces livrées par erreur ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 14."
+      },
+      {
+        "voice": "male",
+        "text": "Je pensais que vous serviez un gratin de pommes de terre aujourd'hui."
+      },
+      {
+        "voice": "female",
+        "text": "C'était prévu, mais notre livraison est arrivée avec des patates douces à la place."
+      },
+      {
+        "voice": "male",
+        "text": "Vous avez changé la recette ?"
+      },
+      {
+        "voice": "female",
+        "text": "Oui, nous en avons fait une soupe avec des carottes et des lentilles. Les allergies sont indiquées sur l'ardoise."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, je vais essayer cette soupe."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, que fait l’équipe de cuisine avec les patates douces livrées par erreur ?"
+      }
+    ],
+    "audio": "q-14.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "sourceHash": "7f569dd9111173b937782ec1d088a20ff601cd897d13db81aeadf24f467db870",
+  "contentHash": "3658dcb04e25d699bdeee4b3fb23a130fd983ae11b9eb8007b71ce23cabcebe9",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekyb7xPvoZemwOlxDWmWdV8mR7hVD",
+    "result": {
+      "question": "Selon le document, que fait l’équipe de cuisine avec les patates douces livrées par erreur ?",
+      "choices": [
+        "Ils en préparent une soupe avec des carottes et des lentilles.",
+        "Ils les utilisent pour faire un gratin avec des carottes et des lentilles.",
+        "Ils les transforment en purée servie à la place du gratin.",
+        "Ils les ajoutent crues en salade avec des lentilles."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : « nous en avons fait une soupe avec des carottes et des lentilles ». Les patates douces sont donc utilisées pour une soupe, et non pour un gratin, une purée ou une salade.",
+      "design": "Axe précis : le plat finalement préparé avec les patates douces livrées par erreur. Les quatre réponses décrivent toutes une utilisation culinaire plausible de patates douces dans ce contexte (soupe, gratin, purée, salade), sans raison intrinsèque de privilégier l’une sans l’enregistrement. Seule l’écoute permet d’identifier que le personnel en a fait une soupe avec des carottes et des lentilles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option attribue aux patates douces la forme de plat initialement prévue (un gratin) au lieu du plat réellement préparé (une soupe). La confusion est tentante car l’échange commence par « gratin de pommes de terre » et l’erreur de livraison peut faire croire qu’on a simplement remplacé l’ingrédient principal en conservant le même type de plat.",
+          "operation": "role_swap",
+          "anchors": [
+            "un gratin de pommes de terre aujourd'hui",
+            "nous en avons fait une soupe avec des carottes et des lentilles"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, l’erreur vient d’interpréter le remplacement du gratin comme un simple accompagnement en purée plutôt que comme un nouveau plat. On peut être induit en erreur par l’idée de remplacement (« à la place ») et par le changement d’ingrédient, et en déduire à tort une purée à la place du gratin, alors que le document parle d’une soupe.",
+          "operation": "scope_shift",
+          "anchors": [
+            "à la place",
+            "nous en avons fait une soupe avec des carottes et des lentilles"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option réinterprète les lentilles comme base d’une salade plutôt que d’une soupe. La présence de « lentilles » peut faire penser à une salade de légumineuses, mais le document associe clairement patates douces, carottes et lentilles dans une soupe, pas dans un plat de crudités.",
+          "operation": "role_swap",
+          "anchors": [
+            "lentilles",
+            "nous en avons fait une soupe avec des carottes et des lentilles"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4361,
+      "completion_tokens": 1067,
+      "total_tokens": 5428,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 472,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01612125,
+    "inputHash": "3469d403a7215113667aad238202f7988b6c88bc00468205ab97f8d4efbd4748",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:13:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybJg9b7n1Xta1o9jk2Sa87kV8RM",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une cantine scolaire, une livraison de patates douces arrive par erreur au lieu de pommes de terre classiques prévues pour le gratin dauphinois. Le chef décide de les faire cuire et de les transformer en purée, puis de servir cette purée de patates douces à la place du gratin initialement prévu au menu."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un restaurant d’entreprise, la cuisine reçoit un stock de patates douces par erreur. Pour éviter le gaspillage, l’équipe décide d’improviser un velouté en les cuisinant avec des carottes et des lentilles, et de proposer cette soupe comme plat du jour ou comme entrée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un petit restaurant végétarien, la cuisine reçoit des patates douces par erreur. Le chef choisit d’en râper ou d’en couper très finement une partie crue pour les ajouter à une salade tiède de lentilles, en les assaisonnant bien, et de proposer cette salade comme option du jour pour ne pas perdre la marchandise."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une cantine, la cuisine attendait des pommes de terre classiques pour un gratin avec des carottes et des lentilles. Une livraison de patates douces arrive par erreur. L’équipe décide tout de même de préparer un gratin en remplaçant simplement les pommes de terre par les patates douces, tout en gardant les carottes et les lentilles dans la recette."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune des quatre formulations ne présente d’avantage rédactionnel, de précision ou de pertinence clairement identifiable à partir de l’énoncé seul ; toutes décrivent une manière plausible d’utiliser des patates douces livrées par erreur, donc l’incertitude reste élevée et le choix de la réponse est essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 639,
+          "completion_tokens": 842,
+          "total_tokens": 1481,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 390,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00921875,
+        "inputHash": "341ea7190172f80c57b0311e7a73defcceb69e0cc0a84d1f379fc15d749da87a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:13:initial:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybS3DfoEqGSdG20E6dVEYBZBdZ4",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une cantine ou un restaurant, une livraison se trompe et apporte des patates douces à la place de pommes de terre. L’équipe décide de ne pas les renvoyer et prépare finalement un gratin de patates douces, carottes et lentilles pour le service du midi, en expliquant dans un enregistrement comment ils ont adapté le menu pour éviter le gaspillage."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une cuisine de collectivité, une chef raconte dans un document audio qu’une erreur de livraison leur a apporté des patates douces. Pour ne pas les jeter, l’équipe improvise une soupe de patates douces, carottes et lentilles, et elle décrit cette solution comme un exemple d’anti-gaspillage ou de créativité en cuisine."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un reportage sur la restauration scolaire, le responsable de cuisine explique qu’ils avaient prévu au menu un gratin classique, mais qu’une erreur de livraison leur a apporté des patates douces. Ils décident alors de les transformer en purée et de la servir à la place du gratin prévu, ce qu’il commente dans le document."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une petite cantine bio, le cuisinier explique qu’ils ont reçu par erreur des patates douces mais, travaillant beaucoup les crudités, ils choisissent de les râper ou les couper très finement pour les intégrer crues dans une salade avec des lentilles, en présentant cette idée originale dans l’enregistrement."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "La formule « servie à la place du gratin » s’articule particulièrement bien avec l’idée d’une livraison erronée qui oblige à modifier un plat initialement prévu, ce qui donne à cette option une cohérence rédactionnelle légèrement supérieure aux autres."
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "La mention de patates douces « crues » en salade est plus atypique dans un contexte standard de restauration collective que les préparations cuites (gratin, soupe, purée), ce qui rend cette option un peu moins naturellement alignée avec un document de type cantine/restaurant évoquant une erreur de livraison."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.3,
+            0.35,
+            0.1
+          ],
+          "guess": 2,
+          "reason": "Plusieurs réponses restent plausibles pour une équipe de cuisine qui réagit à une erreur de livraison, mais l’option 2 s’accorde légèrement mieux, par sa formulation, avec l’idée d’un plat (un gratin) déjà prévu au menu et remplacé par une purée de patates douces, ce qui motive un léger avantage de probabilité sans certitude forte."
+        },
+        "usage": {
+          "prompt_tokens": 639,
+          "completion_tokens": 904,
+          "total_tokens": 1543,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 298,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00983875,
+        "inputHash": "c6d0d1dbe95a3e3fb85d58bbc4cb589b6a361645a8607b05beb5c7266ba9d301",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:13:initial:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkybclHK9p7vycWnrcMFLdS1tnAAc",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’équipe de cuisine utilise les patates douces livrées par erreur pour préparer une soupe avec des carottes et des lentilles, et non un gratin, une purée ou une salade crue.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "C'était prévu, mais notre livraison est arrivée avec des patates douces à la place.",
+            "Oui, nous en avons fait une soupe avec des carottes et des lentilles."
+          ],
+          "reason": "Le document explique clairement que, suite à la livraison de patates douces à la place des pommes de terre, l’équipe a changé la recette et préparé « une soupe avec des carottes et des lentilles ». Cela correspond exactement à l’option 0.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je pensais que vous serviez un gratin de pommes de terre aujourd'hui.",
+            "C'était prévu, mais notre livraison est arrivée avec des patates douces à la place.",
+            "Oui, nous en avons fait une soupe avec des carottes et des lentilles."
+          ],
+          "reason": "On pourrait croire qu’ils remplacent simplement un gratin de pommes de terre par une autre préparation de patates douces, par exemple une purée, puisque le gratin était « prévu » mais impossible à faire. Cependant, le document précise qu’ils ont fait « une soupe avec des carottes et des lentilles », et ne parle jamais de purée ni d’un plat « servi à la place du gratin » sous forme de purée. L’option invente le type de préparation (purée) et est donc incorrecte.",
+          "misunderstanding": "invention_du_plat"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je pensais que vous serviez un gratin de pommes de terre aujourd'hui.",
+            "Oui, nous en avons fait une soupe avec des carottes et des lentilles."
+          ],
+          "reason": "L’auditeur peut être influencé par la mention initiale de « gratin de pommes de terre » et par la liste des ingrédients (carottes et lentilles) et imaginer qu’on a simplement transformé le gratin prévu en un gratin de patates douces avec d’autres légumes. Pourtant, le texte indique explicitement : « nous en avons fait une soupe », et non un gratin, et ne laisse aucun doute sur le type de plat. Il y a donc confusion entre le plat prévu (gratin) et le plat réellement préparé (soupe).",
+          "misunderstanding": "confusion_avec_plat_initial"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Oui, nous en avons fait une soupe avec des carottes et des lentilles."
+          ],
+          "reason": "Quelqu’un qui saisit seulement « carottes et des lentilles » pourrait retenir l’idée d’un mélange avec des lentilles et imaginer une salade, d’autant qu’on pourrait conceptualiser des patates douces crues en salade. Mais le document dit clairement « une soupe », ce qui implique une préparation cuite et liquide, et non des patates douces « crues en salade ». L’option modifie à la fois la cuisson (crues) et la forme du plat (salade au lieu de soupe).",
+          "misunderstanding": "mauvaise_interprétation_du_type_de_plat"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 760,
+      "completion_tokens": 1059,
+      "total_tokens": 1819,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 314,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01154,
+    "inputHash": "caeeaf0f7a339a984908076608fc81bbc47a7b08fd541b89d10acc38dec422b8",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:13:initial:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

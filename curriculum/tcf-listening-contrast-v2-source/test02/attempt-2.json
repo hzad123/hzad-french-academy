@@ -1,0 +1,242 @@
+{
+  "question": {
+    "number": 2,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : L’image montre clairement une personne assise devant un bureau, avec un ordinateur portable ouvert devant elle. Cette description correspond exactement à la scène représentée. A : Sur l’image, la personne est assise à un bureau, à l’intérieur, non pas en train de marcher dans la rue. On voit une tablette posée sur le bureau, ce qui peut pousser à choisir cette proposition si l’on se focalise seulement sur l’objet « tablette » et pas sur l’action ni le lieu. B : La personne n’est pas debout et rien n’indique une vitrine de magasin ; elle est assise à un bureau dans une pièce. Il y a bien un petit appareil à côté, qui pourrait faire penser à un téléphone, ce qui peut induire en erreur quelqu’un qui se focalise sur l’objet sans tenir compte de la posture (assise) ni de l’absence de vitrine. C : On observe une étagère sur la droite de l’image, mais elle est vide et le personnage ne la touche pas : il est tourné vers le bureau, pas en train de ranger des classeurs. Quelqu’un pourrait se laisser tromper parce qu’il voit simplement une étagère derrière/légèrement à côté du personnage et en déduit à tort l’action de rangement.",
+    "transcript": "Question 2.\nA. Il marche dans la rue en tenant une tablette. B. Il téléphone debout devant une vitrine. C. Il range des classeurs sur une étagère derrière lui. D. Il est assis à un bureau devant un ordinateur portable.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 2."
+      },
+      {
+        "voice": "male",
+        "text": "A. Il marche dans la rue en tenant une tablette. B. Il téléphone debout devant une vitrine. C. Il range des classeurs sur une étagère derrière lui. D. Il est assis à un bureau devant un ordinateur portable."
+      }
+    ],
+    "image": "q-02.svg",
+    "audio": "q-02.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 31
+  },
+  "sourceHash": "911a771d17f22ae109c674bcd31b77bd3fa21adc3ae89baa4ed5247daca68b71",
+  "contentHash": "4f8e3eb1e24fef9790fd139a4c22f570b6ebef63b8aaa003f6ba70ab5c2c9c41",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkynFSLhm43QLfScqQN3LVtjNfSmZ",
+    "result": {
+      "question": "Quelle proposition correspond à l'image ?",
+      "choices": [
+        "Il téléphone debout devant une vitrine.",
+        "Il marche dans la rue en tenant une tablette.",
+        "Il est assis à un bureau devant un ordinateur portable.",
+        "Il range des classeurs sur une étagère derrière lui."
+      ],
+      "correctIndex": 2,
+      "explanation": "L’image montre un personnage assis à un bureau, tourné vers un écran d’ordinateur portable posé sur la table. Il ne tient pas de téléphone, ne marche pas dans la rue et ne manipule aucun classeur sur l’étagère au fond.",
+      "design": "Axe unique : le type d’action réalisée par le personnage par rapport au matériel visible (téléphone/tablette/ordinateur/classeurs). Les quatre réponses décrivent toutes une activité courante potentielle dans un contexte de travail : téléphoner, marcher avec une tablette, travailler sur un ordinateur portable, ranger des dossiers. Sans l’image, elles sont également plausibles. Seule l’observation précise de la scène (position assise, bureau, portable ouvert, absence de téléphone et de dossiers manipulés) permet d’identifier la bonne action.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "L’image peut faire croire à un décor de vitrine ou de grande fenêtre derrière la scène, et l’attitude concentrée du personnage peut évoquer une conversation. En réalité, il est assis et tourné vers l’ordinateur, sans appareil tenu à l’oreille ni position debout devant une vitre.",
+          "operation": "scope_shift",
+          "anchors": [
+            "personnage assis",
+            "écran d’ordinateur sur la table",
+            "aucun téléphone à l’oreille"
+          ]
+        },
+        {
+          "index": 1,
+          "reason": "La présence d’un écran rectangulaire peut être prise pour une tablette, ce qui rend l’idée d’un appareil mobile crédible. Mais le personnage est statique, assis derrière un bureau : on ne voit ni jambes en mouvement ni décor de rue, ce qui contredit l’action de marcher en tenant l’appareil.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "personnage assis derrière une table",
+            "ordinateur posé sur le bureau",
+            "aucun mouvement de marche visible"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On distingue bien une étagère en arrière-plan, ce qui rend l’idée de rangement de dossiers séduisante. Toutefois, le personnage est centré sur la table, les mains vers les appareils électroniques, et aucun classeur ou geste de rangement n’apparaît près de l’étagère.",
+          "operation": "role_swap",
+          "anchors": [
+            "étagère vide à droite",
+            "personnage tourné vers la table",
+            "pas de dossiers manipulés"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2176,
+      "completion_tokens": 1080,
+      "total_tokens": 3256,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 528,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01352,
+    "inputHash": "e815d85fad94241007567b17cc40458e0b7be020c777f0a0e87b72620e0e79aa",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:1:ce40c9091f7f36b9e4c06d49:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkynVxtLIpLbinEmCTQW0t56oxsl6",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice de compréhension orale en classe de français, l’enseignant montre une photo d’un homme se déplaçant sur un trottoir tout en tenant une tablette dans les mains. L’enregistrement demande aux élèves de choisir la phrase qui décrit la scène. Cette option décrit directement ce qu’on voit : l’homme marche dans la rue avec une tablette."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un module de vocabulaire sur le travail de bureau, on projette une photo montrant un homme de profil en train de replacer des classeurs sur une étagère derrière lui dans un bureau. L’audio demande : « Quelle proposition correspond à l’image ? », et cette phrase décrit précisément l’action représentée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un test de FLE sur les lieux de travail, on montre une image d’un homme assis à un bureau regardant un ordinateur portable ouvert. La consigne audio est de choisir la phrase correspondant à l’image. Cette option correspond directement à la scène : il est assis à un bureau devant un ordinateur portable."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un exercice sur les activités quotidiennes, on affiche une photo d’un homme debout sur un trottoir, téléphone à l’oreille, juste devant la vitrine d’un magasin. L’enregistrement demande de sélectionner la phrase qui décrit l’image. Cette option correspondrait simplement à ce qu’on voit : il téléphone debout devant une vitrine."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions sont grammaticales, naturelles et décrivent chacune une scène très ordinaire pouvant correspondre à une image d’évaluation de compréhension orale. Aucune formulation ne présente d’avantage clair, de détail plus précis ou de longueur nettement différente qui laisserait supposer une préférence de l’auteur. Sans accès à l’image, il n’existe aucun indice objectif pour départager les réponses, d’où une forte incertitude et une répartition uniforme des probabilités malgré le choix obligatoire d’un index de réponse."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 517,
+          "total_tokens": 1123,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 39,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0059275,
+        "inputHash": "62a1a4ce49c06a254e8529ed2fd0875d5ba8e04f436004130d2ef022aa794df9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:1:ce40c9091f7f36b9e4c06d49:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkynbifoxO9u7HXvRcCAwvgQ9rNbi",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description correspondant précisément à l’image est qu’il est assis à un bureau devant un ordinateur portable.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Sur l’image, la personne est assise à un bureau, à l’intérieur, non pas en train de marcher dans la rue. On voit une tablette posée sur le bureau, ce qui peut pousser à choisir cette proposition si l’on se focalise seulement sur l’objet « tablette » et pas sur l’action ni le lieu.",
+          "misunderstanding": "contexte_lieu_action_confondus"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "La personne n’est pas debout et rien n’indique une vitrine de magasin ; elle est assise à un bureau dans une pièce. Il y a bien un petit appareil à côté, qui pourrait faire penser à un téléphone, ce qui peut induire en erreur quelqu’un qui se focalise sur l’objet sans tenir compte de la posture (assise) ni de l’absence de vitrine.",
+          "misunderstanding": "focalisation_objet_sans_contexte"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On observe une étagère sur la droite de l’image, mais elle est vide et le personnage ne la touche pas : il est tourné vers le bureau, pas en train de ranger des classeurs. Quelqu’un pourrait se laisser tromper parce qu’il voit simplement une étagère derrière/légèrement à côté du personnage et en déduit à tort l’action de rangement.",
+          "misunderstanding": "inférence_erronée_action_depuis_décor"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "L’image montre clairement une personne assise devant un bureau, avec un ordinateur portable ouvert devant elle. Cette description correspond exactement à la scène représentée.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 737,
+      "completion_tokens": 972,
+      "total_tokens": 1709,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 517,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01064125,
+    "inputHash": "b7e714650b34676209c9642b7aad1dc0f40a2461f2ddd65e357db7c5cd3079b1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:1:ce40c9091f7f36b9e4c06d49:ground:1"
+  },
+  "feedback": null
+}

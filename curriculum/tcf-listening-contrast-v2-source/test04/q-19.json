@@ -1,0 +1,150 @@
+{
+  "question": {
+    "number": 19,
+    "kind": "announcement",
+    "question": "Selon le document, à qui sont destinées les séances supplémentaires du mercredi ?",
+    "options": [
+      "À des familles qui n’ont pas obtenu de place dans les ateliers limités à dix enfants.",
+      "Aux enfants qui découvrent encore les sons et les lettres.",
+      "Aux parents qui souhaitent rester avec leur enfant pendant toute la séance.",
+      "Aux enfants qui lisent déjà de manière autonome et veulent des activités supplémentaires."
+    ],
+    "correct": "A",
+    "explanation": "Les séances supplémentaires du mercredi « permettront d'accueillir davantage de familles » : elles visent donc des familles supplémentaires, notamment celles qui ne pourront pas entrer dans les groupes limités à dix enfants. Les enfants qui découvrent sons et lettres sont la priorité à l’intérieur des ateliers existants, les parents ont seulement la possibilité de rester dans l’espace voisin, et il n’est jamais question de lecteurs déjà autonomes.",
+    "transcript": "Question 19.\nPendant les vacances, les ateliers de lecture pour les enfants seront limités à dix participants. Le personnel souhaite consacrer davantage de temps à chaque lecteur, notamment à ceux qui découvrent encore les sons et les lettres. Les parents pourront rester dans l'espace voisin. Les séances supplémentaires du mercredi permettront d'accueillir davantage de familles.\nSelon le document, à qui sont destinées les séances supplémentaires du mercredi ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 19."
+      },
+      {
+        "voice": "female",
+        "text": "Pendant les vacances, les ateliers de lecture pour les enfants seront limités à dix participants. Le personnel souhaite consacrer davantage de temps à chaque lecteur, notamment à ceux qui découvrent encore les sons et les lettres. Les parents pourront rester dans l'espace voisin. Les séances supplémentaires du mercredi permettront d'accueillir davantage de familles."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à qui sont destinées les séances supplémentaires du mercredi ?"
+      }
+    ],
+    "audio": "q-19.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 41
+  },
+  "contentHash": "25d38e0c34f8ed5cd55d927123cceb222af25beb5943a2b5ea26dce561153023",
+  "sourceHash": "f0f4ff64aba4ba17942d7e7e642aad5ec9e89effa8148f8cec5b3470f7e0d0a3",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyRpOD2ZykLOkwEVbYQzDAGOTAVF",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une médiathèque organise des ateliers de lecture pour enfants. Un enregistrement informe que, le mercredi, des séances supplémentaires sont prévues spécifiquement pour les parents qui veulent rester avec leur enfant pendant toute la séance, afin de favoriser la lecture en famille."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une école ou une bibliothèque, un document audio présente des ateliers de lecture. Il précise que, en plus des séances habituelles, des séances supplémentaires le mercredi sont destinées aux enfants qui lisent déjà seuls et souhaitent des activités supplémentaires pour aller plus loin."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une bibliothèque municipale explique au micro son dispositif d’ateliers de lecture limités à dix enfants par groupe. Le document précise que, pour répondre à la forte demande, des séances supplémentaires le mercredi sont prévues pour des familles qui n’ont pas obtenu de place dans les ateliers principaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une orthophoniste ou une animatrice de bibliothèque décrit un programme d’éveil à la lecture. Elle indique que les séances ordinaires sont pour des lecteurs plus avancés, alors que les séances supplémentaires du mercredi sont réservées aux enfants qui découvrent encore les sons et les lettres."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "La formulation «à des familles qui n’ont pas obtenu de place dans les ateliers limités à dix enfants» donne une justification précise et logiquement reliée à l’idée de «séances supplémentaires» (saturation des ateliers initiaux, solution par ajout de créneaux). Le détail chiffré «limités à dix enfants» ressemble à une information typique de document explicatif, ce qui fournit un léger avantage rédactionnel par rapport aux autres réponses plus générales ou moins directement liées à la notion de séances supplémentaires."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.25,
+            0.4,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Plusieurs options restent plausibles sans le document audio, mais celle qui fait explicitement le lien entre séances supplémentaires et manque de places dans des ateliers limités à dix enfants présente la cohérence la plus directe avec l’expression «séances supplémentaires», d’où une probabilité légèrement supérieure malgré une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 629,
+          "completion_tokens": 678,
+          "total_tokens": 1307,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 185,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00756625,
+        "inputHash": "330639760c921786221d2be8eb4fedff7f36607a83d66734ce9dcf5a35df4438",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:18:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Plusieurs options restent plausibles sans le document audio, mais celle qui fait explicitement le lien entre séances supplémentaires et manque de places dans des ateliers limités à dix enfants présente la cohérence la plus directe avec l’expression «séances supplémentaires», d’où une probabilité légèrement supérieure malgré une incertitude réelle.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "clear",
+        "cue": "La formulation «à des familles qui n’ont pas obtenu de place dans les ateliers limités à dix enfants» donne une justification précise et logiquement reliée à l’idée de «séances supplémentaires» (saturation des ateliers initiaux, solution par ajout de créneaux). Le détail chiffré «limités à dix enfants» ressemble à une information typique de document explicatif, ce qui fournit un léger avantage rédactionnel par rapport aux autres réponses plus générales ou moins directement liées à la notion de séances supplémentaires."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une médiathèque organise des ateliers de lecture pour enfants. Un enregistrement informe que, le mercredi, des séances supplémentaires sont prévues spécifiquement pour les parents qui veulent rester avec leur enfant pendant toute la séance, afin de favoriser la lecture en famille."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une école ou une bibliothèque, un document audio présente des ateliers de lecture. Il précise que, en plus des séances habituelles, des séances supplémentaires le mercredi sont destinées aux enfants qui lisent déjà seuls et souhaitent des activités supplémentaires pour aller plus loin."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Une bibliothèque municipale explique au micro son dispositif d’ateliers de lecture limités à dix enfants par groupe. Le document précise que, pour répondre à la forte demande, des séances supplémentaires le mercredi sont prévues pour des familles qui n’ont pas obtenu de place dans les ateliers principaux."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Une orthophoniste ou une animatrice de bibliothèque décrit un programme d’éveil à la lecture. Elle indique que les séances ordinaires sont pour des lecteurs plus avancés, alors que les séances supplémentaires du mercredi sont réservées aux enfants qui découvrent encore les sons et les lettres."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

@@ -1,0 +1,155 @@
+{
+  "question": {
+    "number": 14,
+    "kind": "dialogue",
+    "question": "Selon le document, comment décident-ils de gérer le chiffre manquant pendant la présentation ?",
+    "options": [
+      "Ils interrompent la réunion pour essayer de rouvrir le fichier sur le serveur.",
+      "Ils s’appuient sur des versions papier déjà distribuées aux participants.",
+      "Ils donnent le chiffre à l’oral et enverront la version complète après la réunion.",
+      "Ils choisissent de ne pas projeter la dernière diapositive incomplète."
+    ],
+    "correct": "C",
+    "explanation": "Le document dit explicitement : On expliquera le chiffre manquant à l'oral et on enverra la version complète ensuite. Cela correspond à l’idée de donner le chiffre à l’oral pendant la présentation, puis d’envoyer la version complète après.",
+    "transcript": "Question 14.\nJe n'arrive pas à ouvrir la présentation sur le serveur.\nJ'ai une copie enregistrée sur mon ordinateur, mais il manque la dernière diapositive.\nCe n'est pas grave. On expliquera le chiffre manquant à l'oral et on enverra la version complète ensuite.\nD'accord, je branche l'ordinateur au projecteur.\nSelon le document, comment décident-ils de gérer le chiffre manquant pendant la présentation ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 14."
+      },
+      {
+        "voice": "female",
+        "text": "Je n'arrive pas à ouvrir la présentation sur le serveur."
+      },
+      {
+        "voice": "male",
+        "text": "J'ai une copie enregistrée sur mon ordinateur, mais il manque la dernière diapositive."
+      },
+      {
+        "voice": "female",
+        "text": "Ce n'est pas grave. On expliquera le chiffre manquant à l'oral et on enverra la version complète ensuite."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, je branche l'ordinateur au projecteur."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, comment décident-ils de gérer le chiffre manquant pendant la présentation ?"
+      }
+    ],
+    "audio": "q-14.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "rounds": 0,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyncGObFUPJ5ZndkISqtX5dJvPMc",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En réunion de service, le fichier de présentation comporte une dernière diapositive avec un tableau dont un chiffre n’a pas pu être vérifié à temps. Pour éviter de montrer un slide partiellement faux ou incomplet, l’orateur et son équipe décident juste avant de commencer de ne pas afficher cette diapositive et de terminer la présentation sur la diapo précédente."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une présentation de résultats trimestriels, un des chiffres de vente manque sur la diapositive à cause d’un problème de mise à jour du fichier. L’équipe en discute rapidement avant de passer au slide concerné et décide que le présentateur annoncera ce chiffre à l’oral, en précisant qu’une version corrigée du support sera envoyée à tous les participants après la réunion."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une réunion de projet, les participants ont reçu au début des versions papier du diaporama contenant un tableau complet. Lors de la projection, l’animateur se rend compte qu’un chiffre n’apparaît pas sur la diapositive à l’écran, sans pouvoir corriger. Ils conviennent alors de s’appuyer sur les documents papier, où le chiffre figure, et demandent aux participants de se référer à ces feuilles plutôt qu’à la projection."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant une présentation budgétaire, un chiffre clé n’apparaît pas sur la diapositive projetée suite à un problème de sauvegarde. L’équipe, prise de court et estimant ce chiffre indispensable, décide d’interrompre brièvement la réunion pour tenter de rouvrir la version originale du fichier sur le serveur afin de récupérer l’information manquante en direct."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Formulation plus complète et professionnelle, combinant une solution immédiate (donner le chiffre à l’oral) et une mesure de suivi explicite (envoyer la version complète après), ce qui répond précisément à « comment ils décident de gérer » le problème et paraît plus nuancé et responsable que les autres options plus simples ou moins adaptées."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.18,
+            0.52,
+            0.15,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "L’option 1 propose une stratégie détaillée et réaliste de gestion du chiffre manquant, incluant à la fois la conduite pendant la présentation et l’envoi ultérieur d’une version complète, ce qui correspond bien à l’idée de « décider comment gérer » la situation et la rend légèrement privilégiée par rapport aux autres formulations."
+        },
+        "usage": {
+          "prompt_tokens": 641,
+          "completion_tokens": 848,
+          "total_tokens": 1489,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 275,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00928125,
+        "inputHash": "59543eabb0cf8ac60404bae8e6fc66429d0c63df4838d9e9f1b970a89cf90d69",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:13:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "L’option 1 propose une stratégie détaillée et réaliste de gestion du chiffre manquant, incluant à la fois la conduite pendant la présentation et l’envoi ultérieur d’une version complète, ce qui correspond bien à l’idée de « décider comment gérer » la situation et la rend légèrement privilégiée par rapport aux autres formulations.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Formulation plus complète et professionnelle, combinant une solution immédiate (donner le chiffre à l’oral) et une mesure de suivi explicite (envoyer la version complète après), ce qui répond précisément à « comment ils décident de gérer » le problème et paraît plus nuancé et responsable que les autres options plus simples ou moins adaptées."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "En réunion de service, le fichier de présentation comporte une dernière diapositive avec un tableau dont un chiffre n’a pas pu être vérifié à temps. Pour éviter de montrer un slide partiellement faux ou incomplet, l’orateur et son équipe décident juste avant de commencer de ne pas afficher cette diapositive et de terminer la présentation sur la diapo précédente."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une présentation de résultats trimestriels, un des chiffres de vente manque sur la diapositive à cause d’un problème de mise à jour du fichier. L’équipe en discute rapidement avant de passer au slide concerné et décide que le présentateur annoncera ce chiffre à l’oral, en précisant qu’une version corrigée du support sera envoyée à tous les participants après la réunion."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans une réunion de projet, les participants ont reçu au début des versions papier du diaporama contenant un tableau complet. Lors de la projection, l’animateur se rend compte qu’un chiffre n’apparaît pas sur la diapositive à l’écran, sans pouvoir corriger. Ils conviennent alors de s’appuyer sur les documents papier, où le chiffre figure, et demandent aux participants de se référer à ces feuilles plutôt qu’à la projection."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Pendant une présentation budgétaire, un chiffre clé n’apparaît pas sur la diapositive projetée suite à un problème de sauvegarde. L’équipe, prise de court et estimant ce chiffre indispensable, décide d’interrompre brièvement la réunion pour tenter de rouvrir la version originale du fichier sur le serveur afin de récupérer l’information manquante en direct."
+      }
+    ]
+  }
+}

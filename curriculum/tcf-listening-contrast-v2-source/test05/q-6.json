@@ -1,0 +1,256 @@
+{
+  "question": {
+    "number": 6,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question demande explicitement la possibilité de « déplacer la visite … à vendredi ». La réponse C accepte clairement ce déplacement (« Oui ») et précise un moment le vendredi (« vendredi après-midi, c’est parfait »), ce qui répond de façon directe et pertinente à la demande. A : La question demande un changement de date pour la visite (organisation, horaire), pas un avis sur l’appartement. Répondre qu’on n’a pas aimé l’appartement ne traite pas la demande de déplacement de la visite. On peut être tenté de choisir cette réponse en entendant « visite de l’appartement » et en croyant qu’on demande si la visite s’est bien passée ou si le logement a plu, mais rien dans l’énoncé ne parle de satisfaction, seulement d’un changement de jour. B : La question porte sur la possibilité de déplacer la visite à vendredi, donc sur la disponibilité ou l’accord pour un nouveau créneau. Répondre qu’on n’a pas encore les papiers introduit un autre problème (documents administratifs) qui n’est pas évoqué dans la question. Un auditeur pourrait se tromper en pensant que l’absence de papiers empêche tout changement de rendez-vous, mais le locuteur ne parle à aucun moment de papiers, seulement d’un changement de jour. D : La question concerne le déplacement de la visite vers un autre jour ; elle ne demande pas si l’appartement est encore disponible. Dire « il est toujours disponible » répond à une autre question implicite (la disponibilité du logement), pas à la possibilité de modifier la date de visite. Un auditeur peu attentif pourrait confondre une question sur la visite avec une question sur l’appartement lui-même et croire qu’on parle de sa disponibilité, mais le verbe utilisé est « déplacer la visite » et non « est-il toujours disponible ? ».",
+    "transcript": "Question 6.\nPouvez-vous déplacer la visite de l'appartement à vendredi ?\nA. Non, je n’ai pas aimé l’appartement. B. Non, je n’ai pas encore les papiers. C. Oui, vendredi après-midi, c’est parfait. D. Oui, il est toujours disponible.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 6."
+      },
+      {
+        "voice": "male",
+        "text": "Pouvez-vous déplacer la visite de l'appartement à vendredi ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Non, je n’ai pas aimé l’appartement. B. Non, je n’ai pas encore les papiers. C. Oui, vendredi après-midi, c’est parfait. D. Oui, il est toujours disponible."
+      }
+    ],
+    "audio": "q-06.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "30a269fdcb1ee466050bb1ec4a818aefe0aceda3c7eac2747d44373558781998",
+  "contentHash": "b166e7b8edaf6452c481ee75034f6959a0bc6289861286574d38e9f8002e7a91",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyVKvbnsxgiXPak9ZcQeLhqBT0KC",
+    "result": {
+      "question": "Quelle réponse convient ?",
+      "choices": [
+        "Oui, vendredi après-midi, c’est parfait.",
+        "Oui, il est toujours disponible.",
+        "Non, je n’ai pas encore les papiers.",
+        "Non, je n’ai pas aimé l’appartement."
+      ],
+      "correctIndex": 0,
+      "explanation": "La question porte sur la possibilité de déplacer la visite précisément « à vendredi ». La seule réponse qui accepte explicitement ce déplacement en reprenant le jour demandé est : « Oui, vendredi après-midi, c’est parfait. » Les autres réponses traitent d’autres sujets (disponibilité de l’appartement, papiers, appréciation de l’appartement) et ne répondent pas à la demande de changement de date.",
+      "design": "Réponse appropriée à une demande de déplacement de rendez-vous vers un jour précis. Les quatre propositions ressemblent toutes à des phrases typiques d’échange autour d’une visite d’appartement (disponibilité du bien, documents, jugement sur le logement, accord sur un créneau). Sans le son, elles paraissent également plausibles. Seule la bonne réponse reprend le jour proposé (vendredi) et valide le déplacement, ce que l’enregistrement permet de vérifier finement.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse réaffirme la disponibilité de l’appartement au lieu de répondre à la demande de changer la date de visite. Elle est tentante car on reste dans le même contexte (visite d’appartement) et le « Oui » peut donner l’illusion d’accepter la demande, mais dans l’enregistrement la question porte sur le jour de la visite, pas sur la disponibilité du logement.",
+          "operation": "role_swap",
+          "anchors": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Oui, il est encore disponible."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse évoque un problème de documents (« les papiers ») comme si c’était la condition de la visite, au lieu de traiter le déplacement à vendredi. Un candidat peut la juger plausible parce qu’on parle souvent de papiers lors d’une location, mais dans la source la demande concerne seulement le changement de date, sans condition liée aux papiers.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, l’appartement ne m’intéresse plus."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse commente un avis sur l’appartement comme si la visite avait déjà eu lieu, alors que la question porte sur l’organisation future de la visite. Elle est tentante car dire qu’on n’a pas aimé pourrait expliquer une annulation, mais dans la source, l’élément associé au refus est une perte d’intérêt pour l’appartement, non un retour après visite effectuée.",
+          "operation": "time_swap",
+          "anchors": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, l’appartement ne m’intéresse plus."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2263,
+      "completion_tokens": 1687,
+      "total_tokens": 3950,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1074,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01969875,
+    "inputHash": "3a06bccf0d57d514acb0113799688e9b381ff3385be8883e35a96d02d18d732f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:5:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyVZERjBFh69L1Xpxtc0tn035RvO",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice de compréhension orale, on présente plusieurs propositions étiquetées A, B, C, D. Après l’écoute, l’enseignant demande : « Quelle réponse convient ? » et l’élève répond : « Proposition C. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un test audio, l’animateur lit quatre choix numérotés ou nommés, puis demande : « Quelle réponse convient ? » L’auditeur estime que la bonne est l’option appelée « Proposition B » et le dit ainsi."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant un enregistrement de type QCM, une voix énumère les propositions A, B, C, D. À la fin, on entend : « Alors, quelle réponse convient ? » et l’élève choisit : « Proposition D. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un entraînement au DELF, la bande-son présente quatre propositions. La consigne audio conclut par : « Quelle réponse convient ? » L’apprenant tranche et annonce : « Proposition A. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options sont purement nominales (« Proposition A/B/C/D ») et répondent toutes de manière également plausible à la question générale « Quelle réponse convient ? » sans indice de contenu, de style, de longueur ou de grammaticalité permettant de distinguer l’intention de l’auteur. Aucune ne se démarque, l’incertitude est totale ; un choix doit néanmoins être fait, ici arbitrairement l’index 0."
+        },
+        "usage": {
+          "prompt_tokens": 574,
+          "completion_tokens": 411,
+          "total_tokens": 985,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 31,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0048275,
+        "inputHash": "967b1cee123e88aff3b96afcee6d4135a046c8c255c0436f88fed5f8f9abe6a4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:5:initial:screen:2:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyVd9mRw2k9pLICt76J4NgXgQRNE",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur la possibilité de déplacer la visite à vendredi ; seule la réponse C accepte explicitement ce déplacement et précise un moment le vendredi.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, je n’ai pas aimé l’appartement."
+          ],
+          "reason": "La question demande un changement de date pour la visite (organisation, horaire), pas un avis sur l’appartement. Répondre qu’on n’a pas aimé l’appartement ne traite pas la demande de déplacement de la visite. On peut être tenté de choisir cette réponse en entendant « visite de l’appartement » et en croyant qu’on demande si la visite s’est bien passée ou si le logement a plu, mais rien dans l’énoncé ne parle de satisfaction, seulement d’un changement de jour.",
+          "misunderstanding": "question_topic_shift"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, je n’ai pas encore les papiers."
+          ],
+          "reason": "La question porte sur la possibilité de déplacer la visite à vendredi, donc sur la disponibilité ou l’accord pour un nouveau créneau. Répondre qu’on n’a pas encore les papiers introduit un autre problème (documents administratifs) qui n’est pas évoqué dans la question. Un auditeur pourrait se tromper en pensant que l’absence de papiers empêche tout changement de rendez-vous, mais le locuteur ne parle à aucun moment de papiers, seulement d’un changement de jour.",
+          "misunderstanding": "adding_unsupported_condition"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Oui, vendredi après-midi, c’est parfait."
+          ],
+          "reason": "La question demande explicitement la possibilité de « déplacer la visite … à vendredi ». La réponse C accepte clairement ce déplacement (« Oui ») et précise un moment le vendredi (« vendredi après-midi, c’est parfait »), ce qui répond de façon directe et pertinente à la demande.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Oui, il est toujours disponible."
+          ],
+          "reason": "La question concerne le déplacement de la visite vers un autre jour ; elle ne demande pas si l’appartement est encore disponible. Dire « il est toujours disponible » répond à une autre question implicite (la disponibilité du logement), pas à la possibilité de modifier la date de visite. Un auditeur peu attentif pourrait confondre une question sur la visite avec une question sur l’appartement lui-même et croire qu’on parle de sa disponibilité, mais le verbe utilisé est « déplacer la visite » et non « est-il toujours disponible ? ».",
+          "misunderstanding": "referent_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 1014,
+      "total_tokens": 1717,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 358,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01101875,
+    "inputHash": "0417fc25acf3956bf84221d5006311a09dcef04694d5fc9ec9e617179d8e44af",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:5:initial:ground:2"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

@@ -1,0 +1,155 @@
+{
+  "question": {
+    "number": 16,
+    "kind": "dialogue",
+    "question": "À quoi le second échange à distance sera-t-il principalement consacré ?",
+    "options": [
+      "À corriger et commenter le carnet de repas préparé",
+      "À répondre aux questions complémentaires du patient",
+      "À régler les formalités administratives du suivi",
+      "À faire le bilan de la visite de la diététicienne dans le foyer"
+    ],
+    "correct": "B",
+    "explanation": "Le document précise que le second échange à distance sera prévu «pour les questions complémentaires», ce qui correspond à la réponse A. Rien n’indique qu’il portera surtout sur des formalités administratives, sur l’analyse détaillée du carnet de repas ou sur le bilan de la visite dans le foyer, même si ces interprétations peuvent sembler plausibles sans écouter attentivement la formulation exacte.",
+    "transcript": "Question 16.\nLe rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.\nEst-ce à cause du nombre de patients ?\nNon, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires.\nD'accord, je préparerai mon carnet de repas.\nÀ quoi le second échange à distance sera-t-il principalement consacré ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 16."
+      },
+      {
+        "voice": "female",
+        "text": "Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq."
+      },
+      {
+        "voice": "male",
+        "text": "Est-ce à cause du nombre de patients ?"
+      },
+      {
+        "voice": "female",
+        "text": "Non, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, je préparerai mon carnet de repas."
+      },
+      {
+        "voice": "female",
+        "text": "À quoi le second échange à distance sera-t-il principalement consacré ?"
+      }
+    ],
+    "audio": "q-16.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 42
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyM37GtFioEki9ETpzO1EWn6J1aa",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une diététicienne a fait une visite à domicile dans un foyer (maison de retraite, foyer d’hébergement). Un premier échange à distance a servi à organiser la visite. Un second échange en visioconférence est prévu ensuite pour faire le bilan de cette visite avec le responsable du foyer ou le patient référent."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une première téléconsultation, un patient a reçu des conseils diététiques. On lui a proposé un second échange à distance, principalement destiné à permettre au patient de poser des questions complémentaires ou de demander des précisions après avoir essayé d’appliquer les recommandations."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Au premier échange à distance, la diététicienne explique au patient comment tenir un carnet de repas pendant deux semaines. Un second échange en visioconférence est programmé et présenté comme étant principalement consacré à corriger et commenter ce carnet de repas que le patient aura préparé entre les deux rendez-vous."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un parcours de soins nutritionnels, le premier échange à distance a permis de faire connaissance et d’évaluer la situation. Un second échange, plus administratif, est annoncé comme servant surtout à régler les formalités administratives du suivi (consentements, prise en charge, programme de rendez-vous)."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation plus précise et opérationnelle (« corriger et commenter le carnet de repas préparé ») correspondant typiquement à un objectif central d’un second entretien structuré, tandis que « répondre aux questions complémentaires » ou « régler les formalités administratives » décrivent plutôt des activités annexes ; la mention d’un support préparé entre deux échanges cadre bien avec l’idée d’un second rendez-vous « principalement consacré » à cette tâche."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.25,
+            0.4,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Tous les choix sont plausibles, mais l’option 2 décrit une activité pédagogique centrale et clairement annoncée comme objectif principal d’un second échange après une préparation (« carnet de repas préparé »), ce qui lui donne un léger avantage par rapport aux autres formulations plus générales ou secondaires."
+        },
+        "usage": {
+          "prompt_tokens": 615,
+          "completion_tokens": 755,
+          "total_tokens": 1370,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 262,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00831875,
+        "inputHash": "5dc3ff8e4116ce751b579f034707031e42a90229de7e6b791648606edf7d20c1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix sont plausibles, mais l’option 2 décrit une activité pédagogique centrale et clairement annoncée comme objectif principal d’un second échange après une préparation (« carnet de repas préparé »), ce qui lui donne un léger avantage par rapport aux autres formulations plus générales ou secondaires.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "Formulation plus précise et opérationnelle (« corriger et commenter le carnet de repas préparé ») correspondant typiquement à un objectif central d’un second entretien structuré, tandis que « répondre aux questions complémentaires » ou « régler les formalités administratives » décrivent plutôt des activités annexes ; la mention d’un support préparé entre deux échanges cadre bien avec l’idée d’un second rendez-vous « principalement consacré » à cette tâche."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une diététicienne a fait une visite à domicile dans un foyer (maison de retraite, foyer d’hébergement). Un premier échange à distance a servi à organiser la visite. Un second échange en visioconférence est prévu ensuite pour faire le bilan de cette visite avec le responsable du foyer ou le patient référent."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une première téléconsultation, un patient a reçu des conseils diététiques. On lui a proposé un second échange à distance, principalement destiné à permettre au patient de poser des questions complémentaires ou de demander des précisions après avoir essayé d’appliquer les recommandations."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Au premier échange à distance, la diététicienne explique au patient comment tenir un carnet de repas pendant deux semaines. Un second échange en visioconférence est programmé et présenté comme étant principalement consacré à corriger et commenter ce carnet de repas que le patient aura préparé entre les deux rendez-vous."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un parcours de soins nutritionnels, le premier échange à distance a permis de faire connaissance et d’évaluer la situation. Un second échange, plus administratif, est annoncé comme servant surtout à régler les formalités administratives du suivi (consentements, prise en charge, programme de rendez-vous)."
+      }
+    ]
+  }
+}

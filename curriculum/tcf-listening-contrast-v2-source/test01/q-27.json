@@ -1,0 +1,402 @@
+{
+  "question": {
+    "number": 27,
+    "kind": "dialogue",
+    "question": "Selon le document, quelle mesure concrète est envisagée à propos des bancs ?",
+    "options": [
+      "Les déplacer vers le jardin.",
+      "Les rapprocher du terrain de jeu.",
+      "Les réserver uniquement aux voisins.",
+      "Les retirer pour réduire le bruit."
+    ],
+    "correct": "A",
+    "transcript": "Question 27.\nLes joueurs de ballon demandent de garder la place ouverte, mais des voisins se plaignent du bruit près des bancs.\nOn ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là.\nNous pourrions déplacer les bancs vers le jardin et définir des horaires pour les jeux les plus bruyants.\nEssayons pendant un mois. Il faudra écouter aussi les personnes qui traversent la place et les commerçants. Le but n'est pas de faire disparaître les différences, mais d'éviter que chaque usage rende les autres impossibles.\nSelon le document, quelle mesure concrète est envisagée à propos des bancs ?",
+    "explanation": "Réponse A : Le document indique explicitement la mesure envisagée : « déplacer les bancs vers le jardin ». C’est exactement ce que propose cette réponse, sans ajout ni modification. B : La seule action proposée concernant les bancs est de les « déplacer [...] vers le jardin », sans mention du terrain de jeu ni d’un rapprochement avec celui‑ci. Quelqu’un qui associe spontanément le bruit au terrain de jeu pourrait imaginer qu’on veut rapprocher les bancs du terrain, mais le texte ne parle que du jardin, pas du terrain de jeu. C : On évoque des voisins qui se plaignent, mais la phrase suivante rejette justement l’idée de réserver l’espace « à seuls les enfants ou seuls les adultes ». Réserver les bancs uniquement aux voisins irait dans ce sens d’exclusivité, qui est explicitement refusé. Un auditeur peu attentif peut retenir seulement que les voisins se plaignent et croire que la solution est de leur réserver les bancs, alors que la solution proposée est de les déplacer. D : Le problème est bien « le bruit près des bancs », donc quelqu’un peut conclure trop vite qu’il faut supprimer les bancs pour supprimer le bruit. Cependant, le document ne parle jamais de les retirer, mais précisément de les « déplacer [...] vers le jardin ». La mesure est un déplacement, pas une suppression.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 27."
+      },
+      {
+        "voice": "female",
+        "text": "Les joueurs de ballon demandent de garder la place ouverte, mais des voisins se plaignent du bruit près des bancs."
+      },
+      {
+        "voice": "male",
+        "text": "On ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là."
+      },
+      {
+        "voice": "female",
+        "text": "Nous pourrions déplacer les bancs vers le jardin et définir des horaires pour les jeux les plus bruyants."
+      },
+      {
+        "voice": "male",
+        "text": "Essayons pendant un mois. Il faudra écouter aussi les personnes qui traversent la place et les commerçants. Le but n'est pas de faire disparaître les différences, mais d'éviter que chaque usage rende les autres impossibles."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quelle mesure concrète est envisagée à propos des bancs ?"
+      }
+    ],
+    "audio": "q-27.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 60
+  },
+  "sourceHash": "cad1f78e05d358fd4d66cef2169770e968303f66929a74aa6c79881d3342db67",
+  "contentHash": "8b5c7dbdfea84273e6b547d492f128c9d57437c0ddcdaa5b3f1eec360f895007",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyB0gsKJWCbG5Am8mBeinNikIyBJ",
+    "result": {
+      "question": "Selon le document, quelle mesure concrète est envisagée à propos des bancs ?",
+      "choices": [
+        "Les déplacer vers le jardin.",
+        "Les retirer pour réduire le bruit.",
+        "Les rapprocher du terrain de jeu.",
+        "Les réserver uniquement aux voisins."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit clairement : « Nous pourrions déplacer les bancs vers le jardin ». C’est la seule mesure précise proposée pour les bancs. Il n’est jamais question de les retirer, de les rapprocher du terrain ni de les réserver à un groupe particulier ; les autres mesures portent sur les horaires des jeux et l’écoute de différents usagers.",
+      "design": "La question cible une relation précise : la mesure concrète appliquée spécifiquement aux bancs, par contraste avec d’autres mesures portant sur les jeux (horaires) et sur la concertation (écouter d’autres usagers). Les quatre réponses restent dans la même famille sémantique : toutes sont des décisions plausibles concernant des bancs dans une place publique pour gérer des nuisances sonores ou des conflits d’usage (déplacement, retrait, rapprochement, restriction d’accès). Sans le document, chacune paraît raisonnable. Seule l’écoute de l’enregistrement permet d’identifier que la proposition exacte est de déplacer les bancs vers le jardin.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme à tort l’objectif de réduction du bruit en suppression pure et simple des bancs. Le document mentionne bien des plaintes liées au bruit « près des bancs », ce qui peut faire croire qu’on pourrait les retirer. Cependant, la mesure concrète évoquée est de les déplacer, non de les enlever.",
+          "operation": "role_swap",
+          "anchors": [
+            "des voisins se plaignent du bruit près des bancs",
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que rapprocher les bancs du terrain faciliterait la surveillance des jeux ou regrouperait les usages, ce qui semble crédible dans une réflexion sur l’aménagement d’une place. Mais le texte distingue au contraire les bancs et la zone de jeux et ne parle que de déplacement vers le jardin, pas de rapprochement du terrain.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les joueurs de ballon demandent de garder la place ouverte",
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’idée de réserver les bancs aux voisins paraît cohérente avec les plaintes de ceux-ci et avec le fait qu’on cherche à gérer des conflits d’usage. Mais le passage insiste sur le fait de ne pas décider que « seuls les enfants ou seuls les adultes ont le droit d'être là » et sur l’écoute de plusieurs types d’usagers ; il ne propose jamais de réserver les bancs à un groupe particulier.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "On ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là",
+            "Il faudra écouter aussi les personnes qui traversent la place et les commerçants"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4303,
+      "completion_tokens": 859,
+      "total_tokens": 5162,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 217,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01396875,
+    "inputHash": "1d9258cb3ae365aa03a643b66dd4f7514ff90825f718c00c0d26dcfdb8352ba1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:26:initial:author:5:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBAfIenjrZSzGifBQNMPMuym2rA",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En réunion de copropriété, des habitants se plaignent du bruit sous leurs fenêtres en soirée. Le syndic lit un compte rendu : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un voisin répond : « Les retirer pour réduire le bruit. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une petite résidence privée, l’accès au jardin est réservé aux occupants. Le conseil affiche un document distribué aux habitants : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un résident résume : « Les réserver uniquement aux voisins. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion municipale sur l’aménagement d’un parc pour enfants, on lit un rapport : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un parent explique : « Les rapprocher du terrain de jeu. » pour que les adultes surveillent mieux les enfants."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un projet de réaménagement d’une place, la mairie diffuse un document expliquant qu’une partie des bancs va être déplacée vers un espace plus vert et calme. À la question « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? », quelqu’un répond : « Les déplacer vers le jardin. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options décrivent une mesure concrète possible concernant des bancs, sans indice textuel clair permettant de privilégier l’une d’elles ; en l’absence de tout élément de contexte sonore ou situationnel, l’incertitude reste élevée et la réponse choisie n’est qu’un pari contraint."
+        },
+        "usage": {
+          "prompt_tokens": 599,
+          "completion_tokens": 582,
+          "total_tokens": 1181,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 176,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00656875,
+        "inputHash": "fb72f80f59b3509487dcccc92cbf4de695eed3c5f129a02ef52f0e91824c35ea",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:26:initial:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBHjloMZ0qoT8Kho9i7HmhshqyH",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une réunion de copropriété, le syndic présente un compte rendu d’étude sur l’aménagement de la cour : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un copropriétaire répond que la proposition est de les rapprocher du terrain de jeu pour que les parents puissent mieux surveiller les enfants."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "En conseil municipal, on discute d’un rapport sur la réorganisation du parc : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un élu explique que le rapport recommande de les déplacer vers le jardin pour profiter davantage des massifs fleuris."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une réunion de quartier, un rapport sur les nuisances sonores a été distribué : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un habitant répond que le document propose de les retirer pour réduire le bruit causé par les rassemblements nocturnes."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une assemblée de résidence, un document règle l’usage des espaces communs : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un résident indique que la mesure est de les réserver uniquement aux voisins, pour éviter l’affluence de personnes extérieures."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options pourraient répondre normalement à la question dans un contexte ordinaire, sans indice textuel clair favorisant l’une d’elles. Faute de marqueurs objectifs dans l’énoncé ou la formulation des choix, il reste une forte incertitude et le choix 0 est retenu comme meilleure hypothèse par défaut sans réelle préférence fondée."
+        },
+        "usage": {
+          "prompt_tokens": 599,
+          "completion_tokens": 578,
+          "total_tokens": 1177,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 158,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00652875,
+        "inputHash": "33b147cd8462b41de36c073776bdd0fe85087a89d36edc52fed65bce2a269ce4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:26:initial:screen:6:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyBN09HxWIk57dIRtq0pyts8om4t",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion de copropriété : des habitants se plaignent que des personnes extérieures occupent constamment les bancs de la cour. Le syndic lit un compte rendu : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un participant répond : « Les réserver uniquement aux voisins. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Réunion municipale sur l’aménagement d’un parc : des parents trouvent que les bancs sont trop éloignés de l’aire de jeux. L’animateur demande : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Un élu répond : « Les rapprocher du terrain de jeu. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Conseil de quartier : des riverains se plaignent du bruit causé par des groupes le soir sur les bancs sous leurs fenêtres. Le président résume un rapport : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Quelqu’un répond : « Les retirer pour réduire le bruit. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion d’aménagement d’un espace vert : on prévoit de réorganiser le parc en créant un vrai jardin plus calme. Le responsable lit le projet : « Selon le document, quelle mesure concrète est envisagée à propos des bancs ? » Une personne répond : « Les déplacer vers le jardin. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre mesures sont concrètes, grammaticales et plausibles dans un document décrivant un aménagement ; aucun indice textuel clair ne favorise une option, donc forte incertitude et choix arbitraire parmi des probabilités égales."
+        },
+        "usage": {
+          "prompt_tokens": 599,
+          "completion_tokens": 630,
+          "total_tokens": 1229,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 218,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00704875,
+        "inputHash": "3a5fd1c0050c9bc1228474abb4867d57a59dafb0125ee7c6db5e5747111dda72",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:26:initial:screen:6:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyBVvi91cLH3ckAcsj2mqIXiqCQw",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La mesure concrète envisagée pour les bancs est de les déplacer vers le jardin.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ],
+          "reason": "Le document indique explicitement la mesure envisagée : « déplacer les bancs vers le jardin ». C’est exactement ce que propose cette réponse, sans ajout ni modification.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les joueurs de ballon demandent de garder la place ouverte, mais des voisins se plaignent du bruit près des bancs.",
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ],
+          "reason": "La seule action proposée concernant les bancs est de les « déplacer [...] vers le jardin », sans mention du terrain de jeu ni d’un rapprochement avec celui‑ci. Quelqu’un qui associe spontanément le bruit au terrain de jeu pourrait imaginer qu’on veut rapprocher les bancs du terrain, mais le texte ne parle que du jardin, pas du terrain de jeu.",
+          "misunderstanding": "inference_overreach"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais des voisins se plaignent du bruit près des bancs.",
+            "On ne réglera pas cela en décidant que seuls les enfants ou seuls les adultes ont le droit d'être là.",
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ],
+          "reason": "On évoque des voisins qui se plaignent, mais la phrase suivante rejette justement l’idée de réserver l’espace « à seuls les enfants ou seuls les adultes ». Réserver les bancs uniquement aux voisins irait dans ce sens d’exclusivité, qui est explicitement refusé. Un auditeur peu attentif peut retenir seulement que les voisins se plaignent et croire que la solution est de leur réserver les bancs, alors que la solution proposée est de les déplacer.",
+          "misunderstanding": "opposition_ignored"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais des voisins se plaignent du bruit près des bancs.",
+            "Nous pourrions déplacer les bancs vers le jardin"
+          ],
+          "reason": "Le problème est bien « le bruit près des bancs », donc quelqu’un peut conclure trop vite qu’il faut supprimer les bancs pour supprimer le bruit. Cependant, le document ne parle jamais de les retirer, mais précisément de les « déplacer [...] vers le jardin ». La mesure est un déplacement, pas une suppression.",
+          "misunderstanding": "inference_overreach"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 762,
+      "completion_tokens": 891,
+      "total_tokens": 1653,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 314,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0098625,
+    "inputHash": "fa7b90f4a1b9c176f1d97b16c566baf270a5d2ec57aa66fb2933cbe3104ea69b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:26:initial:ground:6"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

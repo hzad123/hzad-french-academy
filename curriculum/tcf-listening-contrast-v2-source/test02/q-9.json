@@ -1,0 +1,321 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Selon l’annonce en gare, quel élément reste inchangé pour le train régional à destination de Blois ?",
+    "options": [
+      "L’horaire de départ du train",
+      "Les gares desservies",
+      "Le type de train prévu",
+      "Le numéro habituel du quai"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : L’énoncé dit clairement que ce qui ne change pas est « l’horaire de départ ». C’est exactement ce que décrit la réponse 0 : l’horaire de départ du train reste le même. B : L’annonce ne mentionne à aucun moment un changement ou un maintien des gares desservies ; seul le quai et l’horaire sont évoqués. Quelqu’un pourrait en déduire, un peu trop vite, que « tout le reste reste inchangé », y compris les gares desservies, mais ce n’est pas dit. La seule chose explicitement indiquée comme inchangée est l’horaire, donc affirmer que les gares desservies restent inchangées n’est pas fondé sur l’enregistrement. C : Le type de train (« le train régional à destination de Blois ») est mentionné, mais l’annonce ne dit pas qu’il reste inchangé, ni qu’il a changé. Seul l’horaire est explicitement précisé comme « reste inchangé ». Une personne peu attentive pourrait se dire que, puisque on ne signale qu’un changement de quai, le type de train ne change pas non plus, mais cela n’est jamais affirmé dans l’annonce. D : L’annonce indique clairement que, d’habitude, le train part d’un autre quai (sous-entendu le quai trois, en travaux) et que, cette fois, il « partira exceptionnellement du quai cinq » : le numéro habituel du quai ne reste donc pas inchangé. Un auditeur distrait pourrait entendre uniquement « travaux sur le quai trois » et penser que le train part toujours de ce quai, sans noter « partira exceptionnellement du quai cinq », mais justement cette précision montre que le numéro de quai change.",
+    "transcript": "Question 9.\nVotre attention, s'il vous plaît. En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq. L'horaire de départ, onze heures quarante, reste inchangé. Merci de vérifier les panneaux d'affichage.\nSelon l’annonce en gare, quel élément reste inchangé pour le train régional à destination de Blois ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "Votre attention, s'il vous plaît. En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq. L'horaire de départ, onze heures quarante, reste inchangé. Merci de vérifier les panneaux d'affichage."
+      },
+      {
+        "voice": "female",
+        "text": "Selon l’annonce en gare, quel élément reste inchangé pour le train régional à destination de Blois ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 36
+  },
+  "sourceHash": "60abd45a7837629c69bd30398f933a862955ab843ca80469e0d3c29bc655c9f3",
+  "contentHash": "e583c83938f7c32bc64f6185b4c62783caa174ad2b5c456c335cf5c748de2378",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyDFYzFLlF4pC1HkixWQLaqLBkMG",
+    "result": {
+      "question": "Selon l’annonce en gare, quel élément reste inchangé pour le train régional à destination de Blois ?",
+      "choices": [
+        "L’horaire de départ du train",
+        "Le type de train prévu",
+        "Les gares desservies",
+        "Le numéro habituel du quai"
+      ],
+      "correctIndex": 0,
+      "explanation": "L’annonce précise explicitement : L'horaire de départ, onze heures quarante, reste inchangé. C’est donc bien l’horaire qui ne change pas, malgré la modification de quai. Rien n’est dit sur un changement ou un maintien du type de train, de l’itinéraire ou du quai habituel.",
+      "design": "On teste quel paramètre du même train (horaire, type, itinéraire, quai) est signalé comme restant identique malgré les travaux. Les quatre réponses sont toutes des aspects usuels d’un train dont on peut annoncer qu’ils restent inchangés. Sans le document, chacune paraît aussi plausible qu’une formule standard de gare. Seule l’écoute permet de repérer que l’orateur insiste sur le maintien de l’horaire, alors que le quai, lui, change et que ni le type de train ni les gares desservies ne sont mentionnés comme stables.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’annonce ne mentionne jamais un changement ou un maintien du type de train ; elle précise seulement la destination, le caractère régional et le quai. Interpréter le fait que ce soit un train régional à destination de Blois comme l’indication que le type reste identique confond une simple identification du train avec l’élément explicitement présenté comme inchangé, qui est l’horaire.",
+          "operation": "scope_shift",
+          "anchors": [
+            "le train régional à destination de Blois",
+            "L'horaire de départ, onze heures quarante, reste inchangé"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les gares desservies ou l’itinéraire ne sont pas évoqués. On pourrait supposer à l’oreille qu’en changeant de quai le train garde la même desserte, mais ce serait une déduction générale et non ce que l’annonce signale comme ne changeant pas. Le seul élément expressément présenté comme inchangé est l’horaire de départ.",
+          "operation": "scope_shift",
+          "anchors": [
+            "partira exceptionnellement du quai cinq",
+            "L'horaire de départ, onze heures quarante, reste inchangé"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le quai est précisément l’élément annoncé comme modifié, à cause des travaux. Croire que le numéro habituel du quai est maintenu inverse le statut de cette information : on transforme ce qui est indiqué comme changeant en élément supposé stable, alors que l’annonce insiste que seul l’horaire ne change pas.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "En raison de travaux sur le quai trois",
+            "partira exceptionnellement du quai cinq"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4367,
+      "completion_tokens": 962,
+      "total_tokens": 5329,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 351,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01507875,
+    "inputHash": "556d6e90aa166fe2942bf42dad2eaa845ed50a0aa2f58e2511978c0341713bf2",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyDRvgtg1PsX9tc3aooZkfU3flYz",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une annonce en gare informe que, suite à des travaux, l’horaire et le type de train pour Blois sont exceptionnellement modifiés, mais que « le train partira de son numéro habituel de quai ». On insiste sur le fait que seul le quai reste le même malgré les autres changements."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un agent SNCF annonce que, en raison de travaux, l’horaire de départ et le quai du train régional pour Blois changent, mais que « les gares desservies restent inchangées ». On rassure ainsi les voyageurs sur le maintien des arrêts intermédiaires."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une annonce signale que, malgré un changement de quai et de matériel roulant pour le train régional à destination de Blois, « l’horaire de départ du train reste inchangé ». On insiste pour que les voyageurs retiennent que le train partira à l’heure initialement prévue."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message en gare précise qu’en raison d’un changement d’organisation, le quai et l’horaire du train pour Blois sont modifiés, mais que « le type de train prévu reste inchangé », par exemple qu’il s’agit toujours d’un TER avec les mêmes services à bord."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Tous les choix pourraient naturellement faire l’objet d’une précision dans une annonce ; aucun indice textuel net ne favorise une option, d’où des probabilités égales et un choix de réponse purement forcé parmi elles."
+        },
+        "usage": {
+          "prompt_tokens": 604,
+          "completion_tokens": 617,
+          "total_tokens": 1221,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 238,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006925,
+        "inputHash": "75f79fcb6802f8ad1282d1059f1348f2daffa3c631aea964ff2774ddd6a4269d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyDanVMsir1emZ85sumoqNG3X0kI",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En gare, un message informe que le train régional à destination de Blois sera assuré par un matériel différent (par exemple une rame plus récente) sur d’autres lignes, mais que pour ce train précis, le type de train prévu reste le même que d’habitude. L’agent conclut en précisant que le type de train reste inchangé pour ce service."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un haut‑parleur annonce en gare que, malgré une forte affluence et quelques modifications de circulation, le train régional pour Blois partira du quai habituel. L’annonce précise que des suppressions ou retards concernent d’autres trains, mais que pour ce train‑ci, « le numéro habituel du quai reste inchangé »."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une annonce en gare indique qu’en raison de travaux, l’horaire et le quai du train régional pour Blois sont modifiés, mais que le train desservira toujours les mêmes arrêts. L’agent dit par exemple : « Seules l’heure de départ et la voie changent, les gares desservies restent inchangées. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message en gare signale que, malgré des perturbations sur la ligne (changement de quai, matériel différent, forte affluence), le train régional pour Blois partira à l’heure initialement prévue. L’annonce insiste : « L’horaire de départ de ce train reste inchangé. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions peuvent toutes correspondre à une annonce ferroviaire ordinaire, et l’énoncé écrit ne fournit aucun indice concret pour privilégier l’un des éléments (type de train, quai, dessertes, horaire). Aucune option ne se distingue nettement par la formulation ou la pertinence, d’où une incertitude totale et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 604,
+          "completion_tokens": 620,
+          "total_tokens": 1224,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 165,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006955,
+        "inputHash": "09a8e11ff9581278bd788a87746bccb508dfe3e62fd867315e8bb0f8f4f5823f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyDhkDSnU64Z1kAWCfjZONkM75i5",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’annonce précise explicitement que seul l’horaire de départ reste inchangé ; le quai, lui, change, et rien n’est dit sur les gares desservies ni sur le type de train.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "L’énoncé dit clairement que ce qui ne change pas est « l’horaire de départ ». C’est exactement ce que décrit la réponse 0 : l’horaire de départ du train reste le même.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq.",
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "L’annonce ne mentionne à aucun moment un changement ou un maintien des gares desservies ; seul le quai et l’horaire sont évoqués. Quelqu’un pourrait en déduire, un peu trop vite, que « tout le reste reste inchangé », y compris les gares desservies, mais ce n’est pas dit. La seule chose explicitement indiquée comme inchangée est l’horaire, donc affirmer que les gares desservies restent inchangées n’est pas fondé sur l’enregistrement.",
+          "misunderstanding": "unstated_inference"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq.",
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "Le type de train (« le train régional à destination de Blois ») est mentionné, mais l’annonce ne dit pas qu’il reste inchangé, ni qu’il a changé. Seul l’horaire est explicitement précisé comme « reste inchangé ». Une personne peu attentive pourrait se dire que, puisque on ne signale qu’un changement de quai, le type de train ne change pas non plus, mais cela n’est jamais affirmé dans l’annonce.",
+          "misunderstanding": "unstated_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq."
+          ],
+          "reason": "L’annonce indique clairement que, d’habitude, le train part d’un autre quai (sous-entendu le quai trois, en travaux) et que, cette fois, il « partira exceptionnellement du quai cinq » : le numéro habituel du quai ne reste donc pas inchangé. Un auditeur distrait pourrait entendre uniquement « travaux sur le quai trois » et penser que le train part toujours de ce quai, sans noter « partira exceptionnellement du quai cinq », mais justement cette précision montre que le numéro de quai change.",
+          "misunderstanding": "ignoring_contrasting_adverb"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 701,
+      "completion_tokens": 1026,
+      "total_tokens": 1727,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 337,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01113625,
+    "inputHash": "0752fa1b230b2865d114233fa43d2ae788f9593b2447092b03123e136c79ea26",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:initial:ground:3"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

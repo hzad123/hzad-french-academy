@@ -1,0 +1,329 @@
+{
+  "question": {
+    "number": 14,
+    "kind": "dialogue",
+    "question": "À la fin de l’échange, quelle décision précise le parent annonce-t-il ?",
+    "options": [
+      "Appeler le cabinet de son médecin aujourd’hui.",
+      "Se contenter de la surveiller sans appeler personne.",
+      "Se rendre immédiatement aux urgences avec sa fille.",
+      "Attendre et rappeler seulement si la fièvre augmente."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le professionnel conseille clairement : \"contactez votre médecin aujourd'hui.\" Le parent, à la fin, annonce sa décision : \"Je comprends. Je vais téléphoner à son cabinet.\" Cela correspond précisément au fait d’appeler le cabinet de son médecin aujourd’hui. B : Quelqu’un qui n’entend que le début de la réponse médicale pourrait se fixer sur \"Surveillez son état\" et croire qu’il ne faut que surveiller, sans appeler. Cependant, le professionnel ajoute \"contactez votre médecin aujourd'hui\" et le parent conclut \"Je comprends. Je vais téléphoner à son cabinet.\", ce qui exclut l’idée de se contenter de la surveiller sans appeler personne. C : On pourrait confondre la consigne conditionnelle \"Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours\" avec une décision déjà prise par le parent. Mais cette phrase décrit une éventualité future. Le parent, lui, annonce seulement : \"Je comprends. Je vais téléphoner à son cabinet.\", il ne parle pas d’aller immédiatement aux urgences. D : Une personne peu attentive au marqueur temporel pourrait imaginer qu’il faut attendre une aggravation de la fièvre avant de rappeler. Or l’instruction est \"contactez votre médecin aujourd'hui\" sans condition d’augmentation de la fièvre, et le parent répond immédiatement \"Je comprends. Je vais téléphoner à son cabinet.\", ce qui contredit l’idée d’attendre pour rappeler seulement si la fièvre augmente.",
+    "transcript": "Question 14.\nMa fille a de la fièvre depuis hier. Elle boit encore, mais elle est très fatiguée. Dois-je venir tout de suite ?\nJe ne peux pas poser un diagnostic par téléphone. Surveillez son état et contactez votre médecin aujourd'hui. Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours.\nJe comprends. Je vais téléphoner à son cabinet.\nÀ la fin de l’échange, quelle décision précise le parent annonce-t-il ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 14."
+      },
+      {
+        "voice": "male",
+        "text": "Ma fille a de la fièvre depuis hier. Elle boit encore, mais elle est très fatiguée. Dois-je venir tout de suite ?"
+      },
+      {
+        "voice": "female",
+        "text": "Je ne peux pas poser un diagnostic par téléphone. Surveillez son état et contactez votre médecin aujourd'hui. Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours."
+      },
+      {
+        "voice": "male",
+        "text": "Je comprends. Je vais téléphoner à son cabinet."
+      },
+      {
+        "voice": "female",
+        "text": "À la fin de l’échange, quelle décision précise le parent annonce-t-il ?"
+      }
+    ],
+    "audio": "q-14.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "sourceHash": "315464cc64756a464d91a5a0f026acd26232da8a2d6aa7dcd7f7f85960e69372",
+  "contentHash": "f4bccac100dfe2e6ca2cf02483d6294d322a06ec3dbb0a4d85f3a5eec220f686",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyK3oH9Cv6fUgr6aFL03faDUKDh4",
+    "result": {
+      "question": "À la fin de l’échange, quelle décision précise le parent annonce-t-il ?",
+      "choices": [
+        "Appeler le cabinet de son médecin aujourd’hui.",
+        "Se rendre immédiatement aux urgences avec sa fille.",
+        "Attendre et rappeler seulement si la fièvre augmente.",
+        "Se contenter de la surveiller sans appeler personne."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le parent conclut en disant : « Je comprends. Je vais téléphoner à son cabinet. » Il décide donc d’appeler le cabinet de son médecin ce jour-là, conformément à la consigne « contactez votre médecin aujourd'hui ». Aucune autre action n’est annoncée comme sa décision finale.",
+      "design": "On teste la décision concrète que le parent énonce à la fin de l’appel, parmi quatre suites d’action médicalement plausibles après un conseil téléphonique. Toutes les options sont des réactions ordinaires possibles (aller aux urgences, appeler le médecin, attendre et rappeler, seulement surveiller). Seule l’écoute permet d’identifier que le parent choisit spécifiquement d’appeler le cabinet du médecin, sans partir aux urgences ni décider d’attendre avant de rappeler.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse prend pour décision du parent une consigne qui n’est valable que sous condition. Le professionnel dit d’appeler les secours seulement si l’état respiratoire ou la vigilance se dégradent, mais le parent n’annonce pas qu’il part aux urgences tout de suite.",
+          "operation": "role_swap",
+          "anchors": [
+            "Si elle respire difficilement ou devient difficile à réveiller",
+            "appelez immédiatement les secours"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option transfère la condition de dégradation de l’état à une stratégie générale d’attente. Le soignant parle de surveiller et d’appeler les secours en cas de signes graves, mais il demande aussi de contacter le médecin aujourd’hui ; le parent ne dit pas qu’il attendra une aggravation pour rappeler.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Surveillez son état",
+            "contactez votre médecin aujourd'hui"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Ici, on attribue au parent uniquement la partie « surveiller son état », comme si cela excluait tout appel. Or la recommandation associe surveillance et contact avec le médecin, et le parent confirme qu’il va justement téléphoner au cabinet.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Surveillez son état",
+            "Je vais téléphoner à son cabinet"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4668,
+      "completion_tokens": 906,
+      "total_tokens": 5574,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 387,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.014895,
+    "inputHash": "adb56aab1ff488bed03341a554b0114fb5089a1d5903b2008432c925ea849b88",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:13:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKBGAeTJ2ui1SjQbyRBDkPrhHZx",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un parent est au téléphone avec un médecin de garde. Après avoir décrit les symptômes inquiétants de sa fille (forte fièvre, difficultés à respirer, somnolence inhabituelle), le médecin lui conseille formellement de ne pas attendre et d’aller immédiatement aux urgences. Le parent conclut : « D’accord, je vais me rendre tout de suite aux urgences avec ma fille. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une mère appelle une amie infirmière pour demander conseil à propos d’un léger rhume chez sa fille, sans signe de gravité. L’amie lui dit que ce n’est pas alarmant pour l’instant, et qu’elle peut simplement la surveiller. La mère termine en disant : « Bon, je vais juste la surveiller, je n’appelle personne pour le moment. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un père échange avec le médecin régulateur du SAMU au sujet d’une fièvre modérée chez son enfant, sans autre symptôme inquiétant. Le médecin lui explique qu’il n’est pas nécessaire de consulter immédiatement et lui recommande d’attendre, de contrôler la température, et de rappeler seulement si la fièvre augmente. Le parent conclut : « Très bien, j’attends et je vous rappelle seulement si la fièvre monte. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un parent parle au téléphone avec un service de conseil médical (infirmière ou permanence téléphonique). Après l’évaluation rapide de la situation, l’interlocuteur lui dit que ce n’est pas une urgence mais qu’il faut tout de même prendre l’avis du médecin traitant dans la journée. Le parent clôt la conversation par : « D’accord, je vais appeler le cabinet de mon médecin aujourd’hui. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre décisions sont médicalement et contextuellement plausibles comme conclusion d’un échange parent–professionnel de santé. Aucune option ne présente d’avantage formel évident (longueur, précision, style, formulation typique de consigne) permettant de déduire de façon fiable la clé depuis le seul énoncé écrit. Faute d’indice objectif, l’incertitude reste élevée et la distribution de probabilité est uniforme par honnêteté méthodologique."
+        },
+        "usage": {
+          "prompt_tokens": 614,
+          "completion_tokens": 698,
+          "total_tokens": 1312,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 172,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0077475,
+        "inputHash": "3bf5204cafd9d04e5a9b8e87466b345848890c6afc0fd2db97b52d7c49d07592",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:13:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKLa3TvxsW5iHgdhxAaZL2qj6md",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un parent vient d’appeler un service de conseil médical ou un proche pour parler de l’état de sa fille (par exemple un petit malaise ou une fièvre modérée). Après avoir reçu des informations rassurantes, il conclut en disant qu’il va simplement la surveiller à la maison, sans appeler d’autres professionnels pour le moment."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un parent échange avec un médecin de garde ou un service d’urgences au téléphone à propos de symptômes inquiétants (forte fièvre, convulsions, difficultés respiratoires). À la fin, le parent confirme clairement qu’il part tout de suite aux urgences avec sa fille."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un parent discute avec une infirmière, un médecin ou un service de conseil téléphonique à propos de la fièvre de sa fille. On lui recommande de surveiller l’évolution. À la fin de l’appel, le parent annonce qu’il va attendre et ne rappellera que si la fièvre augmente."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un parent parle avec un service téléphonique (par exemple un numéro de conseil santé ou l’école) et, après avoir discuté de l’état de sa fille, conclut en disant qu’il va appeler le cabinet de son médecin dans la journée pour prendre des conseils ou un rendez-vous."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les réponses sont naturelles dans un échange parent–professionnel de santé et correspondent bien à une « décision précise » annoncée en fin de conversation ; aucun indice textuel clair ne permet de privilégier une option plutôt qu’une autre, d’où une forte incertitude et une répartition uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 614,
+          "completion_tokens": 480,
+          "total_tokens": 1094,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 76,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0055675,
+        "inputHash": "cc68d23f8b67eded037489c0a0fc96a1bf40350cfd9c428725001f3e7d93dd6a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:13:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyKP5IjfjYPtydx0HnPsIFnZMOLe",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le parent décide explicitement d’appeler le cabinet de son médecin, en accord avec la consigne reçue de contacter le médecin aujourd’hui.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "contactez votre médecin aujourd'hui.",
+            "Je comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Le professionnel conseille clairement : \"contactez votre médecin aujourd'hui.\" Le parent, à la fin, annonce sa décision : \"Je comprends. Je vais téléphoner à son cabinet.\" Cela correspond précisément au fait d’appeler le cabinet de son médecin aujourd’hui.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Surveillez son état",
+            "Je comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Quelqu’un qui n’entend que le début de la réponse médicale pourrait se fixer sur \"Surveillez son état\" et croire qu’il ne faut que surveiller, sans appeler. Cependant, le professionnel ajoute \"contactez votre médecin aujourd'hui\" et le parent conclut \"Je comprends. Je vais téléphoner à son cabinet.\", ce qui exclut l’idée de se contenter de la surveiller sans appeler personne.",
+          "misunderstanding": "incomplete_attention"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours.",
+            "Je comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "On pourrait confondre la consigne conditionnelle \"Si elle respire difficilement ou devient difficile à réveiller, appelez immédiatement les secours\" avec une décision déjà prise par le parent. Mais cette phrase décrit une éventualité future. Le parent, lui, annonce seulement : \"Je comprends. Je vais téléphoner à son cabinet.\", il ne parle pas d’aller immédiatement aux urgences.",
+          "misunderstanding": "conditional_vs_decision"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "contactez votre médecin aujourd'hui.",
+            "Je comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Une personne peu attentive au marqueur temporel pourrait imaginer qu’il faut attendre une aggravation de la fièvre avant de rappeler. Or l’instruction est \"contactez votre médecin aujourd'hui\" sans condition d’augmentation de la fièvre, et le parent répond immédiatement \"Je comprends. Je vais téléphoner à son cabinet.\", ce qui contredit l’idée d’attendre pour rappeler seulement si la fièvre augmente.",
+          "misunderstanding": "temporal_shift"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 738,
+      "completion_tokens": 989,
+      "total_tokens": 1727,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 404,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0108125,
+    "inputHash": "c932eaa3210fbc31485c410bc183208d9e733654fc6c7fdd54cb87c5b7c22257",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:13:initial:ground:3"
+  },
+  "feedback": null
+}

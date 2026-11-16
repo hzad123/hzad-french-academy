@@ -1,0 +1,191 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question est une demande polie d’emprunt de stylo : « vous auriez un stylo à me prêter ? ». La réponse « Oui, bien sûr, tenez. » accepte explicitement la demande (« Oui, bien sûr ») et indique le geste de donner le stylo (« tenez »). C’est la seule réponse qui traite directement de la demande d’objet, tant sur le plan sémantique que pragmatique. A : La question porte clairement sur le prêt d’un stylo (« vous auriez un stylo à me prêter ? »), pas sur l’horaire d’un événement. « Ça commence à quelle heure ? » ne répond à aucune partie de la demande : ni le besoin d’un stylo, ni l’idée de prêter ou refuser. Quelqu’un pourrait mal comprendre la situation et croire qu’il s’agit d’une conversation plus large où l’on parlait d’un cours ou d’un spectacle, mais ici l’unique information fournie est la demande de stylo, donc cette réponse est inadaptée. B : La demande concerne un stylo à prêter. Répondre « Je descends au prochain arrêt. » est pertinent pour une situation dans un bus ou un métro, pas pour prêter un objet. On ne fait aucun lien logique entre descendre à un arrêt et la possibilité de prêter un stylo. Un auditeur distrait pourrait imaginer qu’on est dans les transports et que la personne explique pourquoi elle ne peut pas aider, mais rien dans l’énoncé (« vous auriez un stylo à me prêter ? ») ne mentionne un trajet ou un arrêt, donc cette réponse ne convient pas. D : Dire « Non, je viens de manger. » pourrait paraître formellement comparable à une réponse négative, mais la justification n’a aucun rapport avec le prêt d’un stylo. Le fait d’avoir « juste mangé » n’explique pas l’impossibilité de prêter un stylo. Un auditeur qui comprend seulement qu’on refuse pourrait retenir le « Non » comme cohérent avec un refus de prêter, mais la suite contredit la logique de la situation, donc la réponse globale ne convient pas.",
+    "transcript": "Question 5.\nExcusez-moi, vous auriez un stylo à me prêter ?\nA. Ça commence à quelle heure ? B. Je descends au prochain arrêt. C. Oui, bien sûr, tenez. D. Non, je viens de manger.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "male",
+        "text": "Excusez-moi, vous auriez un stylo à me prêter ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Ça commence à quelle heure ? B. Je descends au prochain arrêt. C. Oui, bien sûr, tenez. D. Non, je viens de manger."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 32
+  },
+  "sourceHash": "f49e306ac9b1a7c8d950b8430d67fc03d1eaff55698a017efb9b000b0494e7e5",
+  "contentHash": "3b5145348f62554e8dc1ba817ad27800cdca62d88103799b17dd489cc55cf12f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkynLH1l0JAVbJm7JX7ZCzhrOEIjC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux amis parlent d’un spectacle ou d’un film. L’un dit : « On va au cinéma ce soir. » et donne le titre. L’autre, n’ayant pas encore l’information, répond : « Ça commence à quelle heure ? »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Quelqu’un propose à une personne de manger quelque chose : « Tu veux un sandwich ? » ou « Tu viens dîner avec nous ? » La personne refuse poliment en disant : « Non, je viens de manger. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une personne est dans un bus ou un métro et discute avec un ami ou le conducteur qui lui demande où elle descend. Elle répond : « Je descends au prochain arrêt. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un magasin ou dans la rue, quelqu’un demande de l’aide ou un service, par exemple : « Vous pouvez m’aider à porter ce sac ? » ou « Vous pouvez me passer ce document ? » La personne accepte en répondant : « Oui, bien sûr, tenez. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune option ne présente d’avantage rédactionnel évident par rapport à la question très générale ; toutes peuvent convenir à des situations orales typiques différentes, et sans le contexte sonore il est impossible de départager de façon fondée."
+        },
+        "usage": {
+          "prompt_tokens": 591,
+          "completion_tokens": 408,
+          "total_tokens": 999,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 74,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00481875,
+        "inputHash": "24c41553c39633b20fef9578aea247597be291fa6a0905f97c9cdf508964bb8f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:4:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkynQDdHN2ahxTdRrCq3y7uTBSN4c",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne demande à emprunter un stylo ; la seule réponse appropriée est l’acceptation polie accompagnée du geste de donner le stylo : « Oui, bien sûr, tenez. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, vous auriez un stylo à me prêter ?",
+            "Ça commence à quelle heure ?"
+          ],
+          "reason": "La question porte clairement sur le prêt d’un stylo (« vous auriez un stylo à me prêter ? »), pas sur l’horaire d’un événement. « Ça commence à quelle heure ? » ne répond à aucune partie de la demande : ni le besoin d’un stylo, ni l’idée de prêter ou refuser. Quelqu’un pourrait mal comprendre la situation et croire qu’il s’agit d’une conversation plus large où l’on parlait d’un cours ou d’un spectacle, mais ici l’unique information fournie est la demande de stylo, donc cette réponse est inadaptée.",
+          "misunderstanding": "referent_error"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, vous auriez un stylo à me prêter ?",
+            "Je descends au prochain arrêt."
+          ],
+          "reason": "La demande concerne un stylo à prêter. Répondre « Je descends au prochain arrêt. » est pertinent pour une situation dans un bus ou un métro, pas pour prêter un objet. On ne fait aucun lien logique entre descendre à un arrêt et la possibilité de prêter un stylo. Un auditeur distrait pourrait imaginer qu’on est dans les transports et que la personne explique pourquoi elle ne peut pas aider, mais rien dans l’énoncé (« vous auriez un stylo à me prêter ? ») ne mentionne un trajet ou un arrêt, donc cette réponse ne convient pas.",
+          "misunderstanding": "referent_error"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Excusez-moi, vous auriez un stylo à me prêter ?",
+            "Oui, bien sûr, tenez."
+          ],
+          "reason": "La question est une demande polie d’emprunt de stylo : « vous auriez un stylo à me prêter ? ». La réponse « Oui, bien sûr, tenez. » accepte explicitement la demande (« Oui, bien sûr ») et indique le geste de donner le stylo (« tenez »). C’est la seule réponse qui traite directement de la demande d’objet, tant sur le plan sémantique que pragmatique.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Excusez-moi, vous auriez un stylo à me prêter ?",
+            "Non, je viens de manger."
+          ],
+          "reason": "Dire « Non, je viens de manger. » pourrait paraître formellement comparable à une réponse négative, mais la justification n’a aucun rapport avec le prêt d’un stylo. Le fait d’avoir « juste mangé » n’explique pas l’impossibilité de prêter un stylo. Un auditeur qui comprend seulement qu’on refuse pourrait retenir le « Non » comme cohérent avec un refus de prêter, mais la suite contredit la logique de la situation, donc la réponse globale ne convient pas.",
+          "misunderstanding": "causal_reversal"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 688,
+      "completion_tokens": 949,
+      "total_tokens": 1637,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 199,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01035,
+    "inputHash": "92e47e7b53683da3e1ce8383c2d3157ffcaa7a7024cac81a26155b9d50e0d124",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:4:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

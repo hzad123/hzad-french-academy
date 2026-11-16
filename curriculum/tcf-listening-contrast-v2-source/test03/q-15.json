@@ -1,0 +1,321 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+    "options": [
+      "Au médecin traitant des patients concernés",
+      "Aux services de santé publique de la ville",
+      "À l’équipe chargée de l’évaluation de printemps",
+      "À la direction de chaque pharmacie participante"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le document dit explicitement que les pharmaciens transmettront leurs observations « au médecin traitant ». C’est exactement ce que décrit la proposition 0 : « Au médecin traitant des patients concernés ». Il n’est fait mention d’aucun autre destinataire. B : On pourrait se laisser influencer par le contexte de « nouvelles de santé locale » et penser à des « services de santé publique de la ville ». Cependant, le texte précise clairement que les observations sont transmises « au médecin traitant » et ne parle jamais de services de santé publique municipaux. Le lien avec la ville n’est qu’un cadre d’actualité locale, pas le destinataire effectif des observations. C : L’énoncé mentionne bien « Une évaluation aura lieu au printemps », ce qui peut inciter à imaginer une « équipe chargée de l’évaluation de printemps » comme destinataire. Mais le texte précise juste après la description du suivi que les observations sont transmises « au médecin traitant » et ne dit jamais qu’elles seront envoyées à l’équipe qui fera l’évaluation. L’évaluation est un événement ultérieur, pas le récepteur direct des observations. D : Le fait que « cinq pharmacies vont proposer un suivi régulier » peut faire croire que chaque pharmacie remontera l’information à sa propre direction. Cependant, le texte précise explicitement le seul destinataire des observations : « au médecin traitant ». Il n’est jamais question de la direction des pharmacies comme récepteur, donc cette interprétation ajoute un maillon hiérarchique non mentionné.",
+    "transcript": "Question 15.\nDans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps.\nSelon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "Dans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 48
+  },
+  "sourceHash": "d4bac4b8a97de270da402bb7463dda14f823778870cb97d0feb4326ed4ddeead",
+  "contentHash": "662c1f1b1dee63be78f1251176da68df5ca93c575d8710be343a1da8dbb04bd6",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyJu8xNGxG7HYNyE0zZYb1FHSjNG",
+    "result": {
+      "question": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+      "choices": [
+        "Au médecin traitant des patients concernés",
+        "Aux services de santé publique de la ville",
+        "À l’équipe chargée de l’évaluation de printemps",
+        "À la direction de chaque pharmacie participante"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que les pharmaciens « transmettront leurs observations au médecin traitant avec l'accord des intéressés ». Les autres destinataires proposés ne sont jamais mentionnés : l’évaluation au printemps est un moment, pas un service destinataire ; rien n’indique un envoi aux services de santé publique ni à la direction des pharmacies.",
+      "design": "Axe choisi : le destinataire des observations recueillies par les pharmaciens. Les quatre choix sont tous des destinataires plausibles dans un dispositif de suivi de traitements : médecin, services de santé publique, équipe d’évaluation, direction de pharmacie. Sans le document, chacun pourrait raisonnablement paraître être le récepteur de ce type d’informations. Seule l’écoute permet de repérer que le texte attribue explicitement ce rôle au médecin traitant, tandis que l’évaluation de printemps, le cadre local de santé et la structure de la pharmacie ont d’autres fonctions implicites ou ne sont pas mentionnés comme destinataires.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "On peut croire que les observations sont envoyées à un service de santé publique car le document s’ouvre sur « les nouvelles de santé locale », ce qui évoque une action coordonnée par la ville. Cependant, le texte dit explicitement que les pharmaciens « transmettront leurs observations au médecin traitant », sans mention de services municipaux ou d’un organisme de santé publique comme destinataire.",
+          "operation": "role_swap",
+          "anchors": [
+            "Dans les nouvelles de santé locale",
+            "transmettront leurs observations au médecin traitant"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La mention qu’« une évaluation aura lieu au printemps » peut faire penser que les observations sont destinées à une équipe d’évaluation. Mais le document distingue bien ces deux éléments : les observations sont adressées « au médecin traitant », et l’évaluation de printemps est simplement un moment où l’ensemble du dispositif sera examiné, sans être nommée comme destinataire direct des comptes rendus des pharmaciens.",
+          "operation": "role_swap",
+          "anchors": [
+            "transmettront leurs observations au médecin traitant",
+            "Une évaluation aura lieu au printemps"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Parce qu’il est question de « cinq pharmacies », un auditeur peut imaginer un protocole interne où les observations montent à « la direction de chaque pharmacie ». En réalité, le texte ne parle jamais de direction ou de hiérarchie interne : il indique seulement que les pharmaciens réalisent le suivi et envoient ensuite leurs observations « au médecin traitant », ce qui exclut la direction comme destinataire principal.",
+          "operation": "role_swap",
+          "anchors": [
+            "cinq pharmacies vont proposer un suivi régulier",
+            "transmettront leurs observations au médecin traitant"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4223,
+      "completion_tokens": 1008,
+      "total_tokens": 5231,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 370,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01535875,
+    "inputHash": "aa2a6c551b664406a848b7daffb9c6749943a5e9bdf6d7d0ef16e077aaaa8330",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyK5RDlRzVtXg6EVyjBA26OuzwO3",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une étude de suivi de patients polymédiqués, un document d’information explique que les pharmaciens devront noter certaines observations (effets indésirables, problèmes d’adhésion au traitement) et les transmettre au médecin traitant des patients concernés pour ajuster les prescriptions si nécessaire."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une campagne temporaire de dépistage des allergies saisonnières est organisée ; le document de consignes précise qu’à la fin de la période, les pharmaciens devront transmettre leurs observations (nombre de cas, symptômes observés, efficacité perçue des traitements conseillés) à l’équipe chargée de l’évaluation de printemps qui analysera les résultats."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans le cadre d’un programme municipal de surveillance de la grippe, un document envoyé aux pharmacies explique que les pharmaciens doivent consigner leurs observations (fréquence des symptômes grippaux, pénuries de certains médicaments) et les transmettre aux services de santé publique de la ville, qui coordonnent la réponse sanitaire."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une chaîne de pharmacies lance un projet interne d’amélioration de l’accueil ; le document interne précise que les pharmaciens devront observer certaines situations (temps d’attente, réclamations, demandes fréquentes) et transmettre leurs observations à la direction de chaque pharmacie participante pour adapter l’organisation locale."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.22,
+            0.2,
+            0.35,
+            0.23
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses peuvent correspondre à un document décrivant un protocole d’observation impliquant des pharmaciens, sans contradiction évidente. Aucune formulation ne présente un avantage grammatical ou logique décisif. Une légère préférence va à « Aux services de santé publique de la ville », fréquemment destinataires d’observations de terrain dans des dispositifs de surveillance sanitaire, mais cette préférence reste peu assurée, d’où une probabilité seulement modérément supérieure aux autres options."
+        },
+        "usage": {
+          "prompt_tokens": 607,
+          "completion_tokens": 695,
+          "total_tokens": 1302,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 245,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00770875,
+        "inputHash": "2e790bbabc69168460f26bcd91c87d047b4bd658d77d25bd6957f3b6d55b47b8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyKDrDKhRJDpiXC4l0rAU6VEGcFg",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une campagne d’observation sur les effets secondaires d’un nouveau traitement est organisée. Le document envoyé aux pharmacies précise que les pharmaciens doivent consigner les observations faites sur les patients et les transmettre au médecin traitant de chaque patient concerné, afin d’assurer un suivi médical personnalisé."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un groupe de pharmacies participe à un projet interne d’amélioration de la prise en charge des clients. Le document de consignes indique que les pharmaciens doivent noter leurs observations (par exemple sur l’affluence, les demandes fréquentes, les erreurs constatées) et les transmettre à la direction de chaque pharmacie participante pour analyse et décisions de gestion."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une expérimentation est menée durant le printemps pour évaluer l’impact d’une nouvelle organisation des conseils en officine. Le document de présentation prévoit qu’à la fin de la période, les pharmaciens transmettront leurs observations à l’équipe chargée de l’évaluation de printemps, qui centralise les retours et rédigera un rapport."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une campagne municipale de prévention sanitaire (par exemple sur la vaccination ou le tabac) implique les pharmacies comme relais d’information. Le document officiel de la mairie précise que les pharmaciens devront transmettre leurs observations (nombre de personnes informées, réactions fréquentes, problèmes rencontrés) aux services de santé publique de la ville pour un bilan global."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent facilement correspondre à des consignes réalistes données dans un document destiné à des pharmaciens, sans indice textuel clair permettant de privilégier l’une plutôt qu’une autre. Aucune option ne présente d’avantage évident de formulation, de portée ou de pertinence directement déductible de l’énoncé seul, d’où une forte incertitude et des probabilités réparties de manière égale."
+        },
+        "usage": {
+          "prompt_tokens": 607,
+          "completion_tokens": 748,
+          "total_tokens": 1355,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 299,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00823875,
+        "inputHash": "156fb0395fcd43ffb66f2ec01d6762c98d23e813f59d0261322154fbb316f8ad",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyKLO3CqOW8MPPtBY7fdkGl23TZd",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les pharmaciens enverront leurs observations au médecin traitant des patients concernés.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés"
+          ],
+          "reason": "Le document dit explicitement que les pharmaciens transmettront leurs observations « au médecin traitant ». C’est exactement ce que décrit la proposition 0 : « Au médecin traitant des patients concernés ». Il n’est fait mention d’aucun autre destinataire.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Dans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements."
+          ],
+          "reason": "On pourrait se laisser influencer par le contexte de « nouvelles de santé locale » et penser à des « services de santé publique de la ville ». Cependant, le texte précise clairement que les observations sont transmises « au médecin traitant » et ne parle jamais de services de santé publique municipaux. Le lien avec la ville n’est qu’un cadre d’actualité locale, pas le destinataire effectif des observations.",
+          "misunderstanding": "referent_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés.",
+            "Une évaluation aura lieu au printemps."
+          ],
+          "reason": "L’énoncé mentionne bien « Une évaluation aura lieu au printemps », ce qui peut inciter à imaginer une « équipe chargée de l’évaluation de printemps » comme destinataire. Mais le texte précise juste après la description du suivi que les observations sont transmises « au médecin traitant » et ne dit jamais qu’elles seront envoyées à l’équipe qui fera l’évaluation. L’évaluation est un événement ultérieur, pas le récepteur direct des observations.",
+          "misunderstanding": "temporal_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements.",
+            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés."
+          ],
+          "reason": "Le fait que « cinq pharmacies vont proposer un suivi régulier » peut faire croire que chaque pharmacie remontera l’information à sa propre direction. Cependant, le texte précise explicitement le seul destinataire des observations : « au médecin traitant ». Il n’est jamais question de la direction des pharmacies comme récepteur, donc cette interprétation ajoute un maillon hiérarchique non mentionné.",
+          "misunderstanding": "added_institutional_layer"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 728,
+      "completion_tokens": 786,
+      "total_tokens": 1514,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 201,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00877,
+    "inputHash": "c9e11cba5da231958333dfc01f94bed39b1c2d7d1f22839bc6a7211f399e6f84",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:ground:2"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

@@ -1,0 +1,147 @@
+{
+  "question": {
+    "number": 32,
+    "kind": "interview",
+    "question": "Selon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?",
+    "options": [
+      "Imposer automatiquement un entretien obligatoire.",
+      "Attribuer directement une aide financière supplémentaire.",
+      "Orienter une offre de soutien discrète.",
+      "Signaler le dossier à la direction pour une éventuelle sanction."
+    ],
+    "correct": "C",
+    "explanation": "Le document précise que « L'outil devrait orienter une offre de soutien discrète ». Il sert donc à déclencher une forme d’aide discrète, non automatique ni punitive, et non à imposer un entretien, à provoquer une sanction ou à attribuer une aide financière.",
+    "transcript": "Question 32.\nVotre équipe a développé un outil qui estime quels étudiants risquent d'interrompre leurs études. Faut-il contacter automatiquement ceux qui obtiennent un score élevé ?\nUn signal peut aider, mais ce modèle s'appuie sur des données incomplètes. Un étudiant peut manquer un cours pour travailler ou pour des raisons familiales. Nous devons vérifier la situation sans étiqueter les personnes comme incapables de réussir. L'outil devrait orienter une offre de soutien discrète, et ses erreurs doivent être étudiées régulièrement. Il ne doit jamais remplacer un entretien ou entraîner une sanction.\nSelon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 32."
+      },
+      {
+        "voice": "male",
+        "text": "Votre équipe a développé un outil qui estime quels étudiants risquent d'interrompre leurs études. Faut-il contacter automatiquement ceux qui obtiennent un score élevé ?"
+      },
+      {
+        "voice": "female",
+        "text": "Un signal peut aider, mais ce modèle s'appuie sur des données incomplètes. Un étudiant peut manquer un cours pour travailler ou pour des raisons familiales. Nous devons vérifier la situation sans étiqueter les personnes comme incapables de réussir. L'outil devrait orienter une offre de soutien discrète, et ses erreurs doivent être étudiées régulièrement. Il ne doit jamais remplacer un entretien ou entraîner une sanction."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?"
+      }
+    ],
+    "audio": "q-32.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 70
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyUA4FezTMzQYPxCz5ETOCuUtS3v",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion administrative sur un nouveau logiciel de suivi des étudiants, un responsable explique que l’outil sert à repérer les étudiants en difficulté scolaire ou comportementale, puis à signaler automatiquement leur dossier à la direction qui décidera d’une éventuelle sanction en cas de manquements graves au règlement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une présentation d’un système de suivi du bien‑être étudiant, un psychologue scolaire décrit un outil qui identifie les profils à risque (isolement, décrochage, détresse) et déclenche ensuite une démarche de soutien discret, par exemple un courriel d’information ou une proposition d’entretien non stigmatisante."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un webinaire sur la lutte contre le décrochage universitaire, un vice‑doyen explique que le nouvel outil signale les étudiants à risque et génère automatiquement une convocation obligatoire à un entretien avec un conseiller pédagogique dès que certains seuils sont franchis."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’un conseil d’administration d’établissement, on présente un outil de détection de précarité étudiante qui, pour les profils jugés à risque financier, déclenche automatiquement l’attribution d’une aide monétaire supplémentaire sans démarche à effectuer par l’étudiant."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "Formulation modérée et bienveillante («offre de soutien», «discrète») qui correspond de façon nuancée à l’idée d’un outil pour étudiants «à risque», par contraste avec les autres choix plus punitifs («sanction»), rigides («imposer automatiquement») ou trop spécifiques («aide financière»)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.6,
+            0.15,
+            0.15
+          ],
+          "guess": 1,
+          "reason": "La question parle d’un outil pour étudiants «jugés à risque», ce qui, sans autre précision, renvoie typiquement à une logique de prévention et d’accompagnement plutôt que de sanction ou d’avantage financier ciblé. Parmi les choix, «Orienter une offre de soutien discrète» est le plus cohérent avec une approche de soutien non stigmatisante, tandis que la sanction, l’entretien imposé ou l’aide financière directe sont plus étroits ou extrêmes. D’où une préférence nette mais non certaine pour l’option 1."
+        },
+        "usage": {
+          "prompt_tokens": 617,
+          "completion_tokens": 632,
+          "total_tokens": 1249,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 105,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00709125,
+        "inputHash": "f1544011545eca2752007183ed841dc4c2e0fbad32f5e5b1ac84ed45108fc929",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:31:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La question parle d’un outil pour étudiants «jugés à risque», ce qui, sans autre précision, renvoie typiquement à une logique de prévention et d’accompagnement plutôt que de sanction ou d’avantage financier ciblé. Parmi les choix, «Orienter une offre de soutien discrète» est le plus cohérent avec une approche de soutien non stigmatisante, tandis que la sanction, l’entretien imposé ou l’aide financière directe sont plus étroits ou extrêmes. D’où une préférence nette mais non certaine pour l’option 1.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "Formulation modérée et bienveillante («offre de soutien», «discrète») qui correspond de façon nuancée à l’idée d’un outil pour étudiants «à risque», par contraste avec les autres choix plus punitifs («sanction»), rigides («imposer automatiquement») ou trop spécifiques («aide financière»)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une réunion administrative sur un nouveau logiciel de suivi des étudiants, un responsable explique que l’outil sert à repérer les étudiants en difficulté scolaire ou comportementale, puis à signaler automatiquement leur dossier à la direction qui décidera d’une éventuelle sanction en cas de manquements graves au règlement."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une présentation d’un système de suivi du bien‑être étudiant, un psychologue scolaire décrit un outil qui identifie les profils à risque (isolement, décrochage, détresse) et déclenche ensuite une démarche de soutien discret, par exemple un courriel d’information ou une proposition d’entretien non stigmatisante."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un webinaire sur la lutte contre le décrochage universitaire, un vice‑doyen explique que le nouvel outil signale les étudiants à risque et génère automatiquement une convocation obligatoire à un entretien avec un conseiller pédagogique dès que certains seuils sont franchis."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Au cours d’un conseil d’administration d’établissement, on présente un outil de détection de précarité étudiante qui, pour les profils jugés à risque financier, déclenche automatiquement l’attribution d’une aide monétaire supplémentaire sans démarche à effectuer par l’étudiant."
+      }
+    ]
+  }
+}

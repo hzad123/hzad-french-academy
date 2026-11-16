@@ -1,0 +1,174 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "transcript": "Question 1.\nÉcoutez les quatre propositions. Choisissez celle qui correspond à l'image. A. Il parle au caissier. B. Il pousse un chariot de courses. C. Il pose ses sacs par terre. D. Il porte deux sacs de courses.",
+    "explanation": "Réponse D : L’image montre un personnage tenant un sac de courses dans chaque main, ce qui correspond exactement à « Il porte deux sacs de courses. » Il les soulève et les tient, ce qui signifie bien qu’il les porte. A : On voit seulement un personnage debout avec des sacs, sans interlocuteur ni élément indiquant une caisse. Il ne fait pas de geste de parole vers quelqu’un. L’erreur vient du fait qu’un élève peut associer automatiquement des sacs de courses à une scène avec un caissier, alors que l’image ne montre aucune interaction avec une autre personne. B : Le personnage est immobile, de face, avec un sac dans chaque main ; aucun chariot n’apparaît dans l’image et il ne pousse rien. On peut se tromper en liant automatiquement les courses à un chariot de supermarché, mais ici l’absence totale de chariot rend cette proposition fausse. C : Les sacs sont clairement tenus en l’air, un dans chaque main ; ils ne sont pas posés au sol. Un élève peu attentif pourrait interpréter la position basse des sacs comme le moment où il les pose, mais l’image ne montre aucun contact avec le sol, donc cette proposition ne correspond pas.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Écoutez les quatre propositions. Choisissez celle qui correspond à l'image. A. Il parle au caissier. B. Il pousse un chariot de courses. C. Il pose ses sacs par terre. D. Il porte deux sacs de courses."
+      }
+    ],
+    "image": "q-01.svg",
+    "audio": "q-01.mp3",
+    "audioSeconds": 16.875,
+    "slotSeconds": 35
+  },
+  "sourceHash": "078225469654a0907c9788b0200893a1e32f64efcdef09d5a286838239991227",
+  "contentHash": "035df3196df0c91f51fb994111f21ab619d1466610dca8115bbc02c4b05203f7",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkykZ7haJlBMMs0gAquoroc4loyn5",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "In a listening task, the student sees a picture of a man standing still in a supermarket entrance, setting his shopping bags down on the floor, and the speaker asks: « Quelle proposition correspond à l'image ? » The described action in the recording is that he is putting his bags on the ground, so this sentence directly matches."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "The image shows a person in a supermarket aisle holding the handle of a shopping trolley and pushing it forward. The audio asks which sentence matches the image, and the correct description in that scenario would be that he is pushing a shopping cart."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "The picture shows a man at the checkout, facing the cashier and clearly engaged in conversation, perhaps with his mouth open or gesturing, while groceries are on the conveyor belt. The recording asks which sentence corresponds to the image, and the intended answer is that he is talking to the cashier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "The displayed image shows a man outside a store or walking on the street holding one shopping bag in each hand. The listening question asks which sentence describes the picture, and the correct match is that he is carrying two shopping bags."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "All four options are short, grammatical and equally plausible descriptions of a typical shopping scene that an unseen image could depict. The wording of the question and answers provides no concrete structural or stylistic cue that favors one option over the others, so any choice would be speculative; probabilities are therefore uniform and the nominal guess is arbitrary."
+        },
+        "usage": {
+          "prompt_tokens": 591,
+          "completion_tokens": 538,
+          "total_tokens": 1129,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 163,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00611875,
+        "inputHash": "4ba3f68069b8795a604b2290feed2533fa3512bc7258be76e3e6f919721414d3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:0:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkykhZXuTq5pIQfA7qkiPBhprCEul",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description qui correspond précisément à l’image est qu’il porte deux sacs de courses, un dans chaque main.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit seulement un personnage debout avec des sacs, sans interlocuteur ni élément indiquant une caisse. Il ne fait pas de geste de parole vers quelqu’un. L’erreur vient du fait qu’un élève peut associer automatiquement des sacs de courses à une scène avec un caissier, alors que l’image ne montre aucune interaction avec une autre personne.",
+          "misunderstanding": "situation_inference"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le personnage est immobile, de face, avec un sac dans chaque main ; aucun chariot n’apparaît dans l’image et il ne pousse rien. On peut se tromper en liant automatiquement les courses à un chariot de supermarché, mais ici l’absence totale de chariot rend cette proposition fausse.",
+          "misunderstanding": "visual_misidentification"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Les sacs sont clairement tenus en l’air, un dans chaque main ; ils ne sont pas posés au sol. Un élève peu attentif pourrait interpréter la position basse des sacs comme le moment où il les pose, mais l’image ne montre aucun contact avec le sol, donc cette proposition ne correspond pas.",
+          "misunderstanding": "moment_confusion"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "L’image montre un personnage tenant un sac de courses dans chaque main, ce qui correspond exactement à « Il porte deux sacs de courses. » Il les soulève et les tient, ce qui signifie bien qu’il les porte.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 722,
+      "completion_tokens": 730,
+      "total_tokens": 1452,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 298,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0082025,
+    "inputHash": "21879091687018c756f1d543ffb0aaa9a36412274e7c7ddce7f1981f5d8d3e17",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:0:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null
+}

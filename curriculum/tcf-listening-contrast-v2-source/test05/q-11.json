@@ -1,0 +1,329 @@
+{
+  "question": {
+    "number": 11,
+    "kind": "announcement",
+    "question": "Selon le document, à quoi doit servir la description du problème envoyée par les résidents ?",
+    "options": [
+      "À vérifier si la réparation peut être traitée comme non urgente.",
+      "À organiser la planification de l'intervention prévue.",
+      "À déterminer s'il faut prévenir le propriétaire de chaque logement.",
+      "À préparer un dossier complet pour l'assurance de l'immeuble."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le document explique que les réparations non urgentes seront regroupées et précise clairement la finalité de la description demandée : « Afin de planifier l'intervention, merci de transmettre la description du problème ». La description sert donc à organiser la planification de l’intervention prévue. A : Le document distingue bien les réparations « non urgentes » des problèmes graves à signaler immédiatement, ce qui pourrait faire croire que la description sert à décider si c’est urgent ou non. Cependant, il n’est jamais dit que la description du problème sert à « vérifier si la réparation peut être traitée comme non urgente » : la catégorie (non urgente vs urgente) est déjà fixée par les consignes de signalement (regroupées la semaine prochaine vs immédiatement par téléphone). La fonction de la description est explicitement donnée comme liée à la planification, pas au tri urgent/non urgent. C : Le texte ne mentionne jamais le propriétaire de chaque logement, ni une décision à prendre sur le fait de le prévenir ou non. Tout se passe entre les résidents et la société de gestion. Quelqu’un qui comprend seulement qu’il s’agit de gestion d’immeuble pourrait imaginer à tort un lien avec le propriétaire, mais aucun passage ne rattache la description du problème à la décision de prévenir ou non ce propriétaire; elle est explicitement reliée à la planification de l’intervention. D : Le document parle d’organisation pratique des réparations par la société de gestion et ne fait aucune référence à une assurance ni à un « dossier complet ». Un lecteur qui associe spontanément problèmes d’immeuble et assurance pourrait projeter cette idée sur le texte. Toutefois, la seule finalité donnée à la description est « afin de planifier l'intervention », ce qui contredit l’usage évoqué d’un dossier pour l’assurance.",
+    "transcript": "Question 11.\nLa société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone.\nSelon le document, à quoi doit servir la description du problème envoyée par les résidents ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 11."
+      },
+      {
+        "voice": "male",
+        "text": "La société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quoi doit servir la description du problème envoyée par les résidents ?"
+      }
+    ],
+    "audio": "q-11.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 41
+  },
+  "sourceHash": "6b04f02d218759677e32ec6128f3ea0963bf651ef92a7a80614cf88948a10c84",
+  "contentHash": "7308c69b93b797b26a3a5d89fc0c9fb0d2a26d46b2e144a8439722f9e3aae9da",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyVZVenfU8jiz6Ap96Lx2zLaY2Wl",
+    "result": {
+      "question": "Selon le document, à quoi doit servir la description du problème envoyée par les résidents ?",
+      "choices": [
+        "À organiser la planification de l'intervention prévue.",
+        "À vérifier si la réparation peut être traitée comme non urgente.",
+        "À préparer un dossier complet pour l'assurance de l'immeuble.",
+        "À déterminer s'il faut prévenir le propriétaire de chaque logement."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte précise que la description est demandée « afin de planifier l'intervention », ce qui correspond à l’organisation concrète des réparations. Il n’est fait mention ni de dossier d’assurance, ni de décision sur l’urgence à partir de ce message, ni d’information systématique des propriétaires.",
+      "design": "Axe choisi : la fonction précise de la description demandée aux résidents. Les quatre propositions décrivent des usages plausibles d’informations techniques sur un problème dans un immeuble (planifier une intervention, qualifier l’urgence, monter un dossier d’assurance, ou décider qui informer). Sans le document, chacune paraît réaliste dans une gestion immobilière. L’enregistrement permet de trancher, car il relie explicitement la description à la planification de l’intervention et non aux autres usages possibles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option attribue à la description un rôle de tri de l’urgence, en s’appuyant sur la mention des « réparations non urgentes » et des « fuites importantes et pannes dangereuses ». Mais le texte relie directement la demande de description à la phrase afin de planifier l'intervention, pas à la décision de classer le problème comme urgent ou non.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Les réparations non urgentes seront regroupées la semaine prochaine",
+            "Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Un auditeur peut associer la demande d’écrire une « description du problème » à la constitution d’un dossier d’assurance, usage courant en cas de dégâts. Pourtant, le document ne mentionne ni assurance ni dossier ; la seule finalité explicitée de cette description est de planifier l'intervention.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "merci de transmettre la description du problème avant mardi midi",
+            "Afin de planifier l'intervention"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On peut croire que la description sert à décider s’il faut prévenir les propriétaires, car la gestion d’un immeuble implique souvent de les informer en cas de panne ou de fuite. Cependant, le texte parle de la société de gestion qui regroupe les réparations non urgentes et demande la description uniquement afin de planifier l'intervention, sans évoquer une décision d’information des propriétaires.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "La société de gestion rappelle aux résidents de l'immeuble des Tilleuls",
+            "Afin de planifier l'intervention, merci de transmettre la description du problème"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4394,
+      "completion_tokens": 1035,
+      "total_tokens": 5429,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 419,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0158425,
+    "inputHash": "b610dd6ba5d8d204341fe48638a4f4181955d988a4269d96d3c8baf871178263",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyVi0mqxLnU6dXwvDa7T5oh6WZyX",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une résidence, un enregistrement téléphonique ou un message vocal d’un service de maintenance explique aux locataires : « Quand vous signalez un problème, décrivez-le le plus précisément possible. Votre description nous permet d’organiser la planification de l’intervention prévue, par exemple décider du temps nécessaire et du technicien à envoyer. » Ici, la description sert directement à organiser la planification de l’intervention."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un gardien d’immeuble laisse un message d’information : « Merci de détailler le problème dans votre demande. Votre description nous permettra de vérifier si la réparation peut être traitée comme non urgente ou si elle nécessite une intervention immédiate. » Dans ce cas, la description sert à décider du niveau d’urgence."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une copropriété où chaque logement appartient à un propriétaire différent, le syndic diffuse un message : « Lorsque vous envoyez une description du problème rencontré dans votre appartement, nous l’utilisons pour déterminer s’il faut prévenir le propriétaire de chaque logement concerné ou si une simple intervention technique suffit. » Ici, la description sert à décider s’il faut avertir les propriétaires."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une société de gestion immobilière envoie un message audio explicatif aux résidents : « Merci de décrire précisément le problème rencontré. Votre description nous aide à préparer un dossier complet pour l’assurance de l’immeuble en cas de sinistre. » Dans ce contexte, la description sert à constituer le dossier d’assurance."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions pourraient toutes répondre à la question dans des contextes ordinaires et rien, dans le seul libellé de la question et des choix, ne donne un avantage décisif à l’une d’elles ; sans accès au document audio, l’incertitude reste forte et aucune option ne se distingue clairement par la formulation."
+        },
+        "usage": {
+          "prompt_tokens": 624,
+          "completion_tokens": 594,
+          "total_tokens": 1218,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 145,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00672,
+        "inputHash": "7ef0d6fc2a6596a6a2cc66db1d00869bd8210d8215bfd0f20cbea01d0ca04c9a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyVoaeIMZx9BE0sgBVLvJqSvtVGn",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une régie immobilière a mis en place un formulaire en ligne où les résidents décrivent précisément leur problème (fuite d’eau, panne de chauffage, etc.). Le document audio explique que cette description sert d’abord à décider si la réparation peut être considérée comme urgente ou non urgente, afin d’appliquer les bons délais d’intervention."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un immeuble en copropriété géré par une agence, un message informe les locataires que leur description de problème permet de savoir si le propriétaire de chaque logement doit être prévenu (par exemple en cas de dégâts importants dans un appartement précis). Le document indique que cette description sert à déterminer s’il faut contacter le propriétaire concerné."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un service de maintenance d’un parc de logements sociaux explique dans un enregistrement que la description envoyée par les résidents est utilisée pour organiser la planification des interventions (type de technicien à envoyer, durée estimée, ordre de priorité, regroupement de visites par bâtiment). Le document précise que cette description sert directement à préparer le planning d’intervention."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "L’administrateur d’un grand immeuble explique dans un message vocal que les descriptions de problèmes envoyées par les résidents servent à constituer un dossier détaillé pour l’assurance de l’immeuble, notamment en cas de sinistres répétés (fuites, infiltrations, problèmes électriques), afin de justifier les demandes de remboursement."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "‘À organiser la planification de l'intervention prévue’ est une formulation large et directement liée à la gestion opérationnelle d’une réparation, ce qui correspond de façon générale à l’usage typique d’une ‘description du problème envoyée par les résidents’, alors que l’option assurance est plus spécialisée et l’option sur le propriétaire ou la non‑urgence sont plus restreintes dans leur portée."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.3,
+            0.2,
+            0.4,
+            0.1
+          ],
+          "guess": 2,
+          "reason": "La fonction la plus naturelle et générale d’une ‘description du problème envoyée par les résidents’ est de permettre d’organiser concrètement l’intervention (type d’intervenant, durée, priorisation), ce que l’option 3 exprime explicitement. Les autres options restent plausibles mais paraissent soit plus spécialisées (assurance), soit comme des sous‑cas possibles (urgence, information du propriétaire) plutôt que la finalité principale décrite par un ‘document’ d’information général."
+        },
+        "usage": {
+          "prompt_tokens": 624,
+          "completion_tokens": 736,
+          "total_tokens": 1360,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 167,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00814,
+        "inputHash": "ac744e01f78e0fc03f236d8ea3c2d9645f91ccc2edac8aae9b5d04784e1b3484",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyVwQ1vzEFbSWoQM05AKtWLbl7kl",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La description du problème doit servir à organiser la planification de l'intervention de réparation prévue par la société de gestion.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les réparations non urgentes seront regroupées la semaine prochaine.",
+            "Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone."
+          ],
+          "reason": "Le document distingue bien les réparations « non urgentes » des problèmes graves à signaler immédiatement, ce qui pourrait faire croire que la description sert à décider si c’est urgent ou non. Cependant, il n’est jamais dit que la description du problème sert à « vérifier si la réparation peut être traitée comme non urgente » : la catégorie (non urgente vs urgente) est déjà fixée par les consignes de signalement (regroupées la semaine prochaine vs immédiatement par téléphone). La fonction de la description est explicitement donnée comme liée à la planification, pas au tri urgent/non urgent.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les réparations non urgentes seront regroupées la semaine prochaine.",
+            "Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi."
+          ],
+          "reason": "Le document explique que les réparations non urgentes seront regroupées et précise clairement la finalité de la description demandée : « Afin de planifier l'intervention, merci de transmettre la description du problème ». La description sert donc à organiser la planification de l’intervention prévue.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine.",
+            "Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi."
+          ],
+          "reason": "Le texte ne mentionne jamais le propriétaire de chaque logement, ni une décision à prendre sur le fait de le prévenir ou non. Tout se passe entre les résidents et la société de gestion. Quelqu’un qui comprend seulement qu’il s’agit de gestion d’immeuble pourrait imaginer à tort un lien avec le propriétaire, mais aucun passage ne rattache la description du problème à la décision de prévenir ou non ce propriétaire; elle est explicitement reliée à la planification de l’intervention.",
+          "misunderstanding": "wrong_actor"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine.",
+            "Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi."
+          ],
+          "reason": "Le document parle d’organisation pratique des réparations par la société de gestion et ne fait aucune référence à une assurance ni à un « dossier complet ». Un lecteur qui associe spontanément problèmes d’immeuble et assurance pourrait projeter cette idée sur le texte. Toutefois, la seule finalité donnée à la description est « afin de planifier l'intervention », ce qui contredit l’usage évoqué d’un dossier pour l’assurance.",
+          "misunderstanding": "invented_inference"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 731,
+      "completion_tokens": 1165,
+      "total_tokens": 1896,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 456,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01256375,
+    "inputHash": "43fad9f9b7d8c9a61774bba51464047d91d65bb4b59a0454013ec318131696cd",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:initial:ground:3"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

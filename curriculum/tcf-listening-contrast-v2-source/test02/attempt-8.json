@@ -1,0 +1,242 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le client signale que « ce pantalon est un peu grand » et demande « la taille en dessous ». Répondre « Oui, je vais vérifier en réserve » répond précisément à la demande de taille plus petite et correspond à la réaction normale d’un vendeur qui ne sait pas encore si la taille est disponible. C’est la réponse la plus naturelle et directement adaptée à la situation décrite. A : Le client demande explicitement s’il existe « la taille en dessous ». Répondre qu’on n’a « que plus grand » contredit directement la demande et suppose que le vendeur connaît déjà le stock et n’a pas besoin de vérifier, ce qui n’est pas indiqué dans l’énoncé. L’exercice cherche la réponse qui convient le mieux à la situation type de magasin, où l’on propose au moins de vérifier. Cette réponse est donc possible dans l’absolu, mais moins adaptée que B et n’est pas la bonne attendue. C : Le client parle d’un pantalon « un peu grand » et demande une taille en dessous, ce qui renvoie à la taille générale (tour de taille, ampleur), pas à la longueur uniquement. Proposer de « le faire raccourcir » ne répond qu’à un problème de longueur et ne satisfait pas la demande explicite d’avoir une taille en dessous. Quelqu’un comprenant mal pourrait associer « grand » uniquement à la longueur du pantalon et croire que raccourcir est une solution, mais rien dans l’énoncé ne limite le problème à la longueur. D : La question porte sur la taille (« la taille en dessous »), pas sur la couleur. Dire « On l’a seulement dans une autre couleur » change de critère et répond à un problème de couleur, non de taille. Un candidat distrait pourrait retenir seulement l’idée qu’il n’y a pas exactement le pantalon demandé et croire que proposer une variante (autre couleur) est logique, mais cette réponse ne traite pas la demande de taille plus petite.",
+    "transcript": "Question 8.\nCe pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nA. Non, on n’a que plus grand. B. Oui, je vais vérifier en réserve. C. Je peux vous le faire raccourcir. D. On l’a seulement dans une autre couleur.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Non, on n’a que plus grand. B. Oui, je vais vérifier en réserve. C. Je peux vous le faire raccourcir. D. On l’a seulement dans une autre couleur."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 17.737,
+    "slotSeconds": 37
+  },
+  "rounds": 0,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkynWPPRUCxPnuQ0VZun8Lo2hVBgx",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un magasin de vêtements ou de chaussures, un client demande un article dans une taille plus petite (par exemple : « Vous l’avez en plus petit ? ») et le vendeur répond qu’il n’a que des tailles plus grandes : « Non, on n’a que plus grand. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une boutique, un client demande si un article est disponible (taille, modèle, quantité) et le vendeur répond positivement en disant qu’il va aller voir à l’arrière du magasin : « Oui, je vais vérifier en réserve. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un magasin, un client montre un article et demande une autre version (par exemple une autre taille ou un autre modèle). Le vendeur répond qu’ils ne l’ont que dans une couleur différente : « On l’a seulement dans une autre couleur. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une boutique de vêtements, un client essaie un pantalon ou une jupe qui est trop long(ue) et demande s’il est possible d’ajuster la longueur. Le vendeur propose un service de retouche : « Je peux vous le faire raccourcir. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent répondre naturellement à une demande de client en magasin dans des contextes ordinaires, sans indice textuel clair pour en privilégier un ; le choix est donc très incertain et revient à une sélection arbitraire parmi les options plausibles."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 545,
+          "total_tokens": 1142,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 185,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00619625,
+        "inputHash": "5c7de772d84c61e0c7655b3c9ce6be00f34b2e34a6a735bbad60d3c3d008f4cb",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:7:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyneehGOsdJv0SALOV3qeoERkXWa",
+    "result": {
+      "supportedIndices": [
+        0,
+        1
+      ],
+      "ambiguous": true,
+      "questionSupported": true,
+      "summary": "La cliente trouve le pantalon trop grand et demande une taille en dessous. La réponse A répond négativement à cette demande, la réponse B positivement en proposant de vérifier le stock. Les deux répliques sont pragmatiquement adaptées, ce qui rend l’item ambigu. C et D ne répondent pas au problème de taille.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nA. Non, on n’a que plus grand."
+          ],
+          "reason": "La cliente demande explicitement une taille en dessous. Répondre « Non, on n’a que plus grand. » répond directement par la négative à la question de disponibilité de la taille plus petite. Rien dans l’enregistrement n’impose qu’une taille plus petite existe, donc cette réponse est entièrement cohérente.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nB. Oui, je vais vérifier en réserve."
+          ],
+          "reason": "La question porte sur la disponibilité d’une taille en dessous. « Oui, je vais vérifier en réserve. » est une réponse naturelle : le vendeur accepte la demande et propose d’aller voir en stock. Cette réponse est également pleinement adaptée à la situation.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nC. Je peux vous le faire raccourcir."
+          ],
+          "reason": "La cliente parle d’un pantalon « un peu grand » et demande « la taille en dessous », ce qui renvoie à la taille (largeur, volume), pas seulement à la longueur. « Je peux vous le faire raccourcir. » traite seulement un problème de longueur de jambes, comme si « grand » signifiait « trop long », et ne répond pas à la demande précise d’une taille inférieure. Un candidat qui confond « trop grand » avec « trop long » pourrait choisir cette option en pensant que raccourcir le pantalon résout le problème, mais l’enregistrement montre clairement une demande de changement de taille.",
+          "misunderstanding": "lexical_interpretation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nD. On l’a seulement dans une autre couleur."
+          ],
+          "reason": "La question porte uniquement sur une taille plus petite (« la taille en dessous »), pas sur la couleur. « On l’a seulement dans une autre couleur. » répond à un problème de choix de couleur et non de taille, donc ne satisfait pas la demande exprimée. Un auditeur peu attentif pourrait se dire que le vendeur signale une limitation de stock et croire que cela répond à la question, mais l’audio précise clairement qu’il s’agit d’un problème de taille, pas de couleur.",
+          "misunderstanding": "scope_of_request"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 702,
+      "completion_tokens": 1674,
+      "total_tokens": 2376,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 983,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0176175,
+    "inputHash": "387a0a3a3b68b65549fc21523ffd5975f7cde5c1858a0f599f708103776b6766",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:7:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": {
+    "stage": "ground",
+    "assessment": {
+      "supportedIndices": [
+        0,
+        1
+      ],
+      "ambiguous": true,
+      "questionSupported": true,
+      "summary": "La cliente trouve le pantalon trop grand et demande une taille en dessous. La réponse A répond négativement à cette demande, la réponse B positivement en proposant de vérifier le stock. Les deux répliques sont pragmatiquement adaptées, ce qui rend l’item ambigu. C et D ne répondent pas au problème de taille.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nA. Non, on n’a que plus grand."
+          ],
+          "reason": "La cliente demande explicitement une taille en dessous. Répondre « Non, on n’a que plus grand. » répond directement par la négative à la question de disponibilité de la taille plus petite. Rien dans l’enregistrement n’impose qu’une taille plus petite existe, donc cette réponse est entièrement cohérente.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nB. Oui, je vais vérifier en réserve."
+          ],
+          "reason": "La question porte sur la disponibilité d’une taille en dessous. « Oui, je vais vérifier en réserve. » est une réponse naturelle : le vendeur accepte la demande et propose d’aller voir en stock. Cette réponse est également pleinement adaptée à la situation.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nC. Je peux vous le faire raccourcir."
+          ],
+          "reason": "La cliente parle d’un pantalon « un peu grand » et demande « la taille en dessous », ce qui renvoie à la taille (largeur, volume), pas seulement à la longueur. « Je peux vous le faire raccourcir. » traite seulement un problème de longueur de jambes, comme si « grand » signifiait « trop long », et ne répond pas à la demande précise d’une taille inférieure. Un candidat qui confond « trop grand » avec « trop long » pourrait choisir cette option en pensant que raccourcir le pantalon résout le problème, mais l’enregistrement montre clairement une demande de changement de taille.",
+          "misunderstanding": "lexical_interpretation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Ce pantalon est un peu grand. Est-ce que vous avez la taille en dessous ?\nD. On l’a seulement dans une autre couleur."
+          ],
+          "reason": "La question porte uniquement sur une taille plus petite (« la taille en dessous »), pas sur la couleur. « On l’a seulement dans une autre couleur. » répond à un problème de choix de couleur et non de taille, donc ne satisfait pas la demande exprimée. Un auditeur peu attentif pourrait se dire que le vendeur signale une limitation de stock et croire que cela répond à la question, mais l’audio précise clairement qu’il s’agit d’un problème de taille, pas de couleur.",
+          "misunderstanding": "scope_of_request"
+        }
+      ]
+    },
+    "errors": [
+      "Not exactly the independently supported marked answer",
+      "Support verdict inconsistent at 0",
+      "Distractor lacks a specific plausible misunderstanding at 0",
+      "Missing/fabricated verbatim evidence at 1",
+      "Missing/fabricated verbatim evidence at 2",
+      "Missing/fabricated verbatim evidence at 3"
+    ]
+  }
+}

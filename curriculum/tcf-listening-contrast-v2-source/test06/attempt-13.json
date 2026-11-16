@@ -1,0 +1,326 @@
+{
+  "question": {
+    "number": 13,
+    "kind": "announcement",
+    "question": "Selon le document, jusqu’à quand les produits sensibles doivent-ils rester dans leur équipement habituel ?",
+    "options": [
+      "Jusqu’au mardi soir précédant le contrôle",
+      "Jusqu’à la fin de la semaine du contrôle",
+      "Jusqu’au passage de l’agent de contrôle",
+      "Jusqu’à l’ouverture au public le mercredi matin"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La formulation de la réponse reprend exactement l’indication du document : les produits sensibles doivent rester dans leur équipement habituel « jusqu'au passage de l'agent ». C’est la seule réponse qui correspond mot pour mot à l’instruction donnée. A : La proposition parle de « mardi soir précédant le contrôle », alors que le document ne mentionne que « mercredi matin » pour le contrôle, sans allusion au mardi soir. Le texte indique explicitement que la limite est « jusqu'au passage de l'agent », pas jusqu’à la veille. Un candidat qui retient seulement l’idée d’un moment avant le contrôle et qui invente une marge de sécurité pourrait choisir mardi soir, mais c’est une extrapolation qui ne repose sur aucun élément du document. B : La réponse évoque « la fin de la semaine du contrôle », alors que le document situe très précisément le contrôle « mercredi matin » et fixe la limite « jusqu'au passage de l'agent ». Il n’y a aucune référence à la fin de semaine. Quelqu’un qui comprend simplement qu’il s’agit d’une mesure liée à la période du contrôle pourrait généraliser abusivement à toute la semaine, mais cela dépasse clairement ce qui est dit. D : Le document mentionne un contrôle « mercredi matin » mais précise que la durée de maintien dans l’équipement va « jusqu'au passage de l'agent », sans relier cela à « l’ouverture au public ». Un candidat qui associe intuitivement le contrôle au moment d’ouverture au public le mercredi matin pourrait confondre ces deux repères temporels et penser que c’est la même chose, alors que le texte ne parle jamais de l’ouverture au public comme limite.",
+    "transcript": "Question 13.\nLe marché couvert informe les commerçants qu'un contrôle de température sera réalisé mercredi matin sur les installations de réfrigération. Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. Les étals de fruits secs et d'objets artisanaux ne sont pas concernés.\nSelon le document, jusqu’à quand les produits sensibles doivent-ils rester dans leur équipement habituel ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 13."
+      },
+      {
+        "voice": "female",
+        "text": "Le marché couvert informe les commerçants qu'un contrôle de température sera réalisé mercredi matin sur les installations de réfrigération. Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. Les étals de fruits secs et d'objets artisanaux ne sont pas concernés."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, jusqu’à quand les produits sensibles doivent-ils rester dans leur équipement habituel ?"
+      }
+    ],
+    "audio": "q-13.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "sourceHash": "8addc68169d0d0520574cf48ea6b1d7026eab16ed50102ed3f6859a1a706cb90",
+  "contentHash": "23eb22bf8674651566c235203eae4f615b5e13bab7d638b1ef053715f5353c69",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkybdvaekRGp5a3sQTOuBQTcYlhTV",
+    "result": {
+      "question": "Selon le document, jusqu’à quand les produits sensibles doivent-ils rester dans leur équipement habituel ?",
+      "choices": [
+        "Jusqu’au passage de l’agent de contrôle",
+        "Jusqu’au mardi soir précédant le contrôle",
+        "Jusqu’à la fin de la semaine du contrôle",
+        "Jusqu’à l’ouverture au public le mercredi matin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique que «les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent». La limite temporelle est donc précisément le moment où l’agent effectue le contrôle, et non une autre borne liée à la semaine ou à la journée.",
+      "design": "Axe choisi : moment précis jusqu’auquel une même obligation s’applique (durée de maintien des produits sensibles dans leur équipement). Quatre valeurs concurrentes sont quatre repères temporels plausibles autour du contrôle annoncé (veille, ouverture, passage, fin de semaine). Sans le document, chacune pourrait sembler raisonnable pour une consigne sanitaire ; seule l’écoute permet d’identifier que la borne est le passage de l’agent, et non un autre moment de la semaine ou du mercredi.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le contrôle est annoncé pour «mercredi matin», ce qui rend crédible l’idée d’une préparation dès la veille, et donc d’une consigne allant «jusqu’au mardi soir». Mais le texte précise que la limite est «jusqu'au passage de l'agent», non la veille du contrôle.",
+          "operation": "time_swap",
+          "anchors": [
+            "un contrôle de température sera réalisé mercredi matin",
+            "jusqu'au passage de l'agent"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que la consigne vaut de façon large «jusqu’à la fin de la semaine du contrôle», en interprétant l’annonce comme un encadrement durable. En réalité, l’exigence de maintien dans l’équipement habituel est strictement liée au moment du contrôle, indiqué par «mercredi matin» et borné par «jusqu'au passage de l'agent».",
+          "operation": "time_swap",
+          "anchors": [
+            "un contrôle de température sera réalisé mercredi matin",
+            "les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’«ouverture au public le mercredi matin» serait un repère logique dans un marché, ce qui la rend tentante comme borne temporelle. Cependant, le document ne mentionne ni l’ouverture ni le public pour fixer la durée de l’obligation : il relie cette durée au seul «passage de l'agent», moment spécifique du contrôle, distinct de l’heure d’ouverture.",
+          "operation": "time_swap",
+          "anchors": [
+            "un contrôle de température sera réalisé mercredi matin",
+            "jusqu'au passage de l'agent"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4340,
+      "completion_tokens": 830,
+      "total_tokens": 5170,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 242,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.013725,
+    "inputHash": "9cd63789f4684c44570cf3313e5dc1e8e55edf4e8942cf8167aaf7c8bb7a0dce",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:initial:author:1:0"
+  },
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybmLkMEjpdKFRVgb77mKiBLBFtt",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enregistrement donne des consignes pour une inspection sanitaire de magasin : le responsable lit une note qui précise que les produits sensibles doivent rester dans leur équipement de stockage habituel jusqu’au mardi soir précédant le contrôle prévu le mercredi, afin de permettre une préparation et un inventaire avant l’arrivée des inspecteurs."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une formatrice explique la procédure à suivre lors d’un contrôle officiel de produits pharmaceutiques : elle précise que les produits sensibles doivent rester dans leur équipement de conservation habituel jusqu’au passage de l’agent de contrôle, pour que celui-ci puisse vérifier les conditions réelles de stockage."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un responsable qualité décrit par téléphone l’organisation d’une semaine de contrôle dans une usine agroalimentaire : il indique que tous les produits sensibles resteront dans leur équipement habituel jusqu’à la fin de la semaine du contrôle, pour garantir la traçabilité et faciliter les vérifications éventuelles sur plusieurs jours."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réunion avant une inspection dans un commerce, le responsable lit une consigne écrite : les produits sensibles doivent rester dans leur équipement habituel jusqu’à l’ouverture au public le mercredi matin, moment où un contrôle surprise est prévu pendant la mise en rayon."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre réponses correspondent naturellement à des consignes possibles autour d’un contrôle et peuvent toutes répondre directement à la question sans incohérence manifeste. Aucun indice textuel clair dans l’énoncé ou la formulation des options ne favorise objectivement l’une d’elles, ce qui maintient une forte incertitude et conduit à des probabilités égales; le choix de 1 comme clé reste un simple meilleur pari arbitraire, non appuyé par un avantage de formulation identifiable."
+        },
+        "usage": {
+          "prompt_tokens": 620,
+          "completion_tokens": 534,
+          "total_tokens": 1154,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 108,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006115,
+        "inputHash": "48986ede71336e06d81caa7d13ff70054dc8fdff9d7cae9b83c6185b13c07654",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:initial:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybrFNeZ6qdwkF7QxvbdqbXZ0fLw",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Consignes envoyées avant un contrôle sanitaire programmé : le document précise que les produits sensibles doivent rester dans leur équipement habituel jusqu’au mardi soir précédant le contrôle, car ensuite l’équipement sera préparé ou modifié pour les mesures (pose de sondes, relevés spécifiques, etc.)."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Note interne d’un service qualité expliquant qu’au cours d’une semaine dédiée à un contrôle (audits, mesures), les produits sensibles ne doivent pas être déplacés vers des installations provisoires et doivent rester dans leur équipement habituel jusqu’à la fin de la semaine du contrôle, afin de garantir la traçabilité et la stabilité des conditions de conservation."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Consignes pour un magasin ouvrant au public le mercredi matin : le document indique que, pour le contrôle prévu juste avant l’ouverture, les produits sensibles doivent rester dans leur équipement habituel jusqu’à l’ouverture au public le mercredi matin, moment où un changement d’agencement ou de vitrines est prévu après le passage du contrôle."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Procédure d’inspection décrivant les étapes du contrôle : il est précisé que les produits sensibles doivent rester dans leur équipement habituel jusqu’au passage de l’agent de contrôle, afin que celui-ci puisse vérifier les conditions réelles de conservation avant tout déplacement ou manipulation particulière."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "La formulation « jusqu’au passage de l’agent de contrôle » répond de façon très directement reliée à l’idée de contrôle évoquée dans la question, ce qui en fait une limite temporelle naturellement associée à l’acte de contrôle décrit dans un document de procédure."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.25,
+            0.2,
+            0.35
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent correspondre à des consignes réalistes, mais la limite fixée par le « passage de l’agent de contrôle » est la plus directement et précisément corrélée à l’événement central mentionné (le contrôle), ce qui lui donne un léger avantage malgré une incertitude notable."
+        },
+        "usage": {
+          "prompt_tokens": 620,
+          "completion_tokens": 829,
+          "total_tokens": 1449,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 350,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.009065,
+        "inputHash": "a3d1d6339bd48e4a9faa0e2c87d4372f5a6ecb366bccd4b1828bc2fb1b646ae9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:initial:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekyc0mitTN3J1pZTFQwqinCf7aR1p",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise clairement que les produits sensibles doivent rester dans leur équipement habituel jusqu’au passage de l’agent de contrôle, et aucune autre limite temporelle n’est mentionnée ou suggérée.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "qu'un contrôle de température sera réalisé mercredi matin",
+            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent."
+          ],
+          "reason": "La proposition parle de « mardi soir précédant le contrôle », alors que le document ne mentionne que « mercredi matin » pour le contrôle, sans allusion au mardi soir. Le texte indique explicitement que la limite est « jusqu'au passage de l'agent », pas jusqu’à la veille. Un candidat qui retient seulement l’idée d’un moment avant le contrôle et qui invente une marge de sécurité pourrait choisir mardi soir, mais c’est une extrapolation qui ne repose sur aucun élément du document.",
+          "misunderstanding": "temporal_inference_beyond_text"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "qu'un contrôle de température sera réalisé mercredi matin",
+            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent."
+          ],
+          "reason": "La réponse évoque « la fin de la semaine du contrôle », alors que le document situe très précisément le contrôle « mercredi matin » et fixe la limite « jusqu'au passage de l'agent ». Il n’y a aucune référence à la fin de semaine. Quelqu’un qui comprend simplement qu’il s’agit d’une mesure liée à la période du contrôle pourrait généraliser abusivement à toute la semaine, mais cela dépasse clairement ce qui est dit.",
+          "misunderstanding": "temporal_extension"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent."
+          ],
+          "reason": "La formulation de la réponse reprend exactement l’indication du document : les produits sensibles doivent rester dans leur équipement habituel « jusqu'au passage de l'agent ». C’est la seule réponse qui correspond mot pour mot à l’instruction donnée.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "qu'un contrôle de température sera réalisé mercredi matin",
+            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent."
+          ],
+          "reason": "Le document mentionne un contrôle « mercredi matin » mais précise que la durée de maintien dans l’équipement va « jusqu'au passage de l'agent », sans relier cela à « l’ouverture au public ». Un candidat qui associe intuitivement le contrôle au moment d’ouverture au public le mercredi matin pourrait confondre ces deux repères temporels et penser que c’est la même chose, alors que le texte ne parle jamais de l’ouverture au public comme limite.",
+          "misunderstanding": "confusion_between_events"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 720,
+      "completion_tokens": 1118,
+      "total_tokens": 1838,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 482,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01208,
+    "inputHash": "2f2e67b966cd8da85faadd88180fcdf0dc7f050eeacc66c625e7936e37b3f3b1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:initial:ground:2"
+  },
+  "feedback": null
+}

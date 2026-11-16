@@ -1,0 +1,154 @@
+{
+  "question": {
+    "number": 37,
+    "kind": "interview",
+    "question": "Selon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?",
+    "options": [
+      "La distance entre les immeubles et le chantier",
+      "Les horaires de repos des habitants",
+      "La durée d’exposition au bruit",
+      "Le nombre de résidents concernés"
+    ],
+    "correct": "C",
+    "explanation": "Le locuteur précise : \"Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition\". La durée d’exposition est donc désignée explicitement comme un autre aspect du bruit à analyser, en plus du niveau mesuré. Les façades renvoient plutôt à la position des appartements, le nombre de résidents n’est jamais présenté comme une grandeur à analyser, et les horaires de repos concernent les moments où les habitants sont vulnérables, pas une caractéristique propre du bruit lui‑même.",
+    "transcript": "Question 37.\nCertains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?\nLeurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures.\nSelon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 37."
+      },
+      {
+        "voice": "male",
+        "text": "Certains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?"
+      },
+      {
+        "voice": "female",
+        "text": "Leurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?"
+      }
+    ],
+    "audio": "q-37.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 72
+  },
+  "contentHash": "376078961565b19fd544a9a29743029172bebe25b84348d473ee7f7a32a1c93d",
+  "sourceHash": "c39145dcfa2779f17bfebd4460ccce3f77888a45e4619d01d3512d179f3affcf",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkybHb6nn5qnIac8FhbgRpHWW0MQU",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion de concertation sur un chantier urbain, un ingénieur acousticien présente son étude d’impact : il explique qu’il ne se contente pas de mesurer les décibels mais regarde aussi combien de résidents sont concernés, afin d’évaluer l’ampleur de la nuisance sonore pour le voisinage."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une présentation à des riverains, un spécialiste du bruit urbain explique qu’il analyse les niveaux sonores et également les horaires de repos des habitants (nuit, sieste, tôt le matin) pour apprécier à quel point le bruit est réellement nuisible au quotidien."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un exposé sur le suivi acoustique d’un chantier, l’intervenant précise qu’il tient compte des niveaux sonores mesurés et de la distance entre les immeubles et le chantier pour mieux caractériser la nuisance sonore pour les riverains proches et lointains."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réunion technique, un acousticien détaille sa méthode : en plus des niveaux sonores instantanés, il prévoit d’analyser la durée d’exposition au bruit sur la journée pour caractériser plus directement la nuisance sonore subie par les habitants."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "La question demande un « autre aspect permettant de caractériser directement la nuisance sonore » en plus des niveaux sonores. Parmi les choix, seule « la durée d’exposition au bruit » est un paramètre acoustique directement lié à la nuisance, tandis que le nombre de résidents, les horaires de repos et la distance sont des facteurs contextuels ou indirects. L’option 3 est aussi formulée précisément dans le vocabulaire habituel de l’acoustique (niveau + durée d’exposition)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.1,
+            0.1,
+            0.1,
+            0.7
+          ],
+          "guess": 3,
+          "reason": "Le libellé insiste sur un aspect qui caractérise directement la nuisance sonore, en complément des niveaux sonores. La durée d’exposition au bruit est, avec le niveau, une grandeur standard pour quantifier la nuisance, alors que les autres propositions décrivent plutôt le contexte ou les conséquences. Cela donne un avantage net à l’option 3 malgré l’absence du document audio."
+        },
+        "usage": {
+          "prompt_tokens": 617,
+          "completion_tokens": 666,
+          "total_tokens": 1283,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 154,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00743125,
+        "inputHash": "05910d009e8cfbfd242d3f8ac66e3bed443192da5fb5d7bfa666c2d1d6b81b03",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:36:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Le libellé insiste sur un aspect qui caractérise directement la nuisance sonore, en complément des niveaux sonores. La durée d’exposition au bruit est, avec le niveau, une grandeur standard pour quantifier la nuisance, alors que les autres propositions décrivent plutôt le contexte ou les conséquences. Cela donne un avantage net à l’option 3 malgré l’absence du document audio.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "La question demande un « autre aspect permettant de caractériser directement la nuisance sonore » en plus des niveaux sonores. Parmi les choix, seule « la durée d’exposition au bruit » est un paramètre acoustique directement lié à la nuisance, tandis que le nombre de résidents, les horaires de repos et la distance sont des facteurs contextuels ou indirects. L’option 3 est aussi formulée précisément dans le vocabulaire habituel de l’acoustique (niveau + durée d’exposition)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une réunion de concertation sur un chantier urbain, un ingénieur acousticien présente son étude d’impact : il explique qu’il ne se contente pas de mesurer les décibels mais regarde aussi combien de résidents sont concernés, afin d’évaluer l’ampleur de la nuisance sonore pour le voisinage."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une présentation à des riverains, un spécialiste du bruit urbain explique qu’il analyse les niveaux sonores et également les horaires de repos des habitants (nuit, sieste, tôt le matin) pour apprécier à quel point le bruit est réellement nuisible au quotidien."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un exposé sur le suivi acoustique d’un chantier, l’intervenant précise qu’il tient compte des niveaux sonores mesurés et de la distance entre les immeubles et le chantier pour mieux caractériser la nuisance sonore pour les riverains proches et lointains."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Lors d’une réunion technique, un acousticien détaille sa méthode : en plus des niveaux sonores instantanés, il prévoit d’analyser la durée d’exposition au bruit sur la journée pour caractériser plus directement la nuisance sonore subie par les habitants."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": null
+}

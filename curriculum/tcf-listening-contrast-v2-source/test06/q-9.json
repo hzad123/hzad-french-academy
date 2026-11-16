@@ -1,0 +1,257 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ?",
+    "options": [
+      "De dix heures à midi.",
+      "De neuf heures à onze heures.",
+      "De huit heures à midi.",
+      "De huit heures à dix heures."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : La question porte sur les heures d’ouverture de la distribution pour les abonnés. Le texte répond directement en indiquant : « Les abonnés pourront récupérer leur commande de huit heures à dix heures », ce qui correspond exactement à la réponse « De huit heures à dix heures ». A : La proposition « De dix heures à midi » est fausse car le texte précise clairement que les abonnés peuvent récupérer leur commande « de huit heures à dix heures ». Dix heures correspond donc à l’heure de fin, pas de début, et la mention de « jusqu’à midi » concerne uniquement la conservation des paniers non retirés, pas l’horaire d’ouverture au public. B : Quelqu’un pourrait calculer mentalement un horaire théorique (par exemple imaginer un horaire habituel de dix heures à midi et le décaler d’une heure pour obtenir neuf heures à onze heures). Cependant, le texte ne donne jamais l’horaire habituel et indique explicitement le nouvel horaire : « de huit heures à dix heures ». L’intervalle neuf–onze ne figure nulle part et ne correspond donc pas à la réalité décrite. C : On pourrait retenir « de huit heures » comme heure de début et associer à tort « jusqu'à midi » à la durée d’ouverture de la distribution, ce qui donnerait « de huit heures à midi ». Or le texte distingue bien les deux : l’horaire pour les abonnés est « de huit heures à dix heures », puis, seulement pour les paniers non retirés, ils « seront conservés [...] jusqu'à midi ». La distribution n’est donc pas ouverte jusqu’à midi.",
+    "transcript": "Question 9.\nEn raison de la chaleur annoncée pour samedi, la distribution des paniers de légumes commencera une heure plus tôt que d'habitude. Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché. Le lieu reste le même et les paniers non retirés seront conservés dans la chambre froide jusqu'à midi.\nSamedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "En raison de la chaleur annoncée pour samedi, la distribution des paniers de légumes commencera une heure plus tôt que d'habitude. Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché. Le lieu reste le même et les paniers non retirés seront conservés dans la chambre froide jusqu'à midi."
+      },
+      {
+        "voice": "female",
+        "text": "Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": 23.824,
+    "slotSeconds": 37
+  },
+  "sourceHash": "46e9603928e38ee8c05641b0766c77e8520c4029da399c19c0bcd4930e5740b2",
+  "contentHash": "8b9077a6b0d5b4072260208d8036dcbf8a88f78798708c8710b344473c27dc0b",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyaDq7WF81REUa2SeQqFSZq9EADV",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce pour une AMAP ou une distribution de paniers de légumes, l’organisateur précise les horaires du samedi : « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? – De huit heures à midi. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un message vocal d’une ferme proposant des paniers hebdomadaires, on demande les horaires d’ouverture pour les abonnés le samedi et la personne répond : « De huit heures à dix heures. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une réunion d’information pour des abonnés à des paniers bio, quelqu’un demande les horaires du samedi et le responsable répond : « De neuf heures à onze heures. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Sur un répondeur d’association de distribution de paniers, un message indique : « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? – De dix heures à midi. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre horaires proposés sont grammaticalement corrects, réalistes et répondent directement à la question sans indice textuel permettant de privilégier l’un d’eux. Aucune option ne se distingue clairement par la formulation ou la portée, d’où une incertitude totale et des probabilités réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 390,
+          "total_tokens": 990,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 55,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00465,
+        "inputHash": "62c7446b157efc57a43b7d26478fd0b30e7f8599ef78fb0a221584902f201f59",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:8:initial:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyaHoAXy7vOfs9gW09MuBeP2zzEl",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce pour une AMAP ou un point de retrait de paniers de légumes, l’organisateur précise : « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? » et il répond : « De neuf heures à onze heures. » pour indiquer la plage de retrait réservée aux abonnés."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion d’information pour les abonnés d’un service de paniers bio, le responsable lit l’horaire prévu pour le samedi : à la question « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? », il répond : « De dix heures à midi. »."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Sur un message vocal d’une coopérative agricole, on explique l’organisation du samedi : « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? » puis la personne précise une large plage : « De huit heures à midi. »."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une annonce diffusée dans un supermarché qui gère des paniers pour abonnés, le responsable répond à la question « Samedi, à quelles heures la distribution des paniers sera-t-elle ouverte aux abonnés ? » en indiquant un créneau matinal plus restreint : « De huit heures à dix heures. »."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions répondent directement et grammaticalement à la question avec des créneaux horaires plausibles pour une distribution de paniers ; aucun indice textuel clair ne permet de privilégier une option plutôt qu’une autre, d’où une forte incertitude et un choix de réponse purement formel."
+        },
+        "usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 540,
+          "total_tokens": 1140,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 122,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00615,
+        "inputHash": "69c5829ef7c902082e948a27516b9fc6b62fc77201da00172c5ffcc99a6fe5cc",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:8:initial:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyaM8uP6MqHRVzOh63tFy6qsiGSO",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La distribution sera ouverte aux abonnés de huit heures à dix heures.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché.",
+            "les paniers non retirés seront conservés dans la chambre froide jusqu'à midi."
+          ],
+          "reason": "La proposition « De dix heures à midi » est fausse car le texte précise clairement que les abonnés peuvent récupérer leur commande « de huit heures à dix heures ». Dix heures correspond donc à l’heure de fin, pas de début, et la mention de « jusqu’à midi » concerne uniquement la conservation des paniers non retirés, pas l’horaire d’ouverture au public.",
+          "misunderstanding": "confusion_portée_expression_temporelle"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison de la chaleur annoncée pour samedi, la distribution des paniers de légumes commencera une heure plus tôt que d'habitude.",
+            "Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché."
+          ],
+          "reason": "Quelqu’un pourrait calculer mentalement un horaire théorique (par exemple imaginer un horaire habituel de dix heures à midi et le décaler d’une heure pour obtenir neuf heures à onze heures). Cependant, le texte ne donne jamais l’horaire habituel et indique explicitement le nouvel horaire : « de huit heures à dix heures ». L’intervalle neuf–onze ne figure nulle part et ne correspond donc pas à la réalité décrite.",
+          "misunderstanding": "inférence_erronée_sur_l’horaire_habituel"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché.",
+            "les paniers non retirés seront conservés dans la chambre froide jusqu'à midi."
+          ],
+          "reason": "On pourrait retenir « de huit heures » comme heure de début et associer à tort « jusqu'à midi » à la durée d’ouverture de la distribution, ce qui donnerait « de huit heures à midi ». Or le texte distingue bien les deux : l’horaire pour les abonnés est « de huit heures à dix heures », puis, seulement pour les paniers non retirés, ils « seront conservés [...] jusqu'à midi ». La distribution n’est donc pas ouverte jusqu’à midi.",
+          "misunderstanding": "mélange_horaire_ouverture_et_conservation"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les abonnés pourront récupérer leur commande de huit heures à dix heures au hangar du marché."
+          ],
+          "reason": "La question porte sur les heures d’ouverture de la distribution pour les abonnés. Le texte répond directement en indiquant : « Les abonnés pourront récupérer leur commande de huit heures à dix heures », ce qui correspond exactement à la réponse « De huit heures à dix heures ».",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 707,
+      "completion_tokens": 941,
+      "total_tokens": 1648,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 280,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01029375,
+    "inputHash": "945e554a81a4db527e1c9719996e058ae6cb1f5cc7acc990bb0f25cf790b8bca",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:8:initial:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

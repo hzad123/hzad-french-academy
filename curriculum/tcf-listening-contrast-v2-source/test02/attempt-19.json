@@ -1,0 +1,143 @@
+{
+  "question": {
+    "number": 19,
+    "kind": "announcement",
+    "question": "Selon le document, dans quel but les visites sont-elles organisées par groupes de dix personnes maximum ?",
+    "options": [
+      "Pour éviter que les visiteurs ne s’approchent trop des objets fragiles.",
+      "Pour que le guide puisse répondre aux questions et adapter le parcours aux visiteurs.",
+      "Pour ne pas générer trop de bruit pour le voisinage pendant les visites.",
+      "Pour respecter la capacité maximale de sécurité du bâtiment."
+    ],
+    "correct": "B",
+    "explanation": "Le document précise : «les visites [...] seront organisées par groupes de dix personnes maximum. Ce choix permettra au guide de répondre aux questions et d'adapter le parcours aux intérêts des visiteurs». La limitation du groupe sert donc directement la qualité de l’échange avec le guide, pas la protection des objets, la sécurité incendie ou le bruit extérieur.",
+    "transcript": "Question 19.\nÀ partir du mois prochain, les visites de la maison du patrimoine seront organisées par groupes de dix personnes maximum. Ce choix permettra au guide de répondre aux questions et d'adapter le parcours aux intérêts des visiteurs. Il ne s'agit pas d'une visite réservée aux spécialistes : tout le monde peut participer, sur réservation.\nSelon le document, dans quel but les visites sont-elles organisées par groupes de dix personnes maximum ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 19."
+      },
+      {
+        "voice": "female",
+        "text": "À partir du mois prochain, les visites de la maison du patrimoine seront organisées par groupes de dix personnes maximum. Ce choix permettra au guide de répondre aux questions et d'adapter le parcours aux intérêts des visiteurs. Il ne s'agit pas d'une visite réservée aux spécialistes : tout le monde peut participer, sur réservation."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, dans quel but les visites sont-elles organisées par groupes de dix personnes maximum ?"
+      }
+    ],
+    "audio": "q-19.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "rounds": 0,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyneeZW2066YPMVm21I50ra59fQR",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un document d’information sur la visite d’un bâtiment ancien ou d’un monument, il est indiqué que, pour des raisons de sécurité liées à la structure (escaliers étroits, issues limitées, normes incendie), les visites se font par groupes de dix personnes maximum afin de respecter la capacité maximale autorisée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une brochure de musée ou d’exposition, le document explique que les visites guidées sont organisées en groupes de dix personnes maximum pour permettre au guide d’échanger facilement avec chacun, de répondre aux questions et de moduler le parcours selon l’âge, l’intérêt ou le niveau de connaissance des visiteurs."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un avis distribué aux habitants d’un quartier avant l’ouverture de visites guidées d’un site voisin, le document précise que les visites se feront par groupes de dix personnes maximum pour limiter le bruit et les nuisances sonores pour le voisinage pendant les créneaux de visite."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un règlement de visite d’un atelier d’artisan ou d’un musée présentant des œuvres ou objets très fragiles dans des salles étroites, le document précise que les groupes seront limités à dix personnes afin d’éviter la foule près des vitrines et de limiter les risques que les visiteurs ne s’approchent trop des pièces fragiles."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "La formulation met en avant un objectif qualitatif directement lié à la taille du groupe (interaction, réponses aux questions, adaptation du parcours), ce qui correspond typiquement à la justification donnée dans des documents de visite guidée. Les autres réponses invoquent des raisons plus indirectes ou moins usuelles pour fixer précisément une limite de dix personnes (capacité du bâtiment, bruit pour le voisinage, distance aux objets fragiles), alors que la taille réduite sert classiquement à favoriser l’échange avec le guide."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.55,
+            0.1,
+            0.2
+          ],
+          "guess": 1,
+          "reason": "La raison pédagogique et organisationnelle de la réponse 1 (index 1) s’accorde particulièrement bien avec une limitation à dix personnes et avec la formulation « dans quel but », qui suggère un objectif qualitatif de la visite. Les autres choix restent plausibles mais paraissent moins directement et spécifiquement motivés par ce seuil précis, d’où une probabilité plus élevée pour l’option 1 malgré une incertitude réelle faute d’accès au document audio."
+        },
+        "usage": {
+          "prompt_tokens": 631,
+          "completion_tokens": 728,
+          "total_tokens": 1359,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 173,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00806875,
+        "inputHash": "8a248b28a9afc4578524503cd16f1f9e0016293b0702512e083e13b60cb7d68b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:18:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La raison pédagogique et organisationnelle de la réponse 1 (index 1) s’accorde particulièrement bien avec une limitation à dix personnes et avec la formulation « dans quel but », qui suggère un objectif qualitatif de la visite. Les autres choix restent plausibles mais paraissent moins directement et spécifiquement motivés par ce seuil précis, d’où une probabilité plus élevée pour l’option 1 malgré une incertitude réelle faute d’accès au document audio.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "La formulation met en avant un objectif qualitatif directement lié à la taille du groupe (interaction, réponses aux questions, adaptation du parcours), ce qui correspond typiquement à la justification donnée dans des documents de visite guidée. Les autres réponses invoquent des raisons plus indirectes ou moins usuelles pour fixer précisément une limite de dix personnes (capacité du bâtiment, bruit pour le voisinage, distance aux objets fragiles), alors que la taille réduite sert classiquement à favoriser l’échange avec le guide."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un document d’information sur la visite d’un bâtiment ancien ou d’un monument, il est indiqué que, pour des raisons de sécurité liées à la structure (escaliers étroits, issues limitées, normes incendie), les visites se font par groupes de dix personnes maximum afin de respecter la capacité maximale autorisée."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une brochure de musée ou d’exposition, le document explique que les visites guidées sont organisées en groupes de dix personnes maximum pour permettre au guide d’échanger facilement avec chacun, de répondre aux questions et de moduler le parcours selon l’âge, l’intérêt ou le niveau de connaissance des visiteurs."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un avis distribué aux habitants d’un quartier avant l’ouverture de visites guidées d’un site voisin, le document précise que les visites se feront par groupes de dix personnes maximum pour limiter le bruit et les nuisances sonores pour le voisinage pendant les créneaux de visite."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un règlement de visite d’un atelier d’artisan ou d’un musée présentant des œuvres ou objets très fragiles dans des salles étroites, le document précise que les groupes seront limités à dix personnes afin d’éviter la foule près des vitrines et de limiter les risques que les visiteurs ne s’approchent trop des pièces fragiles."
+      }
+    ]
+  }
+}

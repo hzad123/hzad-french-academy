@@ -1,0 +1,256 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La question porte clairement sur l’inclusion de la dégustation dans le billet (« est comprise dans le billet »). La réponse A reprend ce point en confirmant que la dégustation est incluse (« elle est comprise dans le prix d’entrée »), ce qui constitue une réponse directe, complète et coopérative à la question posée. B : La question demande une information précise (oui/non) sur le fait que la dégustation soit comprise ou non dans le billet. La réponse B déclare ne pas savoir et renvoie à la billetterie, elle ne répond donc pas au contenu informatif de la question. Un candidat qui s’accroche uniquement au mot « billet » pourrait être tenté par cette option à cause du lien lexical « billet » / « billetterie », mais rien dans l’énoncé ne suggère que l’interlocuteur ignore l’information ; au contraire, on attend dans ce type d’échange une réponse informative comme en A. C : La question concerne le fait que la dégustation soit incluse dans le billet, pas son horaire. La réponse C donne une information de temps (« commence à 19 h 30 ») qui ne dit rien sur le fait qu’elle soit comprise ou non dans le prix d’entrée. Un auditeur qui ne saisirait que « la dégustation de ce soir » pourrait croire que toute information à propos de cette dégustation convient, mais le critère « est comprise dans le billet » n’est pas du tout traité, ce qui rend cette réponse inadaptée. D : La question porte sur l’inclusion tarifaire (« comprise dans le billet »), alors que la réponse D introduit une condition d’accès (« réservé aux personnes qui dorment à l’hôtel ») qui n’est mentionnée nulle part dans la question. Elle ne dit pas si la dégustation est payante ou incluse. Un candidat pourrait imaginer qu’il s’agit d’une dégustation organisée par un hôtel et se laisser influencer par ce contexte inventé, mais il n’y a aucun indice dans l’énoncé qui relie la dégustation à des clients d’hôtel ; la réponse ne répond donc pas au critère demandé.",
+    "transcript": "Question 8.\nEst-ce que la dégustation de ce soir est comprise dans le billet ?\nA. Oui, elle est comprise dans le prix d’entrée. B. Je ne sais pas, il faut voir avec la billetterie. C. La dégustation commence à 19 h 30. D. C’est réservé aux personnes qui dorment à l’hôtel.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Est-ce que la dégustation de ce soir est comprise dans le billet ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Oui, elle est comprise dans le prix d’entrée. B. Je ne sais pas, il faut voir avec la billetterie. C. La dégustation commence à 19 h 30. D. C’est réservé aux personnes qui dorment à l’hôtel."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 37
+  },
+  "sourceHash": "e96e66743c6a9f67792392a1303f44d24176050c0237cbf87b4e9925d4dd2958",
+  "contentHash": "b5d049b1a24343a5db654eee52a8f6857f52510ff1f1ee426b9dcf05c3fb64ce",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyaXm2nMKH48Npa4LAjQGyd7ymqx",
+    "result": {
+      "question": "Quelle réponse convient ?",
+      "choices": [
+        "Oui, elle est comprise dans le prix d’entrée.",
+        "Je ne sais pas, il faut voir avec la billetterie.",
+        "La dégustation commence à 19 h 30.",
+        "C’est réservé aux personnes qui dorment à l’hôtel."
+      ],
+      "correctIndex": 0,
+      "explanation": "La question porte explicitement sur l’inclusion de la dégustation dans le billet (« est comprise dans le billet ? »). La seule réponse qui traite directement ce point, en confirmant l’inclusion dans le prix d’entrée, est la première.",
+      "design": "Réponse à une question fermée sur le statut d’inclusion d’une prestation (la dégustation) par rapport au billet. Les quatre choix sont tous des répliques naturelles dans un contexte de billetterie / événement, mais une seule répond clairement à l’axe oui/non de l’inclusion. Les autres répliques sont plausibles (demander à un autre service, donner un horaire, restreindre l’accès à un autre type de public) mais ne satisfont pas précisément la demande d’information formulée (« est comprise dans le billet ? »).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réplique est plausible à un guichet (on renvoie vers la billetterie) mais elle ne répond pas à la question sur le fait que la dégustation soit comprise ou non dans le billet.",
+          "operation": "role_swap",
+          "anchors": [
+            "Est-ce que la dégustation de ce soir",
+            "est comprise dans le billet"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse donne une information d’horaire, comme si la question portait sur le moment de la dégustation, alors que la question demande si elle est incluse dans le billet, pas quand elle a lieu.",
+          "operation": "scope_shift",
+          "anchors": [
+            "la dégustation de ce soir",
+            "est comprise dans le billet"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse déplace la condition d’accès vers le fait de dormir à l’hôtel, comme si la question portait sur le public concerné, alors que l’axe interrogé est l’inclusion dans le billet, quel que soit le type de client.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "la dégustation de ce soir",
+            "dans le billet"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2292,
+      "completion_tokens": 1471,
+      "total_tokens": 3763,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 993,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.017575,
+    "inputHash": "115cf54e520a52dc16ef9a14e7eb4bdd3c451ae009cb0d0ba6d0ab8ca4b6e652",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyanTHb8jw1ZVzWnDzMeR7x0fdjZ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un exercice en classe, l’enseignant a présenté quatre propositions étiquetées A, B, C et D au tableau, puis demande à un élève qui vient d’écouter un extrait audio : « Quelle réponse convient ? ». L’élève, ayant identifié la bonne, répond simplement : « Proposition C. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion de travail, on discute de quatre scénarios notés A, B, C et D sur un document projeté. Après avoir réécouté un court enregistrement expliquant le choix recommandé, le responsable demande : « Quelle réponse convient ? ». Un collègue répond : « Proposition D. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant un QCM audio pour un concours, les quatre options sont affichées comme A, B, C, D. Après avoir écouté la bande sonore, le candidat doit indiquer la bonne option. L’examinateur lui demande : « Quelle réponse convient ? ». Il répond : « Proposition A. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une formation en ligne avec support audio, chaque question propose quatre solutions numérotées A, B, C, D et l’interface affiche les intitulés « Proposition A », « Proposition B », etc. Après lecture de la consigne « Quelle réponse convient ? », l’apprenant choisit : « Proposition B. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont structurellement identiques, seulement distinguées par la lettre de la proposition. Chacune peut parfaitement répondre à une consigne générique comme « Quelle réponse convient ? » dans un contexte où les propositions A, B, C, D ont été préalablement présentées. Aucun indice textuel ne favorise une option plutôt qu’une autre, d’où une incertitude totale et une distribution uniforme des probabilités ; le choix de l’index 0 comme clé supposée est arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 574,
+          "completion_tokens": 516,
+          "total_tokens": 1090,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 54,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0058775,
+        "inputHash": "11c75b6bc7cf4e9dfb8373fdb01883226c128ae743539bf37548188255d6f1bc",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:initial:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyaspOQ5Adl0eotbWTzBuu1RO7Iu",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Seule la réponse A répond directement et précisément à la question de savoir si la dégustation est comprise dans le billet.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Oui, elle est comprise dans le prix d’entrée."
+          ],
+          "reason": "La question porte clairement sur l’inclusion de la dégustation dans le billet (« est comprise dans le billet »). La réponse A reprend ce point en confirmant que la dégustation est incluse (« elle est comprise dans le prix d’entrée »), ce qui constitue une réponse directe, complète et coopérative à la question posée.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Je ne sais pas, il faut voir avec la billetterie."
+          ],
+          "reason": "La question demande une information précise (oui/non) sur le fait que la dégustation soit comprise ou non dans le billet. La réponse B déclare ne pas savoir et renvoie à la billetterie, elle ne répond donc pas au contenu informatif de la question. Un candidat qui s’accroche uniquement au mot « billet » pourrait être tenté par cette option à cause du lien lexical « billet » / « billetterie », mais rien dans l’énoncé ne suggère que l’interlocuteur ignore l’information ; au contraire, on attend dans ce type d’échange une réponse informative comme en A.",
+          "misunderstanding": "lexical_association"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "La dégustation commence à 19 h 30."
+          ],
+          "reason": "La question concerne le fait que la dégustation soit incluse dans le billet, pas son horaire. La réponse C donne une information de temps (« commence à 19 h 30 ») qui ne dit rien sur le fait qu’elle soit comprise ou non dans le prix d’entrée. Un auditeur qui ne saisirait que « la dégustation de ce soir » pourrait croire que toute information à propos de cette dégustation convient, mais le critère « est comprise dans le billet » n’est pas du tout traité, ce qui rend cette réponse inadaptée.",
+          "misunderstanding": "focus_on_partial_information"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "C’est réservé aux personnes qui dorment à l’hôtel."
+          ],
+          "reason": "La question porte sur l’inclusion tarifaire (« comprise dans le billet »), alors que la réponse D introduit une condition d’accès (« réservé aux personnes qui dorment à l’hôtel ») qui n’est mentionnée nulle part dans la question. Elle ne dit pas si la dégustation est payante ou incluse. Un candidat pourrait imaginer qu’il s’agit d’une dégustation organisée par un hôtel et se laisser influencer par ce contexte inventé, mais il n’y a aucun indice dans l’énoncé qui relie la dégustation à des clients d’hôtel ; la réponse ne répond donc pas au critère demandé.",
+          "misunderstanding": "invented_condition"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 723,
+      "completion_tokens": 2434,
+      "total_tokens": 3157,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1703,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02524375,
+    "inputHash": "6e0914e98b0ab3aee8bbf34ce89861927c2d5544a7d751f82d1ce476348c6186",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:initial:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

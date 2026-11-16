@@ -1,0 +1,319 @@
+{
+  "question": {
+    "number": 21,
+    "kind": "announcement",
+    "question": "Selon le document, jusqu’à quel jour les bénévoles doivent-ils indiquer leurs créneaux exacts ?",
+    "options": [
+      "Jusqu’à vendredi",
+      "Jusqu’à jeudi",
+      "Jusqu’à mercredi",
+      "Jusqu’à mardi"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : L’énoncé dit clairement que les bénévoles sont « invités à indiquer leurs créneaux exacts d'ici jeudi », ce qui correspond exactement à « Jusqu’à jeudi » comme date limite. A : Le texte précise explicitement la date limite : « d'ici jeudi ». Quelqu’un peut choisir vendredi en pensant que l’organisation des permanences se fait pour toute la fin de semaine, ou en se disant qu’on a jusqu’à la veille du week‑end pour tout finaliser. Cependant, aucune mention de vendredi n’apparaît et la seule échéance donnée est « jeudi », ce qui rend « Jusqu’à vendredi » incorrect. C : On pourrait croire que la demande doit être faite plus tôt dans la semaine, par exemple mercredi, en anticipant un délai d’organisation supplémentaire. Cependant, le document ne parle jamais de mercredi et donne précisément « jeudi » comme échéance ; avancer la date à mercredi est donc une interprétation personnelle non fondée sur le texte. D : Un auditeur distrait peut confondre « jeudi » avec un autre jour proche comme « mardi », surtout à l’oral, et choisir « Jusqu’à mardi » en pensant que la date limite est en début de semaine pour mieux préparer les permanences. Mais le document fixe clairement la date à « jeudi », ce qui exclut mardi.",
+    "transcript": "Question 21.\nL'équipe de la clinique associative prépare les permanences de la semaine prochaine. Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi. Plusieurs personnes sont disponibles le matin, mais très peu en fin de journée. Nous devons répartir les présences pour ne pas laisser les patients sans orientation lorsque les salariés terminent leur service.\nSelon le document, jusqu’à quel jour les bénévoles doivent-ils indiquer leurs créneaux exacts ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 21."
+      },
+      {
+        "voice": "male",
+        "text": "L'équipe de la clinique associative prépare les permanences de la semaine prochaine. Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi. Plusieurs personnes sont disponibles le matin, mais très peu en fin de journée. Nous devons répartir les présences pour ne pas laisser les patients sans orientation lorsque les salariés terminent leur service."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, jusqu’à quel jour les bénévoles doivent-ils indiquer leurs créneaux exacts ?"
+      }
+    ],
+    "audio": "q-21.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 53
+  },
+  "sourceHash": "8686a7651552d84ec4689cc0772ce07ccbc4beca4d5533ea27cf5cf26923d040",
+  "contentHash": "730a825f10c452ab542082c3fd07ae7baa88eed4f055c74438d599a313c409d0",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyLiysWOa1cJ4RVA5rl1TkctlmaK",
+    "result": {
+      "question": "Selon le document, jusqu’à quel jour les bénévoles doivent-ils indiquer leurs créneaux exacts ?",
+      "choices": [
+        "Jusqu’à jeudi",
+        "Jusqu’à mardi",
+        "Jusqu’à mercredi",
+        "Jusqu’à vendredi"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que « Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi ». Le délai fixé est donc bien jeudi, et non un autre jour de la semaine.",
+      "design": "Axe précis : le jour limite pour indiquer les créneaux. Les quatre choix proposent des jours proches et plausibles (mardi, mercredi, jeudi, vendredi). Sans le document audio, chacun pourrait sembler crédible comme date-butoir pour s’organiser une semaine à l’avance. Seule l’écoute attentive de « d'ici jeudi » permet d’identifier la bonne réponse. Les distracteurs reposent sur une confusion possible entre jours voisins et sur une écoute imprécise de la fin de la phrase.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse inverse le jour limite en l’avançant à mardi, ce qui peut paraître réaliste pour une organisation anticipée. Un auditeur distrait peut mal percevoir « jeudi » ou le confondre avec un autre jour en /i/ et croire qu’il s’agissait de mardi, alors que le texte fixe clairement l’échéance à jeudi.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi.",
+            "d'ici jeudi"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Mercredi est un jour voisin de jeudi et peut être confondu à l’écoute rapide. On peut croire que l’équipe veut une réponse en milieu de semaine. Pourtant, l’énoncé ne dit pas « mercredi » mais bien « d'ici jeudi », qui repousse le délai d’un jour par rapport à cette interprétation.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi.",
+            "d'ici jeudi"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Vendredi est également un délai plausible pour clôturer les inscriptions avant la semaine suivante. Un auditeur qui retient seulement l’idée d’une échéance en fin de semaine peut projeter vendredi à la place de jeudi. Or le document parle explicitement de la limite « d'ici jeudi », et non d’un report jusqu’au vendredi.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi.",
+            "d'ici jeudi"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4318,
+      "completion_tokens": 841,
+      "total_tokens": 5159,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 271,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0138075,
+    "inputHash": "fb4035734c108891e44eb81a9c385cbac739f3817588a4e1a6bdd975269f4527",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:20:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyLsIltt3Kct0eFopvexPZKJjgkD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion d’organisation d’un festival le week-end, le coordinateur lit un message d’information : le document précise que les bénévoles doivent confirmer leurs disponibilités détaillées au plus tard le jeudi, afin de finaliser le planning du samedi et du dimanche."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors de la préparation d’une braderie qui a lieu le dimanche, l’organisateur explique qu’il a envoyé un document aux bénévoles. Ce document indique qu’ils ont jusqu’à vendredi pour renseigner précisément leurs créneaux, pour pouvoir ajuster l’affectation des postes la veille de l’événement."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une association qui organise une collecte le vendredi et le samedi, la responsable rappelle par téléphone un document d’instructions : les bénévoles doivent y indiquer leurs créneaux exacts jusqu’à mardi, pour laisser le temps de consolider le tableau des présences et de combler les manques éventuels."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant une annonce à la radio locale pour un événement prévu le week-end suivant, l’animateur lit un communiqué : selon le document, les bénévoles doivent indiquer leurs créneaux exacts jusqu’à mercredi, afin que l’équipe puisse préparer la répartition des tâches en milieu de semaine."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre jours proposés répondent de façon directe et naturelle à la question formulée; sans accès au document ou à l’enregistrement, aucun indice textuel ne favorise un choix particulier, d’où une incertitude totale et une probabilité répartie uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 414,
+          "total_tokens": 1014,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 26,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00489,
+        "inputHash": "225efe08b4a105454911e8f45a194827a9c571300e338562be00511e468ee137",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:20:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyLwCEMfwaWkvzuRamBhtDgrGx8l",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une association qui organise un événement le week-end, la coordinatrice laisse un message vocal : « Merci aux bénévoles de bien vouloir m’indiquer leurs créneaux exacts de disponibilité pour samedi et dimanche, jusqu’à mercredi au plus tard, pour que je puisse finaliser le planning. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion d’information, le responsable dit dans un enregistrement envoyé ensuite par mail : « Je vous rappelle que vous devez indiquer vos créneaux exacts de disponibilité dans le tableau partagé jusqu’à jeudi pour que nous puissions répartir les tâches. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une responsable de projet laisse un message sur le répondeur collectif de l’association : « Pensez à me transmettre vos créneaux exacts de bénévolat par SMS ou mail, jusqu’à vendredi dernier délai, afin que je confirme les équipes. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un coordinateur explique dans un message audio envoyé sur un groupe : « Vous avez jusqu’à mardi pour m’indiquer vos créneaux exacts, après cette date je bouclerai le planning et il ne sera plus possible de modifier vos disponibilités. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre jours proposés sont formellement et contextuellement plausibles comme date limite pour indiquer des créneaux de bénévolat, et aucun indice de formulation ne favorise clairement une option plutôt qu’une autre. Sans accès au document audio, il n’existe pas de base objective pour départager les réponses, d’où une incertitude totale et une distribution uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 444,
+          "total_tokens": 1044,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 39,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00519,
+        "inputHash": "56292005a1ea9cc27920dbae96d269892f531de30ba1f7d4681c330a009a7b9b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:20:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyM165EZBzUW9v5lcO4b2xPDHUUK",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document indique clairement que les bénévoles doivent indiquer leurs créneaux exacts « d’ici jeudi », donc la bonne réponse est « Jusqu’à jeudi ».",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi."
+          ],
+          "reason": "Le texte précise explicitement la date limite : « d'ici jeudi ». Quelqu’un peut choisir vendredi en pensant que l’organisation des permanences se fait pour toute la fin de semaine, ou en se disant qu’on a jusqu’à la veille du week‑end pour tout finaliser. Cependant, aucune mention de vendredi n’apparaît et la seule échéance donnée est « jeudi », ce qui rend « Jusqu’à vendredi » incorrect.",
+          "misunderstanding": "temporal_shift"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi."
+          ],
+          "reason": "L’énoncé dit clairement que les bénévoles sont « invités à indiquer leurs créneaux exacts d'ici jeudi », ce qui correspond exactement à « Jusqu’à jeudi » comme date limite.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi."
+          ],
+          "reason": "On pourrait croire que la demande doit être faite plus tôt dans la semaine, par exemple mercredi, en anticipant un délai d’organisation supplémentaire. Cependant, le document ne parle jamais de mercredi et donne précisément « jeudi » comme échéance ; avancer la date à mercredi est donc une interprétation personnelle non fondée sur le texte.",
+          "misunderstanding": "temporal_shift"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi."
+          ],
+          "reason": "Un auditeur distrait peut confondre « jeudi » avec un autre jour proche comme « mardi », surtout à l’oral, et choisir « Jusqu’à mardi » en pensant que la date limite est en début de semaine pour mieux préparer les permanences. Mais le document fixe clairement la date à « jeudi », ce qui exclut mardi.",
+          "misunderstanding": "misheard_word"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 716,
+      "completion_tokens": 744,
+      "total_tokens": 1460,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 194,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.008335,
+    "inputHash": "845ab9c6e8b368480800436484a8e54b14bb03f888def4e2e4d70efbb6b3adb5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:20:initial:ground:3"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

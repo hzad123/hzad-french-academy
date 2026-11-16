@@ -1,0 +1,155 @@
+{
+  "question": {
+    "number": 20,
+    "kind": "dialogue",
+    "question": "Dans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?",
+    "options": [
+      "Ils font varier les menus selon les saisons et prévoient des plats de substitution en cas de manque.",
+      "Ils gardent la même carte toute l’année et complètent chez d’autres fournisseurs quand un légume manque.",
+      "Ils n’ouvrent le restaurant que pendant les périodes où toutes les variétés souhaitées poussent.",
+      "Ils réduisent fortement la carte à quelques plats presque toujours assurés par le producteur."
+    ],
+    "correct": "A",
+    "explanation": "La dernière réplique précise la solution retenue : « Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions. » Ils choisissent donc des menus saisonniers avec des plats de remplacement si un légume manque. Aucune mention de recours à d’autres fournisseurs, de réduction drastique de la carte ni de fermeture hors saison.",
+    "transcript": "Question 20.\nNous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante.\nC'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas.\nJustement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières.\nNous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions.\nDans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 20."
+      },
+      {
+        "voice": "male",
+        "text": "Nous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante."
+      },
+      {
+        "voice": "female",
+        "text": "C'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas."
+      },
+      {
+        "voice": "male",
+        "text": "Justement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières."
+      },
+      {
+        "voice": "female",
+        "text": "Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions."
+      },
+      {
+        "voice": "female",
+        "text": "Dans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?"
+      }
+    ],
+    "audio": "q-20.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 47
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkydIaKHE9iORdf5VhoFFRsEFsR4E",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux restaurateurs discutent avec un maraîcher voisin qui a des récoltes très variables selon la météo. Ils veulent continuer à travailler avec lui sans être pris au dépourvu quand une variété manque. Ils concluent qu’ils feront une carte très saisonnière, adaptée aux légumes disponibles, et qu’ils prépareront à l’avance des plats de substitution (par exemple remplacer un accompagnement de courgettes par des carottes ou des céréales) en cas de rupture sur un produit."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un chef explique à son associé qu’avec les récoltes trop irrégulières du producteur d’à côté, il vaut mieux ne proposer qu’une petite carte de quelques plats pour lesquels le producteur peut garantir un approvisionnement assez stable. Ils acceptent de renoncer à une carte variée et se concentrent sur trois ou quatre recettes dont les ingrédients sont presque toujours disponibles chez ce producteur."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion, un restaurateur dit qu’il tient à garder une carte fixe pour ne pas déstabiliser la clientèle. Face aux récoltes irrégulières du producteur voisin, ils décident qu’ils continueront d’afficher la même carte toute l’année, mais que lorsque certains légumes manquent, ils achèteront la marchandise manquante auprès d’autres fournisseurs pour assurer les plats promis."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un couple ouvre un petit restaurant éphémère à la ferme d’un producteur voisin. Ils tiennent à travailler exclusivement avec ses légumes et à proposer en même temps toute une palette de variétés. Comme les récoltes sont très irrégulières, ils décident de n’ouvrir le restaurant que pendant les quelques périodes de l’année où toutes les variétés qu’ils veulent cuisiner sont effectivement disponibles, et de rester fermés le reste du temps."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "clear",
+              "cue": "Formulation plus nuancée et complète (variations saisonnières + stratégie explicite de substitution) qui répond directement à la contrainte des récoltes irrégulières tout en restant économiquement réaliste, par rapport aux autres choix plus extrêmes ou moins centrés sur l’adaptation au producteur voisin."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.6,
+            0.15,
+            0.15,
+            0.1
+          ],
+          "guess": 0,
+          "reason": "L’option 0 présente une solution équilibrée et détaillée qui traite explicitement l’irrégularité des récoltes (adaptation saisonnière + plans de secours), alors que les autres réponses sont soit plus radicales (réduire fortement la carte, n’ouvrir qu’à certaines périodes), soit moins cohérentes avec l’idée de s’adapter spécifiquement au producteur voisin (compléter systématiquement chez d’autres fournisseurs)."
+        },
+        "usage": {
+          "prompt_tokens": 664,
+          "completion_tokens": 790,
+          "total_tokens": 1454,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 170,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00873,
+        "inputHash": "ed6b01b83627be4efb70ae5a6562bb6a7efb1d6f2ad7ae862dd61be895a52cef",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "L’option 0 présente une solution équilibrée et détaillée qui traite explicitement l’irrégularité des récoltes (adaptation saisonnière + plans de secours), alors que les autres réponses sont soit plus radicales (réduire fortement la carte, n’ouvrir qu’à certaines périodes), soit moins cohérentes avec l’idée de s’adapter spécifiquement au producteur voisin (compléter systématiquement chez d’autres fournisseurs).",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "clear",
+        "cue": "Formulation plus nuancée et complète (variations saisonnières + stratégie explicite de substitution) qui répond directement à la contrainte des récoltes irrégulières tout en restant économiquement réaliste, par rapport aux autres choix plus extrêmes ou moins centrés sur l’adaptation au producteur voisin."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Deux restaurateurs discutent avec un maraîcher voisin qui a des récoltes très variables selon la météo. Ils veulent continuer à travailler avec lui sans être pris au dépourvu quand une variété manque. Ils concluent qu’ils feront une carte très saisonnière, adaptée aux légumes disponibles, et qu’ils prépareront à l’avance des plats de substitution (par exemple remplacer un accompagnement de courgettes par des carottes ou des céréales) en cas de rupture sur un produit."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un chef explique à son associé qu’avec les récoltes trop irrégulières du producteur d’à côté, il vaut mieux ne proposer qu’une petite carte de quelques plats pour lesquels le producteur peut garantir un approvisionnement assez stable. Ils acceptent de renoncer à une carte variée et se concentrent sur trois ou quatre recettes dont les ingrédients sont presque toujours disponibles chez ce producteur."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une réunion, un restaurateur dit qu’il tient à garder une carte fixe pour ne pas déstabiliser la clientèle. Face aux récoltes irrégulières du producteur voisin, ils décident qu’ils continueront d’afficher la même carte toute l’année, mais que lorsque certains légumes manquent, ils achèteront la marchandise manquante auprès d’autres fournisseurs pour assurer les plats promis."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un couple ouvre un petit restaurant éphémère à la ferme d’un producteur voisin. Ils tiennent à travailler exclusivement avec ses légumes et à proposer en même temps toute une palette de variétés. Comme les récoltes sont très irrégulières, ils décident de n’ouvrir le restaurant que pendant les quelques périodes de l’année où toutes les variétés qu’ils veulent cuisiner sont effectivement disponibles, et de rester fermés le reste du temps."
+      }
+    ]
+  }
+}

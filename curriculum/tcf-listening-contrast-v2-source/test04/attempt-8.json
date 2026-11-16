@@ -1,0 +1,189 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question demande la possibilité d’emprunter le dictionnaire « jusqu'à la semaine prochaine ». La réponse B confirme précisément qu’« un prêt d’une semaine est possible », ce qui correspond exactement à la durée demandée. Elle répond de façon directe et adéquate à la question. A : La question demande un emprunt « jusqu'à la semaine prochaine », donc pour une durée d’environ une semaine. La réponse A limite le prêt « uniquement pour le week-end », ce qui est plus court qu’une semaine et ne correspond pas à la demande. Elle ne répond donc pas correctement à la durée demandée. C : La personne demande explicitement à emprunter le dictionnaire. La réponse C refuse tout emprunt (« reste en consultation sur place »). Quelqu’un pourrait choisir cette réponse en pensant que certaines bibliothèques ne prêtent pas les dictionnaires, mais ici la question ne suggère nulle part que ce dictionnaire est exclu du prêt : il faut seulement répondre oui ou non à la durée proposée. La réponse C nie toute possibilité d’emprunt, ce qui n’est pas la meilleure correspondance par rapport aux autres options disponibles. D : La question propose une durée jusqu’à la semaine prochaine. La réponse D impose un retour « dès demain », donc bien avant la semaine prochaine. Quelqu’un pourrait la choisir en entendant seulement le « Oui » et en négligeant la précision temporelle, mais la condition de retour dès le lendemain contredit directement la durée souhaitée.",
+    "transcript": "Question 8.\nPuis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?\nA. Oui, mais uniquement pour le week-end. B. Oui, le prêt d’une semaine est possible. C. Non, ce dictionnaire reste en consultation sur place. D. Oui, mais il doit être rendu dès demain.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Oui, mais uniquement pour le week-end. B. Oui, le prêt d’une semaine est possible. C. Non, ce dictionnaire reste en consultation sur place. D. Oui, mais il doit être rendu dès demain."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 19.905,
+    "slotSeconds": 37
+  },
+  "sourceHash": "af2511f4fb7f4f6ec6b1d24c0f6efc943d836b1ad1c15f271408f0396bcbfc71",
+  "contentHash": "fb8d965f3b0c603b20da1ed00ae28436a7dad1913a5192bc1195fe55f3043280",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyOrjmExlF8DhOsbLJOdTqvlkF7A",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement de type consigne d’examen, on demande à l’élève d’indiquer sa réponse en disant simplement « Proposition A, B, C ou D ? ». L’élève ou le narrateur choisit alors verbalement « Proposition D », qui est enregistré comme réponse au QCM. Ici, « Proposition D » est exactement la forme attendue, et répond directement à la question posée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Même type de contexte d’épreuve de compréhension orale : après avoir écouté un court dialogue, l’enseignant demande aux élèves de choisir parmi « Proposition A, Proposition B, Proposition C ou Proposition D ». Un élève annonce à voix haute « Proposition A » comme choix de réponse. La formulation colle parfaitement à la question générique et fonctionne comme réponse directe."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un exercice enregistré, une voix demande : « Pour cette question, choisissez la bonne réponse : Proposition A, Proposition B, Proposition C ou Proposition D. » Un candidat, interrogé individuellement, répond à l’oral « Proposition B ». Cette réponse correspond exactement au format attendu pour indiquer son choix."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un test de langue, l’examinateur lit un court texte, puis demande : « Quelle est la bonne réponse ? Proposition A, Proposition B, Proposition C ou Proposition D ? ». Le candidat donne son choix en disant « Proposition C ». Cette formulation correspond mot pour mot à la manière usuelle de répondre à ce type de consigne."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options ne sont que des étiquettes de type QCM (Proposition A, B, C, D), sans contenu lexical ni différence sémantique. Aucune ne présente d’avantage observable (longueur, précision, registre, pertinence contextuelle) par rapport aux autres. Sans accès à l’enregistrement, il est impossible de déduire une clé privilégiée ; chaque option est également plausible comme choix de réponse, d’où une distribution uniforme des probabilités et un choix arbitraire de l’index 0 comme meilleure hypothèse technique."
+        },
+        "usage": {
+          "prompt_tokens": 577,
+          "completion_tokens": 580,
+          "total_tokens": 1157,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 78,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00652125,
+        "inputHash": "47131c4747270df5e5d5378eebea63ab478e839df6b1351bfc81d889cf73efeb",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:initial:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyOxEcGQ23i2U4Y5peSmdfov7iw7",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur la possibilité d’emprunter un dictionnaire « jusqu’à la semaine prochaine », donc pour environ une semaine. La seule réponse qui accepte explicitement un prêt d’une semaine est la réponse B.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Oui, mais uniquement pour le week-end."
+          ],
+          "reason": "La question demande un emprunt « jusqu'à la semaine prochaine », donc pour une durée d’environ une semaine. La réponse A limite le prêt « uniquement pour le week-end », ce qui est plus court qu’une semaine et ne correspond pas à la demande. Elle ne répond donc pas correctement à la durée demandée.",
+          "misunderstanding": "temporal_scope"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Oui, le prêt d’une semaine est possible."
+          ],
+          "reason": "La question demande la possibilité d’emprunter le dictionnaire « jusqu'à la semaine prochaine ». La réponse B confirme précisément qu’« un prêt d’une semaine est possible », ce qui correspond exactement à la durée demandée. Elle répond de façon directe et adéquate à la question.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Non, ce dictionnaire reste en consultation sur place."
+          ],
+          "reason": "La personne demande explicitement à emprunter le dictionnaire. La réponse C refuse tout emprunt (« reste en consultation sur place »). Quelqu’un pourrait choisir cette réponse en pensant que certaines bibliothèques ne prêtent pas les dictionnaires, mais ici la question ne suggère nulle part que ce dictionnaire est exclu du prêt : il faut seulement répondre oui ou non à la durée proposée. La réponse C nie toute possibilité d’emprunt, ce qui n’est pas la meilleure correspondance par rapport aux autres options disponibles.",
+          "misunderstanding": "overgeneralization_of_rules"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Oui, mais il doit être rendu dès demain."
+          ],
+          "reason": "La question propose une durée jusqu’à la semaine prochaine. La réponse D impose un retour « dès demain », donc bien avant la semaine prochaine. Quelqu’un pourrait la choisir en entendant seulement le « Oui » et en négligeant la précision temporelle, mais la condition de retour dès le lendemain contredit directement la durée souhaitée.",
+          "misunderstanding": "partial_listening"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 708,
+      "completion_tokens": 890,
+      "total_tokens": 1598,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 292,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009785,
+    "inputHash": "72b5d646c7d6683a52e74f7f878a1e579775d3c94a5fc1a28f94dbf775c81fc4",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:initial:ground:0"
+  },
+  "feedback": null
+}

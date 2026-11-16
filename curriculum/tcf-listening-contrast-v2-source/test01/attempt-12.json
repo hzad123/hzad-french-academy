@@ -1,0 +1,325 @@
+{
+  "question": {
+    "number": 12,
+    "kind": "dialogue",
+    "question": "Que dit la cliente à propos du paiement de la lampe ?",
+    "options": [
+      "Qu’elle compte utiliser un bon d’achat pour la payer.",
+      "Qu’elle doit encore payer la lampe en magasin.",
+      "Qu’elle n’a versé qu’un acompte sur internet.",
+      "Qu’elle a déjà réglé la lampe en ligne."
+    ],
+    "correct": "D",
+    "transcript": "Question 12.\nBonjour, j'ai reçu votre message pour ma lampe.\nVous venez la chercher ? Elle est prête, au comptoir du fond.\nParfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande.\nQue dit la cliente à propos du paiement de la lampe ?",
+    "explanation": "Réponse D : La cliente dit explicitement qu’elle a déjà réglé la lampe sur internet : « Je l’ai déjà payée en ligne. ». Cela correspond exactement à l’option indiquant qu’elle a déjà payé la lampe en ligne. A : La cliente indique qu’elle a déjà payé la lampe en ligne, sans aucune mention de bon d’achat ou de réduction spécifique. Un bon d’achat serait un moyen de paiement particulier, mais rien dans l’enregistrement ne renvoie à cela. B : Dire qu’elle doit encore payer en magasin contredit directement « Je l’ai déjà payée en ligne. ». Quelqu’un qui comprend seulement qu’elle vient « la chercher » pourrait croire qu’il reste un paiement à faire sur place, mais la phrase sur le paiement en ligne indique le contraire. C : Un acompte impliquerait qu’une partie du prix reste à régler, or elle affirme qu’elle a « déjà payée » la lampe, ce qui suggère la totalité du paiement. Une personne peu sûre du vocabulaire pourrait confondre un paiement en ligne avec une réservation ou un acompte, mais rien n’indique qu’il ne s’agit que d’une partie du montant.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 12."
+      },
+      {
+        "voice": "female",
+        "text": "Bonjour, j'ai reçu votre message pour ma lampe."
+      },
+      {
+        "voice": "male",
+        "text": "Vous venez la chercher ? Elle est prête, au comptoir du fond."
+      },
+      {
+        "voice": "female",
+        "text": "Parfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande."
+      },
+      {
+        "voice": "female",
+        "text": "Que dit la cliente à propos du paiement de la lampe ?"
+      }
+    ],
+    "audio": "q-12.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 38
+  },
+  "sourceHash": "f9026957aecfdc53680e5aba28aa6ed40fe6ed907836864972b93b4eef6a2d49",
+  "contentHash": "d3bc19c31d3b65ff09c975f5a596141d5144974d4bac6120cb8c98db4c267e4c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky6fHhN6ZoJF4Bxj1bkFwyt1tfvc",
+    "result": {
+      "question": "Que dit la cliente à propos du paiement de la lampe ?",
+      "choices": [
+        "Qu’elle a déjà réglé la lampe en ligne.",
+        "Qu’elle doit encore payer la lampe en magasin.",
+        "Qu’elle n’a versé qu’un acompte sur internet.",
+        "Qu’elle compte utiliser un bon d’achat pour la payer."
+      ],
+      "correctIndex": 0,
+      "explanation": "La cliente dit explicitement : Je l'ai déjà payée en ligne. Elle indique donc que la lampe est entièrement réglée par paiement en ligne, et ne mentionne ni paiement restant en magasin, ni acompte, ni bon d’achat.",
+      "design": "Axis choisi : le statut/modalité précise du paiement de la lampe (entièrement payé en ligne, à payer en magasin, acompte en ligne, autre moyen comme bon d’achat). Les quatre options sont toutes des modalités réalistes de paiement dans ce type de situation (commande en ligne, retrait en magasin). Sans l’enregistrement, chacune répond directement à la question sur « ce qu’elle dit » du paiement et semble plausible. Seule l’écoute permet d’identifier que la cliente affirme avoir déjà tout payé en ligne, et non devoir payer en magasin, avoir versé un simple acompte, ou vouloir utiliser un bon d’achat.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse le statut du paiement : au lieu d’être déjà effectué, il serait encore à faire en magasin. Elle est tentante car la cliente vient physiquement chercher la lampe au comptoir du fond, ce qui pourrait laisser croire qu’elle doit payer sur place, mais elle affirme au contraire que le paiement est déjà fait en ligne.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Vous venez la chercher ?",
+            "Je l'ai déjà payée en ligne."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option restreint abusivement la portée de l’affirmation de paiement en la comprenant comme un simple acompte. Elle est tentante parce que le contexte commande en ligne / retrait en magasin évoque souvent des paiements en deux temps, mais la cliente ne parle pas de reste à payer : elle dit qu’elle l’a déjà payée en ligne, sans limite ou fraction.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Je l'ai déjà payée en ligne.",
+            "Vous venez la chercher ?"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option attribue à tort un moyen de paiement particulier (bon d’achat) que la cliente ne mentionne jamais. Elle peut sembler plausible car dans un magasin, présenter un numéro de commande pourrait s’accompagner d’un bon d’achat, mais ici la seule information fournie est qu’elle a déjà payé en ligne et qu’elle donne le numéro de commande, pas qu’elle utilisera un bon d’achat.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Je l'ai déjà payée en ligne.",
+            "Voici le numéro de ma commande."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4272,
+      "completion_tokens": 833,
+      "total_tokens": 5105,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 239,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01367,
+    "inputHash": "4d05a3020ac53ef7556f3f7d1ae03019fbac305b7f2dbfd1b43fb79eeead0a4c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky6v7fwm8ODKl0naC8abYFIDkF4D",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un magasin de décoration, une cliente venue récupérer une lampe commandée en ligne explique à la caissière : « J’ai seulement versé un acompte sur internet, je dois payer le reste ici. » Elle répond ainsi à une question du type : « Que dit la cliente à propos du paiement de la lampe ? »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une cliente discute avec un vendeur d’un achat de lampe et précise : « Je compte utiliser un bon d’achat pour la payer, je l’ai reçu suite à un retour. » Elle répond à la question portant sur ce qu’elle dit à propos du paiement."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un retrait de colis en magasin, la cliente explique au personnel : « Ne vous inquiétez pas, j’ai déjà réglé la lampe en ligne, c’était un paiement anticipé. » Cela répond directement à une demande sur ce qu’elle dit concernant le paiement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une cliente regarde une lampe réservée en ligne mais non payée et dit au vendeur : « Je dois encore payer la lampe en magasin, je n’ai rien payé sur internet. » Cette réponse correspond à une question sur ce qu’elle dit à propos du paiement."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses sont grammaticales, plausibles et répondent directement à la question sur le paiement, sans avantage formel net pour l’une d’elles. Sans accès à l’audio, il reste une forte incertitude ; le choix 2 est une simple meilleure hypothèse par défaut, sans indice décisif dans l’énoncé écrit."
+        },
+        "usage": {
+          "prompt_tokens": 613,
+          "completion_tokens": 504,
+          "total_tokens": 1117,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 111,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00580625,
+        "inputHash": "a9e32333ac71f33455c4c1d373a9f528179d0a0a93c71a077d67150e9072aec8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky72E5ZIkPVxOwcd3tUdiqXOeqZ4",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un magasin de décoration, la cliente vient récupérer une lampe qu’elle a commandée sur le site. Le vendeur lui demande comment elle souhaite régler et elle répond qu’elle a déjà réglé la lampe en ligne au moment de la commande."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "La cliente a réservé une lampe sur internet avec paiement en magasin. En la retirant, le vendeur lui demande si le paiement a déjà été fait et elle précise qu’elle doit encore payer la lampe en magasin."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une commande en ligne avec acompte, la cliente a payé seulement une partie du prix de la lampe pour la réserver. En magasin, au moment de la livraison, elle explique au vendeur qu’elle n’a versé qu’un acompte sur internet et doit compléter le paiement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "La cliente possède un bon d’achat offert précédemment par le magasin. En venant acheter une lampe, le vendeur lui demande comment elle souhaite régler et elle répond qu’elle compte utiliser un bon d’achat pour la payer."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune option ne présente d’avantage rédactionnel, de précision ou de plausibilité contextuelle clairement supérieur aux autres ; sans accès à l’audio, l’incertitude reste élevée et la clé ne peut être inférée de façon fiable."
+        },
+        "usage": {
+          "prompt_tokens": 613,
+          "completion_tokens": 393,
+          "total_tokens": 1006,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 59,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00469625,
+        "inputHash": "1c851cd7e15a4c67e34738bc20f7ffa91fa5f1f97b2254aa5af2325ceae619d3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky77HAvh1x0E7COqgUM85DgWFmmV",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La cliente précise clairement qu’elle a déjà réglé la lampe sur internet, donc elle ne doit plus la payer en magasin ni avec un bon ni par acompte.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je l'ai déjà payée en ligne."
+          ],
+          "reason": "La cliente indique qu’elle a déjà payé la lampe en ligne, sans aucune mention de bon d’achat ou de réduction spécifique. Un bon d’achat serait un moyen de paiement particulier, mais rien dans l’enregistrement ne renvoie à cela.",
+          "misunderstanding": "inference_overreach"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je l'ai déjà payée en ligne."
+          ],
+          "reason": "Dire qu’elle doit encore payer en magasin contredit directement « Je l’ai déjà payée en ligne. ». Quelqu’un qui comprend seulement qu’elle vient « la chercher » pourrait croire qu’il reste un paiement à faire sur place, mais la phrase sur le paiement en ligne indique le contraire.",
+          "misunderstanding": "partial_sentence_attention"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je l'ai déjà payée en ligne."
+          ],
+          "reason": "Un acompte impliquerait qu’une partie du prix reste à régler, or elle affirme qu’elle a « déjà payée » la lampe, ce qui suggère la totalité du paiement. Une personne peu sûre du vocabulaire pourrait confondre un paiement en ligne avec une réservation ou un acompte, mais rien n’indique qu’il ne s’agit que d’une partie du montant.",
+          "misunderstanding": "concept_confusion"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Je l'ai déjà payée en ligne."
+          ],
+          "reason": "La cliente dit explicitement qu’elle a déjà réglé la lampe sur internet : « Je l’ai déjà payée en ligne. ». Cela correspond exactement à l’option indiquant qu’elle a déjà payé la lampe en ligne.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 698,
+      "completion_tokens": 724,
+      "total_tokens": 1422,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 265,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0081125,
+    "inputHash": "a442545c8f42888b335be6cc7bc1ac4465cb8d04521d7fc13f968a50d306772c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:ground:1"
+  },
+  "feedback": null
+}

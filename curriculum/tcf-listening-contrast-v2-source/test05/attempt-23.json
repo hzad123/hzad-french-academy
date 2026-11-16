@@ -1,0 +1,171 @@
+{
+  "question": {
+    "number": 23,
+    "kind": "panel-discussion",
+    "question": "Selon le document, à quelle condition la proposition de commencer par un seul bâtiment est-elle acceptée ?",
+    "options": [
+      "À condition d’obtenir une garantie écrite que les charges n’augmenteront pas après les travaux.",
+      "À condition de publier un premier bilan détaillé des dépenses avant la fin de l’hiver.",
+      "À condition de fixer dès le départ une durée maximale pour l’ensemble du chantier.",
+      "À condition de prévoir une aide pour les ménages les plus fragiles en cas de hausse provisoire des charges."
+    ],
+    "correct": "D",
+    "explanation": "Le locuteur répond explicitement « Oui, à condition de prévoir une aide pour les ménages les plus fragiles si une augmentation temporaire est nécessaire ». La seule condition posée pour accepter de commencer par un seul bâtiment concerne donc une aide ciblée en cas de hausse provisoire des charges, et non la durée globale du chantier, une garantie générale sur les charges, ni un calendrier précis de publication des dépenses.",
+    "transcript": "Question 23.\nNous discutons du partage du coût de la rénovation énergétique.\nLes propriétaires souhaitent isoler les façades rapidement pour réduire les pertes de chaleur.\nLes représentants des locataires veulent des garanties sur les charges et sur la durée du chantier.\nNous pourrions commencer par un seul bâtiment, mesurer les consommations pendant l'hiver et publier les dépenses exactes.\nOui, à condition de prévoir une aide pour les ménages les plus fragiles si une augmentation temporaire est nécessaire.\nDans ce cas, élaborons ensemble un accord avant d'étendre les travaux.\nSelon le document, à quelle condition la proposition de commencer par un seul bâtiment est-elle acceptée ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 23.",
+        "speaker": "female"
+      },
+      {
+        "voice": "female",
+        "text": "Nous discutons du partage du coût de la rénovation énergétique.",
+        "speaker": "female"
+      },
+      {
+        "voice": "male",
+        "text": "Les propriétaires souhaitent isoler les façades rapidement pour réduire les pertes de chaleur.",
+        "speaker": "male"
+      },
+      {
+        "voice": "female",
+        "text": "Les représentants des locataires veulent des garanties sur les charges et sur la durée du chantier.",
+        "speaker": "female_alt"
+      },
+      {
+        "voice": "male",
+        "text": "Nous pourrions commencer par un seul bâtiment, mesurer les consommations pendant l'hiver et publier les dépenses exactes.",
+        "speaker": "male"
+      },
+      {
+        "voice": "female",
+        "text": "Oui, à condition de prévoir une aide pour les ménages les plus fragiles si une augmentation temporaire est nécessaire.",
+        "speaker": "female_alt"
+      },
+      {
+        "voice": "male",
+        "text": "Dans ce cas, élaborons ensemble un accord avant d'étendre les travaux.",
+        "speaker": "male"
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quelle condition la proposition de commencer par un seul bâtiment est-elle acceptée ?",
+        "speaker": "female"
+      }
+    ],
+    "audio": "q-23.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 72
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyYnH1DEIXMZCWgOTc065LbwCumy",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion de copropriété sur un vaste chantier de rénovation de plusieurs bâtiments. Un copropriétaire propose de commencer les travaux par un seul immeuble pour tester l’organisation. Le syndic ou le conseil syndical accepte cette idée à condition qu’on fixe dès le départ une durée maximale pour l’ensemble du chantier, afin que les autres bâtiments ne soient pas rénovés trop tard."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Commission municipale ou assemblée de copropriété discutant d’un projet de rénovation par étapes. La proposition de commencer par un seul bâtiment est acceptée à condition que, avant la fin de l’hiver, un premier bilan détaillé des dépenses soit publié pour informer les habitants et décider de la suite du programme."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Assemblée de copropriété où l’on discute d’une réhabilitation énergétique coûteuse. Certains craignent une hausse des charges. La proposition de démarrer par un seul bâtiment est acceptée seulement si un accord écrit du gestionnaire ou du bailleur garantit que les charges ne seront pas augmentées après les travaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion entre un bailleur social et des représentants de locataires sur un projet de rénovation lourd, bâtiment par bâtiment. Les locataires s’inquiètent d’une hausse provisoire des charges (chauffage, travaux répercutés). La direction accepte de commencer par un seul bâtiment à condition de mettre en place un dispositif d’aide ciblée pour les ménages les plus fragiles en cas de hausse temporaire des charges."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation plus nuancée et sociale, directement liée à un effet typique des travaux (hausse provisoire des charges) et à une mesure concrète (‘prévoir une aide pour les ménages les plus fragiles’). La phrase est plus longue, précise et « responsable » que les autres conditions, qui sont plus générales ou peu réalistes (garantie d’absence totale de hausse)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.15,
+            0.2,
+            0.5
+          ],
+          "guess": 3,
+          "reason": "Tous les choix sont plausibles en contexte, mais le quatrième est le plus détaillé, socialement responsable et directement relié à une conséquence concrète et crédible des travaux (hausse provisoire des charges), ce qui en fait l’option la plus probablement privilégiée dans un ‘document’ de type réunion ou négociation sur un chantier."
+        },
+        "usage": {
+          "prompt_tokens": 653,
+          "completion_tokens": 805,
+          "total_tokens": 1458,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 265,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00886625,
+        "inputHash": "b097932eab56904d4b9fe76439991a33a91e134612a4f6cd034da956601bdc41",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:22:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix sont plausibles en contexte, mais le quatrième est le plus détaillé, socialement responsable et directement relié à une conséquence concrète et crédible des travaux (hausse provisoire des charges), ce qui en fait l’option la plus probablement privilégiée dans un ‘document’ de type réunion ou négociation sur un chantier.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation plus nuancée et sociale, directement liée à un effet typique des travaux (hausse provisoire des charges) et à une mesure concrète (‘prévoir une aide pour les ménages les plus fragiles’). La phrase est plus longue, précise et « responsable » que les autres conditions, qui sont plus générales ou peu réalistes (garantie d’absence totale de hausse)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Réunion de copropriété sur un vaste chantier de rénovation de plusieurs bâtiments. Un copropriétaire propose de commencer les travaux par un seul immeuble pour tester l’organisation. Le syndic ou le conseil syndical accepte cette idée à condition qu’on fixe dès le départ une durée maximale pour l’ensemble du chantier, afin que les autres bâtiments ne soient pas rénovés trop tard."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Commission municipale ou assemblée de copropriété discutant d’un projet de rénovation par étapes. La proposition de commencer par un seul bâtiment est acceptée à condition que, avant la fin de l’hiver, un premier bilan détaillé des dépenses soit publié pour informer les habitants et décider de la suite du programme."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Assemblée de copropriété où l’on discute d’une réhabilitation énergétique coûteuse. Certains craignent une hausse des charges. La proposition de démarrer par un seul bâtiment est acceptée seulement si un accord écrit du gestionnaire ou du bailleur garantit que les charges ne seront pas augmentées après les travaux."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Réunion entre un bailleur social et des représentants de locataires sur un projet de rénovation lourd, bâtiment par bâtiment. Les locataires s’inquiètent d’une hausse provisoire des charges (chauffage, travaux répercutés). La direction accepte de commencer par un seul bâtiment à condition de mettre en place un dispositif d’aide ciblée pour les ménages les plus fragiles en cas de hausse temporaire des charges."
+      }
+    ]
+  }
+}

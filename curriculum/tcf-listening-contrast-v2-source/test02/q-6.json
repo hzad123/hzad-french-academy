@@ -1,0 +1,191 @@
+{
+  "question": {
+    "number": 6,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : La question demande si l’on peut venir récupérer le livre « ce soir ». La réponse D commence par « Oui », ce qui accorde clairement la permission, et précise un horaire exact : « passe ce soir vers vingt heures ». Elle répond donc directement au contenu et au moment demandés. A : La question demande une autorisation et un moment pour venir récupérer *mon livre* ce soir. La réponse A parle bien de *livres*, ce qui peut attirer quelqu’un qui repère seulement ce mot, mais elle n’accorde ni permission ni rendez-vous : elle parle simplement du fait d’avoir beaucoup de livres à lire. Elle ne répond donc pas à « Je peux passer » ni à « ce soir ». B : La question porte sur la récupération d’*un livre* déjà prêté. La réponse B parle du prêt d’*un vélo* ce soir. Un candidat distrait peut ne retenir que l’idée d’un prêt « ce soir » et choisir cette réponse, mais l’objet n’est pas le même et il n’est plus question de récupérer quelque chose déjà laissé chez l’autre. Le contenu ne correspond donc pas à la demande formulée. C : On demande une permission de passer ce soir. La réponse C commence par « Non » et répond à une autre question implicite (« Est-ce que tu travailles ce soir ? ») avec « je ne travaille pas ce soir ». Un apprenant peut croire que le fait de ne pas travailler signifie qu’on est disponible, donc que c’est une réponse adaptée, mais on n’accorde jamais explicitement la permission de passer et le « Non » ne correspond à rien dans la question initiale. La relation pragmatique est donc insuffisante.",
+    "transcript": "Question 6.\nJe peux passer récupérer mon livre ce soir ?\nA. Oui, j’ai aussi beaucoup de livres à lire. B. Oui, je peux te prêter mon vélo ce soir. C. Non, je ne travaille pas ce soir. D. Oui, passe ce soir vers vingt heures.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 6."
+      },
+      {
+        "voice": "female",
+        "text": "Je peux passer récupérer mon livre ce soir ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Oui, j’ai aussi beaucoup de livres à lire. B. Oui, je peux te prêter mon vélo ce soir. C. Non, je ne travaille pas ce soir. D. Oui, passe ce soir vers vingt heures."
+      }
+    ],
+    "audio": "q-06.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "753346c61e92d1cf80daf53ec14a63dd71a66e5c435729cf915a0f47fc604191",
+  "contentHash": "24132093e39c96afad7b8f787328f755c81331f1c8ddd6b54c0780f92ca171e1",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkynLdyw6P9tVpjGHYZkpUMQ7cjub",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un ami dit : « Je peux passer chez toi pour qu’on regarde le film ? » ou « Je viens te rendre le livre ce soir ? » L’autre répond : « Oui, passe ce soir vers vingt heures. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un ami demande : « Tu peux me prêter ton vélo pour rentrer ce soir ? » Réponse : « Oui, je peux te prêter mon vélo ce soir. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un collègue demande : « Tu travailles ce soir ? On pourrait sortir. » Réponse : « Non, je ne travaille pas ce soir. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Quelqu’un dit : « J’ai beaucoup de livres à lire en ce moment. » L’autre répond : « Oui, j’ai aussi beaucoup de livres à lire. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les réponses sont grammaticales et pourraient convenir à des situations ordinaires différentes ; sans le support audio ni autre contexte écrit, aucun indice textuel clair ne permet de privilégier une option plutôt qu’une autre, d’où une incertitude totale et des probabilités réparties également."
+        },
+        "usage": {
+          "prompt_tokens": 603,
+          "completion_tokens": 483,
+          "total_tokens": 1086,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 184,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00558375,
+        "inputHash": "7c7a8a6b139aa0208b58102fdc9780e93af43c69156fb95db83e005fe22b8dbe",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:5:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkynQKs0dVG8L5xKbRLJotls84oau",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui accorde clairement la permission et précise un horaire pour venir récupérer le livre ce soir est « Oui, passe ce soir vers vingt heures. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je peux passer récupérer mon livre ce soir ?",
+            "Oui, j’ai aussi beaucoup de livres à lire."
+          ],
+          "reason": "La question demande une autorisation et un moment pour venir récupérer *mon livre* ce soir. La réponse A parle bien de *livres*, ce qui peut attirer quelqu’un qui repère seulement ce mot, mais elle n’accorde ni permission ni rendez-vous : elle parle simplement du fait d’avoir beaucoup de livres à lire. Elle ne répond donc pas à « Je peux passer » ni à « ce soir ».",
+          "misunderstanding": "lexical_overlap"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je peux passer récupérer mon livre ce soir ?",
+            "Oui, je peux te prêter mon vélo ce soir."
+          ],
+          "reason": "La question porte sur la récupération d’*un livre* déjà prêté. La réponse B parle du prêt d’*un vélo* ce soir. Un candidat distrait peut ne retenir que l’idée d’un prêt « ce soir » et choisir cette réponse, mais l’objet n’est pas le même et il n’est plus question de récupérer quelque chose déjà laissé chez l’autre. Le contenu ne correspond donc pas à la demande formulée.",
+          "misunderstanding": "object_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je peux passer récupérer mon livre ce soir ?",
+            "Non, je ne travaille pas ce soir."
+          ],
+          "reason": "On demande une permission de passer ce soir. La réponse C commence par « Non » et répond à une autre question implicite (« Est-ce que tu travailles ce soir ? ») avec « je ne travaille pas ce soir ». Un apprenant peut croire que le fait de ne pas travailler signifie qu’on est disponible, donc que c’est une réponse adaptée, mais on n’accorde jamais explicitement la permission de passer et le « Non » ne correspond à rien dans la question initiale. La relation pragmatique est donc insuffisante.",
+          "misunderstanding": "pragmatic_inference"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Je peux passer récupérer mon livre ce soir ?",
+            "Oui, passe ce soir vers vingt heures."
+          ],
+          "reason": "La question demande si l’on peut venir récupérer le livre « ce soir ». La réponse D commence par « Oui », ce qui accorde clairement la permission, et précise un horaire exact : « passe ce soir vers vingt heures ». Elle répond donc directement au contenu et au moment demandés.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 706,
+      "completion_tokens": 1163,
+      "total_tokens": 1869,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0125125,
+    "inputHash": "a2376b0e56e259e11f690afbc925d368bd2b0a7c25b7f9ae4109b38ce7af4ec9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:5:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

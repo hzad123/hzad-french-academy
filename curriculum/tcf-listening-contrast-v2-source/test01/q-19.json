@@ -1,0 +1,325 @@
+{
+  "question": {
+    "number": 19,
+    "kind": "announcement",
+    "question": "Quelle précision est donnée sur le tarif de cette visite du jeudi ?",
+    "options": [
+      "Elle est gratuite pour tous les visiteurs.",
+      "Elle est facturée au tarif habituel du musée.",
+      "Elle bénéficie automatiquement d’un tarif réduit.",
+      "Elle nécessite un supplément par rapport au billet d’entrée."
+    ],
+    "correct": "B",
+    "transcript": "Question 19.\nÀ partir de ce mois-ci, le musée propose une visite du jeudi limitée à douze personnes. Le guide prendra le temps de répondre aux questions et de discuter des objets que vous aurez envie d'observer. Il ne s'agit pas d'un cours réservé aux spécialistes : aucune connaissance préalable n'est nécessaire. Le tarif habituel s'applique. Pensez toutefois à réserver, car nous ne pourrons pas agrandir le groupe.\nQuelle précision est donnée sur le tarif de cette visite du jeudi ?",
+    "explanation": "Réponse B : La phrase « Le tarif habituel s'applique. » indique clairement que cette visite est facturée au tarif habituel du musée. C’est la seule précision donnée sur le tarif. A : L’énoncé précise explicitement : « Le tarif habituel s'applique. » donc la visite n’est pas gratuite pour tous les visiteurs. Un auditeur peu attentif pourrait se dire que, comme il s’agit d’une nouvelle visite limitée en nombre avec un aspect convivial (« répondre aux questions et de discuter »), elle pourrait être offerte, mais le texte affirme clairement que le tarif normal reste en vigueur. C : Rien ne mentionne un « tarif réduit » ; au contraire, on dit « Le tarif habituel s'applique. », ce qui exclut l’idée d’une réduction automatique. Un auditeur pourrait associer à tort le caractère non spécialisé de la visite (« aucune connaissance préalable n'est nécessaire ») ou la limitation à douze personnes à un avantage tarifaire, mais ce n’est pas ce qui est dit. D : Dire que « Le tarif habituel s'applique. » signifie qu’il n’y a pas de supplément au-delà du billet d’entrée normal. Un auditeur distrait pourrait penser qu’une visite guidée limitée à douze personnes et nécessitant une réservation implique un supplément, mais le texte n’évoque jamais de coût additionnel, au contraire il insiste sur l’application du tarif habituel.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 19."
+      },
+      {
+        "voice": "male",
+        "text": "À partir de ce mois-ci, le musée propose une visite du jeudi limitée à douze personnes. Le guide prendra le temps de répondre aux questions et de discuter des objets que vous aurez envie d'observer. Il ne s'agit pas d'un cours réservé aux spécialistes : aucune connaissance préalable n'est nécessaire. Le tarif habituel s'applique. Pensez toutefois à réserver, car nous ne pourrons pas agrandir le groupe."
+      },
+      {
+        "voice": "female",
+        "text": "Quelle précision est donnée sur le tarif de cette visite du jeudi ?"
+      }
+    ],
+    "audio": "q-19.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "sourceHash": "15de03860804d298395acc13c93fa792413309007fc36ed0baa3534c20174ebf",
+  "contentHash": "c956924a7e2c4411282234650e33dd45ebcf3216923a8a3ff1e760cea35ac2b6",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky86ennrQEuoOcexamd6MOAwLX2X",
+    "result": {
+      "question": "Quelle précision est donnée sur le tarif de cette visite du jeudi ?",
+      "choices": [
+        "Elle est facturée au tarif habituel du musée.",
+        "Elle est gratuite pour tous les visiteurs.",
+        "Elle nécessite un supplément par rapport au billet d’entrée.",
+        "Elle bénéficie automatiquement d’un tarif réduit."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique clairement : « Le tarif habituel s'applique. » La visite est donc facturée au tarif habituel du musée, sans gratuité, supplément ni réduction spécifique.",
+      "design": "On cible une relation précise entre la visite du jeudi et son tarif : la nature du prix appliqué. Les quatre réponses proposent des modalités tarifaires proches et crédibles (tarif habituel, gratuité, supplément, réduction), toutes cohérentes avec une annonce de musée. Sans l’enregistrement, aucune n’est illogique. Seule l’écoute permet d’identifier « Le tarif habituel s'applique » comme la précision donnée, les autres reprenant des types de conditions tarifaires fréquemment associés à des visites spéciales, ce qui les rend tentantes mais incorrectes ici.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’annonce décrit une visite particulière du jeudi, ce qui pourrait laisser croire à une gratuité promotionnelle. Cependant, le texte précise explicitement que c’est le « tarif habituel » qui s’applique, et ne mentionne à aucun moment une visite gratuite.",
+          "operation": "scope_shift",
+          "anchors": [
+            "À partir de ce mois-ci, le musée propose une visite du jeudi limitée à douze personnes.",
+            "Le tarif habituel s'applique."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Une visite spéciale limitée en nombre pourrait sembler justifier un supplément. Mais le document indique au contraire que c’est le tarif habituel qui est appliqué, sans allusion à un prix augmenté pour cette formule.",
+          "operation": "scope_shift",
+          "anchors": [
+            "visite du jeudi limitée à douze personnes.",
+            "Le tarif habituel s'applique."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le caractère encadré et en petit groupe de la visite pourrait faire penser à une réduction incitative. En réalité, le texte ne parle d’aucun avantage tarifaire et affirme seulement que le tarif habituel s’applique.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Le guide prendra le temps de répondre aux questions et de discuter des objets que vous aurez envie d'observer.",
+            "Le tarif habituel s'applique."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4470,
+      "completion_tokens": 790,
+      "total_tokens": 5260,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 280,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0134875,
+    "inputHash": "4ecfb7d4685f5eb329fba85c0111055725fa132c4121741c1c880086297f6482",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:18:initial:author:2:0"
+  },
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8Hw4SQrowuStaQz44pfdZ38Rg3",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans l’audioguide du musée, on présente une visite guidée spéciale ayant lieu le jeudi soir. Le narrateur précise : « Cette visite du jeudi bénéficie automatiquement d’un tarif réduit, sans conditions particulières. » Cette indication répond directement à la question sur la précision donnée concernant le tarif de cette visite."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une employée d’accueil décrit les différentes visites possibles : « Et le jeudi, nous proposons une visite thématique. Cette visite du jeudi est gratuite pour tous les visiteurs. » L’information répond exactement à la demande de précision sur le tarif."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un guide explique les conditions de participation : « La visite du jeudi est une visite guidée spéciale. Elle nécessite un supplément par rapport au billet d’entrée, de 5 euros par personne. » Cette précision tarifaire correspond directement à la question posée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message enregistré du musée décrit la programmation : « La visite du jeudi est incluse dans votre billet, elle est facturée au tarif habituel du musée, sans supplément. » Cette phrase fournit précisément la précision demandée sur le tarif de la visite du jeudi."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "La formulation « facturée au tarif habituel du musée » ressemble beaucoup à un libellé standard de conditions tarifaires, cohérent avec l’idée d’une simple ‘précision’ (on rassure qu’il n’y a pas de supplément). L’expression est particulièrement naturelle et neutre dans un message informatif de musée, légèrement plus que « bénéficie automatiquement d’un tarif réduit », qui sonne un peu plus marqué et spécifique."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.24,
+            0.23,
+            0.25,
+            0.28
+          ],
+          "guess": 3,
+          "reason": "Toutes les options peuvent aisément répondre à la question dans un contexte ordinaire, sans contradiction. Aucune n’est logiquement exclue. Cependant, la formulation de la réponse D correspond très bien à un discours informatif type (précision neutre sur l’absence de supplément), ce qui lui donne un léger avantage de vraisemblance stylistique. L’incertitude demeure élevée, mais D reste mon meilleur pari."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 727,
+          "total_tokens": 1333,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 231,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0080275,
+        "inputHash": "793d1c7b844e32daa8e455bba9881ebfd01bacbed5c533730ab938964bbbf3ad",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:18:initial:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky8QHDSdWNZ6DnmzQrw4Qe3pqJGC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement de présentation d’un programme hebdomadaire du musée, la personne précise : « Et n’oubliez pas, la visite guidée du jeudi est gratuite pour tous les visiteurs. Il suffit d’acheter votre billet d’entrée habituel. » Cette information répond directement à la question sur la précision donnée concernant le tarif de la visite du jeudi."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un employé du musée explique l’organisation des visites : « La visite du jeudi est une visite thématique spéciale. Elle nécessite un supplément par rapport au billet d’entrée, que vous réglez au moment de la réservation. » Cette phrase fournit explicitement une précision sur le fait qu’il faut payer un supplément pour la visite du jeudi."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message enregistré, la voix informe : « La visite guidée du jeudi est proposée au tarif habituel du musée, il n’y a donc pas de coût supplémentaire par rapport à l’entrée. » Ici, la précision donnée est que la visite est facturée au tarif normal, ce qui répond exactement à la question sur le tarif de cette visite du jeudi."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une responsable du service culturel détaille les tarifs : « Sachez que la visite du jeudi bénéficie automatiquement d’un tarif réduit, sans formalités particulières. Il suffit de vous présenter à l’accueil. » Cette remarque constitue une précision claire sur le fait que la visite du jeudi a automatiquement un tarif réduit."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options peuvent toutes faire l’objet d’une précision tarifaire spécifique dans un enregistrement ordinaire, et aucun indice textuel clair dans l’énoncé ou la formulation des choix ne favorise de manière décisive l’une par rapport aux autres. L’incertitude reste donc élevée et les probabilités sont réparties de façon uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 538,
+          "total_tokens": 1144,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 99,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0061375,
+        "inputHash": "5f5cda0f5d13e08044bcb6586ab620dcf697d68c93127cf4c25ee576ffb45a24",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:18:initial:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky8XAvkg9wFe76HSyfnxXvneoLG2",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La précision donnée est que la visite du jeudi est proposée au tarif habituel du musée, sans gratuité, réduction automatique ni supplément.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le tarif habituel s'applique."
+          ],
+          "reason": "L’énoncé précise explicitement : « Le tarif habituel s'applique. » donc la visite n’est pas gratuite pour tous les visiteurs. Un auditeur peu attentif pourrait se dire que, comme il s’agit d’une nouvelle visite limitée en nombre avec un aspect convivial (« répondre aux questions et de discuter »), elle pourrait être offerte, mais le texte affirme clairement que le tarif normal reste en vigueur.",
+          "misunderstanding": "inference_from_special_offer"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le tarif habituel s'applique."
+          ],
+          "reason": "La phrase « Le tarif habituel s'applique. » indique clairement que cette visite est facturée au tarif habituel du musée. C’est la seule précision donnée sur le tarif.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le tarif habituel s'applique."
+          ],
+          "reason": "Rien ne mentionne un « tarif réduit » ; au contraire, on dit « Le tarif habituel s'applique. », ce qui exclut l’idée d’une réduction automatique. Un auditeur pourrait associer à tort le caractère non spécialisé de la visite (« aucune connaissance préalable n'est nécessaire ») ou la limitation à douze personnes à un avantage tarifaire, mais ce n’est pas ce qui est dit.",
+          "misunderstanding": "projection_dun_tarif_reduit"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le tarif habituel s'applique."
+          ],
+          "reason": "Dire que « Le tarif habituel s'applique. » signifie qu’il n’y a pas de supplément au-delà du billet d’entrée normal. Un auditeur distrait pourrait penser qu’une visite guidée limitée à douze personnes et nécessitant une réservation implique un supplément, mais le texte n’évoque jamais de coût additionnel, au contraire il insiste sur l’application du tarif habituel.",
+          "misunderstanding": "supplement_inferred_from_prestation_speciale"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 730,
+      "completion_tokens": 884,
+      "total_tokens": 1614,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 370,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0097525,
+    "inputHash": "1041a3a6ad2b5f81e2cef675b4b98589ed1d572dcc0ccc156f98a51cb24dff3b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:18:initial:ground:3"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

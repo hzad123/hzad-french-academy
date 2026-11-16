@@ -1,0 +1,143 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "Selon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?",
+    "options": [
+      "À financer les travaux de réaménagement autour de la gare.",
+      "À préparer le bilan annoncé dans trois mois.",
+      "À compenser les pertes liées à la baisse de fréquentation des rues.",
+      "À adapter leurs horaires d’ouverture."
+    ],
+    "correct": "D",
+    "explanation": "Le document précise que «les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation». L’usage concret indiqué pour cette aide est donc bien l’adaptation des horaires d’ouverture (ou l’amélioration de la signalisation), et non le financement des travaux, la compensation directe des pertes ou la préparation du bilan des élus.",
+    "transcript": "Question 15.\nVoici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois.\nSelon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "Voici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quoi l’aide temporaire pourra-t-elle servir concrètement ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 49
+  },
+  "rounds": 0,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyndSHsZc472KXkE3XKgPJsmhaFB",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une mairie diffuse un enregistrement expliquant un plan d’aide temporaire pour les commerçants pénalisés par des travaux en centre-ville. Le document précise que cette aide financière servira à compenser les pertes liées à la baisse de fréquentation des rues concernées."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une chambre de commerce présente un dispositif d’aide temporaire aux petits commerces impactés par un événement local (travaux, festival, changement de circulation). Le document indique que l’aide pourra servir à couvrir les coûts supplémentaires liés à l’adaptation de leurs horaires d’ouverture (recruter du personnel en soirée, ouvrir le week-end, etc.)."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une collectivité locale enregistre une réunion d’information sur un programme de soutien exceptionnel destiné aux copropriétés ou aux commerçants riverains d’une gare. Le document précise que cette aide temporaire pourra être utilisée pour cofinancer des travaux de réaménagement immédiats autour de la gare (amélioration des accès, aménagement des vitrines, adaptation des terrasses)."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un organisme public présente un plan d’accompagnement provisoire pour des structures pilotes. Le document explique que l’aide temporaire pourra servir, de manière très pragmatique, à préparer le bilan complet annoncé dans trois mois (collecte de données, recours à un cabinet d’audit, rédaction du rapport)."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "clear",
+              "cue": "L’« aide temporaire » est typiquement associée à la compensation de pertes économiques directes ; la formulation « compenser les pertes liées à la baisse de fréquentation des rues » est concrète, directement financière et en adéquation avec ce type d’aide, alors que adapter des horaires ou préparer un bilan sont moins naturels comme finalités explicites d’une aide, et financer des travaux de réaménagement autour de la gare évoque plutôt un budget d’investissement structurel que de l’aide temporaire."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.55,
+            0.15,
+            0.1,
+            0.2
+          ],
+          "guess": 0,
+          "reason": "La destination proposée en 0 correspond le mieux, par son champ lexical et sa nature financière concrète, à ce qu’on attend d’une « aide temporaire » dans un document d’information : elle compense une perte directement liée à une situation ponctuelle. Les autres usages restent possibles mais paraissent moins centraux ou naturels pour ce type d’aide, d’où une probabilité nettement plus élevée pour l’option 0 malgré l’absence d’accès à l’enregistrement."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 896,
+          "total_tokens": 1512,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 328,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00973,
+        "inputHash": "e61d9b9589794ac0e7dbdd8f44f08c4cc71030631a9b41cbfee313cde066942d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La destination proposée en 0 correspond le mieux, par son champ lexical et sa nature financière concrète, à ce qu’on attend d’une « aide temporaire » dans un document d’information : elle compense une perte directement liée à une situation ponctuelle. Les autres usages restent possibles mais paraissent moins centraux ou naturels pour ce type d’aide, d’où une probabilité nettement plus élevée pour l’option 0 malgré l’absence d’accès à l’enregistrement.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "clear",
+        "cue": "L’« aide temporaire » est typiquement associée à la compensation de pertes économiques directes ; la formulation « compenser les pertes liées à la baisse de fréquentation des rues » est concrète, directement financière et en adéquation avec ce type d’aide, alors que adapter des horaires ou préparer un bilan sont moins naturels comme finalités explicites d’une aide, et financer des travaux de réaménagement autour de la gare évoque plutôt un budget d’investissement structurel que de l’aide temporaire."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une mairie diffuse un enregistrement expliquant un plan d’aide temporaire pour les commerçants pénalisés par des travaux en centre-ville. Le document précise que cette aide financière servira à compenser les pertes liées à la baisse de fréquentation des rues concernées."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une chambre de commerce présente un dispositif d’aide temporaire aux petits commerces impactés par un événement local (travaux, festival, changement de circulation). Le document indique que l’aide pourra servir à couvrir les coûts supplémentaires liés à l’adaptation de leurs horaires d’ouverture (recruter du personnel en soirée, ouvrir le week-end, etc.)."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Une collectivité locale enregistre une réunion d’information sur un programme de soutien exceptionnel destiné aux copropriétés ou aux commerçants riverains d’une gare. Le document précise que cette aide temporaire pourra être utilisée pour cofinancer des travaux de réaménagement immédiats autour de la gare (amélioration des accès, aménagement des vitrines, adaptation des terrasses)."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un organisme public présente un plan d’accompagnement provisoire pour des structures pilotes. Le document explique que l’aide temporaire pourra servir, de manière très pragmatique, à préparer le bilan complet annoncé dans trois mois (collecte de données, recours à un cabinet d’audit, rédaction du rapport)."
+      }
+    ]
+  }
+}

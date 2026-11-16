@@ -1,0 +1,159 @@
+{
+  "question": {
+    "number": 12,
+    "kind": "dialogue",
+    "question": "Selon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?",
+    "options": [
+      "Le carrelage du sol",
+      "La fenêtre de la salle de bains",
+      "La peinture du plafond",
+      "Le joint autour de la douche"
+    ],
+    "correct": "D",
+    "explanation": "Le professionnel répond que le problème d’humidité peut être réglé «si l’on traite aussi le joint et si l’on vérifie la ventilation». L’élément explicitement ajouté au traitement de l’étanchéité est donc le joint, et non le carrelage, la peinture ou la fenêtre, qui ne sont jamais cités comme conditions.",
+    "transcript": "Question 12.\nLe devis prévoit de refaire toute la salle de bains, mais notre budget ne le permet pas.\nNous pouvons réparer d'abord l'étanchéité autour de la douche. Le changement du carrelage peut attendre.\nEst-ce que cela règle le problème d'humidité ?\nOui, si l'on traite aussi le joint et si l'on vérifie la ventilation. Je vous prépare un devis réduit.\nD'accord, faisons les travaux indispensables en priorité.\nSelon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 12."
+      },
+      {
+        "voice": "female",
+        "text": "Le devis prévoit de refaire toute la salle de bains, mais notre budget ne le permet pas."
+      },
+      {
+        "voice": "male",
+        "text": "Nous pouvons réparer d'abord l'étanchéité autour de la douche. Le changement du carrelage peut attendre."
+      },
+      {
+        "voice": "female",
+        "text": "Est-ce que cela règle le problème d'humidité ?"
+      },
+      {
+        "voice": "male",
+        "text": "Oui, si l'on traite aussi le joint et si l'on vérifie la ventilation. Je vous prépare un devis réduit."
+      },
+      {
+        "voice": "female",
+        "text": "D'accord, faisons les travaux indispensables en priorité."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?"
+      }
+    ],
+    "audio": "q-12.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 43
+  },
+  "rounds": 6,
+  "pass": false,
+  "blind": [
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyWiRPfPIN5o67Wq6jsDrdlnWOjI",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un artisan explique à des clients qu’il faudra non seulement refaire l’étanchéité autour de la douche, mais aussi reprendre le carrelage du sol qui laisse passer l’eau, afin de supprimer définitivement les traces d’humidité."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un professionnel du bâtiment commente un rapport de diagnostic : pour régler l’humidité, il faudra améliorer l’étanchéité autour de la douche et également intervenir sur la fenêtre de la salle de bains, dont l’isolation et la ventilation sont insuffisantes."
+            },
+            {
+              "index": 2,
+              "credible": false,
+              "context": "La question précise qu’il faut traiter, « en plus de l’étanchéité autour de la douche », un autre élément. Or « le joint autour de la douche » renvoie précisément à cette étanchéité, ce qui ne constitue pas un élément supplémentaire distinct et ne répond donc pas réellement à la formulation « quel autre élément ». Aucun contexte ordinaire ne fait de cette répétition un véritable second point à traiter."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un peintre explique qu’il faut traiter l’origine de l’humidité en refaisant l’étanchéité autour de la douche, mais aussi reprendre la peinture du plafond qui s’écaille et favoriser l’usage d’une peinture spéciale pièces humides pour éviter le retour de moisissures."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "La question demande explicitement un « autre élément » en plus de « l’étanchéité autour de la douche » ; « le joint autour de la douche » renomme pratiquement le même élément plutôt qu’un point supplémentaire distinct, ce qui le met en décalage avec la consigne."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.32,
+            0.32,
+            0.04,
+            0.32
+          ],
+          "guess": 1,
+          "reason": "Les trois options 0, 1 et 3 peuvent toutes raisonnablement constituer un deuxième élément à traiter contre l’humidité ; seule l’option 2 est défavorisée car elle reformule l’élément déjà mentionné (« étanchéité autour de la douche ») au lieu d’en ajouter un autre. Entre 0, 1 et 3, aucun indice textuel décisif ne départage clairement, mais traiter la fenêtre s’accorde légèrement avec l’idée courante de gestion de l’humidité (aération/ventilation), d’où un léger avantage et le choix de l’option 1 avec incertitude élevée."
+        },
+        "usage": {
+          "prompt_tokens": 613,
+          "completion_tokens": 1040,
+          "total_tokens": 1653,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 494,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01116625,
+        "inputHash": "2934e932fb85778cd8e0e17ed95d8b733745c63631aeeef6a578afa7dbb8dee3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:initial:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Les trois options 0, 1 et 3 peuvent toutes raisonnablement constituer un deuxième élément à traiter contre l’humidité ; seule l’option 2 est défavorisée car elle reformule l’élément déjà mentionné (« étanchéité autour de la douche ») au lieu d’en ajouter un autre. Entre 0, 1 et 3, aucun indice textuel décisif ne départage clairement, mais traiter la fenêtre s’accorde légèrement avec l’idée courante de gestion de l’humidité (aération/ventilation), d’où un léger avantage et le choix de l’option 1 avec incertitude élevée.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "clear",
+        "cue": "La question demande explicitement un « autre élément » en plus de « l’étanchéité autour de la douche » ; « le joint autour de la douche » renomme pratiquement le même élément plutôt qu’un point supplémentaire distinct, ce qui le met en décalage avec la consigne."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un artisan explique à des clients qu’il faudra non seulement refaire l’étanchéité autour de la douche, mais aussi reprendre le carrelage du sol qui laisse passer l’eau, afin de supprimer définitivement les traces d’humidité."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un professionnel du bâtiment commente un rapport de diagnostic : pour régler l’humidité, il faudra améliorer l’étanchéité autour de la douche et également intervenir sur la fenêtre de la salle de bains, dont l’isolation et la ventilation sont insuffisantes."
+      },
+      {
+        "index": 2,
+        "credible": false,
+        "context": "La question précise qu’il faut traiter, « en plus de l’étanchéité autour de la douche », un autre élément. Or « le joint autour de la douche » renvoie précisément à cette étanchéité, ce qui ne constitue pas un élément supplémentaire distinct et ne répond donc pas réellement à la formulation « quel autre élément ». Aucun contexte ordinaire ne fait de cette répétition un véritable second point à traiter."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un peintre explique qu’il faut traiter l’origine de l’humidité en refaisant l’étanchéité autour de la douche, mais aussi reprendre la peinture du plafond qui s’écaille et favoriser l’usage d’une peinture spéciale pièces humides pour éviter le retour de moisissures."
+      }
+    ]
+  }
+}

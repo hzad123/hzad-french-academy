@@ -1,0 +1,254 @@
+{
+  "question": {
+    "number": 7,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La question demande explicitement si la consultation peut se faire par téléphone (« La consultation peut-elle se faire par téléphone ? »). La réponse A reprend les mêmes termes et confirme clairement cette possibilité : « Oui, c’est possible par téléphone. » Il y a correspondance directe entre la demande (possibilité par téléphone) et la réponse (affirmation de cette possibilité). B : La proposition B ne répond pas à la question de possibilité (« peut-elle se faire par téléphone ? ») mais ouvre un autre sujet : la durée de la consultation (« Combien de temps dure la consultation ? »). Un candidat qui repère seulement le mot « consultation » sans prêter attention au verbe « peut-elle se faire par téléphone ? » pourrait croire qu’il faut rester sur le thème général de la consultation et choisir une question liée, mais il n’y a aucun élément dans l’énoncé qui appelle une question sur la durée plutôt qu’une confirmation ou une infirmation de la possibilité par téléphone. C : La question demande si la consultation elle-même peut être faite par téléphone. La réponse C parle d’un autre moment du suivi médical : l’envoi des résultats par courriel (« Je vous envoie les résultats par courriel. »). On passe de la modalité de la consultation (téléphone) à la modalité d’envoi de résultats (courriel), ce qui ne répond pas à la question posée. Quelqu’un ayant seulement saisi l’idée de « communication à distance » pourrait trouver logique de mentionner le courriel, mais rien dans l’énoncé ne parle de résultats ni de courriel, seulement de la consultation par téléphone. D : La question porte sur la possibilité de faire la consultation par téléphone (oui ou non). La réponse D exprime une préférence personnelle (« Je préfère venir directement au cabinet. ») sans indiquer clairement si la consultation par téléphone est possible ou non. Quelqu’un qui comprend seulement l’alternative entre téléphone et cabinet pourrait penser qu’exprimer une préférence suffit, mais l’énoncé demande d’abord une information factuelle sur la possibilité de la consultation par téléphone, à laquelle cette réponse ne répond pas explicitement.",
+    "transcript": "Question 7.\nLa consultation peut-elle se faire par téléphone ?\nA. Oui, c’est possible par téléphone. B. Combien de temps dure la consultation ? C. Je vous envoie les résultats par courriel. D. Je préfère venir directement au cabinet.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 7."
+      },
+      {
+        "voice": "female",
+        "text": "La consultation peut-elle se faire par téléphone ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Oui, c’est possible par téléphone. B. Combien de temps dure la consultation ? C. Je vous envoie les résultats par courriel. D. Je préfère venir directement au cabinet."
+      }
+    ],
+    "audio": "q-07.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 32
+  },
+  "sourceHash": "c2ac47646db663ecaefb275f4d1709a2b3aa0b52cace331dc430efd3a1ef6720",
+  "contentHash": "0f2bd7f1039dd4fa8d3620062f5e5325c18080c5832711ada8336b4e0908f192",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyJB2SRFte6cx3ipp7yozjnQWbyY",
+    "result": {
+      "question": "Quelle réponse convient à la situation ?",
+      "choices": [
+        "Oui, c’est possible par téléphone.",
+        "Combien de temps dure la consultation ?",
+        "Je préfère venir directement au cabinet.",
+        "Je vous envoie les résultats par courriel."
+      ],
+      "correctIndex": 0,
+      "explanation": "La question porte explicitement sur la possibilité d’une consultation par téléphone (« La consultation peut-elle se faire par téléphone ? »). La seule réponse qui apporte clairement un oui/non sur cette possibilité est « Oui, c’est possible par téléphone. » Les autres répliques changent de sujet ou n’indiquent pas si la consultation par téléphone est possible.",
+      "design": "Reply item: garder l’énoncé oral inchangé (« La consultation peut-elle se faire par téléphone ? ») et proposer quatre suites possibles. L’axe testé est la pertinence pragmatique de la réponse par rapport à une question fermée oui/non sur un mode de consultation spécifique. Les quatre propositions sont des phrases naturelles dans un contexte médical, mais une seule répond vraiment à la question posée. Sans l’enregistrement, plusieurs pourraient sembler plausibles dans une scène de prise de rendez-vous, ce qui maintient la concurrence. L’écoute permet d’identifier qu’on attend une confirmation ou un refus explicite de la consultation téléphonique, ce que seule la réponse 0 fournit.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réplique reste dans le contexte d’une consultation médicale et paraît naturelle, mais elle ne répond pas à la question sur la possibilité par téléphone : elle introduit une nouvelle question sur la durée au lieu de dire si la consultation peut se faire par téléphone.",
+          "operation": "role_swap",
+          "anchors": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "peut-elle se faire par téléphone"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Dire qu’on préfère venir au cabinet exprime un choix personnel crédible, mais cela ne précise pas si la consultation téléphonique est proposée ou non ; la préférence du patient est confondue avec la réponse attendue sur la possibilité du dispositif.",
+          "operation": "scope_shift",
+          "anchors": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "consultation peut-elle se faire"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’envoi de résultats par courriel peut exister dans un cadre médical, ce qui rend la phrase vraisemblable, mais cela déplace l’échange vers un autre canal et un autre acte (transmettre des résultats) sans répondre à la question sur la possibilité d’une consultation par téléphone.",
+          "operation": "role_swap",
+          "anchors": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "par téléphone"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2280,
+      "completion_tokens": 748,
+      "total_tokens": 3028,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 208,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01033,
+    "inputHash": "16dad31133d78a820122717099b3719da6ba7a87ebb55a610d5b0555d7add837",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:6:initial:author:0:0"
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkyJL6jx15pHUPn4XFeomCR3raQKf",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un exercice de compréhension orale, l’enseignant fait écouter un dialogue où un interlocuteur propose quatre solutions nommées « Proposition A », « Proposition B », « Proposition C » et « Proposition D ». À la fin, l’enregistrement demande : « Quelle réponse convient à la situation ? » et, d’après ce qui a été dit, la bonne solution était explicitement appelée « Proposition D » dans l’audio. L’élève doit alors cocher « Proposition D » sur sa feuille."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Même type d’exercice d’écoute en classe de FLE ou dans un test standardisé : l’énoncé audio présente quatre solutions ou plans numérotés « Proposition A, B, C, D ». Après un dialogue, le narrateur conclut que c’est « la proposition A » qui convient le mieux à la situation décrite (par exemple, choisir un horaire, un lieu de rendez-vous, une solution à un problème). La question écrite demande : « Quelle réponse convient à la situation ? », et le candidat doit alors choisir « Proposition A »."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un module de formation professionnelle audio, un manager expose successivement plusieurs options de travail, chacune étiquetée : « Proposition A », « Proposition B », « Proposition C », « Proposition D ». Après discussion, les interlocuteurs s’accordent clairement sur « la Proposition C » comme solution retenue. Le questionnaire accompagnant le support audio pose : « Quelle réponse convient à la situation ? », et la réponse attendue est « Proposition C »."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un enregistrement de simulation d’examen, un animateur décrit quatre scénarios possibles pour résoudre un problème et les nomme « Proposition A, Proposition B, Proposition C, Proposition D ». Après avoir analysé les contraintes (budget, temps, ressources), les personnages de l’audio valident « la proposition B » comme étant la plus adaptée. Sur la copie, l’élève lit la consigne générale : « Quelle réponse convient à la situation ? » et doit donc cocher « Proposition B »."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses ne sont que des étiquettes formelles (« Proposition A/B/C/D ») sans contenu lexical distinct, et la question reste totalement générale. Aucune option ne présente d’avantage observable de sens, de style, de longueur ou de pertinence : chacune pourrait être déclarée correcte dans un enregistrement où l’on désignerait simplement la proposition correspondante. Faute de tout indice textuel permettant de départager les choix, la probabilité est répartie équitablement et le choix du key reste totalement incertain."
+        },
+        "usage": {
+          "prompt_tokens": 577,
+          "completion_tokens": 641,
+          "total_tokens": 1218,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 27,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00713125,
+        "inputHash": "030b40b529e3d38db7b423f8b5df4994e46688b188187b4fea2dca557849405a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:6:initial:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkyJSb4lCbn1L6m5BPd2ddjRjjRYH",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur la possibilité d’une consultation par téléphone. La réponse appropriée est une confirmation directe de cette possibilité : « Oui, c’est possible par téléphone. » Les autres propositions ne répondent pas à la question posée.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Oui, c’est possible par téléphone."
+          ],
+          "reason": "La question demande explicitement si la consultation peut se faire par téléphone (« La consultation peut-elle se faire par téléphone ? »). La réponse A reprend les mêmes termes et confirme clairement cette possibilité : « Oui, c’est possible par téléphone. » Il y a correspondance directe entre la demande (possibilité par téléphone) et la réponse (affirmation de cette possibilité).",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Combien de temps dure la consultation ?"
+          ],
+          "reason": "La proposition B ne répond pas à la question de possibilité (« peut-elle se faire par téléphone ? ») mais ouvre un autre sujet : la durée de la consultation (« Combien de temps dure la consultation ? »). Un candidat qui repère seulement le mot « consultation » sans prêter attention au verbe « peut-elle se faire par téléphone ? » pourrait croire qu’il faut rester sur le thème général de la consultation et choisir une question liée, mais il n’y a aucun élément dans l’énoncé qui appelle une question sur la durée plutôt qu’une confirmation ou une infirmation de la possibilité par téléphone.",
+          "misunderstanding": "referent_shift"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Je vous envoie les résultats par courriel."
+          ],
+          "reason": "La question demande si la consultation elle-même peut être faite par téléphone. La réponse C parle d’un autre moment du suivi médical : l’envoi des résultats par courriel (« Je vous envoie les résultats par courriel. »). On passe de la modalité de la consultation (téléphone) à la modalité d’envoi de résultats (courriel), ce qui ne répond pas à la question posée. Quelqu’un ayant seulement saisi l’idée de « communication à distance » pourrait trouver logique de mentionner le courriel, mais rien dans l’énoncé ne parle de résultats ni de courriel, seulement de la consultation par téléphone.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Je préfère venir directement au cabinet."
+          ],
+          "reason": "La question porte sur la possibilité de faire la consultation par téléphone (oui ou non). La réponse D exprime une préférence personnelle (« Je préfère venir directement au cabinet. ») sans indiquer clairement si la consultation par téléphone est possible ou non. Quelqu’un qui comprend seulement l’alternative entre téléphone et cabinet pourrait penser qu’exprimer une préférence suffit, mais l’énoncé demande d’abord une information factuelle sur la possibilité de la consultation par téléphone, à laquelle cette réponse ne répond pas explicitement.",
+          "misunderstanding": "preference_vs_possibility"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 691,
+      "completion_tokens": 898,
+      "total_tokens": 1589,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 185,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00984375,
+    "inputHash": "10f09235c79418c959b04af642ea28bfec34f35f1123c40b8a06a0ca83e8378f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:6:initial:ground:1"
+  },
+  "feedback": null
+}

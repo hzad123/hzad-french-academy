@@ -1,0 +1,261 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Que précise l’annonce à propos de l’horaire du train pour Tours ?",
+    "options": [
+      "L’heure de départ reste la même.",
+      "Le départ est retardé, sans nouvelle heure indiquée.",
+      "Le train partira finalement plus tôt.",
+      "L’heure d’arrivée à Tours est avancée."
+    ],
+    "correct": "A",
+    "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nQue précise l’annonce à propos de l’horaire du train pour Tours ?",
+    "explanation": "Réponse A : L’énoncé dit explicitement que « son heure de départ ne change pas », ce qui correspond exactement à l’idée que l’heure de départ reste la même. B : L’option parle d’un départ retardé sans nouvelle heure, alors que l’annonce précise au contraire que l’heure de départ ne change pas. On ne mentionne à aucun moment un retard ni l’absence d’horaire : seul le quai change. Un auditeur distrait pourrait associer « changement de quai » à « retard du train », mais la phrase citée nie précisément cette interprétation. C : L’option suggère un départ plus tôt, mais l’annonce rappelle l’horaire prévu (« prévu à dix heures vingt ») puis annonce que « son heure de départ ne change pas ». Quelqu’un entendant seulement la répétition de l’horaire initial pourrait croire qu’on annonce un nouvel horaire plus tôt, alors qu’on confirme simplement l’horaire inchangé. D : L’annonce indique que le train arrivera sur un autre quai et que l’heure de départ reste la même, mais ne parle jamais de l’heure d’arrivée à Tours. Un auditeur qui se focalise sur le verbe « arrivera sur le quai quatre » pourrait à tort généraliser à l’heure d’arrivée à destination, alors que l’annonce ne traite que du quai et du départ.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "Votre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai."
+      },
+      {
+        "voice": "female",
+        "text": "Que précise l’annonce à propos de l’horaire du train pour Tours ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": 17.11,
+    "slotSeconds": 36
+  },
+  "sourceHash": "4b1413e571b30d4b5f72845ebb79de19655e3730eacb26a2ca377dfbf0413d6b",
+  "contentHash": "45a4635ade39177587a7a8ab1efa0420417949ebd2bac246fcc6ab4165f6b0f0",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky6MOODtEGzrkkqzcJUKxnjrhUzO",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, un message sonore informe les voyageurs que, suite à une modification de desserte, l’horaire a été changé et que l’heure d’arrivée à Tours est avancée par rapport à l’horaire initialement prévu."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une annonce précise qu’en dépit de travaux ou de perturbations sur la ligne, l’horaire de départ du train pour Tours reste inchangé, afin de rassurer les voyageurs qui attendent sur le quai."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À la suite d’un incident technique, une annonce explique que le train pour Tours est retardé mais qu’aucune nouvelle heure de départ ne peut encore être communiquée aux voyageurs."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une annonce en gare informe que, contrairement à ce qui était prévu, le train pour Tours partira finalement quelques minutes plus tôt que l’horaire initial, et invite les voyageurs à se rendre rapidement à quai."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "La formulation « retardé, sans nouvelle heure indiquée » est plus détaillée et précise une conséquence pratique de l’annonce, ce qui peut correspondre à un style d’item légèrement plus nuancé, mais ce n’est pas une preuve décisive."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.24,
+            0.24,
+            0.28,
+            0.24
+          ],
+          "guess": 2,
+          "reason": "Plusieurs choix peuvent convenir à une annonce ferroviaire; aucun n’est clairement favorisé par l’énoncé seul. L’option 2 est légèrement plus nuancée et spécifique, ce qui lui donne un faible avantage supposé, mais l’incertitude reste élevée."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 662,
+          "total_tokens": 1271,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 272,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00738125,
+        "inputHash": "cafe9e5fb5f52459db425a601906cb925dacc9290df6bc6c5e236c93915cefe8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:initial:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eky6VQVBZGrgi0AcPr2RdSyXK5UJM",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, un message sonore annonce qu’en raison d’un incident technique, le train pour Tours ne partira pas à l’heure prévue et qu’il est retardé, en précisant qu’une nouvelle heure de départ sera communiquée ultérieurement sans donner de nouvelle heure pour l’instant."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une annonce en gare, on informe les voyageurs que, suite à une réorganisation du trafic, le train pour Tours partira finalement quelques minutes plus tôt que l’horaire initialement prévu, et on donne la nouvelle heure avancée de départ."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un haut-parleur en gare diffuse un message indiquant que, malgré des perturbations sur d’autres lignes, l’horaire du train pour Tours n’est pas modifié et que l’heure de départ reste exactement la même que celle prévue sur les billets et les panneaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une annonce en gare précise qu’en raison d’un changement de desserte ou d’un gain de temps sur le trajet, l’heure d’arrivée prévue à Tours est avancée, par exemple de 18h10 à 17h55, tout en laissant entendre que l’heure de départ n’est pas le point principal de la modification."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent chacune une précision possible et ordinaire concernant l’horaire d’un train (départ retardé sans nouvelle heure, départ avancé, horaire inchangé, arrivée avancée). Aucune ne présente d’avantage rédactionnel ou de pertinence clairement supérieur aux autres par rapport à la question, qui reste générale (« à propos de l’horaire du train pour Tours »). Sans indice supplémentaire issu de l’enregistrement lui-même, il n’existe pas de base solide pour privilégier une option plutôt qu’une autre, d’où une forte incertitude et une répartition de probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 571,
+          "total_tokens": 1180,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 115,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00647125,
+        "inputHash": "10241e825d49cd7bc3e10105951df421b5145ab1fb342eab6320915a2fd3e3d7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:initial:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Eky6fxc0e9ORZV57gNKvYhyjo1pZf",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’annonce précise que l’heure de départ du train pour Tours ne change pas.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "L’énoncé dit explicitement que « son heure de départ ne change pas », ce qui correspond exactement à l’idée que l’heure de départ reste la même.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "L’option parle d’un départ retardé sans nouvelle heure, alors que l’annonce précise au contraire que l’heure de départ ne change pas. On ne mentionne à aucun moment un retard ni l’absence d’horaire : seul le quai change. Un auditeur distrait pourrait associer « changement de quai » à « retard du train », mais la phrase citée nie précisément cette interprétation.",
+          "misunderstanding": "time_inference_from_quai_change"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "prévu à dix heures vingt",
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "L’option suggère un départ plus tôt, mais l’annonce rappelle l’horaire prévu (« prévu à dix heures vingt ») puis annonce que « son heure de départ ne change pas ». Quelqu’un entendant seulement la répétition de l’horaire initial pourrait croire qu’on annonce un nouvel horaire plus tôt, alors qu’on confirme simplement l’horaire inchangé.",
+          "misunderstanding": "misinterpretation_of_confirmation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas."
+          ],
+          "reason": "L’annonce indique que le train arrivera sur un autre quai et que l’heure de départ reste la même, mais ne parle jamais de l’heure d’arrivée à Tours. Un auditeur qui se focalise sur le verbe « arrivera sur le quai quatre » pourrait à tort généraliser à l’heure d’arrivée à destination, alors que l’annonce ne traite que du quai et du départ.",
+          "misunderstanding": "confusion_arrivee_quai_vs_arrivee_destination"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 692,
+      "completion_tokens": 831,
+      "total_tokens": 1523,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 310,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009175,
+    "inputHash": "da2241f89e83f012035cf6d6c44e8c93ba86bf7dbe2d5cf483fafbc3443f4caa",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:initial:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}
