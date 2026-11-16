@@ -1,6 +1,6 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput} from '../scripts/lib/listening-contrast-quality.mjs';
-import {hash,policyHash,blindVerdict} from '../scripts/lib/listening-answer-qc.mjs';
+import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput} from '../scripts/lib/listening-contrast-quality.mjs';
+import {hash,policyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
@@ -22,6 +22,13 @@ test('blind sees only displayed options; spoken answers cannot leak into display
  const q=paper.questions[0],projection=displayProjection(q);assert.deepEqual(projection.choices,q.options);assert.deepEqual(Object.keys(projection),['question','choices']);
  assert(!JSON.stringify(projection).includes(q.explanation));assert(!JSON.stringify(projection).includes('A. Un'));
  assert.equal(trialsFor(paper.questions[22]),3);assert.equal(trialsFor(paper.questions[13]),2);assert.equal(trialsFor(q),1);
+});
+test('content quality reviews actual spoken alternatives; old label-only receipts cannot approve them',()=>{
+ const q=paper.questions[0],projection=qualityProjection(q);
+ assert.deepEqual(projection.choices,spokenChoices(q));assert.deepEqual(Object.keys(projection),['question','choices']);
+ assert(!Object.hasOwn(projection,'stimulus'));assert(!Object.hasOwn(projection,'imageData'));
+ const record={blind:[{order:[0,1,2,3],receipt:{inputHash:hash(displayProjection(q))}}]};
+ assert(!screeningMatches(q,record));record.blind[0].receipt.inputHash=hash(projection);assert(screeningMatches(q,record));
 });
 test('existing spoken keys stay frozen; written keys are balanced without a four-item deck',()=>{
  const keys=positionsWithFrozenSpoken(paper,'strict-test');assert.deepEqual(keys.slice(0,8),paper.questions.slice(0,8).map(q=>'ABCD'.indexOf(q.correct)));

@@ -1,8 +1,14 @@
 import {POLICY_VERSION} from '../../supabase/functions/academy-listening-qc/contracts.js';
 import {readFile} from 'node:fs/promises';
-import {hash,policyHash,contentHash,spokenChoices,stimulus,mode,letters,permutation,applyAlternatives,receiptValid,blindVerdict,groundingVerdict,attackStatistics,binomialUpperTail} from './listening-answer-qc.mjs';
+import {hash,policyHash,contentHash,spokenChoices,blindProjection,stimulus,mode,letters,permutation,applyAlternatives,receiptValid,blindVerdict,groundingVerdict,attackStatistics,binomialUpperTail} from './listening-answer-qc.mjs';
 export const protocol='six-listening-contrast-v2';
 export const displayProjection=q=>({question:q.question,choices:[...q.options]});
+export const qualityProjection=blindProjection;
+export const projectionVersion='actual-alternatives-v1';
+export function screeningMatches(q,record){
+ const projection=qualityProjection(q);
+ return record?.blind?.length===trialsFor(q)&&record.blind.every(b=>[...b.order].sort().join('')==='0123'&&b.receipt.inputHash===hash({question:projection.question,choices:b.order.map(i=>projection.choices[i])}));
+}
 export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
 export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
 const canon=t=>t.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr');
@@ -49,7 +55,7 @@ export function rewrite(original,result,target,seed){
  return applyAlternatives(original,copy,target,seed);
 }
 export async function inspect(q,provider,{seed,imageData,round=0}){
- const projection=displayProjection(q),blind=[];
+ const projection=qualityProjection(q),blind=[];
  for(let trial=0;trial<trialsFor(q);trial++){
   const order=permutation(4,seed+':screen:'+round+':'+trial),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
   const receipt=receiptValid(await provider('blind',input,{nonce:seed+':screen:'+round+':'+trial}),'blind',input);
@@ -84,7 +90,7 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
  }
 }
 export async function measure(q,provider,nonce,stage='blind'){
- const projection=displayProjection(q),order=permutation(4,nonce),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
+ const projection=qualityProjection(q),order=permutation(4,nonce),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
  const receipt=receiptValid(await provider(stage,input,{nonce}),stage,input);
  return {order,receipt,correct:order[receipt.result.guess]===letters.indexOf(q.correct)};
 }
@@ -97,7 +103,7 @@ export function scoreGroup(rows){
 export function summarize(papers,evidence){
  const rows=evidence.flatMap(e=>e.questions.filter(r=>r?.heldout).map(r=>({number:r.question.number,...r.heldout}))),written=rows.filter(r=>r.number>=9),late=rows.filter(r=>r.number>=23);
  const challenge=evidence.flatMap(e=>e.questions.filter(r=>r?.challenge).map(r=>({number:r.question.number,...r.challenge})));
- return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),displayOnly:scoreGroup(rows.filter(r=>r.number<=8)),
+ return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),spokenAlternatives:scoreGroup(rows.filter(r=>r.number<=8)),
   challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers),lateHeuristicAttacks:attackStatistics(papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=23)}))).heuristicAttacks};
 }
 export function ready(papers,evidence,stats){
@@ -113,7 +119,7 @@ export function assertPaper(paper,evidence,original,images){
   const record=evidence.questions[i];if(!record?.pass||record.blocked||record.contentHash!==contentHash(q)||record.sourceHash!==contentHash(original.questions[i])||record.blind.length!==trialsFor(q))throw Error('Question has not passed strict validation: '+q.number);
   if(q.number<=4&&record.imageHash!==images[q.number]?.hash)throw Error('Image changed');
   const check=(receipt,stage,input)=>{receiptValid(receipt,stage,input);if(ids.has(receipt.responseId))throw Error('Evaluation response reused');ids.add(receipt.responseId);};
-  const proj=displayProjection(q);
+  const proj=qualityProjection(q);
   for(const trial of [...record.blind,record.heldout]){
    if(!trial||[...trial.order].sort().join('')!=='0123')throw Error('Invalid blind permutation');
    check(trial.receipt,'blind',{question:proj.question,choices:trial.order.map(k=>proj.choices[k])});if(!blindVerdict(trial.receipt.result).pass)throw Error('Blind cue remains');

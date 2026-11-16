@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
-import {protocol,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
+import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
@@ -60,7 +60,7 @@ async function processQuestion([p,index]){
  if(await exists(file))saved=await loadJson(file);
  const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
  const designSeedHash=designSeed?hash(designSeed.authored):null;
- if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)&&(!saved.designSeedHash||saved.designSeedHash===designSeedHash)&&(!designSeed?.requireSeedRevision||saved.designSeedHash===designSeedHash)){
+ if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)&&screeningMatches(saved.question,saved)&&(!saved.designSeedHash||saved.designSeedHash===designSeedHash)&&(!designSeed?.requireSeedRevision||saved.designSeedHash===designSeedHash)){
   evidence[p].questions[index]=saved;papers[p].questions[index]=saved.question;return;
  }
  try{
@@ -138,7 +138,7 @@ await save();
 // Freeze ALL234 before any held-out call. Revisions change the cohort hash and
 // draw a wholly new measurement nonce; successful guesses are never filtered.
 if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)){
- const freezeHash=hash(papers.map(p=>p.questions.map(contentHash))),file=join(root,'freeze.json');let freeze=await exists(file)?await loadJson(file):null;
+ const freezeHash=hash({projectionVersion,questions:papers.map(p=>p.questions.map(contentHash))}),file=join(root,'freeze.json');let freeze=await exists(file)?await loadJson(file):null;
  if(freeze?.hash!==freezeHash)freeze={hash:freezeHash,nonce:randomBytes(32).toString('hex')};await saveJson(file,freeze);
  await parallel(all,async([p,i])=>{try{
   const [heldout,challenge]=await Promise.all([measure(papers[p].questions[i],provider,`frozen-v2:${freeze.nonce}:${p}:${i}`),measure(papers[p].questions[i],provider,`frozen-challenge-v2:${freeze.nonce}:${p}:${i}`,'challenge')]);
