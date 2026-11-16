@@ -23,11 +23,12 @@ export function sourceInvariant(original,candidate){
  if(original.id!==candidate.id||candidate.questions.length!==39||candidate.seconds!==2100)throw Error('Paper identity/format changed');
  for(const [i,q] of candidate.questions.entries()){
   const old=original.questions[i];
-  if(q.number!==old.number||q.kind!==old.kind||q.slotSeconds!==old.slotSeconds||q.image!==old.image||stimulus(q)!==stimulus(old))throw Error('Topic, recorded situation, actors or clock changed at '+q.number);
+  const body=item=>{const spoken=item.number<=8?item.segments.findLast(s=>/\bA\.\s/.test(s.text)):null;return item.segments.filter(s=>s!==spoken&&!/^Question \d+\.$/.test(s.text)&&s.text!==item.question);};
+  if(q.number!==old.number||q.kind!==old.kind||q.slotSeconds!==old.slotSeconds||q.image!==old.image||stimulus(q)!==stimulus(old)||hash(body(q))!==hash(body(old)))throw Error('Topic, recorded situation, actors or clock changed at '+q.number);
  }
  return true;
 }
-function rewrite(original,result,target,seed){
+export function rewrite(original,result,target,seed){
  const copy=structuredClone(result);copy.question=copy.question.replace(/^\[Question\s+révisée\]\s*/iu,'').replace(/\s*\(question reformulée[^)]*\)\s*$/iu,'');
  return applyAlternatives(original,copy,target,seed);
 }
@@ -43,8 +44,8 @@ export async function inspect(q,provider,{seed,imageData,round=0}){
  const verdict=groundingVerdict(q,grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true});
  return {pass:verdict.pass,blind,grounded,feedback:verdict.pass?null:{stage:'ground',assessment:grounded.result,errors:verdict.errors}};
 }
-export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,onAttempt=async()=>{}}){
- let q=original.number<=8?structuredClone(original):rewrite(original,{question:original.question,choices:spokenChoices(original),correctIndex:letters.indexOf(original.correct),explanation:original.explanation,
+export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,starting=null,onAttempt=async()=>{}}){
+ let q=starting?structuredClone(starting):original.number<=8?structuredClone(original):rewrite(original,{question:original.question,choices:spokenChoices(original),correctIndex:letters.indexOf(original.correct),explanation:original.explanation,
   distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
  let feedback=null,author=null;
  for(let round=0;round<=maxAttempts;round++){
@@ -103,5 +104,21 @@ export function assertPaper(paper,evidence,original,images){
   const input=groundInput(q,images[q.number]?.data);check(record.grounded,'ground',input);
   if(!groundingVerdict(q,record.grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true}).pass)throw Error('Unsupported/ambiguous key');
  }
+ receiptValid(evidence.paperAssessment,'paper',{questions:paper.questions.map(q=>({number:q.number,kind:q.kind,question:q.question,choices:spokenChoices(q),correct:q.correct})),statistics:attackStatistics([paper])});
+ if(!evidence.paperAssessment.result.pass||evidence.paperAssessment.result.patterns.length)throw Error('Paper pattern audit failed');
+ return true;
+}
+export function assertCohort(cohort,originals){
+ if(cohort?.protocol!==protocol||cohort.policyHash!==policyHash||cohort.papers?.length!==6)throw Error('Missing frozen contrast cohort');
+ const papers=cohort.papers.map(m=>m.paper),proofs=cohort.papers.map(m=>m.evidence),seen=new Set();
+ if(papers.some((p,i)=>p.id!==`tcf-listening-${String(i+1).padStart(2,'0')}`))throw Error('Wrong cohort coverage');
+ for(const [i,member] of cohort.papers.entries()){
+  assertPaper(member.paper,member.evidence,originals[i],member.images);
+  for(const r of member.evidence.questions)for(const receipt of [...r.blind.map(t=>t.receipt),r.heldout.receipt,r.grounded]){
+   if(seen.has(receipt.responseId))throw Error('Cross-paper evaluation response reused');seen.add(receipt.responseId);
+  }
+ }
+ const statistics=summarize(papers,proofs);
+ if(hash(statistics)!==hash(cohort.statistics)||!ready(papers,proofs,statistics))throw Error('Frozen late/written accuracy or style metrics failed/stale');
  return true;
 }

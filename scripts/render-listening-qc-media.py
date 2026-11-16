@@ -1,7 +1,7 @@
 """Record accepted offline-QC candidates without altering historical media/clocks.
 No AI calls. Piper/FFmpeg are local authoring tools, never a student expense.
 """
-import argparse,hashlib,json,shutil,subprocess,tempfile,wave
+import argparse,hashlib,json,shutil,subprocess,tempfile,wave,re
 from pathlib import Path
 from piper import PiperVoice,SynthesisConfig
 ROOT=Path(__file__).resolve().parents[1]
@@ -33,12 +33,16 @@ def render(root,models,owner_review=False,only=None):
   output.mkdir(parents=True,exist_ok=True);(output/'audio').mkdir(exist_ok=True);(output/'images').mkdir(exist_ok=True)
   proof.mkdir(parents=True,exist_ok=True)
   for name in ['evidence.json']:shutil.copyfile(folder/name,proof/name)
-  shutil.copyfile(root/'summary.json',proof/('review-release.json' if owner_review else 'cohort.json'));shutil.copytree(folder/'images',proof/'images',dirs_exist_ok=True)
+  cohort_source=root/'cohort.json' if summary.get('protocol')=='six-listening-contrast-v2' else root/'summary.json'
+  shutil.copyfile(cohort_source,proof/('review-release.json' if owner_review else 'cohort.json'));shutil.copytree(folder/'images',proof/'images',dirs_exist_ok=True)
   for q in bank['questions'][:4]:shutil.copyfile(source_root/'images'/q['image'],output/'images'/q['image'])
-  subprocess.run(['node','scripts/check-listening-owner-review.mjs' if owner_review else 'scripts/check-listening-answer-quality.mjs','--bank',str(folder/'bank.json'),'--evidence',str(proof)],cwd=ROOT,check=True)
-  destination=ROOT/f'supabase/exams/tcf-listening-test{number:02d}-v4.json'
+  checker='scripts/check-listening-owner-review.mjs' if owner_review else 'scripts/check-listening-contrast-quality.mjs' if summary.get('protocol')=='six-listening-contrast-v2' else 'scripts/check-listening-answer-quality.mjs'
+  subprocess.run(['node',checker,'--bank',str(folder/'bank.json'),'--evidence',str(proof)],cwd=ROOT,check=True)
+  revision=re.search(r'-v([0-9]+)$',bank['version'])
+  if not revision:raise RuntimeError('Invalid immutable revision')
+  destination=ROOT/f"supabase/exams/tcf-listening-test{number:02d}-v{revision.group(1)}.json"
   if destination.exists() and subprocess.run(['git','ls-files','--error-unmatch',str(destination.relative_to(ROOT))],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0:
-   raise RuntimeError('Refusing to overwrite a tracked immutable v4 bank')
+   raise RuntimeError('Refusing to overwrite a tracked immutable bank')
   old_manifest=json.loads((output/'manifest.json').read_text()) if (output/'manifest.json').exists() else {'files':[]}
   entries={entry['file']:entry for entry in old_manifest['files']};manifest=[]
   for q,old in zip(bank['questions'],source['questions']):
