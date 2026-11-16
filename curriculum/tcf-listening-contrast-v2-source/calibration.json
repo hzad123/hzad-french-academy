@@ -13,9 +13,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "22576586379684abe6ee8f906e74e15ab66b59003fa2269a6c3177d2f16dab7b",
+      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
       "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-Ekvo9v0Wz6963VhPlpPK9YRQ0FWiX",
+      "responseId": "chatcmpl-EkvwDwcqKkFqO8UQuc9LvYsbkiUqT",
       "result": {
         "guess": 0,
         "probabilities": [
@@ -26,24 +26,24 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "No information in the prompt distinguishes any of the four rooms. All choices are symmetric and equally plausible, so probabilities are uniform and no option stands out."
+        "reason": "No information in the prompt differentiates the four room-number options. All are equally plausible, so probabilities are uniform and there is no defensible standout choice."
       },
       "usage": {
         "prompt_tokens": 363,
-        "completion_tokens": 139,
-        "total_tokens": 502,
+        "completion_tokens": 268,
+        "total_tokens": 631,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 64,
+          "reasoning_tokens": 192,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00036875,
+      "costUsd": 0.00062675,
       "inputHash": "d07f588bc9fb9fc538579e48d433d89e67d563dd265d4ec9f56b115eefb18311",
       "evaluationId": "v2-control:0"
     },
@@ -63,9 +63,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "22576586379684abe6ee8f906e74e15ab66b59003fa2269a6c3177d2f16dab7b",
+      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
       "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-EkvoBW7PExBHxOV2hEVSsla5dKb8C",
+      "responseId": "chatcmpl-EkvwG5r50ME5JQGThCDrhSaL9SkgV",
       "result": {
         "guess": 1,
         "probabilities": [
@@ -76,24 +76,24 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "No recording or context provided; all four choices are structurally identical (quarter past successive hours) with no linguistic or pragmatic asymmetry to prefer one. Therefore equal uncertainty; arbitrary mandatory guess chosen (index 1)."
+        "reason": "No recording or context provided; all four options are equally plausible times differing only by hour. With no additional cues, assign equal probability and an arbitrary mandatory guess (index 1)."
       },
       "usage": {
         "prompt_tokens": 359,
-        "completion_tokens": 280,
-        "total_tokens": 639,
+        "completion_tokens": 209,
+        "total_tokens": 568,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 192,
+          "reasoning_tokens": 128,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00064975,
+      "costUsd": 0.00050775,
       "inputHash": "3dcf2948f85cb655e376e7dbd767a393c3b12c177756ff78e0bd0347ad222919",
       "evaluationId": "v2-control:1"
     },
@@ -113,43 +113,58 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "22576586379684abe6ee8f906e74e15ab66b59003fa2269a6c3177d2f16dab7b",
+      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
       "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-EkvoFDvDbz35Lde3wYDxbecSAOAb0",
+      "responseId": "chatcmpl-EkvwJqanvJ0GE5ERfhcBOnWNkI3NJ",
       "result": {
         "guess": 0,
         "probabilities": [
-          0.85,
-          0.05,
-          0.05,
-          0.05
+          0.88,
+          0.04,
+          0.04,
+          0.04
         ],
         "standsOut": true,
         "cues": [
           {
             "option": 0,
             "severity": "clear",
-            "cue": "plausible real-world cause (travaux ralentissent le trajet) — only option that sensibly answers question"
+            "cue": "Plausible, common and realistic cause for a bus delay (roadworks slowing route)."
+          },
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Absurd/impossible claim (sidewalks learning to fly) — not a realistic cause of delay."
+          },
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Temporal impossibility/incoherence (passengers arriving 'yesterday morning' cannot cause present delay as stated)."
+          },
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Irrelevant or nonsensical (change of coffee color unrelated to bus timetable)."
           }
         ],
-        "reason": "Option 0 is the only realistic, directly causal answer to why a bus is late (roadworks slowing its route). The other choices are nonsensical or irrelevant (fantastical sidewalks, temporal impossibility, irrelevant detail about coffee), so option 0 has a strong defensible advantage though absolute certainty is impossible from the question alone."
+        "reason": "Option 0 is the only realistic, context-appropriate explanation; the other three are implausible or nonsensical, so the high probability is assigned to 0 with small residual uncertainty in case of unusual intent."
       },
       "usage": {
         "prompt_tokens": 370,
-        "completion_tokens": 275,
-        "total_tokens": 645,
+        "completion_tokens": 532,
+        "total_tokens": 902,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 128,
+          "reasoning_tokens": 320,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0006425,
+      "costUsd": 0.0011565,
       "inputHash": "d13e8f77cfa32c6a671658d1e1a665f262780ebcd13a5f74e153a6bb532851c7",
       "evaluationId": "v2-control:2"
     },
