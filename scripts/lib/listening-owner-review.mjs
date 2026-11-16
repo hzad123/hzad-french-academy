@@ -12,9 +12,11 @@ export function assertReviewQuestion(q,record,old,{imageHash,imageData}={}){
   q.number!==old.number||q.kind!==old.kind||q.slotSeconds!==old.slotSeconds||stimulus(q)!==stimulus(old)||q.transcript!==q.segments.map(s=>s.text).join('\n'))
   throw Error('Incomplete/stale review question '+q.number);
  if(q.number<=4&&(record.imageHash!==imageHash||!imageData||q.image!==old.image))throw Error('Image changed after independent validation');
- const input={...blindProjection(q),stimulus:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})};
+ if(record.groundContext&&!['stimulus','spoken-recording'].includes(record.groundContext)||record.groundContext==='spoken-recording'&&(q.number<5||q.number>8))throw Error('Invalid review transcript context');
+ const evidenceSource=record.groundContext==='spoken-recording'?q.transcript:stimulus(q);
+ const input={...blindProjection(q),stimulus:evidenceSource,mode:mode(q),...(imageData?{imageData}:{})};
  receiptValid(record.grounded,'ground',input);
- if(!groundingVerdict(q,record.grounded.result).pass)throw Error('Review cannot override an ambiguous or unsupported answer');
+ if(!groundingVerdict(q,record.grounded.result,{evidenceSource,normalizeEvidence:true}).pass)throw Error('Review cannot override an ambiguous or unsupported answer');
  receiptValid(record.blind,'blind',blindProjection(q));
  if(record.blindPass!==blindVerdict(record.blind.result).pass)throw Error('Blind review warning was altered');
  return true;

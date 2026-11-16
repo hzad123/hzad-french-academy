@@ -16,6 +16,7 @@ const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,tok
  directory:join(root,'model-receipts'),maxUsd:Number(get('--max-usd','35'))});
 const seedFile=join(root,'seed.json');const seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');
 await saveJson(seedFile,{seed});
+const overrides=await loadJson('curriculum/tcf-listening-owner-review-editorial-fixes.json');
 const papers=[],evidence=[],errors=[];
 for(let number=1;number<=6;number++){
  const label=String(number).padStart(2,'0'),source=`supabase/exams/tcf-listening-test${label}${number>=3?'-v3':''}.json`;
@@ -28,29 +29,33 @@ for(let number=1;number<=6;number++){
   images.set(q.number,{hash:hash(await readFile(svg)),data:'data:image/png;base64,'+(await readFile(png)).toString('base64')});
  }
  const positions=balancedPositions(39,seed+paper.id),records=Array(39).fill(null);let index=0;
- await Promise.all(Array.from({length:8},async()=>{while(index<39){const i=index++,originalQ=original.questions[i],image=images.get(i+1),file=join(folder,`q-${i+1}.json`);
+ await Promise.all(Array.from({length:8},async()=>{while(index<39){const i=index++,originalQ=original.questions[i],image=images.get(i+1),file=join(folder,`q-${i+1}.json`),override=overrides[label+':'+(i+1)]??null,overrideHash=override?hash(override):null;
   try{
    if(await exists(file)){
     const saved=await loadJson(file);
-    if(saved.policyHash===policyHash&&saved.sourceHash===contentHash(originalQ)&&saved.groundedPass&&saved.contentHash===contentHash(saved.question)){
+    if(saved.policyHash===policyHash&&saved.sourceHash===contentHash(originalQ)&&(saved.overrideHash??null)===overrideHash&&saved.groundedPass&&saved.contentHash===contentHash(saved.question)){
      paper.questions[i]=saved.question;records[i]=saved;continue;
     }
    }
-   let feedback={instruction:'The owner requests revised Tests01–06 live for review. Improve all four choices. A review exception never permits an ambiguous or unsupported key. Keep spoken choices concise so the historical audio slot fits.'},best=null;
+   let feedback={instruction:'The owner requests revised Tests01–06 live for review. Improve all four choices. A review exception never permits an ambiguous or unsupported key. Keep spoken choices concise so the historical audio slot fits.'},best=null,previous=originalQ;
    for(let round=0;round<6;round++){
-    const authorInput={...blindProjection(originalQ),stimulus:stimulus(originalQ),mode:mode(originalQ),feedback,...(image?{imageData:image.data}:{})};
-    const author=await provider('author',authorInput,{nonce:`owner-review:${seed}:${paper.id}:${i+1}:author:${round}`});
-    const q=applyAlternatives(originalQ,author.result,positions[i],seed+paper.id+':'+i+':'+round);
-    const groundInput={...blindProjection(q),stimulus:stimulus(q),mode:mode(q),...(image?{imageData:image.data}:{})};
+    const authorInput={...blindProjection(previous),stimulus:stimulus(originalQ),mode:mode(originalQ),feedback,...(image?{imageData:image.data}:{})};
+    const author=override&&round===0?{source:'editorial-fix',result:override}:await provider('author',authorInput,{nonce:`owner-review:${seed}:${paper.id}:${i+1}:author:${round}`});
+    const authored=structuredClone(author.result);authored.question=authored.question.replace(/^\[Question\s+révisée\]\s*/iu,'');
+    const q=applyAlternatives(originalQ,authored,positions[i],seed+paper.id+':'+i+':'+round);
+    previous=q;
+    const groundContext=q.number>=5&&q.number<=8?'spoken-recording':'stimulus';
+    const evidenceSource=groundContext==='spoken-recording'?q.transcript:stimulus(q);
+    const groundInput={...blindProjection(q),stimulus:evidenceSource,mode:mode(q),...(image?{imageData:image.data}:{})};
     const [grounded,blind]=await Promise.all([
      provider('ground',groundInput,{nonce:`owner-review:${seed}:${paper.id}:${i+1}:ground:${round}`}),
      provider('blind',blindProjection(q),{nonce:`owner-review:${seed}:${paper.id}:${i+1}:blind:${round}`})]);
-    const verdict=groundingVerdict(q,grounded.result),blindAssessment=blindVerdict(blind.result);
+    const verdict=groundingVerdict(q,grounded.result,{evidenceSource,normalizeEvidence:true}),blindAssessment=blindVerdict(blind.result);
     if(verdict.pass){
      const key=letters.indexOf(q.correct),details=grounded.result.options;
      q.explanation='Réponse '+q.correct+' : '+details.find(o=>o.index===key).reason+' '+details.filter(o=>o.index!==key).map(o=>letters[o.index]+' : '+o.reason).join(' ');
      best={number:i+1,policy:POLICY_VERSION,policyHash,sourceHash:contentHash(originalQ),imageHash:image?.hash??null,
-      question:q,contentHash:contentHash(q),groundedPass:true,grounded,blind,blindPass:blindAssessment.pass,author,rounds:round+1};
+      question:q,contentHash:contentHash(q),groundedPass:true,groundContext,overrideHash,grounded,blind,blindPass:blindAssessment.pass,author,rounds:round+1};
      await saveJson(file,best);
      if(blindAssessment.pass||round>=1)break;
     }

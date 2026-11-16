@@ -31,6 +31,11 @@ test('review exception retains failed blind evidence but cannot bypass a unique 
  const blind={stage:'blind',policy:POLICY_VERSION,policyHash,model:MODELS.blind,responseId:'chatcmpl-blind-test-fixture',inputHash:hash(blindProjection(q)),result:{guess:0,probabilities:[.7,.1,.1,.1],standsOut:true,cues:[{option:0,cue:'Test fixture intentionally retains a failed blind result.'}],reason:'Synthetic failed blind result, never an actual evaluation.'}};
  const record={groundedPass:true,policyHash,contentHash:contentHash(q),sourceHash:contentHash(q),grounded,blind,blindPass:false};
  assert(assertReviewQuestion(q,record,q));
+ const faithful=structuredClone(record);faithful.grounded.result.options.forEach(o=>o.evidence=['ARRIVERA  SUR LE QUAI QUATRE']);
+ assert(assertReviewQuestion(q,faithful,q));
+ const invented=structuredClone(record);invented.grounded.result.options[0].evidence=['arrivera sur le quai cinq'];
+ assert.throws(()=>assertReviewQuestion(q,invented,q),/ambiguous or unsupported/);
+ assert.throws(()=>assertReviewQuestion(q,{...record,groundContext:'spoken-recording'},q),/Invalid review transcript/);
  const ambiguous=structuredClone(record);ambiguous.grounded.result.ambiguous=true;
  assert.throws(()=>assertReviewQuestion(q,ambiguous,q),/ambiguous or unsupported/);
  const bad={...q,correct:'B'},forged={...record,contentHash:contentHash(bad)};

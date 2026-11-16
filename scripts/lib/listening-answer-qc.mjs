@@ -62,13 +62,14 @@ export function blindVerdict(result) {
  return {pass:!result.standsOut&&result.cues.length===0&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
   maximum:sorted[0],gap:sorted[0]-sorted[1]};
 }
-export function groundingVerdict(q,result) {
- validateResult('ground',result);const key=letters.indexOf(q.correct),source=stimulus(q),errors=[];
+export function groundingVerdict(q,result,{evidenceSource=stimulus(q),normalizeEvidence=false}={}) {
+ validateResult('ground',result);const key=letters.indexOf(q.correct),source=evidenceSource,errors=[];
+ const canonical=s=>normalizeEvidence?s.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr'):s;
  if(result.ambiguous||!result.questionSupported||result.supportedIndices.length!==1||result.supportedIndices[0]!==key)errors.push('Not exactly the independently supported marked answer');
  for(const option of result.options) {
   if(option.supported!==(option.index===key))errors.push('Support verdict inconsistent at '+option.index);
   if(option.index!==key&&(!option.plausibleMisunderstanding||option.reason.length<25))errors.push('Distractor lacks a specific plausible misunderstanding at '+option.index);
-  if(q.number>4&&(option.evidence.length===0||option.evidence.some(quote=>quote.length<6||!source.includes(quote))))errors.push('Missing/fabricated verbatim evidence at '+option.index);
+  if(q.number>4&&(option.evidence.length===0||option.evidence.some(quote=>quote.length<6||!canonical(source).includes(canonical(quote)))))errors.push('Missing/fabricated verbatim evidence at '+option.index);
  }
  return {pass:errors.length===0,errors};
 }
