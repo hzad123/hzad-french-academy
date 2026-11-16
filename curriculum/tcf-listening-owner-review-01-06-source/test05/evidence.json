@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test05-v3",
   "test": "tcf-listening-05",
   "version": "tcf-listening-2026-11-test05-v4",
-  "paperHash": "885b3e0507d35ac51157f4ef9ad90adca416c314c72bde08592a4693fd88c71a",
+  "paperHash": "4d5ef31e2e8ea3546544970b3c952c619c5cc4449bad051a5764da328eb32335",
   "questions": [
     {
       "number": 1,
@@ -213,7 +213,206 @@
     },
     {
       "number": 2,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "92907d85632336489e15783beca3c804d46e50ef8119c529c62b18b122df2b6f",
+      "imageHash": "9972c8e4f249e5f5d08cbc1e67ed5ee6e7288877906142333f60d56d12824be1",
+      "question": {
+        "number": 2,
+        "kind": "image",
+        "question": "Quelle situation est représentée ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : L'image montre une structure en bois en cours de montage, avec une personne semblant travailler sur l'ossature d'une maison, ce qui correspond à l'action d'un charpentier. A : L'image ne montre pas de tuiles ni d'éléments de toiture, et aucune action sur un toit n'est visible. Quelqu'un pourrait confondre la structure en bois avec un toit, mais il n'y a pas de tuiles cassées ni de réparation. C : Il n'y a pas de fenêtres visibles ni d'éléments de menuiserie terminés à installer. Quelqu'un pourrait croire que les cadres en bois sont des fenêtres, mais elles ne sont pas terminées ni installées dans une façade. D : Aucune fissure ni mur en maçonnerie n'est visible sur l'image, seulement une structure en bois. Quelqu'un pourrait penser à des réparations, mais il n'y a pas d'élément de maçonnerie.",
+        "transcript": "Question 2.\nRegardez l’image et écoutez les propositions.\nA. Un couvreur remplace des tuiles cassées sur un toit. B. Un charpentier monte la structure en bois d’une maison. C. Un menuisier installe les fenêtres terminées d’une façade. D. Un maçon rebouche une fissure sur un mur extérieur.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 2."
+          },
+          {
+            "voice": "female",
+            "text": "Regardez l’image et écoutez les propositions."
+          },
+          {
+            "voice": "female",
+            "text": "A. Un couvreur remplace des tuiles cassées sur un toit. B. Un charpentier monte la structure en bois d’une maison. C. Un menuisier installe les fenêtres terminées d’une façade. D. Un maçon rebouche une fissure sur un mur extérieur."
+          }
+        ],
+        "audio": "q-02.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 33,
+        "image": "q-02.svg"
+      },
+      "contentHash": "973085ba15b6497459fe56e1be32d475b45d771c4d12a6a06b9212553d5a187c",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksrhBqcCHWrN590WsiIx11NiaAZP",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "L'image ne montre pas de tuiles ni d'éléments de toiture, et aucune action sur un toit n'est visible. Quelqu'un pourrait confondre la structure en bois avec un toit, mais il n'y a pas de tuiles cassées ni de réparation.",
+              "misunderstanding": "confusion entre charpente et toiture"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "L'image montre une structure en bois en cours de montage, avec une personne semblant travailler sur l'ossature d'une maison, ce qui correspond à l'action d'un charpentier.",
+              "misunderstanding": null
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Il n'y a pas de fenêtres visibles ni d'éléments de menuiserie terminés à installer. Quelqu'un pourrait croire que les cadres en bois sont des fenêtres, mais elles ne sont pas terminées ni installées dans une façade.",
+              "misunderstanding": "confusion entre ossature et fenêtres"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Aucune fissure ni mur en maçonnerie n'est visible sur l'image, seulement une structure en bois. Quelqu'un pourrait penser à des réparations, mais il n'y a pas d'élément de maçonnerie.",
+              "misunderstanding": "confusion entre structure bois et mur à réparer"
+            }
+          ],
+          "summary": "La scène représente un charpentier montant la structure en bois d’une maison, car on observe clairement une ossature en bois en construction. Les autres propositions sont contredites par l'absence de tuiles, de fenêtres terminées ou de mur en maçonnerie."
+        },
+        "usage": {
+          "prompt_tokens": 655,
+          "completion_tokens": 411,
+          "total_tokens": 1066,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004598,
+        "inputHash": "2e1e4e3c2509f8800c254ee4a64638c10a5475165de61074b2182b66849ea719",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:2:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksrhNAIwtvxht1kMhUz9EF0rptT2",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "L'option 0 décrit une action très spécifique (remplacement de tuiles cassées sur un toit) qui se distingue légèrement en précision par rapport aux autres descriptions."
+            }
+          ],
+          "reason": "I have no access to the recording and must infer from wording only. All four options describe plausible exterior-building tasks; none is uniquely indicated by the question alone. Option 0 was chosen because its phrasing is slightly more specific and concrete (replacing broken roof tiles), giving a modest, not decisive, advantage for a guess. This is tentative and uncertain — the missing audio could clearly indicate any of the four situations."
+        },
+        "usage": {
+          "prompt_tokens": 443,
+          "completion_tokens": 364,
+          "total_tokens": 807,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00083875,
+        "inputHash": "62e1b9e7fcdd7a0e0c9c680f28e4cb3efbfaf5ced75c6b33a29a8aae6354232d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:2:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksraQ71cqvb3NZst8hl1PMdbGQbI",
+        "result": {
+          "question": "Quelle situation est représentée ?",
+          "choices": [
+            "Un charpentier monte la structure en bois d’une maison.",
+            "Un maçon rebouche une fissure sur un mur extérieur.",
+            "Un couvreur remplace des tuiles cassées sur un toit.",
+            "Un menuisier installe les fenêtres terminées d’une façade."
+          ],
+          "correctIndex": 0,
+          "explanation": "On distingue uniquement une ossature en bois très schématisée, sans tuiles ni murs finis ni fenêtres. L’ouvrier se tient au niveau de la charpente, ce qui correspond à la construction de la structure en bois de la maison, pas à des travaux sur un mur ou une toiture déjà couverts.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Il n’y a pas de mur plein ni de fissure visible ; seule une structure en bois est représentée, ce qui ne correspond pas à un travail de maçonnerie sur un mur existant."
+            },
+            {
+              "index": 2,
+              "reason": "Aucune tuile ni couverture n’apparaît sur le dessin ; on voit seulement la forme triangulaire du toit et des poutres, ce qui ne permet pas de parler de remplacement de tuiles."
+            },
+            {
+              "index": 3,
+              "reason": "Il n’y a ni vitrages ni ouvertures finies ; les formes rectangulaires évoquent plutôt des panneaux ou des éléments de structure, non des fenêtres déjà posées par un menuisier."
+            }
+          ],
+          "design": "Contraste entre différents types de travaux (charpente, maçonnerie, couverture, menuiserie) alors que l’image ne montre qu’une ossature en bois en cours de montage."
+        },
+        "usage": {
+          "prompt_tokens": 1055,
+          "completion_tokens": 516,
+          "total_tokens": 1571,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 169,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00647875,
+        "inputHash": "4f9e7b5c9bd6251f623adfbb4f09012920ff6744a424b0281662e7447b91c10f",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:2:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 3,
@@ -1272,7 +1471,224 @@
     },
     {
       "number": 8,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "721bc7c8f8acbd2430257c9124ac35e3b2ada71f24cb0269db6639a27f6f205d",
+      "imageHash": null,
+      "question": {
+        "number": 8,
+        "kind": "response",
+        "question": "Quelle réponse convient ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : Cette réponse (« Normalement avant la fin de journée. ») répond directement à la question sur le moment où l'ascenseur sera réparé. Elle donne une estimation temporelle, ce qui est exactement ce qui est demandé. A : Cette réponse (« Il est souvent en panne, vous savez. ») commente la fréquence des pannes, mais ne répond pas à la question principale qui porte sur le moment de la réparation. Quelqu'un pourrait la choisir en se concentrant sur le fait que l'ascenseur est souvent en panne, mais cela ne répond pas à la demande d'information sur la réparation. C : Cette réponse (« Non, il fonctionne très bien. ») contredit l'information donnée dans la question, qui indique que l'ascenseur est en panne. Quelqu'un pourrait mal comprendre et penser qu'on demande si l'ascenseur fonctionne, mais cela va à l'encontre du contexte. D : Cette réponse (« Oui, il est très ancien. ») commente l'âge de l'ascenseur, ce qui pourrait expliquer pourquoi il tombe en panne, mais ne répond pas à la question sur la date de réparation. Elle pourrait être choisie par quelqu'un qui se concentre sur la cause de la panne plutôt que sur la réparation.",
+        "transcript": "Question 8.\nL'ascenseur est encore en panne. Savez-vous quand il sera réparé ?\nA. Il est souvent en panne, vous savez. B. Normalement avant la fin de journée. C. Non, il fonctionne très bien. D. Oui, il est très ancien.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 8."
+          },
+          {
+            "voice": "male",
+            "text": "L'ascenseur est encore en panne. Savez-vous quand il sera réparé ?"
+          },
+          {
+            "voice": "female",
+            "text": "A. Il est souvent en panne, vous savez. B. Normalement avant la fin de journée. C. Non, il fonctionne très bien. D. Oui, il est très ancien."
+          }
+        ],
+        "audio": "q-08.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 38
+      },
+      "contentHash": "9c75328f32ce82f4acc242e542e0f4c316b7fb87e27bff3d0c31621550a1afa3",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Eksrh2aw1XRo8S8pwzTDwwWAGFY6b",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "L'ascenseur est encore en panne."
+              ],
+              "reason": "Cette réponse (« Il est souvent en panne, vous savez. ») commente la fréquence des pannes, mais ne répond pas à la question principale qui porte sur le moment de la réparation. Quelqu'un pourrait la choisir en se concentrant sur le fait que l'ascenseur est souvent en panne, mais cela ne répond pas à la demande d'information sur la réparation.",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Savez-vous quand il sera réparé ?"
+              ],
+              "reason": "Cette réponse (« Normalement avant la fin de journée. ») répond directement à la question sur le moment où l'ascenseur sera réparé. Elle donne une estimation temporelle, ce qui est exactement ce qui est demandé."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "L'ascenseur est encore en panne."
+              ],
+              "reason": "Cette réponse (« Non, il fonctionne très bien. ») contredit l'information donnée dans la question, qui indique que l'ascenseur est en panne. Quelqu'un pourrait mal comprendre et penser qu'on demande si l'ascenseur fonctionne, mais cela va à l'encontre du contexte.",
+              "misunderstanding": "contradiction"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "L'ascenseur est encore en panne."
+              ],
+              "reason": "Cette réponse (« Oui, il est très ancien. ») commente l'âge de l'ascenseur, ce qui pourrait expliquer pourquoi il tombe en panne, mais ne répond pas à la question sur la date de réparation. Elle pourrait être choisie par quelqu'un qui se concentre sur la cause de la panne plutôt que sur la réparation.",
+              "misunderstanding": "cause/result"
+            }
+          ],
+          "summary": "La seule réponse qui répond directement à la question sur le moment de la réparation est « Normalement avant la fin de journée. » Les autres réponses s'écartent du sujet ou contredisent le contexte."
+        },
+        "usage": {
+          "prompt_tokens": 541,
+          "completion_tokens": 470,
+          "total_tokens": 1011,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004842,
+        "inputHash": "562f6a48f96c5f9638ec1a3155328dcd6e681cf7df1b619fd14a0a2cb05687dc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:8:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Eksrh4sDtWBPCsPsNsp8pi6vnBdY6",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.15,
+            0.2,
+            0.45,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "Most directly answers a simple yes/no question about function (concise direct denial)."
+            },
+            {
+              "option": 0,
+              "cue": "Comments on frequent breakdowns — plausible if question was about reliability."
+            },
+            {
+              "option": 1,
+              "cue": "Gives a time estimate — plausible if question was about when something will happen."
+            },
+            {
+              "option": 3,
+              "cue": "Affirms age — plausible if question was about its age or condition."
+            }
+          ],
+          "reason": "No recording or context is provided, so any choice could be correct depending on the missing prompt. I favored option 2 because it is the most direct and natural short reply to a likely yes/no question about whether something works (e.g., \"Il marche ?\" → \"Non, il fonctionne très bien.\" would actually be contradictory if preceding question was negative, but as a standalone plausible answer it reads as a succinct affirmation of proper functioning). Other options fit different possible questions (timing, reliability, age), so uncertainty remains high; probabilities reflect these alternative plausible contexts rather than any evidence from audio."
+        },
+        "usage": {
+          "prompt_tokens": 417,
+          "completion_tokens": 573,
+          "total_tokens": 990,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00125025,
+        "inputHash": "a17cb7f30a95a6bf696326e9b6a9657893b12e05110a19336799ae0c1b4f862d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:8:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksrafhbbPxNmYz297zqzd7zugoaL",
+        "result": {
+          "question": "Quelle réponse convient ?",
+          "choices": [
+            "Normalement avant la fin de journée.",
+            "Oui, il est très ancien.",
+            "Non, il fonctionne très bien.",
+            "Il est souvent en panne, vous savez."
+          ],
+          "correctIndex": 0,
+          "explanation": "La question « Savez-vous quand il sera réparé ? » appelle une réponse portant sur le moment de la réparation. « Normalement avant la fin de journée. » répond directement à la demande de précision temporelle. Les autres énoncés commentent l’état général de l’ascenseur sans indiquer de date ou de délai de réparation.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Affirme qu’il est ancien, ce qui explique éventuellement les pannes, mais ne fournit aucune indication sur le moment de la réparation demandée."
+            },
+            {
+              "index": 2,
+              "reason": "Prétend qu’il fonctionne très bien, contredisant l’information initiale qu’il est encore en panne et évitant la question sur la réparation."
+            },
+            {
+              "index": 3,
+              "reason": "Signale qu’il tombe souvent en panne, mais ne répond pas à la question précise « quand il sera réparé ? » en termes de délai ou d’horaire."
+            }
+          ],
+          "design": "Pragmatiquement, seule une indication temporelle répond à la question sur le moment de la réparation; les distracteurs restent thématiquement liés à l’ascenseur mais déplacent le focus vers son état général ou sa fréquence de panne."
+        },
+        "usage": {
+          "prompt_tokens": 962,
+          "completion_tokens": 426,
+          "total_tokens": 1388,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 122,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0054625,
+        "inputHash": "93babe8a6bde56a50d5b5b6033c54b9cbf6debe6ab4318d325b0ee2f5beac8fa",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:8:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 9,
@@ -2576,7 +2992,226 @@
     },
     {
       "number": 16,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "b01121621d0325340bde2051dd2b610756fead37189ae483028cb7de6590f5a7",
+      "imageHash": null,
+      "question": {
+        "number": 16,
+        "kind": "dialogue",
+        "question": "À quel moment le plombier propose-t-il de venir à la place de lundi ?",
+        "options": [
+          "Mardi à neuf heures.",
+          "Mercredi à neuf heures.",
+          "Lundi en fin de matinée.",
+          "Mardi en début d’après-midi."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le plombier propose explicitement de venir mardi à neuf heures, ce qui répond directement à la question posée. B : Quelqu’un pourrait confondre mardi avec mercredi car ce sont deux jours consécutifs, mais le texte ne mentionne jamais mercredi. La proposition concerne mardi uniquement. C : On pourrait croire que le rendez-vous est maintenu le lundi mais à un autre moment de la journée, car le lundi matin était initialement prévu. Cependant, le plombier précise qu’il ne pourra pas être là avant mardi. D : Quelqu’un pourrait confondre l’heure proposée (neuf heures) avec un autre moment de la journée (début d’après-midi), mais le texte indique clairement neuf heures du matin.",
+        "transcript": "Question 16.\nJe vous avais réservé le lundi matin pour réparer la tuyauterie de la buanderie.\nJe dois terminer une intervention urgente dans un immeuble voisin et je ne pourrai pas être là avant mardi.\nLa fuite est maîtrisée pour l'instant. Mardi à neuf heures, cela vous irait ?\nOui. Je vous confirmerai par message et vous présenterai le matériel nécessaire.\nÀ quel moment le plombier propose-t-il de venir à la place de lundi ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 16."
+          },
+          {
+            "voice": "female",
+            "text": "Je vous avais réservé le lundi matin pour réparer la tuyauterie de la buanderie."
+          },
+          {
+            "voice": "male",
+            "text": "Je dois terminer une intervention urgente dans un immeuble voisin et je ne pourrai pas être là avant mardi."
+          },
+          {
+            "voice": "female",
+            "text": "La fuite est maîtrisée pour l'instant. Mardi à neuf heures, cela vous irait ?"
+          },
+          {
+            "voice": "male",
+            "text": "Oui. Je vous confirmerai par message et vous présenterai le matériel nécessaire."
+          },
+          {
+            "voice": "female",
+            "text": "À quel moment le plombier propose-t-il de venir à la place de lundi ?"
+          }
+        ],
+        "audio": "q-16.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 42
+      },
+      "contentHash": "f5bb2c332a2ed14a4299f2955d77a2d8be6de3ee3e9aaa4b176f305ee50edfdf",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktByeP45JgDeVzpCfd99vzirpHaJ",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Mardi à neuf heures, cela vous irait ?"
+              ],
+              "reason": "Le plombier propose explicitement de venir mardi à neuf heures, ce qui répond directement à la question posée."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Mardi à neuf heures, cela vous irait ?"
+              ],
+              "reason": "Quelqu’un pourrait confondre mardi avec mercredi car ce sont deux jours consécutifs, mais le texte ne mentionne jamais mercredi. La proposition concerne mardi uniquement.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vous avais réservé le lundi matin"
+              ],
+              "reason": "On pourrait croire que le rendez-vous est maintenu le lundi mais à un autre moment de la journée, car le lundi matin était initialement prévu. Cependant, le plombier précise qu’il ne pourra pas être là avant mardi.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Mardi à neuf heures, cela vous irait ?"
+              ],
+              "reason": "Quelqu’un pourrait confondre l’heure proposée (neuf heures) avec un autre moment de la journée (début d’après-midi), mais le texte indique clairement neuf heures du matin.",
+              "misunderstanding": "time_swap"
+            }
+          ],
+          "summary": "Le plombier propose de venir mardi à neuf heures, ce qui est clairement indiqué dans l’enregistrement. Les autres options résultent d’une confusion sur le jour ou l’heure proposés."
+        },
+        "usage": {
+          "prompt_tokens": 612,
+          "completion_tokens": 360,
+          "total_tokens": 972,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004104,
+        "inputHash": "c15a70f93e8e9809ad0060aeb1f03b558b2759858f021f8786c71952dc957190",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:16:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktBybpCM2ooLL1qPqBJgSmq2HzYZ",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.34,
+            0.33,
+            0,
+            0.33
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "contradicts phrasing — 'à la place de lundi' implies a day other than Monday, so 'Lundi en fin de matinée' can be eliminated."
+            }
+          ],
+          "reason": "I have only the question and choices, no audio. The phrase 'à la place de lundi' rules out any answer that is still on Monday (option 2), so that one can be eliminated confidently. The remaining three options (Tuesday 9:00, Wednesday 9:00, Tuesday early afternoon) are all plausible substitutes; there is no textual clue to prefer one over the others. Given that, I made a weak guess for option 0 (Tuesday at 9:00) but with low confidence — probabilities reflect the elimination of option 2 and near-equal uncertainty among the remaining options."
+        },
+        "usage": {
+          "prompt_tokens": 427,
+          "completion_tokens": 530,
+          "total_tokens": 957,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00116675,
+        "inputHash": "92a961a1ff102f76f27fb5512bdfe06d435d26d13a72e24250439eaf7acfa6d2",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:16:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBtH57fITzt4nqNhOtVucT8RXMg",
+        "result": {
+          "question": "À quel moment le plombier propose-t-il de venir à la place de lundi ?",
+          "choices": [
+            "Mardi à neuf heures.",
+            "Lundi en fin de matinée.",
+            "Mardi en début d’après-midi.",
+            "Mercredi à neuf heures."
+          ],
+          "correctIndex": 0,
+          "explanation": "Le plombier précise qu’il ne pourra pas venir lundi et propose de reporter le rendez-vous à « mardi à neuf heures » ; le client accepte cette proposition.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Confusion sur le report : le lundi est justement la date annulée, il n’est jamais question d’un créneau en fin de matinée ce jour-là."
+            },
+            {
+              "index": 2,
+              "reason": "Erreur sur l’horaire : le jour (mardi) est correct, mais le plombier propose explicitement neuf heures le matin, pas le début d’après-midi."
+            },
+            {
+              "index": 3,
+              "reason": "Erreur sur le jour : le plombier dit qu’il pourra être là avant mardi et propose mardi, pas mercredi."
+            }
+          ],
+          "design": "Question recentrée sur le créneau de remplacement proposé (jour et heure), en distinguant finement jour et moment de la journée à partir de la formulation précise du plombier."
+        },
+        "usage": {
+          "prompt_tokens": 1560,
+          "completion_tokens": 405,
+          "total_tokens": 1965,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 146,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006,
+        "inputHash": "6fed885de8dc88464f43047ef0ef2f3aef9bba7a496c24c952a135264ea7ef00",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:16:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 17,
@@ -4566,7 +5201,218 @@
     },
     {
       "number": 26,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "ba1e001c10fa552d2b00b43adcb07eed183b33169134d1294c9bbab718bc3d75",
+      "imageHash": null,
+      "question": {
+        "number": 26,
+        "kind": "interview",
+        "question": "Selon l’architecte, quel exemple précis montre qu’une rampe posée sans adaptation peut rester inutilisable malgré le respect des normes ?",
+        "options": [
+          "Une rampe trop étroite, conforme aux plans, mais impraticable pour certains fauteuils roulants.",
+          "Une rampe installée correctement, mais qui impose un long détour par l’arrière de l’immeuble.",
+          "Une rampe bien dimensionnée, mais qui bloque partiellement l’ouverture de quelques portes d’entrée.",
+          "Une rampe suffisamment large, mais tellement pentue que les usagers n’osent pas l’emprunter seuls."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L’architecte donne précisément l’exemple d’une rampe trop étroite, conforme aux plans (donc respectant les normes), mais qui reste inutilisable pour certains fauteuils roulants. C’est l’exemple exact demandé par la question. B : Quelqu’un pourrait croire que le détour imposé par l’arrière de l’immeuble est un exemple d’inadaptation, car l’architecte évoque la diversité des usages et des accès, mais il ne parle jamais d’un détour ou d’une rampe installée à l’arrière. C : L’architecte mentionne que les portes diffèrent, ce qui pourrait faire penser à un problème d’ouverture de porte, mais il ne dit jamais qu’une rampe bloque l’ouverture des portes. Il parle seulement de largeur insuffisante pour certains fauteuils. D : L’architecte évoque les différences de pente, ce qui pourrait laisser croire à un problème de pente trop forte, mais il ne donne pas cet exemple précis. Il insiste sur la largeur insuffisante, pas sur la pente.",
+        "transcript": "Question 26.\nVous travaillez sur l'accessibilité des immeubles anciens. Pourquoi ne pas poser partout le même modèle de rampe ?\nParce que les bâtiments n'ont pas les mêmes pentes, les mêmes portes ni les mêmes usages. Une rampe trop étroite peut être techniquement conforme à un plan et pourtant inutilisable avec certains fauteuils. Nous préférons observer les déplacements réels, mesurer les contraintes et tester plusieurs solutions avec les résidents concernés. L'objectif est de rendre l'accès réellement possible, pas simplement d'afficher un équipement neuf.\nSelon l’architecte, quel exemple précis montre qu’une rampe posée sans adaptation peut rester inutilisable malgré le respect des normes ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 26."
+          },
+          {
+            "voice": "female",
+            "text": "Vous travaillez sur l'accessibilité des immeubles anciens. Pourquoi ne pas poser partout le même modèle de rampe ?"
+          },
+          {
+            "voice": "male",
+            "text": "Parce que les bâtiments n'ont pas les mêmes pentes, les mêmes portes ni les mêmes usages. Une rampe trop étroite peut être techniquement conforme à un plan et pourtant inutilisable avec certains fauteuils. Nous préférons observer les déplacements réels, mesurer les contraintes et tester plusieurs solutions avec les résidents concernés. L'objectif est de rendre l'accès réellement possible, pas simplement d'afficher un équipement neuf."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l’architecte, quel exemple précis montre qu’une rampe posée sans adaptation peut rester inutilisable malgré le respect des normes ?"
+          }
+        ],
+        "audio": "q-26.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 65
+      },
+      "contentHash": "08514d212bb9b9240e2cce8c19be9a1fb0cb7914bfcf12b4c000f05946ece424",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktC2s18EZOITMtt2dOZT1Xm63UHj",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Une rampe trop étroite peut être techniquement conforme à un plan et pourtant inutilisable avec certains fauteuils."
+              ],
+              "reason": "L’architecte donne précisément l’exemple d’une rampe trop étroite, conforme aux plans (donc respectant les normes), mais qui reste inutilisable pour certains fauteuils roulants. C’est l’exemple exact demandé par la question."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Pourquoi ne pas poser partout le même modèle de rampe ? Parce que les bâtiments n'ont pas les mêmes pentes, les mêmes portes ni les mêmes usages."
+              ],
+              "reason": "Quelqu’un pourrait croire que le détour imposé par l’arrière de l’immeuble est un exemple d’inadaptation, car l’architecte évoque la diversité des usages et des accès, mais il ne parle jamais d’un détour ou d’une rampe installée à l’arrière.",
+              "misunderstanding": "interprétation erronée de la diversité des bâtiments comme un problème de localisation de la rampe."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les mêmes portes"
+              ],
+              "reason": "L’architecte mentionne que les portes diffèrent, ce qui pourrait faire penser à un problème d’ouverture de porte, mais il ne dit jamais qu’une rampe bloque l’ouverture des portes. Il parle seulement de largeur insuffisante pour certains fauteuils.",
+              "misunderstanding": "confusion entre la mention des portes différentes et un blocage physique des portes."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les mêmes pentes"
+              ],
+              "reason": "L’architecte évoque les différences de pente, ce qui pourrait laisser croire à un problème de pente trop forte, mais il ne donne pas cet exemple précis. Il insiste sur la largeur insuffisante, pas sur la pente.",
+              "misunderstanding": "interprétation erronée de la mention des pentes comme un problème de pente trop raide."
+            }
+          ],
+          "summary": "La seule réponse explicitement donnée par l’architecte est celle d’une rampe trop étroite, conforme aux normes mais inutilisable pour certains fauteuils roulants. Les autres options s’appuient sur des éléments évoqués (portes, pentes, usages), mais ne correspondent pas à l’exemple précis cité dans le document."
+        },
+        "usage": {
+          "prompt_tokens": 717,
+          "completion_tokens": 537,
+          "total_tokens": 1254,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00573,
+        "inputHash": "20a1d7a494d4ef7948af387582d3564550cec1c1b28bcad950a112b1b9c1fa6e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:26:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktC29W7d46haeFfgyqpVg7uSsiDu",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.15,
+            0.15,
+            0.55,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "This option highlights a logical asymmetry: the ramp meets dimensional norms yet is unusable because of its placement (it blocks door opening), which fits the phrase “posée sans adaptation” — i.e., not adapted to the local context despite compliance."
+            }
+          ],
+          "reason": "The question asks for an example showing a ramp can remain unusable despite compliance with norms. Option 3 (index 2) specifically describes a ramp that is correctly dimensioned but nevertheless interferes with door operation — a placement/context problem that matches “posée sans adaptation.” Other choices are plausible but less clearly match the idea of conformity combined with contextual unsuitability: option 1 mentions conformity to plans but suggests narrowness that would typically be a standards violation; option 4 describes excessive steepness which normally contradicts compliance; option 2 (detour) is plausible but less directly about being unusable despite meeting formal norms. Given only the written options and no recording, this is an informed guess rather than a certainty."
+        },
+        "usage": {
+          "prompt_tokens": 501,
+          "completion_tokens": 697,
+          "total_tokens": 1198,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 448,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00151925,
+        "inputHash": "6c7edea629ea2ebb3836a65f0f452bbe3fc17af4fbe0d487fc88763dd7067109",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:26:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBtwfxiXR0C8Xq492gx0HACa3wi",
+        "result": {
+          "question": "Selon l’architecte, quel exemple précis montre qu’une rampe posée sans adaptation peut rester inutilisable malgré le respect des normes ?",
+          "choices": [
+            "Une rampe trop étroite, conforme aux plans, mais impraticable pour certains fauteuils roulants.",
+            "Une rampe suffisamment large, mais tellement pentue que les usagers n’osent pas l’emprunter seuls.",
+            "Une rampe bien dimensionnée, mais qui bloque partiellement l’ouverture de quelques portes d’entrée.",
+            "Une rampe installée correctement, mais qui impose un long détour par l’arrière de l’immeuble."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’architecte illustre les limites d’une solution standardisée avec l’exemple d’« une rampe trop étroite » qui reste « techniquement conforme à un plan et pourtant inutilisable avec certains fauteuils ». Les autres problèmes (pente excessive, portes bloquées, détour par l’arrière) sont cohérents avec l’idée de contraintes de terrain, mais ne correspondent pas à l’exemple explicitement donné dans l’enregistrement.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Confond l’exemple concret donné (la largeur insuffisante malgré la conformité) avec une autre contrainte évoquée plus tôt, la pente, qui n’est jamais présentée comme l’illustration précise du risque d’une rampe standardisée.«},{"
+            },
+            {
+              "index": 2,
+              "reason": "S’appuie sur la mention des portes dans le texte et imagine une rampe qui en gêne l’ouverture ; c’est plausible, mais l’enregistrement ne cite pas ce cas comme exemple central, il l’évoque seulement comme type de contrainte à mesurer."
+            },
+            {
+              "index": 3,
+              "reason": "Prolonge l’idée d’usages et de circulation dans l’immeuble en inventant un détour par l’arrière, ce qui reste crédible mais n’apparaît pas dans le passage, qui insiste plutôt sur la largeur de la rampe et les fauteuils qui ne passent pas."
+            }
+          ],
+          "design": "Question recentrée sur l’exemple précis de la rampe « trop étroite » donnée dans l’enregistrement, avec des distracteurs qui reprennent d’autres contraintes mentionnées (pente, portes, usages) en les transformant en pseudo-exemples concurrents."
+        },
+        "usage": {
+          "prompt_tokens": 1729,
+          "completion_tokens": 801,
+          "total_tokens": 2530,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 310,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01017125,
+        "inputHash": "9f98209365a1ea47b0cb803179a22673b0b52338a56956e1e17bb8564479c016",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:26:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 27,
@@ -6545,7 +7391,219 @@
     },
     {
       "number": 37,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "9ee1050c99230527cb23413bef9abe2f29594b49c2447a077ab83b13ab155e4c",
+      "imageHash": null,
+      "question": {
+        "number": 37,
+        "kind": "interview",
+        "question": "Quel rôle précis l'enquêtrice attribue-t-elle aux témoignages par rapport aux mesures sonores ?",
+        "options": [
+          "Ils sont utilisés principalement pour illustrer de façon qualitative les résultats des mesures, sans modifier réellement l’analyse.",
+          "Ils permettent de corriger les relevés chiffrés en les remplaçant lorsque ceux-ci ne reflètent pas le ressenti des habitants.",
+          "Ils complètent les mesures pour comprendre pourquoi un même niveau de bruit ne se traduit pas par la même gêne chez tous les résidents.",
+          "Ils servent surtout à vérifier si les chiffres sont cohérents avec les plaintes et à écarter les situations jugées atypiques."
+        ],
+        "correct": "C",
+        "explanation": "Réponse C : C’est la bonne réponse : l’enquêtrice explique que les témoignages servent à comprendre pourquoi un même niveau de bruit ne provoque pas la même gêne chez tous, en fonction de la façade, des horaires, etc. Les témoignages complètent donc les mesures pour expliquer la diversité des ressentis. A : Quelqu’un pourrait croire que les témoignages servent seulement à illustrer qualitativement les mesures, car l’enquêtrice insiste sur le maintien des données objectives. Cependant, elle précise que les témoignages servent à comprendre pourquoi un même niveau de bruit n’a pas le même effet selon les personnes, ce qui va au-delà d’une simple illustration. B : On pourrait penser que les témoignages remplacent les mesures si les chiffres ne reflètent pas le ressenti, mais l’enquêtrice dit explicitement qu’on ne renonce pas aux données objectives. Les témoignages ne servent donc pas à corriger ou remplacer les mesures. D : Quelqu’un pourrait croire que les témoignages servent à vérifier la cohérence des chiffres ou à écarter des cas atypiques, car l’enquêtrice parle de différences selon les situations. Mais elle ne mentionne pas l’exclusion de cas atypiques ni la vérification de cohérence ; elle insiste sur la compréhension des différences de ressenti.",
+        "transcript": "Question 37.\nCertains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?\nLeurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures.\nQuel rôle précis l'enquêtrice attribue-t-elle aux témoignages par rapport aux mesures sonores ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 37."
+          },
+          {
+            "voice": "male",
+            "text": "Certains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?"
+          },
+          {
+            "voice": "female",
+            "text": "Leurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures."
+          },
+          {
+            "voice": "female",
+            "text": "Quel rôle précis l'enquêtrice attribue-t-elle aux témoignages par rapport aux mesures sonores ?"
+          }
+        ],
+        "audio": "q-37.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 72
+      },
+      "contentHash": "c39145dcfa2779f17bfebd4460ccce3f77888a45e4619d01d3512d179f3affcf",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktC26hALTQ33zu9XfpNRAcAIg8YZ",
+        "result": {
+          "supportedIndices": [
+            2
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures."
+              ],
+              "reason": "Quelqu’un pourrait croire que les témoignages servent seulement à illustrer qualitativement les mesures, car l’enquêtrice insiste sur le maintien des données objectives. Cependant, elle précise que les témoignages servent à comprendre pourquoi un même niveau de bruit n’a pas le même effet selon les personnes, ce qui va au-delà d’une simple illustration.",
+              "misunderstanding": "réduction du rôle des témoignages à une illustration qualitative, alors qu’ils servent à expliquer les différences de ressenti."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "sans renoncer aux données objectives des mesures"
+              ],
+              "reason": "On pourrait penser que les témoignages remplacent les mesures si les chiffres ne reflètent pas le ressenti, mais l’enquêtrice dit explicitement qu’on ne renonce pas aux données objectives. Les témoignages ne servent donc pas à corriger ou remplacer les mesures.",
+              "misunderstanding": "croyance erronée que les témoignages remplacent les mesures objectives."
+            },
+            {
+              "index": 2,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures.",
+                "Le même bruit peut avoir des conséquences très différentes."
+              ],
+              "reason": "C’est la bonne réponse : l’enquêtrice explique que les témoignages servent à comprendre pourquoi un même niveau de bruit ne provoque pas la même gêne chez tous, en fonction de la façade, des horaires, etc. Les témoignages complètent donc les mesures pour expliquer la diversité des ressentis."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "nous devons aussi examiner la durée d'exposition et les horaires de repos"
+              ],
+              "reason": "Quelqu’un pourrait croire que les témoignages servent à vérifier la cohérence des chiffres ou à écarter des cas atypiques, car l’enquêtrice parle de différences selon les situations. Mais elle ne mentionne pas l’exclusion de cas atypiques ni la vérification de cohérence ; elle insiste sur la compréhension des différences de ressenti.",
+              "misunderstanding": "interprétation erronée du rôle des témoignages comme outil de vérification ou de filtrage, alors qu’ils servent à expliquer la diversité des ressentis."
+            }
+          ],
+          "summary": "L’enquêtrice précise que les témoignages complètent les mesures pour comprendre pourquoi un même niveau sonore ne provoque pas la même gêne chez tous les résidents, en fonction de leur situation. Les autres options réduisent ou déforment ce rôle."
+        },
+        "usage": {
+          "prompt_tokens": 717,
+          "completion_tokens": 595,
+          "total_tokens": 1312,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006194,
+        "inputHash": "653fab9c31122dd13588c77f374bb3d9a28c7e9ea2bd08118cc3c335a22d5e1d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:37:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktC2DvHixM2jPeHHDSj9kL3sexmc",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.05,
+            0.05,
+            0.8,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions explaining why identical measured noise levels produce different annoyance across residents — a nuanced, complementary role that fits a researcher's likely framing."
+            }
+          ],
+          "reason": "Option 2 uniquely frames testimonies as complementary to measurements to explain variability in human response (same quantitative level, different perceived nuisance). That specific explanatory role is a natural, balanced way an enquêtrice would describe interviews relative to objective measures. The other choices are more extreme or narrower (purely illustrative without impact on analysis; replacing measurements; primarily for excluding atypical cases), so they are less plausible as the 'précis' role attributed by a researcher. My confidence is moderate-high but not certain because the actual recording could emphasize different emphases."
+        },
+        "usage": {
+          "prompt_tokens": 510,
+          "completion_tokens": 447,
+          "total_tokens": 957,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0010215,
+        "inputHash": "635c861e8f60beea7bc5720a9dd42a84d2604236f291b3c5cccc76f16a1cbb6e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:37:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBtXIiIO8kFHUn09CXynuUu3kRm",
+        "result": {
+          "question": "Quel rôle précis l'enquêtrice attribue-t-elle aux témoignages par rapport aux mesures sonores ?",
+          "choices": [
+            "Ils complètent les mesures pour comprendre pourquoi un même niveau de bruit ne se traduit pas par la même gêne chez tous les résidents.",
+            "Ils servent surtout à vérifier si les chiffres sont cohérents avec les plaintes et à écarter les situations jugées atypiques.",
+            "Ils permettent de corriger les relevés chiffrés en les remplaçant lorsque ceux-ci ne reflètent pas le ressenti des habitants.",
+            "Ils sont utilisés principalement pour illustrer de façon qualitative les résultats des mesures, sans modifier réellement l’analyse."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’enquêtrice explique qu’elle garde les témoignages « pour comprendre cette répartition, sans renoncer aux données objectives des mesures ». Les récits des résidents ne sont donc ni écartés ni purement illustratifs : ils servent à relier des niveaux de bruit identiques à des situations d’exposition différentes (façade, travail de nuit, horaires de repos), afin d’expliquer pourquoi la gêne n’est pas la même partout. La bonne réponse est donc qu’ils complètent les mesures pour éclairer ces différences d’impact.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Cette option suppose que les témoignages servent surtout à contrôler la cohérence des mesures et à éliminer des cas atypiques, alors que l’enquêtrice insiste au contraire sur l’intérêt de conserver tous les témoignages pour comprendre la répartition de la gêne."
+            },
+            {
+              "index": 2,
+              "reason": "Ici, les témoignages remplaceraient les mesures quand elles ne concordent pas avec le ressenti, ce qui contredit la formule « sans renoncer aux données objectives des mesures » : elle veut articuler, non substituer, les deux types d’information."
+            },
+            {
+              "index": 3,
+              "reason": "Cette proposition réduit les témoignages à un simple rôle illustratif qui ne pèserait pas sur l’analyse, alors que l’enquêtrice les présente comme un outil pour expliquer concrètement pourquoi le même bruit a des conséquences différentes selon les personnes."
+            }
+          ],
+          "design": "Contraste centré sur la manière dont l’enquêtrice combine données objectives et témoignages pour expliquer la répartition de la gêne, opposée à des interprétations où les récits ne feraient que vérifier, remplacer ou illustrer les mesures."
+        },
+        "usage": {
+          "prompt_tokens": 1229,
+          "completion_tokens": 877,
+          "total_tokens": 2106,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 372,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01030625,
+        "inputHash": "709ccb173d937fbf39a0a3dda9b7a09eb5dfd77ecf714160d1bea8e70a143bda",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:37:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 38,

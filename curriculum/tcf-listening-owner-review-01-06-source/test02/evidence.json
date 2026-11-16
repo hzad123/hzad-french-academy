@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test02-v1",
   "test": "tcf-listening-02",
   "version": "tcf-listening-2026-11-test02-v4",
-  "paperHash": "ef00ce978538666b8bf17dad48238e143f7d439635d614f067e31af10b9f173e",
+  "paperHash": "1197aec7b6c73f5ed80786db991781cd2975e7bfb97dcdb1bfe2c3881b5253ae",
   "questions": [
     {
       "number": 1,
@@ -829,7 +829,209 @@
     },
     {
       "number": 6,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "b7be441a320d9ac0d691af368848df2afd9f8f3e114dc241ec4afe19f649db19",
+      "imageHash": null,
+      "question": {
+        "number": 6,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "D",
+        "explanation": "Réponse D : C’est la seule réponse qui accepte explicitement la demande de passer ce soir, en précisant même une heure adaptée (après 19h). Elle répond directement et positivement à la question posée. A : Cette réponse refuse la demande de passer ce soir, car la personne part à 19h. Quelqu’un pourrait croire que c’est une réponse adaptée s’il pense que la disponibilité avant 19h est possible, mais la formulation indique clairement un refus pour ce soir. B : Cette réponse propose un autre moment (demain en fin d’après-midi) et ne répond pas positivement à la demande de passer ce soir. Quelqu’un pourrait la choisir s’il pense que la question porte sur la meilleure option, mais ce n’est pas une acceptation pour ce soir. C : Cette réponse accepte, mais impose une condition incompatible avec la demande de passer le soir (avant 17h n’est pas le soir). Quelqu’un pourrait la choisir s’il ne fait pas attention à la contrainte horaire, mais elle contredit la demande explicite de passer le soir.",
+        "transcript": "Question 6.\nJe peux passer récupérer mon livre ce soir ?\nA. Non, ce soir je pars vers dix-neuf heures. B. Ce sera mieux demain en fin d’après-midi. C. Oui, mais il faut venir avant dix-sept heures. D. Oui, passe plutôt après dix-neuf heures.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 6."
+          },
+          {
+            "voice": "female",
+            "text": "Je peux passer récupérer mon livre ce soir ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. Non, ce soir je pars vers dix-neuf heures. B. Ce sera mieux demain en fin d’après-midi. C. Oui, mais il faut venir avant dix-sept heures. D. Oui, passe plutôt après dix-neuf heures."
+          }
+        ],
+        "audio": "q-06.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 35
+      },
+      "contentHash": "753346c61e92d1cf80daf53ec14a63dd71a66e5c435729cf915a0f47fc604191",
+      "groundedPass": true,
+      "groundContext": "spoken-recording",
+      "overrideHash": "66f38bd0d9759aec43b202f77c70ab5a450731227d871fa6a652c87a7d0cf1f7",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekt9wKPe22ewGiFOwQS1jHh5G0Emm",
+        "result": {
+          "supportedIndices": [
+            3
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Non, ce soir je pars vers dix-neuf heures."
+              ],
+              "reason": "Cette réponse refuse la demande de passer ce soir, car la personne part à 19h. Quelqu’un pourrait croire que c’est une réponse adaptée s’il pense que la disponibilité avant 19h est possible, mais la formulation indique clairement un refus pour ce soir.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Ce sera mieux demain en fin d’après-midi."
+              ],
+              "reason": "Cette réponse propose un autre moment (demain en fin d’après-midi) et ne répond pas positivement à la demande de passer ce soir. Quelqu’un pourrait la choisir s’il pense que la question porte sur la meilleure option, mais ce n’est pas une acceptation pour ce soir.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Oui, mais il faut venir avant dix-sept heures."
+              ],
+              "reason": "Cette réponse accepte, mais impose une condition incompatible avec la demande de passer le soir (avant 17h n’est pas le soir). Quelqu’un pourrait la choisir s’il ne fait pas attention à la contrainte horaire, mais elle contredit la demande explicite de passer le soir.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 3,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Oui, passe plutôt après dix-neuf heures."
+              ],
+              "reason": "C’est la seule réponse qui accepte explicitement la demande de passer ce soir, en précisant même une heure adaptée (après 19h). Elle répond directement et positivement à la question posée."
+            }
+          ],
+          "summary": "La seule réponse qui convient à la demande de passer récupérer le livre ce soir est « Oui, passe plutôt après dix-neuf heures. » Les autres réponses refusent, proposent un autre moment ou imposent une condition incompatible avec le soir."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 443,
+          "total_tokens": 1049,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004756,
+        "inputHash": "47f12c2e4847fefb30a5948e72753eb0bc8ba412b8830884fffc656c518c546b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:6:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9w3UtBbSdthuAxCQzPAETtRUv4",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "standsOut": false,
+          "cues": [],
+          "reason": "There is no situational context or cue in the prompt (no mention of arrival time requested, availability window, or whether the speaker can host now or later). All four replies are plausible depending on unknown original question: refusal because leaving at 19:00, suggesting tomorrow afternoon, requiring arrival before 17:00, or asking to come after 19:00. Because no option uniquely matches an implicit constraint and no wording asymmetry gives a defensible advantage, I cannot make a confident selection; probabilities are therefore even."
+        },
+        "usage": {
+          "prompt_tokens": 433,
+          "completion_tokens": 534,
+          "total_tokens": 967,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 384,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00117625,
+        "inputHash": "5abfd1c1a8c6c52099ce9c9ad0c61d7aff2570d1852f80dd5b17a2fca8e16080",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:6:blind:1"
+      },
+      "blindPass": true,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9oeRrhwxcITKnV6g3Z5WsMhSUJ",
+        "result": {
+          "question": "Quelle réponse convient à la situation ?",
+          "choices": [
+            "Oui, passe plutôt après dix-neuf heures.",
+            "Oui, mais il faut venir avant dix-sept heures.",
+            "Non, ce soir je pars vers dix-neuf heures.",
+            "Ce sera mieux demain en fin d’après-midi."
+          ],
+          "correctIndex": 0,
+          "explanation": "Dans l’enregistrement, la personne accepte que l’autre passe récupérer le livre le soir même, mais précise qu’elle ne sera disponible qu’après dix-neuf heures. La réponse 1 reprend exactement cette disponibilité : on peut venir ce soir, mais pas avant 19 h.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Cette réponse suppose une disponibilité seulement jusqu’à dix-sept heures, alors que dans l’enregistrement la personne indique qu’elle ne sera là qu’après dix-neuf heures."
+            },
+            {
+              "index": 2,
+              "reason": "Ici, la personne dit qu’elle part vers dix-neuf heures et laisse entendre qu’elle n’est pas disponible ce soir, ce qui inverse la situation réelle où elle propose justement après dix-neuf heures."
+            },
+            {
+              "index": 3,
+              "reason": "Cette option décale le rendez-vous au lendemain en fin d’après-midi, contrairement à l’enregistrement où la collecte du livre est acceptée pour ce soir même."
+            }
+          ],
+          "design": "Contraste précis sur la disponibilité horaire le soir même : même intention générale (récupérer le livre), mais avec des créneaux ou des jours incompatibles avec l’heure réellement proposée dans l’enregistrement."
+        },
+        "usage": {
+          "prompt_tokens": 1192,
+          "completion_tokens": 652,
+          "total_tokens": 1844,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 338,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00801,
+        "inputHash": "dd0abcfea0edb60c5ee8a9137a3799bc730792d6b5e1deb8db19fe451c6be823",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:6:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 7,
@@ -1477,7 +1679,238 @@
     },
     {
       "number": 10,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "861517dd502c7cb2418e4afa323890f59aee3e5832a74cf608ebfe1cb23444da",
+      "imageHash": null,
+      "question": {
+        "number": 10,
+        "kind": "dialogue",
+        "question": "Où et à quelle heure décident-elles de se retrouver ?",
+        "options": [
+          "Devant l’entrée de la bibliothèque à 17 h 15.",
+          "À l’intérieur de la bibliothèque, près du comptoir, à 17 h 15.",
+          "Devant le café près de l’école, juste après le cours, vers 17 h 15.",
+          "Devant l’entrée de la bibliothèque à 18 h."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La personne précise clairement qu'elle attendra devant l'entrée de la bibliothèque à 17 h 15, ce qui correspond exactement à l'option 0. B : Quelqu'un pourrait penser qu'elles se retrouvent à l'intérieur près du comptoir car elles parlent de rendre des livres, mais il est bien précisé qu'elles se retrouvent devant l'entrée, pas à l'intérieur. C : On pourrait croire qu'elles se retrouvent devant le café après le cours, car le café est mentionné, mais il est explicitement dit qu'il est fermé et qu'elles choisissent la bibliothèque à la place. D : Quelqu'un pourrait confondre l'heure, pensant qu'elles se retrouvent à 18 h, mais l'heure exacte donnée est 17 h 15.",
+        "transcript": "Question 10.\nOn prend un café après ton cours de français ?\nLe café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures.\nAlors retrouvons-nous à la bibliothèque. Je t'attendrai devant l'entrée à dix-sept heures quinze.\nParfait, je pourrai aussi rendre mes livres.\nOù et à quelle heure décident-elles de se retrouver ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 10."
+          },
+          {
+            "voice": "female",
+            "text": "On prend un café après ton cours de français ?"
+          },
+          {
+            "voice": "male",
+            "text": "Le café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures."
+          },
+          {
+            "voice": "female",
+            "text": "Alors retrouvons-nous à la bibliothèque. Je t'attendrai devant l'entrée à dix-sept heures quinze."
+          },
+          {
+            "voice": "male",
+            "text": "Parfait, je pourrai aussi rendre mes livres."
+          },
+          {
+            "voice": "female",
+            "text": "Où et à quelle heure décident-elles de se retrouver ?"
+          }
+        ],
+        "audio": "q-10.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 39
+      },
+      "contentHash": "4434cfafb7ee28f8a3b2f1ca0f55b35f8a3af6cf4caba201124b52befa263a4c",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekt9sUR5c5ZGxS7sXfSDz6ZbXB1lq",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Je t'attendrai devant l'entrée à dix-sept heures quinze."
+              ],
+              "reason": "La personne précise clairement qu'elle attendra devant l'entrée de la bibliothèque à 17 h 15, ce qui correspond exactement à l'option 0."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je t'attendrai devant l'entrée à dix-sept heures quinze."
+              ],
+              "reason": "Quelqu'un pourrait penser qu'elles se retrouvent à l'intérieur près du comptoir car elles parlent de rendre des livres, mais il est bien précisé qu'elles se retrouvent devant l'entrée, pas à l'intérieur.",
+              "misunderstanding": "lieu_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Le café près de l'école est fermé aujourd'hui, mais la bibliothèque est ouverte jusqu'à vingt heures."
+              ],
+              "reason": "On pourrait croire qu'elles se retrouvent devant le café après le cours, car le café est mentionné, mais il est explicitement dit qu'il est fermé et qu'elles choisissent la bibliothèque à la place.",
+              "misunderstanding": "lieu_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je t'attendrai devant l'entrée à dix-sept heures quinze."
+              ],
+              "reason": "Quelqu'un pourrait confondre l'heure, pensant qu'elles se retrouvent à 18 h, mais l'heure exacte donnée est 17 h 15.",
+              "misunderstanding": "time_swap"
+            }
+          ],
+          "summary": "La seule réponse correcte est « Devant l’entrée de la bibliothèque à 17 h 15 », car c’est précisément ce qui est dit dans l’enregistrement. Les autres options résultent de confusions sur le lieu ou l’heure, mais sont contredites par les informations explicites du dialogue."
+        },
+        "usage": {
+          "prompt_tokens": 635,
+          "completion_tokens": 420,
+          "total_tokens": 1055,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00463,
+        "inputHash": "a78134bd7009f220062e36a10bb95aa01973c2186c9f24bc30080998a0470625",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:10:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9s7A0gmtPMKBUeCovI2G5bruPf",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.55,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "simple direct match of location and time (entrée de la bibliothèque à 17 h 15) which is a common, concise meeting formulation"
+            },
+            {
+              "option": 1,
+              "cue": "similar time but indoor location with extra detail (près du comptoir) making it less likely if the dialogue used a brief phrase"
+            },
+            {
+              "option": 2,
+              "cue": "different meeting place (café) and phrasing suggesting a sequence (juste après le cours) which is more context-dependent"
+            },
+            {
+              "option": 3,
+              "cue": "same place as option 0 but different time (18 h), creating a direct time-contrast with option 0"
+            }
+          ],
+          "reason": "I have no access to the recording, transcript, or answer key, so I cannot know which alternative is correct. Option 0 stands out because it gives a concise, conventional meeting place and time (devant l’entrée de la bibliothèque à 17 h 15), matching the likely phrasing of a short dialogue. The other choices either add extra indoor detail, change the meeting place, or change the time; without the audio these remain plausible. My probabilities reflect a modest preference for option 0 based on phrasing economy, but there is considerable uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 461,
+          "completion_tokens": 478,
+          "total_tokens": 939,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00107125,
+        "inputHash": "9dd416b63b6c16f90df660c97f0f690939441bdb063967fff70e49239ef73530",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:10:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9jNwyygyluCDsU9Cck36MvrN5F",
+        "result": {
+          "question": "Où et à quelle heure décident-elles de se retrouver ?",
+          "choices": [
+            "Devant l’entrée de la bibliothèque à 17 h 15.",
+            "À l’intérieur de la bibliothèque, près du comptoir, à 17 h 15.",
+            "Devant le café près de l’école, juste après le cours, vers 17 h 15.",
+            "Devant l’entrée de la bibliothèque à 18 h."
+          ],
+          "correctIndex": 0,
+          "explanation": "La deuxième locutrice conclut : « Alors retrouvons-nous à la bibliothèque. Je t’attendrai devant l’entrée à dix-sept heures quinze. » Le lieu est donc devant l’entrée de la bibliothèque, et l’heure précise est 17 h 15.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Confond l’endroit exact : elles se donnent rendez-vous devant l’entrée, pas à l’intérieur de la bibliothèque."
+            },
+            {
+              "index": 2,
+              "reason": "Prend le café comme lieu de rendez-vous et suppose qu’elles se voient juste après le cours, alors que le café est fermé et qu’une heure précise est fixée."
+            },
+            {
+              "index": 3,
+              "reason": "Garde le bon lieu mais décale l’horaire en le rapprochant de la fermeture (20 h), au lieu de 17 h 15 mentionné dans l’enregistrement."
+            }
+          ],
+          "design": "Contraste précis entre le lieu du rendez-vous (devant l’entrée de la bibliothèque et non au café ou à l’intérieur) et l’horaire exact (17 h 15, distinct de l’idée d’« après le cours » ou d’une heure plus tardive)."
+        },
+        "usage": {
+          "prompt_tokens": 1160,
+          "completion_tokens": 722,
+          "total_tokens": 1882,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 379,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00867,
+        "inputHash": "5615f4220d610d346e8cae4e63326ff261e09192ba12b2e0275540bca15aa95f",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:10:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 11,
@@ -4295,7 +4728,231 @@
     },
     {
       "number": 26,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "287a4a5eb03651cf9a105b3c9c0e07501aac8bd80a0fae9de37136edf7cdd1fe",
+      "imageHash": null,
+      "question": {
+        "number": 26,
+        "kind": "interview",
+        "question": "Selon la libraire, que devient concrètement l’accès aux livres qui ne sont plus exposés en rayon ?",
+        "options": [
+          "Ils restent disponibles sur commande, souvent livrés dès le lendemain.",
+          "Ils ne sont plus proposés qu’à travers le site internet de la librairie.",
+          "Ils sont remplacés chaque saison par une nouvelle sélection définitivement différente.",
+          "Ils sont stockés en réserve et remis en rayon seulement lors de promotions."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La libraire explique clairement que les livres qui ne sont plus exposés peuvent toujours être commandés, souvent livrés dès le lendemain. Cela répond précisément à la question sur l'accès concret à ces livres. B : Quelqu’un pourrait croire que l’accès passe uniquement par le site internet, car la commande évoque un processus à distance. Cependant, la libraire ne mentionne pas de restriction au site internet, seulement la possibilité de commander, ce qui peut aussi se faire en magasin. C : On pourrait penser que les livres sont remplacés chaque saison par une sélection différente, car la libraire parle de renouveler la présentation. Mais elle précise que les autres livres ne sont pas supprimés, ils restent disponibles sur commande. D : Quelqu’un pourrait croire que les livres sont stockés en réserve et remis en rayon lors de promotions, car ils ne sont plus exposés. Mais la libraire ne mentionne pas de stockage en réserve ni de remise en rayon lors de promotions, seulement la commande rapide.",
+        "transcript": "Question 26.\nVous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?\nPas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité.\nSelon la libraire, que devient concrètement l’accès aux livres qui ne sont plus exposés en rayon ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 26."
+          },
+          {
+            "voice": "male",
+            "text": "Vous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?"
+          },
+          {
+            "voice": "female",
+            "text": "Pas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité."
+          },
+          {
+            "voice": "female",
+            "text": "Selon la libraire, que devient concrètement l’accès aux livres qui ne sont plus exposés en rayon ?"
+          }
+        ],
+        "audio": "q-26.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 66
+      },
+      "contentHash": "5a004ccc156fe9ae8b6258bf97e791ca85214793ed31f7ce5fd89896ad1cbab8",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekt9rbtPUovsoaP86g888Sgm0GYuO",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "nous pouvons les commander, souvent pour le lendemain"
+              ],
+              "reason": "La libraire explique clairement que les livres qui ne sont plus exposés peuvent toujours être commandés, souvent livrés dès le lendemain. Cela répond précisément à la question sur l'accès concret à ces livres."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "nous pouvons les commander, souvent pour le lendemain"
+              ],
+              "reason": "Quelqu’un pourrait croire que l’accès passe uniquement par le site internet, car la commande évoque un processus à distance. Cependant, la libraire ne mentionne pas de restriction au site internet, seulement la possibilité de commander, ce qui peut aussi se faire en magasin.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "nous accumulions des titres qui restaient des mois sur les étagères",
+                "nous avons choisi de mieux présenter quelques collections"
+              ],
+              "reason": "On pourrait penser que les livres sont remplacés chaque saison par une sélection différente, car la libraire parle de renouveler la présentation. Mais elle précise que les autres livres ne sont pas supprimés, ils restent disponibles sur commande.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "nous pouvons les commander, souvent pour le lendemain"
+              ],
+              "reason": "Quelqu’un pourrait croire que les livres sont stockés en réserve et remis en rayon lors de promotions, car ils ne sont plus exposés. Mais la libraire ne mentionne pas de stockage en réserve ni de remise en rayon lors de promotions, seulement la commande rapide.",
+              "misunderstanding": "condition_swap"
+            }
+          ],
+          "summary": "La bonne réponse est que les livres non exposés restent disponibles sur commande, souvent livrés dès le lendemain, comme l’indique explicitement la libraire."
+        },
+        "usage": {
+          "prompt_tokens": 698,
+          "completion_tokens": 423,
+          "total_tokens": 1121,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00478,
+        "inputHash": "a07ec6ad243f767bfed2503d1dd92a3e76a78eebd95b735b729f3ab0340dd1a7",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:26:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9rgEgxl4budRfKZS9JNIZGUSKZ",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.6,
+            0.15,
+            0.05,
+            0.2
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Most natural bookstore practice: keeping non-displayed titles available on order (phrase ‘restent disponibles sur commande’ fits common wording)."
+            },
+            {
+              "option": 1,
+              "cue": "Claims that access is only via the website is more restrictive and less likely phrased as the concrete outcome by a bookseller."
+            },
+            {
+              "option": 2,
+              "cue": "Seasonal replacement presented as ‘définitivement différente’ is extreme and unlikely to be stated as the concrete fate of unshelved books."
+            },
+            {
+              "option": 3,
+              "cue": "Storage in reserve and reappearance only for promotions is possible but less generally phrased than simple ‘available on order’."
+            }
+          ],
+          "reason": "I have no recording or transcript, so I must infer from typical bookstore practices and wording. The safest, most natural answer is that unshelved books remain obtainable on request/order — that is a common concrete outcome and matches the phrasing of option 0. The other choices are more restrictive or extreme; without the audio I cannot be certain, so probabilities reflect residual uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 461,
+          "completion_tokens": 445,
+          "total_tokens": 906,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00100525,
+        "inputHash": "c34a9f6b3be5f55ebabf7f9113426643266ab448f84c1ceff25302831b76869d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:26:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9kLGnDG4jpPYbYW23H7kkU1Yg1",
+        "result": {
+          "question": "Selon la libraire, que devient concrètement l’accès aux livres qui ne sont plus exposés en rayon ?",
+          "choices": [
+            "Ils restent disponibles sur commande, souvent livrés dès le lendemain.",
+            "Ils sont stockés en réserve et remis en rayon seulement lors de promotions.",
+            "Ils ne sont plus proposés qu’à travers le site internet de la librairie.",
+            "Ils sont remplacés chaque saison par une nouvelle sélection définitivement différente."
+          ],
+          "correctIndex": 0,
+          "explanation": "La libraire précise que les livres retirés des étagères ne sont pas supprimés : elle peut les commander, souvent pour le lendemain, et insiste sur la nécessité d’expliquer cette possibilité aux clients. Elle ne parle ni de stockage en réserve pour les promotions, ni d’une exclusivité en ligne, ni d’un remplacement saisonnier définitif de l’offre.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Confond la réduction de l’exposition en rayon avec un simple stockage en réserve lié à des promotions, alors que la libraire parle d’une commande rapide plutôt que de remise en rayon différée."
+            },
+            {
+              "index": 2,
+              "reason": "Transforme la possibilité de commander les titres en une bascule vers une offre uniquement en ligne, ce que la libraire ne mentionne jamais."
+            },
+            {
+              "index": 3,
+              "reason": "Présente la sélection comme saisonnière et définitivement renouvelée, alors que la libraire insiste sur le maintien de la diversité via la commande des titres non exposés."
+            }
+          ],
+          "design": "Focalisation sur le sort précis des titres retirés du rayon, en opposant commande rapide, stock en réserve, bascule en ligne et rotation saisonnière."
+        },
+        "usage": {
+          "prompt_tokens": 1374,
+          "completion_tokens": 507,
+          "total_tokens": 1881,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 163,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0067875,
+        "inputHash": "fc4aaeb5635eb1f847531009570569c4852079a6044e48ab6d2039aba28ac4fd",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:26:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 27,
@@ -4966,11 +5623,427 @@
     },
     {
       "number": 30,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "92dd846c856b5f0585d4428dc80290e04b791b68b922841bc43334378c2f29f0",
+      "imageHash": null,
+      "question": {
+        "number": 30,
+        "kind": "interview",
+        "question": "Quelle conception de la conservation du patrimoine l'architecte défend-il ?",
+        "options": [
+          "Préserver les éléments porteurs de sens tout en documentant les transformations et en acceptant de nouveaux usages.",
+          "Donner la priorité à toute fonction rentable, même si elle efface les marques du passé.",
+          "Reconstruire à neuf en imitant le style ancien sans conserver les traces réelles.",
+          "Figer intégralement les bâtiments dans leur état d’origine."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L'architecte insiste sur l'importance de préserver les éléments porteurs de sens (portes, charpente, traces du passé), tout en documentant les transformations et en acceptant de nouveaux usages (salle de spectacles). Il rejette l'idée de figer le bâtiment ou de tout sacrifier à la rentabilité. B : Quelqu'un pourrait croire que l'architecte privilégie la rentabilité ou la nouvelle fonction, car il accepte la transformation en salle de spectacles. Cependant, il précise qu'il ne faut pas effacer les éléments qui permettent de comprendre le passé, ce qui contredit l'idée de donner la priorité à la rentabilité au détriment du patrimoine. C : On pourrait penser que l'architecte accepte de reconstruire à neuf en imitant l'ancien, car il n'exige pas de tout figer. Mais il insiste sur la nécessité de préserver les éléments authentiques et de documenter les transformations, pas de tout remplacer par du neuf. D : Certains pourraient croire qu'il faut tout figer dans l'état d'origine, mais l'architecte rejette explicitement cette idée en disant que ce n'est pas nécessaire d'immobiliser chaque détail.",
+        "transcript": "Question 30.\nL'ancienne gare de marchandises va devenir une salle de spectacles. Est-ce encore une forme de conservation du patrimoine ?\nOui, si nous savons ce que nous cherchons à transmettre. Les grandes portes, la charpente et les traces laissées par les anciennes activités racontent une histoire qu'il faut rendre lisible. Mais garder un bâtiment vide n'est pas la seule manière de la préserver. Une salle fréquentée peut lui donner une nouvelle place dans la ville. L'essentiel est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son passé. La conservation n'exige pas d'immobiliser chaque détail pour toujours.\nQuelle conception de la conservation du patrimoine l'architecte défend-il ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 30."
+          },
+          {
+            "voice": "male",
+            "text": "L'ancienne gare de marchandises va devenir une salle de spectacles. Est-ce encore une forme de conservation du patrimoine ?"
+          },
+          {
+            "voice": "female",
+            "text": "Oui, si nous savons ce que nous cherchons à transmettre. Les grandes portes, la charpente et les traces laissées par les anciennes activités racontent une histoire qu'il faut rendre lisible. Mais garder un bâtiment vide n'est pas la seule manière de la préserver. Une salle fréquentée peut lui donner une nouvelle place dans la ville. L'essentiel est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son passé. La conservation n'exige pas d'immobiliser chaque détail pour toujours."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle conception de la conservation du patrimoine l'architecte défend-il ?"
+          }
+        ],
+        "audio": "q-30.mp3",
+        "audioSeconds": 44.254,
+        "slotSeconds": 71
+      },
+      "contentHash": "57edd438bfa091d479a996de94048c81a4346879482726af36eaf054d75d5b7a",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksjTuh6hiQai95sgzdtliwm5Uhoc",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les grandes portes, la charpente et les traces laissées par les anciennes activités racontent une histoire qu'il faut rendre lisible.",
+                "L'essentiel est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son passé.",
+                "La conservation n'exige pas d'immobiliser chaque détail pour toujours."
+              ],
+              "reason": "L'architecte insiste sur l'importance de préserver les éléments porteurs de sens (portes, charpente, traces du passé), tout en documentant les transformations et en acceptant de nouveaux usages (salle de spectacles). Il rejette l'idée de figer le bâtiment ou de tout sacrifier à la rentabilité."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Une salle fréquentée peut lui donner une nouvelle place dans la ville."
+              ],
+              "reason": "Quelqu'un pourrait croire que l'architecte privilégie la rentabilité ou la nouvelle fonction, car il accepte la transformation en salle de spectacles. Cependant, il précise qu'il ne faut pas effacer les éléments qui permettent de comprendre le passé, ce qui contredit l'idée de donner la priorité à la rentabilité au détriment du patrimoine.",
+              "misunderstanding": "condition_cause_result"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La conservation n'exige pas d'immobiliser chaque détail pour toujours."
+              ],
+              "reason": "On pourrait penser que l'architecte accepte de reconstruire à neuf en imitant l'ancien, car il n'exige pas de tout figer. Mais il insiste sur la nécessité de préserver les éléments authentiques et de documenter les transformations, pas de tout remplacer par du neuf.",
+              "misunderstanding": "scope_qualification"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La conservation n'exige pas d'immobiliser chaque détail pour toujours."
+              ],
+              "reason": "Certains pourraient croire qu'il faut tout figer dans l'état d'origine, mais l'architecte rejette explicitement cette idée en disant que ce n'est pas nécessaire d'immobiliser chaque détail.",
+              "misunderstanding": "scope_qualification"
+            }
+          ],
+          "summary": "L'architecte défend une conservation du patrimoine qui préserve les éléments porteurs de sens, documente les transformations et accepte de nouveaux usages, sans figer intégralement le bâtiment ni sacrifier son histoire à la rentabilité."
+        },
+        "usage": {
+          "prompt_tokens": 709,
+          "completion_tokens": 537,
+          "total_tokens": 1246,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005714,
+        "inputHash": "b92b7ee443afbec24e8a50e6b43cb1da635ff61233f11816c7ce05f01a4ee41f",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:30:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksjTOw4p9KSb37DmqdjZNVqs7NsP",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.72,
+            0.09,
+            0.09,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Formulation équilibrée et nuancée (préserver le sens, documenter les transformations, accepter de nouveaux usages) correspond à une position d’architecte contemporain; les autres options sont extrêmes ou caricaturales."
+            }
+          ],
+          "reason": "Without the recording, option 1 (index 0) is the most plausible: it expresses a balanced, professional conservation philosophy combining preservation, documentation and adaptive reuse, which is a common stance for architects. The other choices are extreme (prioritizing profit, full reconstruction as imitation, or complete freezing) and less likely to be defended as the architect’s main conception. My confidence is not certain because the missing audio could favor a different nuance, but the wording asymmetry gives option 0 a clear advantage."
+        },
+        "usage": {
+          "prompt_tokens": 469,
+          "completion_tokens": 327,
+          "total_tokens": 796,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 128,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00077125,
+        "inputHash": "12798e3ba99b5efb30dec4b269cedc894c6a9e138f58a3aefae3205265105a9a",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:30:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksjIp62BForOJEAhdh5iuFCw89Er",
+        "result": {
+          "question": "Quelle conception de la conservation du patrimoine l'architecte défend-il ?",
+          "choices": [
+            "Figer intégralement les bâtiments dans leur état d’origine.",
+            "Reconstruire à neuf en imitant le style ancien sans conserver les traces réelles.",
+            "Préserver les éléments porteurs de sens tout en documentant les transformations et en acceptant de nouveaux usages.",
+            "Donner la priorité à toute fonction rentable, même si elle efface les marques du passé."
+          ],
+          "correctIndex": 2,
+          "explanation": "L’architecte explique que la conservation ne consiste pas à « immobiliser chaque détail pour toujours » ni à garder un bâtiment vide, mais à rendre lisible l’histoire du lieu en maintenant les grandes portes, la charpente et les traces des anciennes activités, tout en acceptant qu’il devienne, par exemple, une salle de spectacles. Il insiste aussi sur la nécessité de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre le passé. Cela correspond à l’idée de préserver les éléments significatifs tout en accompagnant un nouvel usage vivant du bâtiment.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Cette option contredit directement l’affirmation selon laquelle la conservation n’exige pas d’« immobiliser chaque détail pour toujours » et que garder un bâtiment vide n’est pas la seule solution."
+            },
+            {
+              "index": 1,
+              "reason": "L’architecte ne propose pas de reconstruire en pastiche : il veut garder les traces matérielles des anciennes activités, pas seulement imiter un style sans conserver les éléments authentiques."
+            },
+            {
+              "index": 3,
+              "reason": "Même si l’architecte accepte un nouvel usage (une salle de spectacles), il précise qu’il ne faut pas effacer les éléments permettant de comprendre le passé, contrairement à une approche qui sacrifierait ces traces à la seule rentabilité."
+            }
+          ],
+          "design": "Contraste entre une conservation figée ou purement formelle et une conservation qui maintient les traces matérielles du passé tout en assumant un nouvel usage documenté du bâtiment."
+        },
+        "usage": {
+          "prompt_tokens": 1096,
+          "completion_tokens": 720,
+          "total_tokens": 1816,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 297,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00857,
+        "inputHash": "a64c2201ddbb5fbfe455511e72d6321933df7f662b15d7aea12d6ac91ceec599",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:30:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 31,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "2710b1e0b15655628efba171e4ba41995abf37111c6b811c77a6d21564c47621",
+      "imageHash": null,
+      "question": {
+        "number": 31,
+        "kind": "academic-monologue",
+        "question": "Quelle distinction précise la conférencière demande-t-elle d’opérer lorsqu’elle évoque les quartiers plus arborés ?",
+        "options": [
+          "Entre des quartiers très végétalisés et ceux qui ne disposent d’aucun arbre.",
+          "Entre la corrélation observée et la causalité réellement démontrée.",
+          "Entre l’effet supposé des arbres et celui d’autres facteurs comme la largeur des rues ou les matériaux.",
+          "Entre des variations ponctuelles de température et une tendance générale au réchauffement."
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : La conférencière insiste explicitement sur la nécessité de distinguer la corrélation observée (présence d’arbres et températures plus basses) de la causalité démontrée. C’est la distinction précise qu’elle demande d’opérer. A : Quelqu’un pourrait croire que la distinction porte sur la quantité d’arbres (quartiers très végétalisés vs. sans arbres), car la conférencière mentionne la différence de température selon la présence d’arbres. Cependant, elle ne demande pas d’opérer cette distinction précise, mais de réfléchir à la nature du lien entre arbres et température. C : Il est tentant de penser que la distinction porte sur l’effet des arbres par rapport à d’autres facteurs, car la conférencière mentionne d’autres influences. Cependant, elle ne demande pas de distinguer entre ces effets, mais bien entre corrélation et causalité. D : On pourrait croire que la distinction concerne la différence entre variations ponctuelles et tendance générale, car il est question de températures plus basses. Toutefois, la conférencière ne demande pas d’opérer cette distinction, mais bien celle entre corrélation et causalité.",
+        "transcript": "Question 31.\nVous écoutez un extrait de conférence sur les îlots de chaleur urbains. Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses pendant l'été. Cette association ne signifie pas pour autant que chaque arbre planté produira automatiquement la même baisse de température. La largeur des rues, les matériaux des façades, le vent et l'accès à l'eau influencent également les mesures. Pour comprendre les mécanismes, il faut comparer les lieux avec prudence, suivre leur évolution et distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer. Une politique de végétalisation peut être utile, mais son évaluation demande plus qu'un chiffre isolé.\nQuelle distinction précise la conférencière demande-t-elle d’opérer lorsqu’elle évoque les quartiers plus arborés ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 31."
+          },
+          {
+            "voice": "female",
+            "text": "Vous écoutez un extrait de conférence sur les îlots de chaleur urbains. Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses pendant l'été. Cette association ne signifie pas pour autant que chaque arbre planté produira automatiquement la même baisse de température. La largeur des rues, les matériaux des façades, le vent et l'accès à l'eau influencent également les mesures. Pour comprendre les mécanismes, il faut comparer les lieux avec prudence, suivre leur évolution et distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer. Une politique de végétalisation peut être utile, mais son évaluation demande plus qu'un chiffre isolé."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle distinction précise la conférencière demande-t-elle d’opérer lorsqu’elle évoque les quartiers plus arborés ?"
+          }
+        ],
+        "audio": "q-31.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 71
+      },
+      "contentHash": "c5cbb84a71e7ae7d544b34f763265af344e36b6000900a7eb9d9f2ac54bef95f",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksjVa9nYDorlW9aEkZPRk1xQ7Udf",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses"
+              ],
+              "reason": "Quelqu’un pourrait croire que la distinction porte sur la quantité d’arbres (quartiers très végétalisés vs. sans arbres), car la conférencière mentionne la différence de température selon la présence d’arbres. Cependant, elle ne demande pas d’opérer cette distinction précise, mais de réfléchir à la nature du lien entre arbres et température.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer"
+              ],
+              "reason": "La conférencière insiste explicitement sur la nécessité de distinguer la corrélation observée (présence d’arbres et températures plus basses) de la causalité démontrée. C’est la distinction précise qu’elle demande d’opérer."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La largeur des rues, les matériaux des façades, le vent et l'accès à l'eau influencent également les mesures"
+              ],
+              "reason": "Il est tentant de penser que la distinction porte sur l’effet des arbres par rapport à d’autres facteurs, car la conférencière mentionne d’autres influences. Cependant, elle ne demande pas de distinguer entre ces effets, mais bien entre corrélation et causalité.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "présentent souvent des températures plus basses pendant l'été"
+              ],
+              "reason": "On pourrait croire que la distinction concerne la différence entre variations ponctuelles et tendance générale, car il est question de températures plus basses. Toutefois, la conférencière ne demande pas d’opérer cette distinction, mais bien celle entre corrélation et causalité.",
+              "misunderstanding": "scope_swap"
+            }
+          ],
+          "summary": "La conférencière demande explicitement de distinguer la corrélation observée de la causalité démontrée, et non de comparer des quartiers selon la quantité d’arbres, d’opposer l’effet des arbres à d’autres facteurs, ni de différencier variations ponctuelles et tendances générales."
+        },
+        "usage": {
+          "prompt_tokens": 730,
+          "completion_tokens": 515,
+          "total_tokens": 1245,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00558,
+        "inputHash": "b80815abc041b8a8bd4959c08b643d0846891fb2eec7ac10d682b51ee5440ffc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:31:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksjVo5ALwzJFbTvy8wWQBkgSQcY1",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.05,
+            0.1,
+            0.75,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "mentions distinguishing the effect of trees from other confounding factors (street width, materials)"
+            }
+          ],
+          "reason": "Without the recording I cannot know what the conférencière actually said. However, the question asks what precise distinction she requests when évoquant 'les quartiers plus arborés' — that phrasing commonly prompts a caveat distinguishing the direct effect of trees from other associated factors (confounders) such as street width or surface materials. The other choices are plausible but either more extreme (no trees at all), more general (correlation vs causation, which is similar but less specific), or on a different topic (temperature trends). Given the wording, option 3 (index 2) best matches a likely nuance. Confidence is limited because multiple alternatives remain possible and the actual recording could support a different nuance."
+        },
+        "usage": {
+          "prompt_tokens": 477,
+          "completion_tokens": 431,
+          "total_tokens": 908,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00098125,
+        "inputHash": "c68dfdd7e602e80cd63843074d225fc781da1fe3540556f27b5ec8a83bcb4cd0",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:31:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksjJPDhs4t0INwRbgDP4K2XjXmvy",
+        "result": {
+          "question": "Quelle distinction précise la conférencière demande-t-elle d’opérer lorsqu’elle évoque les quartiers plus arborés ?",
+          "choices": [
+            "Entre la corrélation observée et la causalité réellement démontrée.",
+            "Entre des variations ponctuelles de température et une tendance générale au réchauffement.",
+            "Entre l’effet supposé des arbres et celui d’autres facteurs comme la largeur des rues ou les matériaux.",
+            "Entre des quartiers très végétalisés et ceux qui ne disposent d’aucun arbre."
+          ],
+          "correctIndex": 0,
+          "explanation": "La conférencière insiste sur le fait que les quartiers avec plus d’arbres présentent « souvent » des températures plus basses, mais que cette association ne prouve pas qu’un arbre cause automatiquement la même baisse. Elle conclut qu’il faut « distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer ». La distinction demandée porte donc explicitement sur corrélation versus causalité démontrée, et non sur un autre type d’opposition.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Le passage parle de différences de température entre quartiers, mais ne demande pas de distinguer entre des variations ponctuelles et une tendance globale au réchauffement ; cette opposition n’est jamais formulée."
+            },
+            {
+              "index": 2,
+              "reason": "La conférencière cite d’autres facteurs (largeur des rues, matériaux, vent, eau) comme éléments qui influencent aussi les mesures, mais elle ne présente pas comme distinction centrale l’opposition entre effet des arbres et effet des autres facteurs ; le contraste clé reste corrélation versus causalité démontrée."
+            },
+            {
+              "index": 3,
+              "reason": "Elle compare des quartiers plus ou moins arborés, sans exiger une coupure nette entre quartiers « très végétalisés » et ceux « sans aucun arbre » ; la distinction demandée porte sur le type de lien statistique, pas sur des catégories extrêmes de quartiers."
+            }
+          ],
+          "design": "Contraste explicite entre corrélation constatée et relation causale démontrée, tel que formulé à la fin de l’extrait."
+        },
+        "usage": {
+          "prompt_tokens": 1115,
+          "completion_tokens": 850,
+          "total_tokens": 1965,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 408,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00989375,
+        "inputHash": "0c8889bdcb4ba38e9b016ef4671ae2a216154c6ad132a1a736bcf3bb20d616d0",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:31:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 32,
@@ -5846,11 +6919,429 @@
     },
     {
       "number": 37,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "1ec020c017d9532556e718287b12b5cbefa603e912fa7e329bb3c4e2df043156",
+      "imageHash": null,
+      "question": {
+        "number": 37,
+        "kind": "interview",
+        "question": "Selon l’historienne, à quel moment les contradictions entre récits deviennent-elles vraiment intéressantes à conserver ?",
+        "options": [
+          "Quand elles portent sur un même détail factuel, comme une date ou un chiffre précis.",
+          "Quand on peut les analyser et retracer l’origine de chaque point de vue.",
+          "Quand elles disent toutes exactement la même chose que les archives officielles.",
+          "Quand il est impossible de trancher laquelle correspond le mieux à la réalité des faits."
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : C'est exactement ce que dit l'historienne : les contradictions sont intéressantes à conserver lorsqu'on peut les analyser et retracer l'origine de chaque point de vue. A : Quelqu'un pourrait croire que les contradictions sont intéressantes lorsqu'elles concernent un détail factuel, car l'historienne mentionne la vérification de faits précis. Cependant, elle explique que ce n'est pas là que les contradictions deviennent intéressantes à conserver, mais plutôt lorsqu'on peut en analyser l'origine. C : On pourrait croire que seules les versions identiques aux archives officielles sont retenues, car l'historienne parle de comparer aux documents d'époque. Mais elle précise que ce n'est pas le cas, et que toutes les affirmations ne se valent pas. D : Quelqu'un pourrait penser que les contradictions sont intéressantes lorsqu'il est impossible de savoir laquelle est vraie, mais l'historienne précise que toutes les affirmations ne se valent pas et qu'il s'agit d'expliquer leur origine, pas de rester dans l'incertitude.",
+        "transcript": "Question 37.\nVous avez recueilli des récits très différents sur la fermeture de l'ancien port. Comment décidez-vous lequel raconter dans votre exposition ?\nNous vérifions d'abord ce qui peut l'être : les décisions municipales, les dates et le nombre de travailleurs concernés. Mais les différences entre les souvenirs ne proviennent pas toujours d'une erreur. Un docker, un commerçant et une habitante qui vivait près des quais n'ont pas perçu l'événement de la même manière. Leurs témoignages montrent ce qu'ils pouvaient observer, ce qu'ils craignaient et ce qu'ils ont retenu. Nous conservons donc le contexte des entretiens et nous les comparons aux documents d'époque. Cela ne signifie pas que toutes les affirmations se valent. Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine.\nSelon l’historienne, à quel moment les contradictions entre récits deviennent-elles vraiment intéressantes à conserver ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 37."
+          },
+          {
+            "voice": "male",
+            "text": "Vous avez recueilli des récits très différents sur la fermeture de l'ancien port. Comment décidez-vous lequel raconter dans votre exposition ?"
+          },
+          {
+            "voice": "female",
+            "text": "Nous vérifions d'abord ce qui peut l'être : les décisions municipales, les dates et le nombre de travailleurs concernés. Mais les différences entre les souvenirs ne proviennent pas toujours d'une erreur. Un docker, un commerçant et une habitante qui vivait près des quais n'ont pas perçu l'événement de la même manière. Leurs témoignages montrent ce qu'ils pouvaient observer, ce qu'ils craignaient et ce qu'ils ont retenu. Nous conservons donc le contexte des entretiens et nous les comparons aux documents d'époque. Cela ne signifie pas que toutes les affirmations se valent. Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l’historienne, à quel moment les contradictions entre récits deviennent-elles vraiment intéressantes à conserver ?"
+          }
+        ],
+        "audio": "q-37.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 80
+      },
+      "contentHash": "782be671922d0dc59af9228e7071e67df7ea57c4d216ffc4930489e7c28b4e81",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekt9rssxe7S3idYYZxK0DnFj5ia33",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Nous vérifions d'abord ce qui peut l'être : les décisions municipales, les dates et le nombre de travailleurs concernés."
+              ],
+              "reason": "Quelqu'un pourrait croire que les contradictions sont intéressantes lorsqu'elles concernent un détail factuel, car l'historienne mentionne la vérification de faits précis. Cependant, elle explique que ce n'est pas là que les contradictions deviennent intéressantes à conserver, mais plutôt lorsqu'on peut en analyser l'origine.",
+              "misunderstanding": "confusion entre la vérification des faits et l'intérêt des contradictions."
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine."
+              ],
+              "reason": "C'est exactement ce que dit l'historienne : les contradictions sont intéressantes à conserver lorsqu'on peut les analyser et retracer l'origine de chaque point de vue."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Cela ne signifie pas que toutes les affirmations se valent."
+              ],
+              "reason": "On pourrait croire que seules les versions identiques aux archives officielles sont retenues, car l'historienne parle de comparer aux documents d'époque. Mais elle précise que ce n'est pas le cas, et que toutes les affirmations ne se valent pas.",
+              "misunderstanding": "confusion entre la comparaison aux archives et la sélection des récits."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Cela ne signifie pas que toutes les affirmations se valent."
+              ],
+              "reason": "Quelqu'un pourrait penser que les contradictions sont intéressantes lorsqu'il est impossible de savoir laquelle est vraie, mais l'historienne précise que toutes les affirmations ne se valent pas et qu'il s'agit d'expliquer leur origine, pas de rester dans l'incertitude.",
+              "misunderstanding": "confusion entre l'intérêt de l'analyse des contradictions et l'impossibilité de trancher."
+            }
+          ],
+          "summary": "La bonne réponse est l’option 2 : selon l’historienne, les contradictions deviennent intéressantes à conserver lorsqu’on peut les analyser et expliquer leur origine. Les autres options résultent d’une confusion entre la vérification des faits, la comparaison aux archives ou l’incertitude sur la réalité, qui sont toutes explicitement nuancées ou contredites dans le témoignage."
+        },
+        "usage": {
+          "prompt_tokens": 747,
+          "completion_tokens": 528,
+          "total_tokens": 1275,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005718,
+        "inputHash": "b65242641537e9487adb3ba52901755a296ee0c2b31be932e913945a01ea137c",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:37:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9riMNE3prJg3Gcca9CVGJ4Xio4",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.1,
+            0.7,
+            0.05,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 1,
+              "cue": "L'option met l'accent sur l'analyse et la reconstitution des origines des points de vue, ce qui correspond logiquement à l'intérêt historique pour la diversité des récits."
+            }
+          ],
+          "reason": "On ne dispose pas de l'enregistrement ni du contexte précis, donc il s'agit d'une conjecture. Cependant, l'affirmation selon laquelle les contradictions valent la peine d'être conservées quand on peut analyser et retracer l'origine de chaque point de vue est la plus crédible d'un point de vue méthodologique pour une historienne. Les autres options sont soit trop absolues (comme «elles disent toutes exactement la même chose»), soit traitent d'un intérêt purement formel ou d'une impasse épistémologique («impossible de trancher»), qui paraissent moins probables comme position explicitée par une historienne. Cela crée une asymétrie de formulation justifiant le choix, mais l'absence de l'énoncé exact empêche une certitude totale."
+        },
+        "usage": {
+          "prompt_tokens": 470,
+          "completion_tokens": 480,
+          "total_tokens": 950,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0010775,
+        "inputHash": "501d6375cdef8480f242656c62db4093672d86071a5125424a55d114e1746e49",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:37:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9h27qJtjseC5HEgNdVKAX7BqCo",
+        "result": {
+          "question": "Selon l’historienne, à quel moment les contradictions entre récits deviennent-elles vraiment intéressantes à conserver ?",
+          "choices": [
+            "Quand on peut les analyser et retracer l’origine de chaque point de vue.",
+            "Quand elles disent toutes exactement la même chose que les archives officielles.",
+            "Quand elles portent sur un même détail factuel, comme une date ou un chiffre précis.",
+            "Quand il est impossible de trancher laquelle correspond le mieux à la réalité des faits."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’historienne conclut : « Les contradictions deviennent intéressantes lorsqu'on les examine et qu'on peut expliquer leur origine. » Pour elle, c’est le travail d’analyse permettant de comprendre d’où viennent les différents points de vue qui rend ces divergences précieuses et non problématiques. Les autres réponses proposent des conditions (accord parfait avec les archives, focalisation sur un détail, impossibilité de trancher) qui ne sont jamais mentionnées et vont à l’encontre de sa démarche de croisement et d’interprétation des sources.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Elle explique au contraire qu’on compare les témoignages aux documents d’époque pour les contextualiser, pas pour ne garder que ce qui répète exactement les archives. Les contradictions ne deviennent pas intéressantes uniquement lorsqu’elles disparaissent."
+            },
+            {
+              "index": 2,
+              "reason": "L’historienne distingue justement entre éléments factuels vérifiables (dates, décisions, nombres) et différences de perception. Elle ne dit pas que les contradictions n’ont d’intérêt que lorsqu’elles portent sur un détail factuel précis."
+            },
+            {
+              "index": 3,
+              "reason": "Elle ne présente pas l’impossibilité de trancher comme un critère d’intérêt ; au contraire, elle affirme qu’on peut expliquer l’origine des contradictions en les examinant, ce qui suppose une capacité à éclairer, au moins en partie, la réalité des faits."
+            }
+          ],
+          "design": "La question se concentre sur la condition précise (« lorsqu’on les examine et qu’on peut expliquer leur origine ») à laquelle, d’après l’enregistrement, les contradictions deviennent intéressantes. Les distracteurs reprennent d’autres interprétations plausibles du traitement des désaccords (recherche de concordance avec les archives, centrage sur les détails factuels, impossibilité de trancher) sans être soutenues par le passage."
+        },
+        "usage": {
+          "prompt_tokens": 1934,
+          "completion_tokens": 762,
+          "total_tokens": 2696,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 271,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0100375,
+        "inputHash": "c071abea9773d6b15e15a4e2ef64f816a14c7f41acf5ad85430b1b11cbf2f5b1",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:37:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 38,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "2fed9bc1191b9832744fca03dab5cf9efbaf158aad81126fc0c3b05518f935b4",
+      "imageHash": null,
+      "question": {
+        "number": 38,
+        "kind": "public-lecture",
+        "question": "D’après l’intervenant, sur quels aspects du tourisme les responsables devraient-ils avant tout délibérer avec la communauté locale ?",
+        "options": [
+          "Sur les périodes de fréquentation, les modes de déplacement et les formes d’accueil à privilégier.",
+          "Sur les types de commerces touristiques à attirer, les loyers des locations saisonnières et les plafonds de nuitées.",
+          "Sur le nombre de logements à réserver aux habitants, la limitation des photos diffusées et les horaires d’ouverture des sites.",
+          "Sur la répartition des bénéfices de la promotion, les emplois créés et les compensations pour les nuisances."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L’intervenant insiste explicitement sur la nécessité de délibérer avec la communauté locale concernant les périodes de fréquentation, les modes de déplacement et les formes d’accueil à privilégier. Ces éléments sont cités mot à mot dans l’extrait. B : Cette option reprend des conséquences évoquées (logements, commerces), mais l’intervenant ne propose pas d’en discuter les types de commerces à attirer, les loyers ou les plafonds de nuitées avec la communauté. Il s’agit d’une extrapolation à partir de problèmes mentionnés, mais non d’aspects à délibérer selon l’intervenant. C : L’intervenant mentionne la transformation des logements, mais ne propose pas de discuter du nombre de logements à réserver aux habitants, ni de la limitation des photos ou des horaires d’ouverture. Cette option mélange des éléments évoqués (logements) avec d’autres absents du discours. D : L’intervenant critique le manque de prise en compte des conséquences économiques et sociales, mais il ne suggère pas de délibérer sur la répartition des bénéfices, les emplois ou les compensations. Cette option généralise la critique sans correspondre aux recommandations précises de l’intervenant.",
+        "transcript": "Question 38.\nVous écoutez un extrait de conférence publique sur le tourisme durable. Une photographie d'un village paisible peut susciter des milliers de visites, mais la réussite de sa diffusion transforme parfois profondément la vie locale. Les routes deviennent encombrées, certains logements se convertissent en locations temporaires et les habitants perdent des commerces nécessaires au quotidien. Les responsables ont alors tendance à célébrer la hausse des arrivées, sans toujours mesurer ce que cette affluence coûte au territoire. Il ne s'agit pas d'interdire toute visite ni de vouloir figer les villages. Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d'accueil que la communauté souhaite développer. Une destination peut être très recherchée tout en devenant moins agréable à vivre. Nous devons donc distinguer le succès d'une campagne et la qualité durable de ses conséquences.\nD’après l’intervenant, sur quels aspects du tourisme les responsables devraient-ils avant tout délibérer avec la communauté locale ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 38."
+          },
+          {
+            "voice": "female",
+            "text": "Vous écoutez un extrait de conférence publique sur le tourisme durable. Une photographie d'un village paisible peut susciter des milliers de visites, mais la réussite de sa diffusion transforme parfois profondément la vie locale. Les routes deviennent encombrées, certains logements se convertissent en locations temporaires et les habitants perdent des commerces nécessaires au quotidien. Les responsables ont alors tendance à célébrer la hausse des arrivées, sans toujours mesurer ce que cette affluence coûte au territoire. Il ne s'agit pas d'interdire toute visite ni de vouloir figer les villages. Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d'accueil que la communauté souhaite développer. Une destination peut être très recherchée tout en devenant moins agréable à vivre. Nous devons donc distinguer le succès d'une campagne et la qualité durable de ses conséquences."
+          },
+          {
+            "voice": "female",
+            "text": "D’après l’intervenant, sur quels aspects du tourisme les responsables devraient-ils avant tout délibérer avec la communauté locale ?"
+          }
+        ],
+        "audio": "q-38.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 80
+      },
+      "contentHash": "a90f067ea8ac812559cac04bfe5d5312bf42c4d2112f51175cb434ed782ee9ff",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekt9wMdxfvtEZvIT9WqA44z7RjDWu",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d'accueil que la communauté souhaite développer."
+              ],
+              "reason": "L’intervenant insiste explicitement sur la nécessité de délibérer avec la communauté locale concernant les périodes de fréquentation, les modes de déplacement et les formes d’accueil à privilégier. Ces éléments sont cités mot à mot dans l’extrait."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "certains logements se convertissent en locations temporaires et les habitants perdent des commerces nécessaires"
+              ],
+              "reason": "Cette option reprend des conséquences évoquées (logements, commerces), mais l’intervenant ne propose pas d’en discuter les types de commerces à attirer, les loyers ou les plafonds de nuitées avec la communauté. Il s’agit d’une extrapolation à partir de problèmes mentionnés, mais non d’aspects à délibérer selon l’intervenant.",
+              "misunderstanding": "confusion entre les problèmes constatés et les solutions à discuter"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "certains logements se convertissent en locations temporaires"
+              ],
+              "reason": "L’intervenant mentionne la transformation des logements, mais ne propose pas de discuter du nombre de logements à réserver aux habitants, ni de la limitation des photos ou des horaires d’ouverture. Cette option mélange des éléments évoqués (logements) avec d’autres absents du discours.",
+              "misunderstanding": "prise d’un exemple de conséquence pour une recommandation"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les responsables ont alors tendance à célébrer la hausse des arrivées, sans toujours mesurer ce que cette affluence coûte au territoire."
+              ],
+              "reason": "L’intervenant critique le manque de prise en compte des conséquences économiques et sociales, mais il ne suggère pas de délibérer sur la répartition des bénéfices, les emplois ou les compensations. Cette option généralise la critique sans correspondre aux recommandations précises de l’intervenant.",
+              "misunderstanding": "généralisation à partir d’une critique sur les conséquences économiques"
+            }
+          ],
+          "summary": "La seule option explicitement soutenue par l’extrait est la première, qui reprend mot à mot les aspects que l’intervenant recommande de discuter avec la communauté locale : périodes de fréquentation, modes de déplacement et formes d’accueil."
+        },
+        "usage": {
+          "prompt_tokens": 776,
+          "completion_tokens": 536,
+          "total_tokens": 1312,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00584,
+        "inputHash": "4e8f21d6937e50770e58e3aeb069f06699626c2320db9d26e59aacc2c5de0245",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:38:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9wSED5r5Njc5zYThKoqTdT8p1E",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.1,
+            0.05,
+            0.05,
+            0.8
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 3,
+              "cue": "This option uniquely focuses on distribution of benefits, jobs and compensation — topics that directly affect the local community and therefore are most plausibly singled out for deliberation with residents."
+            }
+          ],
+          "reason": "I have no access to the recording, so this is an informed guess based on the wording only. Options 0–2 list practical or regulatory details (timing, transport, types of commerce, housing rules, photo limits, opening hours) that might be decided administratively; option 3 alone explicitly addresses fairness and community impacts (benefit sharing, employment, nuisance compensation), which are the kinds of issues officials would arguably prioritize discussing with local residents. Because I lack the actual audio, uncertainty remains, but the community-impact framing gives option 3 a clear advantage for selection."
+        },
+        "usage": {
+          "prompt_tokens": 502,
+          "completion_tokens": 428,
+          "total_tokens": 930,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0009815,
+        "inputHash": "0584ddc56cb2c1ade2f86146501d443b6798dd97fc7930aec88de787ec60edb9",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:38:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9ndvEYco8zeXrNGC3Ww38RDQoj",
+        "result": {
+          "question": "D’après l’intervenant, sur quels aspects du tourisme les responsables devraient-ils avant tout délibérer avec la communauté locale ?",
+          "choices": [
+            "Sur les périodes de fréquentation, les modes de déplacement et les formes d’accueil à privilégier.",
+            "Sur les types de commerces touristiques à attirer, les loyers des locations saisonnières et les plafonds de nuitées.",
+            "Sur la répartition des bénéfices de la promotion, les emplois créés et les compensations pour les nuisances.",
+            "Sur le nombre de logements à réserver aux habitants, la limitation des photos diffusées et les horaires d’ouverture des sites."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’intervenant affirme qu’« Il faut plutôt réfléchir aux périodes, aux modes de déplacement et aux conditions d’accueil que la communauté souhaite développer ». Il insiste donc sur l’organisation concrète de la fréquentation (quand), des déplacements (comment) et de l’accueil (dans quelles conditions), en lien avec les préférences des habitants. Les autres options déplacent cette réflexion vers des thèmes économiques ou réglementaires qui ne sont pas formulés comme l’axe principal à débattre avec la communauté.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Cette option se focalise sur les commerces touristiques, les loyers et des plafonds de nuitées, alors que le passage mentionne seulement la perte de certains commerces comme conséquence, sans en faire le cœur de la réflexion à mener avec la communauté."
+            },
+            {
+              "index": 2,
+              "reason": "Elle met au centre la répartition des bénéfices, les emplois et des compensations financières, alors que l’intervenant oppose justement le succès d’une campagne de promotion à la qualité durable de ses effets, sans détailler un partage de gains."
+            },
+            {
+              "index": 3,
+              "reason": "Cette réponse parle de quotas de logements, de limiter les photos et de gérer les horaires d’ouverture, alors que le texte n’évoque ni quotas résidentiels ni restrictions de diffusion d’images, et ne présente pas ces points comme l’objet principal de la délibération."
+            }
+          ],
+          "design": "Focalisation sur ce qui doit être discuté avec la communauté : périodes de visite, modes de déplacement et conditions d’accueil, opposés à d’autres types de régulation ou de priorités non mises en avant dans l’enregistrement."
+        },
+        "usage": {
+          "prompt_tokens": 1452,
+          "completion_tokens": 830,
+          "total_tokens": 2282,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 348,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.010115,
+        "inputHash": "ecc2b8e3e044b80df868fa946980fcbf67a0cbed6930bb80a944a851c38122a7",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:38:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 39,

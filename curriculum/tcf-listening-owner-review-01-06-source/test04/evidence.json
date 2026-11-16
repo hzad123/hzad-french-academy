@@ -5,11 +5,204 @@
   "sourceVersion": "tcf-listening-2026-11-test04-v3",
   "test": "tcf-listening-04",
   "version": "tcf-listening-2026-11-test04-v4",
-  "paperHash": "5346f1325e05a90011065ab54b5b2d500da906be05362de0905a64dc11eb62ee",
+  "paperHash": "ae02643632d92906c40be042f8929ce1919952aa641a2b510eb69a5125ed8c75",
   "questions": [
     {
       "number": 1,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "496c771f187dd9c06fd9cb3b67e5464d9c73bd30572a0d3325e1d2d4c13e1f7f",
+      "imageHash": "58f60ee2c0edd52afe5fac399a0d9930c8d0d999fa3edb7883ffeb6a49979b07",
+      "question": {
+        "number": 1,
+        "kind": "image",
+        "question": "Quelle phrase décrit correctement la scène ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L'image montre une personne debout à côté d'une table sur laquelle elle aligne des boîtes. Il n'y a pas d'autres personnes ni d'activité de lecture visible. B : Aucune personne n'est assise ni en train de lire un roman sur l'image. La tentation vient du contexte de la médiathèque, mais l'action représentée ne correspond pas. C : Il n'y a qu'une seule personne visible, et aucune discussion devant une entrée n'est représentée. La mention de la médiathèque pourrait induire en erreur. D : La personne n'empile pas de livres sur des étagères hautes, mais aligne des boîtes sur une table. La confusion peut venir de la présence d'étagères à gauche.",
+        "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 1."
+          },
+          {
+            "voice": "female",
+            "text": "Regardez l’image et écoutez les propositions."
+          },
+          {
+            "voice": "female",
+            "text": "A. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes."
+          }
+        ],
+        "audio": "q-01.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 33,
+        "image": "q-01.svg"
+      },
+      "contentHash": "89b4ca72ce4935ebb5127f5385e40108ff12322efe3099a5f694126d5dca8df9",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksoL78GSDlTdbcb3uY42YP6brgsx",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "L'image montre une personne debout à côté d'une table sur laquelle elle aligne des boîtes. Il n'y a pas d'autres personnes ni d'activité de lecture visible."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Aucune personne n'est assise ni en train de lire un roman sur l'image. La tentation vient du contexte de la médiathèque, mais l'action représentée ne correspond pas.",
+              "misunderstanding": "contexte_médiathèque"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Il n'y a qu'une seule personne visible, et aucune discussion devant une entrée n'est représentée. La mention de la médiathèque pourrait induire en erreur.",
+              "misunderstanding": "présence_deux_personnes"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "La personne n'empile pas de livres sur des étagères hautes, mais aligne des boîtes sur une table. La confusion peut venir de la présence d'étagères à gauche.",
+              "misunderstanding": "confusion_étagères"
+            }
+          ],
+          "summary": "La seule description correcte est celle d'une personne alignant des boîtes sur une table. Les autres options sont contredites par la scène représentée."
+        },
+        "usage": {
+          "prompt_tokens": 649,
+          "completion_tokens": 329,
+          "total_tokens": 978,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00393,
+        "inputHash": "b0d289271add6dda8e7e2c3cb3171552c933f0f78215b72aa4afec21710f8edc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:1:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksoLsZFvszwse5cSrxP2JZEF27XJ",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.15,
+            0.2,
+            0.45,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [],
+          "reason": "No audio or visual input is available, so all choices remain plausible. I gave the highest probability to option 2 (Deux personnes discutent devant l’entrée de la médiathèque) because it describes a simple, externally visible social scene (two people talking outside a public building) that commonly appears in short listening/image-description items; the other options describe single-person actions or less public activities that could be less likely in a brief scene. This is a weak, inference-based preference, not evidence from the missing recording, so substantial uncertainty remains."
+        },
+        "usage": {
+          "prompt_tokens": 437,
+          "completion_tokens": 489,
+          "total_tokens": 926,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00108725,
+        "inputHash": "bea99a0afecd38a8cfae8e642e1b9550e9b8e2de3c70f5a27b8c4fcc034fcbd6",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:1:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksoGmPuURzwBdntSyoWDrdeqE34w",
+        "result": {
+          "question": "Quelle phrase décrit correctement la scène ?",
+          "choices": [
+            "Une personne aligne des boîtes sur une table.",
+            "Une personne lit un roman assise au bureau.",
+            "Une personne empile des livres sur des étagères hautes.",
+            "Deux personnes discutent devant l’entrée de la médiathèque."
+          ],
+          "correctIndex": 0,
+          "explanation": "On voit une seule personne debout devant une table, en train de disposer plusieurs boîtes ou blocs alignés ; rien n’indique qu’elle lise, qu’elle range des livres en hauteur ni qu’elle parle avec quelqu’un à l’entrée.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "La personne ne lit pas et n’est pas assise à un bureau ; elle manipule des boîtes sur une table."
+            },
+            {
+              "index": 2,
+              "reason": "Les livres ne sont pas empilés en hauteur sur les étagères ; la personne agit sur la table, pas sur le rayonnage mural."
+            },
+            {
+              "index": 3,
+              "reason": "On ne voit qu’une seule personne et aucune porte d’entrée ; il n’y a pas de scène de discussion."
+            }
+          ],
+          "design": "Sélection d’une description visuelle précise parmi quatre scènes proches se déroulant toutes dans un contexte de médiathèque."
+        },
+        "usage": {
+          "prompt_tokens": 1053,
+          "completion_tokens": 377,
+          "total_tokens": 1430,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 115,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00508625,
+        "inputHash": "08f9950dd615b7ece88e28c2fabb2c3cfd91d7a6542c4918a795a6e7271b4b11",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:1:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 2,
@@ -2156,7 +2349,213 @@
     },
     {
       "number": 15,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "243fd10321a9cb7611f215a697edad3e155542d2f4905a2fed999e88e103d14f",
+      "imageHash": null,
+      "question": {
+        "number": 15,
+        "kind": "radio-news",
+        "question": "Quelle difficulté accompagne le lancement des cours du soir ?",
+        "options": [
+          "Plusieurs adultes jugent l’offre en bureautique et en langues trop limitée par rapport à leurs besoins.",
+          "Les candidats déplorent l’absence de transports en commun après la fin des cours.",
+          "Certains hésitent à s’inscrire parce que le calendrier définitif des cours n’est pas encore arrêté.",
+          "Beaucoup de salariés peinent à concilier les horaires proposés avec leur journée de travail."
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : Le texte mentionne explicitement que le manque de transports collectifs après 22h est une difficulté signalée par plusieurs candidats, ce qui correspond exactement à la réponse. A : Quelqu’un pourrait croire que l’offre est trop limitée, mais le texte indique au contraire que ces cours sont très demandés. Il n’est pas question d’une offre jugée insuffisante. C : Il est vrai que le calendrier n’est pas encore annoncé, mais il n’est pas dit que cela fait hésiter certains à s’inscrire. Le texte ne relie pas l’absence de calendrier à une hésitation des candidats. D : Bien que les cours soient destinés aux adultes en emploi, il n’est pas mentionné que beaucoup de salariés ont du mal à concilier les horaires avec leur travail. Cette difficulté n’est pas évoquée dans le texte.",
+        "transcript": "Question 15.\nÀ Rennes, une université populaire ouvre trois nouveaux cours du soir à destination des adultes en emploi. Les inscriptions sont nombreuses, notamment pour la bureautique et les langues. Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures. L'établissement discute avec la métropole d'une correspondance supplémentaire, sans annoncer encore de calendrier.\nQuelle difficulté accompagne le lancement des cours du soir ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 15."
+          },
+          {
+            "voice": "female",
+            "text": "À Rennes, une université populaire ouvre trois nouveaux cours du soir à destination des adultes en emploi. Les inscriptions sont nombreuses, notamment pour la bureautique et les langues. Toutefois, plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures. L'établissement discute avec la métropole d'une correspondance supplémentaire, sans annoncer encore de calendrier."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle difficulté accompagne le lancement des cours du soir ?"
+          }
+        ],
+        "audio": "q-15.mp3",
+        "audioSeconds": 28.88,
+        "slotSeconds": 49
+      },
+      "contentHash": "752aa71c8aa2f361f51c404917417d77ff2ab528261fc3b36d795a17298b8a76",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksoyPsvJvPAPBwZm1hx7Ncb8aZ0h",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les inscriptions sont nombreuses, notamment pour la bureautique et les langues."
+              ],
+              "reason": "Quelqu’un pourrait croire que l’offre est trop limitée, mais le texte indique au contraire que ces cours sont très demandés. Il n’est pas question d’une offre jugée insuffisante.",
+              "misunderstanding": "confusion entre popularité des cours et manque d’offre."
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures"
+              ],
+              "reason": "Le texte mentionne explicitement que le manque de transports collectifs après 22h est une difficulté signalée par plusieurs candidats, ce qui correspond exactement à la réponse.",
+              "misunderstanding": null
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "sans annoncer encore de calendrier"
+              ],
+              "reason": "Il est vrai que le calendrier n’est pas encore annoncé, mais il n’est pas dit que cela fait hésiter certains à s’inscrire. Le texte ne relie pas l’absence de calendrier à une hésitation des candidats.",
+              "misunderstanding": "interprétation erronée du lien entre calendrier et hésitation à s’inscrire."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "à destination des adultes en emploi"
+              ],
+              "reason": "Bien que les cours soient destinés aux adultes en emploi, il n’est pas mentionné que beaucoup de salariés ont du mal à concilier les horaires avec leur travail. Cette difficulté n’est pas évoquée dans le texte.",
+              "misunderstanding": "supposition basée sur le public visé, sans appui dans le texte."
+            }
+          ],
+          "summary": "La principale difficulté mentionnée dans le texte est le manque de transports collectifs après la fin des cours du soir, ce que regrettent plusieurs candidats."
+        },
+        "usage": {
+          "prompt_tokens": 650,
+          "completion_tokens": 422,
+          "total_tokens": 1072,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004676,
+        "inputHash": "31429f32ff26199c46b107e2f8be98f878441bf54980a5f248283fa964092828",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:15:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Eksoy2EfLZgEOGCqJtxxrJUkJar5l",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.05,
+            0.1,
+            0.2,
+            0.65
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 3,
+              "cue": "Most generally plausible scheduling conflict with workday—directly related to 'cours du soir' timing and a common difficulty when launching evening classes."
+            }
+          ],
+          "reason": "I have no recording or transcript, so this is a reasoned guess based on plausibility. Options 0 and 1 are specific complaints (limited subject offer; lack of transport) that could be raised but seem more narrow. Option 2 (calendar not yet set) is plausible at launch but is a weaker, administratively-focused issue. Option 3 directly addresses a common, central difficulty of evening classes—employees struggling to reconcile class hours with work—so it stands out as the likeliest answer, though certainty is low without the audio."
+        },
+        "usage": {
+          "prompt_tokens": 472,
+          "completion_tokens": 448,
+          "total_tokens": 920,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.001014,
+        "inputHash": "2957020707f7385b0847eb8c5cd16c8ad2c1b7d58a0a65955d3110ebe35a4a9a",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:15:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Eksoqff7aa9yJQ2wc98Q7ORKOCz2d",
+        "result": {
+          "question": "Quelle difficulté accompagne le lancement des cours du soir ?",
+          "choices": [
+            "Les candidats déplorent l’absence de transports en commun après la fin des cours.",
+            "Beaucoup de salariés peinent à concilier les horaires proposés avec leur journée de travail.",
+            "Certains hésitent à s’inscrire parce que le calendrier définitif des cours n’est pas encore arrêté.",
+            "Plusieurs adultes jugent l’offre en bureautique et en langues trop limitée par rapport à leurs besoins."
+          ],
+          "correctIndex": 0,
+          "explanation": "Le texte précise que « plusieurs candidats regrettent le manque de transports collectifs après vingt-deux heures » et que l’établissement discute d’« une correspondance supplémentaire ». La difficulté mentionnée concerne donc l’absence de transports en commun en fin de soirée, une fois les cours terminés.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Le public visé est composé d’adultes en emploi, ce qui pourrait faire penser à un problème d’horaires, mais rien n’indique qu’ils peinent à concilier travail et cours ; la seule difficulté explicitement mentionnée concerne les transports après 22 heures."
+            },
+            {
+              "index": 2,
+              "reason": "L’enregistrement signale une incertitude de calendrier pour une correspondance de transport supplémentaire, pas pour le calendrier des cours eux‑mêmes ; les inscriptions sont déjà nombreuses, ce qui ne correspond pas à une hésitation massive liée à ce point."
+            },
+            {
+              "index": 3,
+              "reason": "Le texte indique au contraire que les inscriptions sont nombreuses « notamment pour la bureautique et les langues », ce qui suggère que l’offre dans ces domaines attire le public plutôt que d’être jugée insuffisante."
+            }
+          ],
+          "design": "Contraste entre la réussite des inscriptions (bureautique et langues prisées) et l’unique difficulté explicitement citée, à savoir le manque de transports collectifs après 22 heures."
+        },
+        "usage": {
+          "prompt_tokens": 1028,
+          "completion_tokens": 640,
+          "total_tokens": 1668,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 244,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007685,
+        "inputHash": "81ea736d4f04dc75666f5943dae310c5ab1b171055f2551165691095b8851004",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:15:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 16,
@@ -2604,7 +3003,225 @@
     },
     {
       "number": 18,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "f9a8f83eddb4f780c1471ec80ab3b33b54d32c5424688e3973707864e84742bb",
+      "imageHash": null,
+      "question": {
+        "number": 18,
+        "kind": "telephone",
+        "question": "Quelle particularité de la session du samedi est indiquée par rapport à celle du lundi au jeudi ?",
+        "options": [
+          "Elle reprend les mêmes objectifs, mais les exercices se font en petit groupe.",
+          "Elle réduit le nombre d’objectifs pour consacrer plus de temps au travail individuel.",
+          "Elle garde les mêmes objectifs mais se termine plus tôt chaque journée.",
+          "Elle ajoute des objectifs supplémentaires tout en conservant les mêmes horaires."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La session du samedi reprend les mêmes objectifs que celle du lundi au jeudi, mais la différence indiquée est que les exercices se font en petit groupe. C'est explicitement mentionné dans le stimulus. B : Quelqu’un pourrait croire que la session du samedi réduit le nombre d’objectifs pour consacrer plus de temps au travail individuel, car il est mentionné un changement dans la façon de travailler (petit groupe), mais le texte précise bien que les objectifs restent les mêmes. C : On pourrait penser que la session du samedi se termine plus tôt chaque journée, car les horaires du lundi au jeudi sont précisés, mais aucune information n’est donnée sur une modification des horaires pour le samedi. D : On pourrait croire que des objectifs supplémentaires sont ajoutés, mais le texte dit explicitement que les objectifs sont les mêmes.",
+        "transcript": "Question 18.\nBonjour, je m'intéresse à votre formation informatique de vingt heures.\nElle commence lundi et se déroule du lundi au jeudi, de neuf à quinze heures.\nJe travaille à ces horaires. Votre brochure mentionne aussi une session répartie sur quatre samedis.\nOui, elle reprend les mêmes objectifs, mais les exercices se font en petit groupe.\nDans ce cas, inscrivez-moi à celle du samedi, s'il reste une place.\nQuelle particularité de la session du samedi est indiquée par rapport à celle du lundi au jeudi ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 18."
+          },
+          {
+            "voice": "female",
+            "text": "Bonjour, je m'intéresse à votre formation informatique de vingt heures."
+          },
+          {
+            "voice": "male",
+            "text": "Elle commence lundi et se déroule du lundi au jeudi, de neuf à quinze heures."
+          },
+          {
+            "voice": "female",
+            "text": "Je travaille à ces horaires. Votre brochure mentionne aussi une session répartie sur quatre samedis."
+          },
+          {
+            "voice": "male",
+            "text": "Oui, elle reprend les mêmes objectifs, mais les exercices se font en petit groupe."
+          },
+          {
+            "voice": "female",
+            "text": "Dans ce cas, inscrivez-moi à celle du samedi, s'il reste une place."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle particularité de la session du samedi est indiquée par rapport à celle du lundi au jeudi ?"
+          }
+        ],
+        "audio": "q-18.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 46
+      },
+      "contentHash": "1b775868518ca560bdcd8600125883bd60613a07e4150a5cddee7b75a676c16b",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktBl0a4fp8akIu26a6mC2VdSljYx",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "elle reprend les mêmes objectifs, mais les exercices se font en petit groupe"
+              ],
+              "reason": "La session du samedi reprend les mêmes objectifs que celle du lundi au jeudi, mais la différence indiquée est que les exercices se font en petit groupe. C'est explicitement mentionné dans le stimulus."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "elle reprend les mêmes objectifs"
+              ],
+              "reason": "Quelqu’un pourrait croire que la session du samedi réduit le nombre d’objectifs pour consacrer plus de temps au travail individuel, car il est mentionné un changement dans la façon de travailler (petit groupe), mais le texte précise bien que les objectifs restent les mêmes.",
+              "misunderstanding": "scope/objectifs_reduits"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "de neuf à quinze heures"
+              ],
+              "reason": "On pourrait penser que la session du samedi se termine plus tôt chaque journée, car les horaires du lundi au jeudi sont précisés, mais aucune information n’est donnée sur une modification des horaires pour le samedi.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "elle reprend les mêmes objectifs"
+              ],
+              "reason": "On pourrait croire que des objectifs supplémentaires sont ajoutés, mais le texte dit explicitement que les objectifs sont les mêmes.",
+              "misunderstanding": "scope/objectifs_ajoutés"
+            }
+          ],
+          "summary": "La particularité de la session du samedi par rapport à celle du lundi au jeudi est que les exercices se font en petit groupe, tout en gardant les mêmes objectifs."
+        },
+        "usage": {
+          "prompt_tokens": 656,
+          "completion_tokens": 374,
+          "total_tokens": 1030,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004304,
+        "inputHash": "e09390b2ab0b8d7450d568b0d776f31c708739300f7c28f987df80ff403c7641",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:18:ground:2"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktBlqe2wTzz9N6by2IQbs8xIdJe8",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [],
+          "reason": "There is no recording or transcript, so the options are all plausible. Option 0 (same objectives but exercises in small groups) seems slightly more likely on general-practice grounds — weekend sessions are often organized differently (smaller-group activities) while keeping goals constant — but this is only a weak linguistic/commonsense preference. Without the audio, none of the choices can be determined with confidence, so probabilities are modest and reflect substantial uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 461,
+          "completion_tokens": 453,
+          "total_tokens": 914,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00102125,
+        "inputHash": "71e6c7efbafb48cb6772757fbcf829d9772c126560ce7db9c0a6d16215ce6ac1",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:18:blind:2"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBeYRx5Dk5jrmeuv4eEm1viTmoE",
+        "result": {
+          "question": "Quelle particularité de la session du samedi est indiquée par rapport à celle du lundi au jeudi ?",
+          "choices": [
+            "Elle garde les mêmes objectifs mais se termine plus tôt chaque journée.",
+            "Elle ajoute des objectifs supplémentaires tout en conservant les mêmes horaires.",
+            "Elle reprend les mêmes objectifs, mais les exercices se font en petit groupe.",
+            "Elle réduit le nombre d’objectifs pour consacrer plus de temps au travail individuel."
+          ],
+          "correctIndex": 2,
+          "explanation": "L’enregistrement précise : « Oui, elle reprend les mêmes objectifs, mais les exercices se font en petit groupe. » La différence porte donc sur la modalité des exercices (en petit groupe), tandis que les objectifs restent identiques à ceux de la session du lundi au jeudi.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Aucun changement d’horaires n’est mentionné pour la session du samedi ; le texte ne parle que de la répartition sur quatre samedis et du travail en petit groupe, pas d’une fin de journée plus tôt."
+            },
+            {
+              "index": 1,
+              "reason": "Il est explicitement dit que la session du samedi « reprend les mêmes objectifs », non qu’elle en ajoute de nouveaux ; cette option inverse donc l’information donnée sur les objectifs."
+            },
+            {
+              "index": 3,
+              "reason": "Le nombre ou la réduction d’objectifs n’est jamais évoqué ; on indique au contraire qu’ils sont les mêmes, et il est question de travail en petit groupe, pas spécifiquement de travail individuel."
+            }
+          ],
+          "design": "Contraste précis entre objectifs identiques et changement de modalité des exercices (travail en petit groupe) pour la session du samedi par rapport à celle en semaine."
+        },
+        "usage": {
+          "prompt_tokens": 1600,
+          "completion_tokens": 569,
+          "total_tokens": 2169,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 223,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00769,
+        "inputHash": "aa501f36ef71f0748872afabd0f0e2fa87d45d6f520fc47910e6ee449f95971e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:18:author:2"
+      },
+      "rounds": 3
     },
     {
       "number": 19,
@@ -3251,7 +3868,218 @@
     },
     {
       "number": 22,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "ceee8e6ce596cc1f266d0fbaf7322f6039c359db28c17a0dc9d2f2682884eb7e",
+      "imageHash": null,
+      "question": {
+        "number": 22,
+        "kind": "interview",
+        "question": "Selon la formatrice, à quel moment le vrai changement se produit-il pour ces adultes ?",
+        "options": [
+          "Quand ils obtiennent une bonne note à une évaluation",
+          "Quand ils osent poser une question devant les autres",
+          "Quand ils reprennent seuls les notions oubliées à la maison",
+          "Quand ils remplissent régulièrement le cahier d’exercices"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : La formatrice dit explicitement que le vrai changement se produit lorsqu'ils osent poser une question devant les autres. C'est la réponse directement soutenue par le texte. A : Quelqu'un pourrait croire qu'obtenir une bonne note à une évaluation marque un changement, car la formatrice mentionne la peur de l'évaluation. Cependant, elle précise que le vrai changement se produit lorsqu'ils osent poser une question devant les autres, pas lors d'une évaluation. C : On pourrait penser que reprendre seul les notions oubliées à la maison est le moment du changement, car la formatrice évoque ce besoin. Cependant, elle distingue ce besoin du vrai changement, qui est lié à l'interaction en groupe. D : Remplir le cahier d'exercices est mentionné comme utile, mais explicitement opposé au vrai changement qui vient du soutien entre apprenants, donc ce n'est pas la bonne réponse.",
+        "transcript": "Question 22.\nVotre atelier réunit des adultes qui reprennent leurs études après plusieurs années. Que leur apportent surtout les rencontres en groupe ?\nCertains ont besoin de revoir des notions, mais le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes. Ils découvrent qu'ils ne sont pas seuls à avoir oublié une méthode ou à redouter une évaluation. Cette confiance les aide à poursuivre un parcours qui paraissait inaccessible. Un cahier d'exercices peut être utile, mais il ne remplace pas ce soutien entre apprenants.\nSelon la formatrice, à quel moment le vrai changement se produit-il pour ces adultes ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 22."
+          },
+          {
+            "voice": "male",
+            "text": "Votre atelier réunit des adultes qui reprennent leurs études après plusieurs années. Que leur apportent surtout les rencontres en groupe ?"
+          },
+          {
+            "voice": "female",
+            "text": "Certains ont besoin de revoir des notions, mais le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes. Ils découvrent qu'ils ne sont pas seuls à avoir oublié une méthode ou à redouter une évaluation. Cette confiance les aide à poursuivre un parcours qui paraissait inaccessible. Un cahier d'exercices peut être utile, mais il ne remplace pas ce soutien entre apprenants."
+          },
+          {
+            "voice": "female",
+            "text": "Selon la formatrice, à quel moment le vrai changement se produit-il pour ces adultes ?"
+          }
+        ],
+        "audio": "q-22.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 61
+      },
+      "contentHash": "6874672853de3b6c66ba6d9b22dc9971d245eeb62f1fee7a7e788675e6a03554",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktBVBqYHr7P70nVcCLKCyhkyhCaQ",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Ils découvrent qu'ils ne sont pas seuls à avoir oublié une méthode ou à redouter une évaluation."
+              ],
+              "reason": "Quelqu'un pourrait croire qu'obtenir une bonne note à une évaluation marque un changement, car la formatrice mentionne la peur de l'évaluation. Cependant, elle précise que le vrai changement se produit lorsqu'ils osent poser une question devant les autres, pas lors d'une évaluation.",
+              "misunderstanding": "confusion entre la peur de l'évaluation et le moment du changement"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes"
+              ],
+              "reason": "La formatrice dit explicitement que le vrai changement se produit lorsqu'ils osent poser une question devant les autres. C'est la réponse directement soutenue par le texte."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Certains ont besoin de revoir des notions"
+              ],
+              "reason": "On pourrait penser que reprendre seul les notions oubliées à la maison est le moment du changement, car la formatrice évoque ce besoin. Cependant, elle distingue ce besoin du vrai changement, qui est lié à l'interaction en groupe.",
+              "misunderstanding": "confusion entre besoin de revoir des notions et moment du changement"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Un cahier d'exercices peut être utile, mais il ne remplace pas ce soutien entre apprenants."
+              ],
+              "reason": "Remplir le cahier d'exercices est mentionné comme utile, mais explicitement opposé au vrai changement qui vient du soutien entre apprenants, donc ce n'est pas la bonne réponse.",
+              "misunderstanding": "confusion entre utilité du cahier d'exercices et moment du changement"
+            }
+          ],
+          "summary": "La formatrice affirme clairement que le vrai changement se produit lorsque les adultes osent poser une question devant les autres, et non lors d'une évaluation, en travaillant seuls ou en remplissant un cahier d'exercices."
+        },
+        "usage": {
+          "prompt_tokens": 667,
+          "completion_tokens": 474,
+          "total_tokens": 1141,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005126,
+        "inputHash": "dbbf7b449aa8638c79d53eb9165766fa99cb4db36cd8f727180443061c657119",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:22:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktBVhwi8vXfMyZ0xRk9emOEXNJeW",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.06,
+            0.72,
+            0.12,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 1,
+              "cue": "behavioral change/social confidence mentioned by a trainer is a typical focus (daring to ask questions publicly) which directly signals 'real change' in adults"
+            }
+          ],
+          "reason": "I have no access to the recording; this is an inference from the wording. Trainers often define 'real change' in adult learners as a visible shift in confidence and participation (e.g., daring to ask questions in front of others) rather than a single test score, independent study at home, or routine completion of exercises. That makes option 2 the most plausible here, though without the audio I cannot be certain."
+        },
+        "usage": {
+          "prompt_tokens": 448,
+          "completion_tokens": 295,
+          "total_tokens": 743,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 128,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.000702,
+        "inputHash": "70510d8dd586be0b9dd87efdaab39f6d784f776e15e7af45749ed6850b22f563",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:22:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBPJlLS9M47USba7lt9qKSF4IFv",
+        "result": {
+          "question": "Selon la formatrice, à quel moment le vrai changement se produit-il pour ces adultes ?",
+          "choices": [
+            "Quand ils osent poser une question devant les autres",
+            "Quand ils reprennent seuls les notions oubliées à la maison",
+            "Quand ils remplissent régulièrement le cahier d’exercices",
+            "Quand ils obtiennent une bonne note à une évaluation"
+          ],
+          "correctIndex": 0,
+          "explanation": "La formatrice précise que « le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes ». Elle oppose ce moment clé au simple fait de revoir des notions ou d’utiliser un cahier d’exercices, et ne présente pas la note à une évaluation comme le déclencheur principal du changement.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Le texte mentionne que certains ont besoin de revoir des notions, mais cela est distingué explicitement du « vrai changement », qui est lié aux questions posées en groupe."
+            },
+            {
+              "index": 2,
+              "reason": "Le cahier d’exercices est cité comme un outil « utile » mais présenté comme insuffisant et non comme le moment où se produit le vrai changement."
+            },
+            {
+              "index": 3,
+              "reason": "Les évaluations sont évoquées comme une source de crainte, pas comme le point central du changement selon la formatrice."
+            }
+          ],
+          "design": "Contraste entre diverses aides (révisions individuelles, cahier, évaluations) et le moment précis que la formatrice identifie comme déclencheur du « vrai changement » : la prise de parole en groupe."
+        },
+        "usage": {
+          "prompt_tokens": 1244,
+          "completion_tokens": 503,
+          "total_tokens": 1747,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 180,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006585,
+        "inputHash": "7f3c37465c22b35e18675deeefe13602c7236e7f7ba457123a822d8b2fa525cc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:22:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 23,

@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test06-v3",
   "test": "tcf-listening-06",
   "version": "tcf-listening-2026-11-test06-v4",
-  "paperHash": "66e3c5ebd8a3905c9ea335b7386be2ebb9135b6aa17f97520529115568db290d",
+  "paperHash": "11cd503388e69d6e39a8d7143c51cbbdc785ddc7078024ba0f0e68e9f674dbc2",
   "questions": [
     {
       "number": 1,
@@ -223,7 +223,206 @@
     },
     {
       "number": 2,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "59aea1281e696569f723898b36943a832b87e7cf301b5eb70908e9a2745e209d",
+      "imageHash": "531fb9c283805a9cfac499b64ce9294306e79c0c840a440b9611cf89bf0bde61",
+      "question": {
+        "number": 2,
+        "kind": "image",
+        "question": "Quelle action voit-on ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : L’image montre l’agriculteur qui semble manipuler un tuyau bleu posé entre les rangs de culture, ce qui correspond à l’ajustement d’un tuyau d’irrigation. A : On ne voit pas l’agriculteur couper des légumes ; il n’y a pas d’outil visible ni de geste de coupe. Quelqu’un pourrait croire à cette action car l’agriculteur est penché vers les planches de culture, mais aucun légume n’est manifestement coupé. C : L’agriculteur ne retire pas de mauvaises herbes ; il touche un tuyau. La confusion peut venir du fait qu’il se penche entre les rangs, geste similaire à l’arrachage, mais aucun végétal n’est retiré. D : Il n’enroule pas le tuyau, il le manipule à plat. Quelqu’un pourrait penser à cette action car il tient le tuyau, mais il n’y a aucun mouvement d’enroulement visible.",
+        "transcript": "Question 2.\nRegardez l’image et écoutez les propositions.\nA. L’agriculteur coupe des légumes sur les planches de culture. B. L’agriculteur ajuste un tuyau d’irrigation entre les rangs. C. L’agriculteur arrache les mauvaises herbes entre les rangs. D. L’agriculteur enroule un tuyau d’arrosage pour le ranger.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 2."
+          },
+          {
+            "voice": "female",
+            "text": "Regardez l’image et écoutez les propositions."
+          },
+          {
+            "voice": "female",
+            "text": "A. L’agriculteur coupe des légumes sur les planches de culture. B. L’agriculteur ajuste un tuyau d’irrigation entre les rangs. C. L’agriculteur arrache les mauvaises herbes entre les rangs. D. L’agriculteur enroule un tuyau d’arrosage pour le ranger."
+          }
+        ],
+        "audio": "q-02.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 33,
+        "image": "q-02.svg"
+      },
+      "contentHash": "2632059f4dbf252e8175a5283b5cdca358cb6618c8a4761709f8719968ce9d47",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksvQMQyEgaNhtkwLLSNsVGBGq1up",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "On ne voit pas l’agriculteur couper des légumes ; il n’y a pas d’outil visible ni de geste de coupe. Quelqu’un pourrait croire à cette action car l’agriculteur est penché vers les planches de culture, mais aucun légume n’est manifestement coupé.",
+              "misunderstanding": "confusion entre gestes agricoles"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "L’image montre l’agriculteur qui semble manipuler un tuyau bleu posé entre les rangs de culture, ce qui correspond à l’ajustement d’un tuyau d’irrigation.",
+              "misunderstanding": null
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "L’agriculteur ne retire pas de mauvaises herbes ; il touche un tuyau. La confusion peut venir du fait qu’il se penche entre les rangs, geste similaire à l’arrachage, mais aucun végétal n’est retiré.",
+              "misunderstanding": "confusion geste/tuyau"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Il n’enroule pas le tuyau, il le manipule à plat. Quelqu’un pourrait penser à cette action car il tient le tuyau, mais il n’y a aucun mouvement d’enroulement visible.",
+              "misunderstanding": "confusion manipulation/enroulement"
+            }
+          ],
+          "summary": "L’action correcte est l’ajustement d’un tuyau d’irrigation entre les rangs, car l’agriculteur manipule un tuyau posé sur les planches de culture sans couper de légumes, arracher de mauvaises herbes ni enrouler le tuyau."
+        },
+        "usage": {
+          "prompt_tokens": 667,
+          "completion_tokens": 412,
+          "total_tokens": 1079,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00463,
+        "inputHash": "4c0abbf8fdeab0a31e54b351268fdc1cffb1fb56e61142f3b442f20275678ecd",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:2:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksvQFGlLzvuTasc55554cUUcGF40",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.15,
+            0.2,
+            0.45,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "Option 3 (index 2) names a simple, visually distinctive action — 'arrache les mauvaises herbes entre les rangs' — which is plausibly easy to observe and differentiate from handling a hose or cutting vegetables."
+            }
+          ],
+          "reason": "No audio or image is available, so any choice is a guess. I favored pulling weeds because it describes a clear, visually distinctive manual action between rows, making it slightly more likely to be described in a single short prompt than adjusting or coiling a hose or cutting vegetables. However, without the recording or image, confidence is low and the other options remain plausible."
+        },
+        "usage": {
+          "prompt_tokens": 455,
+          "completion_tokens": 556,
+          "total_tokens": 1011,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 384,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00122575,
+        "inputHash": "d4c2196b3966aa37ff3d837f65549d7f141c25791a6d399f3396b620455f5404",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:2:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksvH8Mvp2kq3kVO9qn4QOaVGUs1y",
+        "result": {
+          "question": "Quelle action voit-on ?",
+          "choices": [
+            "L’agriculteur ajuste un tuyau d’irrigation entre les rangs.",
+            "L’agriculteur enroule un tuyau d’arrosage pour le ranger.",
+            "L’agriculteur coupe des légumes sur les planches de culture.",
+            "L’agriculteur arrache les mauvaises herbes entre les rangs."
+          ],
+          "correctIndex": 0,
+          "explanation": "Sur l’image, on distingue un personnage assis au-dessus de rangs verts avec quelques ronds figurant des plants, et un long tuyau bleu muni d’un élément plus épais qu’il semble manipuler. Cela correspond à l’ajustement d’un tuyau d’irrigation installé entre les rangs, non à un rangement, une récolte ou du désherbage.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Le tuyau représenté est tendu et posé le long des rangs, sans forme d’enroulement ni stockage ; rien n’évoque un rangement du matériel."
+            },
+            {
+              "index": 2,
+              "reason": "On ne voit ni outils de coupe ni geste vers les plants eux‑mêmes, et les formes vertes restent en place sur les rangs, ce qui ne correspond pas à une scène de récolte."
+            },
+            {
+              "index": 3,
+              "reason": "Le personnage ne touche pas au sol ni à la base des plants ; son geste se concentre sur le tuyau bleu, ce qui ne correspond pas à un désherbage autour des rangs."
+            }
+          ],
+          "design": "Contraste entre diverses tâches maraîchères proches visuellement (rangement d’un tuyau, récolte, désherbage) et l’action précise montrée, à savoir la manipulation d’un système d’irrigation posé entre les rangs."
+        },
+        "usage": {
+          "prompt_tokens": 1061,
+          "completion_tokens": 751,
+          "total_tokens": 1812,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 376,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00883625,
+        "inputHash": "3b3c766a59660c1dfa1ebd138e1048c7adb75dd28ad8be1749057b4fd32f891d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:2:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 3,
@@ -1060,11 +1259,426 @@
     },
     {
       "number": 7,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "f232cc62d9d4f9e375f9cf26c18c8b9ae531e3b205386f29aeba6ffc32fe18a6",
+      "imageHash": null,
+      "question": {
+        "number": 7,
+        "kind": "response",
+        "question": "Quelle réponse convient ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "C",
+        "explanation": "Réponse C : C’est la seule réponse qui donne une méthode concrète pour conserver des herbes fraîches, ce qui correspond exactement à la question posée. A : Cette réponse pourrait être choisie par quelqu’un qui pense qu’acheter des herbes sèches est une solution pour la conservation, mais la question porte sur la meilleure façon de conserver des herbes fraîches, pas sèches. La réponse ne concerne pas la conservation des herbes fraîches. B : Cette option pourrait attirer quelqu’un qui pense à l’utilisation des herbes, mais elle ne répond pas à la question de la conservation. Elle parle de leur usage en cuisine, pas de leur conservation. D : Quelqu’un pourrait croire que couper les tiges aide à conserver les herbes, mais sans autre indication (comme les mettre dans l’eau), cela ne répond pas à la question de la meilleure façon de les conserver.",
+        "transcript": "Question 7.\nVous connaissez la meilleure façon de conserver ces herbes fraîches ?\nA. Il vaut mieux les acheter sèches. B. Elles parfumeront très bien la soupe. C. Mettez-les dans un verre d’eau. D. Coupez toutes les tiges au ras.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 7."
+          },
+          {
+            "voice": "female",
+            "text": "Vous connaissez la meilleure façon de conserver ces herbes fraîches ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. Il vaut mieux les acheter sèches. B. Elles parfumeront très bien la soupe. C. Mettez-les dans un verre d’eau. D. Coupez toutes les tiges au ras."
+          }
+        ],
+        "audio": "q-07.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 33
+      },
+      "contentHash": "f8930b0b6b86b8d3feac61604c2ce799309fde1af1d34b5c70b8f14592f4eb06",
+      "groundedPass": true,
+      "groundContext": "spoken-recording",
+      "overrideHash": "3faa172de810669c93b03fc8e4564bd343acddfc321fd5fd0ba0f3e503d74f29",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktCxBhttBVF4ufF7Bbj4JcmknQ0J",
+        "result": {
+          "supportedIndices": [
+            2
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Il vaut mieux les acheter sèches."
+              ],
+              "reason": "Cette réponse pourrait être choisie par quelqu’un qui pense qu’acheter des herbes sèches est une solution pour la conservation, mais la question porte sur la meilleure façon de conserver des herbes fraîches, pas sèches. La réponse ne concerne pas la conservation des herbes fraîches.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Elles parfumeront très bien la soupe."
+              ],
+              "reason": "Cette option pourrait attirer quelqu’un qui pense à l’utilisation des herbes, mais elle ne répond pas à la question de la conservation. Elle parle de leur usage en cuisine, pas de leur conservation.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 2,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Mettez-les dans un verre d’eau."
+              ],
+              "reason": "C’est la seule réponse qui donne une méthode concrète pour conserver des herbes fraîches, ce qui correspond exactement à la question posée.",
+              "misunderstanding": null
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Coupez toutes les tiges au ras."
+              ],
+              "reason": "Quelqu’un pourrait croire que couper les tiges aide à conserver les herbes, mais sans autre indication (comme les mettre dans l’eau), cela ne répond pas à la question de la meilleure façon de les conserver.",
+              "misunderstanding": "scope_swap"
+            }
+          ],
+          "summary": "La seule réponse qui donne une méthode concrète de conservation des herbes fraîches est « Mettez-les dans un verre d’eau. » Les autres options concernent soit les herbes sèches, soit leur utilisation, soit une action incomplète pour la conservation."
+        },
+        "usage": {
+          "prompt_tokens": 592,
+          "completion_tokens": 406,
+          "total_tokens": 998,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004432,
+        "inputHash": "955800114f7ebdab266f4e8a76d134a5b7d17c9f5f11de9290a6bab8875d526e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:7:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktCxmJkmhY6aXxWHrsBD9U69zGKO",
+        "result": {
+          "guess": 2,
+          "probabilities": [
+            0.1,
+            0.15,
+            0.6,
+            0.15
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 2,
+              "cue": "This option is a concrete, typical preservation instruction (‘Mettez-les dans un verre d’eau’) that matches common practical advice for keeping fresh plants/flowers/herbs; that wording gives a small eliminative advantage over the more general statements."
+            }
+          ],
+          "reason": "I have no access to the recording or context, so I cannot know which answer is correct. The options include buying them dry, saying they will perfume soup, putting them in a glass of water, or cutting stems flush. Option 2 (index 2) is a specific, actionable instruction that plausibly answers many short spoken prompts about how to care for fresh herbs/flowers, so it seems slightly more likely than the others. However, without the audio, this is only a guess and there is substantial uncertainty—other choices are also plausible depending on context (e.g., if the speaker talked about soup, option 1 or 3 could be correct)."
+        },
+        "usage": {
+          "prompt_tokens": 423,
+          "completion_tokens": 682,
+          "total_tokens": 1105,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 448,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00146975,
+        "inputHash": "dd1364f427dd4298d16a73c8aa8b84dc10f9766097c6a8d9a885df59a7e06ab1",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:7:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktCsfyTfDoKVQIW3U05COnNBs6Kz",
+        "result": {
+          "question": "Quelle réponse convient ?",
+          "choices": [
+            "Mettez-les dans un verre d’eau.",
+            "Elles parfumeront très bien la soupe.",
+            "Il vaut mieux les acheter sèches.",
+            "Coupez toutes les tiges au ras."
+          ],
+          "correctIndex": 0,
+          "explanation": "La question porte sur « la meilleure façon de conserver ces herbes fraîches », donc on attend une indication concrète de stockage. « Mettez-les dans un verre d’eau. » répond directement en donnant une méthode précise de conservation. Les autres propositions parlent soit de l’usage culinaire des herbes, soit d’une recommandation d’achat, soit d’une opération de coupe, mais pas d’une façon de les conserver fraîches.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Évoque l’utilisation culinaire future des herbes (les parfumer), mais ne donne aucune indication sur la méthode pour les conserver fraîches."
+            },
+            {
+              "index": 2,
+              "reason": "Suggère de privilégier des herbes sèches, ce qui contourne la question posée sur la conservation spécifique des herbes fraîches."
+            },
+            {
+              "index": 3,
+              "reason": "Décrit une manipulation possible (couper les tiges), qui peut précéder l’utilisation ou la mise en vase, mais n’indique pas en soi comment les conserver."
+            }
+          ],
+          "design": "Contraste pragmatique entre une instruction de conservation explicite et des remarques connexes (usage, achat, préparation) qui ne répondent pas vraiment à la question de stockage."
+        },
+        "usage": {
+          "prompt_tokens": 1179,
+          "completion_tokens": 535,
+          "total_tokens": 1714,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 219,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00682375,
+        "inputHash": "ff2ee3f1269dbff2576961d3fce53f69bed9ce762e432cd56bcd62df2c21bea6",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:7:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 8,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "584f79122db72b8cde5516020c27755d646d2eaf7700af8b24b7986c101a6839",
+      "imageHash": null,
+      "question": {
+        "number": 8,
+        "kind": "response",
+        "question": "Quelle réponse convient ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Cette réponse répond directement à la question posée (« Est-ce que la dégustation de ce soir est comprise dans le billet ? ») en précisant que la dégustation n’est pas comprise et qu’il faut la payer séparément. C’est une réponse claire et appropriée à la question. B : Quelqu’un pourrait choisir cette réponse s’il a mal compris la question et pense qu’on demande si la dégustation a lieu ce soir ou un autre jour. Cependant, la question porte sur l’inclusion dans le billet, pas sur la date. La réponse ne traite pas du tout de la question du billet. C : Cette réponse pourrait être tentante si l’on croit qu’il existe plusieurs types de billets et que certains incluent la dégustation. Cependant, rien dans la question ou le contexte ne mentionne un « pass journée » ou différents types de billets. La question demande simplement si la dégustation est comprise dans le billet, sans préciser de type. D : On pourrait choisir cette réponse en pensant que toutes les prestations sont incluses dans le billet, mais la réponse A précise explicitement que ce n’est pas le cas (« c’est à régler à part »). Cette option est donc contredite par la bonne réponse.",
+        "transcript": "Question 8.\nEst-ce que la dégustation de ce soir est comprise dans le billet ?\nA. Non, c’est à régler à part. B. Non, elle est reportée à demain. C. Oui, mais seulement avec le pass journée. D. Oui, elle est incluse dans tout billet.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 8."
+          },
+          {
+            "voice": "male",
+            "text": "Est-ce que la dégustation de ce soir est comprise dans le billet ?"
+          },
+          {
+            "voice": "female",
+            "text": "A. Non, c’est à régler à part. B. Non, elle est reportée à demain. C. Oui, mais seulement avec le pass journée. D. Oui, elle est incluse dans tout billet."
+          }
+        ],
+        "audio": "q-08.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 37
+      },
+      "contentHash": "e96e66743c6a9f67792392a1303f44d24176050c0237cbf87b4e9925d4dd2958",
+      "groundedPass": true,
+      "groundContext": "spoken-recording",
+      "overrideHash": "752783dc6172b756310710ffe106b449fac5faadb5568d99e23d9f72bdcc2048",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktCvlpFKkiUHbK03dBlyfYOnMI13",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Non, c’est à régler à part."
+              ],
+              "reason": "Cette réponse répond directement à la question posée (« Est-ce que la dégustation de ce soir est comprise dans le billet ? ») en précisant que la dégustation n’est pas comprise et qu’il faut la payer séparément. C’est une réponse claire et appropriée à la question."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Non, elle est reportée à demain."
+              ],
+              "reason": "Quelqu’un pourrait choisir cette réponse s’il a mal compris la question et pense qu’on demande si la dégustation a lieu ce soir ou un autre jour. Cependant, la question porte sur l’inclusion dans le billet, pas sur la date. La réponse ne traite pas du tout de la question du billet.",
+              "misunderstanding": "confusion entre la date de l’événement et son inclusion dans le billet."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Oui, mais seulement avec le pass journée."
+              ],
+              "reason": "Cette réponse pourrait être tentante si l’on croit qu’il existe plusieurs types de billets et que certains incluent la dégustation. Cependant, rien dans la question ou le contexte ne mentionne un « pass journée » ou différents types de billets. La question demande simplement si la dégustation est comprise dans le billet, sans préciser de type.",
+              "misunderstanding": "supposition de l’existence de différents types de billets non évoqués dans la question."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Oui, elle est incluse dans tout billet."
+              ],
+              "reason": "On pourrait choisir cette réponse en pensant que toutes les prestations sont incluses dans le billet, mais la réponse A précise explicitement que ce n’est pas le cas (« c’est à régler à part »). Cette option est donc contredite par la bonne réponse.",
+              "misunderstanding": "généralisation erronée sur l’inclusion des prestations dans le billet."
+            }
+          ],
+          "summary": "La seule réponse qui répond précisément à la question sur l’inclusion de la dégustation dans le billet est « Non, c’est à régler à part. » Les autres réponses reposent sur des confusions de date, de type de billet ou sur une généralisation non justifiée."
+        },
+        "usage": {
+          "prompt_tokens": 595,
+          "completion_tokens": 519,
+          "total_tokens": 1114,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005342,
+        "inputHash": "d4094000f15d93bf1516b07f1ee04e83333c977337405c9a8ed24b877aed933f",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:8:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktCvAR6gOXkVDmuc5cxEWXc34W5r",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.2,
+            0.1,
+            0.25,
+            0.45
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 3,
+              "cue": "Formulation la plus générale et affirmative — «incluse dans tout billet» couvre le cas le plus large, donc pourrait être la réponse attendue."
+            }
+          ],
+          "reason": "Without the recording this is speculative. I eliminated option 1 (reportée à demain) as less likely in contexts asking whether something is included or requires payment; option 2 (à régler à part) and option 4 (nécessite un pass journée) are plausible but more specific or conditional. Option 4 is also conditional on having a pass, and option 3’s unqualified inclusion is a simpler, more natural affirmative reply for a question about inclusion, so it slightly stands out. However, this is an uncertain guess — the audio could equally support any of the other choices."
+        },
+        "usage": {
+          "prompt_tokens": 423,
+          "completion_tokens": 586,
+          "total_tokens": 1009,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 384,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00127775,
+        "inputHash": "45b335af76a5b5ea827ea5c2a5a7b4bf5471a8e0c91fa4820ae0a9e5d677126b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:8:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktCpCG9p0so3unpnApkfjA2ctIGz",
+        "result": {
+          "question": "Quelle réponse convient ?",
+          "choices": [
+            "Oui, elle est incluse dans tout billet.",
+            "Oui, mais seulement avec le pass journée.",
+            "Non, c’est à régler à part.",
+            "Non, elle est reportée à demain."
+          ],
+          "correctIndex": 2,
+          "explanation": "À la question « Est-ce que la dégustation de ce soir est comprise dans le billet ? », l’interlocuteur précise que la dégustation n’est pas incluse et qu’il faut la payer séparément, ce qui correspond à « Non, c’est à régler à part. »",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Affirme que la dégustation est incluse dans tout type de billet, alors que l’enregistrement indique qu’elle ne l’est pas."
+            },
+            {
+              "index": 1,
+              "reason": "Présente une condition (seulement avec le pass journée) qui n’apparaît pas dans l’échange : l’enregistrement ne mentionne pas de formule de billet particulière."
+            },
+            {
+              "index": 3,
+              "reason": "Prétend que la dégustation est reportée à un autre jour, alors que le dialogue ne parle que de son inclusion ou non dans le billet, pas d’un changement de date."
+            }
+          ],
+          "design": "Contraste précis sur l’inclusion de la dégustation dans le billet, avec distracteurs fondés sur des conditions ou changements non mentionnés."
+        },
+        "usage": {
+          "prompt_tokens": 1102,
+          "completion_tokens": 564,
+          "total_tokens": 1666,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 277,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0070175,
+        "inputHash": "2e9de531d30f6a07d408b7426412bce88a314761f75fa4b1bd0d0902bcd26c99",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:8:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 9,
@@ -1277,7 +1891,228 @@
     },
     {
       "number": 10,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "d0a3a64d59081ed817d0dc4fb165d50666ead93ed4f3ef8420b4cc18e0a4d5d8",
+      "imageHash": null,
+      "question": {
+        "number": 10,
+        "kind": "dialogue",
+        "question": "Pourquoi la restauratrice modifie-t-elle sa commande ?",
+        "options": [
+          "Parce que le producteur ne peut lui fournir que dix kilos de courgettes.",
+          "Parce qu’elle souhaite ajouter des aubergines au menu, indépendamment des courgettes.",
+          "Parce que le mauvais temps a fait monter le prix des courgettes.",
+          "Parce que la livraison initiale de courgettes est repoussée à l’après-midi."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La restauratrice modifie sa commande parce que le producteur ne peut lui fournir que dix kilos de courgettes, alors qu'elle en avait commandé quinze. Elle demande donc de compléter avec cinq kilos d'aubergines. B : Quelqu’un pourrait croire qu’elle souhaite ajouter des aubergines indépendamment des courgettes, car elle en commande. Mais elle ne les demande que pour compenser le manque de courgettes, pas par choix initial. C : On pourrait penser que le mauvais temps a fait monter le prix, car il a eu un impact, mais il n’est jamais question de prix dans l’extrait, seulement d’un retard de récolte. D : Quelqu’un pourrait croire que la livraison est repoussée à l’après-midi, mais il est clairement dit que la livraison aura lieu le matin.",
+        "transcript": "Question 10.\nBonjour, je vous ai commandé quinze kilos de courgettes pour demain.\nNous en avons seulement dix. Les dernières pluies ont retardé une partie de la récolte.\nDans ce cas, pouvez-vous compléter avec cinq kilos d'aubergines ? Je pourrai adapter le menu.\nOui, je vous livrerai les deux produits demain matin.\nTrès bien, je préviens la cuisine.\nPourquoi la restauratrice modifie-t-elle sa commande ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 10."
+          },
+          {
+            "voice": "female",
+            "text": "Bonjour, je vous ai commandé quinze kilos de courgettes pour demain."
+          },
+          {
+            "voice": "male",
+            "text": "Nous en avons seulement dix. Les dernières pluies ont retardé une partie de la récolte."
+          },
+          {
+            "voice": "female",
+            "text": "Dans ce cas, pouvez-vous compléter avec cinq kilos d'aubergines ? Je pourrai adapter le menu."
+          },
+          {
+            "voice": "male",
+            "text": "Oui, je vous livrerai les deux produits demain matin."
+          },
+          {
+            "voice": "female",
+            "text": "Très bien, je préviens la cuisine."
+          },
+          {
+            "voice": "female",
+            "text": "Pourquoi la restauratrice modifie-t-elle sa commande ?"
+          }
+        ],
+        "audio": "q-10.mp3",
+        "audioSeconds": 26.665,
+        "slotSeconds": 43
+      },
+      "contentHash": "7bc800aab922b5bf94d111548051a592662b00e193116261137685f8c27c7016",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EksvpSXblPV5VlypwjNbN2YYeorhZ",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Nous en avons seulement dix. Les dernières pluies ont retardé une partie de la récolte."
+              ],
+              "reason": "La restauratrice modifie sa commande parce que le producteur ne peut lui fournir que dix kilos de courgettes, alors qu'elle en avait commandé quinze. Elle demande donc de compléter avec cinq kilos d'aubergines."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Dans ce cas, pouvez-vous compléter avec cinq kilos d'aubergines ?"
+              ],
+              "reason": "Quelqu’un pourrait croire qu’elle souhaite ajouter des aubergines indépendamment des courgettes, car elle en commande. Mais elle ne les demande que pour compenser le manque de courgettes, pas par choix initial.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les dernières pluies ont retardé une partie de la récolte."
+              ],
+              "reason": "On pourrait penser que le mauvais temps a fait monter le prix, car il a eu un impact, mais il n’est jamais question de prix dans l’extrait, seulement d’un retard de récolte.",
+              "misunderstanding": "cause_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "je vous livrerai les deux produits demain matin"
+              ],
+              "reason": "Quelqu’un pourrait croire que la livraison est repoussée à l’après-midi, mais il est clairement dit que la livraison aura lieu le matin.",
+              "misunderstanding": "time_swap"
+            }
+          ],
+          "summary": "La restauratrice modifie sa commande parce que le producteur ne peut lui fournir que dix kilos de courgettes, alors qu’elle en avait commandé quinze. Les autres options sont des confusions sur la raison ou le contexte de la modification."
+        },
+        "usage": {
+          "prompt_tokens": 653,
+          "completion_tokens": 413,
+          "total_tokens": 1066,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00461,
+        "inputHash": "6ac17e29413007cf0cdba7900a6543bfafb8b71e9a6457f8a1e52d2393abdd83",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:10:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksvpvhYQGrK09GwYs6i028tnd9g0",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.5,
+            0.2,
+            0.1,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Specific numeric limitation (\"ne peut lui fournir que dix kilos\") gives a concrete logistical reason to change an order."
+            }
+          ],
+          "reason": "I have no recording or transcript, so I cannot know for sure. Option 0 offers a concrete supplier constraint (a fixed quantity) that plausibly forces a restaurateur to alter an order, which makes it somewhat more likely than the others. The other choices are all plausible: option 1 (adding aubergines) could be a menu decision unrelated to courgettes, option 2 (price rise due to bad weather) would also motivate a change, and option 3 (delivery delayed to afternoon) could prompt rescheduling rather than modifying the order. None of these can be ruled out from the text alone, so confidence is limited."
+        },
+        "usage": {
+          "prompt_tokens": 463,
+          "completion_tokens": 552,
+          "total_tokens": 1015,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00121975,
+        "inputHash": "533882ae588db5d754281a920780b614d66e9aedf3e13b8be66c1dd5f4d86eac",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:10:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksvjKluMqJ3BphUgRPxo806KuJFx",
+        "result": {
+          "question": "Pourquoi la restauratrice modifie-t-elle sa commande ?",
+          "choices": [
+            "Parce que le producteur ne peut lui fournir que dix kilos de courgettes.",
+            "Parce que la livraison initiale de courgettes est repoussée à l’après-midi.",
+            "Parce qu’elle souhaite ajouter des aubergines au menu, indépendamment des courgettes.",
+            "Parce que le mauvais temps a fait monter le prix des courgettes."
+          ],
+          "correctIndex": 0,
+          "explanation": "La restauratrice avait commandé quinze kilos de courgettes, mais le fournisseur lui explique qu’il n’en a « seulement dix », car « les dernières pluies ont retardé une partie de la récolte ». C’est cette quantité insuffisante qui la conduit à modifier sa commande en demandant cinq kilos d’aubergines en complément.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "La livraison n’est jamais décrite comme repoussée à plus tard dans la journée ; le fournisseur confirme au contraire qu’il livrera « demain matin »."
+            },
+            {
+              "index": 2,
+              "reason": "Elle ne cherche pas à ajouter des aubergines par simple envie de variété : elle les demande précisément pour compléter les cinq kilos de courgettes manquants."
+            },
+            {
+              "index": 3,
+              "reason": "Les pluies sont évoquées comme cause d’un retard de récolte et donc d’un manque de quantité, mais il n’est jamais question d’une hausse du prix des courgettes."
+            }
+          ],
+          "design": "Contraste entre la raison exacte de la modification (quantité de courgettes insuffisante) et d’autres interprétations possibles du retard de récolte ou de la demande d’aubergines."
+        },
+        "usage": {
+          "prompt_tokens": 1060,
+          "completion_tokens": 690,
+          "total_tokens": 1750,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 338,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.008225,
+        "inputHash": "7a1532affe9fc432d7b1b29d707ce044f1066b4f9b8a96881b8e342cc0de0164",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:10:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 11,
@@ -2580,7 +3415,214 @@
     },
     {
       "number": 17,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "328b56cfc4fa175a90516756142146391be8e94270d186fd0d04ad73e674d438",
+      "imageHash": null,
+      "question": {
+        "number": 17,
+        "kind": "announcement",
+        "question": "Que doivent préparer les commerçants avant l’arrivée des équipes de collecte ?",
+        "options": [
+          "Séparer les fruits et légumes encore consommables de ceux qui devront aller au compost.",
+          "Rassembler tous les invendus sans distinction pour que les bénévoles fassent le tri sur place.",
+          "Mettre de côté uniquement les produits abîmés pour qu’ils partent directement au compost.",
+          "Conserver les invendus encore frais pour les vendre le lendemain et ne présenter que les produits non conformes."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le texte indique explicitement que les commerçants doivent séparer les fruits et légumes encore consommables de ceux qui devront aller au compost avant l’arrivée des équipes de collecte. B : Quelqu’un pourrait croire que les bénévoles font le tri sur place, mais le texte précise que le tri doit être fait par les commerçants avant l’arrivée des équipes. C : On pourrait penser que seuls les produits abîmés doivent être mis de côté, mais le texte demande de séparer les deux catégories, pas seulement de mettre de côté les abîmés. D : Quelqu’un pourrait croire qu’il faut garder les invendus frais pour les vendre le lendemain, mais le texte indique qu’ils doivent être séparés pour la collecte, pas conservés pour la vente.",
+        "transcript": "Question 17.\nLa collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes.\nQue doivent préparer les commerçants avant l’arrivée des équipes de collecte ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 17."
+          },
+          {
+            "voice": "male",
+            "text": "La collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+          },
+          {
+            "voice": "female",
+            "text": "Que doivent préparer les commerçants avant l’arrivée des équipes de collecte ?"
+          }
+        ],
+        "audio": "q-17.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 47
+      },
+      "contentHash": "954ea951f72f8194da3125a6cee1d3bbf545e4c86fa5d2c9f21bc55ad741dbeb",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktCrUg0ZWdq9WEnOmllNnAWZh9Uv",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+              ],
+              "reason": "Le texte indique explicitement que les commerçants doivent séparer les fruits et légumes encore consommables de ceux qui devront aller au compost avant l’arrivée des équipes de collecte."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les commerçants doivent séparer les deux catégories"
+              ],
+              "reason": "Quelqu’un pourrait croire que les bénévoles font le tri sur place, mais le texte précise que le tri doit être fait par les commerçants avant l’arrivée des équipes.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les bénévoles reprendront les fruits et légumes encore consommables"
+              ],
+              "reason": "On pourrait penser que seuls les produits abîmés doivent être mis de côté, mais le texte demande de séparer les deux catégories, pas seulement de mettre de côté les abîmés.",
+              "misunderstanding": "scope_reduction"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur"
+              ],
+              "reason": "Quelqu’un pourrait croire qu’il faut garder les invendus frais pour les vendre le lendemain, mais le texte indique qu’ils doivent être séparés pour la collecte, pas conservés pour la vente.",
+              "misunderstanding": "intention_swap"
+            }
+          ],
+          "summary": "Les commerçants doivent préparer la collecte en séparant les fruits et légumes encore consommables de ceux destinés au compost, comme le précise clairement le texte."
+        },
+        "usage": {
+          "prompt_tokens": 657,
+          "completion_tokens": 381,
+          "total_tokens": 1038,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004362,
+        "inputHash": "709385adda6a9eea9698de12adf73778c40e4ba6b24b3a2bb549fdc8f159379a",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:17:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktCrwFSwXVY3Q014blQZWqC8lVmj",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.7,
+            0.1,
+            0.05,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Formulation claire et spécifique : 'séparer les fruits et légumes encore consommables de ceux qui devront aller au compost' indique une action préparatoire logique et complète."
+            }
+          ],
+          "reason": "Option 0 directly matches a sensible preparatory instruction (séparer ce qui est encore consommable de ce qui doit être composté). The other choices are less plausible: option 1 asks de rassembler sans tri (impratique et contraire à l'idée de faciliter la collecte), option 2 ne mentionne que les produits abîmés allant au compost (ignore les invendus consommables), et option 3 préconise de conserver des invendus pour la vente suivante (contredit l'objectif probable de collecte). Without the recording I cannot be certain, but the specificity and completeness of option 0 provide a reasonable basis for this guess."
+        },
+        "usage": {
+          "prompt_tokens": 476,
+          "completion_tokens": 473,
+          "total_tokens": 949,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.001065,
+        "inputHash": "bae9fa9f8232ad109ddff3bb31e3aa3567ceffef6733719b10bddb6f0c6b9d1b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:17:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktCnlsz50Bz8mN20i7027qXlTqPG",
+        "result": {
+          "question": "Que doivent préparer les commerçants avant l’arrivée des équipes de collecte ?",
+          "choices": [
+            "Mettre de côté uniquement les produits abîmés pour qu’ils partent directement au compost.",
+            "Séparer les fruits et légumes encore consommables de ceux qui devront aller au compost.",
+            "Rassembler tous les invendus sans distinction pour que les bénévoles fassent le tri sur place.",
+            "Conserver les invendus encore frais pour les vendre le lendemain et ne présenter que les produits non conformes."
+          ],
+          "correctIndex": 1,
+          "explanation": "L’enregistrement précise que « Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes. » Les commerçants doivent donc préparer deux lots distincts : les fruits et légumes encore consommables d’un côté, ceux qui doivent aller au compost de l’autre.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Ne mentionne que les produits abîmés et laisse entendre que les commerçants ne préparent pas aussi un lot de produits encore consommables, alors que deux catégories sont exigées."
+            },
+            {
+              "index": 2,
+              "reason": "Affirme que les bénévoles feront eux-mêmes tout le tri, alors que le texte précise que ce tri doit être fait en amont par les commerçants."
+            },
+            {
+              "index": 3,
+              "reason": "Suppose que les commerçants gardent les produits encore frais pour la vente du lendemain, ce qui contredit l’idée de collecte des invendus encore consommables et de tri préalable en deux catégories."
+            }
+          ],
+          "design": "Contraste précis entre différentes interprétations de la consigne donnée aux commerçants sur le tri préalable des invendus avant la collecte."
+        },
+        "usage": {
+          "prompt_tokens": 1215,
+          "completion_tokens": 474,
+          "total_tokens": 1689,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 106,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00625875,
+        "inputHash": "a7c0c552da3e574dd069b709581e5cd13798739992d429eca708a9a3bf3370fe",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:17:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 18,
@@ -2805,7 +3847,214 @@
     },
     {
       "number": 19,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "802be68a11b45d179fa64959939d01d06328c325c53515a88835c4396658b52a",
+      "imageHash": null,
+      "question": {
+        "number": 19,
+        "kind": "announcement",
+        "question": "Où les explications seront-elles données pendant la visite de la ferme pédagogique ?",
+        "options": [
+          "À proximité des animaux, dans des espaces parfois étroits.",
+          "Directement à l’intérieur des bâtiments de soins, au milieu des interventions.",
+          "Uniquement en extérieur, regroupés dans la cour principale de la ferme.",
+          "Dans une salle de projection aménagée à l’écart des animaux."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La phrase du stimulus indique explicitement que les explications se feront à proximité des animaux, dans des espaces parfois étroits, ce qui correspond exactement à cette option. B : Quelqu’un pourrait croire que les explications ont lieu à l’intérieur des bâtiments de soins, car il est mentionné que les visiteurs ne doivent pas gêner les soins. Cependant, le texte précise que les explications se font à proximité des animaux, pas au milieu des interventions. C : On pourrait penser que tout se passe uniquement en extérieur, car une ferme comporte souvent une cour principale. Toutefois, le texte parle d’espaces parfois étroits, ce qui exclut une grande cour principale comme unique lieu. D : Quelqu’un pourrait supposer qu’une salle de projection est utilisée pour des explications, mais le texte ne mentionne rien de tel et insiste sur la proximité avec les animaux.",
+        "transcript": "Question 19.\nLors des visites de la ferme pédagogique, les groupes ne dépasseront pas huit personnes. Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits. Ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions et de circuler sans gêner les soins apportés aux bêtes.\nOù les explications seront-elles données pendant la visite de la ferme pédagogique ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 19."
+          },
+          {
+            "voice": "female",
+            "text": "Lors des visites de la ferme pédagogique, les groupes ne dépasseront pas huit personnes. Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits. Ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions et de circuler sans gêner les soins apportés aux bêtes."
+          },
+          {
+            "voice": "female",
+            "text": "Où les explications seront-elles données pendant la visite de la ferme pédagogique ?"
+          }
+        ],
+        "audio": "q-19.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 40
+      },
+      "contentHash": "6101d698ad7db5d3d5f1451bf94fb05b7ef782a47763681de05711c359bf75fa",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktCqwgf02dX64iyJzLspdrDheSyS",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits."
+              ],
+              "reason": "La phrase du stimulus indique explicitement que les explications se feront à proximité des animaux, dans des espaces parfois étroits, ce qui correspond exactement à cette option."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "de circuler sans gêner les soins apportés aux bêtes"
+              ],
+              "reason": "Quelqu’un pourrait croire que les explications ont lieu à l’intérieur des bâtiments de soins, car il est mentionné que les visiteurs ne doivent pas gêner les soins. Cependant, le texte précise que les explications se font à proximité des animaux, pas au milieu des interventions.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "à proximité des animaux, dans des espaces parfois étroits"
+              ],
+              "reason": "On pourrait penser que tout se passe uniquement en extérieur, car une ferme comporte souvent une cour principale. Toutefois, le texte parle d’espaces parfois étroits, ce qui exclut une grande cour principale comme unique lieu.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "à proximité des animaux, dans des espaces parfois étroits"
+              ],
+              "reason": "Quelqu’un pourrait supposer qu’une salle de projection est utilisée pour des explications, mais le texte ne mentionne rien de tel et insiste sur la proximité avec les animaux.",
+              "misunderstanding": "scope_swap"
+            }
+          ],
+          "summary": "Les explications seront données à proximité des animaux, dans des espaces parfois étroits, comme indiqué explicitement dans le texte. Les autres options sont contredites ou non soutenues par le stimulus."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 403,
+          "total_tokens": 1028,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004474,
+        "inputHash": "d31087dcd430700c1fc938d52686d17245baa90de1124fe9c95c373403a1de5e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:19:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktCqoQgvdqgujmoXXl512GZ66bLA",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.6,
+            0.1,
+            0.15,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions proximity to animals and realistic 'spaces parfois étroits' — closely matches typical farm-visit logistics and context, making it a natural choice over more unusual options (projection room or inside care interventions)."
+            }
+          ],
+          "reason": "I cannot hear the recording, so this is an informed guess based on plausibility and wording. Explaining on-site, near the animals (even in tight spaces) fits the typical format of a pedagogical farm visit. The other options are less likely: conducting explanations amid care interventions seems disruptive and unsafe; 'uniquement en extérieur' is too restrictive; a separate projection room away from animals is possible but less typical for hands-on educational visits. Given the absence of the audio, certainty is low, so probabilities reflect moderate confidence rather than proof."
+        },
+        "usage": {
+          "prompt_tokens": 454,
+          "completion_tokens": 330,
+          "total_tokens": 784,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 128,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0007735,
+        "inputHash": "5ff7080ebdbe39fe7fd346a23c5a6f5ec0860aac0bcb6b4f5ce9f9fa48e4066b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:19:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktCkn1BQcc70bAfoZEnyJOJ99sUy",
+        "result": {
+          "question": "Où les explications seront-elles données pendant la visite de la ferme pédagogique ?",
+          "choices": [
+            "À proximité des animaux, dans des espaces parfois étroits.",
+            "Dans une salle de projection aménagée à l’écart des animaux.",
+            "Directement à l’intérieur des bâtiments de soins, au milieu des interventions.",
+            "Uniquement en extérieur, regroupés dans la cour principale de la ferme."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’annonce précise que « les explications auront lieu à proximité des animaux, dans des espaces parfois étroits ». Elle ne mentionne ni une salle séparée, ni les bâtiments de soins eux-mêmes, ni une cour unique comme lieu exclusif des explications.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Propose une salle de projection à l’écart des animaux, alors que le document insiste au contraire sur la proximité immédiate avec les bêtes."
+            },
+            {
+              "index": 2,
+              "reason": "Situe les explications au milieu des soins dans les bâtiments, alors que le texte parle d’espaces étroits près des animaux, sans évoquer une présence au cœur des interventions."
+            },
+            {
+              "index": 3,
+              "reason": "Réduit le lieu aux seuls rassemblements dans la cour principale, tandis que l’annonce indique des espaces variés à proximité des animaux et non un unique lieu extérieur central."
+            }
+          ],
+          "design": "Contraste précis sur le lieu des explications (proximité des animaux et espaces étroits) opposé à d’autres cadres possibles de visite."
+        },
+        "usage": {
+          "prompt_tokens": 1332,
+          "completion_tokens": 623,
+          "total_tokens": 1955,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 313,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007895,
+        "inputHash": "dae6a8af3d5ba157f94a3e026bf9c118f82d687c27503ec7ac88336c5ea2c6f7",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:19:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 20,
@@ -7203,5 +8452,43 @@
       "rounds": 4
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktD52nv0wHjLtqBnBQs3Ug3dDTPf",
+    "result": {
+      "pass": false,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "For both questions, the correct answer is the last (D) and is also the most specific and operationally detailed among the choices, which may cue test-wise students."
+        }
+      ],
+      "summary": "Most items show natural variation in answer length, specificity, and position. However, questions 9 and 12 both feature correct answers that are the last option and are notably more operationally specific than the distractors, which could serve as a guessing cue. No other clear, recurring patterns or systematic cues are present across the rest of the exam."
+    },
+    "usage": {
+      "prompt_tokens": 4368,
+      "completion_tokens": 130,
+      "total_tokens": 4498,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009776,
+    "inputHash": "44e142337e3145f391b1c9af3b2c2c37ec92ed96f62b36ae3976ffb1690ce658",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-06"
+  }
 }

@@ -5,11 +5,209 @@
   "sourceVersion": "tcf-listening-2026-11-test03-v3",
   "test": "tcf-listening-03",
   "version": "tcf-listening-2026-11-test03-v4",
-  "paperHash": "030ae28559d1654ebf552dc663c4bd7699077cdd161b0410806fe681135e95c6",
+  "paperHash": "37fa281cea63899e53a5682ab416ef43cc62d03b94926bf60735947ac1f91454",
   "questions": [
     {
       "number": 1,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "d5ce3302c8b70223f09257061f951f03499bc0df0908cd67a671de4afef07665",
+      "imageHash": "e4154d55af6bc79226d020fd0784043e665a78f36f9ed465c024c7f2c1453336",
+      "question": {
+        "number": 1,
+        "kind": "image",
+        "question": "Quelle description correspond à l’image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Sur l’image, on voit une personne derrière un comptoir (probablement le pharmacien) qui tend un objet rectangulaire (ressemblant à une boîte de médicaments) à une autre personne (la cliente). Cela correspond à la description : 'Le pharmacien tend une boîte de médicaments à la cliente.' B : Personne ne tient d’argent ni de carte bancaire, et aucun geste d’encaissement n’est visible. Quelqu’un pourrait croire à un paiement car il y a un échange d’objet, mais rien n’indique un paiement. C : La cliente reçoit un objet du pharmacien, elle ne remet rien. Quelqu’un pourrait croire qu’elle donne une ordonnance car l’objet est rectangulaire, mais le geste montre qu’elle le reçoit. D : Aucun élément visuel ne suggère une carte de fidélité (ni logo, ni format typique de carte). On pourrait confondre avec une carte à cause de la forme rectangulaire, mais l’objet ressemble plus à une boîte de médicaments.",
+        "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. Le pharmacien tend une boîte de médicaments à la cliente. B. Le pharmacien encaisse le paiement de la cliente. C. La cliente remet une ordonnance au pharmacien. D. La cliente récupère une carte de fidélité au comptoir.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 1."
+          },
+          {
+            "voice": "female",
+            "text": "Regardez l’image et écoutez les propositions."
+          },
+          {
+            "voice": "female",
+            "text": "A. Le pharmacien tend une boîte de médicaments à la cliente. B. Le pharmacien encaisse le paiement de la cliente. C. La cliente remet une ordonnance au pharmacien. D. La cliente récupère une carte de fidélité au comptoir."
+          }
+        ],
+        "audio": "q-01.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 34,
+        "image": "q-01.svg"
+      },
+      "contentHash": "7a97181348143e0e2b97695151d7bf06b8aab0bab3102c44397975d5d5a5c43e",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EkskhmDpWKD2rDEAGQTdmylO8OJYu",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "Sur l’image, on voit une personne derrière un comptoir (probablement le pharmacien) qui tend un objet rectangulaire (ressemblant à une boîte de médicaments) à une autre personne (la cliente). Cela correspond à la description : 'Le pharmacien tend une boîte de médicaments à la cliente.'"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Personne ne tient d’argent ni de carte bancaire, et aucun geste d’encaissement n’est visible. Quelqu’un pourrait croire à un paiement car il y a un échange d’objet, mais rien n’indique un paiement.",
+              "misunderstanding": "confusion entre l’échange d’un objet et un paiement"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "La cliente reçoit un objet du pharmacien, elle ne remet rien. Quelqu’un pourrait croire qu’elle donne une ordonnance car l’objet est rectangulaire, mais le geste montre qu’elle le reçoit.",
+              "misunderstanding": "inversion du sens de l’échange"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Aucun élément visuel ne suggère une carte de fidélité (ni logo, ni format typique de carte). On pourrait confondre avec une carte à cause de la forme rectangulaire, mais l’objet ressemble plus à une boîte de médicaments.",
+              "misunderstanding": "confusion entre une boîte et une carte"
+            }
+          ],
+          "summary": "La seule description soutenue par l’image est que le pharmacien tend une boîte de médicaments à la cliente. Les autres options sont contredites par la direction de l’échange ou le type d’objet visible."
+        },
+        "usage": {
+          "prompt_tokens": 646,
+          "completion_tokens": 491,
+          "total_tokens": 1137,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00522,
+        "inputHash": "f852cd31dba7b345a7d7728147ee9eb30df55a34dbb81bd8d7dd0c93d3c42f78",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:1:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EkskhqDgZJ3YPVQTQ7Yw8RtflMCsW",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.35,
+            0.2,
+            0.3,
+            0.15
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "phrase describes a concrete, easily pictured action (le pharmacien tend une boîte de médicaments), which is a common, simple depiction in a single image."
+            }
+          ],
+          "reason": "I have no image or audio, so I cannot know which description matches. I favored option 0 slightly because it names a clear, specific visual action (handing over a box of medicine) that is easy to depict in a single photo; options 1 and 2 are also plausible (payment or handing an ordonnance), while option 4 (carte de fidélité) seems somewhat less likely. This is a guess based on wording and typical image content, not on any direct evidence."
+        },
+        "usage": {
+          "prompt_tokens": 434,
+          "completion_tokens": 438,
+          "total_tokens": 872,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0009845,
+        "inputHash": "8ed893a564f44ce41ad12f6819fb7600e502758d3e8e4e9b7303e264b5a201d4",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:1:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkskdKyXKaBbT4Z2KDmUgwkRUpTH1",
+        "result": {
+          "question": "Quelle description correspond à l’image ?",
+          "choices": [
+            "Le pharmacien tend une boîte de médicaments à la cliente.",
+            "La cliente remet une ordonnance au pharmacien.",
+            "Le pharmacien encaisse le paiement de la cliente.",
+            "La cliente récupère une carte de fidélité au comptoir."
+          ],
+          "correctIndex": 0,
+          "explanation": "Sur l’image, le pharmacien, derrière le comptoir, donne un objet rectangulaire à la cliente en face de lui, ce qui correspond à une boîte de médicaments remise au comptoir. On ne distingue ni argent, ni terminal de paiement, ni papier manifestement identifiable comme une ordonnance ou une carte.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "L’objet rectangulaire est présenté comme venant du pharmacien vers la cliente, non l’inverse ; on ne voit pas clairement de document médical tenu par la cliente."
+            },
+            {
+              "index": 2,
+              "reason": "Aucun élément de paiement (billets, pièces, carte, terminal) n’apparaît sur l’image ; rien n’indique une transaction en cours."
+            },
+            {
+              "index": 3,
+              "reason": "L’objet remis ressemble davantage à une boîte ou un paquet uniforme qu’à une petite carte ; l’image ne suggère pas de programme de fidélité."
+            }
+          ],
+          "design": "Contraste entre la direction de l’échange d’objet (pharmacien vers cliente ou l’inverse) et la nature plausible de cet objet (médicament, ordonnance, paiement, carte) dans une scène de comptoir en pharmacie."
+        },
+        "usage": {
+          "prompt_tokens": 1041,
+          "completion_tokens": 319,
+          "total_tokens": 1360,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 4,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00449125,
+        "inputHash": "b8b6337f108c7229fcbbe118fcefd9e6ee72765a0cd1e51fbbbae9479201edb2",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:1:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 2,
@@ -216,7 +414,219 @@
     },
     {
       "number": 3,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "3d28de65a0efc511b10df0ee25302fb4bcf8259c7c26bd50695c619946488b75",
+      "imageHash": "485fb9e8a033b9198e5d4e10db85fb61967ee904319b36dad729c0c0d2efd1c6",
+      "question": {
+        "number": 3,
+        "kind": "image",
+        "question": "Quelle description correspond à l’image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : L’image montre une infirmière tendant ce qui ressemble à une solution hydro-alcoolique à un patient, ce qui correspond à la description d’une démonstration d’utilisation de solution hydro-alcoolique. A : On ne voit pas de gants sur l’image, ni de geste qui évoque l’enfilage de gants. Quelqu’un pourrait croire à cette option car l’infirmière tend un objet, mais il ne s’agit pas de gants. C : Il n’y a aucun signe de lavage des mains au savon (pas d’eau, pas de savon visible). Quelqu’un pourrait confondre avec une vérification d’hygiène, mais l’action montrée est différente. D : Aucune désinfection de plaie n’est visible, il n’y a pas de matériel médical ni de blessure apparente. On pourrait croire à une désinfection car l’infirmière touche la main, mais il n’y a pas de plaie.",
+        "transcript": "Question 3.\nRegardez l’image et écoutez les propositions.\nA. L’infirmière aide un patient à enfiler des gants avant un soin. B. L’infirmière montre à un patient comment utiliser une solution hydro-alcoolique. C. L’infirmière vérifie qu’un patient s’est bien lavé les mains au savon. D. L’infirmière désinfecte une plaie sur la main d’un patient.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 3."
+          },
+          {
+            "voice": "female",
+            "text": "Regardez l’image et écoutez les propositions."
+          },
+          {
+            "voice": "female",
+            "text": "A. L’infirmière aide un patient à enfiler des gants avant un soin. B. L’infirmière montre à un patient comment utiliser une solution hydro-alcoolique. C. L’infirmière vérifie qu’un patient s’est bien lavé les mains au savon. D. L’infirmière désinfecte une plaie sur la main d’un patient."
+          }
+        ],
+        "audio": "q-03.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 35,
+        "image": "q-03.svg"
+      },
+      "contentHash": "f28951fa5153964877b7a9050144df8f17931660b5a38c591ddf1382ee5078a6",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktANBPZHisZkY4lgzUbcMRKJJ9pz",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "On ne voit pas de gants sur l’image, ni de geste qui évoque l’enfilage de gants. Quelqu’un pourrait croire à cette option car l’infirmière tend un objet, mais il ne s’agit pas de gants.",
+              "misunderstanding": "objet_confusion"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "L’image montre une infirmière tendant ce qui ressemble à une solution hydro-alcoolique à un patient, ce qui correspond à la description d’une démonstration d’utilisation de solution hydro-alcoolique."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Il n’y a aucun signe de lavage des mains au savon (pas d’eau, pas de savon visible). Quelqu’un pourrait confondre avec une vérification d’hygiène, mais l’action montrée est différente.",
+              "misunderstanding": "action_confusion"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Aucune désinfection de plaie n’est visible, il n’y a pas de matériel médical ni de blessure apparente. On pourrait croire à une désinfection car l’infirmière touche la main, mais il n’y a pas de plaie.",
+              "misunderstanding": "geste_confusion"
+            }
+          ],
+          "summary": "La seule description soutenue par l’image est celle où l’infirmière montre à un patient comment utiliser une solution hydro-alcoolique, car l’action illustrée correspond à une démonstration d’hygiène des mains sans gants, savon ou blessure visible."
+        },
+        "usage": {
+          "prompt_tokens": 671,
+          "completion_tokens": 388,
+          "total_tokens": 1059,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004446,
+        "inputHash": "9ee941de90591941bb666ec8e9c5dae27f611b28a4815b743d3864a77b10d770",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:3:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktANxz9iteaFKIzyo4PRscLQ3kTd",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.35,
+            0.25,
+            0.15,
+            0.25
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Phrase indique une action préparatoire générale («aide ... à enfiler des gants») qui est une scène courante et visuellement distinctive."
+            },
+            {
+              "option": 1,
+              "cue": "Montrer l'utilisation d'une solution hydro-alcoolique impliquerait un geste démonstratif proche des mains, mais n'explique pas de façon unique la présence d'un patient et d'une infirmière."
+            },
+            {
+              "option": 2,
+              "cue": "Vérifier un lavage au savon est une action moins visible/moins souvent représentée clairement sur une image statique (bulles, évier) — possible élimination partielle."
+            },
+            {
+              "option": 3,
+              "cue": "Désinfecter une plaie serait plus spécifique (présence de plaie, matériel de soin) ; sans preuve visuelle forte, c'est moins probable que l'option plus générale."
+            }
+          ],
+          "reason": "Je n'ai pas accès à l'image; sans le visuel, aucune option ne peut être confirmée. J'ai légèrement favorisé l'option 0 parce que l'aide à enfiler des gants est une action préparatoire fréquente et facilement représentable, mais les autres options restent plausibles selon détails visuels absents (présence de plaie, flacon de solution, évier, etc.). L'incertitude demeure élevée."
+        },
+        "usage": {
+          "prompt_tokens": 459,
+          "completion_tokens": 564,
+          "total_tokens": 1023,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00124275,
+        "inputHash": "d6735927522030f5a67343f1cd94026f215903784c5aaf76fe5460f541c9a7d9",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:3:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktAEz4XIZQsRNpPk2rO5CDYS3LRv",
+        "result": {
+          "question": "Quelle description correspond à l’image ?",
+          "choices": [
+            "L’infirmière montre à un patient comment utiliser une solution hydro-alcoolique.",
+            "L’infirmière vérifie qu’un patient s’est bien lavé les mains au savon.",
+            "L’infirmière aide un patient à enfiler des gants avant un soin.",
+            "L’infirmière désinfecte une plaie sur la main d’un patient."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’image représente deux personnages debout, face à face, sous une bannière « HYGIÈNE DES MAINS – ATELIER PRATIQUE ». La personne en tenue médicale tend un produit ou une lingette vers l’autre, qui présente ses mains, ce qui correspond à une démonstration d’utilisation d’une solution hydro-alcoolique, comme dans la proposition 1. On ne voit ni lavabo ni savon (contrairement à l’idée de la réponse 2), ni gants enfilés (réponse 3), ni blessure ni geste de soin localisé sur la peau (réponse 4).",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "La scène n’évoque pas un contrôle après lavage au savon : aucun lavabo, robinet, mousse ou serviette n’apparaît, seulement une mise à disposition de produit dans un cadre d’atelier."
+            },
+            {
+              "index": 2,
+              "reason": "Les mains du patient sont nues et l’infirmière ne tient pas de gants ; l’image met en avant l’hygiène des mains, pas la préparation à un soin avec des gants."
+            },
+            {
+              "index": 3,
+              "reason": "Aucune plaie ou pansement n’est visible et le geste est général, non focalisé sur une zone blessée ; le contexte d’« atelier pratique » renvoie à la prévention, pas à la désinfection d’une plaie."
+            }
+          ],
+          "design": "Contraste entre différentes interprétations d’un atelier d’hygiène des mains (démonstration de solution hydro-alcoolique vs lavage au savon, mise de gants, soin d’une plaie)."
+        },
+        "usage": {
+          "prompt_tokens": 1199,
+          "completion_tokens": 667,
+          "total_tokens": 1866,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 223,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00816875,
+        "inputHash": "82f7f2c1d79127d5403fae6af52b8d5cd25afd6aac042785ebff4e590719eb4b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:3:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 4,
@@ -844,7 +1254,224 @@
     },
     {
       "number": 7,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "6f6545d502d26ef56bc4c5924ba2f6025494fbdd5bf2a74e04c77ebeba6e64e4",
+      "imageHash": null,
+      "question": {
+        "number": 7,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Cette réponse répond directement à la question en confirmant que la consultation est possible par téléphone, ce qui correspond exactement à la demande formulée. B : Quelqu’un pourrait croire que la consultation n’est possible que l’après-midi, mais la question porte sur le mode (téléphone), pas sur l’horaire. Cette réponse introduit une restriction de temps non mentionnée dans la question. C : Cette réponse pourrait être choisie si l’on pense que la consultation ne peut se faire qu’en présentiel, mais la question demande explicitement si le téléphone est possible. Cette réponse contredit donc la possibilité évoquée. D : Quelqu’un pourrait croire qu’il faut venir le lendemain, mais la question porte sur le mode de consultation, pas sur la date. Cette réponse ne répond pas à la question posée.",
+        "transcript": "Question 7.\nLa consultation peut-elle se faire par téléphone ?\nA. Oui, c’est possible par téléphone. B. Oui, mais uniquement l’après-midi. C. Non, seulement en présentiel. D. Non, il faut venir demain.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 7."
+          },
+          {
+            "voice": "female",
+            "text": "La consultation peut-elle se faire par téléphone ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. Oui, c’est possible par téléphone. B. Oui, mais uniquement l’après-midi. C. Non, seulement en présentiel. D. Non, il faut venir demain."
+          }
+        ],
+        "audio": "q-07.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 32
+      },
+      "contentHash": "c2ac47646db663ecaefb275f4d1709a2b3aa0b52cace331dc430efd3a1ef6720",
+      "groundedPass": true,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-Ekski1F4848ozATAKMMgaJsdZovDe",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "La consultation peut-elle se faire par téléphone ?"
+              ],
+              "reason": "Cette réponse répond directement à la question en confirmant que la consultation est possible par téléphone, ce qui correspond exactement à la demande formulée."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La consultation peut-elle se faire par téléphone ?"
+              ],
+              "reason": "Quelqu’un pourrait croire que la consultation n’est possible que l’après-midi, mais la question porte sur le mode (téléphone), pas sur l’horaire. Cette réponse introduit une restriction de temps non mentionnée dans la question.",
+              "misunderstanding": "restriction temporelle non évoquée"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La consultation peut-elle se faire par téléphone ?"
+              ],
+              "reason": "Cette réponse pourrait être choisie si l’on pense que la consultation ne peut se faire qu’en présentiel, mais la question demande explicitement si le téléphone est possible. Cette réponse contredit donc la possibilité évoquée.",
+              "misunderstanding": "interprétation erronée du mode de consultation"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "La consultation peut-elle se faire par téléphone ?"
+              ],
+              "reason": "Quelqu’un pourrait croire qu’il faut venir le lendemain, mais la question porte sur le mode de consultation, pas sur la date. Cette réponse ne répond pas à la question posée.",
+              "misunderstanding": "confusion entre mode et moment de la consultation"
+            }
+          ],
+          "summary": "La seule réponse qui convient à la question sur la possibilité d’une consultation par téléphone est « Oui, c’est possible par téléphone. » Les autres réponses introduisent des restrictions ou des conditions non mentionnées dans la question."
+        },
+        "usage": {
+          "prompt_tokens": 534,
+          "completion_tokens": 400,
+          "total_tokens": 934,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004268,
+        "inputHash": "90f215c51b260609d59fe81a1621ac1a8115c00e107ece3f76b28f1c83194645",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:7:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekski1dbFulekSC2DGR8cYNqXAH2H",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.2,
+            0.5,
+            0.15,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "permits a phone-only solution (simple affirmative) "
+            },
+            {
+              "option": 1,
+              "cue": "qualified yes with a specific time window (afternoon only) — a middle/compromise answer"
+            },
+            {
+              "option": 2,
+              "cue": "absolute negative insisting on in-person only"
+            },
+            {
+              "option": 3,
+              "cue": "absolute negative requiring coming tomorrow (time constraint)"
+            }
+          ],
+          "reason": "I cannot know the correct reply without the missing context (recording or prompt). None of the options are provably correct from the question alone. I favored option 1 (Oui, mais uniquement l’après-midi) because it reads like a plausible compromise response that often fits scheduling questions (a qualified yes rather than a flat refusal or an immediate requirement to come tomorrow). That phrasing stands out as a balanced, likely conversational reply compared with the absolute negatives or a wholly remote yes. However, this is only a guess; the missing audio could easily make any other option correct."
+        },
+        "usage": {
+          "prompt_tokens": 419,
+          "completion_tokens": 491,
+          "total_tokens": 910,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00108675,
+        "inputHash": "5a844d3c2748542fd7b72b43a8f80ddbb54afac989c1d7c298edf55475a62f5e",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:7:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkskdxgfakdfSJO3fK8WsmgE6LFw1",
+        "result": {
+          "question": "Quelle réponse convient à la situation ?",
+          "choices": [
+            "Oui, c’est possible par téléphone.",
+            "Non, seulement en présentiel.",
+            "Non, il faut venir demain.",
+            "Oui, mais uniquement l’après-midi."
+          ],
+          "correctIndex": 0,
+          "explanation": "À la question « La consultation peut-elle se faire par téléphone ? », la réponse appropriée confirme explicitement cette possibilité : « Oui, c’est possible par téléphone. » Les autres réponses refusent ou limitent cette possibilité d’une manière qui ne correspond pas à la situation enregistrée.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Affirme que les consultations se font seulement en présentiel, ce qui contredit la confirmation donnée dans l’enregistrement."
+            },
+            {
+              "index": 2,
+              "reason": "Refuse la consultation téléphonique et impose une venue le lendemain, ajoutant une contrainte temporelle absente de l’enregistrement."
+            },
+            {
+              "index": 3,
+              "reason": "Accepte la consultation téléphonique mais en la restreignant à l’après-midi, alors que l’enregistrement ne mentionne pas cette limitation."
+            }
+          ],
+          "design": "Contraste précis sur la modalité de la consultation (téléphone ou présentiel) et l’éventuelle présence de restrictions de temps, avec une seule réponse confirmant simplement la possibilité téléphonique."
+        },
+        "usage": {
+          "prompt_tokens": 952,
+          "completion_tokens": 455,
+          "total_tokens": 1407,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 185,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00574,
+        "inputHash": "9843f40959fae9f866abe79cd448d5a62a630c05c07d7248c2b4664d77feeee0",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:7:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 8,
@@ -3668,7 +4295,218 @@
     },
     {
       "number": 21,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "974fc42ce5db9e41e4031a15bd0a7b908e19bd41f85fd5a2e3862de3d90d1c6b",
+      "imageHash": null,
+      "question": {
+        "number": 21,
+        "kind": "announcement",
+        "question": "D’après le document, quel déséquilibre précis l’équipe constate déjà dans les disponibilités annoncées des bénévoles ?",
+        "options": [
+          "Les bénévoles se répartissent assez régulièrement sur toute la journée, sans vraie pointe ni manque net.",
+          "Les horaires de soirée sont saturés, tandis que le matin attire peu de volontaires.",
+          "Les créneaux du début d’après-midi restent les moins demandés.",
+          "Les propositions de présence se concentrent sur le matin, alors que la fin de journée reste presque vide."
+        ],
+        "correct": "D",
+        "explanation": "Réponse D : C’est exactement ce que dit le document : il y a une concentration des disponibilités le matin et un manque net en fin de journée. A : Quelqu’un pourrait croire à une répartition régulière si il n’écoute pas la partie sur le manque en fin de journée, mais le document indique clairement un déséquilibre entre le matin (plusieurs personnes) et la fin de journée (très peu). B : On pourrait confondre le matin et le soir, mais le texte ne mentionne pas de saturation le soir, seulement un manque en fin de journée. Il n’est pas dit que le matin attire peu de volontaires, au contraire. C : Le texte ne mentionne pas les débuts d’après-midi comme étant problématiques, seulement la fin de journée. Quelqu’un pourrait supposer que le début d’après-midi est concerné s’il généralise le manque à toute la seconde moitié de la journée, mais ce n’est pas précisé.",
+        "transcript": "Question 21.\nL'équipe de la clinique associative prépare les permanences de la semaine prochaine. Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi. Plusieurs personnes sont disponibles le matin, mais très peu en fin de journée. Nous devons répartir les présences pour ne pas laisser les patients sans orientation lorsque les salariés terminent leur service.\nD’après le document, quel déséquilibre précis l’équipe constate déjà dans les disponibilités annoncées des bénévoles ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 21."
+          },
+          {
+            "voice": "male",
+            "text": "L'équipe de la clinique associative prépare les permanences de la semaine prochaine. Les bénévoles qui souhaitent aider à l'accueil sont invités à indiquer leurs créneaux exacts d'ici jeudi. Plusieurs personnes sont disponibles le matin, mais très peu en fin de journée. Nous devons répartir les présences pour ne pas laisser les patients sans orientation lorsque les salariés terminent leur service."
+          },
+          {
+            "voice": "female",
+            "text": "D’après le document, quel déséquilibre précis l’équipe constate déjà dans les disponibilités annoncées des bénévoles ?"
+          }
+        ],
+        "audio": "q-21.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 53
+      },
+      "contentHash": "8686a7651552d84ec4689cc0772ce07ccbc4beca4d5533ea27cf5cf26923d040",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "76aa4245a4680fa8f87396aa955dd27a7937f0168f2fcb11dcc5931cb9869d48",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktBH6P8T4DKJAHDjYIAocHEDnLrG",
+        "result": {
+          "supportedIndices": [
+            3
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "plusieurs personnes sont disponibles le matin, mais très peu en fin de journée"
+              ],
+              "reason": "Quelqu’un pourrait croire à une répartition régulière si il n’écoute pas la partie sur le manque en fin de journée, mais le document indique clairement un déséquilibre entre le matin (plusieurs personnes) et la fin de journée (très peu).",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "plusieurs personnes sont disponibles le matin, mais très peu en fin de journée"
+              ],
+              "reason": "On pourrait confondre le matin et le soir, mais le texte ne mentionne pas de saturation le soir, seulement un manque en fin de journée. Il n’est pas dit que le matin attire peu de volontaires, au contraire.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "plusieurs personnes sont disponibles le matin, mais très peu en fin de journée"
+              ],
+              "reason": "Le texte ne mentionne pas les débuts d’après-midi comme étant problématiques, seulement la fin de journée. Quelqu’un pourrait supposer que le début d’après-midi est concerné s’il généralise le manque à toute la seconde moitié de la journée, mais ce n’est pas précisé.",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 3,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "plusieurs personnes sont disponibles le matin, mais très peu en fin de journée"
+              ],
+              "reason": "C’est exactement ce que dit le document : il y a une concentration des disponibilités le matin et un manque net en fin de journée."
+            }
+          ],
+          "summary": "Le document indique un déséquilibre précis : beaucoup de bénévoles sont disponibles le matin, mais très peu en fin de journée. Les autres choix sont des interprétations erronées ou des généralisations non appuyées par le texte."
+        },
+        "usage": {
+          "prompt_tokens": 662,
+          "completion_tokens": 443,
+          "total_tokens": 1105,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004868,
+        "inputHash": "d37052414ff422b7920e18f8887fe004b3d5924ae571fc197cbcbd38b8628746",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:21:ground:4"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktBHUaXW1n7V91c1wETXQh1crtjg",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.01,
+            0.24,
+            0.15,
+            0.6
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 3,
+              "cue": "contrasts concentration in the morning with an almost empty end of day, matching a clear stated imbalance"
+            },
+            {
+              "option": 0,
+              "cue": "asserts no imbalance, which contradicts the question wording that asks for a precise imbalance"
+            }
+          ],
+          "reason": "The question asks for a specific imbalance already observed, so the choice claiming an even distribution (option 0) can be eliminated. Among the remaining options, two describe shortages later in the day while one singles out early afternoon; without the recording I cannot be sure, but it is more natural that volunteers concentrate in the morning leaving the end of day nearly empty, so option 3 is the best-supported guess. Uncertainty remains because the audio could instead have emphasized evening saturation or low early-afternoon demand, so probabilities reflect that uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 480,
+          "completion_tokens": 523,
+          "total_tokens": 1003,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.001166,
+        "inputHash": "07061a76c8de0848fa9be27a8aee61b500161ca5004c382a44622ec48a226692",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:21:blind:4"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBBIuVZYuAfqvZBsEdGgstHCljC",
+        "result": {
+          "question": "D’après le document, quel déséquilibre précis l’équipe constate déjà dans les disponibilités annoncées des bénévoles ?",
+          "choices": [
+            "Les créneaux du début d’après-midi restent les moins demandés.",
+            "Les propositions de présence se concentrent sur le matin, alors que la fin de journée reste presque vide.",
+            "Les horaires de soirée sont saturés, tandis que le matin attire peu de volontaires.",
+            "Les bénévoles se répartissent assez régulièrement sur toute la journée, sans vraie pointe ni manque net."
+          ],
+          "correctIndex": 1,
+          "explanation": "Le document indique clairement : « Plusieurs personnes sont disponibles le matin, mais très peu en fin de journée. » Le déséquilibre précis tient donc à une forte concentration de disponibilités le matin et à un manque marqué en fin de journée, ce que formule l’option 2.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Elle déplace le problème sur le début d’après-midi, alors que l’extrait ne mentionne aucune difficulté pour ce créneau : seul le manque en fin de journée est signalé."
+            },
+            {
+              "index": 2,
+              "reason": "Elle inverse le déséquilibre réel en affirmant que les horaires de soirée seraient saturés et que le matin attirerait peu de volontaires, alors que le texte dit exactement l’inverse."
+            },
+            {
+              "index": 3,
+              "reason": "Elle nie l’existence d’un déséquilibre en parlant de répartition régulière, alors que le document insiste justement sur un contraste net entre le matin et la fin de journée."
+            }
+          ],
+          "design": "contraste précis entre forte disponibilité le matin et rareté en fin de journée, avec distracteurs déplaçant ou niant ce déséquilibre"
+        },
+        "usage": {
+          "prompt_tokens": 1639,
+          "completion_tokens": 691,
+          "total_tokens": 2330,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 339,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00895875,
+        "inputHash": "b4b22bef66cb64089e3b285d27ffb06ac3ce21bc565cb9bb6bf0d83e64650d5a",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:21:author:4"
+      },
+      "rounds": 5
     },
     {
       "number": 22,
@@ -7225,7 +8063,230 @@
     },
     {
       "number": 39,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "3552b4e0f086e33a9b0b525e8055654577215420485d05234e500d2d31809f02",
+      "imageHash": null,
+      "question": {
+        "number": 39,
+        "kind": "interview",
+        "question": "Selon la responsable, que montre précisément la forte fréquentation du premier trimestre ?",
+        "options": [
+          "Qu’il existe un besoin, sans preuve que la qualité pourra être maintenue partout.",
+          "Que le volume de demandes suffit à financer durablement le cabinet mobile.",
+          "Qu’ils peuvent déjà garantir la même qualité de soins en multipliant les tournées.",
+          "Que l’itinéraire initial répond pleinement aux attentes de tous les villages concernés."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La responsable explique explicitement que la forte fréquentation montre l'existence d'un besoin, mais précise que cela ne prouve pas que la qualité pourra être maintenue partout. C'est donc la seule option qui reflète précisément ce que dit le texte. B : Quelqu’un pourrait croire que le volume de demandes suffit à financer durablement le cabinet mobile, car la forte fréquentation pourrait être interprétée comme une garantie de viabilité financière. Cependant, la responsable souligne qu'il reste des incertitudes sur le financement et que la fréquentation seule ne suffit pas. C : On pourrait penser que la forte fréquentation prouve déjà la capacité à garantir la même qualité en multipliant les tournées, mais la responsable dit explicitement que ce n'est pas garanti. D : Quelqu’un pourrait croire que l’itinéraire initial répond pleinement aux attentes de tous, mais la responsable précise qu’il faut encore consulter les villages non desservis, donc ce n’est pas prouvé.",
+        "transcript": "Question 39.\nLe cabinet mobile a été très fréquenté durant son premier trimestre. Pourquoi ne pas multiplier immédiatement les tournées ?\nParce que les premiers mois reposaient sur du matériel prêté et des heures supplémentaires exceptionnelles. Avant d'ajouter des destinations, nous devons savoir qui financera les remplacements, comment les dossiers seront suivis entre deux passages et où orienter les patients qui ont besoin d'un examen. Nous devons aussi recueillir l'avis des villages qui n'ont pas bénéficié du premier itinéraire. Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout.\nSelon la responsable, que montre précisément la forte fréquentation du premier trimestre ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 39."
+          },
+          {
+            "voice": "male",
+            "text": "Le cabinet mobile a été très fréquenté durant son premier trimestre. Pourquoi ne pas multiplier immédiatement les tournées ?"
+          },
+          {
+            "voice": "female",
+            "text": "Parce que les premiers mois reposaient sur du matériel prêté et des heures supplémentaires exceptionnelles. Avant d'ajouter des destinations, nous devons savoir qui financera les remplacements, comment les dossiers seront suivis entre deux passages et où orienter les patients qui ont besoin d'un examen. Nous devons aussi recueillir l'avis des villages qui n'ont pas bénéficié du premier itinéraire. Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout."
+          },
+          {
+            "voice": "female",
+            "text": "Selon la responsable, que montre précisément la forte fréquentation du premier trimestre ?"
+          }
+        ],
+        "audio": "q-39.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 82
+      },
+      "contentHash": "9d7f5379eb400f79cbc731e3b3333b607cd078a4360f98c65a916c5d4e3f7aee",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktAP8KEuIM7PPPVHrOXsquC7xxla",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout."
+              ],
+              "reason": "La responsable explique explicitement que la forte fréquentation montre l'existence d'un besoin, mais précise que cela ne prouve pas que la qualité pourra être maintenue partout. C'est donc la seule option qui reflète précisément ce que dit le texte."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "nous devons savoir qui financera les remplacements"
+              ],
+              "reason": "Quelqu’un pourrait croire que le volume de demandes suffit à financer durablement le cabinet mobile, car la forte fréquentation pourrait être interprétée comme une garantie de viabilité financière. Cependant, la responsable souligne qu'il reste des incertitudes sur le financement et que la fréquentation seule ne suffit pas.",
+              "misunderstanding": "cause/result"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "elle ne garantit pas que nous pouvons maintenir la qualité des soins partout"
+              ],
+              "reason": "On pourrait penser que la forte fréquentation prouve déjà la capacité à garantir la même qualité en multipliant les tournées, mais la responsable dit explicitement que ce n'est pas garanti.",
+              "misunderstanding": "condition"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "recueillir l'avis des villages qui n'ont pas bénéficié du premier itinéraire"
+              ],
+              "reason": "Quelqu’un pourrait croire que l’itinéraire initial répond pleinement aux attentes de tous, mais la responsable précise qu’il faut encore consulter les villages non desservis, donc ce n’est pas prouvé.",
+              "misunderstanding": "scope"
+            }
+          ],
+          "summary": "La responsable affirme que la forte fréquentation du premier trimestre montre un besoin, mais ne garantit pas la possibilité de maintenir la qualité partout. Les autres options interprètent à tort la fréquentation comme une preuve de viabilité financière, de capacité à garantir la qualité, ou de satisfaction de tous les villages, ce qui est contredit par le texte."
+        },
+        "usage": {
+          "prompt_tokens": 692,
+          "completion_tokens": 462,
+          "total_tokens": 1154,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00508,
+        "inputHash": "e19d46f8cca7a2877e21e656e769ca6a935fec5044c6f8e42a5fe66f50bf0e08",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:39:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktAPH1xHbIIZSAhBWoMOjDqrO6Nd",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.6,
+            0.15,
+            0.1,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "matches 'forte fréquentation' as evidence of unmet need while hedging about quality — balanced, cautious phrasing"
+            },
+            {
+              "option": 1,
+              "cue": "asserts a specific financial conclusion (suffisant pour financer) not directly implied by attendance"
+            },
+            {
+              "option": 2,
+              "cue": "claims a strong operational guarantee (peu crédible from attendance alone) — extreme positive claim"
+            },
+            {
+              "option": 3,
+              "cue": "asserts complete satisfaction of all villages — overly absolute and unlikely to be the intended point"
+            }
+          ],
+          "reason": "The safest inference from 'forte fréquentation' is that it demonstrates demand/need; options 2–4 draw stronger, more specific conclusions (financial sufficiency, guaranteed quality, full satisfaction) that attendance alone would not firmly support. Therefore option 0 stands out as the most directly supported, though without the recording there's residual uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 462,
+          "completion_tokens": 538,
+          "total_tokens": 1000,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0011915,
+        "inputHash": "ab18a780a41e3573d99337b048ce8b251c53ce50ca00e864fd614794312dc739",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:39:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktAE5nGfLn9uCCebR7LlzXYbpyeO",
+        "result": {
+          "question": "Selon la responsable, que montre précisément la forte fréquentation du premier trimestre ?",
+          "choices": [
+            "Qu’il existe un besoin, sans preuve que la qualité pourra être maintenue partout.",
+            "Qu’ils peuvent déjà garantir la même qualité de soins en multipliant les tournées.",
+            "Que l’itinéraire initial répond pleinement aux attentes de tous les villages concernés.",
+            "Que le volume de demandes suffit à financer durablement le cabinet mobile."
+          ],
+          "correctIndex": 0,
+          "explanation": "À la fin de l’enregistrement, la responsable précise que « Une forte fréquentation démontre un besoin; elle ne garantit pas que nous pouvons maintenir la qualité des soins partout. » La forte fréquentation est donc interprétée comme la preuve d’un besoin, mais pas comme une garantie de pérennité ni de qualité généralisable, ce que reprend exactement la première proposition.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "La responsable affirme au contraire que la forte fréquentation ne garantit pas qu’ils puissent maintenir la qualité partout, donc elle ne présente pas les tournées supplémentaires comme déjà garanties en termes de qualité."
+            },
+            {
+              "index": 2,
+              "reason": "Elle signale qu’il faut encore recueillir l’avis des villages qui n’ont pas bénéficié du premier itinéraire, ce qui montre que l’itinéraire initial ne répond pas forcément aux attentes de tous les villages concernés."
+            },
+            {
+              "index": 3,
+              "reason": "Le financement futur reste précisément une incertitude : elle dit qu’il faut d’abord savoir qui financera les remplacements, donc la fréquentation n’est pas présentée comme une assurance de financement durable."
+            }
+          ],
+          "design": "On déplace l’enjeu général de pérennité vers l’interprétation nuancée d’un indice précis du stimulus — la forte fréquentation — et l’on propose quatre lectures concurrentes de cette donnée, en inversant ou surestimant pour les distracteurs ce que la responsable dit explicitement."
+        },
+        "usage": {
+          "prompt_tokens": 1347,
+          "completion_tokens": 866,
+          "total_tokens": 2213,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 468,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01034375,
+        "inputHash": "8f5e23c19f29dbe0848da844d5243b123dcfc44fc5e00ff6978cc0ff9f7c9119",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:39:author:1"
+      },
+      "rounds": 2
     }
   ],
   "paperAssessment": null
