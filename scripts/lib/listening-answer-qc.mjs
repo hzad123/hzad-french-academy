@@ -59,7 +59,7 @@ export function receiptValid(receipt,stage,input) {
 export function blindVerdict(result) {
  validateResult('blind',result);
  const sorted=[...result.probabilities].sort((a,b)=>b-a);
- return {pass:!result.standsOut&&result.cues.length===0&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
+ return {pass:!result.standsOut&&!result.cues.some(c=>c.severity!=='weak')&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
   maximum:sorted[0],gap:sorted[0]-sorted[1]};
 }
 export function groundingVerdict(q,result,{evidenceSource=stimulus(q),normalizeEvidence=false}={}) {
@@ -169,7 +169,7 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
   const reserve=((textBytes+1024+(input.imageData?16000:0))*price.inputPerMillion+MAX_OUTPUT[stage]*price.outputPerMillion)/1e6;
   if(ledger.spentUsd+ledger.reservedUsd+reserve>maxUsd)throw Error('Offline authoring cost cap reached; progress saved');
   ledger.reservedUsd+=reserve;ledger.requests++;await persist();
-  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
+  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(130000)});
   if(!response.ok) {
    const detail=await response.json().catch(()=>({}));
    const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';

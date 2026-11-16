@@ -1,3 +1,4 @@
+throw Error('Historical review exception retired. Use run-listening-six-contrast-qc.mjs; every blind and grounding check is mandatory.');
 // Explicit owner-requested review release. Never mislabels failed blind QA as
 // accepted. Every item still requires an independently supported unique key.
 import {readFile,mkdir,copyFile} from 'node:fs/promises';

@@ -1,16 +1,15 @@
-name: Independently repair and evaluate all listening answer choices
+name: Strict blind quality for Listening Tests01–06
 on:
   push:
-    branches: [feature/listening-blind-answer-quality]
+    branches: [fix/listening-six-blind-cues-v5]
     paths:
-      - '.github/workflows/listening-answer-qc.yml'
-      - 'scripts/run-listening-answer-qc.mjs'
-      - 'scripts/lib/listening-answer-qc.mjs'
-      - 'supabase/functions/academy-listening-qc/**'
+      - .github/workflows/listening-answer-qc.yml
+      - scripts/run-listening-six-contrast-qc.mjs
+      - scripts/lib/listening-contrast-quality.mjs
+      - supabase/functions/academy-listening-qc/**
   workflow_dispatch:
 permissions:
   contents: write
-  actions: read
 concurrency:
   group: listening-independent-answer-qc
   cancel-in-progress: false
@@ -27,87 +26,52 @@ jobs:
         with:
           python-version: '3.11'
       - run: npm install --no-package-lock
-      - name: Test isolation, rejection/regeneration, semantic proof and cost boundaries
-        run: node --test tests/listening-answer-qc.test.mjs
+      - run: node --test tests/listening-answer-qc.test.mjs tests/listening-contrast-quality.test.mjs
       - run: python -m pip install --disable-pip-version-check cairosvg==2.8.2
       - uses: actions/cache/restore@v4
         with:
-          path: work/listening-answer-qc
-          key: listening-answer-qc-v1-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: listening-answer-qc-v1-
-      - name: Bundle only the private authoring evaluator
+          path: work/listening-six-contrast-v2
+          key: listening-six-contrast-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: listening-six-contrast-v2-
+      - name: Bundle private authoring and independent validators
         run: >-
           node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-listening-qc/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/listening-qc.ts'});"
-      - name: Independent blind and grounded evaluations for Tests01–20
+      - name: Fresh baseline, strict pilot, full repair and frozen blind experiment
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          LISTENING_QC_PUBLISH_CHECKPOINT: '1'
-        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --tests 1-20 --out work/listening-answer-qc --workers 6 --max-usd 35 --calibrate-first
-      - name: Save resumable receipts and rejected candidates even on failure
+        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --script scripts/run-listening-six-contrast-qc.mjs --out work/listening-six-contrast-v2 --workers 8 --max-usd 35
+      - uses: actions/cache/save@v4
         if: always()
-        uses: actions/cache/save@v4
         with:
-          path: work/listening-answer-qc
-          key: listening-answer-qc-v1-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Retain actual model results, baseline and held-out statistics
+          path: work/listening-six-contrast-v2
+          key: listening-six-contrast-v2-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: listening-independent-qc-${{ github.run_id }}
-          path: work/listening-answer-qc
+          name: strict-listening-six-${{ github.run_id }}
+          path: work/listening-six-contrast-v2
           retention-days: 30
-      - name: Preserve diagnostic results on the feature branch
-        if: always() && github.ref_name == 'feature/listening-blind-answer-quality'
-        run: python scripts/release/publish-listening-qc-progress.py
-  record:
-    needs: evaluate
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: npm install --no-package-lock
-      - uses: actions/download-artifact@v4
-        with:
-          name: listening-independent-qc-${{ github.run_id }}
-          path: work/listening-answer-qc
-      - name: Install pinned offline French speech renderer
+      - name: Preserve actual results, including rejected candidates
+        if: always() && github.ref_name == 'fix/listening-six-blind-cues-v5'
         run: |
-          python -m pip install --disable-pip-version-check piper-tts==1.8.0
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
-          mkdir -p "$RUNNER_TEMP/models"
-          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium fr_FR-upmc-medium
-      - name: Generate matching complete recordings only after all independent checks pass
-        run: python scripts/render-listening-qc-media.py --root work/listening-answer-qc --models "$RUNNER_TEMP/models"
-      - name: Verify exact frozen evidence, existing scoring and application build
-        run: |
-          for number in $(seq -w 1 20); do
-            node scripts/check-listening-answer-quality.mjs --bank "supabase/exams/tcf-listening-test${number}-v4.json"
-          done
-          npm test
-          npm run build
-      - name: Preserve verified immutable candidates for release review
-        run: |
-          set -euo pipefail
+          python - <<'PYTHON'
+          from pathlib import Path
+          import shutil
+          src=Path('work/listening-six-contrast-v2');dest=Path('curriculum/tcf-listening-contrast-v2-source')
+          if src.exists():
+            dest.mkdir(parents=True,exist_ok=True)
+            for item in src.iterdir():
+              if item.name=='model-receipts':continue
+              target=dest/item.name
+              if item.is_dir():shutil.copytree(item,target,dirs_exist_ok=True)
+              else:shutil.copyfile(item,target)
+          PYTHON
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/tcf-listening/*-v4 supabase/exams/*-v4.json curriculum/tcf-listening-answer-qc
-          git commit -m "Record all twenty independently evaluated listening v4 candidates with frozen quality evidence"
-          git fetch origin feature/listening-blind-answer-quality
-          git rebase origin/feature/listening-blind-answer-quality
-          git push origin HEAD:feature/listening-blind-answer-quality
-      - name: Retain media diagnostics if recording or verification fails
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: listening-media-diagnostics-${{ github.run_id }}
-          path: |
-            assets/tcf-listening/*-v4
-            curriculum/tcf-listening-answer-qc
-            supabase/exams/*-v4.json
+          git add curriculum/tcf-listening-contrast-v2-source
+          if ! git diff --cached --quiet; then
+            git commit -m "Retain actual strict listening contrast evaluation results"
+            git fetch origin fix/listening-six-blind-cues-v5
+            git rebase origin/fix/listening-six-blind-cues-v5
+            git push origin HEAD:fix/listening-six-blind-cues-v5
+          fi

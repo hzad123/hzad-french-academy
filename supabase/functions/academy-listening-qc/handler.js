@@ -27,7 +27,7 @@ export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
   const policyHash=await policyFingerprint();
   if(expectedPolicyHash!==policyHash)return reply(409,{error:'QC_POLICY_MISMATCH'});
   try {
-   const response=await fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+providerKey,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(55000)});
+   const response=await fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+providerKey,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(110000)});
    if(!response.ok)return reply(502,{error:'QC_PROVIDER',providerStatus:response.status});
    const raw=await response.json();
    if(raw.choices?.[0]?.finish_reason!=='stop')return reply(502,{error:'QC_INCOMPLETE_OUTPUT'});

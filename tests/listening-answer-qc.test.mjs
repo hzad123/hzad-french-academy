@@ -47,8 +47,8 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  const request=modelRequest('blind',blindProjection(item));
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
  assert.equal(request.model,'gpt-5-mini');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
- assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-4.1');
- assert.equal(stagePrice('ground').outputPerMillion,8);
+ assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-5.1');
+ assert.equal(stagePrice('ground').outputPerMillion,10);
 });
 
 test('a conspicuous WRONG choice also rejects an item; author cannot game a blind guess',async()=>{
@@ -189,7 +189,7 @@ test('reasoning author requests use compatible parameters and account for billed
  const handler=createQcHandler({adminToken,providerKey:'private-test-only',fetcher:async(url,options)=>{
   assert.equal(url,'https://api.openai.com/v1/chat/completions');
   const request=JSON.parse(options.body);
-  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');
+  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'medium');
   assert.equal(request.max_completion_tokens,6000);assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
   return Response.json({id:'chatcmpl-cost-fixture',model:'gpt-5.1-2025-11-13',choices:[{finish_reason:'stop',message:{content:JSON.stringify(authored)}}],usage:{prompt_tokens:100,completion_tokens:100,completion_tokens_details:{reasoning_tokens:80}}});
  }});
