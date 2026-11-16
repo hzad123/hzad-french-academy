@@ -171,3 +171,18 @@ test('held-out measurement nonce cannot reuse a screening response with identica
   await provider('blind',blindProjection(q()),{nonce:'heldout'});assert.equal(calls,2);
  }finally{await rm(dir,{recursive:true,force:true});}
 });
+
+test('reasoning author requests use compatible parameters and account for billed reasoning tokens once',async()=>{
+ const item=q(),input={...blindProjection(item),stimulus:stimulus(item),mode:'document',feedback:{}};
+ const authored={question:item.question,choices:item.options,correctIndex:0,explanation:'Le rendez-vous est confirmé jeudi à neuf heures.',distractorReasons:[1,2,3].map(index=>({index,reason:'Confusion entre le créneau remplacé et celui retenu.'}))};
+ const handler=createQcHandler({adminToken,providerKey:'private-test-only',fetcher:async(url,options)=>{
+  assert.equal(url,'https://api.openai.com/v1/chat/completions');
+  const request=JSON.parse(options.body);
+  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');
+  assert.equal(request.max_completion_tokens,6000);assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
+  return Response.json({id:'chatcmpl-cost-fixture',model:'gpt-5.1-2025-11-13',choices:[{finish_reason:'stop',message:{content:JSON.stringify(authored)}}],usage:{prompt_tokens:100,completion_tokens:100,completion_tokens_details:{reasoning_tokens:80}}});
+ }});
+ const response=await handler(new Request('https://example/qc',{method:'POST',headers:{'x-listening-qc-token':adminToken},body:JSON.stringify({stage:'author',policyHash,input})}));
+ assert.equal(response.status,200);const result=await response.json();
+ assert.equal(result.costUsd,0.001125);assert.equal(result.usage.completion_tokens_details.reasoning_tokens,80);
+});
