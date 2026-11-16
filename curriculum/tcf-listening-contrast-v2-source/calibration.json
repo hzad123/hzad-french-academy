@@ -13,9 +13,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
-      "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-EkvwDwcqKkFqO8UQuc9LvYsbkiUqT",
+      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekw5XLW6WjkrXim4tbKFlNapPH3F2",
       "result": {
         "guess": 0,
         "probabilities": [
@@ -26,24 +26,24 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "No information in the prompt differentiates the four room-number options. All are equally plausible, so probabilities are uniform and there is no defensible standout choice."
+        "reason": "Aucun indice contextuel dans l’énoncé ni asymétrie évidente entre les numéros de salle; toutes les options sont symétriques et également plausibles, donc répartition uniforme des probabilités."
       },
       "usage": {
         "prompt_tokens": 363,
-        "completion_tokens": 268,
-        "total_tokens": 631,
+        "completion_tokens": 105,
+        "total_tokens": 468,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 192,
+          "reasoning_tokens": 17,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00062675,
+      "costUsd": 0.00150375,
       "inputHash": "d07f588bc9fb9fc538579e48d433d89e67d563dd265d4ec9f56b115eefb18311",
       "evaluationId": "v2-control:0"
     },
@@ -63,11 +63,11 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
-      "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-EkvwG5r50ME5JQGThCDrhSaL9SkgV",
+      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekw5ZlWyhkswOE6oOZuUoOu4yqGFo",
       "result": {
-        "guess": 1,
+        "guess": 0,
         "probabilities": [
           0.25,
           0.25,
@@ -76,28 +76,78 @@
         ],
         "standsOut": false,
         "cues": [],
-        "reason": "No recording or context provided; all four options are equally plausible times differing only by hour. With no additional cues, assign equal probability and an arbitrary mandatory guess (index 1)."
+        "reason": "Aucune information contextuelle n’indique l’heure correcte parmi les quatre horaires proposés, qui sont tous également plausibles. Attribution de probabilités uniformes par absence totale de repères pour discriminer."
       },
       "usage": {
         "prompt_tokens": 359,
-        "completion_tokens": 209,
-        "total_tokens": 568,
+        "completion_tokens": 94,
+        "total_tokens": 453,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 128,
+          "reasoning_tokens": 8,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00050775,
+      "costUsd": 0.00138875,
       "inputHash": "3dcf2948f85cb655e376e7dbd767a393c3b12c177756ff78e0bd0347ad222919",
       "evaluationId": "v2-control:1"
     },
     "pass": true
+  },
+  {
+    "input": {
+      "question": "Quelle raison explique la décision évoquée ?",
+      "choices": [
+        "Un changement d'horaire.",
+        "Un changement d'adresse.",
+        "Un changement d'équipe.",
+        "Un changement de tarif."
+      ]
+    },
+    "clear": false,
+    "receipt": {
+      "stage": "blind",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekw5bNYfXxgrhy0s4Z6kptbVMaytn",
+      "result": {
+        "guess": 0,
+        "probabilities": [
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "standsOut": false,
+        "cues": [],
+        "reason": "La question est très générale. Parmi les motifs courants expliquant une décision (par ex. de report, d’annulation ou de modification), un changement d’horaire est légèrement plus fréquent et générique que les autres (adresse, équipe, tarif) sans indication contextuelle. Aucune option ne présente d’indice formel clair, donc la préférence pour l’option 0 reste faible et surtout fondée sur la plausibilité générale."
+      },
+      "usage": {
+        "prompt_tokens": 362,
+        "completion_tokens": 165,
+        "total_tokens": 527,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 30,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0021025,
+      "inputHash": "fae5a3d4fb62f9ae22997ade365f5b6cf61a313e9661058ffeb223c9d761c267",
+      "evaluationId": "v2-control:2"
+    },
+    "pass": false
   },
   {
     "input": {
@@ -113,9 +163,9 @@
     "receipt": {
       "stage": "blind",
       "policy": "listening-comprehension-qc-v2",
-      "policyHash": "0b3f3118692e3740d51a399b1e21554b5acaf065e92469e4ba134269a0d8b499",
-      "model": "gpt-5-mini-2025-08-07",
-      "responseId": "chatcmpl-EkvwJqanvJ0GE5ERfhcBOnWNkI3NJ",
+      "policyHash": "178a3c0e8844653cdd20c8d9fabb6718843327494dbfe5f452744be12e757a6f",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekw5fRawCF0jfJABJ5PGggdY3hlrB",
       "result": {
         "guess": 0,
         "probabilities": [
@@ -129,44 +179,29 @@
           {
             "option": 0,
             "severity": "clear",
-            "cue": "Plausible, common and realistic cause for a bus delay (roadworks slowing route)."
-          },
-          {
-            "option": 1,
-            "severity": "clear",
-            "cue": "Absurd/impossible claim (sidewalks learning to fly) — not a realistic cause of delay."
-          },
-          {
-            "option": 2,
-            "severity": "clear",
-            "cue": "Temporal impossibility/incoherence (passengers arriving 'yesterday morning' cannot cause present delay as stated)."
-          },
-          {
-            "option": 3,
-            "severity": "clear",
-            "cue": "Irrelevant or nonsensical (change of coffee color unrelated to bus timetable)."
+            "cue": "Seule réponse logique expliquant un retard de bus ; les autres sont absurdes ou temporellement impossibles."
           }
         ],
-        "reason": "Option 0 is the only realistic, context-appropriate explanation; the other three are implausible or nonsensical, so the high probability is assigned to 0 with small residual uncertainty in case of unusual intent."
+        "reason": "La question demande une cause plausible du retard d’un bus. Les travaux qui ralentissent le trajet constituent une explication réaliste et directe. Les autres propositions sont incohérentes (trottoirs qui volent, voyageurs arrivant hier matin, café qui change de couleur) et ne peuvent raisonnablement expliquer le retard."
       },
       "usage": {
         "prompt_tokens": 370,
-        "completion_tokens": 532,
-        "total_tokens": 902,
+        "completion_tokens": 154,
+        "total_tokens": 524,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 320,
+          "reasoning_tokens": 8,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0011565,
+      "costUsd": 0.0020025,
       "inputHash": "d13e8f77cfa32c6a671658d1e1a665f262780ebcd13a5f74e153a6bb532851c7",
-      "evaluationId": "v2-control:2"
+      "evaluationId": "v2-control:3"
     },
     "pass": true
   }
