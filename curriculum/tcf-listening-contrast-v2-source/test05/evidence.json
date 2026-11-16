@@ -1,7 +1,7 @@
 {
   "protocol": "six-listening-contrast-v2",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
+  "policyHash": "22576586379684abe6ee8f906e74e15ab66b59003fa2269a6c3177d2f16dab7b",
   "test": "tcf-listening-05",
   "version": "tcf-listening-2026-11-test05-v5",
   "source": "supabase/exams/tcf-listening-test05-v4.json",
@@ -36,115 +36,6 @@
     null,
     null,
     null,
-    {
-      "question": {
-        "number": 30,
-        "kind": "interview",
-        "question": "Selon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?",
-        "options": [
-          "Quand on ne touche plus à la grande charpente ni aux traces de machines, quitte à limiter le confort des futurs logements.",
-          "Quand on laisse le bâtiment vide, car c’est ainsi que sa survie est le mieux assurée.",
-          "Quand on privilégie surtout des logements confortables, accessibles et peu énergivores, même si les éléments de l’ancien usage disparaissent.",
-          "Quand l’histoire du lieu reste lisible grâce à la conservation de certains éléments et à la documentation des transformations."
-        ],
-        "correct": "D",
-        "explanation": "L’intervenant répond qu’on peut parler de conservation du patrimoine \"si nous rendons lisible son histoire\" en conservant la \"grande charpente\" et \"certaines traces de machines\" et en \"document[ant] les transformations\". Il refuse l’idée que garder le bâtiment vide suffise et insiste sur le maintien d’éléments permettant de comprendre l’ancien usage tout en installant des logements confortables.",
-        "transcript": "Question 30.\nL'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?\nOui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage.\nSelon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?",
-        "segments": [
-          {
-            "voice": "female",
-            "text": "Question 30."
-          },
-          {
-            "voice": "male",
-            "text": "L'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?"
-          },
-          {
-            "voice": "female",
-            "text": "Oui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage."
-          },
-          {
-            "voice": "female",
-            "text": "Selon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?"
-          }
-        ],
-        "audio": "q-30.mp3",
-        "audioSeconds": null,
-        "slotSeconds": 69
-      },
-      "contentHash": "63a3630d4ef5b178092357721f8dcb99b9cb201c0b11f9af8e9bff2bd05fd45d",
-      "sourceHash": "5ea66c97a48f3cd0eda33daea4c87c186c29fd45abea2db53516fed3f22aa838",
-      "policy": "listening-comprehension-qc-v2",
-      "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
-      "rounds": 6,
-      "pass": false,
-      "blocked": true,
-      "blind": [
-        {
-          "order": [
-            1,
-            0,
-            2,
-            3
-          ],
-          "receipt": {
-            "stage": "blind",
-            "policy": "listening-comprehension-qc-v2",
-            "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
-            "model": "gpt-5-mini-2025-08-07",
-            "responseId": "chatcmpl-EkveBST1O88o5U1qJzFfmVObAJIVw",
-            "result": {
-              "guess": 3,
-              "probabilities": [
-                0.05,
-                0.1,
-                0.15,
-                0.7
-              ],
-              "standsOut": true,
-              "cues": [
-                {
-                  "option": 3,
-                  "severity": "clear",
-                  "cue": "met en avant la lisibilité de l’histoire du lieu via conservation d’éléments et documentation, formulation nuancée et centrée sur la valeur patrimoniale"
-                }
-              ],
-              "reason": "La réponse 3 formule précisément la condition qui relève clairement d’une conservation du patrimoine (conserver des éléments visibles et documenter les transformations), ce qui correspond logiquement à la définition usuelle de ‘conservation’. Les autres options sont soit excessives (laisser vide), peu praticables et pénalisantes pour l’usage (ne rien toucher au point de limiter le confort), ou opposées à la conservation (prioriser le confort même si les éléments historiques disparaissent). Il reste une incertitude modérée car je n’ai pas accès au contexte complet de l’intervention, mais la formulation de l’option 3 lui donne un avantage défendable."
-            },
-            "usage": {
-              "prompt_tokens": 460,
-              "completion_tokens": 414,
-              "total_tokens": 874,
-              "prompt_tokens_details": {
-                "cached_tokens": 0,
-                "audio_tokens": 0
-              },
-              "completion_tokens_details": {
-                "reasoning_tokens": 192,
-                "audio_tokens": 0,
-                "accepted_prediction_tokens": 0,
-                "rejected_prediction_tokens": 0
-              }
-            },
-            "costUsd": 0.000943,
-            "inputHash": "97d643c5d734fd6a8902e501d03a834a8bd124b978e99368073be461a133ee88",
-            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:29:b322096703aa4aa7aa0af672:screen:6:0"
-          }
-        }
-      ],
-      "feedback": {
-        "stage": "blind",
-        "reason": "La réponse 3 formule précisément la condition qui relève clairement d’une conservation du patrimoine (conserver des éléments visibles et documenter les transformations), ce qui correspond logiquement à la définition usuelle de ‘conservation’. Les autres options sont soit excessives (laisser vide), peu praticables et pénalisantes pour l’usage (ne rien toucher au point de limiter le confort), ou opposées à la conservation (prioriser le confort même si les éléments historiques disparaissent). Il reste une incertitude modérée car je n’ai pas accès au contexte complet de l’intervention, mais la formulation de l’option 3 lui donne un avantage défendable.",
-        "cues": [
-          {
-            "option": 3,
-            "severity": "clear",
-            "cue": "met en avant la lisibilité de l’histoire du lieu via conservation d’éléments et documentation, formulation nuancée et centrée sur la valeur patrimoniale"
-          }
-        ]
-      },
-      "imageHash": null
-    },
     null,
     null,
     null,
@@ -152,121 +43,10 @@
     null,
     null,
     null,
-    {
-      "pass": false,
-      "blocked": true,
-      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
-    },
-    {
-      "question": {
-        "number": 39,
-        "kind": "interview",
-        "question": "Selon l'intervenant, à quoi doit surtout servir la formation de nouveaux membres avant d'envisager un second bâtiment ?",
-        "options": [
-          "À organiser la participation des habitants une fois le second bâtiment ouvert, la priorité restant d'abord d'entretenir les parties communes et de construire vite.",
-          "À garantir que les logements existants restent abordables pendant que l'on ouvre immédiatement un second bâtiment très demandé.",
-          "À compenser l'absence probable de nouvelles subventions de lancement, en les formant à prendre en charge le financement des grosses réparations du second immeuble.",
-          "À les préparer aux décisions collectives, parce que la participation ne s'improvise pas, avant d'agrandir la coopérative."
-        ],
-        "correct": "D",
-        "explanation": "L'intervenant précise Il nous faut aussi former de nouveaux membres aux décisions collectives, car la participation ne s'improvise pas. La formation est donc liée à la capacité de décider ensemble, et présentée parmi les conditions à remplir avant d'ouvrir un nouveau bâtiment, non comme un outil financier ni comme une mesure après coup.",
-        "transcript": "Question 39.\nVotre coopérative de logements accueille de nombreuses demandes. Pourquoi ne pas ouvrir immédiatement un second bâtiment ?\nNous devons d'abord vérifier notre capacité à entretenir les parties communes et à financer les grosses réparations. Le premier immeuble a bénéficié de subventions de lancement qui ne se répéteront pas nécessairement. Il nous faut aussi former de nouveaux membres aux décisions collectives, car la participation ne s'improvise pas. Un nouveau bâtiment serait une bonne nouvelle seulement si les logements existants restent abordables et correctement entretenus.\nSelon l'intervenant, à quoi doit surtout servir la formation de nouveaux membres avant d'envisager un second bâtiment ?",
-        "segments": [
-          {
-            "voice": "female",
-            "text": "Question 39."
-          },
-          {
-            "voice": "male",
-            "text": "Votre coopérative de logements accueille de nombreuses demandes. Pourquoi ne pas ouvrir immédiatement un second bâtiment ?"
-          },
-          {
-            "voice": "female",
-            "text": "Nous devons d'abord vérifier notre capacité à entretenir les parties communes et à financer les grosses réparations. Le premier immeuble a bénéficié de subventions de lancement qui ne se répéteront pas nécessairement. Il nous faut aussi former de nouveaux membres aux décisions collectives, car la participation ne s'improvise pas. Un nouveau bâtiment serait une bonne nouvelle seulement si les logements existants restent abordables et correctement entretenus."
-          },
-          {
-            "voice": "female",
-            "text": "Selon l'intervenant, à quoi doit surtout servir la formation de nouveaux membres avant d'envisager un second bâtiment ?"
-          }
-        ],
-        "audio": "q-39.mp3",
-        "audioSeconds": null,
-        "slotSeconds": 81
-      },
-      "contentHash": "ccbc866e0fb13cf6359dd8e1649163131e3cec26ebc9e63b428244b22cc31105",
-      "sourceHash": "10c0eb7264aff2ceec8ff98e50b0b13efb42fb7b6806c392a0905b97c1c22dd9",
-      "policy": "listening-comprehension-qc-v2",
-      "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
-      "rounds": 6,
-      "pass": false,
-      "blocked": true,
-      "blind": [
-        {
-          "order": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "receipt": {
-            "stage": "blind",
-            "policy": "listening-comprehension-qc-v2",
-            "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
-            "model": "gpt-5-mini-2025-08-07",
-            "responseId": "chatcmpl-EkveLzf9vZhGeXXcuyNU692bklT7O",
-            "result": {
-              "guess": 3,
-              "probabilities": [
-                0.05,
-                0.03,
-                0.07,
-                0.85
-              ],
-              "standsOut": true,
-              "cues": [
-                {
-                  "option": 3,
-                  "severity": "clear",
-                  "cue": "Matches phrasing about preparing members for collective decision-making; the idea that \"la participation ne s'improvise pas\" aligns directly with training to handle decisions before enlarging the coop."
-                }
-              ],
-              "reason": "Options 0–2 propose concrete operational/financial aims (organizing participation post-opening, ensuring affordability while opening immediately, compensating for lack of subsidies by training for repairs) that do not echo the speaker's emphasis on learning to participate. Option 3 uniquely reflects a pedagogical aim — preparing members for collective decision-making — and mirrors the exact justification given (participation must be learned) so it is the most plausible key. Remaining uncertainty is small but present because no recording is available; probabilities reflect that confidence."
-            },
-            "usage": {
-              "prompt_tokens": 470,
-              "completion_tokens": 453,
-              "total_tokens": 923,
-              "prompt_tokens_details": {
-                "cached_tokens": 0,
-                "audio_tokens": 0
-              },
-              "completion_tokens_details": {
-                "reasoning_tokens": 256,
-                "audio_tokens": 0,
-                "accepted_prediction_tokens": 0,
-                "rejected_prediction_tokens": 0
-              }
-            },
-            "costUsd": 0.0010235,
-            "inputHash": "f9b960c54b7f187873bbae535ef21553956035d8cd3535df0949c7c5aa7cb2b1",
-            "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:38:b322096703aa4aa7aa0af672:screen:6:0"
-          }
-        }
-      ],
-      "feedback": {
-        "stage": "blind",
-        "reason": "Options 0–2 propose concrete operational/financial aims (organizing participation post-opening, ensuring affordability while opening immediately, compensating for lack of subsidies by training for repairs) that do not echo the speaker's emphasis on learning to participate. Option 3 uniquely reflects a pedagogical aim — preparing members for collective decision-making — and mirrors the exact justification given (participation must be learned) so it is the most plausible key. Remaining uncertainty is small but present because no recording is available; probabilities reflect that confidence.",
-        "cues": [
-          {
-            "option": 3,
-            "severity": "clear",
-            "cue": "Matches phrasing about preparing members for collective decision-making; the idea that \"la participation ne s'improvise pas\" aligns directly with training to handle decisions before enlarging the coop."
-          }
-        ]
-      },
-      "imageHash": null
-    }
+    null,
+    null,
+    null
   ],
   "paperAssessment": null,
-  "paperHash": "90f18577eca2d1125c42cb91724e517ae81ee37ee0298988e7e445880937b909"
+  "paperHash": "91bd9114da88246df93aaee99af573b21a79973b0bb0f499316476498a314ffa"
 }
