@@ -2,16 +2,16 @@
   "question": {
     "number": 21,
     "kind": "announcement",
-    "question": "Dans le document, quel problème d’organisation la précision des horaires des bénévoles doit-elle surtout permettre d’éviter ?",
+    "question": "En demandant aux bénévoles de préciser leurs horaires de présence, quel problème l’organisateur cherche-t-il surtout à éviter ?",
     "options": [
-      "Avoir trop de bénévoles rassemblés au même moment tandis que certains stands manquent d’aide",
-      "Avoir trop peu de bénévoles pour assurer le nettoyage après la fin de la fête",
-      "Manquer de bénévoles sur l’ensemble de la journée, quel que soit le moment",
-      "Ne pas avoir assez de bénévoles pour installer les stands au début de la fête"
+      "Avoir des périodes où trop de bénévoles sont présents en même temps tout en laissant certains stands sans aide",
+      "Se retrouver sans suffisamment de bénévoles disponibles pour installer les stands tôt le matin",
+      "Laisser les mêmes bénévoles au même stand sans pause ni rotation pendant toute la journée",
+      "Voir la plupart des bénévoles se proposer seulement pour le rangement final des stands en fin de journée"
     ],
     "correct": "A",
-    "explanation": "Le document dit que préciser les horaires « nous évitera de réunir trop de personnes à un même moment tout en laissant certains stands sans aide » : il s’agit bien d’éviter un déséquilibre avec trop de bénévoles au même moment et un manque sur certains stands, pas un manque global ni limité au début ou à la fin de la journée.",
-    "transcript": "Question 21.\nLa fête du quartier aura lieu samedi prochain. Les bénévoles peuvent participer une heure ou toute la journée. Pour préparer les équipes d'accueil, de nettoyage et d'animation, nous vous demandons de préciser vos horaires avant mercredi. Cette information nous évitera de réunir trop de personnes à un même moment tout en laissant certains stands sans aide. Aucune expérience particulière n'est nécessaire.\nDans le document, quel problème d’organisation la précision des horaires des bénévoles doit-elle surtout permettre d’éviter ?",
+    "explanation": "Le document précise : « Cette information nous évitera de réunir trop de personnes à un même moment tout en laissant certains stands sans aide. » Il s’agit donc d’éviter un double déséquilibre : surcharge de bénévoles sur un créneau et manque d’aide sur certains stands.",
+    "transcript": "Question 21.\nLa fête du quartier aura lieu samedi prochain. Les bénévoles peuvent participer une heure ou toute la journée. Pour préparer les équipes d'accueil, de nettoyage et d'animation, nous vous demandons de préciser vos horaires avant mercredi. Cette information nous évitera de réunir trop de personnes à un même moment tout en laissant certains stands sans aide. Aucune expérience particulière n'est nécessaire.\nEn demandant aux bénévoles de préciser leurs horaires de présence, quel problème l’organisateur cherche-t-il surtout à éviter ?",
     "segments": [
       {
         "voice": "female",
@@ -23,120 +23,232 @@
       },
       {
         "voice": "female",
-        "text": "Dans le document, quel problème d’organisation la précision des horaires des bénévoles doit-elle surtout permettre d’éviter ?"
+        "text": "En demandant aux bénévoles de préciser leurs horaires de présence, quel problème l’organisateur cherche-t-il surtout à éviter ?"
       }
     ],
     "audio": "q-21.mp3",
     "audioSeconds": null,
     "slotSeconds": 51
   },
-  "rounds": 0,
+  "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzTufai80yB0Tq5a58fID4znQmqb",
+    "result": {
+      "question": "Grâce aux horaires indiqués par les bénévoles, quel problème l’organisateur cherche‑t‑il à éviter ?",
+      "choices": [
+        "Se retrouver avec trop de bénévoles au même moment tout en laissant certains stands sans aide",
+        "Laisser les mêmes bénévoles affectés au même stand sans interruption toute la journée",
+        "Ne pas avoir assez de bénévoles présents pour installer les stands le matin",
+        "Avoir presque tous les bénévoles qui ne viennent que pour le rangement des stands en fin de journée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : « Cette information nous évitera de réunir trop de personnes à un même moment tout en laissant certains stands sans aide. » Il s’agit donc d’éviter un double déséquilibre : surcharge de bénévoles sur un créneau et manque d’aide sur certains stands.",
+      "design": "On teste le rôle précis attribué aux horaires : quel type de déséquilibre leur collecte doit permettre d’éviter. Les quatre réponses décrivent des problèmes d’organisation des bénévoles dans le temps et sur les stands, toutes plausibles sans le document. Le texte n’en confirme pourtant qu’un seul, le risque de trop de personnes sur un créneau alors que certains stands manquent d’aide. Les autres déplacent ce déséquilibre vers la stabilité des affectations, le manque d’installation matinale ou la concentration sur le rangement final.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme le problème d’équilibre global des présences en un problème de rotation individuelle. L’énoncé insiste sur la simultanéité (« trop de personnes à un même moment ») et la répartition entre stands (« certains stands sans aide »), pas sur le fait que les mêmes restent ou non au même poste.",
+          "operation": "scope_shift",
+          "anchors": [
+            "les bénévoles peuvent participer une heure ou toute la journée",
+            "trop de personnes à un même moment tout en laissant certains stands sans aide"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option déplace le déséquilibre vers un moment précis (le matin) alors que le document parle d’éviter un problème à n’importe quel créneau. Le texte ne distingue pas l’installation du reste de la journée, il vise la répartition des présences pour ne pas surcharger un moment et en vider un autre.",
+          "operation": "time_swap",
+          "anchors": [
+            "les bénévoles peuvent participer une heure ou toute la journée",
+            "trop de personnes à un même moment tout en laissant certains stands sans aide"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Ici, on concentre le risque sur la fin de journée et le rangement, alors que le document évoque un déséquilibre possible à tout moment. La phrase sur « trop de personnes à un même moment » ne désigne pas spécifiquement le rangement final, mais tout créneau où certains stands risquent d’être laissés « sans aide ».",
+          "operation": "time_swap",
+          "anchors": [
+            "participer une heure ou toute la journée",
+            "trop de personnes à un même moment tout en laissant certains stands sans aide"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4332,
+      "completion_tokens": 902,
+      "total_tokens": 5234,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 278,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.014435,
+    "inputHash": "b056d632f4ed8c611d31f2c6dfe0ea6f9ccdaff87051ed06fa5d0aac51e7dd82",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:20:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Grâce aux horaires indiqués par les bénévoles, quel problème l’organisateur cherche‑t‑il à éviter ?",
+      "choices": [
+        "Se retrouver avec trop de bénévoles au même moment tout en laissant certains stands sans aide",
+        "Ne pas avoir assez de bénévoles présents pour installer les stands le matin",
+        "Laisser les mêmes bénévoles affectés au même stand sans interruption toute la journée",
+        "Avoir presque tous les bénévoles qui ne viennent que pour le rangement des stands en fin de journée"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzUMLSvFROLxxGpbe4G4qaEKu7jx",
+      "result": {
+        "question": "En demandant aux bénévoles de préciser leurs horaires de présence, quel problème l’organisateur cherche-t-il surtout à éviter ?",
+        "choices": [
+          "Avoir des périodes où trop de bénévoles sont présents en même temps tout en laissant certains stands sans aide",
+          "Se retrouver sans suffisamment de bénévoles disponibles pour installer les stands tôt le matin",
+          "Laisser les mêmes bénévoles au même stand sans pause ni rotation pendant toute la journée",
+          "Voir la plupart des bénévoles se proposer seulement pour le rangement final des stands en fin de journée"
+        ],
+        "notes": "La question reste centrée sur le problème à éviter grâce aux horaires, mais sans suggérer qu’un type de déséquilibre serait plus pertinent qu’un autre. Chaque option décrit un souci d’organisation temporelle spécifique (répartition générale, installation du matin, rotation des postes, démontage du soir) avec un niveau de détail et de crédibilité comparable."
+      },
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 708,
+        "total_tokens": 1392,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 511,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.007935,
+      "inputHash": "dc4c8113031f4418e57623b31bcbe8956cc499f4135635498ceb61459fb6e56e",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:20:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        0,
+        1,
         2,
-        3,
-        1
+        0,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkynnvuWhAAVPNOWGBfT1bJGopB18",
+        "responseId": "chatcmpl-EkzUaUWsxEIfzhwJNXyBIJAjsVHML",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une réunion de préparation d’une fête associative avec plusieurs stands, l’organisateur explique qu’il a besoin que chaque bénévole indique précisément ses horaires de présence. Il précise qu’avec des disponibilités floues, on se retrouve parfois avec dix personnes au stand crêpes à 14h et personne au stand boissons à la même heure. Il dit donc que la précision des horaires doit surtout permettre d’éviter d’avoir trop de bénévoles rassemblés au même moment alors que certains stands manquent d’aide."
+              "context": "Un organisateur de festival prépare l’installation des stands et envoie un message aux bénévoles : il leur demande de préciser leurs horaires de présence, en expliquant qu’il craint de ne pas avoir assez de monde très tôt le matin pour monter les structures et disposer le matériel."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une fête de quartier, l’organisateur s’inquiète du nombre de bénévoles et demande à chacun de renseigner ses horaires exacts pour vérifier qu’il y a suffisamment de monde tout au long de la journée. Il explique que cela doit permettre de vérifier qu’on ne manque pas de bénévoles sur l’ensemble de la journée, quel que soit le moment."
+              "context": "Lors d’une journée de collecte de dons, un coordinateur explique aux bénévoles qu’il souhaite organiser des rotations pour éviter l’épuisement. Il leur demande de préciser à quels moments ils peuvent être présents, afin de mieux planifier les pauses et ne pas laisser quelqu’un coincé toute la journée au même stand sans interruption."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Pour une kermesse, l’organisateur insiste pour que les bénévoles indiquent précisément leur heure d’arrivée. Il explique qu’il faut être sûr d’avoir assez de monde pour installer les stands au début de la fête, et que la précision des horaires sert surtout à éviter de se retrouver avec trop peu de bénévoles au moment de l’installation."
+              "context": "Pour un grand événement associatif réparti sur toute la journée, l’organisateur demande aux bénévoles d’indiquer précisément leurs créneaux horaires afin d’éviter des moments de sureffectif et, au contraire, des trous de présence où certains stands se retrouveraient sans aide pendant que d’autres sont surchargés en bénévoles."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Après une fête communale, le nettoyage est souvent difficile faute de bras. L’organisateur, dans un message audio envoyé aux bénévoles, insiste pour qu’ils précisent s’ils pourront rester après la fin de la fête et à quelles heures, en expliquant que cela doit surtout permettre d’éviter d’avoir trop peu de bénévoles pour le nettoyage final."
+              "context": "À l’occasion d’un vide-grenier associatif, le responsable des bénévoles insiste pour que chacun précise ses horaires de présence : il explique qu’il ne veut pas se retrouver avec presque personne le matin ou en milieu de journée, et au contraire une majorité de volontaires qui ne veulent venir qu’au moment du rangement final des stands."
             }
           ],
           "cues": [
             {
-              "option": 0,
+              "option": 2,
               "severity": "clear",
-              "cue": "Cette option traite explicitement d’un problème d’« organisation » de la répartition des bénévoles entre stands et moments de la journée, ce qui correspond étroitement à l’idée de précision des horaires pour éviter les surcharges et manques simultanés. Elle est plus nuancée (double déséquilibre : trop à un endroit/moment et pas assez ailleurs) et directement liée à la gestion fine des plannings, davantage que les autres qui décrivent plutôt un manque global ou limité à un seul moment (début/fin)."
+              "cue": "La réponse 2 mentionne explicitement un problème de répartition des bénévoles selon les périodes (trop à certains moments, pas assez à d’autres, certains stands sans aide), ce qui correspond directement à la raison typique de demander aux bénévoles de préciser leurs horaires. Les autres options ciblent surtout un moment spécifique (tôt le matin, fin de journée) ou la gestion des pauses, moins étroitement lié au fait même de collecter des horaires détaillés."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.6,
             0.15,
-            0.1,
+            0.15,
+            0.55,
             0.15
           ],
-          "guess": 0,
-          "reason": "La formulation met l’accent sur un problème d’« organisation » lié à la précision des horaires, ce qui correspond le mieux à la gestion des flux de bénévoles pour éviter les sur-effectifs et sous-effectifs simultanés selon les stands, décrits dans l’option 0. Les autres options évoquent surtout un manque global ou à un moment précis (installation ou nettoyage) qui dépend plus du nombre total de bénévoles que de la seule précision des horaires."
+          "guess": 2,
+          "reason": "La formulation de la question met l’accent sur la précision des horaires de présence, ce qui renvoie le plus naturellement à un problème de répartition inégale des bénévoles au fil de la journée et entre stands. L’option 2 décrit exactement ce type de déséquilibre (surdensité de bénévoles à certains moments et manque à d’autres, avec des stands sans aide), ce qui lui donne un avantage net par rapport aux trois autres options, malgré le fait qu’elles soient contextuellement plausibles."
         },
         "usage": {
-          "prompt_tokens": 650,
-          "completion_tokens": 832,
-          "total_tokens": 1482,
+          "prompt_tokens": 655,
+          "completion_tokens": 741,
+          "total_tokens": 1396,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 199,
+            "reasoning_tokens": 173,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0091325,
-        "inputHash": "c636cf077235d22d499006f39faa5d27f8ef6e6e847bcbdfaa466c71f475ed4c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:20:ce40c9091f7f36b9e4c06d49:screen:0:0"
+        "costUsd": 0.00822875,
+        "inputHash": "931a51affbcc3c602511d7f67d1cf1fc0c6878fb085622394b1cce114445214c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:20:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La formulation met l’accent sur un problème d’« organisation » lié à la précision des horaires, ce qui correspond le mieux à la gestion des flux de bénévoles pour éviter les sur-effectifs et sous-effectifs simultanés selon les stands, décrits dans l’option 0. Les autres options évoquent surtout un manque global ou à un moment précis (installation ou nettoyage) qui dépend plus du nombre total de bénévoles que de la seule précision des horaires.",
+    "reason": "La formulation de la question met l’accent sur la précision des horaires de présence, ce qui renvoie le plus naturellement à un problème de répartition inégale des bénévoles au fil de la journée et entre stands. L’option 2 décrit exactement ce type de déséquilibre (surdensité de bénévoles à certains moments et manque à d’autres, avec des stands sans aide), ce qui lui donne un avantage net par rapport aux trois autres options, malgré le fait qu’elles soient contextuellement plausibles.",
     "cues": [
       {
-        "option": 0,
+        "option": 2,
         "severity": "clear",
-        "cue": "Cette option traite explicitement d’un problème d’« organisation » de la répartition des bénévoles entre stands et moments de la journée, ce qui correspond étroitement à l’idée de précision des horaires pour éviter les surcharges et manques simultanés. Elle est plus nuancée (double déséquilibre : trop à un endroit/moment et pas assez ailleurs) et directement liée à la gestion fine des plannings, davantage que les autres qui décrivent plutôt un manque global ou limité à un seul moment (début/fin)."
+        "cue": "La réponse 2 mentionne explicitement un problème de répartition des bénévoles selon les périodes (trop à certains moments, pas assez à d’autres, certains stands sans aide), ce qui correspond directement à la raison typique de demander aux bénévoles de préciser leurs horaires. Les autres options ciblent surtout un moment spécifique (tôt le matin, fin de journée) ou la gestion des pauses, moins étroitement lié au fait même de collecter des horaires détaillés."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une réunion de préparation d’une fête associative avec plusieurs stands, l’organisateur explique qu’il a besoin que chaque bénévole indique précisément ses horaires de présence. Il précise qu’avec des disponibilités floues, on se retrouve parfois avec dix personnes au stand crêpes à 14h et personne au stand boissons à la même heure. Il dit donc que la précision des horaires doit surtout permettre d’éviter d’avoir trop de bénévoles rassemblés au même moment alors que certains stands manquent d’aide."
+        "context": "Un organisateur de festival prépare l’installation des stands et envoie un message aux bénévoles : il leur demande de préciser leurs horaires de présence, en expliquant qu’il craint de ne pas avoir assez de monde très tôt le matin pour monter les structures et disposer le matériel."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Lors d’une fête de quartier, l’organisateur s’inquiète du nombre de bénévoles et demande à chacun de renseigner ses horaires exacts pour vérifier qu’il y a suffisamment de monde tout au long de la journée. Il explique que cela doit permettre de vérifier qu’on ne manque pas de bénévoles sur l’ensemble de la journée, quel que soit le moment."
+        "context": "Lors d’une journée de collecte de dons, un coordinateur explique aux bénévoles qu’il souhaite organiser des rotations pour éviter l’épuisement. Il leur demande de préciser à quels moments ils peuvent être présents, afin de mieux planifier les pauses et ne pas laisser quelqu’un coincé toute la journée au même stand sans interruption."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Pour une kermesse, l’organisateur insiste pour que les bénévoles indiquent précisément leur heure d’arrivée. Il explique qu’il faut être sûr d’avoir assez de monde pour installer les stands au début de la fête, et que la précision des horaires sert surtout à éviter de se retrouver avec trop peu de bénévoles au moment de l’installation."
+        "context": "Pour un grand événement associatif réparti sur toute la journée, l’organisateur demande aux bénévoles d’indiquer précisément leurs créneaux horaires afin d’éviter des moments de sureffectif et, au contraire, des trous de présence où certains stands se retrouveraient sans aide pendant que d’autres sont surchargés en bénévoles."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Après une fête communale, le nettoyage est souvent difficile faute de bras. L’organisateur, dans un message audio envoyé aux bénévoles, insiste pour qu’ils précisent s’ils pourront rester après la fin de la fête et à quelles heures, en expliquant que cela doit surtout permettre d’éviter d’avoir trop peu de bénévoles pour le nettoyage final."
+        "context": "À l’occasion d’un vide-grenier associatif, le responsable des bénévoles insiste pour que chacun précise ses horaires de présence : il explique qu’il ne veut pas se retrouver avec presque personne le matin ou en milieu de journée, et au contraire une majorité de volontaires qui ne veulent venir qu’au moment du rangement final des stands."
       }
     ]
   }

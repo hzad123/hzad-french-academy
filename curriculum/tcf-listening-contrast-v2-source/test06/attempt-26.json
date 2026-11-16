@@ -2,16 +2,16 @@
   "question": {
     "number": 26,
     "kind": "interview",
-    "question": "Selon le document, quel problème peut poser l'application d'un seuil unique pour toutes les parcelles ?",
+    "question": "Dans le dispositif décrit, à quoi servent principalement les observations de terrain en complément des capteurs d’arrosage ?",
     "options": [
-      "On peut devoir remplacer plus souvent les capteurs installés sur les sols les plus secs.",
-      "On risque de rendre les mesures des capteurs impossibles à comparer entre parcelles.",
-      "On risque de ne plus tenir compte ni du type de sol ni de la profondeur des racines.",
-      "On peut finir par arroser certaines parcelles trop, et d'autres pas assez."
+      "Identifier le type de sol dominant de chaque parcelle afin de paramétrer l’emplacement et la profondeur des capteurs.",
+      "Définir un seuil de déclenchement d’arrosage commun à l’ensemble des parcelles équipées, en s’appuyant sur des situations observées.",
+      "Localiser les parcelles les plus exposées au vent ou au soleil pour y adapter la densité et l’orientation des capteurs.",
+      "Comparer les mesures affichées par les capteurs avec l’état observé des cultures et ajuster les réglages d’irrigation."
     ],
     "correct": "D",
-    "explanation": "Le document précise : « Si l'on applique le même seuil à toutes les parcelles, on risque d'arroser trop ou pas assez. » Le problème indiqué est donc directement un risque de sur- ou de sous-arrosage selon les parcelles, pas un problème de comparaison des mesures, de durée de vie des capteurs ou d’oubli des paramètres de sol et de racines.",
-    "transcript": "Question 26.\nDes capteurs peuvent désormais déclencher automatiquement l'arrosage. Pourquoi certains producteurs restent-ils prudents ?\nLes mesures sont utiles, mais un sol argileux retient l'eau autrement qu'un sol sableux. Les cultures, l'exposition au vent et la profondeur des racines comptent aussi. Si l'on applique le même seuil à toutes les parcelles, on risque d'arroser trop ou pas assez. Nous recommandons de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels, plutôt que d'abandonner toute décision aux capteurs.\nSelon le document, quel problème peut poser l'application d'un seuil unique pour toutes les parcelles ?",
+    "explanation": "Le document indique que l’on « recommande de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels ». Les observations servent donc principalement à contrôler les mesures et adapter les réglages, pas à définir un seuil unique, ni à préparer l’installation, ni à concentrer les capteurs sur certaines parcelles.",
+    "transcript": "Question 26.\nDes capteurs peuvent désormais déclencher automatiquement l'arrosage. Pourquoi certains producteurs restent-ils prudents ?\nLes mesures sont utiles, mais un sol argileux retient l'eau autrement qu'un sol sableux. Les cultures, l'exposition au vent et la profondeur des racines comptent aussi. Si l'on applique le même seuil à toutes les parcelles, on risque d'arroser trop ou pas assez. Nous recommandons de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels, plutôt que d'abandonner toute décision aux capteurs.\nDans le dispositif décrit, à quoi servent principalement les observations de terrain en complément des capteurs d’arrosage ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, quel problème peut poser l'application d'un seuil unique pour toutes les parcelles ?"
+        "text": "Dans le dispositif décrit, à quoi servent principalement les observations de terrain en complément des capteurs d’arrosage ?"
       }
     ],
     "audio": "q-26.mp3",
@@ -36,12 +36,124 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-El01WcMH1fg1Xss7fm8hMTvc1cBuY",
+    "result": {
+      "question": "Selon le document, quel est surtout le rôle des observations de terrain lorsqu’on utilise ces capteurs d’arrosage ?",
+      "choices": [
+        "Contrôler les mesures des capteurs et adapter les réglages aux besoins réels.",
+        "Fixer un seuil unique de déclenchement valable pour l’ensemble des parcelles.",
+        "Identifier le type de sol de chaque parcelle avant l’installation des capteurs.",
+        "Repérer les parcelles les plus exposées au vent pour y concentrer les capteurs."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique que l’on « recommande de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels ». Les observations servent donc principalement à contrôler les mesures et adapter les réglages, pas à définir un seuil unique, ni à préparer l’installation, ni à concentrer les capteurs sur certaines parcelles.",
+      "design": "Axe choisi : fonction précise attribuée aux observations de terrain dans l’usage des capteurs (rôle pratique). Les quatre propositions décrivent toutes un rôle possible des observations dans un dispositif d’irrigation (contrôle des mesures, définition d’un seuil, préparation de l’installation, choix d’implantation). Sans le document, chacune paraît réaliste dans un contexte agricole. L’écoute est nécessaire pour repérer que le texte relie explicitement les observations au contrôle des données et à l’ajustement des réglages, et non aux autres fonctions plausibles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’option transforme les observations en outil pour définir « un même seuil » pour toutes les parcelles, alors que le document met en garde contre ce seuil unique. Les observations servent à ajuster les réglages, pas à uniformiser le seuil.",
+          "operation": "role_swap",
+          "anchors": [
+            "Si l'on applique le même seuil à toutes les parcelles, on risque d'arroser trop ou pas assez.",
+            "Nous recommandons de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse attribue aux observations un rôle préparatoire avant l’installation des capteurs, alors que le texte les place après, comme moyen de contrôle des mesures déjà produites et d’ajustement des réglages.",
+          "operation": "time_swap",
+          "anchors": [
+            "Des capteurs peuvent désormais déclencher automatiquement l'arrosage.",
+            "Nous recommandons de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’option limite les observations à la seule exposition au vent pour décider où mettre plus de capteurs. Le document cite le vent parmi plusieurs facteurs, mais relie les observations à la vérification globale des données et à l’ajustement des réglages, non à la répartition spatiale des capteurs.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les cultures, l'exposition au vent et la profondeur des racines comptent aussi.",
+            "Nous recommandons de vérifier les données avec des observations de terrain et d'ajuster les réglages selon les besoins réels"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4523,
+      "completion_tokens": 977,
+      "total_tokens": 5500,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 333,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01542375,
+    "inputHash": "85f79bd69fc04bad156149e2ab1dbea4ed7c85ed6de1ed5154364f66ef9bd98c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:25:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quel est surtout le rôle des observations de terrain lorsqu’on utilise ces capteurs d’arrosage ?",
+      "choices": [
+        "Identifier le type de sol de chaque parcelle avant l’installation des capteurs.",
+        "Fixer un seuil unique de déclenchement valable pour l’ensemble des parcelles.",
+        "Repérer les parcelles les plus exposées au vent pour y concentrer les capteurs.",
+        "Contrôler les mesures des capteurs et adapter les réglages aux besoins réels."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-El01tYYaoTnOb1pYMEcuMcL1cwYGb",
+      "result": {
+        "question": "Dans le dispositif décrit, à quoi servent principalement les observations de terrain en complément des capteurs d’arrosage ?",
+        "choices": [
+          "Identifier le type de sol dominant de chaque parcelle afin de paramétrer l’emplacement et la profondeur des capteurs.",
+          "Définir un seuil de déclenchement d’arrosage commun à l’ensemble des parcelles équipées, en s’appuyant sur des situations observées.",
+          "Localiser les parcelles les plus exposées au vent ou au soleil pour y adapter la densité et l’orientation des capteurs.",
+          "Comparer les mesures affichées par les capteurs avec l’état observé des cultures et ajuster les réglages d’irrigation."
+        ],
+        "notes": "Question légèrement généralisée et reformulée pour que les quatre propositions apparaissent comme des usages professionnels possibles des observations de terrain avec des capteurs d’arrosage. Chaque choix reste distinct (type de sol, seuil commun, exposition au vent/soleil, contrôle et réglage) sans qu’un seul ne paraisse évidemment plus prudent, réaliste ou complet que les autres sur la seule base du bon sens."
+      },
+      "usage": {
+        "prompt_tokens": 685,
+        "completion_tokens": 855,
+        "total_tokens": 1540,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 610,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00940625,
+      "inputHash": "94db56062979bf70b2abbe02bcf632bfc884e43f1d60f91579db6c19734fe8b9",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:25:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
         1,
-        3,
         2,
+        3,
         0
       ],
       "receipt": {
@@ -49,98 +161,98 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyeAcQVXdkwMIcsLkyGY5VIAfmTq",
+        "responseId": "chatcmpl-El023k4t6dvD4KnI85vZDbKN1JCli",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un ingénieur agronome explique un système de pilotage d’irrigation où, si l’on impose un seul seuil de déclenchement pour toutes les parcelles, on doit ensuite corriger et recaler les valeurs des capteurs pour chaque parcelle, ce qui complique tellement les calibrations locales que les mesures deviennent difficiles à comparer entre parcelles dans la pratique."
+              "context": "Un conseiller irrigation explique à des agriculteurs qu’après plusieurs tournées d’observations sur différentes parcelles, ils ont choisi un seuil unique de déclenchement d’arrosage pour tout le réseau de capteurs, seuil défini à partir de situations concrètes observées sur le terrain."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un technicien en irrigation décrit à un agriculteur que, si on applique le même seuil d’humidité du sol à toutes les parcelles malgré leurs différences, certaines seront irriguées trop souvent (sur-arrosage) et d’autres pas assez (sous-arrosage)."
+              "context": "Un technicien décrit l’installation initiale d’un dispositif de suivi de l’irrigation : il réalise des visites de terrain pour repérer les parcelles les plus exposées au vent ou au soleil afin d’y densifier certains capteurs et ajuster leur orientation."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une formation sur la gestion de l’eau, l’animateur précise que fixer un seul seuil d’humidité pour toutes les parcelles pose problème, car cela revient à ne plus tenir compte des différences de type de sol (argileux, sableux, etc.) ni de la profondeur des racines selon les cultures."
+              "context": "Lors d’une réunion technique, un ingénieur explique que les tournées de terrain servent surtout à vérifier l’état réel des cultures (stress hydrique, vigueur, couleur) et à le comparer aux valeurs données par les capteurs, pour ensuite corriger les seuils et durées d’arrosage dans le système."
             },
             {
               "index": 3,
-              "credible": false,
-              "context": "Pour que ce soit un problème logique d’un seuil unique, il faudrait supposer qu’un même seuil impliquerait mécaniquement une usure accrue des capteurs sur certains sols spécifiques, au point de devoir les remplacer plus souvent ; ce lien direct entre un seuil de pilotage et la fréquence de remplacement des capteurs n’a pas de fondement ordinaire et ne répond pas naturellement à la question sur le problème posé par le seuil unique."
+              "credible": true,
+              "context": "Un spécialiste en agronomie détaille la phase de caractérisation des parcelles : il réalise des observations et des sondages de sol sur le terrain pour déterminer les types de sols dominants et régler, en conséquence, la profondeur et l’emplacement des capteurs d’arrosage."
             }
           ],
           "cues": [
             {
               "option": 2,
               "severity": "clear",
-              "cue": "La formulation explique directement le caractère problématique d’un seuil unique en mentionnant la non-prise en compte de l’hétérogénéité entre parcelles (type de sol, profondeur des racines), ce qui correspond précisément à l’idée implicite de « toutes les parcelles » et reste plus général et conceptuel que les autres conséquences plus spécifiques ou périphériques."
+              "cue": "Le libellé met explicitement en relation les mesures des capteurs et les observations de terrain (« comparer les mesures affichées par les capteurs avec l’état observé des cultures »), ce qui répond directement à l’idée de complémentarité dans la question. C’est formulé de manière générale comme une fonction principale et opérationnelle du dispositif, alors que les autres réponses décrivent des usages plus spécifiques (standardisation d’un seuil unique, implantation initiale des capteurs, cartographie des sols). La présence de « ajuster les réglages d’irrigation » colle aussi bien avec l’objectif pratique attendu d’un tel dispositif."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.05,
-            0.25,
-            0.6,
-            0.1
+            0.15,
+            0.15,
+            0.55,
+            0.15
           ],
           "guess": 2,
-          "reason": "L’option 2 correspond le mieux au reproche structurel et agronomique classique fait à un seuil unique pour toutes les parcelles (ignorer type de sol et profondeur des racines), alors que l’option 1 n’en décrit qu’une conséquence parmi d’autres et l’option 3 est peu liée au problème posé ; l’option 0 semble en décalage, car un seuil unique n’empêche pas en soi la comparaison des mesures."
+          "reason": "Tous les choix sont techniquement plausibles dans un contexte d’irrigation, mais l’option 2 correspond le plus directement au rôle complémentaire des observations de terrain vis-à-vis des capteurs, en parlant de comparaison mesures/état observé et d’ajustement des réglages. Les autres réponses décrivent davantage des étapes de conception ou de paramétrage initial, moins naturellement désignées comme usage principal. D’où une probabilité plus élevée pour l’option 2, malgré l’incertitude liée à l’absence d’enregistrement."
         },
         "usage": {
-          "prompt_tokens": 647,
-          "completion_tokens": 906,
-          "total_tokens": 1553,
+          "prompt_tokens": 691,
+          "completion_tokens": 838,
+          "total_tokens": 1529,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 341,
+            "reasoning_tokens": 255,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00986875,
-        "inputHash": "2b2e4b491b242c88bcbf1cac8ca86499a7f4c48e4f367397ba13cfaa9539c0d3",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:25:initial:screen:6:0"
+        "costUsd": 0.00924375,
+        "inputHash": "a6961cf1956c408f75e19da3812cfe966c41503f8541d2a59ba3785d82f7b9ea",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:25:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "L’option 2 correspond le mieux au reproche structurel et agronomique classique fait à un seuil unique pour toutes les parcelles (ignorer type de sol et profondeur des racines), alors que l’option 1 n’en décrit qu’une conséquence parmi d’autres et l’option 3 est peu liée au problème posé ; l’option 0 semble en décalage, car un seuil unique n’empêche pas en soi la comparaison des mesures.",
+    "reason": "Tous les choix sont techniquement plausibles dans un contexte d’irrigation, mais l’option 2 correspond le plus directement au rôle complémentaire des observations de terrain vis-à-vis des capteurs, en parlant de comparaison mesures/état observé et d’ajustement des réglages. Les autres réponses décrivent davantage des étapes de conception ou de paramétrage initial, moins naturellement désignées comme usage principal. D’où une probabilité plus élevée pour l’option 2, malgré l’incertitude liée à l’absence d’enregistrement.",
     "cues": [
       {
         "option": 2,
         "severity": "clear",
-        "cue": "La formulation explique directement le caractère problématique d’un seuil unique en mentionnant la non-prise en compte de l’hétérogénéité entre parcelles (type de sol, profondeur des racines), ce qui correspond précisément à l’idée implicite de « toutes les parcelles » et reste plus général et conceptuel que les autres conséquences plus spécifiques ou périphériques."
+        "cue": "Le libellé met explicitement en relation les mesures des capteurs et les observations de terrain (« comparer les mesures affichées par les capteurs avec l’état observé des cultures »), ce qui répond directement à l’idée de complémentarité dans la question. C’est formulé de manière générale comme une fonction principale et opérationnelle du dispositif, alors que les autres réponses décrivent des usages plus spécifiques (standardisation d’un seuil unique, implantation initiale des capteurs, cartographie des sols). La présence de « ajuster les réglages d’irrigation » colle aussi bien avec l’objectif pratique attendu d’un tel dispositif."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Un ingénieur agronome explique un système de pilotage d’irrigation où, si l’on impose un seul seuil de déclenchement pour toutes les parcelles, on doit ensuite corriger et recaler les valeurs des capteurs pour chaque parcelle, ce qui complique tellement les calibrations locales que les mesures deviennent difficiles à comparer entre parcelles dans la pratique."
+        "context": "Un conseiller irrigation explique à des agriculteurs qu’après plusieurs tournées d’observations sur différentes parcelles, ils ont choisi un seuil unique de déclenchement d’arrosage pour tout le réseau de capteurs, seuil défini à partir de situations concrètes observées sur le terrain."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Un technicien en irrigation décrit à un agriculteur que, si on applique le même seuil d’humidité du sol à toutes les parcelles malgré leurs différences, certaines seront irriguées trop souvent (sur-arrosage) et d’autres pas assez (sous-arrosage)."
+        "context": "Un technicien décrit l’installation initiale d’un dispositif de suivi de l’irrigation : il réalise des visites de terrain pour repérer les parcelles les plus exposées au vent ou au soleil afin d’y densifier certains capteurs et ajuster leur orientation."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans une formation sur la gestion de l’eau, l’animateur précise que fixer un seul seuil d’humidité pour toutes les parcelles pose problème, car cela revient à ne plus tenir compte des différences de type de sol (argileux, sableux, etc.) ni de la profondeur des racines selon les cultures."
+        "context": "Lors d’une réunion technique, un ingénieur explique que les tournées de terrain servent surtout à vérifier l’état réel des cultures (stress hydrique, vigueur, couleur) et à le comparer aux valeurs données par les capteurs, pour ensuite corriger les seuils et durées d’arrosage dans le système."
       },
       {
         "index": 3,
-        "credible": false,
-        "context": "Pour que ce soit un problème logique d’un seuil unique, il faudrait supposer qu’un même seuil impliquerait mécaniquement une usure accrue des capteurs sur certains sols spécifiques, au point de devoir les remplacer plus souvent ; ce lien direct entre un seuil de pilotage et la fréquence de remplacement des capteurs n’a pas de fondement ordinaire et ne répond pas naturellement à la question sur le problème posé par le seuil unique."
+        "credible": true,
+        "context": "Un spécialiste en agronomie détaille la phase de caractérisation des parcelles : il réalise des observations et des sondages de sol sur le terrain pour déterminer les types de sols dominants et régler, en conséquence, la profondeur et l’emplacement des capteurs d’arrosage."
       }
     ]
   }

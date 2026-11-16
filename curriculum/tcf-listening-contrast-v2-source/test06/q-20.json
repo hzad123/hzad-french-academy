@@ -2,16 +2,16 @@
   "question": {
     "number": 20,
     "kind": "dialogue",
-    "question": "Dans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?",
+    "question": "Selon le document, à quoi servent principalement les possibilités de substitution prévues dans les menus ?",
     "options": [
-      "Ils font varier les menus selon les saisons et prévoient des plats de substitution en cas de manque.",
-      "Ils gardent la même carte toute l’année et complètent chez d’autres fournisseurs quand un légume manque.",
-      "Ils n’ouvrent le restaurant que pendant les périodes où toutes les variétés souhaitées poussent.",
-      "Ils réduisent fortement la carte à quelques plats presque toujours assurés par le producteur."
+      "À s’adapter aux périodes où certaines productions manquent chez les producteurs locaux",
+      "À optimiser le coût moyen d’achat des légumes sur l’ensemble de l’année",
+      "À réduire la dépendance du restaurant à un seul fournisseur de légumes",
+      "À maintenir une carte de plats stable pour la clientèle tout au long de l’année, malgré les variations saisonnières"
     ],
     "correct": "A",
-    "explanation": "La dernière réplique précise la solution retenue : « Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions. » Ils choisissent donc des menus saisonniers avec des plats de remplacement si un légume manque. Aucune mention de recours à d’autres fournisseurs, de réduction drastique de la carte ni de fermeture hors saison.",
-    "transcript": "Question 20.\nNous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante.\nC'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas.\nJustement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières.\nNous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions.\nDans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?",
+    "explanation": "Les substitutions sont proposées en réponse aux « périodes où certaines variétés ne poussent pas » et aux « récoltes irrégulières » du producteur voisin. Les menus qui changent selon les saisons et les substitutions servent donc à s’adapter à ces manques ponctuels, pas principalement à diversifier les fournisseurs, baisser les coûts ou figer la carte toute l’année.",
+    "transcript": "Question 20.\nNous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante.\nC'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas.\nJustement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières.\nNous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions.\nSelon le document, à quoi servent principalement les possibilités de substitution prévues dans les menus ?",
     "segments": [
       {
         "voice": "female",
@@ -35,125 +35,315 @@
       },
       {
         "voice": "female",
-        "text": "Dans cet échange, comment décident-ils finalement d’organiser les menus face aux récoltes irrégulières du producteur voisin ?"
+        "text": "Selon le document, à quoi servent principalement les possibilités de substitution prévues dans les menus ?"
       }
     ],
     "audio": "q-20.mp3",
     "audioSeconds": null,
     "slotSeconds": 47
   },
-  "contentHash": "0e7b3ec0fb5b0510358b267bf44609595904866edc02bdcd100a1d099333ce35",
+  "contentHash": "27781846ada60472ddb2622994facba2eaf41cea8fa2fb843cf79a757724b0c7",
   "sourceHash": "e3289af428c860eed69d46eff0e921403140f2a5692d2521a3f54c7ae5120054",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-El01GSz55ZAwss3g7DsMcNIhvMTZl",
+    "result": {
+      "question": "Selon le document, à quoi doivent surtout servir les substitutions prévues dans les menus ?",
+      "choices": [
+        "À s’adapter aux périodes où certaines récoltes manquent chez le producteur voisin",
+        "À limiter la dépendance du restaurant à un seul fournisseur de légumes",
+        "À réduire le coût moyen d’achat des légumes sur l’année",
+        "À pouvoir garder la même carte de plats toute l’année malgré les saisons"
+      ],
+      "correctIndex": 0,
+      "explanation": "Les substitutions sont proposées en réponse aux « périodes où certaines variétés ne poussent pas » et aux « récoltes irrégulières » du producteur voisin. Les menus qui changent selon les saisons et les substitutions servent donc à s’adapter à ces manques ponctuels, pas principalement à diversifier les fournisseurs, baisser les coûts ou figer la carte toute l’année.",
+      "design": "Axe précis : fonction principale des substitutions prévues dans les menus. Les quatre choix proposent quatre fonctions pratiques également plausibles (gestion des manques, diversification des fournisseurs, maîtrise des coûts, stabilité de la carte). Le document lie explicitement substitutions et irrégularité des récoltes, ce qui permet d’identifier une seule bonne réponse tout en rendant les autres crédibles sans l’audio.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le document évoque l’achat possible de « tous nos légumes au producteur voisin », ce qui peut faire penser à un risque de dépendance à un seul fournisseur. Un auditeur peut donc attribuer à tort aux substitutions la fonction de limiter cette dépendance, alors qu’elles répondent en réalité aux manques saisonniers de certaines variétés.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Nous pourrions acheter tous nos légumes au producteur voisin",
+            "périodes où certaines variétés ne poussent pas"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Dans un contexte de restauration, prévoir des substitutions peut fréquemment servir à optimiser les coûts, ce qui rend cette interprétation naturelle. Cependant, le document ne mentionne jamais le prix des légumes : il relie explicitement substitutions et irrégularité des récoltes, non la maîtrise du coût moyen d’achat.",
+          "operation": "scope_shift",
+          "anchors": [
+            "périodes où certaines variétés ne poussent pas",
+            "prévoir des substitutions"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le locuteur dit clairement qu’il ne veut pas « promettre les mêmes plats toute l'année », ce qui peut pousser à croire que les substitutions servent à maintenir quand même la même carte. En réalité, la solution énoncée est inverse : « établir des menus qui changent selon les saisons » et prévoir des substitutions, donc accepter un changement de carte plutôt que la figer.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Je ne veux pas promettre les mêmes plats toute l'année",
+            "Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4327,
+      "completion_tokens": 925,
+      "total_tokens": 5252,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 325,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01465875,
+    "inputHash": "43c7ae1e0466e373fa01a32b2322609157ae8f1bc26539958a909569d7760229",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, à quoi doivent surtout servir les substitutions prévues dans les menus ?",
+      "choices": [
+        "À s’adapter aux périodes où certaines récoltes manquent chez le producteur voisin",
+        "À réduire le coût moyen d’achat des légumes sur l’année",
+        "À limiter la dépendance du restaurant à un seul fournisseur de légumes",
+        "À pouvoir garder la même carte de plats toute l’année malgré les saisons"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-El01dlM6nUzCsGng6hA9315n9bxWf",
+      "result": {
+        "question": "Selon le document, à quoi servent principalement les possibilités de substitution prévues dans les menus ?",
+        "choices": [
+          "À s’adapter aux périodes où certaines productions manquent chez les producteurs locaux",
+          "À optimiser le coût moyen d’achat des légumes sur l’ensemble de l’année",
+          "À réduire la dépendance du restaurant à un seul fournisseur de légumes",
+          "À maintenir une carte de plats stable pour la clientèle tout au long de l’année, malgré les variations saisonnières"
+        ],
+        "notes": "Question légèrement reformulée pour rester neutre. Les quatre choix présentent désormais des usages professionnels et plausibles des substitutions de menus, avec un niveau de sérieux comparable. Les références spécifiques (“producteur voisin”, formulation péjorative de la carte inchangée) ont été généralisées ou nuancées afin de supprimer les indices de vraisemblance différentielle, tout en conservant les distinctions factuelles entre options (disponibilité locale, coût, dépendance fournisseur, stabilité de la carte)."
+      },
+      "usage": {
+        "prompt_tokens": 667,
+        "completion_tokens": 502,
+        "total_tokens": 1169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 288,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00585375,
+      "inputHash": "ebf5ba53531e3d6628952ced7613637b26486eab933889e2d1123eb2641abd7f",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
         0,
         3,
-        1,
-        2
+        2,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkydIaKHE9iORdf5VhoFFRsEFsR4E",
+        "responseId": "chatcmpl-El01jLioBr6Uf4jKCEK2nQrS1i975",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Deux restaurateurs discutent avec un maraîcher voisin qui a des récoltes très variables selon la météo. Ils veulent continuer à travailler avec lui sans être pris au dépourvu quand une variété manque. Ils concluent qu’ils feront une carte très saisonnière, adaptée aux légumes disponibles, et qu’ils prépareront à l’avance des plats de substitution (par exemple remplacer un accompagnement de courgettes par des carottes ou des céréales) en cas de rupture sur un produit."
+              "context": "Un responsable de restauration collective explique un cahier des charges : les menus sont construits avec des produits locaux et de saison, mais comme certaines productions manquent à certaines périodes (rupture chez les maraîchers, aléas climatiques), des possibilités de substitution sont prévues dans les menus pour pouvoir remplacer un légume par un autre similaire sans devoir tout refaire."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un chef explique à son associé qu’avec les récoltes trop irrégulières du producteur d’à côté, il vaut mieux ne proposer qu’une petite carte de quelques plats pour lesquels le producteur peut garantir un approvisionnement assez stable. Ils acceptent de renoncer à une carte variée et se concentrent sur trois ou quatre recettes dont les ingrédients sont presque toujours disponibles chez ce producteur."
+              "context": "Le gérant d’un restaurant décrit sa stratégie : il veut proposer une carte stable tout au long de l’année, avec les mêmes intitulés pour ne pas perturber la clientèle. Les possibilités de substitution dans les menus lui permettent de changer l’ingrédient de base (par exemple tel légume par un autre) en fonction des arrivages, tout en gardant les plats annoncés identiques sur la carte."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Lors d’une réunion, un restaurateur dit qu’il tient à garder une carte fixe pour ne pas déstabiliser la clientèle. Face aux récoltes irrégulières du producteur voisin, ils décident qu’ils continueront d’afficher la même carte toute l’année, mais que lorsque certains légumes manquent, ils achèteront la marchandise manquante auprès d’autres fournisseurs pour assurer les plats promis."
+              "context": "Une responsable de restaurant scolaire explique sa politique d’achats : pour éviter de dépendre d’un seul producteur de légumes qui pourrait avoir des problèmes de livraison, les menus intègrent des possibilités de substitution. Ainsi, si un fournisseur est défaillant, ils peuvent se tourner vers un autre ou changer de légume tout en respectant l’équilibre du menu."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un couple ouvre un petit restaurant éphémère à la ferme d’un producteur voisin. Ils tiennent à travailler exclusivement avec ses légumes et à proposer en même temps toute une palette de variétés. Comme les récoltes sont très irrégulières, ils décident de n’ouvrir le restaurant que pendant les quelques périodes de l’année où toutes les variétés qu’ils veulent cuisiner sont effectivement disponibles, et de rester fermés le reste du temps."
+              "context": "Un gestionnaire de cuisine centrale présente un plan de maîtrise des coûts : il prévoit, dans les menus, des possibilités de substitution entre différents légumes afin de basculer vers ceux qui sont momentanément moins chers et ainsi optimiser le coût moyen d’achat des légumes sur l’année."
             }
           ],
           "cues": [
             {
               "option": 0,
-              "severity": "clear",
-              "cue": "Formulation plus nuancée et complète (variations saisonnières + stratégie explicite de substitution) qui répond directement à la contrainte des récoltes irrégulières tout en restant économiquement réaliste, par rapport aux autres choix plus extrêmes ou moins centrés sur l’adaptation au producteur voisin."
+              "severity": "weak",
+              "cue": "Formulation centrée sur la disponibilité saisonnière des productions locales, ce qui correspond bien à l’idée de prévoir à l’avance des possibilités de substitution dans les menus pour faire face à des manques ; la référence explicite aux \"producteurs locaux\" est assez typique de documents sur l’approvisionnement en circuits courts."
+            },
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "Lien logique entre \"possibilités de substitution prévues dans les menus\" et l’objectif de maintenir une carte stable pour la clientèle ; formulation assez générale et pédagogique sur la relation avec la clientèle, ce qui est plausible dans un document explicatif."
             }
           ],
-          "standsOut": true,
+          "standsOut": false,
           "probabilities": [
-            0.6,
-            0.15,
-            0.15,
-            0.1
+            0.3,
+            0.3,
+            0.2,
+            0.2
           ],
           "guess": 0,
-          "reason": "L’option 0 présente une solution équilibrée et détaillée qui traite explicitement l’irrégularité des récoltes (adaptation saisonnière + plans de secours), alors que les autres réponses sont soit plus radicales (réduire fortement la carte, n’ouvrir qu’à certaines périodes), soit moins cohérentes avec l’idée de s’adapter spécifiquement au producteur voisin (compléter systématiquement chez d’autres fournisseurs)."
+          "reason": "Toutes les options sont plausibles, sans indice décisif. Légère préférence pour l’option 0 car la notion de \"possibilités de substitution\" est fréquemment associée à la gestion des aléas de disponibilité des produits chez des producteurs locaux, thème courant dans les documents sur la restauration s’approvisionnant en circuits courts."
         },
         "usage": {
-          "prompt_tokens": 664,
-          "completion_tokens": 790,
-          "total_tokens": 1454,
+          "prompt_tokens": 642,
+          "completion_tokens": 784,
+          "total_tokens": 1426,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 170,
+            "reasoning_tokens": 192,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00873,
-        "inputHash": "ed6b01b83627be4efb70ae5a6562bb6a7efb1d6f2ad7ae862dd61be895a52cef",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:initial:screen:6:0"
+        "costUsd": 0.0086425,
+        "inputHash": "23a109d805c63a246a60860f264bac852ccee4b1886f46b68297f6081e505ea5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:14721af7be4c27b55696caf7:screen:6:edited:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-El01tgiWH77xYSaL64usWbzUdRz91",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un gérant explique à un stagiaire que la carte change peu pour ne pas dérouter la clientèle. Il précise que les possibilités de substitution dans les menus (par exemple, remplacer un légume par un autre) servent surtout à garder les mêmes plats à l’affiche toute l’année, même quand certains ingrédients deviennent difficiles à trouver selon la saison."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un responsable de restaurant discute avec son équipe d’achats. Il indique que les options de substitution prévues dans les menus permettent de changer de variété de légumes ou de provenance, afin de ne pas dépendre d’un seul fournisseur s’il a un problème de livraison."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une réunion avec un groupement de producteurs locaux, le restaurateur explique que les menus incluent des possibilités de substitution (par exemple « légumes de saison au choix ») principalement pour pouvoir modifier les garnitures lorsque certaines productions manquent chez les producteurs locaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un consultant en gestion de restaurant présente une stratégie d’achats à l’année : il décrit comment les menus prévoient des substitutions possibles de légumes pour choisir systématiquement les produits les moins chers du moment et ainsi optimiser le coût moyen d’achat des légumes sur l’année."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "La formulation insiste sur l’adaptation à des manques de production, ce qui correspond directement à l’idée de prévision de substitutions dans des menus liés à des producteurs locaux. Elle relie explicitement le dispositif (substitution) à un besoin concret et fréquent (pénuries saisonnières), avec un lien logique plus immédiat que la stabilité de carte, la diversification des fournisseurs ou l’optimisation de coût, qui sont des effets possibles mais moins directement suggérés par la notion de « possibilités de substitution prévues dans les menus » et par la mention implicite de producteurs locaux."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.15,
+            0.55,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Toutes les réponses peuvent avoir un contexte plausible, mais la formulation sur l’adaptation aux manques de production chez les producteurs locaux correspond le plus naturellement à l’idée de possibilités de substitution prévues dans les menus, qui servent typiquement à faire face à des indisponibilités saisonnières d’ingrédients."
+        },
+        "usage": {
+          "prompt_tokens": 642,
+          "completion_tokens": 605,
+          "total_tokens": 1247,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 84,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0068525,
+        "inputHash": "ffb2f4a45e5bd1af6d3e4bdef061e1b5f30818921767daecfbff385a6d88c1c7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:14721af7be4c27b55696caf7:screen:6:edited:1"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "L’option 0 présente une solution équilibrée et détaillée qui traite explicitement l’irrégularité des récoltes (adaptation saisonnière + plans de secours), alors que les autres réponses sont soit plus radicales (réduire fortement la carte, n’ouvrir qu’à certaines périodes), soit moins cohérentes avec l’idée de s’adapter spécifiquement au producteur voisin (compléter systématiquement chez d’autres fournisseurs).",
+    "reason": "Toutes les réponses peuvent avoir un contexte plausible, mais la formulation sur l’adaptation aux manques de production chez les producteurs locaux correspond le plus naturellement à l’idée de possibilités de substitution prévues dans les menus, qui servent typiquement à faire face à des indisponibilités saisonnières d’ingrédients.",
     "cues": [
       {
-        "option": 0,
-        "severity": "clear",
-        "cue": "Formulation plus nuancée et complète (variations saisonnières + stratégie explicite de substitution) qui répond directement à la contrainte des récoltes irrégulières tout en restant économiquement réaliste, par rapport aux autres choix plus extrêmes ou moins centrés sur l’adaptation au producteur voisin."
+        "option": 2,
+        "severity": "weak",
+        "cue": "La formulation insiste sur l’adaptation à des manques de production, ce qui correspond directement à l’idée de prévision de substitutions dans des menus liés à des producteurs locaux. Elle relie explicitement le dispositif (substitution) à un besoin concret et fréquent (pénuries saisonnières), avec un lien logique plus immédiat que la stabilité de carte, la diversification des fournisseurs ou l’optimisation de coût, qui sont des effets possibles mais moins directement suggérés par la notion de « possibilités de substitution prévues dans les menus » et par la mention implicite de producteurs locaux."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Deux restaurateurs discutent avec un maraîcher voisin qui a des récoltes très variables selon la météo. Ils veulent continuer à travailler avec lui sans être pris au dépourvu quand une variété manque. Ils concluent qu’ils feront une carte très saisonnière, adaptée aux légumes disponibles, et qu’ils prépareront à l’avance des plats de substitution (par exemple remplacer un accompagnement de courgettes par des carottes ou des céréales) en cas de rupture sur un produit."
+        "context": "Un gérant explique à un stagiaire que la carte change peu pour ne pas dérouter la clientèle. Il précise que les possibilités de substitution dans les menus (par exemple, remplacer un légume par un autre) servent surtout à garder les mêmes plats à l’affiche toute l’année, même quand certains ingrédients deviennent difficiles à trouver selon la saison."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Un chef explique à son associé qu’avec les récoltes trop irrégulières du producteur d’à côté, il vaut mieux ne proposer qu’une petite carte de quelques plats pour lesquels le producteur peut garantir un approvisionnement assez stable. Ils acceptent de renoncer à une carte variée et se concentrent sur trois ou quatre recettes dont les ingrédients sont presque toujours disponibles chez ce producteur."
+        "context": "Un responsable de restaurant discute avec son équipe d’achats. Il indique que les options de substitution prévues dans les menus permettent de changer de variété de légumes ou de provenance, afin de ne pas dépendre d’un seul fournisseur s’il a un problème de livraison."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Lors d’une réunion, un restaurateur dit qu’il tient à garder une carte fixe pour ne pas déstabiliser la clientèle. Face aux récoltes irrégulières du producteur voisin, ils décident qu’ils continueront d’afficher la même carte toute l’année, mais que lorsque certains légumes manquent, ils achèteront la marchandise manquante auprès d’autres fournisseurs pour assurer les plats promis."
+        "context": "Dans une réunion avec un groupement de producteurs locaux, le restaurateur explique que les menus incluent des possibilités de substitution (par exemple « légumes de saison au choix ») principalement pour pouvoir modifier les garnitures lorsque certaines productions manquent chez les producteurs locaux."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Un couple ouvre un petit restaurant éphémère à la ferme d’un producteur voisin. Ils tiennent à travailler exclusivement avec ses légumes et à proposer en même temps toute une palette de variétés. Comme les récoltes sont très irrégulières, ils décident de n’ouvrir le restaurant que pendant les quelques périodes de l’année où toutes les variétés qu’ils veulent cuisiner sont effectivement disponibles, et de rester fermés le reste du temps."
+        "context": "Un consultant en gestion de restaurant présente une stratégie d’achats à l’année : il décrit comment les menus prévoient des substitutions possibles de légumes pour choisir systématiquement les produits les moins chers du moment et ainsi optimiser le coût moyen d’achat des légumes sur l’année."
       }
     ]
   },

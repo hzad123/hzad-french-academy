@@ -2,16 +2,16 @@
   "question": {
     "number": 35,
     "kind": "interview",
-    "question": "Dans quel cas précis le document indique-t-il que le système peut créer un inconfort ?",
+    "question": "Selon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?",
     "options": [
-      "Quand il abaisse la température alors qu’une personne fragile est présente.",
-      "Quand il coupe totalement le chauffage dès que tous les occupants quittent l’immeuble.",
-      "Quand il retarde le chauffage jusqu’au retour des occupants du travail.",
-      "Quand il maintient la même température même si les fenêtres sont ouvertes."
+      "Dans une maison",
+      "Dans un immeuble partagé",
+      "Dans un bureau en open space",
+      "Dans une résidence étudiante"
     ],
     "correct": "A",
-    "explanation": "Le document précise que «si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort». La situation problématique est donc bien l’abaissement de la température en présence d’une personne fragile, et non une coupure totale à l’absence, une mauvaise réaction à l’ouverture des fenêtres ou un simple retard au retour au logement.",
-    "transcript": "Question 35.\nLes nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?\nPas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne.\nDans quel cas précis le document indique-t-il que le système peut créer un inconfort ?",
+    "explanation": "Le document précise : « Dans une maison, les habitudes sont relativement stables ». C’est donc bien la maison qui est associée explicitement à une stabilité des habitudes, par contraste avec « un immeuble partagé » où « les horaires peuvent varier fortement ».",
+    "transcript": "Question 35.\nLes nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?\nPas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne.\nSelon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "Dans quel cas précis le document indique-t-il que le système peut créer un inconfort ?"
+        "text": "Selon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?"
       }
     ],
     "audio": "q-35.mp3",
@@ -36,12 +36,258 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzyW12KCQTvCKJV52ByoURly3PS9",
+    "result": {
+      "question": "Selon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?",
+      "choices": [
+        "Dans une maison",
+        "Dans un immeuble partagé",
+        "Dans un bureau en open space",
+        "Dans une résidence étudiante"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : « Dans une maison, les habitudes sont relativement stables ». C’est donc bien la maison qui est associée explicitement à une stabilité des habitudes, par contraste avec « un immeuble partagé » où « les horaires peuvent varier fortement ».",
+      "design": "On teste ici l’association précise entre un type de lieu et un caractère des habitudes (relativement stables / horaires très variables). L’axe est unique : le type d’environnement où l’on décrit la stabilité des habitudes. Les quatre choix sont des lieux où l’on pourrait raisonnablement discuter de la stabilité des rythmes d’occupation, sans que l’un paraisse absurde hors du document. Seul le texte permet de savoir que la stabilité est attribuée à « une maison », les autres lieux étant de fausses attributions possibles mais non confirmées par l’enregistrement.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Erreur de rôle entre les deux lieux mentionnés : le texte associe l’immeuble partagé non à la stabilité, mais à la forte variabilité des horaires. On peut se tromper en retenant seulement l’opposition maison / immeuble sans mémoriser quel trait va avec quel lieu.",
+          "operation": "role_swap",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Attribue à un type de lieu non cité la propriété entendue dans le document : un open space pourrait en réalité avoir des rythmes plus ou moins stables, ce qui en fait une confusion plausible, mais le texte ne parle que d’une maison et d’un immeuble partagé.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Transpose la caractérisation de stabilité à un autre habitat collectif plausible (résidence étudiante), en généralisant à tort l’idée de variations d’horaires ou de stabilité dans des lieux partagés, alors que le document ne mentionne que l’opposition maison / immeuble partagé.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4562,
+      "completion_tokens": 1369,
+      "total_tokens": 5931,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 833,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0193925,
+    "inputHash": "3aa4297732d6d7159bd2e64090ea3285f76baf632079732077f4d3d62f512c3f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quelle capacité précise les occupants doivent-ils avoir vis-à-vis du système de chauffage ?",
+      "choices": [
+        "Comprendre les réglages, les modifier et signaler un dysfonctionnement.",
+        "Piloter à distance tous les radiateurs depuis une application commune.",
+        "Programmer une fois pour toutes tous les horaires de chauffage de l’immeuble.",
+        "Consulter en détail les données de consommation de chaque pièce."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzyGltuXxrNnAfNlLOlE6Wxm7dbh",
+      "result": {
+        "question": "Selon le document, que doivent pouvoir faire les occupants avec le système de chauffage ?",
+        "choices": [
+          "Comprendre les principaux réglages, les adapter et signaler en cas de problème.",
+          "Piloter à distance l’ensemble des radiateurs via une application commune.",
+          "Programmer de façon centralisée les horaires de chauffage pour tout l’immeuble.",
+          "Consulter en détail les données de consommation pièce par pièce."
+        ],
+        "notes": "La mention de « capacité précise » a été allégée pour éviter de suggérer une option plus spécialisée. L’option 3 reste centrée sur la consommation pièce par pièce, l’option 2 sur la programmation centralisée, l’option 1 sur le pilotage à distance et l’option 0 sur la compréhension et l’ajustement local, avec un signalement des problèmes. Toutes décrivent des compétences concrètes et crédibles, sans qu’une seule paraisse naturellement privilégiée avant écoute du document."
+      },
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 629,
+        "total_tokens": 1298,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 421,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00712625,
+      "inputHash": "e4026e516f1ca3a86cf77a851adc00c19ffdd291feb2868b90c07b834a7dbdaf",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:blind-edit:5"
+    }
+  },
   "blind": [
     {
       "order": [
         3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzyn3ProU9nncs3wP3YZqlKr2gPg",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un sociologue présente une étude sur les rythmes de vie de jeunes adultes et explique que, selon le sondage, dans une résidence étudiante les habitudes de lever, de coucher et de travail sont relativement stables au cours de l’année universitaire."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un reportage décrit la vie dans un immeuble partagé où plusieurs ménages cohabitent autour d’espaces communs, et l’intervenant explique que les habitudes d’usage de la cuisine et de la buanderie y sont relativement stables d’une semaine à l’autre."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une enquête sur les modes de vie compare appartement, maison et colocation, et la voix-off précise que c’est dans une maison que les habitudes quotidiennes (repas, horaires, organisation) sont décrites comme relativement stables dans le temps."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un expert en organisation du travail commente différentes configurations de bureaux et indique que, dans un bureau en open space, les habitudes de communication et de collaboration sont relativement stables malgré les changements de projets."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucun indice textuel clair ne favorise une option précise ; toutes peuvent répondre naturellement à la question dans un contexte ordinaire, d’où une forte incertitude et un choix par défaut."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 452,
+          "total_tokens": 1049,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 122,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00526625,
+        "inputHash": "9ef172770ef89f8cb8a2bf9856485af0fba5a6a8dd9345e00ba08eaf01478059",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzysq3SFUxKLIrdoYj1AmhEmDHjR",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un sociologue présente une étude sur les comportements quotidiens des habitants d’un immeuble partagé (copropriété ou colocation en grand bâtiment) et explique que, malgré certains changements de population, les habitudes d’usage des espaces communs (buanderie, local à vélos, tri des déchets) y restent relativement stables dans le temps."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une enquête sur les modes de vie explique que dans une maison individuelle, les routines familiales (heures des repas, utilisation du jardin, consommation d’énergie) sont relativement stables d’une année à l’autre, car la composition du foyer change peu et l’organisation de l’espace est durable."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un reportage sur la gestion des déchets compare plusieurs types de logements et indique que, dans une résidence étudiante, les habitudes de tri et d’utilisation des équipements collectifs restent relativement stables pendant l’année universitaire, malgré le renouvellement de la population chaque rentrée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un document sur l’organisation du travail décrit différents types de bureaux et précise que, dans un bureau en open space, les habitudes de collaboration, d’utilisation des salles de réunion ou des espaces de pause sont relativement stables une fois l’équipe et le mode de fonctionnement installés."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Aucune option ne présente d’avantage rédactionnel net ou de lien évident avec la question sans connaître l’enregistrement ; toutes peuvent répondre dans un contexte ordinaire, d’où une forte incertitude et des probabilités réparties de façon uniforme malgré un choix forcé."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 562,
+          "total_tokens": 1159,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 175,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00636625,
+        "inputHash": "9282609e2679ac83691d3a35c63964ecf6a05a1481096fe6e3924da1787ab6d3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:screen:6:1"
+      }
+    },
+    {
+      "order": [
         0,
         2,
+        3,
         1
       ],
       "receipt": {
@@ -49,99 +295,190 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyauJsKGMwaOKIb7sLbu3N3xmahl",
+        "responseId": "chatcmpl-Ekzz07v4Iaw0I9y6D2QDSRWlIGdby",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une notice audio d’un système de chauffage automatique explique qu’il peut être source d’inconfort s’il maintient la consigne de température sans tenir compte de l’ouverture des fenêtres, ce qui crée des courants d’air froid et une sensation désagréable pour les occupants malgré le chauffage en marche."
+              "context": "Une sociologue décrit dans un reportage radio que les habitudes de vie quotidienne – heures de repas, rituels du soir, façons d’occuper l’espace – sont relativement stables au sein d’une maison familiale, par rapport à des lieux plus collectifs où les occupants changent souvent."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un enregistrement de présentation d’un système de régulation intelligente précise qu’il existe un cas particulier d’inconfort : si le système abaisse automatiquement la température pour économiser l’énergie alors qu’une personne âgée ou malade, donc fragile, est présente, cela peut être ressenti comme inconfortable ou inadapté."
+              "context": "Une émission sur l’organisation du travail compare différents environnements professionnels et explique que, dans un bureau en open space, les habitudes (horaires, modes de communication, répartition des tâches, routines de réunion) sont relativement stables une fois l’équipe constituée, contrairement à des espaces de travail temporaires ou nomades."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Lors d’une formation audio sur la programmation d’un chauffage, le narrateur note qu’un certain réglage peut créer un inconfort : si le système retarde trop le démarrage du chauffage et n’allume vraiment que juste au retour des occupants du travail, ils arrivent dans un logement encore froid, ce qui est désagréable."
+              "context": "Un documentaire sur la vie étudiante explique que, dans une résidence étudiante, les habitudes de chacun (rythme de travail, moments de fête, utilisation des espaces communs) restent relativement stables au cours de l’année universitaire, bien que les étudiants changent d’année en année."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un technicien décrit oralement les limites d’un système de gestion d’énergie en expliquant que couper totalement le chauffage dès que tous les occupants quittent l’immeuble peut provoquer un inconfort au moment de leur retour, car le bâtiment est alors très froid et long à réchauffer."
+              "context": "Un reportage sur les nouvelles formes d’habitat collaboratif décrit un immeuble partagé où les mêmes personnes cohabitent longtemps, et où les habitudes de partage des espaces, des tâches ménagères et des moments conviviaux sont décrites comme relativement stables une fois les règles de vie fixées."
             }
           ],
           "cues": [
             {
               "option": 1,
-              "severity": "clear",
-              "cue": "Formulation plus nuancée et précise (mention spécifique d’« une personne fragile ») correspondant bien à la demande de « cas précis » et à une mise en garde responsable typiquement soulignée dans un document explicatif, alors que les autres réponses décrivent surtout des réglages généraux sans mention explicite d’une catégorie vulnérable."
+              "severity": "weak",
+              "cue": "Le libellé « bureau en open space » est plus précisément typé (environnement de travail moderne) que les autres lieux d’habitation plus génériques, ce qui peut suggérer un document portant sur l’organisation du travail ou les habitudes professionnelles, sans que cela soit certain."
             }
           ],
-          "standsOut": true,
+          "standsOut": false,
           "probabilities": [
-            0.22,
-            0.43,
-            0.15,
+            0.25,
+            0.35,
+            0.2,
             0.2
           ],
           "guess": 1,
-          "reason": "Tous les cas pourraient théoriquement créer un inconfort, mais la question insiste sur un « cas précis », et l’option 1 se distingue par une précision contextuelle (présence d’une personne fragile) et un ton de mise en garde plus conforme à ce qu’un document signalerait explicitement comme risque d’inconfort, d’où une probabilité plus élevée malgré une incertitude réelle."
+          "reason": "Tous les lieux peuvent plausiblement être décrits comme ayant des habitudes relativement stables dans un enregistrement ordinaire, sans contradiction. Le seul léger indice est la spécificité de « bureau en open space », qui pourrait correspondre à un document sur les habitudes en milieu professionnel, mais l’incertitude reste importante."
         },
         "usage": {
-          "prompt_tokens": 633,
-          "completion_tokens": 813,
-          "total_tokens": 1446,
+          "prompt_tokens": 597,
+          "completion_tokens": 710,
+          "total_tokens": 1307,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 299,
+            "reasoning_tokens": 239,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00892125,
-        "inputHash": "2a99f355de8a376e14f83c4599e43a9e32a334adcc6c0319ad052201dc2225b4",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:initial:screen:6:0"
+        "costUsd": 0.00784625,
+        "inputHash": "9fac402ec7672c2bb3165559070cf500c0e6e769770473832505742d6b05ab2d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:screen:6:2"
       }
     }
   ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzz9ZS9g5xSXb41PKyKRDfpM43Dy",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise explicitement que ce sont les habitudes dans une maison qui sont relativement stables, par opposition à celles d’un immeuble partagé dont les horaires varient fortement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Dans une maison, les habitudes sont relativement stables"
+          ],
+          "reason": "Le texte dit clairement que les habitudes sont « relativement stables » dans une maison. C’est exactement la caractéristique demandée dans la question, donc cette réponse est la seule qui corresponde.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ],
+          "reason": "Le document mentionne bien « un immeuble partagé », mais pour dire que « les horaires peuvent varier fortement », c’est-à-dire l’inverse de la stabilité. Quelqu’un pourrait se tromper en se souvenant seulement que l’immeuble partagé était cité juste après la maison et confondre les deux lieux.",
+          "misunderstanding": "contrast_inversion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le texte ne parle jamais de « bureau en open space ». Un candidat peut l’imaginer car les thermostats et la gestion de présence font penser à des bureaux modernes, mais ce type de lieu n’est pas mentionné, donc il ne peut pas être la réponse à « selon le document ».",
+          "misunderstanding": "world_knowledge_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "La « résidence étudiante » n’apparaît pas dans le document. On pourrait toutefois la choisir en s’imaginant que les habitudes d’étudiants sont régulières (cours, examens), mais cette supposition vient de connaissances personnelles, pas du texte. Le critère demandé est ce qui est dit « selon le document », donc cette option est incorrecte.",
+          "misunderstanding": "external_stereotype_inference"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 743,
+      "completion_tokens": 711,
+      "total_tokens": 1454,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 252,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00803875,
+    "inputHash": "d1970f043bf961e5e629667f4103ebe1e214002c8316aeffa115af51bcb7b281",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:14721af7be4c27b55696caf7:ground:6"
+  },
   "feedback": {
-    "stage": "blind",
-    "reason": "Tous les cas pourraient théoriquement créer un inconfort, mais la question insiste sur un « cas précis », et l’option 1 se distingue par une précision contextuelle (présence d’une personne fragile) et un ton de mise en garde plus conforme à ce qu’un document signalerait explicitement comme risque d’inconfort, d’où une probabilité plus élevée malgré une incertitude réelle.",
-    "cues": [
-      {
-        "option": 1,
-        "severity": "clear",
-        "cue": "Formulation plus nuancée et précise (mention spécifique d’« une personne fragile ») correspondant bien à la demande de « cas précis » et à une mise en garde responsable typiquement soulignée dans un document explicatif, alors que les autres réponses décrivent surtout des réglages généraux sans mention explicite d’une catégorie vulnérable."
-      }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Une notice audio d’un système de chauffage automatique explique qu’il peut être source d’inconfort s’il maintient la consigne de température sans tenir compte de l’ouverture des fenêtres, ce qui crée des courants d’air froid et une sensation désagréable pour les occupants malgré le chauffage en marche."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Un enregistrement de présentation d’un système de régulation intelligente précise qu’il existe un cas particulier d’inconfort : si le système abaisse automatiquement la température pour économiser l’énergie alors qu’une personne âgée ou malade, donc fragile, est présente, cela peut être ressenti comme inconfortable ou inadapté."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Lors d’une formation audio sur la programmation d’un chauffage, le narrateur note qu’un certain réglage peut créer un inconfort : si le système retarde trop le démarrage du chauffage et n’allume vraiment que juste au retour des occupants du travail, ils arrivent dans un logement encore froid, ce qui est désagréable."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Un technicien décrit oralement les limites d’un système de gestion d’énergie en expliquant que couper totalement le chauffage dès que tous les occupants quittent l’immeuble peut provoquer un inconfort au moment de leur retour, car le bâtiment est alors très froid et long à réchauffer."
-      }
+    "stage": "ground",
+    "assessment": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise explicitement que ce sont les habitudes dans une maison qui sont relativement stables, par opposition à celles d’un immeuble partagé dont les horaires varient fortement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Dans une maison, les habitudes sont relativement stables"
+          ],
+          "reason": "Le texte dit clairement que les habitudes sont « relativement stables » dans une maison. C’est exactement la caractéristique demandée dans la question, donc cette réponse est la seule qui corresponde.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ],
+          "reason": "Le document mentionne bien « un immeuble partagé », mais pour dire que « les horaires peuvent varier fortement », c’est-à-dire l’inverse de la stabilité. Quelqu’un pourrait se tromper en se souvenant seulement que l’immeuble partagé était cité juste après la maison et confondre les deux lieux.",
+          "misunderstanding": "contrast_inversion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Le texte ne parle jamais de « bureau en open space ». Un candidat peut l’imaginer car les thermostats et la gestion de présence font penser à des bureaux modernes, mais ce type de lieu n’est pas mentionné, donc il ne peut pas être la réponse à « selon le document ».",
+          "misunderstanding": "world_knowledge_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "La « résidence étudiante » n’apparaît pas dans le document. On pourrait toutefois la choisir en s’imaginant que les habitudes d’étudiants sont régulières (cours, examens), mais cette supposition vient de connaissances personnelles, pas du texte. Le critère demandé est ce qui est dit « selon le document », donc cette option est incorrecte.",
+          "misunderstanding": "external_stereotype_inference"
+        }
+      ]
+    },
+    "errors": [
+      "Missing/fabricated verbatim evidence at 2",
+      "Missing/fabricated verbatim evidence at 3"
     ]
   }
 }

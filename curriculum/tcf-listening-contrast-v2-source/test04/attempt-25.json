@@ -2,16 +2,16 @@
   "question": {
     "number": 25,
     "kind": "television-report",
-    "question": "Dans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?",
+    "question": "Avant de décider de commander davantage d'appareils, sur quel point les responsables veulent-ils d'abord se renseigner ?",
     "options": [
-      "Les résultats scolaires des élèves",
-      "Les écarts d’accès aux devoirs entre élèves selon leur équipement à la maison",
-      "Le nombre de devoirs rendus à temps",
-      "Le temps de préparation des cours pour les enseignants"
+      "Dans quelle mesure les résultats des élèves s’améliorent avec ces appareils",
+      "Dans quelle mesure le prêt d’équipements contribue à réduire les inégalités d’accès aux devoirs",
+      "Dans quelle mesure la plupart des familles disposent d’une connexion stable à la maison",
+      "Dans quelle mesure les devoirs numériques sont désormais consultés régulièrement par les élèves"
     ],
     "correct": "A",
-    "explanation": "Le texte indique que «les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Le point contrôlé est donc l’amélioration des résultats scolaires, pas d’autres effets possibles du dispositif.",
-    "transcript": "Question 25.\nDans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux.\nMais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous.\nL'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils.\nDans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?",
+    "explanation": "Le document dit que «les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Il est donc question d’une amélioration mesurable des résultats, et non de la connexion, des usages ou des inégalités en tant que telles.",
+    "transcript": "Question 25.\nDans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux.\nMais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous.\nL'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils.\nAvant de décider de commander davantage d'appareils, sur quel point les responsables veulent-ils d'abord se renseigner ?",
     "segments": [
       {
         "voice": "female",
@@ -31,7 +31,7 @@
       },
       {
         "voice": "female",
-        "text": "Dans ce document, avant de commander davantage de tablettes, sur quel point précis les responsables veulent-ils d’abord vérifier une amélioration ?"
+        "text": "Avant de décider de commander davantage d'appareils, sur quel point les responsables veulent-ils d'abord se renseigner ?"
       }
     ],
     "audio": "q-25.mp3",
@@ -40,12 +40,191 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzmHmsgPWA83rzd7zeBHpbAAot42",
+    "result": {
+      "question": "Avant de commander davantage d'appareils, qu'est-ce que les responsables veulent vérifier ?",
+      "choices": [
+        "Que les résultats des élèves s'améliorent vraiment",
+        "Que la plupart des familles disposent d'une connexion stable à la maison",
+        "Que les devoirs numériques sont désormais consultés régulièrement par les élèves",
+        "Que le prêt d'équipements permet effectivement de réduire les inégalités d'accès aux devoirs"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit que «les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Il est donc question d’une amélioration mesurable des résultats, et non de la connexion, des usages ou des inégalités en tant que telles.",
+      "design": "Axe précis : ce qui doit être vérifié avant tout nouvel achat d’appareils. Les quatre options sont quatre critères réalistes possibles dans un projet numérique scolaire (résultats, connexion à domicile, usage effectif, réduction des inégalités). Sans le document, chacune peut sembler un indicateur pertinent pour décider de nouveaux investissements. Seule l’écoute permet d’identifier que le texte insiste explicitement sur l’amélioration des résultats comme condition pour commander davantage d’appareils.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option attribue à tort aux responsables la volonté de vérifier la stabilité des connexions à domicile, en se fondant sur le passage qui signale que plusieurs familles n’ont pas de connexion stable. En réalité, cette difficulté explique le problème d’accès aux devoirs, mais ce n’est pas ce que les responsables annoncent vouloir vérifier avant de commander plus d’appareils, puisqu’ils parlent explicitement des résultats.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "plusieurs familles ne disposent pas de connexion stable à domicile",
+            "Les responsables souhaitent vérifier si les résultats s'améliorent réellement"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que les responsables veulent vérifier l’usage régulier des devoirs numériques, car le texte insiste sur le fait que ces devoirs n’étaient pas accessibles à tous. Cependant, la phrase qui décrit ce que les responsables souhaitent vérifier porte sur l’évolution des résultats, pas sur la fréquence de consultation des devoirs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Les devoirs numériques n'étaient donc pas accessibles à tous",
+            "Les responsables souhaitent vérifier si les résultats s'améliorent réellement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option déplace l’objectif vers la réduction des inégalités d’accès, idée suggérée par l’évocation du prêt d’équipements et du maintien d’exercices sur papier. Mais le texte ne dit pas que les responsables vont mesurer ces inégalités ; il précise uniquement qu’ils veulent voir si les résultats s’améliorent réellement avant de décider d’acheter davantage d’appareils.",
+          "operation": "scope_shift",
+          "anchors": [
+            "L'école prête désormais des équipements et laisse les exercices disponibles sur papier",
+            "Les responsables souhaitent vérifier si les résultats s'améliorent réellement"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4187,
+      "completion_tokens": 920,
+      "total_tokens": 5107,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 297,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01443375,
+    "inputHash": "9c837507d9e7f7b523eeeea7166d7155169bc322410c23e9ba3bc5d5eb3dd8e2",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Avant de commander davantage d'appareils, qu'est-ce que les responsables veulent vérifier ?",
+      "choices": [
+        "Que les résultats des élèves s'améliorent vraiment",
+        "Que le prêt d'équipements permet effectivement de réduire les inégalités d'accès aux devoirs",
+        "Que la plupart des familles disposent d'une connexion stable à la maison",
+        "Que les devoirs numériques sont désormais consultés régulièrement par les élèves"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzmdPshITLw5Fik8WXbJGaq7zamI",
+      "result": {
+        "question": "Avant de décider de commander davantage d'appareils, sur quel point les responsables veulent-ils d'abord se renseigner ?",
+        "choices": [
+          "Dans quelle mesure les résultats des élèves s’améliorent avec ces appareils",
+          "Dans quelle mesure le prêt d’équipements contribue à réduire les inégalités d’accès aux devoirs",
+          "Dans quelle mesure la plupart des familles disposent d’une connexion stable à la maison",
+          "Dans quelle mesure les devoirs numériques sont désormais consultés régulièrement par les élèves"
+        ],
+        "notes": "La question a été légèrement reformulée pour neutraliser l’idée de prudence tout en gardant l’objet de vérification. Les quatre choix restent distincts (résultats, inégalités, connexion, usage des devoirs) mais sont mis au même niveau, chacun portant sur une évaluation mesurable « dans quelle mesure », sans hiérarchiser la pertinence d’un objectif par rapport aux autres."
+      },
+      "usage": {
+        "prompt_tokens": 667,
+        "completion_tokens": 489,
+        "total_tokens": 1156,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 288,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00572375,
+      "inputHash": "c900b5b09610a1d32b1f08fab06efc6c2a034b19c2d091fe1dd1453fb7d71758",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
         2,
-        0,
         3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzmjIgmjZxvSTyjjrR493LfbqPMl",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion de direction dans un collège qui prête des tablettes aux élèves. Avant de décider s’il faut commander davantage d’appareils pour le prêt, les responsables veulent d’abord savoir si la plupart des familles disposent déjà d’une connexion Internet stable à la maison, car sinon les tablettes seraient peu utiles pour le travail en ligne."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Conseil pédagogique où l’on discute d’un dispositif de devoirs en ligne, accessible via des appareils prêtés. Avant d’acheter davantage d’appareils, les responsables demandent des données sur la fréquence réelle de consultation des devoirs numériques par les élèves pour vérifier que le dispositif est effectivement utilisé."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Réunion d’un comité scolaire qui finance le prêt d’ordinateurs à certains élèves. Avant de commander plus d’appareils, les responsables souhaitent d’abord se renseigner, à partir d’un premier bilan, sur l’impact du prêt d’équipements sur la réduction des inégalités d’accès aux devoirs entre élèves favorisés et défavorisés."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Présentation d’un projet pilote où des appareils numériques sont fournis à une partie des élèves. Avant d’étendre le dispositif et de commander davantage d’appareils, les responsables veulent d’abord savoir dans quelle mesure les résultats scolaires des élèves se sont améliorés grâce à ces appareils, à partir des premières données recueillies."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options peuvent répondre naturellement à la question dans un contexte d’établissement scolaire qui évalue un prêt d’appareils; aucune formulation ne présente d’avantage de rédaction, de précision ou de pertinence suffisamment net pour distinguer une clé probable, d’où une forte incertitude et une distribution uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 646,
+          "completion_tokens": 517,
+          "total_tokens": 1163,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 91,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0059775,
+        "inputHash": "e2d64349b7c1f6502d19451d26ed0b7494d63eafa302fc0679ba0915af5870c1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:14721af7be4c27b55696caf7:screen:6:edited:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
         1
       ],
       "receipt": {
@@ -53,98 +232,171 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkySt2H7w1DwqxnWjVNU9i3WXKF6S",
+        "responseId": "chatcmpl-Ekzmq8kExnW5KrcxX60t5xVlmtxPi",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Réunion de direction dans un collège ayant équipé plusieurs classes de tablettes. Un responsable pédagogique présente un premier bilan : les enseignants observent que les élèves semblent plus engagés. Avant d’envisager une nouvelle commande de tablettes pour d’autres classes, l’équipe décide de vérifier si le nombre de devoirs rendus à temps a effectivement augmenté grâce à l’outil numérique."
+              "context": "Dans un collège qui a prêté des tablettes pour accéder à une plateforme de devoirs en ligne, l’équipe de direction discute : avant de commander davantage d’appareils, ils veulent savoir si les élèves consultent réellement et régulièrement leurs devoirs numériques. Lors d’une réunion, le principal adjoint demande un bilan précis de la fréquence de consultation des devoirs avant toute nouvelle commande."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Conseil d’administration d’un établissement scolaire pilote pour le numérique. Un inspecteur expose que des tablettes ont été introduites dans certaines classes. Avant de généraliser et de commander davantage de matériel, les responsables expliquent qu’ils veulent d’abord analyser l’évolution des résultats scolaires des élèves pour voir s’il y a un réel gain académique."
+              "context": "Dans une école qui envisage d’augmenter le nombre d’ordinateurs portables prêtés, les responsables se demandent si cela a du sens si beaucoup de familles n’ont pas de connexion fiable. Avant de commander davantage d’appareils, ils décident de se renseigner d’abord sur la proportion de foyers bénéficiant d’une connexion Internet stable à domicile, à travers une enquête auprès des parents."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Réunion entre l’équipe de direction et un groupe d’enseignants après une phase test de tablettes en classe. Les professeurs évoquent le temps nécessaire pour préparer des cours interactifs. Avant de décider d’acheter plus de tablettes, les responsables expliquent qu’ils souhaitent d’abord vérifier si, avec l’habitude et les ressources partagées, le temps de préparation des cours pour les enseignants diminue réellement."
+              "context": "Un lycée mène une expérimentation avec des ordinateurs prêtés aux élèves. Avant de commander davantage d’appareils pour étendre le dispositif, les responsables pédagogiques souhaitent d’abord analyser si les résultats scolaires se sont réellement améliorés chez les élèves déjà équipés, en consultant les bulletins et les évaluations standardisées."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Présentation d’un rapport sur une expérimentation de tablettes dans un collège socialement mixte. Les responsables expliquent qu’au départ ils craignaient d’accentuer les inégalités, certains élèves ayant peu ou pas d’équipement à la maison. Avant de commander davantage de tablettes, ils affirment vouloir d’abord vérifier une amélioration sur un point précis : la réduction des écarts d’accès aux devoirs entre élèves selon leur équipement à la maison, pour voir si le dispositif corrige ou aggrave ces disparités."
+              "context": "Une collectivité locale finance le prêt de tablettes aux élèves de milieux défavorisés pour les devoirs. Avant de décider de commander davantage d’appareils, les responsables veulent d’abord savoir dans quelle mesure ce prêt permet effectivement de réduire les inégalités d’accès aux devoirs (entre élèves équipés et non équipés), en s’appuyant sur des retours des enseignants et des familles."
             }
           ],
           "cues": [
             {
               "option": 3,
-              "severity": "clear",
-              "cue": "Formulation plus longue, nuancée et spécifique (référence explicite aux écarts d’accès, aux devoirs et à l’équipement à la maison), qui correspond à un indicateur d’équité très ciblé et responsable plutôt qu’à un simple résultat ou volume de devoirs ; ce type de précision est typiquement celle d’un item-clé construit pour se distinguer des autres, plus génériques."
+              "severity": "weak",
+              "cue": "La formulation reprend explicitement l’idée de « prêt d’équipements » et relie directement la commande de nouveaux appareils à l’objectif politique/éducatif typique (réduction des inégalités d’accès), ce qui en fait une justification plus globale et finalisée que les autres options, sans faute de langue ni décalage thématique."
             }
           ],
-          "standsOut": true,
+          "standsOut": false,
           "probabilities": [
-            0.2,
-            0.15,
-            0.2,
-            0.45
+            0.23,
+            0.18,
+            0.24,
+            0.35
           ],
           "guess": 3,
-          "reason": "Toutes les options pourraient être évoquées dans un bilan d’usage des tablettes, mais la quatrième se distingue par sa précision, sa longueur et son orientation vers la réduction des inégalités d’accès, ce qui correspond à un objectif fréquemment mis en avant dans des documents institutionnels sur le numérique éducatif. Les trois autres sont plus génériques et moins finement ciblées, ce qui donne à l’option 3 un avantage concret malgré une incertitude réelle sur l’enregistrement absent."
+          "reason": "Toutes les réponses sont plausibles dans un contexte scolaire évaluant un prêt d’appareils, mais l’option 3 fait le lien le plus direct entre la décision de commander davantage d’équipements et l’objectif explicite d’un tel dispositif (réduction des inégalités d’accès aux devoirs) en reprenant le vocabulaire du prêt d’équipements, ce qui lui donne un léger avantage de rédaction sans qu’aucune option ne s’impose avec certitude."
         },
         "usage": {
-          "prompt_tokens": 624,
-          "completion_tokens": 761,
-          "total_tokens": 1385,
+          "prompt_tokens": 646,
+          "completion_tokens": 826,
+          "total_tokens": 1472,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 130,
+            "reasoning_tokens": 243,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00839,
-        "inputHash": "3f4e3e4540cda5fb9052ae8301ec5fba6530db016bcd95f824231431d8fe4254",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:initial:screen:6:0"
+        "costUsd": 0.0090675,
+        "inputHash": "b44b9d6d7cfb4421f6501d6045e93e2d7cc78fd9e90129e7226c6ccb64d7e8cf",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:14721af7be4c27b55696caf7:screen:6:edited:1"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzn14r8GWiGmiEVZW04hDqJZJM4x",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une collectivité locale prête des tablettes aux élèves pour faire leurs devoirs. Avant d’en commander davantage, les responsables veulent d’abord savoir, via des retours d’enseignants et de parents, dans quelle mesure ce prêt réduit effectivement les inégalités d’accès aux devoirs entre élèves bien et mal équipés au départ."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une école a mis en place des devoirs numériques accessibles via une plateforme. Elle a prêté des appareils à certains élèves. Avant d’acheter plus d’appareils, la direction souhaite d’abord vérifier, grâce aux statistiques de connexion, dans quelle mesure les devoirs numériques sont désormais consultés régulièrement par les élèves."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un établissement expérimente des ordinateurs ou tablettes distribués aux élèves. Avant de décider d’en commander davantage, les responsables souhaitent d’abord se renseigner, via les notes et évaluations, sur la mesure dans laquelle les résultats des élèves s’améliorent avec ces appareils."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une école a prêté des appareils à des familles pour les devoirs. Avant de commander davantage, les responsables veulent d’abord savoir, via une enquête, dans quelle mesure la plupart des familles disposent d’une connexion Internet stable à la maison, condition pour que ces appareils soient réellement utiles."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Parmi les formulations parallèles, l’option 2 est la seule qui relie directement et explicitement les « appareils » mentionnés dans la question à un effet central et mesurable (« les résultats des élèves s’améliorent avec ces appareils »), ce qui correspond typiquement à un critère de décision avant un nouvel investissement matériel."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.22,
+            0.23,
+            0.4,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Toutes les options décrivent des indicateurs plausibles avant de commander plus d’appareils. Cependant, l’option 2 se distingue légèrement par son lien explicite entre les appareils et l’effet pédagogique principal (l’amélioration des résultats), ce qui en fait un critère de décision prioritaire probable par rapport à l’usage, l’équité ou la connexion, d’où une probabilité un peu plus élevée mais avec une incertitude notable."
+        },
+        "usage": {
+          "prompt_tokens": 646,
+          "completion_tokens": 665,
+          "total_tokens": 1311,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 154,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0074575,
+        "inputHash": "59c229061f100b7dce2be5487fcaf951beece58d41606f1846b1c9bfc000d1e5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:14721af7be4c27b55696caf7:screen:6:edited:2"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Toutes les options pourraient être évoquées dans un bilan d’usage des tablettes, mais la quatrième se distingue par sa précision, sa longueur et son orientation vers la réduction des inégalités d’accès, ce qui correspond à un objectif fréquemment mis en avant dans des documents institutionnels sur le numérique éducatif. Les trois autres sont plus génériques et moins finement ciblées, ce qui donne à l’option 3 un avantage concret malgré une incertitude réelle sur l’enregistrement absent.",
+    "reason": "Toutes les options décrivent des indicateurs plausibles avant de commander plus d’appareils. Cependant, l’option 2 se distingue légèrement par son lien explicite entre les appareils et l’effet pédagogique principal (l’amélioration des résultats), ce qui en fait un critère de décision prioritaire probable par rapport à l’usage, l’équité ou la connexion, d’où une probabilité un peu plus élevée mais avec une incertitude notable.",
     "cues": [
       {
-        "option": 3,
-        "severity": "clear",
-        "cue": "Formulation plus longue, nuancée et spécifique (référence explicite aux écarts d’accès, aux devoirs et à l’équipement à la maison), qui correspond à un indicateur d’équité très ciblé et responsable plutôt qu’à un simple résultat ou volume de devoirs ; ce type de précision est typiquement celle d’un item-clé construit pour se distinguer des autres, plus génériques."
+        "option": 2,
+        "severity": "weak",
+        "cue": "Parmi les formulations parallèles, l’option 2 est la seule qui relie directement et explicitement les « appareils » mentionnés dans la question à un effet central et mesurable (« les résultats des élèves s’améliorent avec ces appareils »), ce qui correspond typiquement à un critère de décision avant un nouvel investissement matériel."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Réunion de direction dans un collège ayant équipé plusieurs classes de tablettes. Un responsable pédagogique présente un premier bilan : les enseignants observent que les élèves semblent plus engagés. Avant d’envisager une nouvelle commande de tablettes pour d’autres classes, l’équipe décide de vérifier si le nombre de devoirs rendus à temps a effectivement augmenté grâce à l’outil numérique."
+        "context": "Une collectivité locale prête des tablettes aux élèves pour faire leurs devoirs. Avant d’en commander davantage, les responsables veulent d’abord savoir, via des retours d’enseignants et de parents, dans quelle mesure ce prêt réduit effectivement les inégalités d’accès aux devoirs entre élèves bien et mal équipés au départ."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Conseil d’administration d’un établissement scolaire pilote pour le numérique. Un inspecteur expose que des tablettes ont été introduites dans certaines classes. Avant de généraliser et de commander davantage de matériel, les responsables expliquent qu’ils veulent d’abord analyser l’évolution des résultats scolaires des élèves pour voir s’il y a un réel gain académique."
+        "context": "Une école a mis en place des devoirs numériques accessibles via une plateforme. Elle a prêté des appareils à certains élèves. Avant d’acheter plus d’appareils, la direction souhaite d’abord vérifier, grâce aux statistiques de connexion, dans quelle mesure les devoirs numériques sont désormais consultés régulièrement par les élèves."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Réunion entre l’équipe de direction et un groupe d’enseignants après une phase test de tablettes en classe. Les professeurs évoquent le temps nécessaire pour préparer des cours interactifs. Avant de décider d’acheter plus de tablettes, les responsables expliquent qu’ils souhaitent d’abord vérifier si, avec l’habitude et les ressources partagées, le temps de préparation des cours pour les enseignants diminue réellement."
+        "context": "Un établissement expérimente des ordinateurs ou tablettes distribués aux élèves. Avant de décider d’en commander davantage, les responsables souhaitent d’abord se renseigner, via les notes et évaluations, sur la mesure dans laquelle les résultats des élèves s’améliorent avec ces appareils."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Présentation d’un rapport sur une expérimentation de tablettes dans un collège socialement mixte. Les responsables expliquent qu’au départ ils craignaient d’accentuer les inégalités, certains élèves ayant peu ou pas d’équipement à la maison. Avant de commander davantage de tablettes, ils affirment vouloir d’abord vérifier une amélioration sur un point précis : la réduction des écarts d’accès aux devoirs entre élèves selon leur équipement à la maison, pour voir si le dispositif corrige ou aggrave ces disparités."
+        "context": "Une école a prêté des appareils à des familles pour les devoirs. Avant de commander davantage, les responsables veulent d’abord savoir, via une enquête, dans quelle mesure la plupart des familles disposent d’une connexion Internet stable à la maison, condition pour que ces appareils soient réellement utiles."
       }
     ]
   }

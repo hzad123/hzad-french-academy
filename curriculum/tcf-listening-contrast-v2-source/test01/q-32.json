@@ -2,16 +2,16 @@
   "question": {
     "number": 32,
     "kind": "interview",
-    "question": "Dans ce passage, que signale l’incertitude associée à l’estimation ?",
+    "question": "Dans son explication, sur quoi l’intervenant fait-il reposer l’incertitude de son estimation ?",
     "options": [
-      "La gravité potentielle du dommage si le risque se réalise.",
-      "L’étendue de ce qu’il est possible d’affirmer à partir de l’estimation.",
-      "Le niveau de maîtrise de la situation par la personne qui parle.",
-      "La probabilité exacte que l’estimation soit fausse."
+      "Au fait que les différents experts ne sont pas pleinement d’accord entre eux.",
+      "Au fait qu’il ne peut pas délimiter avec certitude ce qu’il est en mesure d’affirmer.",
+      "Au fait que les données d’observation dont il dispose restent partielles.",
+      "Au fait que plusieurs prévisions antérieures se sont révélées erronées."
     ],
     "correct": "B",
-    "transcript": "Question 32.\nQuand vous dites que votre estimation comporte une incertitude, certains auditeurs comprennent que vous ne savez rien. Comment leur répondez-vous ?\nJe leur donne un exemple. Prévoir une zone de risque ne permet pas de dire quelle maison sera touchée à quelle date. Cela reste pourtant utile pour préparer les secours ou éviter une construction mal située. L'incertitude indique la portée de ce que nous pouvons affirmer. Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion. Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information. Reconnaître des limites n'oblige pas à traiter comme équivalentes toutes les affirmations.\nDans ce passage, que signale l’incertitude associée à l’estimation ?",
-    "explanation": "Le locuteur précise explicitement : « L'incertitude indique la portée de ce que nous pouvons affirmer. » Elle sert donc à cadrer l’étendue de ce qu’on peut tirer de l’estimation, et non à mesurer la compétence de l’expert, la gravité du risque ou une probabilité chiffrée exacte.",
+    "transcript": "Question 32.\nQuand vous dites que votre estimation comporte une incertitude, certains auditeurs comprennent que vous ne savez rien. Comment leur répondez-vous ?\nJe leur donne un exemple. Prévoir une zone de risque ne permet pas de dire quelle maison sera touchée à quelle date. Cela reste pourtant utile pour préparer les secours ou éviter une construction mal située. L'incertitude indique la portée de ce que nous pouvons affirmer. Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion. Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information. Reconnaître des limites n'oblige pas à traiter comme équivalentes toutes les affirmations.\nDans son explication, sur quoi l’intervenant fait-il reposer l’incertitude de son estimation ?",
+    "explanation": "L’intervenant précise : « L'incertitude indique la portée de ce que nous pouvons affirmer. » Il relie donc explicitement l’incertitude non pas à la qualité des données, aux erreurs passées ou aux désaccords entre experts, mais à la limite de ce qu’il est légitime d’affirmer à partir de l’estimation.",
     "segments": [
       {
         "voice": "female",
@@ -27,125 +27,237 @@
       },
       {
         "voice": "female",
-        "text": "Dans ce passage, que signale l’incertitude associée à l’estimation ?"
+        "text": "Dans son explication, sur quoi l’intervenant fait-il reposer l’incertitude de son estimation ?"
       }
     ],
     "audio": "q-32.mp3",
     "audioSeconds": null,
     "slotSeconds": 70
   },
-  "contentHash": "44ab11b3c235dd8e4bf8b55000705aba5bef412e9632007fc9d79e1c0b8bc608",
+  "contentHash": "8af69e22225adc3762869a1e5c19dcaecd7c121d1f812fc54df23e395dc426d4",
   "sourceHash": "57e857668810a530ef43ce440b484ef78eab88ac7f8036a5cb5609e9f50730d1",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzSZI0u9tuvuSzQXRaJVnre2UQ3G",
+    "result": {
+      "question": "Dans sa réponse, à quoi l’intervenant rattache-t-il précisément l’incertitude de son estimation ?",
+      "choices": [
+        "À la portée de ce qu’il peut réellement affirmer.",
+        "À la qualité des observations qu’il a pu recueillir.",
+        "Au nombre d’erreurs commises dans des prévisions précédentes.",
+        "Au degré de désaccord entre les différents experts."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’intervenant précise : « L'incertitude indique la portée de ce que nous pouvons affirmer. » Il relie donc explicitement l’incertitude non pas à la qualité des données, aux erreurs passées ou aux désaccords entre experts, mais à la limite de ce qu’il est légitime d’affirmer à partir de l’estimation.",
+      "design": "On cible le lien précis que le locuteur établit entre « incertitude » et un type d’information qu’elle fournit. Les quatre options sont quatre interprétations plausibles et proches : chacune associe l’incertitude à un aspect courant des prévisions (portée des affirmations, qualité des observations, erreurs passées, désaccords d’experts). Sans le document, aucune ne paraît absurde ou irresponsable pour répondre à la question. Le document tranche finement en disant que l’incertitude « indique la portée de ce que nous pouvons affirmer », ce qui rend seule la première option correcte.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Un auditeur peut associer l’incertitude à la qualité des données parce que le locuteur insiste sur la nécessité d’« expliquer les observations, la méthode ». Cependant, il ne définit pas l’incertitude comme un indicateur de cette qualité, mais comme un indicateur de la portée de l’affirmation : la limite de ce qu’on peut dire à partir de ces éléments.",
+          "operation": "scope_shift",
+          "anchors": [
+            "L'incertitude indique la portée de ce que nous pouvons affirmer.",
+            "Nous devons expliquer les observations, la méthode"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Il est tentant de relier l’incertitude au nombre d’erreurs passées en pensant que « ce qui pourrait modifier la conclusion » renvoie à des prévisions antérieures qui se seraient révélées fausses. En réalité, le locuteur évoque des facteurs susceptibles d’affecter la conclusion actuelle, sans en faire un décompte d’erreurs ; l’incertitude ne mesure pas ces erreurs, elle borne ce qu’on peut affirmer maintenant.",
+          "operation": "scope_shift",
+          "anchors": [
+            "ce qui pourrait modifier la conclusion",
+            "L'incertitude indique la portée de ce que nous pouvons affirmer."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Parce que le passage commence par « certains auditeurs comprennent que vous ne savez rien », on peut croire que l’incertitude reflète surtout un désaccord entre personnes. Mais la suite répond en termes de rapport aux faits et à la décision : « L'incertitude indique la portée de ce que nous pouvons affirmer », sans mentionner de conflit d’experts ; elle concerne le contenu des affirmations, pas le degré d’accord entre intervenants.",
+          "operation": "scope_shift",
+          "anchors": [
+            "certains auditeurs comprennent que vous ne savez rien",
+            "L'incertitude indique la portée de ce que nous pouvons affirmer."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4574,
+      "completion_tokens": 1079,
+      "total_tokens": 5653,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 387,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0165075,
+    "inputHash": "d24b160a00c5bb88cea4c8a0647b3642c26f49698cde6d9456d06b5177b1d34e",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:31:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans sa réponse, à quoi l’intervenant rattache-t-il précisément l’incertitude de son estimation ?",
+      "choices": [
+        "Au degré de désaccord entre les différents experts.",
+        "À la portée de ce qu’il peut réellement affirmer.",
+        "À la qualité des observations qu’il a pu recueillir.",
+        "Au nombre d’erreurs commises dans des prévisions précédentes."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzT0SuUzogLymqBLiEfs6VUGUJch",
+      "result": {
+        "question": "Dans son explication, sur quoi l’intervenant fait-il reposer l’incertitude de son estimation ?",
+        "choices": [
+          "Au fait que les différents experts ne sont pas pleinement d’accord entre eux.",
+          "Au fait qu’il ne peut pas délimiter avec certitude ce qu’il est en mesure d’affirmer.",
+          "Au fait que les données d’observation dont il dispose restent partielles.",
+          "Au fait que plusieurs prévisions antérieures se sont révélées erronées."
+        ],
+        "notes": "Question légèrement reformulée pour rester neutre. Les quatre choix restent des sources possibles d’incertitude, formulées à un niveau de généralité comparable, sans qu’un seul paraisse plus prudent ou professionnel que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 662,
+        "completion_tokens": 464,
+        "total_tokens": 1126,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 301,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0054675,
+      "inputHash": "36ea30a3cfc7d5be6de2d2e9ed4fa775cd4165267bcca5d14194f8263d1f36f2",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:31:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
-        0,
+        3,
         1,
-        3
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkynBlph8DfrvATCqJSeXPRfpgVbI",
+        "responseId": "chatcmpl-EkzT6ZDAe68RDWXlSc6IqGKy5hlCF",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une formation à la gestion de projet, un formateur explique qu’un chef de projet peu sûr de lui utilisera des formulations très prudentes. L’animateur demande alors : « Dans ce passage, que signale l’incertitude associée à l’estimation ? » et quelqu’un répond que cela montre le niveau de maîtrise de la situation par la personne qui parle."
+              "context": "Lors d’une interview économique, un analyste explique que son estimation de croissance est incertaine parce que plusieurs de ses prévisions précédentes se sont révélées erronées, ce qui le rend plus prudent sur la fiabilité de son nouveau chiffre."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une réunion sur la sécurité au travail, on discute d’une estimation des risques d’accident. L’orateur affirme qu’une grande incertitude sur l’estimation doit alerter sur la gravité possible des conséquences. On lui pose la question : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », et l’interlocuteur répond que cela renvoie à la gravité potentielle du dommage."
+              "context": "Dans une conférence scientifique, un chercheur dit qu’il reste prudent dans son estimation parce qu’il ne peut pas clairement tracer la limite entre ce qu’il peut affirmer avec certitude et ce qui reste de l’ordre de l’hypothèse, ce qui introduit une part d’incertitude dans son chiffre."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un cours de statistique ou de gestion des risques, l’enseignant commente un intervalle d’estimation et dit que l’incertitude indique jusqu’où on peut aller dans ce qu’on affirme. Quelqu’un demande : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », et la réponse donnée est que cela montre l’étendue de ce qu’il est possible d’affirmer à partir de cette estimation."
+              "context": "Un climatologue, interrogé à la radio, explique que son estimation de la hausse des températures reste incertaine, car les données d’observation dont il dispose sont encore partielles, incomplètes dans le temps et l’espace."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une discussion méthodologique très mal vulgarisée, un intervenant présente l’incertitude comme si elle donnait une “probabilité exacte que l’estimation soit fausse”. À la question : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », un participant reprend cette formulation erronée et répond de cette façon."
+              "context": "Lors d’une table ronde médicale, un spécialiste explique que l’incertitude de son estimation sur l’efficacité d’un traitement vient du fait que les différents experts et études publiées ne sont pas pleinement d’accord entre eux."
             }
           ],
           "cues": [
             {
               "option": 2,
               "severity": "clear",
-              "cue": "Formulation conceptuellement précise et alignée avec l’usage standard en statistique : l’incertitude d’une estimation borne ce qu’on peut affirmer à partir d’elle, alors que les autres réponses sont soit psychologiques (0), soit confondent incertitude et gravité de l’impact (1), soit attribuent à l’incertitude une “probabilité exacte” qui est techniquement inappropriée (3)."
+              "cue": "Formulation simple et directement liée à l’« estimation » : relier l’incertitude à des « données d’observation [...] partielles » est une explication standard, précise et factuelle, bien adaptée à une question de compréhension. Les autres options sont soit plus lourdes ou métadiscursives (1), soit plus circonstancielles ou historiques (0, 3), alors que l’énoncé reste général."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.1,
+            0.2,
             0.15,
-            0.6,
-            0.15
+            0.45,
+            0.2
           ],
           "guess": 2,
-          "reason": "L’option 2 correspond exactement à l’interprétation classique de l’incertitude d’estimation (elle borne la portée des affirmations possibles). Les autres réponses mélangent incertitude avec confiance personnelle, gravité du risque ou probabilité “exacte” d’erreur, ce qui est moins pertinent et plus fautif dans un cadre d’analyse des estimations."
+          "reason": "Toutes les réponses pourraient justifier une incertitude, mais l’option 2 correspond le mieux, par sa formulation, à une explication classique et neutre de l’incertitude d’une estimation (données partielles). L’option 1 est stylistiquement lourde et moins naturelle, 0 et 3 invoquent des éléments plus contextuels (erreurs passées, désaccords d’experts) plutôt que la base même du calcul, d’où un léger avantage pour 2 malgré une incertitude réelle."
         },
         "usage": {
-          "prompt_tokens": 630,
-          "completion_tokens": 697,
-          "total_tokens": 1327,
+          "prompt_tokens": 647,
+          "completion_tokens": 743,
+          "total_tokens": 1390,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 88,
+            "reasoning_tokens": 232,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0077575,
-        "inputHash": "7054cca942d8f60398856e60d5e67f93a128756aca27d2e07b1d59c8517b420d",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:31:ce40c9091f7f36b9e4c06d49:screen:6:0"
+        "costUsd": 0.00823875,
+        "inputHash": "468d360ccd86fb1ffb0a31ea38e325df781291c22035816ed5ec3ea50f20c07a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:31:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "L’option 2 correspond exactement à l’interprétation classique de l’incertitude d’estimation (elle borne la portée des affirmations possibles). Les autres réponses mélangent incertitude avec confiance personnelle, gravité du risque ou probabilité “exacte” d’erreur, ce qui est moins pertinent et plus fautif dans un cadre d’analyse des estimations.",
+    "reason": "Toutes les réponses pourraient justifier une incertitude, mais l’option 2 correspond le mieux, par sa formulation, à une explication classique et neutre de l’incertitude d’une estimation (données partielles). L’option 1 est stylistiquement lourde et moins naturelle, 0 et 3 invoquent des éléments plus contextuels (erreurs passées, désaccords d’experts) plutôt que la base même du calcul, d’où un léger avantage pour 2 malgré une incertitude réelle.",
     "cues": [
       {
         "option": 2,
         "severity": "clear",
-        "cue": "Formulation conceptuellement précise et alignée avec l’usage standard en statistique : l’incertitude d’une estimation borne ce qu’on peut affirmer à partir d’elle, alors que les autres réponses sont soit psychologiques (0), soit confondent incertitude et gravité de l’impact (1), soit attribuent à l’incertitude une “probabilité exacte” qui est techniquement inappropriée (3)."
+        "cue": "Formulation simple et directement liée à l’« estimation » : relier l’incertitude à des « données d’observation [...] partielles » est une explication standard, précise et factuelle, bien adaptée à une question de compréhension. Les autres options sont soit plus lourdes ou métadiscursives (1), soit plus circonstancielles ou historiques (0, 3), alors que l’énoncé reste général."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une formation à la gestion de projet, un formateur explique qu’un chef de projet peu sûr de lui utilisera des formulations très prudentes. L’animateur demande alors : « Dans ce passage, que signale l’incertitude associée à l’estimation ? » et quelqu’un répond que cela montre le niveau de maîtrise de la situation par la personne qui parle."
+        "context": "Lors d’une interview économique, un analyste explique que son estimation de croissance est incertaine parce que plusieurs de ses prévisions précédentes se sont révélées erronées, ce qui le rend plus prudent sur la fiabilité de son nouveau chiffre."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une réunion sur la sécurité au travail, on discute d’une estimation des risques d’accident. L’orateur affirme qu’une grande incertitude sur l’estimation doit alerter sur la gravité possible des conséquences. On lui pose la question : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », et l’interlocuteur répond que cela renvoie à la gravité potentielle du dommage."
+        "context": "Dans une conférence scientifique, un chercheur dit qu’il reste prudent dans son estimation parce qu’il ne peut pas clairement tracer la limite entre ce qu’il peut affirmer avec certitude et ce qui reste de l’ordre de l’hypothèse, ce qui introduit une part d’incertitude dans son chiffre."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un cours de statistique ou de gestion des risques, l’enseignant commente un intervalle d’estimation et dit que l’incertitude indique jusqu’où on peut aller dans ce qu’on affirme. Quelqu’un demande : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », et la réponse donnée est que cela montre l’étendue de ce qu’il est possible d’affirmer à partir de cette estimation."
+        "context": "Un climatologue, interrogé à la radio, explique que son estimation de la hausse des températures reste incertaine, car les données d’observation dont il dispose sont encore partielles, incomplètes dans le temps et l’espace."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans une discussion méthodologique très mal vulgarisée, un intervenant présente l’incertitude comme si elle donnait une “probabilité exacte que l’estimation soit fausse”. À la question : « Dans ce passage, que signale l’incertitude associée à l’estimation ? », un participant reprend cette formulation erronée et répond de cette façon."
+        "context": "Lors d’une table ronde médicale, un spécialiste explique que l’incertitude de son estimation sur l’efficacité d’un traitement vient du fait que les différents experts et études publiées ne sont pas pleinement d’accord entre eux."
       }
     ]
   },

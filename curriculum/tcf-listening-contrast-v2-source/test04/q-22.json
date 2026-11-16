@@ -2,16 +2,16 @@
   "question": {
     "number": 22,
     "kind": "interview",
-    "question": "Selon le document, à quel moment se produit surtout le «vrai changement» pour ces adultes ?",
+    "question": "Selon le document, quel moment constitue souvent un tournant important pour ces adultes qui reprennent leurs études ?",
     "options": [
-      "Quand ils réussissent enfin une première évaluation.",
-      "Quand ils reprennent seuls les notions chez eux.",
-      "Quand ils osent poser une question devant d’autres personnes.",
-      "Quand ils travaillent avec un cahier d’exercices."
+      "Quand ils réussissent leur première évaluation écrite",
+      "Quand ils reprennent des notions de base en autonomie",
+      "Quand ils posent pour la première fois une question en groupe",
+      "Quand ils commencent à travailler avec un nouveau cahier d’exercices adapté"
     ],
     "correct": "C",
-    "explanation": "Le document précise que «le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes». Les autres moments sont évoqués comme besoins ou outils (revoir des notions, cahier d'exercices) ou comme source de crainte (évaluation), mais pas comme le moment clé du changement.",
-    "transcript": "Question 22.\nVotre atelier réunit des adultes qui reprennent leurs études après plusieurs années. Que leur apportent surtout les rencontres en groupe ?\nCertains ont besoin de revoir des notions, mais le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes. Ils découvrent qu'ils ne sont pas seuls à avoir oublié une méthode ou à redouter une évaluation. Cette confiance les aide à poursuivre un parcours qui paraissait inaccessible. Un cahier d'exercices peut être utile, mais il ne remplace pas ce soutien entre apprenants.\nSelon le document, à quel moment se produit surtout le «vrai changement» pour ces adultes ?",
+    "explanation": "Le texte dit explicitement que «le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes». Les autres éléments (revoir des notions, cahier d’exercices, évaluations redoutées) sont mentionnés, mais ne sont pas présentés comme le moment où se produit ce «vrai changement».",
+    "transcript": "Question 22.\nVotre atelier réunit des adultes qui reprennent leurs études après plusieurs années. Que leur apportent surtout les rencontres en groupe ?\nCertains ont besoin de revoir des notions, mais le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes. Ils découvrent qu'ils ne sont pas seuls à avoir oublié une méthode ou à redouter une évaluation. Cette confiance les aide à poursuivre un parcours qui paraissait inaccessible. Un cahier d'exercices peut être utile, mais il ne remplace pas ce soutien entre apprenants.\nSelon le document, quel moment constitue souvent un tournant important pour ces adultes qui reprennent leurs études ?",
     "segments": [
       {
         "voice": "female",
@@ -27,125 +27,237 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, à quel moment se produit surtout le «vrai changement» pour ces adultes ?"
+        "text": "Selon le document, quel moment constitue souvent un tournant important pour ces adultes qui reprennent leurs études ?"
       }
     ],
     "audio": "q-22.mp3",
     "audioSeconds": null,
     "slotSeconds": 61
   },
-  "contentHash": "f345b839b9cc1bd9e0f33157773ad69a3ef844050e6264176ca22f01e25971cb",
+  "contentHash": "8af57a942aa5db71ecc23c87910919fc73d59bdce9c2c5d25b4a8f21922657f4",
   "sourceHash": "6874672853de3b6c66ba6d9b22dc9971d245eeb62f1fee7a7e788675e6a03554",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzlF6qbWK1uQP1fzZXla1Xb86y1n",
+    "result": {
+      "question": "Selon le document, à quel moment le vrai changement se produit-il souvent pour ces adultes qui reprennent leurs études ?",
+      "choices": [
+        "Quand ils revoient des notions par eux‑mêmes",
+        "Quand ils osent poser une question devant d’autres personnes",
+        "Quand ils reçoivent un nouveau cahier d’exercices",
+        "Quand ils passent une première évaluation réussie"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le texte dit explicitement que «le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes». Les autres éléments (revoir des notions, cahier d’exercices, évaluations redoutées) sont mentionnés, mais ne sont pas présentés comme le moment où se produit ce «vrai changement».",
+      "design": "Axe précis : le moment ou l’élément déclencheur du «vrai changement» pour les adultes en reprise d’études. Les quatre options décrivent toutes un moment plausible d’évolution dans une démarche de formation (révision individuelle, prise de parole en groupe, appui sur un outil, passage d’évaluation). Sans le document, chacune pourrait sembler être le déclencheur principal. Le texte distingue cependant nettement la prise de parole en groupe comme moment du «vrai changement», alors que les autres éléments sont présentés comme besoins, outils ou contextes, mais non comme ce déclencheur.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Cette option confond un besoin préparatoire avec le déclencheur du «vrai changement». Le document signale que certains doivent «revoir des notions», mais précise que ce n’est pas là que se produit le changement principal, ce qui peut être mal interprété si l’on privilégie l’aspect scolaire classique.",
+          "operation": "role_swap",
+          "anchors": [
+            "Certains ont besoin de revoir des notions",
+            "mais le vrai changement se produit souvent lorsqu'ils osent poser une question devant d'autres personnes"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option attribue à tort au cahier d’exercices le rôle central dans le changement. Le texte reconnaît son utilité mais insiste aussitôt sur ses limites par rapport au soutien entre apprenants, ce qui peut toutefois tromper un auditeur qui retient surtout la mention de l’outil pédagogique.",
+          "operation": "role_swap",
+          "anchors": [
+            "Un cahier d'exercices peut être utile",
+            "mais il ne remplace pas ce soutien entre apprenants"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option transforme une source de crainte en moment de bascule positive. Le document évoque l’évaluation comme objet de «redoute», pas comme étape décisive de progrès ; le changement est lié à la confiance gagnée grâce au groupe, non à la réussite d’une première évaluation, même si cette interprétation serait plausible dans un autre contexte de formation.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "à redouter une évaluation",
+            "Cette confiance les aide à poursuivre un parcours qui paraissait inaccessible"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4439,
+      "completion_tokens": 1128,
+      "total_tokens": 5567,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 506,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01682875,
+    "inputHash": "8446f7caf2700d76fd663b15983889ec37f761b1cdb64ea061be4ab9d988604b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:21:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, à quel moment le vrai changement se produit-il souvent pour ces adultes qui reprennent leurs études ?",
+      "choices": [
+        "Quand ils passent une première évaluation réussie",
+        "Quand ils revoient des notions par eux‑mêmes",
+        "Quand ils osent poser une question devant d’autres personnes",
+        "Quand ils reçoivent un nouveau cahier d’exercices"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzlcAqC2F3JXotsta52SXI7Vuxjb",
+      "result": {
+        "question": "Selon le document, quel moment constitue souvent un tournant important pour ces adultes qui reprennent leurs études ?",
+        "choices": [
+          "Quand ils réussissent leur première évaluation écrite",
+          "Quand ils reprennent des notions de base en autonomie",
+          "Quand ils posent pour la première fois une question en groupe",
+          "Quand ils commencent à travailler avec un nouveau cahier d’exercices adapté"
+        ],
+        "notes": "La question a été reformulée pour parler d’un « tournant important » plutôt que de « vrai changement », moins chargé de connotations. Les quatre choix restent distincts mais de poids comparable : chacun décrit un type de moment significatif (réussite formelle, travail autonome, prise de parole en groupe, nouvel outil pédagogique). Le vocabulaire émotionnel (« osent ») a été neutralisé, et le cahier d’exercices a été légèrement précisé pour paraître aussi pertinent pédagogiquement que les autres options. Aucune option n’est présentée comme plus évidente ou plus profonde que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 662,
+        "completion_tokens": 471,
+        "total_tokens": 1133,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 248,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0055375,
+      "inputHash": "d8b36b8c3c67a3047cafa09680400cd4a3e40f5bf326848f1a4904c37d7d08ac",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:21:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
-        0,
+        2,
         1,
-        2
+        0,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyRwvKNrGKRTofaR0famQNLqw6ap",
+        "responseId": "chatcmpl-EkzliXPdxhT2U4R1ZQtCTw0IuWNnL",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur une association d’alphabétisation pour adultes, l’animatrice explique que le vrai changement se produit surtout quand ces adultes travaillent avec un cahier d’exercices, car cela les rend acteurs de leur apprentissage et leur redonne des habitudes de travail structurées."
+              "context": "Dans un reportage sur la formation continue, une formatrice explique que pour beaucoup d’adultes en reprise d’études, le fait d’oser poser pour la première fois une question à l’oral devant le groupe marque souvent un tournant important dans leur parcours, car ils prennent confiance et s’engagent plus activement."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une émission sur la formation continue, un formateur de remise à niveau explique que, pour ces adultes, le vrai changement se produit surtout quand ils réussissent enfin une première évaluation, car cette réussite brise le sentiment d’échec scolaire et leur redonne confiance."
+              "context": "Dans une émission sur la remise à niveau des compétences de base, un conseiller raconte que pour ces adultes, le moment où ils se remettent seuls à reprendre des notions de base (lecture, calcul, grammaire) représente un tournant, car ils deviennent plus autonomes et responsables de leurs apprentissages."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un documentaire sur des cours du soir, la formatrice affirme que le vrai changement, pour ces adultes, se produit surtout quand ils reprennent seuls les notions chez eux, montrant qu’ils deviennent autonomes et intègrent l’apprentissage dans leur vie quotidienne."
+              "context": "Dans un documentaire sur des adultes qui préparent un diplôme, le narrateur précise que la réussite de leur première évaluation écrite est souvent un tournant important, car elle leur prouve qu’ils sont capables de réussir à l’écrit malgré leurs doutes initiaux."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une intervention d’un psychologue de l’éducation parlant de groupes d’adultes en formation, il explique que le vrai changement se produit surtout quand ils osent poser une question devant d’autres personnes, car cela marque un tournant dans leur rapport à l’erreur, à la honte et à la prise de parole en public."
+              "context": "Dans une interview avec une orthopédagogue, celle-ci explique que, pour certains adultes en difficulté, le moment où ils commencent à travailler avec un nouveau cahier d’exercices spécialement adapté à leurs besoins représente un tournant, car ils découvrent enfin un support qui leur convient."
             }
           ],
           "cues": [
             {
-              "option": 3,
+              "option": 0,
               "severity": "clear",
-              "cue": "Le syntagme «vrai changement» renvoie plus naturellement à une transformation personnelle profonde (prise de confiance, dépassement de la honte) qu’à une simple étape scolaire. Parmi les choix, «Quand ils osent poser une question devant d’autres personnes» cible le comportement social et émotionnel, alors que les autres décrivent surtout des activités d’apprentissage classiques (cahier, évaluation, révision seule). L’idée d’«oser» souligne explicitement un basculement intérieur, en adéquation avec «vrai changement»."
+              "cue": "Formulation centrée sur un changement d’attitude et de participation (« poser pour la première fois une question en groupe ») qui correspond naturellement à l’idée de « tournant important » dans un parcours d’adulte, là où les autres réponses sont plus matérielles (nouveau cahier) ou ponctuelles (première évaluation) et un peu moins liées à une bascule psychologique et sociale. La scène décrite par l’option 0 ressemble fortement à une observation typique explicitement formulable dans un document pédagogique (« c’est souvent un tournant quand ils osent poser une question en groupe »)."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.18,
-            0.22,
-            0.18,
-            0.42
+            0.45,
+            0.15,
+            0.3,
+            0.1
           ],
-          "guess": 3,
-          "reason": "Le terme «vrai changement» suggère une évolution identitaire ou comportementale marquée plutôt qu’un simple progrès scolaire. L’option 3 met l’accent sur un acte de courage social et de confiance en soi («oser poser une question devant d’autres personnes»), ce qui correspond bien à cette idée, d’où une probabilité plus élevée malgré l’absence du document audio."
+          "guess": 0,
+          "reason": "La notion de « tournant important » pour des adultes en reprise d’études évoque surtout un changement de rapport à l’apprentissage et au groupe, plus qu’un simple changement de support ou un succès ponctuel. L’option 0 décrit précisément un moment de bascule sociale et psychologique (oser s’exprimer en groupe) qui cadre très bien avec la formulation « constitue souvent un tournant important », d’où une probabilité supérieure à celle des autres choix, bien que ceux-ci restent plausibles."
         },
         "usage": {
-          "prompt_tokens": 619,
-          "completion_tokens": 679,
-          "total_tokens": 1298,
+          "prompt_tokens": 626,
+          "completion_tokens": 775,
+          "total_tokens": 1401,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 147,
+            "reasoning_tokens": 198,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00756375,
-        "inputHash": "b6d724d0a46e18823538e2d99b23a422d87838f35481793fa845fa3d3f08450c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:21:initial:screen:6:0"
+        "costUsd": 0.0085325,
+        "inputHash": "a37ea516623e5aa3c02a833ed4d90025f1247dc5296a6ef8cdba91957f899c1a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:21:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le terme «vrai changement» suggère une évolution identitaire ou comportementale marquée plutôt qu’un simple progrès scolaire. L’option 3 met l’accent sur un acte de courage social et de confiance en soi («oser poser une question devant d’autres personnes»), ce qui correspond bien à cette idée, d’où une probabilité plus élevée malgré l’absence du document audio.",
+    "reason": "La notion de « tournant important » pour des adultes en reprise d’études évoque surtout un changement de rapport à l’apprentissage et au groupe, plus qu’un simple changement de support ou un succès ponctuel. L’option 0 décrit précisément un moment de bascule sociale et psychologique (oser s’exprimer en groupe) qui cadre très bien avec la formulation « constitue souvent un tournant important », d’où une probabilité supérieure à celle des autres choix, bien que ceux-ci restent plausibles.",
     "cues": [
       {
-        "option": 3,
+        "option": 0,
         "severity": "clear",
-        "cue": "Le syntagme «vrai changement» renvoie plus naturellement à une transformation personnelle profonde (prise de confiance, dépassement de la honte) qu’à une simple étape scolaire. Parmi les choix, «Quand ils osent poser une question devant d’autres personnes» cible le comportement social et émotionnel, alors que les autres décrivent surtout des activités d’apprentissage classiques (cahier, évaluation, révision seule). L’idée d’«oser» souligne explicitement un basculement intérieur, en adéquation avec «vrai changement»."
+        "cue": "Formulation centrée sur un changement d’attitude et de participation (« poser pour la première fois une question en groupe ») qui correspond naturellement à l’idée de « tournant important » dans un parcours d’adulte, là où les autres réponses sont plus matérielles (nouveau cahier) ou ponctuelles (première évaluation) et un peu moins liées à une bascule psychologique et sociale. La scène décrite par l’option 0 ressemble fortement à une observation typique explicitement formulable dans un document pédagogique (« c’est souvent un tournant quand ils osent poser une question en groupe »)."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur une association d’alphabétisation pour adultes, l’animatrice explique que le vrai changement se produit surtout quand ces adultes travaillent avec un cahier d’exercices, car cela les rend acteurs de leur apprentissage et leur redonne des habitudes de travail structurées."
+        "context": "Dans un reportage sur la formation continue, une formatrice explique que pour beaucoup d’adultes en reprise d’études, le fait d’oser poser pour la première fois une question à l’oral devant le groupe marque souvent un tournant important dans leur parcours, car ils prennent confiance et s’engagent plus activement."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une émission sur la formation continue, un formateur de remise à niveau explique que, pour ces adultes, le vrai changement se produit surtout quand ils réussissent enfin une première évaluation, car cette réussite brise le sentiment d’échec scolaire et leur redonne confiance."
+        "context": "Dans une émission sur la remise à niveau des compétences de base, un conseiller raconte que pour ces adultes, le moment où ils se remettent seuls à reprendre des notions de base (lecture, calcul, grammaire) représente un tournant, car ils deviennent plus autonomes et responsables de leurs apprentissages."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un documentaire sur des cours du soir, la formatrice affirme que le vrai changement, pour ces adultes, se produit surtout quand ils reprennent seuls les notions chez eux, montrant qu’ils deviennent autonomes et intègrent l’apprentissage dans leur vie quotidienne."
+        "context": "Dans un documentaire sur des adultes qui préparent un diplôme, le narrateur précise que la réussite de leur première évaluation écrite est souvent un tournant important, car elle leur prouve qu’ils sont capables de réussir à l’écrit malgré leurs doutes initiaux."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans une intervention d’un psychologue de l’éducation parlant de groupes d’adultes en formation, il explique que le vrai changement se produit surtout quand ils osent poser une question devant d’autres personnes, car cela marque un tournant dans leur rapport à l’erreur, à la honte et à la prise de parole en public."
+        "context": "Dans une interview avec une orthopédagogue, celle-ci explique que, pour certains adultes en difficulté, le moment où ils commencent à travailler avec un nouveau cahier d’exercices spécialement adapté à leurs besoins représente un tournant, car ils découvrent enfin un support qui leur convient."
       }
     ]
   },

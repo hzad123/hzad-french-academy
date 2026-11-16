@@ -2,16 +2,16 @@
   "question": {
     "number": 17,
     "kind": "announcement",
-    "question": "Selon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?",
+    "question": "Selon le document, que doivent faire les personnes qui possèdent déjà une carte pour prolonger leur abonnement ?",
     "options": [
-      "Un certificat scolaire",
-      "Une photo d'identité",
-      "Un justificatif de domicile récent",
-      "Une pièce d'identité"
+      "Présenter uniquement leur carte au guichet.",
+      "Présenter leur carte et un justificatif de domicile récent.",
+      "Présenter leur carte et une pièce d'identité.",
+      "Fournir seulement un justificatif de domicile récent."
     ],
     "correct": "A",
-    "explanation": "Le document précise : « Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. » Le certificat scolaire est donc explicitement mentionné comme non exigé, alors que justificatif de domicile et pièce d'identité sont requis. La photo d'identité n'est jamais évoquée.",
-    "transcript": "Question 17.\nLa médiathèque accueillera les nouveaux inscrits samedi. Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement.\nSelon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?",
+    "explanation": "Réponse A : Le document dit explicitement que pour prolonger leur abonnement, les personnes qui ont déjà une carte doivent \"simplement la présenter au guichet\". Aucune autre pièce n’est demandée pour la prolongation. B : On pourrait croire que les mêmes documents sont nécessaires pour prolonger l’abonnement que pour établir une nouvelle carte et donc penser qu’il faut aussi un justificatif de domicile récent. Mais la première phrase concerne uniquement la création de carte (\"Pour établir une carte\"), tandis que pour ceux qui ont déjà une carte, le texte précise qu’ils doivent \"simplement la présenter\" sans mention de justificatif de domicile. C : L’auditeur peut généraliser à tort l’exigence de présenter une pièce d’identité pour la création d’une carte à la situation de prolongation, et donc penser qu’il faut carte + pièce d’identité. Cependant, pour la prolongation, le document indique seulement de présenter la carte au guichet, sans exiger la pièce d’identité. D : En entendant l’insistance sur le justificatif de domicile pour établir une nouvelle carte, un auditeur distrait peut croire que ce justificatif reste l’unique document nécessaire pour toute démarche, y compris la prolongation. Pourtant, le texte distingue bien les deux cas : pour les personnes déjà titulaires, il est dit qu’elles peuvent \"simplement\" présenter leur carte, ce qui exclut la nécessité de fournir un nouveau justificatif de domicile.",
+    "transcript": "Question 17.\nLa médiathèque accueillera les nouveaux inscrits samedi. Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité. Aucun certificat scolaire n'est demandé. Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement.\nSelon le document, que doivent faire les personnes qui possèdent déjà une carte pour prolonger leur abonnement ?",
     "segments": [
       {
         "voice": "female",
@@ -23,25 +23,136 @@
       },
       {
         "voice": "female",
-        "text": "Selon l'annonce, quel document n'est pas demandé pour établir une carte de la médiathèque ?"
+        "text": "Selon le document, que doivent faire les personnes qui possèdent déjà une carte pour prolonger leur abonnement ?"
       }
     ],
     "audio": "q-17.mp3",
     "audioSeconds": null,
     "slotSeconds": 47
   },
-  "contentHash": "0b839d83276b5d6a91bfc77f49917f9dacbe1ad4194274e5d053a63a1e57c5b0",
   "sourceHash": "53805859e6dacaec0280cb0016f8c7f6d0f3b63d0106c6d6675bd5bae0a806a8",
+  "contentHash": "c60b2631051f97f104f40415c7aeea27c9974c3aa6476f8134153be1029e8e96",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 6,
-  "pass": false,
-  "blocked": true,
+  "rounds": 4,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkziwKe7fnaEtlKIYKtt0ZEGAwKDd",
+    "result": {
+      "question": "Selon le document, que doivent faire les personnes qui possèdent déjà une carte pour prolonger leur abonnement ?",
+      "choices": [
+        "Présenter uniquement leur carte au guichet.",
+        "Présenter leur carte et un justificatif de domicile récent.",
+        "Présenter leur carte et une pièce d'identité.",
+        "Fournir seulement un justificatif de domicile récent."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement.» Il n’est fait mention d’aucun autre document pour ces personnes, contrairement aux nouveaux inscrits qui doivent apporter un justificatif de domicile récent et une pièce d'identité, et il est indiqué qu’aucun certificat scolaire n’est demandé.",
+      "design": "Axe précis : la formalité exacte demandée aux personnes qui ont déjà une carte pour prolonger leur abonnement. Toutes les options décrivent des combinaisons réalistes de pièces à fournir dans ce type de situation (carte seule, carte + justificatif, carte + pièce d’identité, justificatif seul). Sans le document, chacune paraît sensée dans une procédure de renouvellement. Le document tranche en indiquant que, pour les détenteurs d’une carte, seule la présentation de cette carte est exigée, les autres pièces visant exclusivement les nouveaux inscrits.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transpose à tort aux personnes déjà inscrites la condition imposée uniquement aux nouveaux inscrits : le justificatif de domicile récent. On peut s’y tromper car le texte mentionne les deux catégories à la suite et parle plusieurs fois de documents à apporter.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option ajoute à tort la pièce d’identité pour le renouvellement, en confondant l’exigence d’identité réservée à la création de carte avec la situation des détenteurs déjà connus du service.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option isole le justificatif de domicile comme seule pièce à fournir, en réinterprétant un élément demandé aux nouveaux inscrits comme s’il remplaçait la carte pour le renouvellement, alors que le texte indique que la carte suffit.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4542,
+      "completion_tokens": 781,
+      "total_tokens": 5323,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 177,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0134875,
+    "inputHash": "b2e3d275f3aa4ab285ed49088573653bfacc8c7632352cb9531eaa61d5ad77ce",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:14721af7be4c27b55696caf7:author:3:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, que doivent faire les personnes qui ont déjà une carte pour prolonger leur abonnement ?",
+      "choices": [
+        "Présenter uniquement leur carte au guichet.",
+        "Présenter leur carte et un justificatif de domicile récent.",
+        "Présenter un justificatif de domicile récent et une pièce d'identité.",
+        "Présenter uniquement un certificat scolaire."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzibAdNwQBlLJQLYPm0sIW86BAn0",
+      "result": {
+        "question": "D’après le document, quelles démarches doivent effectuer les personnes qui ont déjà une carte pour prolonger leur abonnement ?",
+        "choices": [
+          "Se présenter avec leur carte en cours de validité, sans autre document.",
+          "Se présenter avec leur carte et un justificatif de domicile de moins de trois mois.",
+          "Fournir un justificatif de domicile de moins de trois mois ainsi qu’une pièce d’identité.",
+          "Remettre uniquement un certificat de scolarité pour l’année en cours."
+        ],
+        "notes": "Question recentrée sur les démarches à effectuer, sans ajouter de justification administrative. Chaque choix propose un ensemble de pièces ou démarches plausible, avec un niveau de formalisme différent mais cohérent, sans qu’aucun ne soit manifestement plus raisonnable ou plus complet que les autres de manière décisive."
+      },
+      "usage": {
+        "prompt_tokens": 655,
+        "completion_tokens": 441,
+        "total_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 265,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00522875,
+      "inputHash": "10f5b42a1744a9870fc09748279c65061266911fbc1bc259a158150b926a87b8",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:14721af7be4c27b55696caf7:blind-edit:3"
+    }
+  },
   "blind": [
     {
       "order": [
-        1,
         0,
+        1,
         3,
         2
       ],
@@ -50,101 +161,208 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyRW1DeQcAC8hsAbbCYYREtj1sxM",
+        "responseId": "chatcmpl-Ekzj7vFERlYZPODSdsPDzbE2921L9",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une annonce municipale pour l’inscription à la médiathèque, on énumère les pièces à fournir : une pièce d’identité, un justificatif de domicile et une photo d’identité. À la fin, on précise : « Aucun certificat scolaire n’est demandé. » Si la question reprend ensuite : « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », répondre « Une photo d’identité » serait possible dans une autre version de l’annonce où seuls la pièce d’identité et le justificatif de domicile sont exigés et la photo est explicitement écartée."
+              "context": "Dans une petite médiathèque municipale, l’agent au micro annonce : « Pour renouveler votre abonnement, si vous avez déjà une carte, il vous suffit de la présenter au guichet, rien de plus. » Dans ce cas, répondre qu’il faut présenter uniquement la carte au guichet répond directement à la question."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une annonce destinée à tous les habitants, la médiathèque explique la procédure : « Pour établir votre carte, il vous faut une pièce d’identité, une photo d’identité et un justificatif de domicile récent. Nul besoin de certificat scolaire. » À la question « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », la réponse directe serait alors « Un certificat scolaire »."
+              "context": "Dans une piscine municipale ou un service de transport, une annonce explique : « Pour prolonger votre abonnement, si vous possédez déjà une carte, veuillez présenter votre carte accompagnée d’un justificatif de domicile de moins de trois mois. » Ici, indiquer qu’il faut présenter la carte et un justificatif de domicile récent répond directement à la question."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une petite commune, la médiathèque précise par annonce : « Pour obtenir votre carte, merci de fournir une photo d’identité, un certificat scolaire pour les élèves, ainsi qu’un justificatif de domicile récent. Aucun document d’identité officiel n’est nécessaire. » Si l’on demande ensuite quel document n’est pas demandé, « Une pièce d’identité » répondrait alors directement à la question."
+              "context": "Dans une association sportive, le responsable précise au micro : « Pour prolonger votre abonnement, si vous avez déjà la carte du club, nous vous demandons simplement un justificatif de domicile récent, la carte reste inchangée. » Dans ce cadre, fournir seulement un justificatif de domicile récent répond directement à la question."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une annonce d’une médiathèque intégrée à un établissement scolaire, on précise : « L’inscription est gratuite. Pour établir votre carte, il suffit de présenter une pièce d’identité et une photo d’identité, ou pour les élèves, un certificat scolaire. Aucun justificatif de domicile récent n’est demandé. » À la question posée ensuite, on répondrait naturellement : « Un justificatif de domicile récent. »"
+              "context": "Dans un service de bibliothèque ou une salle de sport, un message indique : « Pour prolonger votre abonnement, les détenteurs de carte doivent présenter leur carte ainsi qu’une pièce d’identité en cours de validité. » Dans cette situation, présenter sa carte et une pièce d’identité répond directement à la question."
             }
           ],
-          "cues": [
-            {
-              "option": 1,
-              "severity": "clear",
-              "cue": "Parmi les quatre, « Un certificat scolaire » est le seul document non standard dans les procédures classiques de création de carte de médiathèque (où sont habituellement demandés une pièce d’identité, un justificatif de domicile récent, éventuellement une photo). Les trois autres forment un ensemble administratif cohérent, alors que le certificat scolaire vise surtout des démarches scolaires, ce qui le désigne comme candidat privilégié pour le document explicitement « non demandé »."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.2,
-            0.5,
-            0.15,
-            0.15
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
-          "guess": 1,
-          "reason": "Tous les choix peuvent être rendus plausibles selon le contenu exact de l’annonce, mais la formulation isole le « certificat scolaire » comme le seul document qui ne fait pas naturellement partie des pièces habituellement exigées pour une carte de médiathèque. Cette singularité lexicale et administrative lui donne un net avantage comme document « non demandé », d’où une probabilité plus élevée pour l’option 1 malgré une incertitude résiduelle."
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent toutes correspondre à des consignes réalistes pour prolonger un abonnement et répondent directement à la question. Le seul énoncé fourni n’apporte aucun indice concret permettant de privilégier une exigence précise (carte seule, justificatif de domicile, pièce d’identité ou combinaison), ni de différence nette de style ou de portée entre les formulations. Sans accès au document audio, il n’existe pas de critère objectif pour départager les options ; la probabilité est donc répartie uniformément et le choix final reste très incertain."
         },
         "usage": {
-          "prompt_tokens": 597,
-          "completion_tokens": 874,
-          "total_tokens": 1471,
+          "prompt_tokens": 620,
+          "completion_tokens": 553,
+          "total_tokens": 1173,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 208,
+            "reasoning_tokens": 76,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00948625,
-        "inputHash": "2639f15f1f25facea9124104a3b15109350cc3dd5ecbbafd845e4c3dd7cc42f7",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:initial:screen:6:0"
+        "costUsd": 0.006305,
+        "inputHash": "f9a4aaecf0f2673b66ba3b018f76a622f44aa3571cc3fed5d3cc6efc5efff04b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:14721af7be4c27b55696caf7:screen:4:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzjDTiNw3aUKQhg3QNn9wsvibWdY",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce d’un service de transports en commun, le message explique que pour prolonger un abonnement, les usagers déjà titulaires d’une carte doivent se présenter en agence avec leur carte et une pièce d’identité pour vérifier leur identité avant le renouvellement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une information municipale sur l’abonnement à une médiathèque, on précise que les personnes qui possèdent déjà une carte doivent présenter leur carte actuelle ainsi qu’un justificatif de domicile récent afin de confirmer qu’elles résident toujours dans la commune au moment de la prolongation."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une communication d’un service de location de vélos en libre-service, le message indique que le simple dépôt d’un justificatif de domicile récent suffit à prolonger l’abonnement, la carte étant automatiquement reconnue dans le système sans devoir être présentée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une annonce d’une salle de sport, on informe les membres que pour prolonger leur abonnement, ils n’ont qu’à présenter leur carte de membre au guichet, sans autre document requis, car les données nécessaires sont déjà enregistrées dans le système."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options sont grammaticales et décrivent toutes des procédures courantes et plausibles pour le renouvellement d’un abonnement avec carte existante ; aucun indice de formulation ou de portée ne permet de distinguer clairement une réponse favorisée, d’où une forte incertitude et une répartition uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 620,
+          "completion_tokens": 453,
+          "total_tokens": 1073,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 86,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005305,
+        "inputHash": "e051abd2deac9a91f806224038739a70f3500e4fe44d8c5de7fd3ed000a221aa",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:14721af7be4c27b55696caf7:screen:4:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Tous les choix peuvent être rendus plausibles selon le contenu exact de l’annonce, mais la formulation isole le « certificat scolaire » comme le seul document qui ne fait pas naturellement partie des pièces habituellement exigées pour une carte de médiathèque. Cette singularité lexicale et administrative lui donne un net avantage comme document « non demandé », d’où une probabilité plus élevée pour l’option 1 malgré une incertitude résiduelle.",
-    "cues": [
-      {
-        "option": 1,
-        "severity": "clear",
-        "cue": "Parmi les quatre, « Un certificat scolaire » est le seul document non standard dans les procédures classiques de création de carte de médiathèque (où sont habituellement demandés une pièce d’identité, un justificatif de domicile récent, éventuellement une photo). Les trois autres forment un ensemble administratif cohérent, alors que le certificat scolaire vise surtout des démarches scolaires, ce qui le désigne comme candidat privilégié pour le document explicitement « non demandé »."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzjIiycopLCfYeppWlY27ZUSBPro",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les personnes qui possèdent déjà une carte doivent seulement la présenter au guichet pour prolonger leur abonnement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ],
+          "reason": "Le document dit explicitement que pour prolonger leur abonnement, les personnes qui ont déjà une carte doivent \"simplement la présenter au guichet\". Aucune autre pièce n’est demandée pour la prolongation.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ],
+          "reason": "On pourrait croire que les mêmes documents sont nécessaires pour prolonger l’abonnement que pour établir une nouvelle carte et donc penser qu’il faut aussi un justificatif de domicile récent. Mais la première phrase concerne uniquement la création de carte (\"Pour établir une carte\"), tandis que pour ceux qui ont déjà une carte, le texte précise qu’ils doivent \"simplement la présenter\" sans mention de justificatif de domicile.",
+          "misunderstanding": "condition_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ],
+          "reason": "L’auditeur peut généraliser à tort l’exigence de présenter une pièce d’identité pour la création d’une carte à la situation de prolongation, et donc penser qu’il faut carte + pièce d’identité. Cependant, pour la prolongation, le document indique seulement de présenter la carte au guichet, sans exiger la pièce d’identité.",
+          "misunderstanding": "generalisation_indue"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pour établir une carte, apportez un justificatif de domicile récent et une pièce d'identité.",
+            "Les personnes ayant déjà une carte peuvent simplement la présenter au guichet pour prolonger leur abonnement."
+          ],
+          "reason": "En entendant l’insistance sur le justificatif de domicile pour établir une nouvelle carte, un auditeur distrait peut croire que ce justificatif reste l’unique document nécessaire pour toute démarche, y compris la prolongation. Pourtant, le texte distingue bien les deux cas : pour les personnes déjà titulaires, il est dit qu’elles peuvent \"simplement\" présenter leur carte, ce qui exclut la nécessité de fournir un nouveau justificatif de domicile.",
+          "misunderstanding": "scope_error"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 717,
+      "completion_tokens": 827,
+      "total_tokens": 1544,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 217,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Dans une annonce municipale pour l’inscription à la médiathèque, on énumère les pièces à fournir : une pièce d’identité, un justificatif de domicile et une photo d’identité. À la fin, on précise : « Aucun certificat scolaire n’est demandé. » Si la question reprend ensuite : « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », répondre « Une photo d’identité » serait possible dans une autre version de l’annonce où seuls la pièce d’identité et le justificatif de domicile sont exigés et la photo est explicitement écartée."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Dans une annonce destinée à tous les habitants, la médiathèque explique la procédure : « Pour établir votre carte, il vous faut une pièce d’identité, une photo d’identité et un justificatif de domicile récent. Nul besoin de certificat scolaire. » À la question « Selon l’annonce, quel document n’est pas demandé pour établir une carte de la médiathèque ? », la réponse directe serait alors « Un certificat scolaire »."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Dans une petite commune, la médiathèque précise par annonce : « Pour obtenir votre carte, merci de fournir une photo d’identité, un certificat scolaire pour les élèves, ainsi qu’un justificatif de domicile récent. Aucun document d’identité officiel n’est nécessaire. » Si l’on demande ensuite quel document n’est pas demandé, « Une pièce d’identité » répondrait alors directement à la question."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Dans une annonce d’une médiathèque intégrée à un établissement scolaire, on précise : « L’inscription est gratuite. Pour établir votre carte, il suffit de présenter une pièce d’identité et une photo d’identité, ou pour les élèves, un certificat scolaire. Aucun justificatif de domicile récent n’est demandé. » À la question posée ensuite, on répondrait naturellement : « Un justificatif de domicile récent. »"
-      }
-    ]
+    },
+    "costUsd": 0.00916625,
+    "inputHash": "0075a6fdb0cac4033a73447b8f232adf065b2863953a38a9aa4a3946194aa918",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:16:14721af7be4c27b55696caf7:ground:4"
   },
+  "feedback": null,
   "imageHash": null,
   "designSeedHash": null
 }

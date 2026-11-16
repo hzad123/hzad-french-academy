@@ -10,7 +10,7 @@
       "Ils sont systématiquement réorientés vers d’autres services spécialisés."
     ],
     "correct": "B",
-    "explanation": "Le document précise que, parmi les conséquences de la surcharge, «certains enfants qui ont les besoins les plus importants attendent plusieurs semaines». L’effet concret pour ce groupe n’est ni des séances plus courtes, ni une exclusion, ni une réorientation automatique, mais un délai d’attente prolongé avant l’aide.",
+    "explanation": "Réponse B : Le passage précise explicitement que «certains enfants qui ont les besoins les plus importants attendent plusieurs semaines». L’effet concret signalé pour eux est donc l’attente de plusieurs semaines avant d’obtenir une aide. A : Le texte indique que, lorsque les inscriptions dépassent la capacité, «les bénévoles disposent de moins de temps pour chaque élève». Cela concerne tous les élèves, pas spécifiquement «les enfants qui ont les besoins les plus importants». La question vise l’effet propre à ce sous‑groupe, qui est la longue attente, pas la durée des séances. C : On pourrait mal interpréter le dépassement de la capacité d’accueil comme une exclusion pure et simple des enfants en trop. Cependant, le texte ne dit jamais qu’ils «sont exclus du programme» : il précise plutôt qu’ils attendent plus longtemps; aucune exclusion n’est mentionnée. D : L’évocation de «priorités» et de la nécessité d’«offrir l'aide promise à ceux qui en ont le plus besoin» pourrait faire penser à une orientation vers des services spécialisés. Mais le texte ne parle jamais de réorientation systématique; il se limite à mentionner une attente prolongée et un manque de temps, pas un transfert vers d’autres services.",
     "transcript": "Question 38.\nL'ouverture d'un programme de soutien scolaire gratuit a suscité un intérêt considérable. Pourtant, son succès peut le fragiliser. Lorsque les inscriptions dépassent la capacité d'accueil, les bénévoles disposent de moins de temps pour chaque élève; certains enfants qui ont les besoins les plus importants attendent plusieurs semaines. Annoncer un grand nombre de participants ne suffit donc pas à démontrer une amélioration de l'apprentissage. Il faut définir des priorités transparentes, préparer davantage de tuteurs et mesurer les progrès réels. Une initiative peut être populaire tout en échouant à offrir l'aide promise à ceux qui en ont le plus besoin.\nQuel effet concret est signalé pour les enfants qui ont les besoins les plus importants ?",
     "segments": [
       {
@@ -30,14 +30,155 @@
     "audioSeconds": null,
     "slotSeconds": 81
   },
-  "contentHash": "fed540f3caafa36f3c23d704b43134e7af7e174293009268a0b7c5e611f97cba",
   "sourceHash": "6242b57dd87ced366e25e843649866c9fad60d9201ef3f9d7c95530640679601",
+  "contentHash": "bd9479471299d4d9f9fc874f2b12803c9c88222208adf5a03150738cbeda3024",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 6,
-  "pass": false,
-  "blocked": true,
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
   "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzJCnIaEoTPydWH2lWamYBLVfTMr",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur un service de soutien scolaire ou de prise en charge psychologique, la coordinatrice explique que, faute de ressources internes adaptées, les enfants présentant les besoins les plus lourds sont systématiquement réorientés vers des services plus spécialisés, par exemple un centre hospitalier ou un service médico‑social."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une émission de radio consacrée à un programme d’accompagnement extrascolaire, un responsable reconnaît que, lorsque toutes les places sont prises, les enfants avec les besoins les plus importants ne peuvent pas être intégrés et se retrouvent de fait exclus du programme, faute de capacité d’accueil suffisante."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un entretien sur l’organisation d’un dispositif de suivi en orthophonie, la professionnelle précise que, pour réussir à suivre tous les dossiers, les enfants avec les besoins les plus importants ne peuvent bénéficier que de séances plus courtes que celles prévues pour les autres, ce qui est présenté comme un compromis insatisfaisant."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un reportage sur la saturation des services de pédopsychiatrie, la journaliste explique que les enfants qui ont les besoins les plus importants se retrouvent en tête d’une liste d’attente mais doivent malgré tout attendre plusieurs semaines avant d’obtenir une première consultation ou une aide concrète."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "L’option décrit un effet très concret, quantifiable et courant dans les contextes de saturation de services («attendre plusieurs semaines avant d’obtenir une aide»), en lien direct avec la formulation «effet concret», tandis que d’autres formulations sont plus catégoriques («systématiquement», «exclus») ou moins typiques (séances plus courtes pour les plus grands besoins)."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.25,
+            0.2,
+            0.35
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent correspondre à un effet concret, mais le délai d’attente prolongé est une conséquence fréquente et mesurable, en adéquation directe avec «effet concret est signalé», ce qui lui donne un léger avantage sans supprimer une forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 621,
+          "completion_tokens": 853,
+          "total_tokens": 1474,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 361,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00930625,
+        "inputHash": "ae4cc342ab3a137ea26d19e6afb10cecfab6a74f4e6c48a854ed784d3361d4b8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzJOBzdYTUTSZEc3b5YSzuFLwjFm",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur les difficultés d’accès aux soins, une travailleuse sociale explique que, paradoxalement, les enfants qui ont les besoins les plus importants doivent souvent attendre plusieurs semaines avant d’obtenir une aide, faute de places ou de personnel disponible."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une émission sur un dispositif d’accompagnement scolaire, le responsable décrit que lorsque toutes les places sont prises, les enfants dont les besoins sont pourtant les plus importants se retrouvent parfois exclus du programme, faute de capacité d’accueil suffisante."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une enquête radio sur un centre de prise en charge, un parent témoigne que les enfants ayant les besoins les plus importants finissent par bénéficier de séances plus courtes que les autres inscrits, car les professionnels doivent répartir leur temps entre trop de dossiers lourds."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une interview d’une directrice de service, celle-ci explique que les enfants qui ont les besoins les plus importants sont systématiquement réorientés vers d’autres services spécialisés, le dispositif initial n’étant pas conçu pour des prises en charge aussi complexes."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune option ne présente d’avantage rédactionnel clair ou de lien évident avec un contexte particulier ; toutes décrivent un effet concret plausible pour ces enfants, d’où une forte incertitude et une répartition uniforme des probabilités malgré un choix de réponse obligatoire."
+        },
+        "usage": {
+          "prompt_tokens": 621,
+          "completion_tokens": 558,
+          "total_tokens": 1179,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 205,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00635625,
+        "inputHash": "ce7a381fdef446ec3574dba9303c89c51880d4f103b3574a4ff8e36efb9fca60",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:14721af7be4c27b55696caf7:screen:0:1"
+      }
+    },
     {
       "order": [
         2,
@@ -50,101 +191,138 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkykFv6x3vZkZMacNerwC9MGSJHjQ",
+        "responseId": "chatcmpl-EkzJV9YzZPbfZSP8hHTB1wllg6fy4",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une émission de radio parle d’un programme de soutien scolaire subventionné. L’intervenant explique que le nombre de places est limité et qu’en pratique, lorsque toutes les places sont prises, les enfants ayant pourtant les besoins les plus importants ne peuvent plus être acceptés dans le programme et se retrouvent exclus malgré leur situation prioritaire."
+              "context": "Dans un reportage sur un programme de soutien scolaire ou de suivi thérapeutique, l’intervenant explique qu’en raison d’un nombre de places limité, certains enfants, même ceux avec les besoins les plus importants, se retrouvent exclus du programme lorsque toutes les places sont déjà prises."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Une psychologue interviewée décrit l’organisation d’ateliers thérapeutiques pour enfants. Elle constate que, faute de moyens, les enfants qui auraient besoin d’un suivi intensif ne peuvent pas rester aussi longtemps en séance que souhaité. Elle précise que ceux qui ont les besoins les plus importants finissent par bénéficier de séances plus courtes que les autres inscrits, ce qui est paradoxal."
+              "context": "Au cours d’une émission sur l’organisation des prises en charge, une responsable décrit un dispositif où, faute de moyens, les enfants ayant les besoins les plus importants ne peuvent bénéficier que de séances plus courtes que les autres inscrits, ce qui est mentionné comme un effet concret de la surcharge du service."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un reportage sur la pédopsychiatrie, un responsable de service explique que son dispositif généraliste n’est pas adapté aux situations très lourdes. Il dit que, pour les enfants qui ont les besoins les plus importants, l’équipe les réoriente systématiquement vers d’autres services spécialisés mieux équipés pour les prendre en charge."
+              "context": "Dans un entretien sur l’orientation des enfants en difficulté, un psychologue signale que les enfants qui ont les besoins les plus importants sont systématiquement réorientés vers d’autres services spécialisés, et présente cette réorientation comme un effet concret du tri opéré par la structure."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un documentaire sur l’accès aux soins pour enfants décrit les listes d’attente. Une travailleuse sociale explique que, malgré l’urgence, les enfants qui ont les besoins les plus importants doivent parfois attendre plusieurs semaines avant d’obtenir une aide effective, ce qui est présenté comme un effet concret et préoccupant du manque de ressources."
+              "context": "Dans un reportage sur la saturation des services de pédopsychiatrie, un professionnel explique que les enfants qui ont les besoins les plus importants doivent malgré tout attendre plusieurs semaines avant d’obtenir une aide, en présentant ce délai d’attente comme l’effet concret de la pénurie de ressources."
             }
           ],
-          "cues": [
-            {
-              "option": 3,
-              "severity": "weak",
-              "cue": "Formulation très directement mesurable comme « effet concret » (une attente de plusieurs semaines), paraissant plus réaliste et nuancée qu’une exclusion ou une systématisation absolue ; correspond bien à une critique fréquente des dispositifs pour publics prioritaires (ceux qui ont le plus besoin attendent le plus)."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.18,
-            0.17,
-            0.2,
-            0.45
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
           "guess": 3,
-          "reason": "Tous les choix décrivent un effet concret plausible, mais l’idée d’un délai d’attente de plusieurs semaines pour les enfants les plus en difficulté correspond particulièrement bien à la tournure « effet concret » et à un problème souvent dénoncé dans les services sociaux ou de santé, ce qui lui donne un léger avantage malgré une incertitude réelle."
+          "reason": "Les quatre propositions décrivent des effets concrets plausibles pour des enfants avec de grands besoins et sont toutes grammaticalement et contextuellement acceptables ; aucun indice textuel clair ne favorise une option, de sorte que le choix reste très incertain et revient pratiquement à une sélection arbitraire parmi des options de probabilité comparable."
         },
         "usage": {
           "prompt_tokens": 621,
-          "completion_tokens": 704,
-          "total_tokens": 1325,
+          "completion_tokens": 686,
+          "total_tokens": 1307,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 187,
+            "reasoning_tokens": 291,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00781625,
+        "costUsd": 0.00763625,
         "inputHash": "f22b6920a5a434f04565e258bc001cc2739775d33abdf840de4374df3b3dfbc1",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:ce40c9091f7f36b9e4c06d49:screen:6:0"
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:14721af7be4c27b55696caf7:screen:0:2"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Tous les choix décrivent un effet concret plausible, mais l’idée d’un délai d’attente de plusieurs semaines pour les enfants les plus en difficulté correspond particulièrement bien à la tournure « effet concret » et à un problème souvent dénoncé dans les services sociaux ou de santé, ce qui lui donne un léger avantage malgré une incertitude réelle.",
-    "cues": [
-      {
-        "option": 3,
-        "severity": "weak",
-        "cue": "Formulation très directement mesurable comme « effet concret » (une attente de plusieurs semaines), paraissant plus réaliste et nuancée qu’une exclusion ou une systématisation absolue ; correspond bien à une critique fréquente des dispositifs pour publics prioritaires (ceux qui ont le plus besoin attendent le plus)."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzJdtLhMcctVdlbeKAkIZtCTBo3Y",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’effet concret décrit pour les enfants ayant les besoins les plus importants est qu’ils doivent attendre plusieurs semaines avant de recevoir une aide.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "les bénévoles disposent de moins de temps pour chaque élève"
+          ],
+          "reason": "Le texte indique que, lorsque les inscriptions dépassent la capacité, «les bénévoles disposent de moins de temps pour chaque élève». Cela concerne tous les élèves, pas spécifiquement «les enfants qui ont les besoins les plus importants». La question vise l’effet propre à ce sous‑groupe, qui est la longue attente, pas la durée des séances.",
+          "misunderstanding": "scope_error"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "certains enfants qui ont les besoins les plus importants attendent plusieurs semaines"
+          ],
+          "reason": "Le passage précise explicitement que «certains enfants qui ont les besoins les plus importants attendent plusieurs semaines». L’effet concret signalé pour eux est donc l’attente de plusieurs semaines avant d’obtenir une aide.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Lorsque les inscriptions dépassent la capacité d'accueil"
+          ],
+          "reason": "On pourrait mal interpréter le dépassement de la capacité d’accueil comme une exclusion pure et simple des enfants en trop. Cependant, le texte ne dit jamais qu’ils «sont exclus du programme» : il précise plutôt qu’ils attendent plus longtemps; aucune exclusion n’est mentionnée.",
+          "misunderstanding": "overgeneralization"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Il faut définir des priorités transparentes, préparer davantage de tuteurs et mesurer les progrès réels."
+          ],
+          "reason": "L’évocation de «priorités» et de la nécessité d’«offrir l'aide promise à ceux qui en ont le plus besoin» pourrait faire penser à une orientation vers des services spécialisés. Mais le texte ne parle jamais de réorientation systématique; il se limite à mentionner une attente prolongée et un manque de temps, pas un transfert vers d’autres services.",
+          "misunderstanding": "inference_beyond_text"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 791,
+      "completion_tokens": 1192,
+      "total_tokens": 1983,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 699,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Une émission de radio parle d’un programme de soutien scolaire subventionné. L’intervenant explique que le nombre de places est limité et qu’en pratique, lorsque toutes les places sont prises, les enfants ayant pourtant les besoins les plus importants ne peuvent plus être acceptés dans le programme et se retrouvent exclus malgré leur situation prioritaire."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Une psychologue interviewée décrit l’organisation d’ateliers thérapeutiques pour enfants. Elle constate que, faute de moyens, les enfants qui auraient besoin d’un suivi intensif ne peuvent pas rester aussi longtemps en séance que souhaité. Elle précise que ceux qui ont les besoins les plus importants finissent par bénéficier de séances plus courtes que les autres inscrits, ce qui est paradoxal."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Dans un reportage sur la pédopsychiatrie, un responsable de service explique que son dispositif généraliste n’est pas adapté aux situations très lourdes. Il dit que, pour les enfants qui ont les besoins les plus importants, l’équipe les réoriente systématiquement vers d’autres services spécialisés mieux équipés pour les prendre en charge."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Un documentaire sur l’accès aux soins pour enfants décrit les listes d’attente. Une travailleuse sociale explique que, malgré l’urgence, les enfants qui ont les besoins les plus importants doivent parfois attendre plusieurs semaines avant d’obtenir une aide effective, ce qui est présenté comme un effet concret et préoccupant du manque de ressources."
-      }
-    ]
+    },
+    "costUsd": 0.01290875,
+    "inputHash": "930744e7920aa9f89abd0bc4ceec4577378a217dfb530152f978808b6762a8f6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:37:14721af7be4c27b55696caf7:ground:0"
   },
+  "feedback": null,
   "imageHash": null,
   "designSeedHash": "5231a76372f8d33f5a436ef12a14acd6a6cf17286262cdbf9589c10218a43cb5"
 }

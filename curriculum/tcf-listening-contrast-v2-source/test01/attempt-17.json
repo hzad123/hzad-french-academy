@@ -2,16 +2,16 @@
   "question": {
     "number": 17,
     "kind": "announcement",
-    "question": "Selon le document, comment le service de portage est-il déclenché pour un habitant ?",
+    "question": "Selon le document, quelle condition ne suffit pas, à elle seule, à déclencher automatiquement une livraison de livres ?",
     "options": [
-      "Par un appel automatique aux personnes qui empruntent moins souvent.",
-      "Automatiquement dès qu’il possède une carte de bibliothèque.",
-      "À l’initiative d’un bénévole qui repère des lecteurs fragiles.",
-      "Par une demande faite auprès de l’accueil de la bibliothèque."
+      "Le fait d’habiter dans la commune de la bibliothèque",
+      "Le fait d’avoir déjà emprunté des livres sur place",
+      "Le fait d’avoir des difficultés à se déplacer",
+      "Le fait de posséder une carte de bibliothèque"
     ],
     "correct": "D",
-    "transcript": "Question 17.\nLa bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison.\nSelon le document, comment le service de portage est-il déclenché pour un habitant ?",
-    "explanation": "Le document précise que «pour demander ce service, contactez l'accueil» et ajoute qu’«une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison». Le déclencheur est donc bien une démarche du lecteur auprès de l’accueil, et non un automatisme lié à la carte ou à la fréquence des emprunts, ni une simple initiative d’un bénévole sans demande.",
+    "transcript": "Question 17.\nLa bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison.\nSelon le document, quelle condition ne suffit pas, à elle seule, à déclencher automatiquement une livraison de livres ?",
+    "explanation": "Réponse D : Le document énonce explicitement que « une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison ». C’est la seule condition dont la non‑suffisance, en lien avec un déclenchement automatique, est clairement formulée. C’est donc la bonne réponse. A : On comprend que le service s’adresse aux habitants, mais le texte ne dit pas que le simple fait d’habiter dans la commune « ne suffit pas » à déclencher automatiquement une livraison. La notion de non‑suffisance et d’automatisme est explicitement formulée uniquement pour la carte de bibliothèque. Quelqu’un pourrait choisir cette réponse en raisonnant que même en habitant la commune il faut encore contacter l’accueil, donc que ce n’est pas suffisant, mais cette interprétation est implicite et non formulée comme telle dans le document, contrairement à l’option 3. B : Le document ne mentionne à aucun moment le fait d’avoir déjà emprunté des livres sur place comme condition, suffisante ou non, pour la livraison. On parle seulement d’un « échange sur leurs goûts ». Un lecteur distrait pourrait assimiler cet échange à une habitude d’emprunt sur place, et conclure à tort que cette condition est évoquée comme insuffisante. En réalité, cette condition n’est tout simplement pas mentionnée. C : Le texte présente les difficultés à se déplacer comme un critère d’éligibilité, mais ne dit pas explicitement que cette condition « ne suffit pas » à déclencher automatiquement une livraison. La phrase qui nie la suffisance vise uniquement la carte de bibliothèque. Quelqu’un pourrait se dire : même avec des difficultés à se déplacer, il faut encore contacter l’accueil, donc ce n’est pas suffisant. Mais cette non‑suffisance reste déduite, alors que la question demande ce qui est formulé comme tel dans le document.",
     "segments": [
       {
         "voice": "female",
@@ -23,131 +23,343 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, comment le service de portage est-il déclenché pour un habitant ?"
+        "text": "Selon le document, quelle condition ne suffit pas, à elle seule, à déclencher automatiquement une livraison de livres ?"
       }
     ],
     "audio": "q-17.mp3",
     "audioSeconds": null,
     "slotSeconds": 51
   },
-  "rounds": 6,
-  "pass": false,
+  "sourceHash": "5cdd636801c19b2cbe9820c2413dd8f8d94a45b884e040a822fe89f65c40770c",
+  "contentHash": "f7d164da7790e3a9ef7fcd5d8052145b08304c13fbafb57e31087a83dc193cc9",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzQ5RvOOuL65a97qGEP2MIW3cCbl",
+    "result": {
+      "question": "Selon le document, quelle condition ne suffit pas, à elle seule, à déclencher automatiquement une livraison de livres ?",
+      "choices": [
+        "Le fait de posséder une carte de bibliothèque",
+        "Le fait d’avoir des difficultés à se déplacer",
+        "Le fait d’habiter dans la commune de la bibliothèque",
+        "Le fait d’avoir déjà emprunté des livres sur place"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise explicitement qu’« une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison » : la possession de la carte, même valide, ne suffit donc pas à elle seule. Il faut en plus « contacter l'accueil » pour demander le service. Aucune autre condition citée dans les options n’est présentée comme insuffisante dans l’enregistrement.",
+      "design": "On teste une condition précise de déclenchement du service de portage : une seule condition est explicitement présentée comme ne suffisant pas, à elle seule, à provoquer automatiquement une livraison. Les quatre propositions sont toutes de vraies conditions plausibles dans un service de portage (carte, difficultés de déplacement, résidence, emprunts antérieurs), donc crédibles sans le document. Seule l’écoute permet d’identifier laquelle est explicitement désignée comme insuffisante.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut croire que le simple fait d’avoir des difficultés à se déplacer suffit à lancer automatiquement le service, ou au contraire est la condition déclarée « insuffisante ». Le texte dit bien que le service vise « les habitants qui ont des difficultés à se déplacer », mais ne présente pas cette caractéristique comme ne suffisant pas à déclencher automatiquement une livraison ; c’est la carte qui est explicitement associée à cette insuffisance.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "les habitants qui ont des difficultés à se déplacer",
+            "une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Dans beaucoup de services municipaux, habiter la commune est une condition d’accès, d’où la tentation de l’entendre ici comme condition principale, voire comme celle qui serait jugée insuffisante. Or l’enregistrement ne mentionne jamais la commune comme critère ; il insiste seulement sur la nécessité de « contacter l'accueil » et sur le fait qu’« une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison ». La résidence n’est donc ni posée comme condition ni comme condition insuffisante.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Pour demander ce service, contactez l'accueil",
+            "une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Il est plausible d’imaginer qu’un service de portage soit réservé aux usagers déjà emprunteurs, ce qui peut faire croire que cette habitude d’emprunt est la condition évoquée comme insuffisante. Mais le texte ne parle que de « prêts » en précisant qu’ils « restent gratuits », sans lier le fait d’avoir déjà emprunté à un déclenchement automatique ; la seule condition explicitement déclarée insuffisante est la possession d’« une carte de bibliothèque ».",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les prêts restent gratuits",
+            "une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4325,
+      "completion_tokens": 993,
+      "total_tokens": 5318,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 304,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01533625,
+    "inputHash": "87b09a871d0303dda8a6cf8e6b26aceb0260c224fedd07e7ada0f58894e1746f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:14721af7be4c27b55696caf7:author:2:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quelle démarche permet réellement à un habitant de déclencher le service de portage ?",
+      "choices": [
+        "Après un simple échange sur ses goûts de lecture avec la bibliothèque.",
+        "Lorsqu’un bénévole lui propose spontanément ce service.",
+        "Dès qu’il possède une carte de bibliothèque en cours de validité.",
+        "En prenant contact avec le service d’accueil de la bibliothèque."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzPqOZ80kg5tDNBe9nf9e2lLnLMl",
+      "result": {
+        "question": "D’après le document, de quelle manière un habitant peut-il s’inscrire au service de portage ?",
+        "choices": [
+          "En remplissant avec un bibliothécaire un formulaire précisant ses goûts de lecture.",
+          "En acceptant la proposition d’un bénévole qui lui présente ce service.",
+          "En activant l’option de portage lors de la création ou du renouvellement de sa carte de bibliothèque.",
+          "En faisant enregistrer sa demande directement auprès du service d’accueil de la bibliothèque."
+        ],
+        "notes": "Suppression de l’idée de démarche « réelle » et reformulation en quatre modalités d’inscription ou d’activation du service, toutes procédurales, claires et plausibles. Chaque option garde son acteur/objet distinctif (échange sur goûts, bénévole, carte, accueil) mais sans qu’une seule paraisse évidemment plus sérieuse ou officielle que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 549,
+        "total_tokens": 1213,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 355,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00632,
+      "inputHash": "ee90a63f3b25807a3ba4a7a2006e398fd0854b121104b8c4aa6553c3c332ebab",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:14721af7be4c27b55696caf7:blind-edit:2"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
-        2,
+        1,
         0,
-        1
+        2,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkymlCQ58L6LXaYp0e0v6sVzz2Hd1",
+        "responseId": "chatcmpl-EkzQFcQAXYUqwxzdGxtbhL3PnzM0V",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une bibliothèque municipale a mis en place un service de portage de livres à domicile destiné aux personnes ayant des difficultés à se déplacer. Dans un message audio diffusé lors d’une réunion publique, la responsable explique que le service n’est pas automatique : il est activé lorsqu’un habitant en fait la demande directement à l’accueil de la bibliothèque, sur place ou par téléphone, où le personnel enregistre alors la demande et programme les livraisons."
+              "context": "Une bibliothécaire explique un service de portage à domicile : « Nous pouvons livrer des livres chez vous, mais ce n’est pas parce que vous avez déjà emprunté des livres sur place que la livraison se déclenche automatiquement. Il faut d’abord vous inscrire au service. » Ici, le fait d’avoir déjà emprunté sur place est bien une condition possible mais insuffisante à lui seul pour déclencher la livraison automatique."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Une association de bénévoles travaille en partenariat avec une bibliothèque pour apporter des livres à domicile aux personnes isolées. Dans un reportage radio, la coordinatrice précise que ce sont les bénévoles eux-mêmes qui identifient, dans leur quartier, des lecteurs âgés ou fragiles, et qu’ils proposent ensuite le service de portage sans attendre une demande formelle de la part des habitants concernés."
+              "context": "Dans une réunion d’information municipale, on présente le service de livraison de livres de la bibliothèque : « Ce service est réservé aux personnes qui habitent dans la commune, mais le fait d’habiter dans la commune ne suffit pas à déclencher automatiquement une livraison. Il faut en faire la demande et remplir certains critères. » Le fait de résider dans la commune répond directement à la question comme condition insuffisante."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Une grande médiathèque équipée d’un système informatique avancé présente son service de portage dans un enregistrement destiné aux usagers. Le directeur explique qu’un algorithme repère automatiquement les abonnés dont la fréquence d’emprunt diminue brusquement et qu’un appel téléphonique automatique est alors lancé pour leur proposer un service de portage de documents à domicile, déclenchant ainsi le service pour ces personnes si elles acceptent."
+              "context": "Une bibliothécaire détaille les modalités : « Ce service est destiné aux personnes qui ont des difficultés à se déplacer. Cependant, le fait d’avoir des difficultés à se déplacer ne suffit pas, à lui seul, à déclencher automatiquement une livraison de livres : il faut d’abord s’inscrire auprès de la bibliothèque. » Ici, la condition est mentionnée explicitement comme non suffisante."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une ville très équipée numériquement, un enregistrement institutionnel décrit un nouveau service : toute personne qui obtient une carte de bibliothèque est automatiquement inscrite à un programme de services personnalisés, dont le portage à domicile. Le document précise que dès qu’un habitant possède une carte, le service de portage est déclenché d’office, sans démarche supplémentaire de sa part, et il peut ensuite choisir d’en profiter ou de le désactiver."
+              "context": "Lors d’une présentation audio du règlement, on entend : « Pour bénéficier de la livraison, il faut posséder une carte de bibliothèque et répondre à certains critères. Mais le fait de posséder une carte de bibliothèque ne suffit pas, à lui seul, à déclencher automatiquement une livraison de livres. » La carte est une condition générale mais clairement insuffisante seule pour le service de livraison."
             }
           ],
-          "cues": [
-            {
-              "option": 2,
-              "severity": "weak",
-              "cue": "Le recours à un « appel automatique » ciblant les personnes qui empruntent moins souvent décrit un dispositif technique spécifique et relativement sophistiqué, moins courant pour un service de bibliothèque généraliste, ce qui peut en faire un distracteur plus marqué que les formulations plus simples."
-            },
-            {
-              "option": 3,
-              "severity": "weak",
-              "cue": "L’activation « automatiquement dès qu’il possède une carte de bibliothèque » paraît très large et peu nuancée pour un service de portage, généralement réservé à certains publics ou activé sur demande, ce qui peut donner à cette option un caractère moins plausible que les réponses reposant sur une initiative humaine ciblée."
-            }
-          ],
+          "cues": [],
           "standsOut": false,
           "probabilities": [
-            0.45,
-            0.3,
-            0.1,
-            0.15
+            0.2,
+            0.2,
+            0.25,
+            0.35
           ],
-          "guess": 0,
-          "reason": "Les quatre réponses peuvent correspondre à des dispositifs envisageables, mais les formules impliquant une automatisation généralisée (options 2 et 3) paraissent plus typiques de distracteurs. Entre les deux options reposant sur une initiative humaine, le déclenchement par une demande explicite de l’habitant à l’accueil (option 0) correspond au mode d’inscription le plus courant et le plus neutre pour un service de portage, d’où une probabilité légèrement supérieure sans certitude absolue."
+          "guess": 3,
+          "reason": "Toutes les options peuvent aisément être présentées comme des conditions nécessaires mais non suffisantes pour un service de livraison à domicile. Aucune formulation ne présente un avantage décisif. Légère préférence pour « posséder une carte de bibliothèque », qui est typiquement une condition générale à laquelle on ajoute d’autres critères pour un service spécifique, mais cette préférence reste très incertaine."
         },
         "usage": {
-          "prompt_tokens": 627,
-          "completion_tokens": 945,
-          "total_tokens": 1572,
+          "prompt_tokens": 622,
+          "completion_tokens": 936,
+          "total_tokens": 1558,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 249,
+            "reasoning_tokens": 419,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01023375,
-        "inputHash": "2ea3160311df40fdf771290518a40ca6edcd94054ea129cf3bf4fab3ba29652f",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:ce40c9091f7f36b9e4c06d49:screen:6:0"
+        "costUsd": 0.0101375,
+        "inputHash": "4a2b6c49ae49672a1e32fc1b8a3438baa9a64dc76eb7cb1b6337ebe39c5c9f52",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:14721af7be4c27b55696caf7:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzQSptxOCvidXhXYi7f00xPo65UX",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une bibliothécaire présente un service de livraison à domicile : toute personne ayant une carte de bibliothèque peut demander qu’on lui livre des livres chez elle, par exemple via un formulaire en ligne réservé aux abonnés. Dans cet enregistrement, on pourrait expliquer que le simple fait de détenir une carte permet déjà de bénéficier de ce service sous certaines modalités, donc la condition répond directement à la question posée."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion d’information, le responsable de la médiathèque explique : « Pour activer automatiquement la livraison de livres, il faut que vous ayez déjà emprunté des ouvrages sur place au moins une fois, cela nous permet de vérifier votre inscription. » Ici, le fait d’avoir déjà emprunté sur place est effectivement présenté comme une condition déterminante, donc il peut être décrit comme suffisant dans ce cadre ordinaire."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une bibliothèque municipale décrit un service spécialement destiné aux personnes à mobilité réduite : « Si vous avez des difficultés à vous déplacer, nous pouvons vous livrer automatiquement les livres chez vous, sans que vous vous déplaciez. » Dans ce type d’annonce, la seule difficulté à se déplacer pourrait suffire, une fois déclarée, à déclencher la livraison automatique, sans autre exigence exceptionnelle."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un message d’information communal, on explique que la bibliothèque propose un service de livraison à domicile, mais uniquement pour les habitants de la commune : « Si vous habitez dans la commune, nous pouvons vous livrer les livres chez vous. » Dans ce scénario ordinaire, le seul fait de résider dans la commune pourrait être établi comme la condition suffisante pour bénéficier automatiquement de la livraison."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre conditions sont toutes plausibles comme critères mentionnés dans un document décrivant un service de livraison de livres, et aucun choix ne présente d’avantage ou d’indice formel clair dans sa formulation (longueur, précision, registre, cohérence grammaticale). Faute de repère objectif dans l’énoncé lui-même, il n’existe pas de base solide pour privilégier une option plutôt qu’une autre, d’où une forte incertitude et une répartition de probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 622,
+          "completion_tokens": 715,
+          "total_tokens": 1337,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 190,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0079275,
+        "inputHash": "516bd11f7ca07aab95b73cbde98208e69b6403611a9746a6351794c3b62de39e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:14721af7be4c27b55696caf7:screen:3:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Les quatre réponses peuvent correspondre à des dispositifs envisageables, mais les formules impliquant une automatisation généralisée (options 2 et 3) paraissent plus typiques de distracteurs. Entre les deux options reposant sur une initiative humaine, le déclenchement par une demande explicite de l’habitant à l’accueil (option 0) correspond au mode d’inscription le plus courant et le plus neutre pour un service de portage, d’où une probabilité légèrement supérieure sans certitude absolue.",
-    "cues": [
-      {
-        "option": 2,
-        "severity": "weak",
-        "cue": "Le recours à un « appel automatique » ciblant les personnes qui empruntent moins souvent décrit un dispositif technique spécifique et relativement sophistiqué, moins courant pour un service de bibliothèque généraliste, ce qui peut en faire un distracteur plus marqué que les formulations plus simples."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzQa7XTStu2L2ev1VKvAwxBbuDW0",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise uniquement que la possession d’une carte de bibliothèque ne suffit pas, à elle seule, à déclencher automatiquement une livraison de livres.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer",
+            "Pour demander ce service, contactez l'accueil ;"
+          ],
+          "reason": "On comprend que le service s’adresse aux habitants, mais le texte ne dit pas que le simple fait d’habiter dans la commune « ne suffit pas » à déclencher automatiquement une livraison. La notion de non‑suffisance et d’automatisme est explicitement formulée uniquement pour la carte de bibliothèque. Quelqu’un pourrait choisir cette réponse en raisonnant que même en habitant la commune il faut encore contacter l’accueil, donc que ce n’est pas suffisant, mais cette interprétation est implicite et non formulée comme telle dans le document, contrairement à l’option 3.",
+          "misunderstanding": "implicite_vs_explicite"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile."
+          ],
+          "reason": "Le document ne mentionne à aucun moment le fait d’avoir déjà emprunté des livres sur place comme condition, suffisante ou non, pour la livraison. On parle seulement d’un « échange sur leurs goûts ». Un lecteur distrait pourrait assimiler cet échange à une habitude d’emprunt sur place, et conclure à tort que cette condition est évoquée comme insuffisante. En réalité, cette condition n’est tout simplement pas mentionnée.",
+          "misunderstanding": "invention_de_condition"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement.",
+            "Pour demander ce service, contactez l'accueil ;"
+          ],
+          "reason": "Le texte présente les difficultés à se déplacer comme un critère d’éligibilité, mais ne dit pas explicitement que cette condition « ne suffit pas » à déclencher automatiquement une livraison. La phrase qui nie la suffisance vise uniquement la carte de bibliothèque. Quelqu’un pourrait se dire : même avec des difficultés à se déplacer, il faut encore contacter l’accueil, donc ce n’est pas suffisant. Mais cette non‑suffisance reste déduite, alors que la question demande ce qui est formulé comme tel dans le document.",
+          "misunderstanding": "confusion_eligibilite_automatisme"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Le document énonce explicitement que « une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison ». C’est la seule condition dont la non‑suffisance, en lien avec un déclenchement automatique, est clairement formulée. C’est donc la bonne réponse.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 743,
+      "completion_tokens": 1226,
+      "total_tokens": 1969,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
       },
-      {
-        "option": 3,
-        "severity": "weak",
-        "cue": "L’activation « automatiquement dès qu’il possède une carte de bibliothèque » paraît très large et peu nuancée pour un service de portage, généralement réservé à certains publics ou activé sur demande, ce qui peut donner à cette option un caractère moins plausible que les réponses reposant sur une initiative humaine ciblée."
+      "completion_tokens_details": {
+        "reasoning_tokens": 539,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Une bibliothèque municipale a mis en place un service de portage de livres à domicile destiné aux personnes ayant des difficultés à se déplacer. Dans un message audio diffusé lors d’une réunion publique, la responsable explique que le service n’est pas automatique : il est activé lorsqu’un habitant en fait la demande directement à l’accueil de la bibliothèque, sur place ou par téléphone, où le personnel enregistre alors la demande et programme les livraisons."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Une association de bénévoles travaille en partenariat avec une bibliothèque pour apporter des livres à domicile aux personnes isolées. Dans un reportage radio, la coordinatrice précise que ce sont les bénévoles eux-mêmes qui identifient, dans leur quartier, des lecteurs âgés ou fragiles, et qu’ils proposent ensuite le service de portage sans attendre une demande formelle de la part des habitants concernés."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Une grande médiathèque équipée d’un système informatique avancé présente son service de portage dans un enregistrement destiné aux usagers. Le directeur explique qu’un algorithme repère automatiquement les abonnés dont la fréquence d’emprunt diminue brusquement et qu’un appel téléphonique automatique est alors lancé pour leur proposer un service de portage de documents à domicile, déclenchant ainsi le service pour ces personnes si elles acceptent."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Dans une ville très équipée numériquement, un enregistrement institutionnel décrit un nouveau service : toute personne qui obtient une carte de bibliothèque est automatiquement inscrite à un programme de services personnalisés, dont le portage à domicile. Le document précise que dès qu’un habitant possède une carte, le service de portage est déclenché d’office, sans démarche supplémentaire de sa part, et il peut ensuite choisir d’en profiter ou de le désactiver."
-      }
-    ]
-  }
+    },
+    "costUsd": 0.01318875,
+    "inputHash": "7e8fc8945133dd256f0dd12e43025eaaeebcda680b4b406e83dde0e91f547aa3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:14721af7be4c27b55696caf7:ground:3"
+  },
+  "feedback": null
 }

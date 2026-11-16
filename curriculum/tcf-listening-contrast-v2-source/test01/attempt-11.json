@@ -11,7 +11,7 @@
     ],
     "correct": "C",
     "transcript": "Question 11.\nSamedi, notre atelier de réparation ouvre à quatorze heures. Nous fournissons les aiguilles, le fil et les ciseaux. Apportez simplement un vêtement que vous voulez réparer. L'inscription est gratuite, mais les places sont limitées.\nDans l’annonce de l’atelier, qu’est-ce qu’il est demandé aux participants d’apporter eux-mêmes ?",
-    "explanation": "Le document précise : « Apportez simplement un vêtement que vous voulez réparer. » C’est donc bien un vêtement à réparer que les participants doivent apporter. Le reste du matériel est fourni par l’atelier : « Nous fournissons les aiguilles, le fil et les ciseaux. » Les autres propositions évoquent d’autres types d’ateliers possibles, mais ne correspondent pas à ce qui est réellement demandé dans l’annonce.",
+    "explanation": "Réponse C : La phrase « Apportez simplement un vêtement que vous voulez réparer » répond directement à la question : ce que les participants doivent apporter est précisément un vêtement qu’ils souhaitent réparer eux-mêmes. A : L’atelier est présenté comme un « atelier de réparation », pas comme une collecte de vêtements. La consigne précise qu’il faut apporter « un vêtement que vous voulez réparer », sans mention de don ni de sac. Quelqu’un qui associe ateliers de vêtements à des actions caritatives pourrait imaginer à tort qu’il faut apporter des vêtements à donner, mais l’enregistrement ne parle que de réparation, pas de don. B : On pourrait penser qu’il faut aussi apporter du tissu pour s’exercer, car l’annonce mentionne du matériel de couture, mais elle dit explicitement que ce matériel est « fourni » et que les participants doivent « simplement » apporter un vêtement à réparer. Il n’est jamais question d’un morceau de tissu séparé pour des exercices. D : Le mot « réparation » pourrait faire penser à n’importe quel objet cassé, mais l’annonce précise clairement la nature de l’objet à apporter : « un vêtement que vous voulez réparer ». Il ne s’agit donc pas d’un objet cassé quelconque de la maison, mais spécifiquement d’un vêtement.",
     "segments": [
       {
         "voice": "female",
@@ -30,14 +30,93 @@
     "audioSeconds": null,
     "slotSeconds": 40
   },
-  "rounds": 6,
-  "pass": false,
+  "sourceHash": "d1de203dde298585262d68d40452e26ca3d1e4ec09689ae271d6181fa744ee41",
+  "contentHash": "43dfdc0c9a7c963e6f43a1baba3b67719b2385b348b777e39a97e5b75bc46346",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
   "blind": [
     {
       "order": [
-        1,
-        0,
         2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzORSJ1CxEQIX63SsP9boz7JC2Y9",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Annonce d’un atelier de réparation ou de couture dans une maison de quartier : l’animateur explique que chacun doit venir avec un vêtement abîmé ou troué qu’il souhaite réparer pendant la séance."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Annonce d’un atelier d’initiation à la couture pour débutants : l’organisateur précise que les outils seront fournis sur place, mais que les participants doivent apporter un morceau de tissu pour s’exercer aux différentes techniques."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Annonce d’un atelier type « repair café » dans une médiathèque : le message indique que les participants doivent amener un objet cassé de chez eux (petit appareil, jouet, etc.) qui sera réparé sur place avec l’aide de bénévoles."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Annonce d’un atelier créatif solidaire dans une association caritative : après une courte activité de sensibilisation ou de customisation, il est demandé aux participants de venir avec un sac de vêtements à donner qui seront ensuite redistribués."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "Formulation précise et finalisée (« un vêtement qu’ils souhaitent réparer ») qui correspond très naturellement à un atelier de réparation explicitement centré sur les vêtements ; l’ajout du but de l’atelier dans l’option la rend légèrement plus ciblée et typique que les autres formulations plus générales ou moins directement liées à l’idée d’atelier."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.25,
+            0.15
+          ],
+          "guess": 0,
+          "reason": "Toutes les options ont un contexte plausible pour un atelier, mais la mention explicite d’un vêtement à réparer correspond très bien à la structure fréquente des annonces d’ateliers de réparation ou de couture, donnant à l’option 0 un léger avantage malgré une incertitude réelle sur le contenu audio manquant."
+        },
+        "usage": {
+          "prompt_tokens": 609,
+          "completion_tokens": 662,
+          "total_tokens": 1271,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 228,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00738125,
+        "inputHash": "59c27b984fe45cf6f0d72894f6750f5ee3346067d3915a81599cd89c00d5e9be",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:10:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
         3
       ],
       "receipt": {
@@ -45,28 +124,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkymUWAVhs4GcrIaURizSN8cYBPyn",
+        "responseId": "chatcmpl-EkzOYjEys0CE3KRUGwsBw085XFp8G",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Annonce pour un atelier de couture ou d’initiation à la machine à coudre : l’animatrice explique que le matériel est fourni, mais qu’il est demandé aux participants d’apporter eux-mêmes un morceau de tissu pour s’exercer aux différents points de couture."
+              "context": "Annonce d’un atelier de couture pour débutants : l’animatrice précise dans l’audio que tout le matériel de base sera fourni, mais qu’il est demandé à chacun d’apporter un morceau de tissu pour s’exercer pendant la séance."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Annonce pour un atelier de tri et de recyclage de vêtements au profit d’une association caritative : l’animateur précise qu’il faut venir avec un sac de vêtements à donner, qui servira de base à l’atelier (tri, réparation légère, réemploi)."
+              "context": "Annonce d’un atelier de retouche ou de réparation textile (type « réparation de vêtements ») : la personne explique que l’objectif est d’apprendre à réparer ses habits et demande donc aux participants d’apporter un vêtement qu’ils souhaitent réparer."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Annonce pour un atelier de réparation ou de retouche de vêtements : l’organisateur indique que les outils seront fournis sur place et demande aux participants d’apporter eux-mêmes un vêtement qu’ils souhaitent réparer pendant la séance."
+              "context": "Annonce d’un atelier solidaire organisé par une association : on y propose un temps de tri et de customisation de vêtements récupérés, et l’animatrice demande aux gens d’apporter un sac de vêtements à donner pour alimenter le stock utilisé pendant l’atelier."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Annonce pour un atelier de type « repair café » généraliste : l’intervenant précise que l’atelier consiste à apprendre à réparer des objets du quotidien et demande aux participants d’apporter un objet cassé de leur maison pour travailler dessus."
+              "context": "Annonce d’un atelier de type « repair café » ou bricolage/réparation d’objets du quotidien : l’intervenant explique qu’il montrera comment réparer de petits objets domestiques et demande aux participants d’apporter un objet cassé de leur maison sur lequel travailler."
             }
           ],
           "cues": [],
@@ -78,133 +157,105 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre réponses peuvent toutes correspondre de façon naturelle à une annonce d’atelier où l’on demande d’apporter quelque chose ; aucun indice textuel clair dans la seule question ne permet de privilégier une option plutôt qu’une autre, d’où une forte incertitude et des probabilités uniformes."
+          "reason": "Chaque option correspond naturellement à un type d’atelier courant (couture, réparation de vêtements, atelier solidaire, repair café) et pourrait être demandée dans l’annonce sans incohérence. Aucune formulation ne présente un avantage évident ou une inadaptation claire par rapport à la question seule, donc l’incertitude reste forte et la clé ne peut pas être déduite du seul libellé."
         },
         "usage": {
           "prompt_tokens": 609,
-          "completion_tokens": 618,
-          "total_tokens": 1227,
+          "completion_tokens": 507,
+          "total_tokens": 1116,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 258,
+            "reasoning_tokens": 117,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00694125,
-        "inputHash": "6c0797fdae65dbfdfe6527a7fcd64df45c61ed5f1b9107682bfd86f28c44bfef",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:10:ce40c9091f7f36b9e4c06d49:screen:6:0"
-      }
-    },
-    {
-      "order": [
-        3,
-        1,
-        0,
-        2
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkymdU5n6W3zDJ4oj5qxVAeZHxuHO",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Annonce d’un repair café : un message municipal précise « Nous vous invitons à participer à notre atelier de réparation. Merci d’apporter un objet cassé de votre maison, nos bénévoles vous aideront à le remettre en état. » La question porte ensuite sur ce que les participants doivent apporter eux-mêmes."
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Annonce d’un atelier de couture débutant : la formatrice indique dans un message audio « Pour cet atelier, pensez à apporter un morceau de tissu pour vous exercer aux points de base. Le reste du matériel sera fourni. » La question demande ce que les participants doivent amener."
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Annonce mêlant atelier et collecte solidaire organisée par une association : le message dit « Pendant notre atelier de sensibilisation au recyclage textile, nous organiserons aussi une collecte : merci d’apporter un sac de vêtements à donner. » La question interroge sur ce qu’il est demandé d’apporter."
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Annonce d’un atelier de retouche ou de réparation de vêtements : la personne explique « Lors de cet atelier, nous vous apprendrons à repriser ou reprendre vos habits. Merci d’apporter un vêtement que vous souhaitez réparer. » La question demande ce que les participants doivent apporter eux-mêmes."
-            }
-          ],
-          "cues": [
-            {
-              "option": 3,
-              "severity": "weak",
-              "cue": "La formulation « un vêtement qu’ils souhaitent réparer » s’accorde particulièrement bien avec l’idée typique d’un atelier (activité pratique sur son propre objet) et évoque directement un atelier de réparation de vêtements, alors que « un sac de vêtements à donner » évoque plutôt une collecte que la pratique d’un atelier, et « un objet cassé de leur maison » est moins naturellement rattaché au mot « atelier » sans précision de type repair café."
-            }
-          ],
-          "standsOut": false,
-          "probabilities": [
-            0.2,
-            0.2,
-            0.1,
-            0.5
-          ],
-          "guess": 3,
-          "reason": "Tous les choix pourraient correspondre à une annonce d’atelier, mais l’option 4 colle le plus naturellement à un atelier de réparation ou de couture tel qu’on en trouve fréquemment, où l’on demande d’apporter précisément le vêtement à réparer ; elle bénéficie ainsi d’un léger avantage de plausibilité rédactionnelle par rapport aux autres."
-        },
-        "usage": {
-          "prompt_tokens": 609,
-          "completion_tokens": 867,
-          "total_tokens": 1476,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 357,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00943125,
-        "inputHash": "bda2304dbddc292a84377e43fab5943f9d8668e5c5308d81ccdaa796405515ce",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:10:ce40c9091f7f36b9e4c06d49:screen:6:1"
+        "costUsd": 0.00583125,
+        "inputHash": "5e012e823858cffd8f61f6fd74b6194d67e28f29b08dfb82893a839f37b84318",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:10:14721af7be4c27b55696caf7:screen:0:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Tous les choix pourraient correspondre à une annonce d’atelier, mais l’option 4 colle le plus naturellement à un atelier de réparation ou de couture tel qu’on en trouve fréquemment, où l’on demande d’apporter précisément le vêtement à réparer ; elle bénéficie ainsi d’un léger avantage de plausibilité rédactionnelle par rapport aux autres.",
-    "cues": [
-      {
-        "option": 3,
-        "severity": "weak",
-        "cue": "La formulation « un vêtement qu’ils souhaitent réparer » s’accorde particulièrement bien avec l’idée typique d’un atelier (activité pratique sur son propre objet) et évoque directement un atelier de réparation de vêtements, alors que « un sac de vêtements à donner » évoque plutôt une collecte que la pratique d’un atelier, et « un objet cassé de leur maison » est moins naturellement rattaché au mot « atelier » sans précision de type repair café."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzOeCvqKSoiFqhfw3cfpY00EzDrj",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’annonce demande clairement aux participants d’apporter un vêtement qu’ils souhaitent réparer eux-mêmes.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "atelier de réparation",
+            "Apportez simplement un vêtement que vous voulez réparer."
+          ],
+          "reason": "L’atelier est présenté comme un « atelier de réparation », pas comme une collecte de vêtements. La consigne précise qu’il faut apporter « un vêtement que vous voulez réparer », sans mention de don ni de sac. Quelqu’un qui associe ateliers de vêtements à des actions caritatives pourrait imaginer à tort qu’il faut apporter des vêtements à donner, mais l’enregistrement ne parle que de réparation, pas de don.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous fournissons les aiguilles, le fil et les ciseaux. Apportez simplement un vêtement que vous voulez réparer."
+          ],
+          "reason": "On pourrait penser qu’il faut aussi apporter du tissu pour s’exercer, car l’annonce mentionne du matériel de couture, mais elle dit explicitement que ce matériel est « fourni » et que les participants doivent « simplement » apporter un vêtement à réparer. Il n’est jamais question d’un morceau de tissu séparé pour des exercices.",
+          "misunderstanding": "overgeneralization"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Apportez simplement un vêtement que vous voulez réparer."
+          ],
+          "reason": "La phrase « Apportez simplement un vêtement que vous voulez réparer » répond directement à la question : ce que les participants doivent apporter est précisément un vêtement qu’ils souhaitent réparer eux-mêmes.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "atelier de réparation",
+            "Apportez simplement un vêtement que vous voulez réparer."
+          ],
+          "reason": "Le mot « réparation » pourrait faire penser à n’importe quel objet cassé, mais l’annonce précise clairement la nature de l’objet à apporter : « un vêtement que vous voulez réparer ». Il ne s’agit donc pas d’un objet cassé quelconque de la maison, mais spécifiquement d’un vêtement.",
+          "misunderstanding": "scope_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 700,
+      "completion_tokens": 833,
+      "total_tokens": 1533,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 327,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Annonce d’un repair café : un message municipal précise « Nous vous invitons à participer à notre atelier de réparation. Merci d’apporter un objet cassé de votre maison, nos bénévoles vous aideront à le remettre en état. » La question porte ensuite sur ce que les participants doivent apporter eux-mêmes."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Annonce d’un atelier de couture débutant : la formatrice indique dans un message audio « Pour cet atelier, pensez à apporter un morceau de tissu pour vous exercer aux points de base. Le reste du matériel sera fourni. » La question demande ce que les participants doivent amener."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Annonce mêlant atelier et collecte solidaire organisée par une association : le message dit « Pendant notre atelier de sensibilisation au recyclage textile, nous organiserons aussi une collecte : merci d’apporter un sac de vêtements à donner. » La question interroge sur ce qu’il est demandé d’apporter."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Annonce d’un atelier de retouche ou de réparation de vêtements : la personne explique « Lors de cet atelier, nous vous apprendrons à repriser ou reprendre vos habits. Merci d’apporter un vêtement que vous souhaitez réparer. » La question demande ce que les participants doivent apporter eux-mêmes."
-      }
-    ]
-  }
+    },
+    "costUsd": 0.009205,
+    "inputHash": "23d11740f9ec79b371847ecfb03903fa40e3e24e60fb125f5a5def0f505ce4a7",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:10:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
 }

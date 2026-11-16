@@ -2,16 +2,16 @@
   "question": {
     "number": 18,
     "kind": "telephone",
-    "question": "Pour quelle raison précise la secrétaire annonce-t-elle que le secrétariat spécialisé rappellera le patient ?",
+    "question": "Selon le document, sous quel délai le secrétariat spécialisé est-il censé rappeler la personne ?",
     "options": [
-      "Pour simplement confirmer l’horaire du rendez-vous déjà enregistré sans modifier la spécialité demandée.",
-      "Pour expliquer les délais d’attente en dermatologie avant de décider s’il faut changer le rendez-vous.",
-      "Pour valider avec le médecin si la demande de cardiologie doit être maintenue malgré la préférence pour la dermatologie.",
-      "Pour lever la confusion entre les deux dossiers au même nom et orienter le rendez-vous vers le bon service."
+      "Dès que le médecin aura examiné le dossier",
+      "Le lendemain",
+      "Dans la journée",
+      "Dans l’heure"
     ],
     "correct": "D",
-    "explanation": "Réponse D : La secrétaire explique clairement qu’il y a deux dossiers au même nom et qu’elle souhaite vérifier l’identité du patient avant d’orienter le rendez-vous vers le bon service. Le rappel vise donc à lever la confusion entre les deux dossiers et à s’assurer que le patient sera dirigé vers la bonne spécialité. A : Quelqu’un pourrait croire que le rappel vise à expliquer les délais ou à décider d’un changement de rendez-vous, car le patient mentionne une demande différente (cardiologie vs dermatologie). Cependant, la secrétaire précise qu’il y a deux dossiers au même nom et qu’elle préfère vérifier la date de naissance, ce qui montre que le rappel sert à lever la confusion d’identité, pas à expliquer des délais. B : On pourrait penser que le rappel sert à valider avec le médecin la spécialité à maintenir, car il y a confusion entre cardiologie et dermatologie. Mais la secrétaire ne parle pas de consulter un médecin, seulement de vérifier l’identité du patient à cause des deux dossiers au même nom. C : Certains pourraient croire que le rappel vise simplement à confirmer l’horaire du rendez-vous, car la secrétaire ne propose pas de modification immédiate. Mais elle insiste sur la nécessité de vérifier l’identité à cause de la confusion entre deux dossiers, ce qui va au-delà d’une simple confirmation d’horaire.",
-    "transcript": "Question 18.\nCabinet du docteur Perrin, bonjour.\nJe viens d'avoir un message pour un rendez-vous en cardiologie, mais j'avais demandé la dermatologie.\nJe vois deux dossiers au même nom. Je préfère vérifier votre date de naissance sans discuter de renseignements médicaux au téléphone. Le secrétariat spécialisé pourra vous rappeler dans l'heure.\nTrès bien, je garde mon téléphone près de moi.\nPour quelle raison précise la secrétaire annonce-t-elle que le secrétariat spécialisé rappellera le patient ?",
+    "explanation": "Réponse D : La phrase précise explicitement que le secrétariat spécialisé rappellera « dans l'heure », ce qui correspond exactement à la réponse « Dans l’heure ». A : Aucun lien n’est établi avec un examen préalable du dossier par le médecin. Le délai est uniquement rattaché au rappel par « le secrétariat spécialisé », sans condition : rien n’indique « dès que le médecin aura examiné le dossier ». Quelqu’un qui entend « deux dossiers » peut imaginer que le médecin doit d’abord les vérifier, mais le texte ne le dit pas et fixe seulement un délai d’une heure pour le rappel. B : Le document indique explicitement un rappel « dans l'heure », ce qui signifie dans la même heure et non « le lendemain ». Une personne peu attentive au détail temporel pourrait simplement retenir l’idée de rappel ultérieur et projeter habituellement un délai d’un jour, mais ce n’est pas ce qui est dit. C : « Dans l'heure » renvoie à un délai d’environ soixante minutes, plus court et plus précis que « dans la journée ». Quelqu’un qui comprend seulement qu’il y aura un rappel plus tard pourrait généraliser ce délai à l’ensemble de la journée, mais l’énoncé restreint clairement la durée à une heure.",
+    "transcript": "Question 18.\nCabinet du docteur Perrin, bonjour.\nJe viens d'avoir un message pour un rendez-vous en cardiologie, mais j'avais demandé la dermatologie.\nJe vois deux dossiers au même nom. Je préfère vérifier votre date de naissance sans discuter de renseignements médicaux au téléphone. Le secrétariat spécialisé pourra vous rappeler dans l'heure.\nTrès bien, je garde mon téléphone près de moi.\nSelon le document, sous quel délai le secrétariat spécialisé est-il censé rappeler la personne ?",
     "segments": [
       {
         "voice": "female",
@@ -35,25 +35,345 @@
       },
       {
         "voice": "female",
-        "text": "Pour quelle raison précise la secrétaire annonce-t-elle que le secrétariat spécialisé rappellera le patient ?"
+        "text": "Selon le document, sous quel délai le secrétariat spécialisé est-il censé rappeler la personne ?"
       }
     ],
     "audio": "q-18.mp3",
-    "audioSeconds": 31.582,
+    "audioSeconds": null,
     "slotSeconds": 47
   },
-  "contentHash": "657b9e36df474217903c5983ff0ed6bcb03748a0daf99241c42c262dd4c774b6",
   "sourceHash": "e414d95de6961954e0dfeb502754c5e4ef0fd0abfe0a28a7e813135c3846d644",
+  "contentHash": "ecd7e1b99b3e8a8ea34a88ee56f420ee4706bc2370ceb5b1069438e2ef96b3f1",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "pass": false,
-  "blocked": true,
-  "feedback": {
-    "stage": "contrast-plan",
-    "errors": [
-      "Missing faithful recorded anchors for distractor 1"
-    ]
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzYmaycpXtIY8vEsw9KsQgaaCa3S",
+    "result": {
+      "question": "Selon le document, sous quel délai le secrétariat spécialisé est-il censé rappeler la personne ?",
+      "choices": [
+        "Dans l’heure",
+        "Dans la journée",
+        "Le lendemain",
+        "Dès que le médecin aura examiné le dossier"
+      ],
+      "correctIndex": 0,
+      "explanation": "La secrétaire dit clairement : « Le secrétariat spécialisé pourra vous rappeler dans l'heure. » Le délai annoncé est donc d’une heure, et non « dans la journée », « le lendemain » ou en fonction d’un examen du dossier par le médecin.",
+      "design": "On teste un élément précis : le délai annoncé pour le rappel par le secrétariat spécialisé. Les quatre réponses proposent des délais temporels proches et réalistes dans un contexte médical téléphonique. Sans le document, toutes paraissent crédibles ; seule l’écoute permet de distinguer le délai exact « dans l'heure » des autres possibilités (« dans la journée », « le lendemain », « dès que le médecin aura examiné le dossier »), qui seraient des promesses tout aussi plausibles dans la vraie vie.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’expression « pourra vous rappeler » peut faire penser à un rappel au cours de la journée, interprétation courante dans un secrétariat médical. Cependant, le document précise « dans l'heure », ce qui restreint le délai à une heure et non à toute la journée.",
+          "operation": "time_swap",
+          "anchors": [
+            "pourra vous rappeler dans l'heure",
+            "Je vois deux dossiers au même nom"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Un auditeur peut généraliser l’idée de vérification des dossiers à un délai plus large, comme un rappel le lendemain après vérifications internes. En réalité, même si la secrétaire veut d’abord vérifier (« Je préfère vérifier votre date de naissance »), elle ajoute aussitôt que le rappel aura lieu « dans l'heure », pas le lendemain.",
+          "operation": "time_swap",
+          "anchors": [
+            "Je vois deux dossiers au même nom",
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La présence de deux dossiers et la prudence sur les « renseignements médicaux » peuvent faire croire que le rappel dépend d’abord d’un examen approfondi du dossier par le médecin. Or la secrétaire ne mentionne pas le médecin comme condition : elle parle seulement du rappel par « le secrétariat spécialisé » et en fixe le délai explicite « dans l'heure ».",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Je vois deux dossiers au même nom",
+            "Je préfère vérifier votre date de naissance",
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4297,
+      "completion_tokens": 784,
+      "total_tokens": 5081,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 246,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01321125,
+    "inputHash": "8cfac708b5a60a30c6694d51a03226cad2cb65686e0c8256fc97db49032ac170",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:17:14721af7be4c27b55696caf7:author:0:0"
   },
+  "blindEdit": {
+    "input": {
+      "question": "Pour quelle raison précise la secrétaire annonce-t-elle que le secrétariat spécialisé rappellera le patient ?",
+      "choices": [
+        "Pour simplement confirmer l’horaire du rendez-vous déjà enregistré sans modifier la spécialité demandée.",
+        "Pour expliquer les délais d’attente en dermatologie avant de décider s’il faut changer le rendez-vous.",
+        "Pour valider avec le médecin si la demande de cardiologie doit être maintenue malgré la préférence pour la dermatologie.",
+        "Pour lever la confusion entre les deux dossiers au même nom et orienter le rendez-vous vers le bon service."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzYUcFBweF3ZU7LQJ9D40xHRKVaR",
+      "result": {
+        "question": "Dans quel objectif la secrétaire indique-t-elle que le secrétariat spécialisé recontactera le patient ?",
+        "choices": [
+          "Pour confirmer l’horaire du rendez-vous déjà fixé, sans modifier la spécialité demandée.",
+          "Pour informer le patient des délais en dermatologie et voir avec lui s’il souhaite modifier le rendez-vous.",
+          "Pour vérifier avec le médecin si la demande de cardiologie doit être maintenue alors que le patient parle de dermatologie.",
+          "Pour clarifier la confusion entre deux dossiers au même nom et rattacher le rendez-vous au bon service."
+        ],
+        "notes": "Question légèrement généralisée pour convenir aux quatre motifs de rappel. Les formulations ont été homogénéisées (même registre, longueur comparable, pas de jugement implicite comme « simplement »). Chaque option reste factuellement distincte : confirmation horaire sans changement de spécialité, explication des délais et éventuel changement, validation médicale entre cardiologie et dermatologie, résolution d’une confusion de dossiers."
+      },
+      "usage": {
+        "prompt_tokens": 699,
+        "completion_tokens": 711,
+        "total_tokens": 1410,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 499,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00798375,
+      "inputHash": "a1f6bc5f39b791bd96660d3f31483519b63311efe32bc30b1ce8f084ccd65121",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:17:14721af7be4c27b55696caf7:blind-edit:0"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzYvAFcPExbaeZhdqwOrACmRnh8H",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un message vocal d’un secrétariat spécialisé indique : « Nous avons bien reçu votre demande. Le secrétariat spécialisé est censé vous rappeler dans l’heure pour fixer un rendez-vous. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une annonce téléphonique précise : « Le secrétariat spécialisé est censé vous rappeler dans la journée pour confirmer votre prise en charge. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une secrétaire explique à un patient : « Le secrétariat spécialisé est censé vous rappeler le lendemain pour vous proposer un créneau de consultation. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message d’information dit : « Le secrétariat spécialisé est censé vous rappeler dès que le médecin aura examiné le dossier que vous nous avez transmis. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre réponses correspondent à des délais plausibles et directement compatibles avec la question. Aucune ne présente d’avantage de formulation nettement décisif ; « Dans la journée » est choisi comme meilleure hypothèse par simple préférence modérée pour un délai ni trop court ni trop long, mais cette préférence n’est pas suffisamment fondée pour modifier des probabilités uniformes, d’où une forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 498,
+          "total_tokens": 1094,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 191,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005725,
+        "inputHash": "66f43580243585a4e2e14f19b26778617faadcc356cfc3411f1159b405570296",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:17:14721af7be4c27b55696caf7:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzZ1znPkvVOSh8vFWHpy4FI3dlew",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un message téléphonique d’un service de consultations spécialisées indique : « Laissez vos coordonnées, le secrétariat spécialisé vous rappellera le lendemain pour fixer un rendez-vous. » La question porte alors sur le délai annoncé pour ce rappel."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Pendant un enregistrement d’accueil d’un service hospitalier, on entend : « Si vous laissez un message, le secrétariat spécialisé est censé vous rappeler dans la journée. » La personne interrogée doit préciser dans quel délai le rappel est prévu."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une consigne donnée à des patients au téléphone, une voix dit : « En cas d’urgence vitale, composez le 15. Sinon, le secrétariat spécialisé est censé vous rappeler dans l’heure. » La question demande alors de rappeler ce délai précis."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un enregistrement d’un centre hospitalier explique la procédure : « Après réception de votre message, le dossier sera transmis au médecin. Le secrétariat spécialisé est censé vous rappeler dès que le médecin aura examiné le dossier. » La question demande sous quel délai ce rappel est censé avoir lieu, et la réponse reprend la condition indiquée."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre options décrivent des délais de rappel tout à fait plausibles dans un contexte médical ou administratif et répondent directement à la question sans difficulté ni incohérence. Aucune ne présente d’avantage clair en termes de grammaire, de registre, de précision attendue ou de correspondance évidente avec la formulation « sous quel délai ». En l’absence de tout indice supplémentaire lié à la formulation, la probabilité est en pratique uniforme entre les quatre réponses, et le choix de l’option 1 comme clé reste un simple meilleur essai arbitraire avec forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 599,
+          "total_tokens": 1195,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 158,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006735,
+        "inputHash": "29bb7ad38771796db828a65adbc6dfacaa8a32b96957e8e10bbebea146ce12b3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:17:14721af7be4c27b55696caf7:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzZ9n42E0uzoXerj7wqmo56ArQ0O",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise clairement que le secrétariat spécialisé doit rappeler la personne « dans l'heure », donc la bonne réponse est « Dans l’heure ».",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je vois deux dossiers au même nom.",
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure."
+          ],
+          "reason": "Aucun lien n’est établi avec un examen préalable du dossier par le médecin. Le délai est uniquement rattaché au rappel par « le secrétariat spécialisé », sans condition : rien n’indique « dès que le médecin aura examiné le dossier ». Quelqu’un qui entend « deux dossiers » peut imaginer que le médecin doit d’abord les vérifier, mais le texte ne le dit pas et fixe seulement un délai d’une heure pour le rappel.",
+          "misunderstanding": "condition_invented"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure."
+          ],
+          "reason": "Le document indique explicitement un rappel « dans l'heure », ce qui signifie dans la même heure et non « le lendemain ». Une personne peu attentive au détail temporel pourrait simplement retenir l’idée de rappel ultérieur et projeter habituellement un délai d’un jour, mais ce n’est pas ce qui est dit.",
+          "misunderstanding": "temporal_shift"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure."
+          ],
+          "reason": "« Dans l'heure » renvoie à un délai d’environ soixante minutes, plus court et plus précis que « dans la journée ». Quelqu’un qui comprend seulement qu’il y aura un rappel plus tard pourrait généraliser ce délai à l’ensemble de la journée, mais l’énoncé restreint clairement la durée à une heure.",
+          "misunderstanding": "temporal_generalization"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le secrétariat spécialisé pourra vous rappeler dans l'heure."
+          ],
+          "reason": "La phrase précise explicitement que le secrétariat spécialisé rappellera « dans l'heure », ce qui correspond exactement à la réponse « Dans l’heure ».",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 718,
+      "completion_tokens": 805,
+      "total_tokens": 1523,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 303,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0089475,
+    "inputHash": "4a5e6398f340f75ac53301d2be3357d7fcf381fc28b8332473a05b6c86e51479",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:17:14721af7be4c27b55696caf7:ground:1"
+  },
+  "feedback": null,
   "imageHash": null,
   "designSeedHash": null
 }

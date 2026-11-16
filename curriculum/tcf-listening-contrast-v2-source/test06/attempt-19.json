@@ -2,16 +2,16 @@
   "question": {
     "number": 19,
     "kind": "announcement",
-    "question": "Dans ce document, quel avantage précis du petit nombre de visiteurs est mentionné par rapport aux soins donnés aux animaux ?",
+    "question": "Lors des visites de la ferme pédagogique, quel effet concret du petit nombre de participants est évoqué ?",
     "options": [
-      "Il autorise les visiteurs à participer eux-mêmes à certains soins.",
-      "Il permet aux visiteurs de circuler sans gêner les soins apportés aux bêtes.",
-      "Il réduit la durée des soins nécessaires pendant les visites.",
-      "Il rend possible l’accueil d’un plus grand nombre de groupes pendant les soins."
+      "La visite dure moins longtemps.",
+      "Chacun peut bien entendre les explications.",
+      "Le prix d’entrée est plus bas pour tout le monde.",
+      "La gestion des inscriptions est plus simple."
     ],
     "correct": "B",
-    "explanation": "Le document précise que «ce nombre réduit permettra aux visiteurs [...] de circuler sans gêner les soins apportés aux bêtes». L’avantage en lien direct avec les soins est donc la possibilité de circuler sans les perturber, et non une modification de leur durée, de leur contenu ou du nombre de groupes accueillis.",
-    "transcript": "Question 19.\nLors des visites de la ferme pédagogique, les groupes ne dépasseront pas huit personnes. Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits. Ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions et de circuler sans gêner les soins apportés aux bêtes.\nDans ce document, quel avantage précis du petit nombre de visiteurs est mentionné par rapport aux soins donnés aux animaux ?",
+    "explanation": "Le document précise que «ce nombre réduit permettra aux visiteurs d'entendre les consignes». Les autres propositions sont plausibles en général pour de petits groupes, mais le texte ne mentionne ni baisse des tarifs, ni réduction de la durée, ni simplification des réservations.",
+    "transcript": "Question 19.\nLors des visites de la ferme pédagogique, les groupes ne dépasseront pas huit personnes. Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits. Ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions et de circuler sans gêner les soins apportés aux bêtes.\nLors des visites de la ferme pédagogique, quel effet concret du petit nombre de participants est évoqué ?",
     "segments": [
       {
         "voice": "female",
@@ -23,120 +23,232 @@
       },
       {
         "voice": "female",
-        "text": "Dans ce document, quel avantage précis du petit nombre de visiteurs est mentionné par rapport aux soins donnés aux animaux ?"
+        "text": "Lors des visites de la ferme pédagogique, quel effet concret du petit nombre de participants est évoqué ?"
       }
     ],
     "audio": "q-19.mp3",
     "audioSeconds": null,
     "slotSeconds": 40
   },
-  "rounds": 6,
+  "rounds": 4,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-El004khT4XL0mBgt1q1paz5Sk6nJd",
+    "result": {
+      "question": "Lors des visites de la ferme pédagogique, quel avantage précis du petit nombre de participants est mentionné ?",
+      "choices": [
+        "Les visiteurs entendent clairement les consignes.",
+        "Les tarifs d’entrée peuvent être diminués.",
+        "La durée totale de la visite est raccourcie.",
+        "L’organisation des réservations est simplifiée."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «ce nombre réduit permettra aux visiteurs d'entendre les consignes». Les autres propositions sont plausibles en général pour de petits groupes, mais le texte ne mentionne ni baisse des tarifs, ni réduction de la durée, ni simplification des réservations.",
+      "design": "Axe choisi : la fonction concrète du «nombre réduit» de personnes dans un groupe. Les quatre réponses proposent chacune un avantage réaliste d’un groupe restreint (meilleure écoute, baisse des tarifs, visite plus courte, gestion des réservations plus simple). Sans le texte, toutes paraissent crédibles et répondent directement au même type de question (quel avantage précis ?). Seule l’écoute des consignes est explicitement reliée au nombre réduit dans l’enregistrement, garantissant une unique bonne réponse tout en gardant des distracteurs naturellement plausibles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le texte ne relie jamais la taille des groupes au niveau des tarifs ; il n’est question que de permettre d’«entendre les consignes», de «poser des questions» et de «circuler sans gêner les soins». L’idée de tarifs diminués projette un autre type d’avantage économique qui n’apparaît pas dans le document, même si un petit groupe pourrait sembler justifier un prix adapté.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "ce nombre réduit permettra aux visiteurs d'entendre les consignes",
+            "de circuler sans gêner les soins apportés aux bêtes"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On pourrait croire qu’un petit groupe sert à accélérer la visite, mais le document ne mentionne pas la durée ; il insiste uniquement sur le fait de «poser des questions» et de «circuler sans gêner les soins». La réduction du temps de visite est donc une finalité inventée, non attribuée au nombre réduit dans le texte.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions",
+            "de circuler sans gêner les soins apportés aux bêtes"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’organisation des réservations pourrait logiquement être plus simple avec peu de personnes, ce qui rend la réponse crédible. Cependant, dans le document, la taille des groupes est justifiée par des conditions sur place («à proximité des animaux», «espaces parfois étroits») et par le confort de visite, pas par la gestion en amont des réservations.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Les explications auront lieu à proximité des animaux, dans des espaces parfois étroits.",
+            "Ce nombre réduit permettra aux visiteurs d'entendre les consignes, de poser des questions et de circuler sans gêner les soins apportés aux bêtes."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 3926,
+      "completion_tokens": 931,
+      "total_tokens": 4857,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 278,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0142175,
+    "inputHash": "3c819ec47dda80eded3121c84a568d800946519b326df5fbfc1886b2c5c2892e",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:18:14721af7be4c27b55696caf7:author:3:1"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Lors des visites de la ferme pédagogique, quel avantage précis du petit nombre de participants est mentionné ?",
+      "choices": [
+        "La durée totale de la visite est raccourcie.",
+        "Les visiteurs entendent clairement les consignes.",
+        "Les tarifs d’entrée peuvent être diminués.",
+        "L’organisation des réservations est simplifiée."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-El00MwZRd87Uf71OwxgRsVYOCmFfe",
+      "result": {
+        "question": "Lors des visites de la ferme pédagogique, quel effet concret du petit nombre de participants est évoqué ?",
+        "choices": [
+          "La visite dure moins longtemps.",
+          "Chacun peut bien entendre les explications.",
+          "Le prix d’entrée est plus bas pour tout le monde.",
+          "La gestion des inscriptions est plus simple."
+        ],
+        "notes": "La question reste centrée sur l’effet du petit nombre de participants, sans laisser supposer qu’un type d’avantage (confort, durée, tarif, organisation) serait plus logique que les autres. Les quatre options sont reformulées de façon parallèle, concise et professionnelle, avec un niveau de plausibilité comparable."
+      },
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 406,
+        "total_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 262,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00487125,
+      "inputHash": "e3abfd522d48df7b3a51deadb598582d7468f937cf8360e3a38eec0a09c75436",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:18:14721af7be4c27b55696caf7:blind-edit:4"
+    }
+  },
   "blind": [
     {
       "order": [
         1,
         2,
-        0,
-        3
+        3,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkydVGD16BDsDTSPQhDljNErH6uTZ",
+        "responseId": "chatcmpl-El00SPS4wVEoRTzkDVu01mfIbnqON",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un petit parc animalier, le responsable explique en audio-guide : « Comme nous limitons le nombre de visiteurs, chacun peut circuler librement sans déranger les soigneurs qui s’occupent des animaux. » Le faible nombre de visiteurs est présenté comme un avantage, car il n’entrave pas les soins en cours."
+              "context": "Dans un enregistrement où la responsable de la ferme pédagogique explique qu’ils limitent les groupes à une dizaine de personnes pour garantir la qualité de la visite, elle précise : « Avec des petits groupes, chacun peut bien entendre les explications et poser des questions. »"
             },
             {
               "index": 1,
-              "credible": false,
-              "context": "Pour que le petit nombre de visiteurs réduise réellement « la durée des soins nécessaires », il faudrait supposer que les besoins de soins des animaux changent selon la fréquentation, ce qui est incohérent. Au mieux, on pourrait parler d’organisation ou de confort de travail, mais pas d’une diminution des soins nécessaires aux animaux eux-mêmes. L’option ne répond donc pas de façon réaliste à la question telle qu’énoncée."
+              "credible": true,
+              "context": "Dans une interview sur la politique tarifaire d’une ferme pédagogique, le gérant explique qu’ils ont choisi de limiter fortement le nombre de visiteurs et qu’en contrepartie, grâce à des subventions, le prix d’entrée est plus bas pour tout le monde, et il relie ce choix au petit nombre de participants."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une ferme pédagogique, une animatrice explique : « Nous accueillons de petits groupes ; grâce à ce petit nombre de visiteurs, chacun peut participer à certains soins, comme brosser les poneys ou aider à la distribution de la nourriture. » Le faible effectif est présenté comme condition permettant la participation du public aux soins."
+              "context": "Un enregistrement porte sur l’organisation pratique des visites de la ferme pédagogique : la personne en charge explique que, comme les groupes sont peu nombreux, la gestion des inscriptions est plus simple (moins de changements de dernière minute, moins de listes à gérer, etc.)."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un centre de soins pour animaux, un responsable décrit l’organisation des visites : « Nous n’acceptons que de petits groupes, ce qui nous permet d’enchaîner plusieurs visites dans la journée, même pendant les soins. » Le petit nombre de personnes par groupe est présenté comme un avantage logistique pour accueillir davantage de groupes tout en continuant les soins."
+              "context": "Dans un reportage, la guide explique qu’avec de petits groupes elle peut aller plus vite dans les explications, répondre aux questions sans attendre que tout le monde se regroupe, et qu’au final la visite dure moins longtemps qu’avec des groupes plus importants."
             }
           ],
           "cues": [
             {
-              "option": 2,
+              "option": 0,
               "severity": "clear",
-              "cue": "Le lien direct et positif entre « petit nombre de visiteurs » et la qualité/organisation des soins est formulé de façon précise : des petits groupes rendent possible la participation aux soins. L’option 0 évoque seulement l’absence de gêne, plus indirecte, l’option 1 est logiquement douteuse (le nombre de visiteurs n’influe pas sur la durée des soins nécessaires aux animaux), et l’option 3 porte surtout sur la capacité d’accueil en nombre de groupes plutôt que sur les soins eux-mêmes."
+              "cue": "Formulation directement liée à la situation de visite guidée (« entendre les explications ») et à l’impact du nombre de participants sur l’expérience pédagogique; effet concret, centré sur la qualité de la visite, plus pertinent et naturel que des considérations tarifaires ou de gestion interne pour une description au public."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.3,
+            0.7,
             0.05,
-            0.45,
-            0.2
+            0.15,
+            0.1
           ],
-          "guess": 2,
-          "reason": "Les quatre propositions (sauf la 1) sont contextuellement imaginables, mais la 2 est la plus nettement alignée avec un « avantage précis du petit nombre de visiteurs » directement relié aux soins : elle décrit une conséquence concrète et positive sur la façon dont les soins sont donnés (participation encadrée), là où la 0 reste négative/indirecte (ne pas gêner), la 1 est peu cohérente, et la 3 concerne surtout l’organisation du flux de groupes plutôt que les soins aux animaux."
+          "guess": 0,
+          "reason": "La question mentionne une « visite de la ferme pédagogique » et un « effet concret du petit nombre de participants » : l’impact sur la possibilité d’entendre les explications est le lien le plus direct et typique d’un discours adressé aux visiteurs, alors que le prix, la gestion des inscriptions ou la durée plus courte relèvent davantage d’aspects secondaires ou moins naturellement mis en avant dans ce contexte."
         },
         "usage": {
-          "prompt_tokens": 637,
-          "completion_tokens": 1027,
-          "total_tokens": 1664,
+          "prompt_tokens": 610,
+          "completion_tokens": 593,
+          "total_tokens": 1203,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 402,
+            "reasoning_tokens": 116,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01106625,
-        "inputHash": "a16d8b50053bd458b9b971c339a836077d095c5c45a726136240282e535e6ac8",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:18:initial:screen:6:0"
+        "costUsd": 0.0066925,
+        "inputHash": "bd96f28698eef895e536e41e9d16f77200e57c7b25876930b3e27461df0a477f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:18:14721af7be4c27b55696caf7:screen:4:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Les quatre propositions (sauf la 1) sont contextuellement imaginables, mais la 2 est la plus nettement alignée avec un « avantage précis du petit nombre de visiteurs » directement relié aux soins : elle décrit une conséquence concrète et positive sur la façon dont les soins sont donnés (participation encadrée), là où la 0 reste négative/indirecte (ne pas gêner), la 1 est peu cohérente, et la 3 concerne surtout l’organisation du flux de groupes plutôt que les soins aux animaux.",
+    "reason": "La question mentionne une « visite de la ferme pédagogique » et un « effet concret du petit nombre de participants » : l’impact sur la possibilité d’entendre les explications est le lien le plus direct et typique d’un discours adressé aux visiteurs, alors que le prix, la gestion des inscriptions ou la durée plus courte relèvent davantage d’aspects secondaires ou moins naturellement mis en avant dans ce contexte.",
     "cues": [
       {
-        "option": 2,
+        "option": 0,
         "severity": "clear",
-        "cue": "Le lien direct et positif entre « petit nombre de visiteurs » et la qualité/organisation des soins est formulé de façon précise : des petits groupes rendent possible la participation aux soins. L’option 0 évoque seulement l’absence de gêne, plus indirecte, l’option 1 est logiquement douteuse (le nombre de visiteurs n’influe pas sur la durée des soins nécessaires aux animaux), et l’option 3 porte surtout sur la capacité d’accueil en nombre de groupes plutôt que sur les soins eux-mêmes."
+        "cue": "Formulation directement liée à la situation de visite guidée (« entendre les explications ») et à l’impact du nombre de participants sur l’expérience pédagogique; effet concret, centré sur la qualité de la visite, plus pertinent et naturel que des considérations tarifaires ou de gestion interne pour une description au public."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un petit parc animalier, le responsable explique en audio-guide : « Comme nous limitons le nombre de visiteurs, chacun peut circuler librement sans déranger les soigneurs qui s’occupent des animaux. » Le faible nombre de visiteurs est présenté comme un avantage, car il n’entrave pas les soins en cours."
+        "context": "Dans un enregistrement où la responsable de la ferme pédagogique explique qu’ils limitent les groupes à une dizaine de personnes pour garantir la qualité de la visite, elle précise : « Avec des petits groupes, chacun peut bien entendre les explications et poser des questions. »"
       },
       {
         "index": 1,
-        "credible": false,
-        "context": "Pour que le petit nombre de visiteurs réduise réellement « la durée des soins nécessaires », il faudrait supposer que les besoins de soins des animaux changent selon la fréquentation, ce qui est incohérent. Au mieux, on pourrait parler d’organisation ou de confort de travail, mais pas d’une diminution des soins nécessaires aux animaux eux-mêmes. L’option ne répond donc pas de façon réaliste à la question telle qu’énoncée."
+        "credible": true,
+        "context": "Dans une interview sur la politique tarifaire d’une ferme pédagogique, le gérant explique qu’ils ont choisi de limiter fortement le nombre de visiteurs et qu’en contrepartie, grâce à des subventions, le prix d’entrée est plus bas pour tout le monde, et il relie ce choix au petit nombre de participants."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans une ferme pédagogique, une animatrice explique : « Nous accueillons de petits groupes ; grâce à ce petit nombre de visiteurs, chacun peut participer à certains soins, comme brosser les poneys ou aider à la distribution de la nourriture. » Le faible effectif est présenté comme condition permettant la participation du public aux soins."
+        "context": "Un enregistrement porte sur l’organisation pratique des visites de la ferme pédagogique : la personne en charge explique que, comme les groupes sont peu nombreux, la gestion des inscriptions est plus simple (moins de changements de dernière minute, moins de listes à gérer, etc.)."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un centre de soins pour animaux, un responsable décrit l’organisation des visites : « Nous n’acceptons que de petits groupes, ce qui nous permet d’enchaîner plusieurs visites dans la journée, même pendant les soins. » Le petit nombre de personnes par groupe est présenté comme un avantage logistique pour accueillir davantage de groupes tout en continuant les soins."
+        "context": "Dans un reportage, la guide explique qu’avec de petits groupes elle peut aller plus vite dans les explications, répondre aux questions sans attendre que tout le monde se regroupe, et qu’au final la visite dure moins longtemps qu’avec des groupes plus importants."
       }
     ]
   }

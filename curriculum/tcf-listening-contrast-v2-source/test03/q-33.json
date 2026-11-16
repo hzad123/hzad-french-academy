@@ -2,16 +2,16 @@
   "question": {
     "number": 33,
     "kind": "commentary",
-    "question": "Quel risque précis l’orateur associe-t-il à l’usage du délai moyen de huit jours ?",
+    "question": "Dans ce document, plusieurs indicateurs sont évoqués pour décrire les délais de consultation. Lequel de ces indicateurs est mis en avant ?",
     "options": [
-      "Confondre systématiquement les délais propres à chaque spécialité médicale.",
-      "Rendre impossible la distinction entre les situations d’urgence et les autres consultations.",
-      "Occulter totalement la proportion de patients vus dans un délai jugé raisonnable.",
-      "Donner une impression trompeuse si certains patients sont vus très vite et d’autres beaucoup plus tard."
+      "Les écarts de délais entre les différentes spécialités médicales.",
+      "Le délai moyen annoncé de huit jours pour obtenir un rendez-vous.",
+      "La distinction entre les consultations d’urgence et les autres.",
+      "La part de patients reçus dans un délai jugé raisonnable."
     ],
     "correct": "D",
-    "explanation": "L’orateur explique que «si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse». Le risque précis associé à l’usage du délai moyen est donc de donner une impression trompeuse lorsque les situations individuelles sont très contrastées. Les autres éléments (proportion de patients vus dans un délai raisonnable, différences entre spécialités, situations d’urgence) sont cités comme informations complémentaires souhaitables, pas comme ce que fait déjà la moyenne.",
-    "transcript": "Question 33.\nLe nouvel indicateur municipal annonce un délai moyen de huit jours pour consulter un spécialiste. C'est une information intéressante, mais elle ne nous dit pas ce que vivent tous les patients. Si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse. Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence. Le problème n'est pas le chiffre en lui-même, mais ce qu'on lui fait raconter.\nQuel risque précis l’orateur associe-t-il à l’usage du délai moyen de huit jours ?",
+    "explanation": "Le texte précise qu’il serait utile de publier « la proportion de patients vus dans un délai raisonnable » : cette proportion décrit bien comment les patients se répartissent entre ceux qui attendent peu et ceux qui attendent plus longtemps. Les autres compléments portent sur des comparaisons entre spécialités, sur les urgences ou sur un délai moyen unique, pas sur la répartition des patients entre délais courts et longs.",
+    "transcript": "Question 33.\nLe nouvel indicateur municipal annonce un délai moyen de huit jours pour consulter un spécialiste. C'est une information intéressante, mais elle ne nous dit pas ce que vivent tous les patients. Si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse. Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence. Le problème n'est pas le chiffre en lui-même, mais ce qu'on lui fait raconter.\nDans ce document, plusieurs indicateurs sont évoqués pour décrire les délais de consultation. Lequel de ces indicateurs est mis en avant ?",
     "segments": [
       {
         "voice": "female",
@@ -23,125 +23,310 @@
       },
       {
         "voice": "female",
-        "text": "Quel risque précis l’orateur associe-t-il à l’usage du délai moyen de huit jours ?"
+        "text": "Dans ce document, plusieurs indicateurs sont évoqués pour décrire les délais de consultation. Lequel de ces indicateurs est mis en avant ?"
       }
     ],
     "audio": "q-33.mp3",
     "audioSeconds": null,
     "slotSeconds": 67
   },
-  "contentHash": "7069bbc27fbadfe11953d767e4d7da02398d2a5bb35d06039abe7067b382a94a",
+  "contentHash": "aab88d8824d336dc118f2ba51cf4960b75df6949a1a88284a796852d7c980b2f",
   "sourceHash": "11dccc44fc5c08c402c43cd54fe10eade1186cfc783e951bdf6f1e665d8629b9",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzhO5X8cRDa1jVQjgnlL6GHmh84g",
+    "result": {
+      "question": "Dans ce document, plusieurs manières de décrire les délais de consultation sont évoquées. Laquelle concerne directement la façon dont les patients se répartissent entre des attentes courtes et des attentes longues ?",
+      "choices": [
+        "La part de patients reçus dans un délai jugé raisonnable.",
+        "Les écarts de délais entre les différentes spécialités médicales.",
+        "La distinction entre les consultations d’urgence et les autres.",
+        "Le délai moyen annoncé de huit jours pour obtenir un rendez-vous."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte précise qu’il serait utile de publier « la proportion de patients vus dans un délai raisonnable » : cette proportion décrit bien comment les patients se répartissent entre ceux qui attendent peu et ceux qui attendent plus longtemps. Les autres compléments portent sur des comparaisons entre spécialités, sur les urgences ou sur un délai moyen unique, pas sur la répartition des patients entre délais courts et longs.",
+      "design": "Axe unique : type de description statistique des délais de consultation. Le document oppose le simple délai moyen à d’autres manières de décrire ces délais. La question cible la relation spécifique entre un indicateur proposé et la répartition concrète des expériences d’attente entre patients. Les quatre options sont toutes des façons plausibles de caractériser des délais (proportion, écarts entre spécialités, distinction urgence/routine, délai moyen global). Sans le document, chacune pourrait sembler répondre à la question. Seule la proportion de patients vus dans un délai raisonnable est explicitement liée à la distribution des attentes entre patients dans la source.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut croire que « les différences entre spécialités » décrivent aussi comment les patients se répartissent entre délais courts et longs, car des spécialités plus rapides ou plus lentes affectent indirectement cette répartition. En réalité, dans le texte, ces différences comparent les spécialités entre elles, pas directement la répartition des attentes tous patients confondus.",
+          "operation": "scope_shift",
+          "anchors": [
+            "les différences entre spécialités",
+            "Si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La mention des « situations d'urgence » peut faire penser à une opposition entre patients servis rapidement et patients qui attendent davantage. Cependant, dans le document, les urgences sont citées comme un type particulier de situation à distinguer, non comme un indicateur chiffré de la répartition globale des délais entre patients.",
+          "operation": "scope_shift",
+          "anchors": [
+            "les situations d'urgence",
+            "Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le délai moyen de huit jours peut être interprété, à tort, comme un résumé de la façon dont les patients se répartissent, car la moyenne synthétise toutes les attentes. Mais le texte explique précisément que cette moyenne peut être trompeuse si certains attendent deux jours et d’autres deux mois : elle ne décrit donc pas la répartition entre attentes courtes et longues, ce qui justifie la recherche d’un autre indicateur.",
+          "operation": "role_swap",
+          "anchors": [
+            "Le nouvel indicateur municipal annonce un délai moyen de huit jours pour consulter un spécialiste.",
+            "la moyenne peut donner une impression trompeuse"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4445,
+      "completion_tokens": 1587,
+      "total_tokens": 6032,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 878,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02142625,
+    "inputHash": "67d3a278c62bc24db45291594e27465833ee2f300b2b1a316f7a3a8b6c903ee3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:32:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans ce document, plusieurs manières de décrire les délais de consultation sont évoquées. Laquelle concerne directement la façon dont les patients se répartissent entre des attentes courtes et des attentes longues ?",
+      "choices": [
+        "Les écarts de délais entre les différentes spécialités médicales.",
+        "Le délai moyen annoncé de huit jours pour obtenir un rendez-vous.",
+        "La distinction entre les consultations d’urgence et les autres.",
+        "La part de patients reçus dans un délai jugé raisonnable."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzhrkxEq94W36bibz2MKrCPSbo3X",
+      "result": {
+        "question": "Dans ce document, plusieurs indicateurs sont évoqués pour décrire les délais de consultation. Lequel de ces indicateurs est mis en avant ?",
+        "choices": [
+          "Les écarts de délais entre les différentes spécialités médicales.",
+          "Le délai moyen annoncé de huit jours pour obtenir un rendez-vous.",
+          "La distinction entre les consultations d’urgence et les autres.",
+          "La part de patients reçus dans un délai jugé raisonnable."
+        ],
+        "notes": "Le terme sur la répartition entre attentes courtes et longues a été retiré de l’énoncé pour éviter de privilégier la réponse portant explicitement sur une part de patients. La question porte désormais de manière neutre sur l’indicateur mis en avant, et les quatre options restent quatre types d’indicateurs distincts mais également plausibles."
+      },
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 1013,
+        "total_tokens": 1695,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 836,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0109825,
+      "inputHash": "b5bef6f18a698ac86d5241118183c7b93eaad5b333aa9434e33010a27663bc7c",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:32:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
-        3,
         0,
-        1
+        1,
+        3,
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyPNOGGsmIPy9mjvUayYKeZD0T1t",
+        "responseId": "chatcmpl-Ekzi5CzgajL80vL5GuCH6Pz0X9K6W",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une réunion de direction d’hôpital, un intervenant explique qu’en ne communiquant que le délai moyen de huit jours, on peut passer sous silence le fait qu’une grande partie des patients est en réalité vue dans un délai perçu comme raisonnable, ce qui ne transparaît pas dans la seule moyenne."
+              "context": "Une responsable de centre hospitalier présente un rapport sur l’accès aux soins : elle explique qu’ils suivent plusieurs indicateurs de délais de consultation, puis précise qu’ils mettent surtout en avant les écarts de délais entre les différentes spécialités médicales pour montrer les inégalités d’accès."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une présentation sur les limites des indicateurs statistiques de délais de rendez-vous, un orateur souligne que dire simplement « le délai moyen est de huit jours » peut être trompeur si, en pratique, certains patients obtenent un rendez-vous le jour même alors que d’autres attendent plusieurs semaines, ce que la moyenne ne reflète pas."
+              "context": "Dans une réunion d’information d’un cabinet médical, un intervenant présente une enquête sur les délais de consultation et dit que plusieurs indicateurs sont évoqués, mais que l’indicateur mis en avant est le délai moyen annoncé de huit jours pour obtenir un rendez-vous."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un colloque sur la mesure de la performance hospitalière, un conférencier critique un indicateur global de délai moyen de huit jours en disant qu’il risque de faire confondre ou mélanger les délais spécifiques à la cardiologie, la dermatologie, la pédiatrie, etc., sans distinguer les différences entre spécialités."
+              "context": "Lors d’une conférence de santé publique, un orateur décrit un rapport contenant différents indicateurs sur les délais de consultation (délai moyen, écarts entre spécialités, urgences vs non‑urgences) et précise que l’indicateur mis en avant est la part de patients reçus dans un délai jugé raisonnable, car il reflète le ressenti réel d’accès aux soins."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Au cours d’une formation sur la gestion des flux de patients, un formateur explique qu’utiliser uniquement un délai moyen de huit jours pour décrire l’attente globale peut poser problème, car cet indicateur ne permet pas de séparer les cas d’urgence, qui devraient être vus très rapidement, des consultations de suivi ou non urgentes."
+              "context": "Un médecin-chef commente un document d’évaluation des délais de prise en charge : il explique que le rapport présente plusieurs indicateurs (délai moyen, pourcentage de patients reçus rapidement, etc.), puis ajoute que l’indicateur mis en avant est la distinction entre les consultations d’urgence et les autres, jugée essentielle pour interpréter correctement les délais."
             }
           ],
           "cues": [
             {
-              "option": 1,
-              "severity": "clear",
-              "cue": "La critique classique d’un « délai moyen de huit jours » porte sur le caractère potentiellement trompeur d’une moyenne en présence de fortes disparités individuelles (patients vus très vite vs. très tard), ce que l’option 1 formule précisément et de façon nuancée. Les autres réponses évoquent soit un effet plus extrême ou discutable (occulter totalement une proportion), soit des problèmes (confusion entre spécialités, impossibilité de distinguer l’urgence) qui ne découlent pas directement et spécifiquement de l’usage d’une moyenne, mais plutôt d’un mauvais découpage des données."
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation plus générale et qualitative (« part de patients reçus dans un délai jugé raisonnable ») qui ressemble à un indicateur synthétique mis en avant dans un document, par rapport à des chiffres plus ponctuels ou à une simple classification."
             }
           ],
-          "standsOut": true,
+          "standsOut": false,
           "probabilities": [
-            0.1,
-            0.6,
-            0.1,
+            0.2,
+            0.25,
+            0.35,
             0.2
           ],
-          "guess": 1,
-          "reason": "Le risque le plus naturellement associé, sur le seul plan rédactionnel, à l’usage d’un délai moyen chiffré est qu’il donne une image trompeuse en masquant la dispersion des situations individuelles, ce que l’option 1 décrit explicitement. Les autres risques sont plausibles en contexte, mais moins directement liés au concept de « délai moyen de huit jours » lui-même."
+          "guess": 2,
+          "reason": "Tous les choix peuvent servir d’indicateurs de délais et aucun avantage décisif n’apparaît, mais la réponse 2 correspond le mieux à un indicateur global et mis en avant dans un document de type étude ou rapport, d’où une légère préférence avec incertitude importante."
         },
         "usage": {
-          "prompt_tokens": 641,
-          "completion_tokens": 701,
-          "total_tokens": 1342,
+          "prompt_tokens": 635,
+          "completion_tokens": 552,
+          "total_tokens": 1187,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 117,
+            "reasoning_tokens": 69,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00781125,
-        "inputHash": "a165bc3eae9db6db51bd851644dc9b37aaabc89c7418fb9a1ceab880ea60639d",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:32:initial:screen:6:0"
+        "costUsd": 0.00631375,
+        "inputHash": "b6b2dbaab718823b6de82c9314518230687c40e5e425480ac187e1e1529b6124",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:32:14721af7be4c27b55696caf7:screen:6:edited:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkziCM458u8mR9lkfVGRSkCwTwqgh",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une journaliste de santé présente une étude sur l’accès aux soins : elle explique que le document compare les délais d’attente selon les spécialités, par exemple dermatologie, cardiologie, ophtalmologie, et insiste sur les écarts de délais entre ces spécialités comme indicateur clé."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un directeur d’hôpital commente un rapport interne sur les délais de prise de rendez-vous : il souligne que l’indicateur principal mis en avant dans le document est un délai moyen de huit jours pour obtenir une consultation, utilisé comme référence générale."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion de service aux urgences, un médecin présente un document qui distingue systématiquement les délais de consultation entre urgences et consultations programmées, en expliquant que cet indicateur est mis en avant pour analyser l’organisation des flux de patients."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un responsable d’agence régionale de santé présente un rapport de performance : il explique que l’indicateur central du document est la proportion de patients reçus dans un délai jugé raisonnable, ce critère étant mis en avant pour évaluer l’accessibilité réelle aux consultations."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Formulation plus évaluative et synthétique (« part de patients reçus dans un délai jugé raisonnable ») correspondant typiquement à un indicateur de performance global, alors que les autres sont plutôt des descripteurs (écarts, délai moyen, distinction de types) moins directement centrés sur un indicateur clé unique à « mettre en avant »."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.2,
+            0.2,
+            0.4
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent décrire des indicateurs de délais, mais l’option 3 formule un indicateur de résultat global et qualitatif, typiquement présenté comme indicateur phare dans les rapports de performance, ce qui correspond bien à « mis en avant », d’où une probabilité légèrement plus élevée malgré une incertitude notable."
+        },
+        "usage": {
+          "prompt_tokens": 635,
+          "completion_tokens": 578,
+          "total_tokens": 1213,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 115,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00657375,
+        "inputHash": "acdfc2a067cda575b629826f2c660dc5c4deeb5f075b29ecc1d1695710177a1b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:32:14721af7be4c27b55696caf7:screen:6:edited:1"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le risque le plus naturellement associé, sur le seul plan rédactionnel, à l’usage d’un délai moyen chiffré est qu’il donne une image trompeuse en masquant la dispersion des situations individuelles, ce que l’option 1 décrit explicitement. Les autres risques sont plausibles en contexte, mais moins directement liés au concept de « délai moyen de huit jours » lui-même.",
+    "reason": "Tous les choix peuvent décrire des indicateurs de délais, mais l’option 3 formule un indicateur de résultat global et qualitatif, typiquement présenté comme indicateur phare dans les rapports de performance, ce qui correspond bien à « mis en avant », d’où une probabilité légèrement plus élevée malgré une incertitude notable.",
     "cues": [
       {
-        "option": 1,
-        "severity": "clear",
-        "cue": "La critique classique d’un « délai moyen de huit jours » porte sur le caractère potentiellement trompeur d’une moyenne en présence de fortes disparités individuelles (patients vus très vite vs. très tard), ce que l’option 1 formule précisément et de façon nuancée. Les autres réponses évoquent soit un effet plus extrême ou discutable (occulter totalement une proportion), soit des problèmes (confusion entre spécialités, impossibilité de distinguer l’urgence) qui ne découlent pas directement et spécifiquement de l’usage d’une moyenne, mais plutôt d’un mauvais découpage des données."
+        "option": 3,
+        "severity": "weak",
+        "cue": "Formulation plus évaluative et synthétique (« part de patients reçus dans un délai jugé raisonnable ») correspondant typiquement à un indicateur de performance global, alors que les autres sont plutôt des descripteurs (écarts, délai moyen, distinction de types) moins directement centrés sur un indicateur clé unique à « mettre en avant »."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une réunion de direction d’hôpital, un intervenant explique qu’en ne communiquant que le délai moyen de huit jours, on peut passer sous silence le fait qu’une grande partie des patients est en réalité vue dans un délai perçu comme raisonnable, ce qui ne transparaît pas dans la seule moyenne."
+        "context": "Une journaliste de santé présente une étude sur l’accès aux soins : elle explique que le document compare les délais d’attente selon les spécialités, par exemple dermatologie, cardiologie, ophtalmologie, et insiste sur les écarts de délais entre ces spécialités comme indicateur clé."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Lors d’une présentation sur les limites des indicateurs statistiques de délais de rendez-vous, un orateur souligne que dire simplement « le délai moyen est de huit jours » peut être trompeur si, en pratique, certains patients obtenent un rendez-vous le jour même alors que d’autres attendent plusieurs semaines, ce que la moyenne ne reflète pas."
+        "context": "Un directeur d’hôpital commente un rapport interne sur les délais de prise de rendez-vous : il souligne que l’indicateur principal mis en avant dans le document est un délai moyen de huit jours pour obtenir une consultation, utilisé comme référence générale."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un colloque sur la mesure de la performance hospitalière, un conférencier critique un indicateur global de délai moyen de huit jours en disant qu’il risque de faire confondre ou mélanger les délais spécifiques à la cardiologie, la dermatologie, la pédiatrie, etc., sans distinguer les différences entre spécialités."
+        "context": "Lors d’une réunion de service aux urgences, un médecin présente un document qui distingue systématiquement les délais de consultation entre urgences et consultations programmées, en expliquant que cet indicateur est mis en avant pour analyser l’organisation des flux de patients."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Au cours d’une formation sur la gestion des flux de patients, un formateur explique qu’utiliser uniquement un délai moyen de huit jours pour décrire l’attente globale peut poser problème, car cet indicateur ne permet pas de séparer les cas d’urgence, qui devraient être vus très rapidement, des consultations de suivi ou non urgentes."
+        "context": "Un responsable d’agence régionale de santé présente un rapport de performance : il explique que l’indicateur central du document est la proportion de patients reçus dans un délai jugé raisonnable, ce critère étant mis en avant pour évaluer l’accessibilité réelle aux consultations."
       }
     ]
   },

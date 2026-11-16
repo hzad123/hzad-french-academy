@@ -2,16 +2,16 @@
   "question": {
     "number": 31,
     "kind": "academic-monologue",
-    "question": "Comment le document présente-t-il l’association entre présence d’arbres et températures plus basses en été ?",
+    "question": "Selon le document, quelle approche est mise en avant pour mieux analyser les phénomènes étudiés ?",
     "options": [
-      "Comme une preuve directe que chaque arbre planté produira automatiquement la même baisse de température.",
-      "Comme un indicateur chiffré suffisant pour juger à lui seul de l’efficacité d’une politique de végétalisation.",
-      "Comme un simple artefact de mesure expliqué uniquement par les matériaux utilisés pour les façades.",
-      "Comme une corrélation observée qui ne suffit pas, à elle seule, à prouver une relation causale."
+      "Projeter les températures urbaines sur une période d’environ trente ans",
+      "Réaliser une série d’expériences principalement en laboratoire",
+      "Interroger de façon systématique les habitants des quartiers concernés",
+      "Comparer en détail plusieurs lieux présentant des situations différentes"
     ],
     "correct": "D",
-    "explanation": "Le document précise : \"Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses\" puis ajoute immédiatement \"Cette association ne signifie pas pour autant que chaque arbre planté produira automatiquement la même baisse de température\" et qu’il faut \"distinguer la corrélation constatée de la relation causale\". L’association est donc présentée comme une corrélation réelle mais insuffisante pour démontrer à elle seule une causalité.",
-    "transcript": "Question 31.\nVous écoutez un extrait de conférence sur les îlots de chaleur urbains. Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses pendant l'été. Cette association ne signifie pas pour autant que chaque arbre planté produira automatiquement la même baisse de température. La largeur des rues, les matériaux des façades, le vent et l'accès à l'eau influencent également les mesures. Pour comprendre les mécanismes, il faut comparer les lieux avec prudence, suivre leur évolution et distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer. Une politique de végétalisation peut être utile, mais son évaluation demande plus qu'un chiffre isolé.\nComment le document présente-t-il l’association entre présence d’arbres et températures plus basses en été ?",
+    "explanation": "Le document indique clairement : « Pour comprendre les mécanismes, il faut comparer les lieux avec prudence ». Les autres démarches seraient plausibles dans une recherche sur le climat urbain, mais elles ne sont jamais mentionnées ici.",
+    "transcript": "Question 31.\nVous écoutez un extrait de conférence sur les îlots de chaleur urbains. Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses pendant l'été. Cette association ne signifie pas pour autant que chaque arbre planté produira automatiquement la même baisse de température. La largeur des rues, les matériaux des façades, le vent et l'accès à l'eau influencent également les mesures. Pour comprendre les mécanismes, il faut comparer les lieux avec prudence, suivre leur évolution et distinguer la corrélation constatée de la relation causale que nous sommes réellement capables de démontrer. Une politique de végétalisation peut être utile, mais son évaluation demande plus qu'un chiffre isolé.\nSelon le document, quelle approche est mise en avant pour mieux analyser les phénomènes étudiés ?",
     "segments": [
       {
         "voice": "female",
@@ -23,120 +23,232 @@
       },
       {
         "voice": "female",
-        "text": "Comment le document présente-t-il l’association entre présence d’arbres et températures plus basses en été ?"
+        "text": "Selon le document, quelle approche est mise en avant pour mieux analyser les phénomènes étudiés ?"
       }
     ],
     "audio": "q-31.mp3",
     "audioSeconds": null,
     "slotSeconds": 71
   },
-  "rounds": 0,
+  "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzYK651fx0lH8CcKv6YynawhyEoo",
+    "result": {
+      "question": "Selon le document, quelle démarche est explicitement présentée comme nécessaire pour comprendre les mécanismes observés ?",
+      "choices": [
+        "Comparer les lieux avec prudence",
+        "Réaliser des expériences uniquement en laboratoire",
+        "Interroger systématiquement les habitants des quartiers",
+        "Projeter les températures urbaines sur trente ans"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique clairement : « Pour comprendre les mécanismes, il faut comparer les lieux avec prudence ». Les autres démarches seraient plausibles dans une recherche sur le climat urbain, mais elles ne sont jamais mentionnées ici.",
+      "design": "On teste l’identification d’une démarche méthodologique précise (le type d’action nécessaire pour comprendre les mécanismes observés). Les quatre réponses sont toutes des démarches de recherche plausibles en climat urbain, crédibles sans le document. Seule la comparaison prudente des lieux est pourtant explicitement citée comme exigence pour comprendre les mécanismes ; les autres options attribuent à tort au texte d’autres méthodes possibles mais non mentionnées.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut généraliser l’idée d’« expériences » ou de contrôle des facteurs (matériaux, vent, eau) et imaginer que le conférencier préconise des expériences de laboratoire. En réalité, le texte ne parle jamais de laboratoire : il insiste sur l’observation de « quartiers » réels et sur la nécessité de « comparer les lieux avec prudence » plutôt que de déplacer l’étude en laboratoire.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Nous observons que les quartiers comprenant davantage d'arbres présentent souvent des températures plus basses",
+            "comparer les lieux avec prudence"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Parce que le texte évoque des « quartiers » et la mesure des températures, un auditeur peut croire que le conférencier recommande d’interroger les habitants pour compléter les données. Toutefois, le document ne mentionne aucune enquête d’opinion : il relie la compréhension des mécanismes uniquement à des comparaisons prudentes, au suivi de l’évolution et à la distinction entre « corrélation constatée » et « relation causale » démontrable.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Pour comprendre les mécanismes, il faut comparer les lieux avec prudence, suivre leur évolution",
+            "distinguer la corrélation constatée de la relation causale"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Comme le passage parle de « suivre leur évolution » et d’« évaluation » de politiques, il est tentant de penser que la démarche centrale serait une projection chiffrée à long terme (trente ans). Mais le texte ne précise aucun horizon temporel ni modèle de projection : il insiste seulement sur le suivi des lieux dans le temps et sur le fait qu’« une politique de végétalisation peut être utile, mais son évaluation demande plus qu'un chiffre isolé ». Il ne s’agit donc pas d’une projection sur une durée déterminée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "suivre leur évolution",
+            "son évaluation demande plus qu'un chiffre isolé"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4390,
+      "completion_tokens": 888,
+      "total_tokens": 5278,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 239,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0143675,
+    "inputHash": "a9a9db1adec34751efeaabff2002cfec235ac5a3f995a53a05316fbccc722026",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:30:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quelle démarche est explicitement présentée comme nécessaire pour comprendre les mécanismes observés ?",
+      "choices": [
+        "Projeter les températures urbaines sur trente ans",
+        "Réaliser des expériences uniquement en laboratoire",
+        "Interroger systématiquement les habitants des quartiers",
+        "Comparer les lieux avec prudence"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzYb48uL2KqmF9upk3GU113OQGnm",
+      "result": {
+        "question": "Selon le document, quelle approche est mise en avant pour mieux analyser les phénomènes étudiés ?",
+        "choices": [
+          "Projeter les températures urbaines sur une période d’environ trente ans",
+          "Réaliser une série d’expériences principalement en laboratoire",
+          "Interroger de façon systématique les habitants des quartiers concernés",
+          "Comparer en détail plusieurs lieux présentant des situations différentes"
+        ],
+        "notes": "La question a été légèrement généralisée pour viser une « approche » sans valoriser implicitement la prudence. Les choix ont été reformulés pour être tous des démarches méthodologiques crédibles (modélisation à long terme, expérimentation en labo, enquêtes de terrain, comparaison spatiale), sans qu’un seul se distingue par un ton plus raisonnable ou prudent. Les éléments distinctifs (trente ans, laboratoire, habitants des quartiers, comparaison de lieux) sont conservés."
+      },
+      "usage": {
+        "prompt_tokens": 646,
+        "completion_tokens": 529,
+        "total_tokens": 1175,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 335,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0060975,
+      "inputHash": "7051fe0c36d03c669081298853f22f55ef243b90a5105d5b343375d192891ae1",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:30:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        0,
         3,
+        1,
         2,
-        1
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Ekynyby7CmQFUHxtavj4o6tgkhBke",
+        "responseId": "chatcmpl-EkzYi5rvGRHDMrGgf6KvvRWd2wewp",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une vidéo de vulgarisation très simplifiée sur le climat urbain, le narrateur affirme de manière catégorique : « Nous avons la preuve directe que chaque arbre planté entraînera automatiquement la même baisse de température », en présentant la relation comme un lien mécanique et uniforme pour encourager massivement la plantation d’arbres."
+              "context": "Dans un reportage scientifique sur les îlots de chaleur urbains, la chercheuse explique qu’au lieu de se limiter à une seule ville, son équipe a choisi de comparer en détail plusieurs lieux présentant des situations différentes (centre-ville dense, banlieue pavillonnaire, zone industrielle, espace vert) pour mieux analyser les phénomènes étudiés."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans un reportage scientifique sur les îlots de chaleur urbains, une chercheuse explique : « On observe une corrélation entre la présence d’arbres et des températures plus basses en été, mais cette corrélation ne suffit pas, à elle seule, à prouver une relation de cause à effet », insistant sur la prudence face aux interprétations causales."
+              "context": "Dans une émission de vulgarisation, un spécialiste décrit un protocole où les phénomènes étudiés sont recréés dans des maquettes ou des chambres climatiques, en expliquant que l’approche mise en avant consiste à réaliser une série d’expériences principalement en laboratoire pour contrôler précisément les variables."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une présentation technique d’ingénieurs du bâtiment, l’intervenant soutient que la différence de température mesurée près des arbres est un simple artefact de mesure, dû uniquement aux matériaux des façades voisins qui réfléchissent ou absorbent différemment la chaleur, niant tout effet propre de la végétation."
+              "context": "Lors d’un documentaire sur la perception des risques environnementaux, la sociologue indique que, pour mieux analyser les phénomènes étudiés, son équipe met en avant une approche consistant à interroger de façon systématique les habitants des quartiers concernés via des enquêtes et des entretiens structurés."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une réunion politique locale sur la végétalisation urbaine, un élu affirme : « L’indicateur chiffré de baisse de température liée aux arbres suffit à lui seul pour juger de l’efficacité de notre politique de végétalisation », présentant cette association comme un critère unique et suffisant d’évaluation."
+              "context": "Dans un podcast sur le changement climatique en ville, un climatologue explique que l’équipe utilise des modèles de simulation pour projeter les températures urbaines sur une période d’environ trente ans, et présente cette modélisation prospective comme l’approche centrale pour analyser l’évolution des phénomènes observés."
             }
           ],
           "cues": [
             {
-              "option": 1,
+              "option": 0,
               "severity": "clear",
-              "cue": "Formulation nuancée et méthodologiquement prudente (« corrélation observée » / « ne suffit pas, à elle seule, à prouver une relation causale ») typique d’un document explicatif sérieux sur un lien environnement–température, alors que les autres réponses formulent des positions excessives, absolues ou réductrices plus souvent proposées comme distracteurs."
+              "cue": "Formulation plus générale et méthodologique (comparer plusieurs lieux) qui s’applique naturellement à « mieux analyser les phénomènes étudiés », sans restreindre ces phénomènes à un type de donnée précis (températures, avis des habitants, expériences de labo). Les autres choix ciblent un angle particulier (laboratoire, enquêtes, projection sur 30 ans) moins directement suggéré par l’énoncé large et abstrait du document."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.08,
-            0.74,
-            0.06,
-            0.12
+            0.55,
+            0.15,
+            0.1,
+            0.2
           ],
-          "guess": 1,
-          "reason": "La réponse 2 emploie le vocabulaire scientifique exact attendu pour décrire une association entre arbres et températures (corrélation vs causalité) et adopte une prudence méthodologique cohérente avec la question, tandis que les options 1, 3 et 4 expriment des interprétations extrêmes ou simplistes (preuve automatique, simple artefact unique, indicateur suffisant à lui seul), nettement moins plausibles comme formulation choisie dans un document sérieux. Incertitude résiduelle car l’enregistrement n’est pas disponible."
+          "guess": 0,
+          "reason": "L’énoncé reste général (« phénomènes étudiés ») et parle d’« approche mise en avant », ce qui favorise une méthode largement applicable et analytique comme la comparaison détaillée de plusieurs lieux. Les autres propositions décrivent des dispositifs plus spécifiques (labos, enquêtes, projections de températures) qui paraissent moins en adéquation avec la formulation large de la question."
         },
         "usage": {
-          "prompt_tokens": 664,
-          "completion_tokens": 674,
-          "total_tokens": 1338,
+          "prompt_tokens": 623,
+          "completion_tokens": 722,
+          "total_tokens": 1345,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 97,
+            "reasoning_tokens": 195,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00757,
-        "inputHash": "2ff6e047f496af19873359ef1bfb085062d975e2fb0d013d9c2bf8fe553fe62c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:30:ce40c9091f7f36b9e4c06d49:screen:0:0"
+        "costUsd": 0.00799875,
+        "inputHash": "39b4509c3f285799ca6f848bdd9b9eb392aa95cf3aaaf022aae0c7a7017d399e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:30:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La réponse 2 emploie le vocabulaire scientifique exact attendu pour décrire une association entre arbres et températures (corrélation vs causalité) et adopte une prudence méthodologique cohérente avec la question, tandis que les options 1, 3 et 4 expriment des interprétations extrêmes ou simplistes (preuve automatique, simple artefact unique, indicateur suffisant à lui seul), nettement moins plausibles comme formulation choisie dans un document sérieux. Incertitude résiduelle car l’enregistrement n’est pas disponible.",
+    "reason": "L’énoncé reste général (« phénomènes étudiés ») et parle d’« approche mise en avant », ce qui favorise une méthode largement applicable et analytique comme la comparaison détaillée de plusieurs lieux. Les autres propositions décrivent des dispositifs plus spécifiques (labos, enquêtes, projections de températures) qui paraissent moins en adéquation avec la formulation large de la question.",
     "cues": [
       {
-        "option": 1,
+        "option": 0,
         "severity": "clear",
-        "cue": "Formulation nuancée et méthodologiquement prudente (« corrélation observée » / « ne suffit pas, à elle seule, à prouver une relation causale ») typique d’un document explicatif sérieux sur un lien environnement–température, alors que les autres réponses formulent des positions excessives, absolues ou réductrices plus souvent proposées comme distracteurs."
+        "cue": "Formulation plus générale et méthodologique (comparer plusieurs lieux) qui s’applique naturellement à « mieux analyser les phénomènes étudiés », sans restreindre ces phénomènes à un type de donnée précis (températures, avis des habitants, expériences de labo). Les autres choix ciblent un angle particulier (laboratoire, enquêtes, projection sur 30 ans) moins directement suggéré par l’énoncé large et abstrait du document."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une vidéo de vulgarisation très simplifiée sur le climat urbain, le narrateur affirme de manière catégorique : « Nous avons la preuve directe que chaque arbre planté entraînera automatiquement la même baisse de température », en présentant la relation comme un lien mécanique et uniforme pour encourager massivement la plantation d’arbres."
+        "context": "Dans un reportage scientifique sur les îlots de chaleur urbains, la chercheuse explique qu’au lieu de se limiter à une seule ville, son équipe a choisi de comparer en détail plusieurs lieux présentant des situations différentes (centre-ville dense, banlieue pavillonnaire, zone industrielle, espace vert) pour mieux analyser les phénomènes étudiés."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans un reportage scientifique sur les îlots de chaleur urbains, une chercheuse explique : « On observe une corrélation entre la présence d’arbres et des températures plus basses en été, mais cette corrélation ne suffit pas, à elle seule, à prouver une relation de cause à effet », insistant sur la prudence face aux interprétations causales."
+        "context": "Dans une émission de vulgarisation, un spécialiste décrit un protocole où les phénomènes étudiés sont recréés dans des maquettes ou des chambres climatiques, en expliquant que l’approche mise en avant consiste à réaliser une série d’expériences principalement en laboratoire pour contrôler précisément les variables."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans une présentation technique d’ingénieurs du bâtiment, l’intervenant soutient que la différence de température mesurée près des arbres est un simple artefact de mesure, dû uniquement aux matériaux des façades voisins qui réfléchissent ou absorbent différemment la chaleur, niant tout effet propre de la végétation."
+        "context": "Lors d’un documentaire sur la perception des risques environnementaux, la sociologue indique que, pour mieux analyser les phénomènes étudiés, son équipe met en avant une approche consistant à interroger de façon systématique les habitants des quartiers concernés via des enquêtes et des entretiens structurés."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans une réunion politique locale sur la végétalisation urbaine, un élu affirme : « L’indicateur chiffré de baisse de température liée aux arbres suffit à lui seul pour juger de l’efficacité de notre politique de végétalisation », présentant cette association comme un critère unique et suffisant d’évaluation."
+        "context": "Dans un podcast sur le changement climatique en ville, un climatologue explique que l’équipe utilise des modèles de simulation pour projeter les températures urbaines sur une période d’environ trente ans, et présente cette modélisation prospective comme l’approche centrale pour analyser l’évolution des phénomènes observés."
       }
     ]
   }

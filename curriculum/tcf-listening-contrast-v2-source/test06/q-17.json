@@ -2,16 +2,16 @@
   "question": {
     "number": 17,
     "kind": "announcement",
-    "question": "Selon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?",
+    "question": "Selon le document, quel type de préparation est demandé aux commerçants avant le passage des équipes de collecte ?",
     "options": [
-      "Ils les reprendront lors de la collecte contre le gaspillage.",
-      "Ils les vendront plus tard à prix réduit aux clients du marché.",
-      "Ils les laisseront sur les étals jusqu’à la fin du marché suivant.",
-      "Ils les enverront vers la filière de compostage."
+      "Ils doivent trier les invendus entre ceux destinés à la redistribution et ceux orientés vers le compost.",
+      "Ils doivent rassembler l’ensemble des invendus et laisser aux bénévoles le soin de décider de leur utilisation.",
+      "Ils doivent isoler à part les produits abîmés tout en laissant les autres en rayon.",
+      "Ils doivent surtout déclarer le volume d’invendus prévu, sans modifier leur organisation habituelle des produits."
     ],
     "correct": "A",
-    "explanation": "Le document précise que «les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur». Ils les prennent donc en charge dans le cadre de la collecte contre le gaspillage, sans mention de compostage, d’attente sur les étals ou de revente à prix réduit.",
-    "transcript": "Question 17.\nLa collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes.\nSelon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?",
+    "explanation": "Le document précise que «Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes», juste après avoir distingué «les fruits et légumes encore consommables» des produits «orientés vers la filière de compostage». C’est bien cette séparation préalable qui est exigée des commerçants avant l’arrivée des équipes.",
+    "transcript": "Question 17.\nLa collecte contre le gaspillage se tiendra jeudi à la fermeture du marché. Les bénévoles reprendront les fruits et légumes encore consommables qui n'ont pas trouvé preneur. Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage. Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes.\nSelon le document, quel type de préparation est demandé aux commerçants avant le passage des équipes de collecte ?",
     "segments": [
       {
         "voice": "female",
@@ -23,125 +23,237 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, que feront les bénévoles des fruits et légumes encore consommables qui n’ont pas trouvé preneur ?"
+        "text": "Selon le document, quel type de préparation est demandé aux commerçants avant le passage des équipes de collecte ?"
       }
     ],
     "audio": "q-17.mp3",
     "audioSeconds": null,
     "slotSeconds": 47
   },
-  "contentHash": "a98a9a5cca0b06e86b4ab820643fa3e895c2afc9e100b309f2dd7271ff97fb42",
+  "contentHash": "f5597cad87a6c4f4e29a346c352f562ce34246e506f2f50e0c44a20ee40ab2fb",
   "sourceHash": "954ea951f72f8194da3125a6cee1d3bbf545e4c86fa5d2c9f21bc55ad741dbeb",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-El00ZgYqNSEOFHhDApTEm1QK3cAeS",
+    "result": {
+      "question": "D’après le document, que doivent avoir fait les commerçants avant l’arrivée des équipes de collecte ?",
+      "choices": [
+        "Ils doivent avoir séparé les produits encore consommables de ceux destinés au compost.",
+        "Ils doivent avoir mis de côté seulement les produits abîmés, en laissant les autres sur l’étal.",
+        "Ils doivent avoir préparé tous les invendus, en laissant aux bénévoles le soin de décider ce qui part au compost.",
+        "Ils doivent avoir indiqué la quantité d’invendus à donner, sans modifier le tri habituel des produits."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes», juste après avoir distingué «les fruits et légumes encore consommables» des produits «orientés vers la filière de compostage». C’est bien cette séparation préalable qui est exigée des commerçants avant l’arrivée des équipes.",
+      "design": "Axe choisi : la préparation concrète demandée aux commerçants avant l’arrivée des équipes (type d’action préparatoire). Les quatre réponses proposent quatre consignes opérationnelles plausibles dans un dispositif de collecte d’invendus (tri préalable en deux flux, mise à part du seul abîmé, préparation globale en laissant le tri aux bénévoles, simple déclaration des quantités). Sans le document, chacune pourrait être la règle retenue par l’organisation ; seule l’écoute permet d’identifier qu’on demande explicitement aux commerçants de séparer eux-mêmes les deux catégories avant l’arrivée des équipes, et non de se limiter aux abîmés, de laisser le tri aux bénévoles ou de se contenter d’indiquer un volume.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option limite la préparation aux seuls produits abîmés, alors que le document demande de séparer les deux catégories. On confond l’exigence de tri complet avec une focalisation sur le compost, ce qui est plausible dans un contexte de gestion des déchets mais contraire à la consigne donnée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les produits abîmés ou non conformes à la consommation seront orientés vers la filière de compostage.",
+            "Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, on attribue aux bénévoles la responsabilité de décider sur place ce qui va au compost, alors que le texte impose ce tri en amont aux commerçants. C’est un renversement du rôle de tri entre commerçants et bénévoles, crédible dans l’organisation pratique mais contraire à la description.",
+          "operation": "role_swap",
+          "anchors": [
+            "Les bénévoles reprendront les fruits et légumes encore consommables",
+            "Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option transforme la préparation demandée en une simple indication de quantité, sans toucher au tri. Elle transpose la contrainte «avant l'arrivée des équipes» vers une obligation d’information plutôt que de séparation matérielle, ce qui serait logique dans d’autres dispositifs mais ne correspond pas ici à la tâche imposée.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "La collecte contre le gaspillage se tiendra jeudi à la fermeture du marché.",
+            "Les commerçants doivent séparer les deux catégories avant l'arrivée des équipes."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4414,
+      "completion_tokens": 950,
+      "total_tokens": 5364,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 251,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0150175,
+    "inputHash": "abada52c7db1be6bb63a10e12577864a2a2591952c1415435d367ee7699edbd7",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:16:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "D’après le document, que doivent avoir fait les commerçants avant l’arrivée des équipes de collecte ?",
+      "choices": [
+        "Ils doivent avoir séparé les produits encore consommables de ceux destinés au compost.",
+        "Ils doivent avoir préparé tous les invendus, en laissant aux bénévoles le soin de décider ce qui part au compost.",
+        "Ils doivent avoir mis de côté seulement les produits abîmés, en laissant les autres sur l’étal.",
+        "Ils doivent avoir indiqué la quantité d’invendus à donner, sans modifier le tri habituel des produits."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-El00szPPmyM88KuuTxSlinJc6TkGu",
+      "result": {
+        "question": "Selon le document, quel type de préparation est demandé aux commerçants avant le passage des équipes de collecte ?",
+        "choices": [
+          "Ils doivent trier les invendus entre ceux destinés à la redistribution et ceux orientés vers le compost.",
+          "Ils doivent rassembler l’ensemble des invendus et laisser aux bénévoles le soin de décider de leur utilisation.",
+          "Ils doivent isoler à part les produits abîmés tout en laissant les autres en rayon.",
+          "Ils doivent surtout déclarer le volume d’invendus prévu, sans modifier leur organisation habituelle des produits."
+        ],
+        "notes": "La question a été légèrement reformulée pour neutraliser les indices normatifs, en parlant de « type de préparation » plutôt que d’une obligation trop précise. Chaque choix décrit désormais une préparation différente mais crédible (tri détaillé, regroupement global, mise à part des abîmés, simple déclaration de volume), avec un niveau de professionnalisme et de précision comparable, sans qu’un seul ne paraisse évidemment plus raisonnable ou responsable que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 698,
+        "completion_tokens": 486,
+        "total_tokens": 1184,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 261,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0057325,
+      "inputHash": "217c04dac74c49f1d7c656efbee042ecc4c79996be7e91db056fca3a9b366d2b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:16:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
         1,
+        2,
         0,
-        3,
-        2
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyczM2lFRJ4q3IXfmUmguBXOuIhX",
+        "responseId": "chatcmpl-El00xW9vTu5ZKLrdGdyDHw5ZzCCW0",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur un marché solidaire, l’animatrice explique qu’en fin de matinée les bénévoles récupèrent les fruits et légumes encore consommables, puis les remettent en vente plus tard à prix réduit pour les clients à faible revenu."
+              "context": "Dans une campagne de collecte solidaire d’invendus alimentaires, une association explique par message vocal aux commerçants : « Avant notre passage, merci de simplement rassembler tous vos invendus en réserve. Nos bénévoles se chargeront sur place de décider ce qui peut être redistribué, transformé ou jeté. » Le commerçant n’a qu’à tout regrouper et laisser la décision aux bénévoles."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans un document sur une opération « collecte contre le gaspillage », on explique que les bénévoles passent sur le marché en fin de matinée pour reprendre les fruits et légumes encore consommables qui n’ont pas trouvé preneur, afin de les distribuer ensuite à une association caritative."
+              "context": "Une société de collecte de déchets alimentaires contacte les commerçants pour réduire les erreurs de tri : « Avant notre tournée, mettez uniquement les produits abîmés à part, nous prendrons le reste de vos rayons comme d’habitude. » La consigne principale est donc d’isoler les produits abîmés en amont de la collecte."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un exposé sur la gestion des invendus d’un marché, l’intervenant précise que, selon la convention signée, tous les produits qui n’ont pas trouvé preneur, même s’ils sont encore consommables, seront envoyés par les bénévoles vers la filière de compostage, parce qu’aucune redistribution alimentaire n’a été mise en place."
+              "context": "Une association d’aide alimentaire et une structure de compostage expliquent dans un message : « Nous vous demandons de préparer les invendus en les triant en deux lots : d’un côté les produits encore propres à la consommation pour la redistribution, de l’autre ceux trop dégradés qui iront au compost. » Les commerçants doivent clairement séparer ces deux flux avant le passage des équipes de collecte."
             },
             {
               "index": 3,
-              "credible": false,
-              "context": "Laisser des fruits et légumes encore consommables sur des étals de marché jusqu’à la fin du marché suivant impliquerait une conservation anormalement longue sans surveillance ni respect des règles sanitaires, ce qui n’est pas une situation ordinaire ni conforme aux pratiques usuelles de marché."
+              "credible": true,
+              "context": "Un service municipal teste un dispositif pilote de collecte des invendus et insiste surtout sur le suivi statistique : « Pour l’instant, avant notre passage, nous vous demandons surtout de nous déclarer le volume approximatif d’invendus, sans changer votre organisation habituelle des produits. » Les commerçants ne modifient rien, ils communiquent simplement un volume prévu."
             }
           ],
           "cues": [
             {
-              "option": 1,
-              "severity": "weak",
-              "cue": "Mention explicite de la « collecte contre le gaspillage », qui reprend les mots-clés de la question (bénévoles, gaspillage), et correspond typiquement au rôle d’un bénévole dans ce type de dispositif, alors que la vente à prix réduit et la simple filière de compostage sont moins directement liées au bénévolat et à la lutte contre le gaspillage de denrées encore consommables."
+              "option": 2,
+              "severity": "clear",
+              "cue": "La réponse 2 décrit précisément un tri opérationnel entre invendus redistribuables et invendus pour le compost, ce qui correspond typiquement à une exigence concrète de “préparation” avant une collecte. Elle est plus détaillée, plus structurée et plus directement liée à une logistique de collecte que les autres : 0 délègue entièrement le tri aux bénévoles (moins compatible avec une ‘préparation’ demandée), 1 ne concerne que les produits abîmés sans mentionner explicitement les invendus redistribuables, 3 minimise toute modification d’organisation alors que la question parle d’un ‘type de préparation’ demandé."
             }
           ],
-          "standsOut": false,
+          "standsOut": true,
           "probabilities": [
             0.15,
-            0.6,
             0.15,
-            0.1
+            0.55,
+            0.15
           ],
-          "guess": 1,
-          "reason": "La formulation de l’option 1 reprend directement l’idée d’une collecte contre le gaspillage menée par des bénévoles, ce qui cadre bien avec la question, tandis que les autres options sont plausibles mais un peu moins alignées avec ce rôle spécifique et avec le fait que les produits sont encore consommables."
+          "guess": 2,
+          "reason": "La formulation de la question insiste sur un ‘type de préparation’ demandé aux commerçants avant le passage des équipes, ce qui suggère une action concrète de tri ou d’organisation préalable. Parmi les choix, seule la réponse 2 explicite un tri complet et structuré des invendus (redistribution vs compost), typique d’un dispositif de collecte alimentaire. Les autres réponses sont plausibles en abstraction mais soit minimisent la préparation (3), soit la rendent trop passive (0) ou partielle (1). Cela confère à la réponse 2 un avantage net, d’où une probabilité nettement plus élevée bien que l’incertitude demeure en l’absence du document sonore."
         },
         "usage": {
-          "prompt_tokens": 636,
-          "completion_tokens": 680,
-          "total_tokens": 1316,
+          "prompt_tokens": 662,
+          "completion_tokens": 883,
+          "total_tokens": 1545,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 183,
+            "reasoning_tokens": 185,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.007595,
-        "inputHash": "bf862cb082c1517c4a19265362cba4310a26556a767603f9d1e95475701261df",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:16:initial:screen:6:0"
+        "costUsd": 0.0096575,
+        "inputHash": "668b14a0bc9b2ed0175b4775b836f7d0f3b5ebed1336fcc31c6519934b2074cd",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:16:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La formulation de l’option 1 reprend directement l’idée d’une collecte contre le gaspillage menée par des bénévoles, ce qui cadre bien avec la question, tandis que les autres options sont plausibles mais un peu moins alignées avec ce rôle spécifique et avec le fait que les produits sont encore consommables.",
+    "reason": "La formulation de la question insiste sur un ‘type de préparation’ demandé aux commerçants avant le passage des équipes, ce qui suggère une action concrète de tri ou d’organisation préalable. Parmi les choix, seule la réponse 2 explicite un tri complet et structuré des invendus (redistribution vs compost), typique d’un dispositif de collecte alimentaire. Les autres réponses sont plausibles en abstraction mais soit minimisent la préparation (3), soit la rendent trop passive (0) ou partielle (1). Cela confère à la réponse 2 un avantage net, d’où une probabilité nettement plus élevée bien que l’incertitude demeure en l’absence du document sonore.",
     "cues": [
       {
-        "option": 1,
-        "severity": "weak",
-        "cue": "Mention explicite de la « collecte contre le gaspillage », qui reprend les mots-clés de la question (bénévoles, gaspillage), et correspond typiquement au rôle d’un bénévole dans ce type de dispositif, alors que la vente à prix réduit et la simple filière de compostage sont moins directement liées au bénévolat et à la lutte contre le gaspillage de denrées encore consommables."
+        "option": 2,
+        "severity": "clear",
+        "cue": "La réponse 2 décrit précisément un tri opérationnel entre invendus redistribuables et invendus pour le compost, ce qui correspond typiquement à une exigence concrète de “préparation” avant une collecte. Elle est plus détaillée, plus structurée et plus directement liée à une logistique de collecte que les autres : 0 délègue entièrement le tri aux bénévoles (moins compatible avec une ‘préparation’ demandée), 1 ne concerne que les produits abîmés sans mentionner explicitement les invendus redistribuables, 3 minimise toute modification d’organisation alors que la question parle d’un ‘type de préparation’ demandé."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur un marché solidaire, l’animatrice explique qu’en fin de matinée les bénévoles récupèrent les fruits et légumes encore consommables, puis les remettent en vente plus tard à prix réduit pour les clients à faible revenu."
+        "context": "Dans une campagne de collecte solidaire d’invendus alimentaires, une association explique par message vocal aux commerçants : « Avant notre passage, merci de simplement rassembler tous vos invendus en réserve. Nos bénévoles se chargeront sur place de décider ce qui peut être redistribué, transformé ou jeté. » Le commerçant n’a qu’à tout regrouper et laisser la décision aux bénévoles."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans un document sur une opération « collecte contre le gaspillage », on explique que les bénévoles passent sur le marché en fin de matinée pour reprendre les fruits et légumes encore consommables qui n’ont pas trouvé preneur, afin de les distribuer ensuite à une association caritative."
+        "context": "Une société de collecte de déchets alimentaires contacte les commerçants pour réduire les erreurs de tri : « Avant notre tournée, mettez uniquement les produits abîmés à part, nous prendrons le reste de vos rayons comme d’habitude. » La consigne principale est donc d’isoler les produits abîmés en amont de la collecte."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un exposé sur la gestion des invendus d’un marché, l’intervenant précise que, selon la convention signée, tous les produits qui n’ont pas trouvé preneur, même s’ils sont encore consommables, seront envoyés par les bénévoles vers la filière de compostage, parce qu’aucune redistribution alimentaire n’a été mise en place."
+        "context": "Une association d’aide alimentaire et une structure de compostage expliquent dans un message : « Nous vous demandons de préparer les invendus en les triant en deux lots : d’un côté les produits encore propres à la consommation pour la redistribution, de l’autre ceux trop dégradés qui iront au compost. » Les commerçants doivent clairement séparer ces deux flux avant le passage des équipes de collecte."
       },
       {
         "index": 3,
-        "credible": false,
-        "context": "Laisser des fruits et légumes encore consommables sur des étals de marché jusqu’à la fin du marché suivant impliquerait une conservation anormalement longue sans surveillance ni respect des règles sanitaires, ce qui n’est pas une situation ordinaire ni conforme aux pratiques usuelles de marché."
+        "credible": true,
+        "context": "Un service municipal teste un dispositif pilote de collecte des invendus et insiste surtout sur le suivi statistique : « Pour l’instant, avant notre passage, nous vous demandons surtout de nous déclarer le volume approximatif d’invendus, sans changer votre organisation habituelle des produits. » Les commerçants ne modifient rien, ils communiquent simplement un volume prévu."
       }
     ]
   },

@@ -2,16 +2,16 @@
   "question": {
     "number": 23,
     "kind": "panel-discussion",
-    "question": "Après l’expérience avec deux nouveaux menus, que prévoit-on de faire spécifiquement des réactions des élèves et de l’équipe ?",
+    "question": "Pendant le mois d’essai annoncé par la direction, sur quel critère principal affirme-t-elle vouloir s’appuyer pour juger des nouveaux menus végétariens ?",
     "options": [
-      "Les garder pour une discussion interne limitée à la direction de l’école.",
-      "Les rendre publiques au sein de l’établissement, sous forme de compte rendu.",
-      "Les utiliser uniquement pour ajuster discrètement les recettes en cuisine.",
-      "Les transmettre en priorité à la mairie et aux parents pour décider de la suite du projet."
+      "Le temps supplémentaire nécessaire en cuisine.",
+      "La quantité de restes laissés dans les assiettes.",
+      "Les avis recueillis auprès des parents d’élèves.",
+      "Le coût des ingrédients par rapport aux menus habituels."
     ],
     "correct": "B",
-    "explanation": "Le document se termine par « commençons par cette expérience, puis publions les réactions des élèves et de l'équipe ». Il est donc explicitement prévu de rendre ces réactions publiques, au moins dans le cadre de l’établissement, sous une forme de publication ou de compte rendu partagé. Rien n’indique qu’elles seraient réservées à la cuisine, à la seule direction, ni envoyées en priorité à la mairie ou aux parents.",
-    "transcript": "Question 23.\nVous écoutez une discussion consacrée à la cantine scolaire. Comment proposer davantage de plats végétariens ?\nJe suis cuisinier. Nous pouvons changer les recettes, mais il faut apprendre à les préparer en grande quantité sans augmenter le gaspillage.\nJe représente des parents. Les enfants accepteront mieux les changements s'ils peuvent goûter et donner leur avis.\nDu côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes.\nAlors, commençons par cette expérience, puis publions les réactions des élèves et de l'équipe.\nAprès l’expérience avec deux nouveaux menus, que prévoit-on de faire spécifiquement des réactions des élèves et de l’équipe ?",
+    "explanation": "La direction dit clairement : « nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes ». Le critère annoncé pour évaluer l’essai est donc la quantité de restes, et non le coût, le temps de préparation ou l’avis des parents.",
+    "transcript": "Question 23.\nVous écoutez une discussion consacrée à la cantine scolaire. Comment proposer davantage de plats végétariens ?\nJe suis cuisinier. Nous pouvons changer les recettes, mais il faut apprendre à les préparer en grande quantité sans augmenter le gaspillage.\nJe représente des parents. Les enfants accepteront mieux les changements s'ils peuvent goûter et donner leur avis.\nDu côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes.\nAlors, commençons par cette expérience, puis publions les réactions des élèves et de l'équipe.\nPendant le mois d’essai annoncé par la direction, sur quel critère principal affirme-t-elle vouloir s’appuyer pour juger des nouveaux menus végétariens ?",
     "segments": [
       {
         "voice": "female",
@@ -39,126 +39,464 @@
       },
       {
         "voice": "female",
-        "text": "Après l’expérience avec deux nouveaux menus, que prévoit-on de faire spécifiquement des réactions des élèves et de l’équipe ?"
+        "text": "Pendant le mois d’essai annoncé par la direction, sur quel critère principal affirme-t-elle vouloir s’appuyer pour juger des nouveaux menus végétariens ?"
       }
     ],
     "audio": "q-23.mp3",
     "audioSeconds": null,
     "slotSeconds": 60
   },
-  "contentHash": "5b298cfe17be439ab10cfe765ec217c45a008f35ed0044e4cfcf2430fb55d835",
+  "contentHash": "7d11e092ad6f2b000a45e21c981e4c414e7b4eef04f03da830a4824fd05a3cad",
   "sourceHash": "ccdbbeebfce1f75291759195c9bd0b2533d097652707db590f2644d9246a614f",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzVgxFyQl5xKfPSukwPLOI0s8zAv",
+    "result": {
+      "question": "Pendant le mois d’essai évoqué par la direction, sur quel élément précis dit-elle vouloir se baser pour évaluer les nouveaux menus végétariens ?",
+      "choices": [
+        "Le coût des ingrédients par rapport aux menus habituels.",
+        "La quantité de restes laissés dans les assiettes.",
+        "Le temps supplémentaire nécessaire en cuisine.",
+        "Les retours recueillis auprès des parents d’élèves."
+      ],
+      "correctIndex": 1,
+      "explanation": "La direction dit clairement : « nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes ». Le critère annoncé pour évaluer l’essai est donc la quantité de restes, et non le coût, le temps de préparation ou l’avis des parents.",
+      "design": "On cible un détail précis : l’indicateur choisi par la direction pour évaluer l’essai d’un mois (axe commun : critère d’évaluation possible des nouveaux menus). Les quatre options sont toutes des critères réalistes dans une cantine scolaire : coût, restes, temps de préparation, avis des parents. Sans l’audio, chacune pourrait être défendue. Seule l’écoute permet d’identifier que la direction parle de « mesurer les restes », et non des autres critères, qui sont suggérés ailleurs (gaspillage en cuisine, avis des enfants) ou plausibles par contexte (coût, retours des parents).",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "On peut croire que la direction surveillera le coût, critère très plausible pour une cantine. Mais le passage sur le coût n’apparaît jamais : elle parle seulement d’un mois d’essai et de la mesure des restes, sans mention de prix ou de budget.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes.",
+            "Comment proposer davantage de plats végétariens ?"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le cuisinier insiste sur l’apprentissage de recettes « en grande quantité » et sur le gaspillage, ce qui peut faire penser à un suivi du temps ou de la charge de travail. Pourtant, la direction ne retient comme critère que la mesure des restes, sans évoquer la durée de préparation.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous pouvons changer les recettes, mais il faut apprendre à les préparer en grande quantité sans augmenter le gaspillage.",
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Les parents parlent d’« enfants » qui doivent « goûter et donner leur avis », d’où la tentation de croire que la direction misera sur les retours des familles. En réalité, l’indicateur annoncé par la direction est uniquement la mesure des restes, et aucun envoi systématique de retours parentaux n’est mentionné.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Je représente des parents. Les enfants accepteront mieux les changements s'ils peuvent goûter et donner leur avis.",
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4375,
+      "completion_tokens": 1010,
+      "total_tokens": 5385,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 347,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01556875,
+    "inputHash": "25fa616c6053dc1377f9d599b6dad995682524fa28d5ebe06db29a14b43e1918",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Pendant le mois d’essai évoqué par la direction, sur quel élément précis dit-elle vouloir se baser pour évaluer les nouveaux menus végétariens ?",
+      "choices": [
+        "Le temps supplémentaire nécessaire en cuisine.",
+        "La quantité de restes laissés dans les assiettes.",
+        "Les retours recueillis auprès des parents d’élèves.",
+        "Le coût des ingrédients par rapport aux menus habituels."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzVzw8h4Bi84TctsAVEGOd2Cwkcp",
+      "result": {
+        "question": "Pendant le mois d’essai annoncé par la direction, sur quel critère principal affirme-t-elle vouloir s’appuyer pour juger des nouveaux menus végétariens ?",
+        "choices": [
+          "Le temps supplémentaire nécessaire en cuisine.",
+          "La quantité de restes laissés dans les assiettes.",
+          "Les avis recueillis auprès des parents d’élèves.",
+          "Le coût des ingrédients par rapport aux menus habituels."
+        ],
+        "notes": "La question reste centrée sur le critère principal d’évaluation du mois d’essai sans suggérer qu’un critère mesurable ou qualitatif serait préférable. Les quatre options sont formulées de manière parallèle, concrète et professionnelle (temps de travail, gaspillage, retours utilisateurs, coût), sans qu’aucune ne paraisse évidemment plus raisonnable ou complète que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 666,
+        "completion_tokens": 386,
+        "total_tokens": 1052,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 207,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0046925,
+      "inputHash": "eacaffdcbca7ceb945ffbb88a8c3ae3368688ed82c5ba15084a5c6986ae7285a",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
+        0,
         1,
         3,
-        2,
-        0
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyG32Yo9m3dQf2y9jLclwDE5681R",
+        "responseId": "chatcmpl-EkzW4KUELjzf5552lftA8nGmT3cmo",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une réunion de bilan à la fin d’un test de deux nouveaux menus à la cantine, la direction explique que toutes les réactions des élèves et de l’équipe seront synthétisées dans un compte rendu diffusé en interne (affichage, intranet) pour informer l’ensemble de l’établissement des résultats de l’expérience."
+              "context": "Réunion d’équipe dans une cantine scolaire : la direction explique que le mois d’essai des menus végétariens servira surtout à voir si l’organisation reste tenable. Elle précise qu’elle jugera principalement ces nouveaux menus en fonction du temps supplémentaire qu’ils demandent en cuisine, pour vérifier que la charge de travail reste raisonnable pour le personnel."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une présentation de projet de menus expérimentaux, la responsable de la restauration scolaire précise qu’après l’essai des deux nouveaux menus, les réactions des élèves et de l’équipe seront rassemblées et envoyées en priorité à la mairie (qui gère la cantine) et aux parents, afin qu’ils participent à la décision de poursuivre, modifier ou arrêter le projet."
+              "context": "Réunion d’information aux parents : la direction présente un mois d’essai de menus végétariens. Elle indique qu’elle évaluera surtout si les élèves mangent réellement ces plats, en observant la quantité de restes dans les assiettes comme critère principal de réussite ou d’échec des nouveaux menus."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Un chef de cuisine scolaire explique à son équipe que l’expérimentation de deux nouveaux menus servira surtout à recueillir les réactions des élèves et du personnel, et que ces retours seront utilisés en cuisine pour ajuster les recettes (quantités, assaisonnements, présentations) sans forcément communiquer largement sur ces ajustements."
+              "context": "Conseil d’administration d’un établissement : la direction annonce qu’un mois d’essai de menus végétariens va être lancé. Elle explique qu’elle se basera principalement sur le coût des ingrédients, comparé à celui des menus habituels, pour décider si ces menus peuvent être adoptés durablement."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une école où la direction veut rester prudente sur un changement de menus, le directeur annonce que les réactions des élèves et de l’équipe seront recueillies mais réservées à une discussion interne au sein de la seule direction, avant toute éventuelle communication plus large ou décision officielle."
+              "context": "Réunion parents-professeurs : la direction annonce un mois d’essai des menus végétariens à la cantine et insiste sur le dialogue avec les familles. Elle précise qu’elle jugera surtout ces nouveaux menus à partir des avis recueillis auprès des parents d’élèves via questionnaires et réunions."
             }
           ],
-          "cues": [
-            {
-              "option": 1,
-              "severity": "clear",
-              "cue": "La réponse 1 reprend explicitement la logique temporelle et décisionnelle contenue dans la question : « Après l’expérience avec deux nouveaux menus » et « pour décider de la suite du projet ». C’est la seule option qui formule clairement l’usage des réactions comme base de décision sur la poursuite du projet, ce qui correspond directement à l’idée d’une expérimentation suivie d’un choix sur la suite."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.2,
-            0.45,
-            0.2,
-            0.15
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
           "guess": 1,
-          "reason": "Toutes les options peuvent décrire un usage possible des réactions, mais l’option 1 correspond le mieux à la structure de la question : on mène une expérience puis on utilise les réactions pour décider de la suite. Cette correspondance explicite avec « après l’expérience » et la notion de projet en cours donne un avantage concret, bien que l’incertitude reste notable faute d’accès à l’enregistrement."
+          "reason": "Les quatre critères sont ordinaires et directement pertinents pour évaluer des menus végétariens à l’essai (organisation du travail, acceptation par les élèves, coût, retours des parents). Aucune formulation de réponse ne présente un avantage formel net ou une inadéquation évidente avec la question. Faute d’indice textuel clair dans l’intitulé ou les réponses, il reste une forte incertitude et les probabilités sont réparties de manière uniforme. L’option 1 est retenue comme meilleur pari par simple préférence intuitive pour un critère centré sur le comportement réel des élèves (les restes), mais ce n’est pas appuyé par un indice lexical décisif dans l’énoncé."
         },
         "usage": {
-          "prompt_tokens": 639,
-          "completion_tokens": 980,
-          "total_tokens": 1619,
+          "prompt_tokens": 630,
+          "completion_tokens": 717,
+          "total_tokens": 1347,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 443,
+            "reasoning_tokens": 215,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01059875,
-        "inputHash": "1f10b937ef6cc9e9f1112ac806dac3af78c95aeddd5c593838a8844940600871",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:initial:screen:6:0"
+        "costUsd": 0.0079575,
+        "inputHash": "9fbdd82810af4edb40e981170c79178e80e02ce23c69d72f64a33dab2fa070fd",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:screen:6:edited:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzWEalUdy4uJCR6HEbQJGOxHoLwI",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’information dans une cantine scolaire : la direction présente l’expérimentation de menus végétariens et explique qu’elle évaluera surtout si l’organisation reste viable en cuisine, en précisant que le critère principal sera le temps supplémentaire nécessaire pour préparer ces nouveaux plats."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Présentation budgétaire par la direction d’un établissement scolaire ou d’une collectivité : pour justifier ou non la poursuite de menus végétariens, la direction annonce que le critère principal sera la comparaison du coût des ingrédients avec celui des menus habituels."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Réunion de rentrée avec les parents où la direction et la responsable de la cantine expliquent que, pendant un mois d’essai de menus végétariens, elles se baseront surtout sur la quantité de restes dans les assiettes afin de mesurer l’acceptation des enfants et d’évaluer le succès des nouveaux menus."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Visioconférence entre la direction d’un établissement et les parents : la direction annonce un mois d’essai de menus végétariens et précise qu’elle s’appuiera principalement sur les avis recueillis auprès des parents d’élèves (questionnaires, courriels, réunions) pour décider de la suite."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Tous les critères pourraient raisonnablement être annoncés comme principaux pour juger des nouveaux menus végétariens ; aucun indice textuel net ne favorise clairement une option, même si l’idée de mesurer les restes est une façon assez naturelle d’évaluer l’acceptation des menus, d’où un léger choix par défaut de l’option 2 malgré une forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 619,
+          "total_tokens": 1249,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 206,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0069775,
+        "inputHash": "f56b94c86ca488d82ff934ba1c580ce56414ef53d20e1e242a08ac8c5ad0e10a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:screen:6:edited:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzWMynE6GUitzzoSBH5SzEG9Lsx3",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’information à la cantine scolaire : la direction explique qu’un mois d’essai de menus végétariens va être mis en place et qu’elle se basera principalement sur les retours et questionnaires adressés aux parents d’élèves pour décider si ces menus seront conservés ou adaptés."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Discussion interne entre la direction et le personnel de cuisine : la direction annonce un mois d’essai pour de nouveaux menus végétariens et précise que le critère principal d’évaluation sera le temps de préparation supplémentaire nécessaire en cuisine par rapport aux menus habituels."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Présentation aux enseignants et au personnel de cantine : la direction indique qu’un mois d’essai de menus végétariens sera mené et que le critère principal pour juger de leur succès sera la quantité de restes dans les assiettes, afin de voir si les élèves mangent réellement ces plats."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion budgétaire de la cantine scolaire : la direction annonce le lancement d’un mois d’essai avec des menus végétariens et précise que le critère principal sera le coût des ingrédients comparé à celui des menus habituels, pour vérifier la viabilité financière du changement."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Toutes les options peuvent servir de critère principal dans un mois d’essai de menus végétariens, sans indice textuel clair permettant d’en privilégier une. Aucun avantage de formulation, de longueur ou de portée ne se détache nettement, d’où une forte incertitude malgré un choix obligé."
+        },
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 589,
+          "total_tokens": 1219,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 199,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0066775,
+        "inputHash": "3440117bc6e4022e47448bc710d065ab4116129608b29641c2667ab0c4ed9347",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:screen:6:edited:2"
       }
     }
   ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzWTPp3A2EaxyX8TBCTrtkPcrC0a",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La direction explique que, pendant le mois d’essai avec deux nouveaux menus végétariens, elle veut surtout « mesurer les restes » : le critère principal sera donc la quantité de restes laissés dans les assiettes, non pas le temps de préparation, l’avis des parents ni le coût des ingrédients.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous pouvons changer les recettes, mais il faut apprendre à les préparer en grande quantité sans augmenter le gaspillage."
+          ],
+          "reason": "On parle bien d’organisation en cuisine et de gaspillage, ce qui peut faire penser à une contrainte de temps ou de travail en cuisine. Cependant cette phrase est dite par le cuisinier (« Je suis cuisinier. »), et elle n’est pas présentée comme un critère d’évaluation pendant le mois d’essai. La direction, elle, précise un autre critère (« mesurer les restes »), sans jamais évoquer le temps supplémentaire nécessaire.",
+          "misunderstanding": "speaker_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ],
+          "reason": "La direction décrit clairement son projet : pendant un mois d’essai avec deux nouveaux menus, elle veut « mesurer les restes ». Cela signifie que le critère principal pour juger des nouveaux menus végétariens sera la quantité de restes laissés dans les assiettes.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je représente des parents. Les enfants accepteront mieux les changements s'ils peuvent goûter et donner leur avis."
+          ],
+          "reason": "On entend parler d’« avis », ce qui peut faire croire qu’on jugera les menus grâce aux retours des parents. Mais c’est le représentant des parents qui parle, et il s’agit de l’avis des enfants, pas des parents. Surtout, la direction, quand elle annonce le mois d’essai, ne mentionne pas les avis des parents comme critère ; elle parle uniquement de « mesurer les restes ».",
+          "misunderstanding": "role_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ],
+          "reason": "Aucun passage ne fait référence au « coût des ingrédients » ni à une comparaison de prix avec les menus habituels. Le seul critère explicite annoncé par la direction pour ce mois d’essai est de « mesurer les restes » ; le coût n’est jamais évoqué dans l’enregistrement.",
+          "misunderstanding": "irrelevant_inference"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 789,
+      "completion_tokens": 924,
+      "total_tokens": 1713,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 307,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01022625,
+    "inputHash": "168c1d9686dd4b584460bc0afef0a90d37c6c642eb005c5d388ec9b9d3b0bdbf",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:22:14721af7be4c27b55696caf7:ground:6:edited"
+  },
   "feedback": {
-    "stage": "blind",
-    "reason": "Toutes les options peuvent décrire un usage possible des réactions, mais l’option 1 correspond le mieux à la structure de la question : on mène une expérience puis on utilise les réactions pour décider de la suite. Cette correspondance explicite avec « après l’expérience » et la notion de projet en cours donne un avantage concret, bien que l’incertitude reste notable faute d’accès à l’enregistrement.",
-    "cues": [
-      {
-        "option": 1,
-        "severity": "clear",
-        "cue": "La réponse 1 reprend explicitement la logique temporelle et décisionnelle contenue dans la question : « Après l’expérience avec deux nouveaux menus » et « pour décider de la suite du projet ». C’est la seule option qui formule clairement l’usage des réactions comme base de décision sur la poursuite du projet, ce qui correspond directement à l’idée d’une expérimentation suivie d’un choix sur la suite."
-      }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Dans une réunion de bilan à la fin d’un test de deux nouveaux menus à la cantine, la direction explique que toutes les réactions des élèves et de l’équipe seront synthétisées dans un compte rendu diffusé en interne (affichage, intranet) pour informer l’ensemble de l’établissement des résultats de l’expérience."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Lors d’une présentation de projet de menus expérimentaux, la responsable de la restauration scolaire précise qu’après l’essai des deux nouveaux menus, les réactions des élèves et de l’équipe seront rassemblées et envoyées en priorité à la mairie (qui gère la cantine) et aux parents, afin qu’ils participent à la décision de poursuivre, modifier ou arrêter le projet."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Un chef de cuisine scolaire explique à son équipe que l’expérimentation de deux nouveaux menus servira surtout à recueillir les réactions des élèves et du personnel, et que ces retours seront utilisés en cuisine pour ajuster les recettes (quantités, assaisonnements, présentations) sans forcément communiquer largement sur ces ajustements."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Dans une école où la direction veut rester prudente sur un changement de menus, le directeur annonce que les réactions des élèves et de l’équipe seront recueillies mais réservées à une discussion interne au sein de la seule direction, avant toute éventuelle communication plus large ou décision officielle."
-      }
+    "stage": "ground",
+    "assessment": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La direction explique que, pendant le mois d’essai avec deux nouveaux menus végétariens, elle veut surtout « mesurer les restes » : le critère principal sera donc la quantité de restes laissés dans les assiettes, non pas le temps de préparation, l’avis des parents ni le coût des ingrédients.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous pouvons changer les recettes, mais il faut apprendre à les préparer en grande quantité sans augmenter le gaspillage."
+          ],
+          "reason": "On parle bien d’organisation en cuisine et de gaspillage, ce qui peut faire penser à une contrainte de temps ou de travail en cuisine. Cependant cette phrase est dite par le cuisinier (« Je suis cuisinier. »), et elle n’est pas présentée comme un critère d’évaluation pendant le mois d’essai. La direction, elle, précise un autre critère (« mesurer les restes »), sans jamais évoquer le temps supplémentaire nécessaire.",
+          "misunderstanding": "speaker_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ],
+          "reason": "La direction décrit clairement son projet : pendant un mois d’essai avec deux nouveaux menus, elle veut « mesurer les restes ». Cela signifie que le critère principal pour juger des nouveaux menus végétariens sera la quantité de restes laissés dans les assiettes.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je représente des parents. Les enfants accepteront mieux les changements s'ils peuvent goûter et donner leur avis."
+          ],
+          "reason": "On entend parler d’« avis », ce qui peut faire croire qu’on jugera les menus grâce aux retours des parents. Mais c’est le représentant des parents qui parle, et il s’agit de l’avis des enfants, pas des parents. Surtout, la direction, quand elle annonce le mois d’essai, ne mentionne pas les avis des parents comme critère ; elle parle uniquement de « mesurer les restes ».",
+          "misunderstanding": "role_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Du côté de la direction, nous pourrions essayer deux nouveaux menus pendant un mois et mesurer les restes."
+          ],
+          "reason": "Aucun passage ne fait référence au « coût des ingrédients » ni à une comparaison de prix avec les menus habituels. Le seul critère explicite annoncé par la direction pour ce mois d’essai est de « mesurer les restes » ; le coût n’est jamais évoqué dans l’enregistrement.",
+          "misunderstanding": "irrelevant_inference"
+        }
+      ]
+    },
+    "errors": [
+      "Distractor lacks a specific plausible misunderstanding at 3"
     ]
   },
   "imageHash": null,

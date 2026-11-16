@@ -2,16 +2,16 @@
   "question": {
     "number": 37,
     "kind": "interview",
-    "question": "Selon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?",
+    "question": "Selon le document, quel paramètre le locuteur indique-t-il qu’il reste encore à analyser dans l’étude ?",
     "options": [
-      "La distance entre les immeubles et le chantier",
-      "Les horaires de repos des habitants",
-      "La durée d’exposition au bruit",
-      "Le nombre de résidents concernés"
+      "L’orientation exacte de chaque façade du bâtiment",
+      "Les horaires précis prévus pour les travaux",
+      "La durée d’exposition des occupants au bruit",
+      "La surface intérieure totale des logements"
     ],
     "correct": "C",
-    "explanation": "Le locuteur précise : \"Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition\". La durée d’exposition est donc désignée explicitement comme un autre aspect du bruit à analyser, en plus du niveau mesuré. Les façades renvoient plutôt à la position des appartements, le nombre de résidents n’est jamais présenté comme une grandeur à analyser, et les horaires de repos concernent les moments où les habitants sont vulnérables, pas une caractéristique propre du bruit lui‑même.",
-    "transcript": "Question 37.\nCertains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?\nLeurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures.\nSelon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?",
+    "explanation": "Le locuteur affirme : \"Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos.\" Le paramètre explicitement ajouté aux niveaux sonores est donc la durée d’exposition au bruit. L’orientation des façades est évoquée comme une explication déjà constatée des différences de ressenti, pas comme un paramètre à encore examiner. Les horaires des travaux ne sont jamais mentionnés (seulement les horaires de repos), et la surface des logements n’apparaît pas dans le document.",
+    "transcript": "Question 37.\nCertains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne. Comment expliquer cette différence ?\nLeurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit. Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos. Le même bruit peut avoir des conséquences très différentes. Conserver les témoignages permet de comprendre cette répartition, sans renoncer aux données objectives des mesures.\nSelon le document, quel paramètre le locuteur indique-t-il qu’il reste encore à analyser dans l’étude ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, quel autre aspect permettant de caractériser directement la nuisance sonore l’intervenant prévoit-il d’analyser, en plus des niveaux sonores ?"
+        "text": "Selon le document, quel paramètre le locuteur indique-t-il qu’il reste encore à analyser dans l’étude ?"
       }
     ],
     "audio": "q-37.mp3",
@@ -36,111 +36,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzyIOnYc3SlQXCiYbQ7NGd8BC4CC",
+    "result": {
+      "question": "Selon le document, quel paramètre le locuteur dit-il qu’il faut encore examiner, en plus des niveaux sonores mesurés ?",
+      "choices": [
+        "La durée d’exposition au bruit",
+        "L’orientation précise de chaque façade",
+        "Les horaires détaillés des travaux",
+        "La surface intérieure des logements"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le locuteur affirme : \"Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition et les horaires de repos.\" Le paramètre explicitement ajouté aux niveaux sonores est donc la durée d’exposition au bruit. L’orientation des façades est évoquée comme une explication déjà constatée des différences de ressenti, pas comme un paramètre à encore examiner. Les horaires des travaux ne sont jamais mentionnés (seulement les horaires de repos), et la surface des logements n’apparaît pas dans le document.",
+      "design": "On teste un lien précis : parmi plusieurs paramètres possibles pour analyser la gêne liée au chantier, lequel le locuteur ajoute explicitement aux niveaux sonores déjà mesurés. Les quatre réponses restent dans la même famille sémantique (paramètres techniques ou contextuels pouvant influencer la gêne acoustique) et répondent toutes directement au stem. Sans le document, il serait raisonnable de penser qu’on doive examiner l’orientation des façades, les horaires des travaux ou la taille des logements autant que la durée d’exposition ; seule l’écoute permet d’identifier la durée d’exposition comme le paramètre explicitement nommé.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’orientation des façades est bien citée comme facteur de différence entre résidents, ce qui rend crédible l’idée qu’il faudrait encore l’« examiner ». En réalité, elle est présentée comme une explication déjà identifiée, tandis que le locuteur réserve la formule « nous devons aussi examiner » à la durée d’exposition et aux horaires de repos.",
+          "operation": "role_swap",
+          "anchors": [
+            "Leurs appartements ne donnent pas tous sur la même façade",
+            "nous devons aussi examiner la durée d'exposition et les horaires de repos"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les horaires influencent logiquement la gêne sonore, donc il est tentant de croire que le document parle d’horaires de travaux. Mais le locuteur évoque uniquement les « horaires de repos » comme élément à examiner, en complément de la durée d’exposition, sans jamais mentionner un examen des horaires détaillés du chantier lui-même.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "les horaires de repos",
+            "Nous avons mesuré les niveaux sonores, mais nous devons aussi examiner la durée d'exposition"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On peut juger plausible que la taille des logements influe sur la perception du bruit, par exemple parce qu’un petit espace protège moins. Toutefois, le document ne parle que de la façade, du travail de nuit, de la durée d’exposition et des horaires de repos, sans aucune référence à la surface intérieure comme paramètre à examiner.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Certains résidents disent que le chantier est supportable; d'autres parlent d'une gêne quotidienne.",
+            "Leurs appartements ne donnent pas tous sur la même façade et certaines personnes travaillent de nuit."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4474,
+      "completion_tokens": 1304,
+      "total_tokens": 5778,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 624,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0186325,
+    "inputHash": "c0981d8f7b10d3f7b7296781175c874356fc54e6585a3f4900bb076f707f73b9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:36:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quel paramètre le locuteur dit-il qu’il faut encore examiner, en plus des niveaux sonores mesurés ?",
+      "choices": [
+        "L’orientation précise de chaque façade",
+        "Les horaires détaillés des travaux",
+        "La durée d’exposition au bruit",
+        "La surface intérieure des logements"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzyjO6geIJipdNiFKh19LsZoxbD1",
+      "result": {
+        "question": "Selon le document, quel paramètre le locuteur indique-t-il qu’il reste encore à analyser dans l’étude ?",
+        "choices": [
+          "L’orientation exacte de chaque façade du bâtiment",
+          "Les horaires précis prévus pour les travaux",
+          "La durée d’exposition des occupants au bruit",
+          "La surface intérieure totale des logements"
+        ],
+        "notes": "Le rappel explicite des niveaux sonores mesurés dans l’énoncé a été supprimé pour que les quatre paramètres paraissent également plausibles à examiner dans l’étude. Chaque choix reste un paramètre concret et distinct, formulé de manière professionnelle, sans qu’un d’eux apparaisse comme naturellement plus pertinent ou prudent que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 646,
+        "completion_tokens": 599,
+        "total_tokens": 1245,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 446,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0067975,
+      "inputHash": "3e7d932b5e35a97bedce48a9f795d8880e5b1e243179794b48af01da263173a1",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:36:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
-        1,
+        2,
         0,
-        2
+        3,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkybHb6nn5qnIac8FhbgRpHWW0MQU",
+        "responseId": "chatcmpl-EkzytUgzfBtSEGrvQUFsJ9o7SE26k",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une réunion de concertation sur un chantier urbain, un ingénieur acousticien présente son étude d’impact : il explique qu’il ne se contente pas de mesurer les décibels mais regarde aussi combien de résidents sont concernés, afin d’évaluer l’ampleur de la nuisance sonore pour le voisinage."
+              "context": "Un ingénieur acousticien présente les résultats provisoires d’une étude d’impact sonore dans un immeuble d’habitation : il explique qu’ils ont déjà mesuré les niveaux de bruit dans les pièces et modélisé l’isolation, mais qu’il reste encore à analyser un paramètre important, à savoir la durée d’exposition des occupants au bruit."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une présentation à des riverains, un spécialiste du bruit urbain explique qu’il analyse les niveaux sonores et également les horaires de repos des habitants (nuit, sieste, tôt le matin) pour apprécier à quel point le bruit est réellement nuisible au quotidien."
+              "context": "Un architecte rend compte d’une étude sur le confort thermique et lumineux d’un bâtiment. Il dit qu’ils ont évalué les matériaux et les surfaces vitrées, mais qu’il reste un paramètre à analyser dans l’étude : l’orientation exacte de chaque façade du bâtiment, qui influencera l’ensoleillement et les apports solaires."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un exposé sur le suivi acoustique d’un chantier, l’intervenant précise qu’il tient compte des niveaux sonores mesurés et de la distance entre les immeubles et le chantier pour mieux caractériser la nuisance sonore pour les riverains proches et lointains."
+              "context": "Un bureau d’études explique à un conseil syndical les premières conclusions d’une étude énergétique. Le technicien précise qu’ils ont déjà intégré les types de parois et les systèmes de chauffage, mais qu’il reste encore à analyser la surface intérieure totale des logements pour affiner les calculs de consommation par m²."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Lors d’une réunion technique, un acousticien détaille sa méthode : en plus des niveaux sonores instantanés, il prévoit d’analyser la durée d’exposition au bruit sur la journée pour caractériser plus directement la nuisance sonore subie par les habitants."
+              "context": "Lors d’une réunion de chantier enregistrée, le chef de projet parle d’une étude d’impact des travaux sur le voisinage. Il précise qu’ils ont déjà estimé le niveau sonore des machines et le type de nuisances, mais qu’il reste encore à analyser un paramètre : les horaires précis prévus pour les travaux, afin d’évaluer l’exposition des riverains selon les moments de la journée."
             }
           ],
           "cues": [
             {
-              "option": 3,
-              "severity": "clear",
-              "cue": "La question demande un « autre aspect permettant de caractériser directement la nuisance sonore » en plus des niveaux sonores. Parmi les choix, seule « la durée d’exposition au bruit » est un paramètre acoustique directement lié à la nuisance, tandis que le nombre de résidents, les horaires de repos et la distance sont des facteurs contextuels ou indirects. L’option 3 est aussi formulée précisément dans le vocabulaire habituel de l’acoustique (niveau + durée d’exposition)."
+              "option": 0,
+              "severity": "weak",
+              "cue": "Le libellé \"durée d’exposition des occupants au bruit\" est particulièrement cohérent avec le vocabulaire typique d’une étude (bruit, exposition, occupants) et décrit un paramètre fin et directement mesurable qui s’analyse, plus qu’on ne le \"calcule\" ou ne le \"planifie\", alors que les autres paramètres évoquent davantage des données déjà figées (orientation, surface) ou de la planification (horaires)."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.1,
-            0.1,
-            0.1,
-            0.7
+            0.35,
+            0.3,
+            0.15,
+            0.2
           ],
-          "guess": 3,
-          "reason": "Le libellé insiste sur un aspect qui caractérise directement la nuisance sonore, en complément des niveaux sonores. La durée d’exposition au bruit est, avec le niveau, une grandeur standard pour quantifier la nuisance, alors que les autres propositions décrivent plutôt le contexte ou les conséquences. Cela donne un avantage net à l’option 3 malgré l’absence du document audio."
+          "guess": 0,
+          "reason": "Tous les choix peuvent correspondre à un paramètre restant à analyser dans une étude, mais le lien explicite au bruit et à l’exposition des occupants rend l’option 0 légèrement plus naturelle dans un contexte de document d’étude, sans indice décisif pour exclure les autres."
         },
         "usage": {
-          "prompt_tokens": 617,
-          "completion_tokens": 666,
-          "total_tokens": 1283,
+          "prompt_tokens": 612,
+          "completion_tokens": 762,
+          "total_tokens": 1374,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 154,
+            "reasoning_tokens": 216,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00743125,
-        "inputHash": "05910d009e8cfbfd242d3f8ac66e3bed443192da5fb5d7bfa666c2d1d6b81b03",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:36:initial:screen:6:0"
+        "costUsd": 0.008385,
+        "inputHash": "7ee7be94573ca1c2d7402f8956846937f1ef99edf43ebb023ec546e3646ac052",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:36:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le libellé insiste sur un aspect qui caractérise directement la nuisance sonore, en complément des niveaux sonores. La durée d’exposition au bruit est, avec le niveau, une grandeur standard pour quantifier la nuisance, alors que les autres propositions décrivent plutôt le contexte ou les conséquences. Cela donne un avantage net à l’option 3 malgré l’absence du document audio.",
+    "reason": "Tous les choix peuvent correspondre à un paramètre restant à analyser dans une étude, mais le lien explicite au bruit et à l’exposition des occupants rend l’option 0 légèrement plus naturelle dans un contexte de document d’étude, sans indice décisif pour exclure les autres.",
     "cues": [
       {
-        "option": 3,
-        "severity": "clear",
-        "cue": "La question demande un « autre aspect permettant de caractériser directement la nuisance sonore » en plus des niveaux sonores. Parmi les choix, seule « la durée d’exposition au bruit » est un paramètre acoustique directement lié à la nuisance, tandis que le nombre de résidents, les horaires de repos et la distance sont des facteurs contextuels ou indirects. L’option 3 est aussi formulée précisément dans le vocabulaire habituel de l’acoustique (niveau + durée d’exposition)."
+        "option": 0,
+        "severity": "weak",
+        "cue": "Le libellé \"durée d’exposition des occupants au bruit\" est particulièrement cohérent avec le vocabulaire typique d’une étude (bruit, exposition, occupants) et décrit un paramètre fin et directement mesurable qui s’analyse, plus qu’on ne le \"calcule\" ou ne le \"planifie\", alors que les autres paramètres évoquent davantage des données déjà figées (orientation, surface) ou de la planification (horaires)."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une réunion de concertation sur un chantier urbain, un ingénieur acousticien présente son étude d’impact : il explique qu’il ne se contente pas de mesurer les décibels mais regarde aussi combien de résidents sont concernés, afin d’évaluer l’ampleur de la nuisance sonore pour le voisinage."
+        "context": "Un ingénieur acousticien présente les résultats provisoires d’une étude d’impact sonore dans un immeuble d’habitation : il explique qu’ils ont déjà mesuré les niveaux de bruit dans les pièces et modélisé l’isolation, mais qu’il reste encore à analyser un paramètre important, à savoir la durée d’exposition des occupants au bruit."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Lors d’une présentation à des riverains, un spécialiste du bruit urbain explique qu’il analyse les niveaux sonores et également les horaires de repos des habitants (nuit, sieste, tôt le matin) pour apprécier à quel point le bruit est réellement nuisible au quotidien."
+        "context": "Un architecte rend compte d’une étude sur le confort thermique et lumineux d’un bâtiment. Il dit qu’ils ont évalué les matériaux et les surfaces vitrées, mais qu’il reste un paramètre à analyser dans l’étude : l’orientation exacte de chaque façade du bâtiment, qui influencera l’ensoleillement et les apports solaires."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un exposé sur le suivi acoustique d’un chantier, l’intervenant précise qu’il tient compte des niveaux sonores mesurés et de la distance entre les immeubles et le chantier pour mieux caractériser la nuisance sonore pour les riverains proches et lointains."
+        "context": "Un bureau d’études explique à un conseil syndical les premières conclusions d’une étude énergétique. Le technicien précise qu’ils ont déjà intégré les types de parois et les systèmes de chauffage, mais qu’il reste encore à analyser la surface intérieure totale des logements pour affiner les calculs de consommation par m²."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Lors d’une réunion technique, un acousticien détaille sa méthode : en plus des niveaux sonores instantanés, il prévoit d’analyser la durée d’exposition au bruit sur la journée pour caractériser plus directement la nuisance sonore subie par les habitants."
+        "context": "Lors d’une réunion de chantier enregistrée, le chef de projet parle d’une étude d’impact des travaux sur le voisinage. Il précise qu’ils ont déjà estimé le niveau sonore des machines et le type de nuisances, mais qu’il reste encore à analyser un paramètre : les horaires précis prévus pour les travaux, afin d’évaluer l’exposition des riverains selon les moments de la journée."
       }
     ]
   }

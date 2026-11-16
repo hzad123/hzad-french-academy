@@ -2,16 +2,16 @@
   "question": {
     "number": 32,
     "kind": "interview",
-    "question": "Selon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?",
+    "question": "D’après le document, comment l’outil est-il censé être utilisé lorsqu’un étudiant obtient un score élevé ?",
     "options": [
-      "Imposer automatiquement un entretien obligatoire.",
-      "Attribuer directement une aide financière supplémentaire.",
-      "Orienter une offre de soutien discrète.",
-      "Signaler le dossier à la direction pour une éventuelle sanction."
+      "Servir de base principale pour étiqueter cet étudiant comme à risque d’échec académique.",
+      "Déterminer automatiquement une réponse institutionnelle, incluant le cas échéant une sanction pour cet étudiant.",
+      "Orienter de manière ciblée une offre de soutien discrète vers cet étudiant.",
+      "Remplacer en grande partie l’entretien individuel en identifiant à lui seul les situations considérées comme à risque."
     ],
     "correct": "C",
-    "explanation": "Le document précise que « L'outil devrait orienter une offre de soutien discrète ». Il sert donc à déclencher une forme d’aide discrète, non automatique ni punitive, et non à imposer un entretien, à provoquer une sanction ou à attribuer une aide financière.",
-    "transcript": "Question 32.\nVotre équipe a développé un outil qui estime quels étudiants risquent d'interrompre leurs études. Faut-il contacter automatiquement ceux qui obtiennent un score élevé ?\nUn signal peut aider, mais ce modèle s'appuie sur des données incomplètes. Un étudiant peut manquer un cours pour travailler ou pour des raisons familiales. Nous devons vérifier la situation sans étiqueter les personnes comme incapables de réussir. L'outil devrait orienter une offre de soutien discrète, et ses erreurs doivent être étudiées régulièrement. Il ne doit jamais remplacer un entretien ou entraîner une sanction.\nSelon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?",
+    "explanation": "Le texte précise que « L'outil devrait orienter une offre de soutien discrète ». C’est l’usage positif envisagé quand un signal de risque apparaît. Les autres usages sont explicitement présentés comme à éviter : il « ne doit jamais [...] entraîner une sanction », « ne doit jamais remplacer un entretien », et il faut « vérifier la situation sans étiqueter les personnes comme incapables de réussir ».",
+    "transcript": "Question 32.\nVotre équipe a développé un outil qui estime quels étudiants risquent d'interrompre leurs études. Faut-il contacter automatiquement ceux qui obtiennent un score élevé ?\nUn signal peut aider, mais ce modèle s'appuie sur des données incomplètes. Un étudiant peut manquer un cours pour travailler ou pour des raisons familiales. Nous devons vérifier la situation sans étiqueter les personnes comme incapables de réussir. L'outil devrait orienter une offre de soutien discrète, et ses erreurs doivent être étudiées régulièrement. Il ne doit jamais remplacer un entretien ou entraîner une sanction.\nD’après le document, comment l’outil est-il censé être utilisé lorsqu’un étudiant obtient un score élevé ?",
     "segments": [
       {
         "voice": "female",
@@ -27,125 +27,237 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, quel type d’action l’outil est-il censé déclencher pour les étudiants jugés à risque ?"
+        "text": "D’après le document, comment l’outil est-il censé être utilisé lorsqu’un étudiant obtient un score élevé ?"
       }
     ],
     "audio": "q-32.mp3",
     "audioSeconds": null,
     "slotSeconds": 70
   },
-  "contentHash": "7b9d55feae16a83b351bdbebdba7a2c0cf67d7c8baf01640b7c29157daa6977a",
+  "contentHash": "9da8379eb7e73f180fbee663c02e2d4475ce415dd8dc73e770702e612d49f1dc",
   "sourceHash": "6c258c07043a3c8acb4c20cc13adcff7b1bf9d0cc83f951c7fb47e7e9c8e340a",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkznaOKnF8Mj7bDq05waPHM6RH5Sr",
+    "result": {
+      "question": "Dans le document, quel usage est envisagé pour l’outil lorsqu’un étudiant obtient un score élevé ?",
+      "choices": [
+        "Orienter une offre de soutien discrète vers cet étudiant.",
+        "Déterminer automatiquement une sanction pour cet étudiant.",
+        "Remplacer l’entretien en décidant seul des situations à risque.",
+        "Servir de base principale pour étiqueter cet étudiant comme incapable de réussir."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte précise que « L'outil devrait orienter une offre de soutien discrète ». C’est l’usage positif envisagé quand un signal de risque apparaît. Les autres usages sont explicitement présentés comme à éviter : il « ne doit jamais [...] entraîner une sanction », « ne doit jamais remplacer un entretien », et il faut « vérifier la situation sans étiqueter les personnes comme incapables de réussir ».",
+      "design": "A single recorded axis: the intended institutional use of the tool when a high score is detected. All four options propose plausible operational uses of a risk-scoring model (support, sanction, automation of diagnosis, labelling of students). Only one matches the function explicitly assigned in the source: orienting a discrete offer of support. The others each take a real mentioned element (sanction, entretien, étiquetage) and wrongly promote it to the model’s intended role, which is only clear if one has listened carefully to the recording.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme une conséquence explicitement interdite en objectif de l’outil : le texte dit qu’il « ne doit jamais [...] entraîner une sanction ». On peut se tromper en pensant qu’un score de risque élevé sert à déclencher des sanctions automatiques, usage courant dans d’autres contextes de contrôle, mais ici la sanction est citée justement comme ce qu’il ne faut pas faire.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "ne doit jamais remplacer un entretien ou entraîner une sanction",
+            "score élevé"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’outil sert bien à signaler un risque, ce qui peut faire croire qu’il pourrait remplacer l’entretien en « décidant » des situations à risque. Pourtant le texte insiste au contraire : « Nous devons vérifier la situation » et l’outil « ne doit jamais remplacer un entretien ». L’entretien reste donc nécessaire et n’est pas remplacé par une décision automatique du modèle.",
+          "operation": "role_swap",
+          "anchors": [
+            "Nous devons vérifier la situation",
+            "Il ne doit jamais remplacer un entretien"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le document évoque le danger d’« étiqueter les personnes comme incapables de réussir », ce qui rend crédible l’idée que le modèle pourrait servir à poser ce type d’étiquette. Mais ce passage est une mise en garde : il faut justement « vérifier la situation sans étiqueter les personnes ». L’étiquetage est présenté comme un risque à éviter, non comme l’usage attendu de l’outil.",
+          "operation": "scope_shift",
+          "anchors": [
+            "sans étiqueter les personnes comme incapables de réussir",
+            "Un signal peut aider"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4272,
+      "completion_tokens": 1111,
+      "total_tokens": 5383,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 475,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01645,
+    "inputHash": "c73e5354cd0f57445511632de01d708c77f17fdcafd464ce95131c5d1ec0735c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:31:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, quel usage est envisagé pour l’outil lorsqu’un étudiant obtient un score élevé ?",
+      "choices": [
+        "Servir de base principale pour étiqueter cet étudiant comme incapable de réussir.",
+        "Déterminer automatiquement une sanction pour cet étudiant.",
+        "Orienter une offre de soutien discrète vers cet étudiant.",
+        "Remplacer l’entretien en décidant seul des situations à risque."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkznwliswlKrsqZ11TiGS5jqnjq3W",
+      "result": {
+        "question": "D’après le document, comment l’outil est-il censé être utilisé lorsqu’un étudiant obtient un score élevé ?",
+        "choices": [
+          "Servir de base principale pour étiqueter cet étudiant comme à risque d’échec académique.",
+          "Déterminer automatiquement une réponse institutionnelle, incluant le cas échéant une sanction pour cet étudiant.",
+          "Orienter de manière ciblée une offre de soutien discrète vers cet étudiant.",
+          "Remplacer en grande partie l’entretien individuel en identifiant à lui seul les situations considérées comme à risque."
+        ],
+        "notes": "Question légèrement généralisée et reformulée pour rester neutre tout en gardant la notion de score élevé. Les quatre choix décrivent désormais quatre usages institutionnels possibles de l’outil (étiquetage de risque, décision automatique incluant sanction, soutien ciblé, substitution partielle à l’entretien), tous formulés de manière professionnelle et plausible, sans option manifestement plus éthique ou raisonnable que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 665,
+        "completion_tokens": 1395,
+        "total_tokens": 2060,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1180,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.01478125,
+      "inputHash": "36104903ba1c169b09048bdec7fe3ff01635b82c2623e30a7a8c72036bf48d05",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:31:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
-        2,
         0,
-        1
+        2,
+        1,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyUA4FezTMzQYPxCz5ETOCuUtS3v",
+        "responseId": "chatcmpl-EkzoHPdmNqgdv3fDSPEsNXYqRM6Ps",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une réunion administrative sur un nouveau logiciel de suivi des étudiants, un responsable explique que l’outil sert à repérer les étudiants en difficulté scolaire ou comportementale, puis à signaler automatiquement leur dossier à la direction qui décidera d’une éventuelle sanction en cas de manquements graves au règlement."
+              "context": "Dans une université, un document interne présente un algorithme de prédiction de l’échec. Il est expliqué que, lorsqu’un étudiant obtient un score élevé, ce score servira comme base principale pour le classer administrativement dans la catégorie «à risque d’échec académique», ce qui déclenche une surveillance accrue de son dossier."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une présentation d’un système de suivi du bien‑être étudiant, un psychologue scolaire décrit un outil qui identifie les profils à risque (isolement, décrochage, détresse) et déclenche ensuite une démarche de soutien discret, par exemple un courriel d’information ou une proposition d’entretien non stigmatisante."
+              "context": "Un service d’orientation universitaire décrit un nouvel outil de repérage précoce. Le document précise que, si un étudiant obtient un score élevé, l’outil sert alors à guider l’envoi discret d’un courriel personnalisé ou d’une proposition de rendez-vous pour lui offrir un soutien adapté, sans stigmatisation."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un webinaire sur la lutte contre le décrochage universitaire, un vice‑doyen explique que le nouvel outil signale les étudiants à risque et génère automatiquement une convocation obligatoire à un entretien avec un conseiller pédagogique dès que certains seuils sont franchis."
+              "context": "Dans une école privée très réglementée, un règlement explique un système de scoring comportemental et académique. Le texte indique que lorsqu’un score élevé est atteint, une réponse institutionnelle standardisée et automatique est déclenchée, pouvant aller jusqu’à des sanctions selon la gravité du cas."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Au cours d’un conseil d’administration d’établissement, on présente un outil de détection de précarité étudiante qui, pour les profils jugés à risque financier, déclenche automatiquement l’attribution d’une aide monétaire supplémentaire sans démarche à effectuer par l’étudiant."
+              "context": "Un établissement surchargé présente un dispositif numérique de suivi. Le document indique que lorsqu’un étudiant atteint un score élevé sur l’outil de dépistage du risque, l’entretien individuel n’est plus systématiquement nécessaire, car l’outil identifie à lui seul la plupart des situations jugées à risque, ce qui permet de limiter fortement les entretiens."
             }
           ],
           "cues": [
             {
               "option": 1,
               "severity": "clear",
-              "cue": "Formulation modérée et bienveillante («offre de soutien», «discrète») qui correspond de façon nuancée à l’idée d’un outil pour étudiants «à risque», par contraste avec les autres choix plus punitifs («sanction»), rigides («imposer automatiquement») ou trop spécifiques («aide financière»)."
+              "cue": "Formulation nuancée et responsable («orienter», «de manière ciblée», «offre de soutien discrète») qui cadre étroitement avec l’usage attendu d’un outil de repérage (soutien plutôt que sanction, complément et non automatisme). Les autres choix décrivent des usages extrêmes ou problématiques (étiquetage direct, sanctions automatiques, remplacement de l’entretien individuel), moins cohérents avec un document de présentation d’un outil éducatif ou de prévention."
             }
           ],
           "standsOut": true,
           "probabilities": [
             0.1,
-            0.6,
-            0.15,
+            0.65,
+            0.1,
             0.15
           ],
           "guess": 1,
-          "reason": "La question parle d’un outil pour étudiants «jugés à risque», ce qui, sans autre précision, renvoie typiquement à une logique de prévention et d’accompagnement plutôt que de sanction ou d’avantage financier ciblé. Parmi les choix, «Orienter une offre de soutien discrète» est le plus cohérent avec une approche de soutien non stigmatisante, tandis que la sanction, l’entretien imposé ou l’aide financière directe sont plus étroits ou extrêmes. D’où une préférence nette mais non certaine pour l’option 1."
+          "reason": "Les quatre propositions sont contextuellement possibles, mais la question («comment l’outil est-il censé être utilisé») suggère un usage recommandé. L’option 1 décrit un emploi prudent et éthique d’un outil de score élevé (soutien discret et ciblé), alors que les autres impliquent soit un étiquetage stigmatisant, soit une réponse automatique potentiellement punitive, soit le remplacement massif de l’entretien. Ces formulations paraissent excessives pour un document de référence sur un outil pédagogique, ce qui donne à l’option 1 un net avantage de plausibilité comme clé attendue."
         },
         "usage": {
-          "prompt_tokens": 617,
-          "completion_tokens": 632,
-          "total_tokens": 1249,
+          "prompt_tokens": 659,
+          "completion_tokens": 727,
+          "total_tokens": 1386,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 105,
+            "reasoning_tokens": 127,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00709125,
-        "inputHash": "f1544011545eca2752007183ed841dc4c2e0fbad32f5e5b1ac84ed45108fc929",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:31:initial:screen:6:0"
+        "costUsd": 0.00809375,
+        "inputHash": "7c26083201e88919cd55eb1c4b8931351ea85ff441bd7a982899a66b9bcf0e35",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:31:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La question parle d’un outil pour étudiants «jugés à risque», ce qui, sans autre précision, renvoie typiquement à une logique de prévention et d’accompagnement plutôt que de sanction ou d’avantage financier ciblé. Parmi les choix, «Orienter une offre de soutien discrète» est le plus cohérent avec une approche de soutien non stigmatisante, tandis que la sanction, l’entretien imposé ou l’aide financière directe sont plus étroits ou extrêmes. D’où une préférence nette mais non certaine pour l’option 1.",
+    "reason": "Les quatre propositions sont contextuellement possibles, mais la question («comment l’outil est-il censé être utilisé») suggère un usage recommandé. L’option 1 décrit un emploi prudent et éthique d’un outil de score élevé (soutien discret et ciblé), alors que les autres impliquent soit un étiquetage stigmatisant, soit une réponse automatique potentiellement punitive, soit le remplacement massif de l’entretien. Ces formulations paraissent excessives pour un document de référence sur un outil pédagogique, ce qui donne à l’option 1 un net avantage de plausibilité comme clé attendue.",
     "cues": [
       {
         "option": 1,
         "severity": "clear",
-        "cue": "Formulation modérée et bienveillante («offre de soutien», «discrète») qui correspond de façon nuancée à l’idée d’un outil pour étudiants «à risque», par contraste avec les autres choix plus punitifs («sanction»), rigides («imposer automatiquement») ou trop spécifiques («aide financière»)."
+        "cue": "Formulation nuancée et responsable («orienter», «de manière ciblée», «offre de soutien discrète») qui cadre étroitement avec l’usage attendu d’un outil de repérage (soutien plutôt que sanction, complément et non automatisme). Les autres choix décrivent des usages extrêmes ou problématiques (étiquetage direct, sanctions automatiques, remplacement de l’entretien individuel), moins cohérents avec un document de présentation d’un outil éducatif ou de prévention."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans une réunion administrative sur un nouveau logiciel de suivi des étudiants, un responsable explique que l’outil sert à repérer les étudiants en difficulté scolaire ou comportementale, puis à signaler automatiquement leur dossier à la direction qui décidera d’une éventuelle sanction en cas de manquements graves au règlement."
+        "context": "Dans une université, un document interne présente un algorithme de prédiction de l’échec. Il est expliqué que, lorsqu’un étudiant obtient un score élevé, ce score servira comme base principale pour le classer administrativement dans la catégorie «à risque d’échec académique», ce qui déclenche une surveillance accrue de son dossier."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Lors d’une présentation d’un système de suivi du bien‑être étudiant, un psychologue scolaire décrit un outil qui identifie les profils à risque (isolement, décrochage, détresse) et déclenche ensuite une démarche de soutien discret, par exemple un courriel d’information ou une proposition d’entretien non stigmatisante."
+        "context": "Un service d’orientation universitaire décrit un nouvel outil de repérage précoce. Le document précise que, si un étudiant obtient un score élevé, l’outil sert alors à guider l’envoi discret d’un courriel personnalisé ou d’une proposition de rendez-vous pour lui offrir un soutien adapté, sans stigmatisation."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un webinaire sur la lutte contre le décrochage universitaire, un vice‑doyen explique que le nouvel outil signale les étudiants à risque et génère automatiquement une convocation obligatoire à un entretien avec un conseiller pédagogique dès que certains seuils sont franchis."
+        "context": "Dans une école privée très réglementée, un règlement explique un système de scoring comportemental et académique. Le texte indique que lorsqu’un score élevé est atteint, une réponse institutionnelle standardisée et automatique est déclenchée, pouvant aller jusqu’à des sanctions selon la gravité du cas."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Au cours d’un conseil d’administration d’établissement, on présente un outil de détection de précarité étudiante qui, pour les profils jugés à risque financier, déclenche automatiquement l’attribution d’une aide monétaire supplémentaire sans démarche à effectuer par l’étudiant."
+        "context": "Un établissement surchargé présente un dispositif numérique de suivi. Le document indique que lorsqu’un étudiant atteint un score élevé sur l’outil de dépistage du risque, l’entretien individuel n’est plus systématiquement nécessaire, car l’outil identifie à lui seul la plupart des situations jugées à risque, ce qui permet de limiter fortement les entretiens."
       }
     ]
   },

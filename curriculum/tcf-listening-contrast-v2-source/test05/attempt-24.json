@@ -2,16 +2,16 @@
   "question": {
     "number": 24,
     "kind": "interview",
-    "question": "Selon le document, auprès de quels résidents l’équipe dit-elle devoir encore aller à la rencontre pour compléter le sondage ?",
+    "question": "Sur quel groupe d’habitants l’intervenant propose‑t‑il de centrer une prochaine phase d’étude pour compléter la compréhension des usages ?",
     "options": [
-      "Principalement des personnes du même étage, mais qui étaient absentes à cette heure-là",
-      "Des habitants d’autres étages, y compris ceux qui ont des difficultés d’accès",
-      "Surtout des résidents déjà venus à l’inauguration mais qui n’ont pas rendu le questionnaire",
-      "Uniquement des résidents qui se sentent exclus du projet"
+      "Les nouveaux résidents récemment installés dans les logements rénovés",
+      "Les habitants des autres étages de l’immeuble, y compris ceux ayant des difficultés de déplacement",
+      "Les voisins du quartier qui fréquentent principalement les espaces extérieurs",
+      "Les personnes présentes à l’inauguration qui ont également répondu au questionnaire"
     ],
     "correct": "B",
-    "explanation": "Le document précise : «Nous devons rencontrer les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès». Ce sont donc ces résidents-là qui sont explicitement désignés comme devant encore être rencontrés pour compléter la compréhension des usages.",
-    "transcript": "Question 24.\nVotre sondage suggère que les résidents apprécient les espaces rénovés. Pouvez-vous généraliser cette conclusion ?\nPas encore. Nous avons distribué les questionnaires lors de l'inauguration, à des personnes qui avaient choisi de venir. Celles qui ont du mal à sortir de chez elles ou qui se sentent exclues du projet étaient peu présentes. Nous devons rencontrer les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès, pour comprendre l'ensemble des usages. Une inauguration réussie ne garantit pas une amélioration équitable.\nSelon le document, auprès de quels résidents l’équipe dit-elle devoir encore aller à la rencontre pour compléter le sondage ?",
+    "explanation": "Le locuteur précise «Nous devons rencontrer les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès», ce qui désigne clairement le groupe à consulter pour compléter le sondage initial.",
+    "transcript": "Question 24.\nVotre sondage suggère que les résidents apprécient les espaces rénovés. Pouvez-vous généraliser cette conclusion ?\nPas encore. Nous avons distribué les questionnaires lors de l'inauguration, à des personnes qui avaient choisi de venir. Celles qui ont du mal à sortir de chez elles ou qui se sentent exclues du projet étaient peu présentes. Nous devons rencontrer les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès, pour comprendre l'ensemble des usages. Une inauguration réussie ne garantit pas une amélioration équitable.\nSur quel groupe d’habitants l’intervenant propose‑t‑il de centrer une prochaine phase d’étude pour compléter la compréhension des usages ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, auprès de quels résidents l’équipe dit-elle devoir encore aller à la rencontre pour compléter le sondage ?"
+        "text": "Sur quel groupe d’habitants l’intervenant propose‑t‑il de centrer une prochaine phase d’étude pour compléter la compréhension des usages ?"
       }
     ],
     "audio": "q-24.mp3",
@@ -36,178 +36,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzwUsfONPT0piUa8DoK9MgZ77EUd",
+    "result": {
+      "question": "Sur quel groupe d’habitants l’intervenant dit‑il qu’il faut encore se concentrer pour mieux comprendre l’ensemble des usages ?",
+      "choices": [
+        "Les habitants des autres étages, y compris ceux qui ont des difficultés d’accès",
+        "Les personnes qui ont participé à l’inauguration et ont rempli le questionnaire",
+        "Les nouveaux résidents qui viennent d’emménager dans les logements rénovés",
+        "Les voisins qui utilisent surtout les espaces extérieurs du quartier"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le locuteur précise «Nous devons rencontrer les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès», ce qui désigne clairement le groupe à consulter pour compléter le sondage initial.",
+      "design": "Axe précis : le groupe d’habitants à rencontrer ensuite pour compléter la compréhension des usages. Les quatre réponses proposent chacune un groupe cible plausible pour un sondage sur des espaces rénovés. Sans le document, toutes semblent également défendables. Seule la réponse A reprend exactement le groupe explicitement désigné comme devant encore être rencontré, les autres réinterprétant un autre moment ou un autre public du projet comme cible prioritaire.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option échange le rôle des groupes : elle reprend le public effectivement touché par le sondage initial («personnes qui avaient choisi de venir» à l’inauguration) et en fait à tort le groupe à cibler ensuite, alors que le document distingue justement ces deux publics.",
+          "operation": "role_swap",
+          "anchors": [
+            "Nous avons distribué les questionnaires lors de l'inauguration, à des personnes qui avaient choisi de venir",
+            "Nous devons rencontrer les habitants d'autres étages"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option attribue à tort comme cible un groupe jamais mentionné explicitement, en généralisant l’idée de «résidents» et d’«espaces rénovés» aux seuls nouveaux arrivants, alors que le texte parle de «résidents» en général et précise que l’effort porte sur «les habitants d'autres étages».",
+          "operation": "scope_shift",
+          "anchors": [
+            "Votre sondage suggère que les résidents apprécient les espaces rénovés",
+            "Nous devons rencontrer les habitants d'autres étages"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option élargit indûment la portée de l’enquête aux usagers extérieurs des espaces du quartier, en s’appuyant sur la mention de «l'ensemble des usages» et d’«amélioration équitable», alors que le locuteur restreint clairement la suite de la démarche aux habitants de l’immeuble, notamment ceux qui ont des difficultés d’accès.",
+          "operation": "scope_shift",
+          "anchors": [
+            "pour comprendre l'ensemble des usages",
+            "les habitants d'autres étages, y compris ceux qui rencontrent des difficultés d'accès"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4443,
+      "completion_tokens": 1075,
+      "total_tokens": 5518,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 482,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01630375,
+    "inputHash": "8b8f80669d9b0fe8c04958650480682a5ad9bb249353e949e142408864e92dcb",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:23:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Sur quel groupe d’habitants l’intervenant dit‑il qu’il faut encore se concentrer pour mieux comprendre l’ensemble des usages ?",
+      "choices": [
+        "Les nouveaux résidents qui viennent d’emménager dans les logements rénovés",
+        "Les habitants des autres étages, y compris ceux qui ont des difficultés d’accès",
+        "Les voisins qui utilisent surtout les espaces extérieurs du quartier",
+        "Les personnes qui ont participé à l’inauguration et ont rempli le questionnaire"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekzwqo8FUvoZu1p7ffZbn1XyxdEp9",
+      "result": {
+        "question": "Sur quel groupe d’habitants l’intervenant propose‑t‑il de centrer une prochaine phase d’étude pour compléter la compréhension des usages ?",
+        "choices": [
+          "Les nouveaux résidents récemment installés dans les logements rénovés",
+          "Les habitants des autres étages de l’immeuble, y compris ceux ayant des difficultés de déplacement",
+          "Les voisins du quartier qui fréquentent principalement les espaces extérieurs",
+          "Les personnes présentes à l’inauguration qui ont également répondu au questionnaire"
+        ],
+        "notes": "La question a été légèrement généralisée à une « prochaine phase d’étude » pour limiter l’avantage implicite d’une option liée à un biais d’échantillonnage déjà connu. Les quatre choix restent distincts (nouveaux résidents, autres étages, voisins extérieurs, participants à l’inauguration) mais formulés avec un niveau similaire de précision et de sérieux, sans suggérer qu’un groupe est plus naturellement pertinent qu’un autre."
+      },
+      "usage": {
+        "prompt_tokens": 681,
+        "completion_tokens": 390,
+        "total_tokens": 1071,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 178,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00475125,
+      "inputHash": "c2656b3ed0afc1cd3d32e6922aacda98f1e271c90f93c86b77f77d53ae3136a1",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:23:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        1,
-        3,
         0,
-        2
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyYvLVcs5b2MedWlRxoKdtMUoBf4",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Dans un immeuble où un sondage est mené sur un nouveau projet de résidence, un membre de l’équipe explique en réunion : « On a déjà vu pas mal de monde à notre étage, mais il nous reste encore à aller rencontrer des habitants des autres étages, y compris ceux pour qui l’accès est compliqué, pour compléter le sondage. » Cette phrase répondrait directement à la question sur les résidents qu’il faut encore aller voir."
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Lors d’un bilan d’un sondage participatif sur un projet collectif, l’équipe constate qu’un certain profil manque : « Pour compléter le sondage, il faut encore aller à la rencontre de résidents qui se sentent exclus du projet, parce qu’ils ne se sont pas exprimés jusqu’ici. » Dans ce contexte, préciser qu’il s’agit uniquement de ces résidents répondrait directement à la question."
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Dans une résidence, l’équipe a fait du porte-à-porte étage par étage à une heure précise. En réunion de suivi, quelqu’un dit : « Il reste encore des personnes de notre étage qu’on doit aller voir, surtout celles qui n’étaient pas là quand on est passé la première fois, pour compléter le sondage. » Cette formulation correspond à l’idée de devoir encore aller à la rencontre de ces résidents-là."
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Après l’inauguration d’un nouvel espace commun, un sondage a été distribué aux participants. Plus tard, en faisant le point, un membre de l’équipe déclare : « Pour compléter le sondage, il faudra surtout aller revoir les résidents qui étaient venus à l’inauguration mais qui n’ont pas encore rendu le questionnaire. » Cette explication répond directement à la question sur les résidents qu’il reste à rencontrer."
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
-          ],
-          "guess": 0,
-          "reason": "Les quatre propositions peuvent aisément correspondre à des formulations entendues dans un document audio sans contradiction avec l’énoncé. La question ne contient aucun indice linguistique clair privilégiant un type de résidents (étage, sentiment d’exclusion, présence à une inauguration, difficultés d’accès), ni de marqueur de quantité ou de temporalité qui éliminerait une option. Sans accès au document, aucun avantage objectif ne distingue une réponse, d’où une forte incertitude et une répartition de probabilité uniforme malgré le choix obligatoire d’un index."
-        },
-        "usage": {
-          "prompt_tokens": 647,
-          "completion_tokens": 613,
-          "total_tokens": 1260,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 57,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00693875,
-        "inputHash": "327d70dcfe90292e348c97ab76956bd573452a887b4fb224b0bc588dddd6f170",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:23:initial:screen:6:0"
-      }
-    },
-    {
-      "order": [
         2,
-        0,
-        3,
-        1
+        1,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyZ4yuCrGgrWkNoTq8a1PY1apDsQ",
+        "responseId": "chatcmpl-EkzwwYhoTKo6eribIBWwXF0mt6dxG",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Réunion d’équipe après un événement d’inauguration dans une résidence : ils constatent que plusieurs questionnaires distribués ce jour-là ne sont pas revenus et la coordinatrice dit qu’il faudra surtout relancer les résidents déjà venus à l’inauguration mais qui n’ont pas rendu le questionnaire pour compléter le sondage."
+              "context": "Lors d’une réunion de présentation des premiers résultats d’une étude sur les usages dans un immeuble rénové, l’intervenant explique qu’ils ont surtout interrogé les anciens habitants restés sur place. Il ajoute que, pour mieux comprendre les nouveaux usages liés aux travaux, il faudrait consacrer une prochaine phase d’étude aux nouveaux résidents récemment installés dans les logements rénovés."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Compte-rendu d’une tournée de porte-à-porte sur un étage donné : l’animateur explique qu’ils ont vu presque tout le monde sur leur étage, mais que plusieurs personnes de ce même étage étaient absentes à l’heure du passage, et qu’il faudra principalement retourner voir ces personnes pour finir de collecter les réponses au sondage."
+              "context": "Dans un bilan d’étude sur les usages d’un ensemble résidentiel, l’intervenant précise qu’ils ont bien documenté l’intérieur des logements, mais très peu les pratiques autour du jardin, des aires de jeux et des bancs. Il propose alors de centrer la prochaine phase d’étude sur les voisins du quartier qui fréquentent principalement les espaces extérieurs, afin de mieux comprendre ces usages-là."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Discussion d’une équipe de projet participatif qui craint un biais dans le sondage : la responsable souligne qu’ils ont déjà beaucoup de réponses des résidents impliqués et décide qu’il faut maintenant cibler uniquement des résidents qui se sentent exclus du projet pour rééquilibrer les résultats."
+              "context": "Au cours d’une restitution sur les usages dans un immeuble, l’intervenant explique que les premières enquêtes ont surtout concerné les habitants du rez‑de‑chaussée et du premier étage, plus facilement accessibles. Il reconnaît un manque d’informations sur les habitants des autres étages, notamment ceux qui ont des difficultés de déplacement, et propose de centrer la prochaine phase d’étude sur ce groupe pour compléter la compréhension des usages dans tout l’immeuble."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Réunion d’une équipe de gestion d’immeuble ou de centre social : après une première phase de sondage réalisée sur un étage, la responsable explique qu’il reste à aller à la rencontre d’habitants d’autres étages, y compris ceux qui ont des difficultés d’accès (personnes à mobilité réduite, isolement), afin de compléter le sondage de manière plus représentative."
+              "context": "Lors d’un débriefing d’une enquête réalisée le jour d’une inauguration, l’intervenant rappelle qu’un questionnaire a été diffusé à cette occasion et a fourni des premiers résultats. Il indique qu’il serait utile de revenir vers les personnes présentes à l’inauguration qui ont également répondu au questionnaire, par des entretiens complémentaires, et propose donc de centrer la prochaine phase d’étude sur ce même groupe afin d’approfondir certains points."
             }
           ],
           "cues": [
             {
-              "option": 3,
+              "option": 2,
               "severity": "clear",
-              "cue": "Formulation large et inclusive («d’autres étages, y compris ceux qui ont des difficultés d’accès») qui répond directement à l’idée d’«aller encore à la rencontre» de personnes non touchées, avec une nuance sociale et logistique souvent mise en avant dans ce type de documents; les autres options sont plus restrictives ou centrées sur un sous-groupe déjà venu à un événement, ce qui paraît moins naturellement généralisable comme objectif annoncé."
+              "cue": "Rédaction plus longue et précise, intégrant une mention spécifique et nuancée (« y compris ceux ayant des difficultés de déplacement ») qui donne une impression de formulation plus travaillée, inclusive et ciblée que les autres choix, sans être hors sujet."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.2,
-            0.2,
-            0.1,
-            0.5
+            0.18,
+            0.18,
+            0.46,
+            0.18
           ],
-          "guess": 3,
-          "reason": "Tous les choix sont plausibles, mais le quatrième se distingue par une formulation plus nuancée et inclusive, cohérente avec l’idée de compléter un sondage en allant vers des résidents encore non rejoints, notamment ceux ayant des difficultés d’accès; cela lui donne un avantage modéré malgré l’absence de document audio."
+          "guess": 2,
+          "reason": "Tous les choix peuvent répondre à la question dans un contexte ordinaire, mais l’option 2 se distingue par une formulation plus détaillée, ciblée et inclusive, ce qui constitue un indice rédactionnel concret en faveur de cette réponse comme clé probable malgré une incertitude réelle sur l’enregistrement absent."
         },
         "usage": {
           "prompt_tokens": 647,
-          "completion_tokens": 831,
-          "total_tokens": 1478,
+          "completion_tokens": 670,
+          "total_tokens": 1317,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 293,
+            "reasoning_tokens": 104,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00911875,
-        "inputHash": "2cd1e773157934ae590b6e081ec94d5d1b26f1a8cabbc247ca83edd20f81d610",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:23:initial:screen:6:1"
+        "costUsd": 0.00750875,
+        "inputHash": "3240866e63dd0d8e130d353640c35828a6bdd5b83dea19c80e6e38c57836b10e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:23:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Tous les choix sont plausibles, mais le quatrième se distingue par une formulation plus nuancée et inclusive, cohérente avec l’idée de compléter un sondage en allant vers des résidents encore non rejoints, notamment ceux ayant des difficultés d’accès; cela lui donne un avantage modéré malgré l’absence de document audio.",
+    "reason": "Tous les choix peuvent répondre à la question dans un contexte ordinaire, mais l’option 2 se distingue par une formulation plus détaillée, ciblée et inclusive, ce qui constitue un indice rédactionnel concret en faveur de cette réponse comme clé probable malgré une incertitude réelle sur l’enregistrement absent.",
     "cues": [
       {
-        "option": 3,
+        "option": 2,
         "severity": "clear",
-        "cue": "Formulation large et inclusive («d’autres étages, y compris ceux qui ont des difficultés d’accès») qui répond directement à l’idée d’«aller encore à la rencontre» de personnes non touchées, avec une nuance sociale et logistique souvent mise en avant dans ce type de documents; les autres options sont plus restrictives ou centrées sur un sous-groupe déjà venu à un événement, ce qui paraît moins naturellement généralisable comme objectif annoncé."
+        "cue": "Rédaction plus longue et précise, intégrant une mention spécifique et nuancée (« y compris ceux ayant des difficultés de déplacement ») qui donne une impression de formulation plus travaillée, inclusive et ciblée que les autres choix, sans être hors sujet."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Réunion d’équipe après un événement d’inauguration dans une résidence : ils constatent que plusieurs questionnaires distribués ce jour-là ne sont pas revenus et la coordinatrice dit qu’il faudra surtout relancer les résidents déjà venus à l’inauguration mais qui n’ont pas rendu le questionnaire pour compléter le sondage."
+        "context": "Lors d’une réunion de présentation des premiers résultats d’une étude sur les usages dans un immeuble rénové, l’intervenant explique qu’ils ont surtout interrogé les anciens habitants restés sur place. Il ajoute que, pour mieux comprendre les nouveaux usages liés aux travaux, il faudrait consacrer une prochaine phase d’étude aux nouveaux résidents récemment installés dans les logements rénovés."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Compte-rendu d’une tournée de porte-à-porte sur un étage donné : l’animateur explique qu’ils ont vu presque tout le monde sur leur étage, mais que plusieurs personnes de ce même étage étaient absentes à l’heure du passage, et qu’il faudra principalement retourner voir ces personnes pour finir de collecter les réponses au sondage."
+        "context": "Dans un bilan d’étude sur les usages d’un ensemble résidentiel, l’intervenant précise qu’ils ont bien documenté l’intérieur des logements, mais très peu les pratiques autour du jardin, des aires de jeux et des bancs. Il propose alors de centrer la prochaine phase d’étude sur les voisins du quartier qui fréquentent principalement les espaces extérieurs, afin de mieux comprendre ces usages-là."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Discussion d’une équipe de projet participatif qui craint un biais dans le sondage : la responsable souligne qu’ils ont déjà beaucoup de réponses des résidents impliqués et décide qu’il faut maintenant cibler uniquement des résidents qui se sentent exclus du projet pour rééquilibrer les résultats."
+        "context": "Au cours d’une restitution sur les usages dans un immeuble, l’intervenant explique que les premières enquêtes ont surtout concerné les habitants du rez‑de‑chaussée et du premier étage, plus facilement accessibles. Il reconnaît un manque d’informations sur les habitants des autres étages, notamment ceux qui ont des difficultés de déplacement, et propose de centrer la prochaine phase d’étude sur ce groupe pour compléter la compréhension des usages dans tout l’immeuble."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Réunion d’une équipe de gestion d’immeuble ou de centre social : après une première phase de sondage réalisée sur un étage, la responsable explique qu’il reste à aller à la rencontre d’habitants d’autres étages, y compris ceux qui ont des difficultés d’accès (personnes à mobilité réduite, isolement), afin de compléter le sondage de manière plus représentative."
+        "context": "Lors d’un débriefing d’une enquête réalisée le jour d’une inauguration, l’intervenant rappelle qu’un questionnaire a été diffusé à cette occasion et a fourni des premiers résultats. Il indique qu’il serait utile de revenir vers les personnes présentes à l’inauguration qui ont également répondu au questionnaire, par des entretiens complémentaires, et propose donc de centrer la prochaine phase d’étude sur ce même groupe afin d’approfondir certains points."
       }
     ]
   }

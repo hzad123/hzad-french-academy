@@ -2,16 +2,16 @@
   "question": {
     "number": 28,
     "kind": "interview",
-    "question": "Selon le document, à quoi sert précisément la formation des professionnels évoquée ?",
+    "question": "Quand un patient est invité à redire les consignes avec ses propres mots, à quoi peut servir cette étape pour les professionnels de santé ?",
     "options": [
-      "À leur apprendre à toujours prévoir un temps pour les questions des patients.",
-      "À leur apprendre à simplifier toutes les phrases des notices traduites.",
-      "À leur apprendre à remplacer les abréviations médicales par des schémas.",
-      "À leur apprendre à demander au patient de reformuler les consignes avec ses propres mots."
+      "À apprécier la capacité du patient à mémoriser les détails de son traitement.",
+      "À évaluer la motivation du patient à suivre correctement son traitement.",
+      "À estimer le niveau de maîtrise du français écrit par le patient.",
+      "À juger si la manière dont ils ont expliqué les consignes est suffisamment claire."
     ],
     "correct": "D",
-    "explanation": "La formation porte sur le fait de « demander au patient de reformuler les consignes avec ses propres mots ». Le document distingue cette formation ciblée des autres mesures (simplifier, utiliser des schémas, laisser du temps pour les questions), qui sont recommandées mais ne sont pas présentées comme l’objet spécifique de la formation.",
-    "transcript": "Question 28.\nLes notices traduites existent, pourtant certains patients ne suivent pas correctement leur traitement. Comment l'expliquez-vous ?\nLa traduction seule ne suffit pas. Nos documents contiennent des abréviations médicales et des phrases complexes, même dans la langue maternelle des personnes. Il faut vérifier ce qu'elles ont compris, utiliser des schémas lorsque c'est utile et laisser un temps pour les questions. Nous formons aussi les professionnels à demander au patient de reformuler les consignes avec ses propres mots. Ce n'est pas un examen, c'est une vérification de notre manière d'expliquer.\nSelon le document, à quoi sert précisément la formation des professionnels évoquée ?",
+    "explanation": "Le document précise que cette reformulation « n'est pas un examen » pour le patient, mais « une vérification de notre manière d'expliquer ». Il s’agit donc de contrôler la clarté des explications données par les professionnels, pas d’évaluer le niveau de langue, la motivation ou la mémoire du patient.",
+    "transcript": "Question 28.\nLes notices traduites existent, pourtant certains patients ne suivent pas correctement leur traitement. Comment l'expliquez-vous ?\nLa traduction seule ne suffit pas. Nos documents contiennent des abréviations médicales et des phrases complexes, même dans la langue maternelle des personnes. Il faut vérifier ce qu'elles ont compris, utiliser des schémas lorsque c'est utile et laisser un temps pour les questions. Nous formons aussi les professionnels à demander au patient de reformuler les consignes avec ses propres mots. Ce n'est pas un examen, c'est une vérification de notre manière d'expliquer.\nQuand un patient est invité à redire les consignes avec ses propres mots, à quoi peut servir cette étape pour les professionnels de santé ?",
     "segments": [
       {
         "voice": "female",
@@ -27,125 +27,237 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, à quoi sert précisément la formation des professionnels évoquée ?"
+        "text": "Quand un patient est invité à redire les consignes avec ses propres mots, à quoi peut servir cette étape pour les professionnels de santé ?"
       }
     ],
     "audio": "q-28.mp3",
     "audioSeconds": null,
     "slotSeconds": 66
   },
-  "contentHash": "f3d13fe9f1c4c0b44e66eac9338b6414a8b8a58e6d2083755a319a01e7716884",
+  "contentHash": "9e10feb110e006862001b09a8691bcf31751cef08dbc7c5210dc4a2e6a62953d",
   "sourceHash": "09fa6d3ccebee07192efae4a7123f5cef7d336eb39abf2feb321fe07ca1d2cee",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzdyjvJE3X5SqvRLtaYcKs92aHpl",
+    "result": {
+      "question": "Lorsque le patient reformule les consignes avec ses propres mots, qu’est-ce que les professionnels cherchent précisément à vérifier ?",
+      "choices": [
+        "La clarté de la manière dont ils ont expliqué les consignes.",
+        "Le niveau de maîtrise du français écrit par le patient.",
+        "La motivation du patient à suivre correctement son traitement.",
+        "La mémoire du patient pour les détails du traitement."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que cette reformulation « n'est pas un examen » pour le patient, mais « une vérification de notre manière d'expliquer ». Il s’agit donc de contrôler la clarté des explications données par les professionnels, pas d’évaluer le niveau de langue, la motivation ou la mémoire du patient.",
+      "design": "Axe choisi : objet exact de la vérification réalisée grâce à la reformulation par le patient. Les quatre options sont quatre choses typiquement évaluées en contexte médical (clarté de l’explication, niveau de langue, motivation, mémoire), toutes compatibles avec l’idée de demander au patient de redire les consignes. Seule la clarté de l’explication est explicitement désignée comme but dans l’enregistrement. Sans le document, on pourrait croire raisonnablement que l’on teste le niveau de langue, la motivation ou la mémoire, ce qui rend les distracteurs compétitifs.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme la reformulation en test du patient (son niveau de français) plutôt qu’en vérification de l’explication donnée. L’erreur vient d’attribuer au patient l’objet de l’évaluation alors que le texte insiste sur l’auto‑évaluation des professionnels.",
+          "operation": "role_swap",
+          "anchors": [
+            "Nous formons aussi les professionnels à demander au patient de reformuler les consignes avec ses propres mots.",
+            "Ce n'est pas un examen, c'est une vérification de notre manière d'expliquer."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que faire reformuler sert à mesurer l’envie réelle du patient de suivre le traitement, mais le passage indique que l’enjeu est la qualité des explications, pas l’attitude du patient : la reformulation est présentée comme un outil de contrôle de l’explication, non de la motivation.",
+          "operation": "role_swap",
+          "anchors": [
+            "Il faut vérifier ce qu'elles ont compris",
+            "Ce n'est pas un examen, c'est une vérification de notre manière d'expliquer."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Demander de redire des consignes pourrait sembler un test de mémoire, mais le document précise que ce n’est pas un examen du patient : la reformulation est destinée à vérifier comment les professionnels expliquent, pas la capacité du patient à retenir chaque détail.",
+          "operation": "role_swap",
+          "anchors": [
+            "demander au patient de reformuler les consignes avec ses propres mots",
+            "Ce n'est pas un examen, c'est une vérification de notre manière d'expliquer."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4425,
+      "completion_tokens": 1064,
+      "total_tokens": 5489,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 448,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01617125,
+    "inputHash": "2894a4ab5abb981baf9af2d07fffc4a38d590265521913b2d243e41ffcdf74d5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:27:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Lorsque le patient reformule les consignes avec ses propres mots, qu’est-ce que les professionnels cherchent précisément à vérifier ?",
+      "choices": [
+        "La mémoire du patient pour les détails du traitement.",
+        "La motivation du patient à suivre correctement son traitement.",
+        "Le niveau de maîtrise du français écrit par le patient.",
+        "La clarté de la manière dont ils ont expliqué les consignes."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzeKOCxlkxbjremMY7uzElBI0Buv",
+      "result": {
+        "question": "Quand un patient est invité à redire les consignes avec ses propres mots, à quoi peut servir cette étape pour les professionnels de santé ?",
+        "choices": [
+          "À apprécier la capacité du patient à mémoriser les détails de son traitement.",
+          "À évaluer la motivation du patient à suivre correctement son traitement.",
+          "À estimer le niveau de maîtrise du français écrit par le patient.",
+          "À juger si la manière dont ils ont expliqué les consignes est suffisamment claire."
+        ],
+        "notes": "Le terme «précisément» et la focalisation implicite sur la clarté des consignes ont été atténués dans l’énoncé, reformulé en question globale sur l’utilité de la reformulation. Les quatre propositions restent distinctes (mémoire, motivation, maîtrise du français écrit, clarté de l’explication) mais sont toutes présentées comme usages possibles, sans en avantager une comme objectif évident de la technique de reformulation."
+      },
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 639,
+        "total_tokens": 1300,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 429,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00721625,
+      "inputHash": "e716439f0988cbc0994dc1b02b869d7073553069fb59576565a9fc26512a8cc3",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:27:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
+        3,
         1,
         0,
-        3
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyNsYFt9dhwjrfGgjJNS5yu9TQrt",
+        "responseId": "chatcmpl-EkzeS2XfwLx8xzjc9VmuW6Gz2VRdN",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une formation en communication médicale explique que de nombreuses notices et comptes rendus utilisent des abréviations incompréhensibles pour les patients. Le formateur insiste sur l’importance de les remplacer, lors des explications orales, par des mots simples et éventuellement des schémas dessinés pour illustrer le diagnostic ou le traitement. À la fin, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et un participant répond que la formation sert à leur apprendre à remplacer les abréviations médicales par des schémas pour les rendre plus claires pour les patients."
+              "context": "Lors d’une consultation, un médecin explique un nouveau traitement puis demande au patient : « Est-ce que vous pouvez me redire avec vos mots ce qu’on vient de voir ? ». En écoutant la reformulation, l’équipe soignante vérifie si ses propres explications étaient compréhensibles et suffisamment claires, afin de corriger ou compléter si besoin."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un module de formation destiné à des traducteurs et professionnels de santé présente des recommandations pour adapter les notices de médicaments à des patients peu à l’aise avec la lecture. Le document explique que la formation vise à apprendre aux professionnels à simplifier les phrases, éviter les tournures complexes et le jargon, en particulier dans les notices traduites. Interrogés ensuite, on leur pose : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et l’un résume par l’idée d’apprendre à simplifier toutes les phrases des notices traduites."
+              "context": "Une infirmière présente un plan de traitement complexe et fait ensuite redire les consignes au patient. En entendant la manière dont il reformule, elle pourrait, à tort ou à raison, en inférer un certain niveau de motivation à appliquer correctement le traitement (par exemple s’il s’implique peu, répond de façon évasive). Cela reste une interprétation possible dans une situation ordinaire, même si ce n’est pas la finalité principale de la démarche."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Une formation en relation soignant-patient insiste sur l’importance d’un échange bidirectionnel. Le document explique que de nombreux professionnels enchaînent les consultations sans laisser de marge pour les questions, ce qui nuit à la compréhension. La formation apprennent donc à organiser leurs rendez-vous en prévoyant systématiquement un temps de questions à la fin. Après l’écoute du document, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et la réponse donnée est qu’elle sert à leur apprendre à toujours prévoir un temps pour les questions des patients."
+              "context": "Un médecin explique un schéma thérapeutique comportant plusieurs prises quotidiennes et demande au patient de redire les consignes tout de suite, puis un peu plus tard dans la consultation. En comparant ce que le patient retient et reformule, le professionnel peut avoir une idée grossière de la mémorisation immédiate des points clés du traitement."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un enregistrement présente une formation sur la méthode du « teach-back » en santé, où l’on explique que les patients n’osent pas toujours dire qu’ils n’ont pas compris. Le document précise que la formation sert surtout à apprendre aux professionnels à demander au patient de reformuler les consignes avec ses propres mots, afin de vérifier la compréhension. Après l’écoute, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et l’auditeur répond que la formation sert à leur apprendre à demander au patient de reformuler les consignes avec ses propres mots."
+              "context": "Dans un service accueillant des patients allophones, un soignant demande systématiquement de redire les consignes avec ses propres mots. Il peut alors, à tort ou à raison, utiliser la qualité de la reformulation orale comme un indice de compréhension linguistique générale, voire se faire une idée (peu précise) de la maîtrise du français, même si l’item de question parle de français écrit et que la situation reste essentiellement orale."
             }
           ],
           "cues": [
             {
-              "option": 3,
+              "option": 0,
               "severity": "clear",
-              "cue": "Formulation précise, réaliste et typique d’une recommandation de formation (« demander au patient de reformuler avec ses propres mots »), directement associée à une méthode identifiée, alors que les autres sont soit très restrictives ou techniques (abréviations remplacées par des schémas), soit excessivement globales (« simplifier toutes les phrases »), soit plus générales d’organisation du temps sans lien explicite avec la précision demandée."
+              "cue": "La formulation de la question (« avec ses propres mots ») renvoie explicitement à la technique de ‘teach-back’, classiquement décrite comme un outil permettant aux soignants de vérifier s’ils ont bien expliqué; l’option 0 correspond exactement à cet objectif éducatif. Les autres réponses ciblent des dimensions secondaires (motivation, mémoire, écrit) moins en lien direct avec la pratique standard, et l’item 4 mentionne le français écrit alors que la situation décrite est une reformulation orale."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.15,
-            0.15,
-            0.25,
-            0.45
+            0.7,
+            0.1,
+            0.1,
+            0.1
           ],
-          "guess": 3,
-          "reason": "La question insiste sur « précisément », ce qui correspond bien à l’apprentissage d’une technique de communication très concrète et largement promue (faire reformuler par le patient). L’option 3 est nuancée, directement centrée sur la vérification de la compréhension, alors que les autres paraissent soit trop spécifiques ou rigides, soit moins finement liées à un objectif de formation décrit comme précis."
+          "guess": 0,
+          "reason": "La question décrit précisément la démarche de reformulation par le patient, connue en éducation thérapeutique comme un moyen de vérifier la qualité et la clarté de l’explication donnée par le soignant. L’option 0 correspond textuellement à cet usage reconnu, alors que les autres options déplacent l’objectif vers motivation, mémoire ou maîtrise de l’écrit, qui sont au mieux des effets indirects et moins cohérents avec la situation orale évoquée."
         },
         "usage": {
-          "prompt_tokens": 634,
-          "completion_tokens": 938,
-          "total_tokens": 1572,
+          "prompt_tokens": 643,
+          "completion_tokens": 700,
+          "total_tokens": 1343,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 173,
+            "reasoning_tokens": 63,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0101725,
-        "inputHash": "55d5197936715f7ed4fa431b2475f67fe7d9ca9be8e0cbd0d21af6d1487098ad",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:27:initial:screen:6:0"
+        "costUsd": 0.00780375,
+        "inputHash": "faa5c7b942b5e94158c1d23b64b52b066f09f6da556f08757d75318453daa695",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:27:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La question insiste sur « précisément », ce qui correspond bien à l’apprentissage d’une technique de communication très concrète et largement promue (faire reformuler par le patient). L’option 3 est nuancée, directement centrée sur la vérification de la compréhension, alors que les autres paraissent soit trop spécifiques ou rigides, soit moins finement liées à un objectif de formation décrit comme précis.",
+    "reason": "La question décrit précisément la démarche de reformulation par le patient, connue en éducation thérapeutique comme un moyen de vérifier la qualité et la clarté de l’explication donnée par le soignant. L’option 0 correspond textuellement à cet usage reconnu, alors que les autres options déplacent l’objectif vers motivation, mémoire ou maîtrise de l’écrit, qui sont au mieux des effets indirects et moins cohérents avec la situation orale évoquée.",
     "cues": [
       {
-        "option": 3,
+        "option": 0,
         "severity": "clear",
-        "cue": "Formulation précise, réaliste et typique d’une recommandation de formation (« demander au patient de reformuler avec ses propres mots »), directement associée à une méthode identifiée, alors que les autres sont soit très restrictives ou techniques (abréviations remplacées par des schémas), soit excessivement globales (« simplifier toutes les phrases »), soit plus générales d’organisation du temps sans lien explicite avec la précision demandée."
+        "cue": "La formulation de la question (« avec ses propres mots ») renvoie explicitement à la technique de ‘teach-back’, classiquement décrite comme un outil permettant aux soignants de vérifier s’ils ont bien expliqué; l’option 0 correspond exactement à cet objectif éducatif. Les autres réponses ciblent des dimensions secondaires (motivation, mémoire, écrit) moins en lien direct avec la pratique standard, et l’item 4 mentionne le français écrit alors que la situation décrite est une reformulation orale."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Une formation en communication médicale explique que de nombreuses notices et comptes rendus utilisent des abréviations incompréhensibles pour les patients. Le formateur insiste sur l’importance de les remplacer, lors des explications orales, par des mots simples et éventuellement des schémas dessinés pour illustrer le diagnostic ou le traitement. À la fin, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et un participant répond que la formation sert à leur apprendre à remplacer les abréviations médicales par des schémas pour les rendre plus claires pour les patients."
+        "context": "Lors d’une consultation, un médecin explique un nouveau traitement puis demande au patient : « Est-ce que vous pouvez me redire avec vos mots ce qu’on vient de voir ? ». En écoutant la reformulation, l’équipe soignante vérifie si ses propres explications étaient compréhensibles et suffisamment claires, afin de corriger ou compléter si besoin."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Un module de formation destiné à des traducteurs et professionnels de santé présente des recommandations pour adapter les notices de médicaments à des patients peu à l’aise avec la lecture. Le document explique que la formation vise à apprendre aux professionnels à simplifier les phrases, éviter les tournures complexes et le jargon, en particulier dans les notices traduites. Interrogés ensuite, on leur pose : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et l’un résume par l’idée d’apprendre à simplifier toutes les phrases des notices traduites."
+        "context": "Une infirmière présente un plan de traitement complexe et fait ensuite redire les consignes au patient. En entendant la manière dont il reformule, elle pourrait, à tort ou à raison, en inférer un certain niveau de motivation à appliquer correctement le traitement (par exemple s’il s’implique peu, répond de façon évasive). Cela reste une interprétation possible dans une situation ordinaire, même si ce n’est pas la finalité principale de la démarche."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Une formation en relation soignant-patient insiste sur l’importance d’un échange bidirectionnel. Le document explique que de nombreux professionnels enchaînent les consultations sans laisser de marge pour les questions, ce qui nuit à la compréhension. La formation apprennent donc à organiser leurs rendez-vous en prévoyant systématiquement un temps de questions à la fin. Après l’écoute du document, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et la réponse donnée est qu’elle sert à leur apprendre à toujours prévoir un temps pour les questions des patients."
+        "context": "Un médecin explique un schéma thérapeutique comportant plusieurs prises quotidiennes et demande au patient de redire les consignes tout de suite, puis un peu plus tard dans la consultation. En comparant ce que le patient retient et reformule, le professionnel peut avoir une idée grossière de la mémorisation immédiate des points clés du traitement."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Un enregistrement présente une formation sur la méthode du « teach-back » en santé, où l’on explique que les patients n’osent pas toujours dire qu’ils n’ont pas compris. Le document précise que la formation sert surtout à apprendre aux professionnels à demander au patient de reformuler les consignes avec ses propres mots, afin de vérifier la compréhension. Après l’écoute, on demande : « Selon le document, à quoi sert précisément la formation des professionnels évoquée ? » et l’auditeur répond que la formation sert à leur apprendre à demander au patient de reformuler les consignes avec ses propres mots."
+        "context": "Dans un service accueillant des patients allophones, un soignant demande systématiquement de redire les consignes avec ses propres mots. Il peut alors, à tort ou à raison, utiliser la qualité de la reformulation orale comme un indice de compréhension linguistique générale, voire se faire une idée (peu précise) de la maîtrise du français, même si l’item de question parle de français écrit et que la situation reste essentiellement orale."
       }
     ]
   },

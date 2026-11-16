@@ -2,16 +2,16 @@
   "question": {
     "number": 28,
     "kind": "interview",
-    "question": "Dans le document, quel aspect du projet a effectivement été laissé au choix des habitants ?",
+    "question": "Dans cet exemple, sur quel aspect précis du projet les habitants ont-ils été invités à donner leur avis ?",
     "options": [
-      "Les horaires de chantier",
-      "Le calendrier général des travaux",
-      "L’emplacement des accès provisoires",
-      "La couleur de peinture"
+      "Sur l’emplacement des accès provisoires",
+      "Sur les dates de présentation publique des plans de rénovation",
+      "Sur les plages horaires prévues pour le chantier",
+      "Sur le choix de la couleur des façades à repeindre"
     ],
     "correct": "D",
-    "explanation": "Le document précise que «les habitants pouvaient choisir une couleur de peinture», alors qu’ils ne pouvaient pas discuter de l’emplacement des accès provisoires ni des horaires de chantier. A est donc le seul élément présenté comme ayant réellement été mis au choix des habitants.",
-    "transcript": "Question 28.\nLes plans de rénovation ont été présentés aux résidents avant les travaux. N'est-ce pas suffisant ?\nLa consultation a eu lieu une fois les décisions principales prises. Les habitants pouvaient choisir une couleur de peinture, mais pas discuter de l'emplacement des accès provisoires ou des horaires de chantier. C'est précisément là qu'ils avaient des informations utiles. Nous recommandons d'organiser les échanges plus tôt et de préciser quelles décisions restent ouvertes. Sinon, la participation ressemble davantage à une opération de communication qu'à une influence réelle.\nDans le document, quel aspect du projet a effectivement été laissé au choix des habitants ?",
+    "explanation": "Réponse D : Le texte dit précisément que la seule chose sur laquelle les habitants pouvaient donner leur avis était le choix d’une couleur de peinture, ce qui correspond au choix de la couleur des façades à repeindre. A : L’énoncé précise explicitement que les habitants ne pouvaient *pas* discuter de l’emplacement des accès provisoires. On leur a seulement laissé la possibilité de choisir une couleur de peinture. Quelqu’un qui entend « l’emplacement des accès provisoires » pourrait croire que c’est un sujet de consultation sans prêter attention à la négation « pas ». B : Le texte mentionne que les plans ont été présentés et situe la consultation dans le temps, mais il n’est jamais question de demander leur avis sur les *dates* de présentation publique. On parle du moment où la consultation a eu lieu, pas d’un choix offert aux habitants sur ces dates. Un auditeur peut extrapoler à tort que puisque la présentation est évoquée, son calendrier faisait partie des sujets ouverts à la discussion. C : Le passage indique clairement que les habitants ne pouvaient pas discuter des horaires de chantier. Les plages horaires sont donc explicitement exclues du champ de la consultation. Un auditeur peu attentif peut retenir « horaires de chantier » comme thème important sans noter qu’il est introduit dans une tournure négative (« mais pas discuter »).",
+    "transcript": "Question 28.\nLes plans de rénovation ont été présentés aux résidents avant les travaux. N'est-ce pas suffisant ?\nLa consultation a eu lieu une fois les décisions principales prises. Les habitants pouvaient choisir une couleur de peinture, mais pas discuter de l'emplacement des accès provisoires ou des horaires de chantier. C'est précisément là qu'ils avaient des informations utiles. Nous recommandons d'organiser les échanges plus tôt et de préciser quelles décisions restent ouvertes. Sinon, la participation ressemble davantage à une opération de communication qu'à une influence réelle.\nDans cet exemple, sur quel aspect précis du projet les habitants ont-ils été invités à donner leur avis ?",
     "segments": [
       {
         "voice": "female",
@@ -27,50 +27,166 @@
       },
       {
         "voice": "female",
-        "text": "Dans le document, quel aspect du projet a effectivement été laissé au choix des habitants ?"
+        "text": "Dans cet exemple, sur quel aspect précis du projet les habitants ont-ils été invités à donner leur avis ?"
       }
     ],
     "audio": "q-28.mp3",
     "audioSeconds": null,
     "slotSeconds": 66
   },
-  "rounds": 6,
-  "pass": false,
+  "sourceHash": "f595b934748439a346ce258c84bea1de5124372c009ae774cd0d760cf74d747e",
+  "contentHash": "69c1a0ca1aa223d449c4fd121b412c77c06b35366991e85ca0a8462e5910e154",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkztaTKfm0HBHBV5abFgeXXjHUEXY",
+    "result": {
+      "question": "Dans cet exemple, sur quel point concret les habitants ont-ils effectivement pu donner leur avis ?",
+      "choices": [
+        "Sur la couleur de la peinture",
+        "Sur l’emplacement des accès provisoires",
+        "Sur les horaires du chantier",
+        "Sur le calendrier de présentation des plans de rénovation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «Les habitants pouvaient choisir une couleur de peinture, mais pas discuter de l'emplacement des accès provisoires ou des horaires de chantier.» Le seul point sur lequel ils ont effectivement pu donner leur avis est donc la couleur de la peinture.",
+      "design": "Axe choisi : le type de décision soumis à l’avis des habitants. Les quatre réponses proposent chacune un objet de concertation typique et plausible dans un chantier (couleur, accès provisoires, horaires, calendrier). La compréhension fine du document est nécessaire pour identifier quel élément a réellement été ouvert à la consultation (la couleur de la peinture) et lesquels ont été explicitement exclus, bien que tout aussi plausibles. Sans le document, les quatre options sont également crédibles comme sujets de participation des résidents.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse le rôle attribué dans le document : les accès provisoires sont mentionnés comme un sujet sur lequel les habitants auraient eu «des informations utiles», mais précisément parmi ceux qu’ils n’ont pas pu discuter, ce qui peut faire croire à tort qu’ils ont été consultés dessus.",
+          "operation": "role_swap",
+          "anchors": [
+            "les habitants pouvaient choisir une couleur de peinture, mais pas discuter de l'emplacement des accès provisoires",
+            "c'est précisément là qu'ils avaient des informations utiles"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les horaires de chantier sont, comme les accès provisoires, cités parmi les décisions non ouvertes à la discussion, alors même qu’elles concernent directement les habitants. Cette proximité avec la couleur de la peinture dans la phrase peut amener un auditeur à confondre les rôles et à croire que les horaires faisaient aussi l’objet de la consultation.",
+          "operation": "role_swap",
+          "anchors": [
+            "mais pas discuter de l'emplacement des accès provisoires ou des horaires de chantier",
+            "Les habitants pouvaient choisir une couleur de peinture"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le calendrier de présentation des plans est un thème de participation très plausible. Le document évoque que «la consultation a eu lieu une fois les décisions principales prises» et recommande «d'organiser les échanges plus tôt», ce qui peut conduire à mal interpréter le moment de la réunion comme ayant été décidé avec les habitants, alors qu’il est seulement décrit comme un problème, pas comme l’objet d’une consultation.",
+          "operation": "role_swap",
+          "anchors": [
+            "La consultation a eu lieu une fois les décisions principales prises",
+            "Nous recommandons d'organiser les échanges plus tôt"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4320,
+      "completion_tokens": 784,
+      "total_tokens": 5104,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 202,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01324,
+    "inputHash": "cdec60da60a10b276c53cc727f1065a4296491ed0acc039af34b45a9c8c85700",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans cet exemple, sur quel point concret les habitants ont-ils effectivement pu donner leur avis ?",
+      "choices": [
+        "Sur l’emplacement des accès provisoires",
+        "Sur le calendrier de présentation des plans de rénovation",
+        "Sur les horaires du chantier",
+        "Sur la couleur de la peinture"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkztxMs7liaIcxSM6sUS2hapShG7l",
+      "result": {
+        "question": "Dans cet exemple, sur quel aspect précis du projet les habitants ont-ils été invités à donner leur avis ?",
+        "choices": [
+          "Sur l’emplacement des accès provisoires",
+          "Sur les dates de présentation publique des plans de rénovation",
+          "Sur les plages horaires prévues pour le chantier",
+          "Sur le choix de la couleur des façades à repeindre"
+        ],
+        "notes": "La question a été légèrement reformulée pour rester neutre (« été invités à donner leur avis ») et éviter l’idée qu’un seul choix serait manifestement plus concret. Les quatre options portent toutes sur un paramètre pratique et spécifique du projet, avec un niveau de détail et de professionnalisme comparable, sans mise en avant implicite d’un choix comme étant plus raisonnable ou responsable."
+      },
+      "usage": {
+        "prompt_tokens": 640,
+        "completion_tokens": 307,
+        "total_tokens": 947,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 139,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00387,
+      "inputHash": "aecc753f9d437b1005400686e638b210360f0effa30928a49733f8bae9c2e912",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:blind-edit:2"
+    }
+  },
   "blind": [
     {
       "order": [
         2,
-        3,
+        1,
         0,
-        1
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyZyQMCPThlIB8vLITCh5jss7ZTl",
+        "responseId": "chatcmpl-Ekzu2RQGrS1RCCbC8iXTYQ9EJWprD",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Réunion publique sur un projet urbain (réaménagement de place ou travaux de tramway). Le responsable explique : « Nous avons défini le tracé et le phasage, mais nous avons laissé aux habitants le choix de l’emplacement des accès provisoires aux immeubles pendant le chantier. » La question demande quel aspect a effectivement été laissé à leur choix, et cette réponse correspondrait directement à cette explication."
+              "context": "Lors d’une réunion d’information sur un futur chantier de rénovation dans un quartier, l’adjoint au maire explique les grandes lignes du projet puis précise que les habitants ont été invités à donner leur avis sur les plages horaires prévues pour le chantier afin de limiter les nuisances sonores tôt le matin ou tard le soir."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Présentation d’un projet de rénovation d’un immeuble ou d’un équipement public. L’architecte indique : « L’aménagement intérieur était déjà arrêté, mais nous avons organisé une consultation pour que les habitants choisissent la couleur de peinture des façades. » La question porterait sur l’aspect réellement soumis au choix des habitants, et cette option serait la réponse attendue."
+              "context": "Dans une assemblée de copropriétaires, le syndic présente un projet de rénovation de l’immeuble et indique qu’un sondage a été réalisé auprès des résidents pour recueillir leur avis sur les dates de présentation publique des plans de rénovation, afin de choisir les moments où le plus grand nombre pourrait assister aux réunions d’information."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Information municipale sur des travaux de voirie. L’élu précise : « Nous devions respecter un calendrier contraint, mais nous avons laissé aux habitants la possibilité de choisir les horaires de chantier les plus acceptables (matin, après-midi, soirée). » La question demande quel aspect a été laissé à leur choix, et cette option y répondrait logiquement."
+              "context": "Lors d’un projet de réaménagement d’une place de quartier, un urbaniste explique que, pour faciliter la circulation pendant les travaux, les habitants ont été consultés spécifiquement sur l’emplacement des accès provisoires aux immeubles et aux commerces afin de tenir compte de leurs habitudes de déplacement."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Réunion d’information sur un grand projet de rénovation de quartier. Le chef de projet explique : « Nous avons fixé le budget et la nature des travaux, mais nous avons laissé aux habitants le choix du calendrier général des travaux, notamment l’ordre des phases. » La question se réfère à l’aspect réellement laissé à leur choix, et cette option pourrait convenir dans ce type de discours participatif."
+              "context": "Dans une réunion de concertation sur la rénovation d’un ensemble de logements, l’architecte précise que, parmi les différents points, les habitants ont été invités à donner leur avis sur le choix de la couleur des façades à repeindre, en leur proposant plusieurs palettes afin que le résultat corresponde mieux à l’identité du quartier."
             }
           ],
           "cues": [],
@@ -82,133 +198,238 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre options peuvent correspondre à des formes ordinaires de concertation avec les habitants et répondent littéralement à la question. Le seul indice est la formulation générale, sans marque évidente qui privilégie un choix particulier. En l’absence de tout autre élément (extrait du document, style, restrictions mentionnées), aucun avantage concret et vérifiable ne distingue clairement une option des autres, donc les probabilités restent équilibrées et le choix final demeure très incertain."
+          "reason": "Les quatre propositions correspondent chacune à un « aspect précis du projet » sur lequel on pourrait consulter les habitants, sans qu’un indice linguistique clair ne favorise l’une plutôt que les autres. Sans accès à l’enregistrement, aucun avantage objectif ne se dégage nettement, d’où une forte incertitude et une répartition de probabilité uniforme malgré l’obligation de choisir un indice comme réponse présumée."
         },
         "usage": {
-          "prompt_tokens": 595,
-          "completion_tokens": 629,
-          "total_tokens": 1224,
+          "prompt_tokens": 618,
+          "completion_tokens": 551,
+          "total_tokens": 1169,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 123,
+            "reasoning_tokens": 115,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00703375,
-        "inputHash": "a1751d90e919249e36ee4921279698e9b370825a7bb00d2759e2cda624450844",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:initial:screen:6:0"
+        "costUsd": 0.0062825,
+        "inputHash": "51423b848f88a3d3353f0922bc09a4c7dec35972f886e59812184230e674aad0",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:screen:2:edited:0"
       }
     },
     {
       "order": [
-        0,
-        3,
         1,
-        2
+        2,
+        3,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Ekya47i0wXKOUHrtmkSOo6oTAaWLX",
+        "responseId": "chatcmpl-Ekzu9sLRjL4h7mGwnao1oBngvdtjL",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Réunion publique sur des travaux dans un quartier : un habitant demande si les riverains ont pu choisir les horaires de chantier pour limiter le bruit. L’animateur répond en expliquant que les horaires ont été définis par la mairie et l’entreprise, mais que ce point n’a pas été laissé au choix des habitants. Si, dans un autre cas similaire, on avait demandé leur avis, la réponse \"/Les horaires de chantier/\" pourrait directement répondre à la question."
+              "context": "Réunion publique sur un projet de rénovation urbaine : après une présentation globale, l’animateur explique que, dans cet exemple précis, les habitants ont été consultés uniquement sur les dates de présentation publique des plans, afin de choisir les soirées ou week-ends qui leur convenaient le mieux pour venir s’informer."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Présentation d’un projet de rénovation de façades en copropriété ou de peinture d’équipements publics : l’architecte explique que plusieurs décisions étaient déjà fixées (budget, calendrier, type de travaux), mais que la couleur de peinture a effectivement été soumise au vote ou à un sondage auprès des habitants. Interrogé ensuite, le présentateur précise que c’est la couleur de peinture qui a été laissée à leur choix."
+              "context": "Lors d’une réunion sur un chantier de rénovation, l’élu décrit un cas concret où l’entreprise a demandé aux riverains leurs préférences concernant les plages horaires de travail (matin, après-midi, soirée) pour limiter les nuisances sonores, et précise que, dans cet exemple, c’est bien sur les plages horaires du chantier que les habitants ont donné leur avis."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Réunion d’information sur un grand chantier urbain : un responsable précise que les habitants ont été associés à la définition des grandes phases du projet et ont voté entre plusieurs scénarios de calendrier (par exemple travaux concentrés sur une période plus courte mais plus intensive, ou étalés sur une durée plus longue). Lorsque quelqu’un demande quel aspect a été laissé à leur choix, l’animateur répond que c’est le calendrier général des travaux."
+              "context": "Dans une présentation de projet de réhabilitation de façades, l’architecte raconte un exemple où un vote a été organisé dans le quartier pour choisir entre plusieurs palettes de couleurs, en disant clairement que, dans cet exemple, les habitants ont été invités à se prononcer sur le choix de la couleur des façades à repeindre."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Information aux riverains sur des travaux de voirie : l’ingénieur explique que, pour limiter la gêne, plusieurs options d’emplacement des accès provisoires (entrées de parking, cheminements piétons temporaires) ont été présentées aux habitants, et qu’un choix collectif a été fait. À la question posée ensuite, il précise que l’emplacement des accès provisoires a effectivement été laissé à leur choix."
+              "context": "Lors d’une réunion d’information sur un gros chantier en centre-ville, l’ingénieur donne un exemple de concertation où les habitants ont été consultés sur l’emplacement des accès provisoires (passages piétons, entrées de parking temporaires), afin de maintenir l’accessibilité pour les riverains."
             }
           ],
-          "cues": [
-            {
-              "option": 1,
-              "severity": "weak",
-              "cue": "Parmi les quatre, « La couleur de peinture » est l’aspect le plus accessoire et subjectif, typiquement présenté comme un geste de participation symbolique, tandis que les horaires de chantier, le calendrier général et les accès provisoires relèvent plus souvent de contraintes techniques, juridiques ou de sécurité. Formulé ainsi, c’est l’option qui paraît la plus naturellement laissée au libre choix des habitants."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.15,
-            0.45,
-            0.2,
-            0.2
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
-          "guess": 1,
-          "reason": "Tous les choix peuvent correspondre à un contexte ordinaire, mais la formulation met en avant un détail concret qu’on imagine facilement confié aux habitants comme unique marge de décision: la couleur de peinture. Les autres options touchent à des paramètres plus techniques ou réglementés. Cette asymétrie de vraisemblance donne un léger avantage à l’option 1, malgré une incertitude réelle sur l’enregistrement d’origine."
+          "guess": 2,
+          "reason": "Les quatre options peuvent toutes correspondre à un exemple de concertation sur un aspect précis d’un projet ; aucune ne présente un avantage de formulation ou de pertinence clairement observable, donc le choix de la réponse reste incertain et revient à une sélection contrainte parmi des possibilités équivalentes."
         },
         "usage": {
-          "prompt_tokens": 595,
-          "completion_tokens": 847,
-          "total_tokens": 1442,
+          "prompt_tokens": 618,
+          "completion_tokens": 596,
+          "total_tokens": 1214,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 203,
+            "reasoning_tokens": 169,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00921375,
-        "inputHash": "5482598193c61b277a06b13de94f2dfeb4bb3cbdce161b5a09bd0e0a13dad42a",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:initial:screen:6:1"
+        "costUsd": 0.0067325,
+        "inputHash": "6f839e3e1d070375f2794ab3fe02ecb3ec7dc6c4b48999260709f7b7e4be6f5f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:screen:2:edited:1"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzuIzqFOMBlwCBVGm6bDOb6OnjzC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion publique sur un projet de rénovation d’immeubles : l’architecte présente plusieurs possibilités de couleurs pour les façades à repeindre et explique que les habitants sont invités à donner leur avis sur le choix final de la couleur."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Annonce municipale sur un projet de rénovation urbaine : l’élu explique qu’ils ont consulté les habitants pour savoir quelles dates de présentation publique des plans de rénovation conviendraient le mieux au plus grand nombre afin d’y assister."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Réunion d’information sur un chantier dans un quartier résidentiel : le responsable des travaux dit qu’ils ont demandé aux habitants leur avis sur les plages horaires prévues pour le chantier, afin de limiter les nuisances sonores tôt le matin ou le soir."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion de concertation autour de la rénovation d’une place : l’ingénieure explique que les habitants ont été invités à donner leur avis sur l’emplacement des accès provisoires (entrées, sorties, passages piétons temporaires) pendant toute la durée des travaux."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Tous les choix peuvent répondre normalement à la question sans contexte absurde, aucun indice de formulation ne favorise clairement une option plutôt qu’une autre, d’où une forte incertitude et une répartition de probabilité uniforme malgré l’obligation de choisir un indice comme réponse."
+        },
+        "usage": {
+          "prompt_tokens": 618,
+          "completion_tokens": 547,
+          "total_tokens": 1165,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 193,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0062425,
+        "inputHash": "4029e83b2fbd01c87743dd35fff10f702083a111b113bdb3a834313a95c32e4a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:screen:2:edited:2"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Tous les choix peuvent correspondre à un contexte ordinaire, mais la formulation met en avant un détail concret qu’on imagine facilement confié aux habitants comme unique marge de décision: la couleur de peinture. Les autres options touchent à des paramètres plus techniques ou réglementés. Cette asymétrie de vraisemblance donne un léger avantage à l’option 1, malgré une incertitude réelle sur l’enregistrement d’origine.",
-    "cues": [
-      {
-        "option": 1,
-        "severity": "weak",
-        "cue": "Parmi les quatre, « La couleur de peinture » est l’aspect le plus accessoire et subjectif, typiquement présenté comme un geste de participation symbolique, tandis que les horaires de chantier, le calendrier général et les accès provisoires relèvent plus souvent de contraintes techniques, juridiques ou de sécurité. Formulé ainsi, c’est l’option qui paraît la plus naturellement laissée au libre choix des habitants."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzuQRU3xuV22mWIFousFag7K3yNW",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les habitants ont été invités à donner leur avis uniquement sur le choix de la couleur de peinture, donc sur la couleur des façades à repeindre.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais pas discuter de l'emplacement des accès provisoires"
+          ],
+          "reason": "L’énoncé précise explicitement que les habitants ne pouvaient *pas* discuter de l’emplacement des accès provisoires. On leur a seulement laissé la possibilité de choisir une couleur de peinture. Quelqu’un qui entend « l’emplacement des accès provisoires » pourrait croire que c’est un sujet de consultation sans prêter attention à la négation « pas ».",
+          "misunderstanding": "negation"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les plans de rénovation ont été présentés aux résidents avant les travaux.",
+            "La consultation a eu lieu une fois les décisions principales prises."
+          ],
+          "reason": "Le texte mentionne que les plans ont été présentés et situe la consultation dans le temps, mais il n’est jamais question de demander leur avis sur les *dates* de présentation publique. On parle du moment où la consultation a eu lieu, pas d’un choix offert aux habitants sur ces dates. Un auditeur peut extrapoler à tort que puisque la présentation est évoquée, son calendrier faisait partie des sujets ouverts à la discussion.",
+          "misunderstanding": "inference"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais pas discuter de l'emplacement des accès provisoires ou des horaires de chantier."
+          ],
+          "reason": "Le passage indique clairement que les habitants ne pouvaient pas discuter des horaires de chantier. Les plages horaires sont donc explicitement exclues du champ de la consultation. Un auditeur peu attentif peut retenir « horaires de chantier » comme thème important sans noter qu’il est introduit dans une tournure négative (« mais pas discuter »).",
+          "misunderstanding": "negation"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les habitants pouvaient choisir une couleur de peinture"
+          ],
+          "reason": "Le texte dit précisément que la seule chose sur laquelle les habitants pouvaient donner leur avis était le choix d’une couleur de peinture, ce qui correspond au choix de la couleur des façades à repeindre.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 766,
+      "completion_tokens": 851,
+      "total_tokens": 1617,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 329,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Réunion publique sur des travaux dans un quartier : un habitant demande si les riverains ont pu choisir les horaires de chantier pour limiter le bruit. L’animateur répond en expliquant que les horaires ont été définis par la mairie et l’entreprise, mais que ce point n’a pas été laissé au choix des habitants. Si, dans un autre cas similaire, on avait demandé leur avis, la réponse \"/Les horaires de chantier/\" pourrait directement répondre à la question."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Présentation d’un projet de rénovation de façades en copropriété ou de peinture d’équipements publics : l’architecte explique que plusieurs décisions étaient déjà fixées (budget, calendrier, type de travaux), mais que la couleur de peinture a effectivement été soumise au vote ou à un sondage auprès des habitants. Interrogé ensuite, le présentateur précise que c’est la couleur de peinture qui a été laissée à leur choix."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Réunion d’information sur un grand chantier urbain : un responsable précise que les habitants ont été associés à la définition des grandes phases du projet et ont voté entre plusieurs scénarios de calendrier (par exemple travaux concentrés sur une période plus courte mais plus intensive, ou étalés sur une durée plus longue). Lorsque quelqu’un demande quel aspect a été laissé à leur choix, l’animateur répond que c’est le calendrier général des travaux."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Information aux riverains sur des travaux de voirie : l’ingénieur explique que, pour limiter la gêne, plusieurs options d’emplacement des accès provisoires (entrées de parking, cheminements piétons temporaires) ont été présentées aux habitants, et qu’un choix collectif a été fait. À la question posée ensuite, il précise que l’emplacement des accès provisoires a effectivement été laissé à leur choix."
-      }
-    ]
-  }
+    },
+    "costUsd": 0.0094675,
+    "inputHash": "1103e0dffe8bbf80040a7975663b3a08098088341e82b0fd6ac5fcf25fd21f51",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:27:14721af7be4c27b55696caf7:ground:2:edited"
+  },
+  "feedback": null
 }

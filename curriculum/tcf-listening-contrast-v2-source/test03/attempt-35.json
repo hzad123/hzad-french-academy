@@ -2,16 +2,16 @@
   "question": {
     "number": 35,
     "kind": "interview",
-    "question": "Selon le document, comment l'absence d'alerte de la montre doit-elle être interprétée ?",
+    "question": "Que dit le document sur la signification d’une absence d’alerte émise par la montre ?",
     "options": [
-      "Comme une confirmation que les variations du rythme sont sans gravité.",
-      "Comme un signe rassurant que les capteurs fonctionnent correctement.",
-      "Comme un élément qui ne suffit pas à prouver qu’il n’y a aucun problème.",
-      "Comme un indicateur globalement plus fiable que la présence d’une alerte."
+      "Qu’elle suggère surtout que le bracelet est correctement ajusté au poignet pendant la journée.",
+      "Qu’elle peut être ressentie comme rassurante et conduire à différer une consultation en l’absence de symptômes.",
+      "Qu’elle ne permet pas, à elle seule, de conclure que le cœur est exempt de tout problème.",
+      "Qu’elle indique en général que les capteurs ont enregistré les données sans perturbation particulière."
     ],
     "correct": "C",
-    "explanation": "Le document précise que « son absence ne garantit pas qu'aucun problème n'existe ». L’absence d’alerte ne doit donc pas être considérée comme une preuve d’absence de problème, mais comme un élément insuffisant pour conclure à la normalité. A reprend exactement cette idée. B est exclue car le texte refuse explicitement que l’absence d’alerte soit une « garantie ». C ajoute un rôle positif des capteurs qui n’est jamais affirmé. D attribue à l’absence d’alerte une fiabilité supérieure à la présence d’une alerte, alors que le passage met plutôt en garde contre une confiance excessive dans les deux cas.",
-    "transcript": "Question 35.\nCes montres peuvent détecter des variations du rythme cardiaque. Pourquoi certains médecins restent-ils prudents ?\nElles fournissent des informations utiles sur la durée, mais les capteurs peuvent être perturbés par le mouvement ou par un bracelet mal ajusté. Une alerte n'est pas, à elle seule, un diagnostic, et son absence ne garantit pas qu'aucun problème n'existe. Nous conseillons de partager les données avec un professionnel lorsqu'une inquiétude persiste, plutôt que de réagir à chaque notification comme à une certitude.\nSelon le document, comment l'absence d'alerte de la montre doit-elle être interprétée ?",
+    "explanation": "Le document dit clairement que l’absence d’alerte « ne garantit pas qu’aucun problème n’existe » : elle ne permet donc pas d’affirmer qu’il n’y a aucun problème cardiaque. Les autres propositions attribuent à l’absence d’alerte un rôle que le texte réserve à la qualité des capteurs ou du bracelet, ou bien une capacité à rassurer qui n’est jamais évoquée.",
+    "transcript": "Question 35.\nCes montres peuvent détecter des variations du rythme cardiaque. Pourquoi certains médecins restent-ils prudents ?\nElles fournissent des informations utiles sur la durée, mais les capteurs peuvent être perturbés par le mouvement ou par un bracelet mal ajusté. Une alerte n'est pas, à elle seule, un diagnostic, et son absence ne garantit pas qu'aucun problème n'existe. Nous conseillons de partager les données avec un professionnel lorsqu'une inquiétude persiste, plutôt que de réagir à chaque notification comme à une certitude.\nQue dit le document sur la signification d’une absence d’alerte émise par la montre ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, comment l'absence d'alerte de la montre doit-elle être interprétée ?"
+        "text": "Que dit le document sur la signification d’une absence d’alerte émise par la montre ?"
       }
     ],
     "audio": "q-35.mp3",
@@ -36,111 +36,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkziE6LFdGkgEsnNvC67PP5zIhIcc",
+    "result": {
+      "question": "Que précise le document concernant l’absence d’alerte émise par la montre ?",
+      "choices": [
+        "Qu’elle ne permet pas d’affirmer qu’il n’existe aucun problème cardiaque.",
+        "Qu’elle signifie en général que les capteurs n’ont pas été perturbés.",
+        "Qu’elle rassure suffisamment pour éviter de consulter si l’on ne ressent aucun symptôme.",
+        "Qu’elle indique surtout que le bracelet est correctement ajusté pendant la journée."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit clairement que l’absence d’alerte « ne garantit pas qu’aucun problème n’existe » : elle ne permet donc pas d’affirmer qu’il n’y a aucun problème cardiaque. Les autres propositions attribuent à l’absence d’alerte un rôle que le texte réserve à la qualité des capteurs ou du bracelet, ou bien une capacité à rassurer qui n’est jamais évoquée.",
+      "design": "Axe choisi : interprétation précise de l’absence d’alerte. Les quatre réponses proposent des lectures proches et réalistes de ce que pourrait signifier l’absence de notification pour un utilisateur ou un médecin (garantie d’absence de problème, bon fonctionnement des capteurs, effet rassurant suffisant pour éviter une consultation, bon ajustement du bracelet). Seul le document permet de trancher : il insiste sur l’absence de garantie quant à l’inexistence d’un problème, alors que les autres interprétations prolongent de façon plausible des éléments réellement présents (capteurs perturbés, bracelet mal ajusté, recours au professionnel) en leur donnant à tort une portée spécifique à l’absence d’alerte.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transfère aux périodes sans alerte un rôle que le texte n’attribue qu’à la fiabilité instantanée des capteurs : l’exemple du mouvement et du bracelet mal ajusté sert à expliquer la prudence face aux mesures, pas à interpréter l’absence d’alerte comme signe que les capteurs n’ont pas été perturbés.",
+          "operation": "role_swap",
+          "anchors": [
+            "les capteurs peuvent être perturbés par le mouvement ou par un bracelet mal ajusté",
+            "son absence ne garantit pas qu'aucun problème n'existe"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option élargit indûment la portée de l’absence d’alerte en la présentant comme suffisamment rassurante pour renoncer à consulter, alors que le document ne parle jamais d’éviter une consultation grâce aux non-alertes ; il met au contraire l’accent sur le fait qu’une absence d’alerte ne garantit rien et recommande de consulter en cas d’inquiétude persistante.",
+          "operation": "scope_shift",
+          "anchors": [
+            "son absence ne garantit pas qu'aucun problème n'existe",
+            "Nous conseillons de partager les données avec un professionnel lorsqu'une inquiétude persiste"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option attribue à l’absence d’alerte un rôle de vérification du bon ajustement du bracelet, en s’appuyant sur la mention du bracelet mal ajusté ; or dans le document, le bracelet intervient uniquement comme source possible de perturbation des capteurs, pas comme indicateur interprétable via la présence ou l’absence d’alerte.",
+          "operation": "role_swap",
+          "anchors": [
+            "les capteurs peuvent être perturbés par le mouvement ou par un bracelet mal ajusté",
+            "son absence ne garantit pas qu'aucun problème n'existe"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4558,
+      "completion_tokens": 1394,
+      "total_tokens": 5952,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 676,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0196375,
+    "inputHash": "6a80877b0c33e7e3be038b16db8467221cf9a6eff08e6918448c3faecfe13cc1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:34:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Que précise le document concernant l’absence d’alerte émise par la montre ?",
+      "choices": [
+        "Qu’elle indique surtout que le bracelet est correctement ajusté pendant la journée.",
+        "Qu’elle rassure suffisamment pour éviter de consulter si l’on ne ressent aucun symptôme.",
+        "Qu’elle ne permet pas d’affirmer qu’il n’existe aucun problème cardiaque.",
+        "Qu’elle signifie en général que les capteurs n’ont pas été perturbés."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekziifng5URx5cDIqTCqrZKYQEvTl",
+      "result": {
+        "question": "Que dit le document sur la signification d’une absence d’alerte émise par la montre ?",
+        "choices": [
+          "Qu’elle suggère surtout que le bracelet est correctement ajusté au poignet pendant la journée.",
+          "Qu’elle peut être ressentie comme rassurante et conduire à différer une consultation en l’absence de symptômes.",
+          "Qu’elle ne permet pas, à elle seule, de conclure que le cœur est exempt de tout problème.",
+          "Qu’elle indique en général que les capteurs ont enregistré les données sans perturbation particulière."
+        ],
+        "notes": "La question a été légèrement généralisée pour éviter d’orienter vers une réponse prudente ou médicale. Chaque choix reste une interprétation professionnelle et précise de l’absence d’alerte : ajustement du bracelet (0), effet rassurant et comportement de consultation (1), portée diagnostique limitée (2), qualité du signal des capteurs (3). Aucun n’est formulé comme évidemment plus responsable ou plus sûr que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 675,
+        "completion_tokens": 783,
+        "total_tokens": 1458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 566,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00867375,
+      "inputHash": "ead9564958752651509a1d6c5a4fc5427cba261612dbd49bdd980f0b8e97deec",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:34:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
         0,
         1,
-        3
+        3,
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyOlMsH6KMmcC4jKoj01dWjc82AA",
+        "responseId": "chatcmpl-Ekzivmuw8IlR6Te52iP7tzXHKrPqn",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un cardiologue explique à un patient équipé d’une montre connectée que le fait de ne pas recevoir d’alerte ne doit pas être interprété comme la preuve qu’il n’a aucun souci cardiaque, car l’appareil peut manquer certaines anomalies ou ne surveille pas tout en permanence."
+              "context": "Un cardiologue commente le fonctionnement d’une montre connectée à un patient : il explique que si aucune alerte n’a été émise, cela signifie surtout que la montre était bien positionnée, ce qui a permis une bonne captation des données tout au long de la journée, sans garantir pour autant l’absence de problème cardiaque."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un médecin commente des résultats de suivi à un patient et lui dit que, dans son cas précis, l’absence d’alerte de la montre peut être vue comme une confirmation que les petites variations observées de son rythme cardiaque ne sont pas graves."
+              "context": "Dans une brochure de prévention, un texte explique qu’une absence d’alerte de la montre peut être perçue comme rassurante par certains utilisateurs et les inciter à retarder une consultation médicale tant qu’ils ne ressentent aucun symptôme inquiétant."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Un technicien ou un conseiller en boutique d’électronique rassure un client inquiet en expliquant que si la montre n’envoie pas d’alerte pendant un test guidé, c’est plutôt bon signe et cela montre que les capteurs réagissent comme prévu."
+              "context": "Un document technique de présentation d’un dispositif médical portable précise que si l’appareil n’émet aucune alerte, on peut en déduire que les capteurs ont globalement collecté les données sans perturbation ni artefact majeur durant la période de port."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un spécialiste de dispositifs médicaux compare différents indicateurs et affirme, dans une discussion technique, que pour ce modèle de montre, l’absence d’alerte constitue en général un indicateur plus fiable que les alertes elles‑mêmes, souvent sujettes aux faux positifs."
+              "context": "Une notice d’utilisation d’une montre de surveillance cardiaque comporte une mise en garde : elle précise clairement que l’absence d’alerte ne signifie pas que le cœur est indemne de tout problème et qu’il ne faut pas se fier uniquement au dispositif pour établir un diagnostic."
             }
           ],
           "cues": [
             {
-              "option": 0,
+              "option": 3,
               "severity": "clear",
-              "cue": "Formulation prudente et nuancée (« ne suffit pas à prouver ») typique des mises en garde médicales/technologiques ; les autres options tirent des conclusions positives fortes (confirmation, signe rassurant, indicateur plus fiable) qui vont au‑delà de ce qu’on attend d’un document explicatif sur les limites d’une montre de santé."
+              "cue": "Formulation typique d’une mise en garde médicale (« ne permet pas, à elle seule, de conclure que… »), prudente, nuancée et centrée sur la signification clinique d’une absence d’alerte, ce qui répond directement à la question. Les autres options décrivent des effets secondaires possibles (ressenti rassurant, bonne captation, bon ajustement) mais pas la portée diagnostique de l’absence d’alerte, qui est précisément ce que la question cible (« signification »)."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.55,
+            0.1,
             0.15,
             0.15,
-            0.15
+            0.6
           ],
-          "guess": 0,
-          "reason": "Le libellé met l’accent sur l’interprétation prudente de l’absence d’alerte, et l’option 0 correspond précisément à ce type de mise en garde, alors que les autres transforment cette absence en garantie ou en indicateur supérieur, ce qui est moins cohérent avec la prudence attendue d’un document d’information sur un dispositif de santé."
+          "guess": 3,
+          "reason": "Le libellé de la question porte sur la « signification » d’une absence d’alerte, ce qui renvoie classiquement, dans un document de santé, à la portée interprétative ou diagnostique. L’option 3 formule une mise en garde explicite et médicale sur ce point, avec un style de notice réglementaire, tandis que les autres décrivent plutôt des conséquences pratiques ou psychologiques. Cela donne à l’option 3 un net avantage, bien que toutes restent contextuellement plausibles."
         },
         "usage": {
-          "prompt_tokens": 637,
-          "completion_tokens": 565,
-          "total_tokens": 1202,
+          "prompt_tokens": 658,
+          "completion_tokens": 713,
+          "total_tokens": 1371,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 82,
+            "reasoning_tokens": 166,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00644625,
-        "inputHash": "31571d17b66966e4f320139f727a57f6588b70b984cb62ea4b39f08832e01e45",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:34:initial:screen:6:0"
+        "costUsd": 0.0079525,
+        "inputHash": "1333b3835a625c7fd52964618b090d25fd295cc4cdafb8f5522ba45bdcfbf6f5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:34:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le libellé met l’accent sur l’interprétation prudente de l’absence d’alerte, et l’option 0 correspond précisément à ce type de mise en garde, alors que les autres transforment cette absence en garantie ou en indicateur supérieur, ce qui est moins cohérent avec la prudence attendue d’un document d’information sur un dispositif de santé.",
+    "reason": "Le libellé de la question porte sur la « signification » d’une absence d’alerte, ce qui renvoie classiquement, dans un document de santé, à la portée interprétative ou diagnostique. L’option 3 formule une mise en garde explicite et médicale sur ce point, avec un style de notice réglementaire, tandis que les autres décrivent plutôt des conséquences pratiques ou psychologiques. Cela donne à l’option 3 un net avantage, bien que toutes restent contextuellement plausibles.",
     "cues": [
       {
-        "option": 0,
+        "option": 3,
         "severity": "clear",
-        "cue": "Formulation prudente et nuancée (« ne suffit pas à prouver ») typique des mises en garde médicales/technologiques ; les autres options tirent des conclusions positives fortes (confirmation, signe rassurant, indicateur plus fiable) qui vont au‑delà de ce qu’on attend d’un document explicatif sur les limites d’une montre de santé."
+        "cue": "Formulation typique d’une mise en garde médicale (« ne permet pas, à elle seule, de conclure que… »), prudente, nuancée et centrée sur la signification clinique d’une absence d’alerte, ce qui répond directement à la question. Les autres options décrivent des effets secondaires possibles (ressenti rassurant, bonne captation, bon ajustement) mais pas la portée diagnostique de l’absence d’alerte, qui est précisément ce que la question cible (« signification »)."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Un cardiologue explique à un patient équipé d’une montre connectée que le fait de ne pas recevoir d’alerte ne doit pas être interprété comme la preuve qu’il n’a aucun souci cardiaque, car l’appareil peut manquer certaines anomalies ou ne surveille pas tout en permanence."
+        "context": "Un cardiologue commente le fonctionnement d’une montre connectée à un patient : il explique que si aucune alerte n’a été émise, cela signifie surtout que la montre était bien positionnée, ce qui a permis une bonne captation des données tout au long de la journée, sans garantir pour autant l’absence de problème cardiaque."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Un médecin commente des résultats de suivi à un patient et lui dit que, dans son cas précis, l’absence d’alerte de la montre peut être vue comme une confirmation que les petites variations observées de son rythme cardiaque ne sont pas graves."
+        "context": "Dans une brochure de prévention, un texte explique qu’une absence d’alerte de la montre peut être perçue comme rassurante par certains utilisateurs et les inciter à retarder une consultation médicale tant qu’ils ne ressentent aucun symptôme inquiétant."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Un technicien ou un conseiller en boutique d’électronique rassure un client inquiet en expliquant que si la montre n’envoie pas d’alerte pendant un test guidé, c’est plutôt bon signe et cela montre que les capteurs réagissent comme prévu."
+        "context": "Un document technique de présentation d’un dispositif médical portable précise que si l’appareil n’émet aucune alerte, on peut en déduire que les capteurs ont globalement collecté les données sans perturbation ni artefact majeur durant la période de port."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Un spécialiste de dispositifs médicaux compare différents indicateurs et affirme, dans une discussion technique, que pour ce modèle de montre, l’absence d’alerte constitue en général un indicateur plus fiable que les alertes elles‑mêmes, souvent sujettes aux faux positifs."
+        "context": "Une notice d’utilisation d’une montre de surveillance cardiaque comporte une mise en garde : elle précise clairement que l’absence d’alerte ne signifie pas que le cœur est indemne de tout problème et qu’il ne faut pas se fier uniquement au dispositif pour établir un diagnostic."
       }
     ]
   }

@@ -2,16 +2,16 @@
   "question": {
     "number": 26,
     "kind": "interview",
-    "question": "D’après le document, quelle interprétation erronée certaines personnes ont-elles au début quand elles voient moins de livres exposés ?",
+    "question": "Selon le document, comment certains clients réagissent-ils d’abord au nouvel aménagement des rayons de la librairie ?",
     "options": [
-      "Elles pensent que seuls les éditeurs de la région sont encore proposés.",
-      "Elles pensent que la librairie va bientôt fermer.",
-      "Elles pensent que les prix des livres ont augmenté.",
-      "Elles pensent que l’offre de la librairie a diminué."
+      "Ils pensent que les livres des éditeurs de la région sont désormais les seuls vraiment mis en avant.",
+      "Ils pensent que l’accès aux autres ouvrages se fera désormais beaucoup plus lentement, avec des délais de commande allongés.",
+      "Ils pensent que les titres qui ne sont plus en rayon ne peuvent tout simplement plus être obtenus auprès de la librairie.",
+      "Ils pensent que la librairie a nettement réduit l’étendue de son offre, avec un choix de titres devenu beaucoup plus limité."
     ],
     "correct": "D",
-    "explanation": "Le document précise qu’«il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué». Le malentendu porte donc sur une baisse supposée de l’offre, alors que les livres non exposés peuvent toujours être commandés «souvent pour le lendemain».",
-    "transcript": "Question 26.\nVous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?\nPas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité.\nD’après le document, quelle interprétation erronée certaines personnes ont-elles au début quand elles voient moins de livres exposés ?",
+    "explanation": "Le document précise que «certaines personnes croient d'abord que notre offre a diminué». Il s’agit bien de l’idée d’un choix de livres plus restreint, non d’une spécialisation régionale exclusive, d’une suppression totale ou d’un allongement des délais, qui sont explicitement contredits par la suite.",
+    "transcript": "Question 26.\nVous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?\nPas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité.\nSelon le document, comment certains clients réagissent-ils d’abord au nouvel aménagement des rayons de la librairie ?",
     "segments": [
       {
         "voice": "female",
@@ -27,120 +27,232 @@
       },
       {
         "voice": "female",
-        "text": "D’après le document, quelle interprétation erronée certaines personnes ont-elles au début quand elles voient moins de livres exposés ?"
+        "text": "Selon le document, comment certains clients réagissent-ils d’abord au nouvel aménagement des rayons de la librairie ?"
       }
     ],
     "audio": "q-26.mp3",
     "audioSeconds": null,
     "slotSeconds": 66
   },
-  "rounds": 0,
+  "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzXASSEaC2g0MwiJknbaodEF3OnN",
+    "result": {
+      "question": "D’après le document, comment certains clients interprètent-ils d’abord la réduction du nombre de livres exposés ?",
+      "choices": [
+        "Ils pensent que le choix de livres proposé est devenu plus restreint.",
+        "Ils pensent que les livres des éditeurs de la région sont désormais les seuls vraiment mis à disposition.",
+        "Ils pensent que les titres retirés des étagères ne peuvent plus être obtenus du tout par la librairie.",
+        "Ils pensent que l’accès aux autres ouvrages est désormais beaucoup plus lent, avec des délais de commande allongés."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «certaines personnes croient d'abord que notre offre a diminué». Il s’agit bien de l’idée d’un choix de livres plus restreint, non d’une spécialisation régionale exclusive, d’une suppression totale ou d’un allongement des délais, qui sont explicitement contredits par la suite.",
+      "design": "Question ciblant l’interprétation initiale que certains clients font d’un même changement concret (réduction du nombre de livres exposés). Les quatre réponses décrivent toutes un type de modification perçue de l’accès aux livres (restriction de choix, spécialisation régionale, suppression définitive, lenteur accrue des commandes). Sans le son, chacune paraît plausible. L’enregistrement distingue précisément que la déduction erronée porte sur un rétrécissement global de l’offre, et non sur l’exclusivité des éditeurs régionaux, la disparition des titres retirés ni la dégradation des délais de commande.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le libraire dit vouloir «mieux présenter quelques collections, notamment celles des éditeurs de la région», ce qui peut faire croire que seuls ces éditeurs seraient réellement mis à disposition. En réalité, cette précision concerne la mise en avant visuelle de certaines collections, pas l’interprétation que les clients se font d’abord, qui porte sur une offre globalement diminuée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "mieux présenter quelques collections",
+            "notamment celles des éditeurs de la région"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On pourrait confondre la réduction des livres exposés avec une suppression définitive, surtout si l’on retient que des titres «restaient des mois sur les étagères». Pourtant, le document affirme explicitement que ces livres «ne sont pas supprimés» et restent commandables : la croyance initiale des clients concerne une offre réduite, pas l’impossibilité totale d’obtenir ces titres.",
+          "operation": "role_swap",
+          "anchors": [
+            "des titres qui restaient des mois sur les étagères",
+            "Les autres livres ne sont pas supprimés : nous pouvons les commander"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le passage sur la commande rapide («souvent pour le lendemain») pourrait être mal compris par quelqu’un qui associe commande à attente longue et imagine donc un accès plus lent. Mais ici, cette information sert au contraire à rassurer : la possibilité de commande rapide corrige la fausse impression d’une offre diminuée, elle ne motive pas une crainte de délais allongés.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "nous pouvons les commander, souvent pour le lendemain",
+            "car certaines personnes croient d'abord que notre offre a diminué"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4320,
+      "completion_tokens": 1365,
+      "total_tokens": 5685,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 681,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01905,
+    "inputHash": "5950489e0e1bd6f809b531d12401e0477f365d1d181a8157fdb36d2fafea4bb8",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "D’après le document, comment certains clients interprètent-ils d’abord la réduction du nombre de livres exposés ?",
+      "choices": [
+        "Ils pensent que les livres des éditeurs de la région sont désormais les seuls vraiment mis à disposition.",
+        "Ils pensent que l’accès aux autres ouvrages est désormais beaucoup plus lent, avec des délais de commande allongés.",
+        "Ils pensent que les titres retirés des étagères ne peuvent plus être obtenus du tout par la librairie.",
+        "Ils pensent que le choix de livres proposé est devenu plus restreint."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzXY2lANhyepvvz6J1vcOq8KIZi3",
+      "result": {
+        "question": "Selon le document, comment certains clients réagissent-ils d’abord au nouvel aménagement des rayons de la librairie ?",
+        "choices": [
+          "Ils pensent que les livres des éditeurs de la région sont désormais les seuls vraiment mis en avant.",
+          "Ils pensent que l’accès aux autres ouvrages se fera désormais beaucoup plus lentement, avec des délais de commande allongés.",
+          "Ils pensent que les titres qui ne sont plus en rayon ne peuvent tout simplement plus être obtenus auprès de la librairie.",
+          "Ils pensent que la librairie a nettement réduit l’étendue de son offre, avec un choix de titres devenu beaucoup plus limité."
+        ],
+        "notes": "La mention explicite de la « réduction du nombre de livres exposés » dans la question a été remplacée par une référence neutre au « nouvel aménagement des rayons », afin d’éviter que la réponse 4 ne soit un simple écho lexical du texte de la question. Les quatre options restent des interprétations possibles de la même situation (réorganisation/réduction en rayon) et sont formulées avec un niveau de précision comparable, sans qu’aucune ne paraisse intrinsèquement plus raisonnable ou prudente que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 695,
+        "completion_tokens": 965,
+        "total_tokens": 1660,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 707,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.01051875,
+      "inputHash": "279cb549068950dd37aed654d9f471a9c88eb0a1c0ee95071b634694447f7b10",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
-        3,
+        0,
         1,
-        0
+        2,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyntFWSVNY3szin0RdP9z3eQvyqs",
+        "responseId": "chatcmpl-EkzXkls2uEVeXVCQ06ywwppE9QYFZ",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur une librairie qui a changé sa présentation, le libraire explique qu’il a réduit le nombre de livres en vitrine et sur les tables pour mieux mettre chaque ouvrage en valeur. Il précise que certains clients, en voyant moins de livres exposés, croient au début que les prix ont augmenté et qu’ils en achèteront donc moins, alors qu’en réalité les tarifs n’ont pas changé."
+              "context": "Un responsable de librairie explique qu’ils ont réorganisé les rayons de façon à mieux mettre en valeur les éditeurs locaux. Certains clients, en voyant de grands présentoirs consacrés aux éditeurs de la région, réagissent d’abord en disant que ce sont maintenant ces livres-là qui sont vraiment mis en avant, au détriment du reste."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une interview d’un libraire qui a réaménagé sa boutique, il raconte qu’il a choisi d’exposer moins de livres pour rendre le magasin plus clair. Il dit qu’au début, certains clients, en voyant moins de livres exposés, pensent que l’offre de la librairie a diminué et qu’il y a moins de choix, alors que la majorité du stock est désormais rangée autrement ou accessible sur commande."
+              "context": "Lors d’une réunion d’information, le libraire annonce un nouvel aménagement des rayons et, en parallèle, un changement de procédure pour les commandes. Certains clients confondent les deux annonces et réagissent en pensant que, puisqu’on revoit l’organisation des rayons, l’accès aux ouvrages non présents sur place sera plus lent, avec des délais de commande allongés."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un sujet de radio sur les difficultés des petites librairies, la gérante explique qu’elle a retiré des présentoirs une partie des livres pour alléger la surface de vente. Elle remarque qu’en voyant moins de livres exposés, certains clients interprètent cela comme un signe que la librairie va bientôt fermer, ce qui est une erreur, car elle essaie justement de se réorganiser pour continuer l’activité."
+              "context": "Dans un enregistrement, un libraire explique qu’il a retiré beaucoup de titres des étagères pour gagner de la place. Certains clients, en revenant et ne voyant plus certains livres en rayon, réagissent en pensant que ces titres ne peuvent tout simplement plus être obtenus auprès de la librairie, au lieu de comprendre qu’ils sont encore commandables."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un documentaire sur la promotion des éditeurs locaux, un libraire explique qu’il met temporairement en avant des maisons d’édition régionales sur ses tables, ce qui réduit le nombre de titres exposés d’autres origines. Il raconte qu’en voyant moins de livres exposés et beaucoup de titres locaux, certains clients pensent au début, à tort, que seuls les éditeurs de la région sont encore proposés, alors que le reste de l’offre reste disponible en rayon ou sur commande."
+              "context": "Un responsable décrit un nouvel aménagement qui rend les rayons plus aérés, avec moins d’exemplaires visibles. Les clients, en entrant après les travaux, réagissent d’abord en disant que le choix a visiblement diminué et que la librairie a nettement réduit l’étendue de son offre, avec un choix de titres qui leur paraît beaucoup plus limité."
             }
           ],
           "cues": [
             {
-              "option": 1,
-              "severity": "clear",
-              "cue": "L’option 1 reprend presque littéralement l’idée de « moins de livres exposés » en parlant de « l’offre de la librairie [qui] a diminué », ce qui constitue une interprétation globale et directement liée au nombre de livres visibles, alors que les autres options ajoutent des hypothèses spécifiques (hausse des prix, fermeture prochaine, limitation aux éditeurs de la région) non suggérées par l’énoncé."
+              "option": 3,
+              "severity": "weak",
+              "cue": "Le lien direct entre un nouvel aménagement des rayons visibles et la perception immédiate d’une offre \"nettement réduite\" et d’un \"choix de titres\" plus limité (option 3) correspond très naturellement à la réaction visuelle d’un client, alors que les délais de commande (option 1) dépendent moins de l’aménagement physique, et que la mise en avant d’éditeurs régionaux (option 0) ou l’impossibilité totale d’obtenir certains titres (option 2) sont des interprétations plus spécifiques du simple ré-aménagement."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.1,
-            0.55,
-            0.2,
-            0.15
+            0.15,
+            0.15,
+            0.25,
+            0.45
           ],
-          "guess": 1,
-          "reason": "Toutes les options pourraient être entendues dans un contexte ordinaire, mais la question évoque une mauvaise interprétation liée au fait de voir moins de livres exposés. L’idée la plus naturelle et directement corrélée à ce constat visuel est de croire que l’offre a diminué. Les autres réponses supposent des inférences supplémentaires (hausse des prix, fermeture, recentrage régional) qui ne sont pas suggérées par le seul fait d’avoir moins de livres exposés, donnant à l’option 1 un avantage de formulation."
+          "guess": 3,
+          "reason": "Plusieurs réactions sont plausibles, mais le fait de parler d’un \"nouvel aménagement des rayons\" oriente naturellement vers une réaction portant sur la quantité apparente de livres exposés. L’option 3 décrit exactement cette interprétation spontanée (croire que l’offre a été réduite et que le choix est plus limité), ce qui en fait le choix légèrement favorisé malgré une incertitude réelle sur l’enregistrement d’origine."
         },
         "usage": {
-          "prompt_tokens": 632,
-          "completion_tokens": 783,
-          "total_tokens": 1415,
+          "prompt_tokens": 677,
+          "completion_tokens": 1058,
+          "total_tokens": 1735,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 118,
+            "reasoning_tokens": 436,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00862,
-        "inputHash": "8a45d492390d635b609fcdf8d085a5132ec1bebe6658973bee0643df474e584c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:ce40c9091f7f36b9e4c06d49:screen:0:0"
+        "costUsd": 0.01142625,
+        "inputHash": "66b9abfcc16117c2a22eb354481547fbe6bc6ea53c45e3ea83f64c9e9e1c6238",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Toutes les options pourraient être entendues dans un contexte ordinaire, mais la question évoque une mauvaise interprétation liée au fait de voir moins de livres exposés. L’idée la plus naturelle et directement corrélée à ce constat visuel est de croire que l’offre a diminué. Les autres réponses supposent des inférences supplémentaires (hausse des prix, fermeture, recentrage régional) qui ne sont pas suggérées par le seul fait d’avoir moins de livres exposés, donnant à l’option 1 un avantage de formulation.",
+    "reason": "Plusieurs réactions sont plausibles, mais le fait de parler d’un \"nouvel aménagement des rayons\" oriente naturellement vers une réaction portant sur la quantité apparente de livres exposés. L’option 3 décrit exactement cette interprétation spontanée (croire que l’offre a été réduite et que le choix est plus limité), ce qui en fait le choix légèrement favorisé malgré une incertitude réelle sur l’enregistrement d’origine.",
     "cues": [
       {
-        "option": 1,
-        "severity": "clear",
-        "cue": "L’option 1 reprend presque littéralement l’idée de « moins de livres exposés » en parlant de « l’offre de la librairie [qui] a diminué », ce qui constitue une interprétation globale et directement liée au nombre de livres visibles, alors que les autres options ajoutent des hypothèses spécifiques (hausse des prix, fermeture prochaine, limitation aux éditeurs de la région) non suggérées par l’énoncé."
+        "option": 3,
+        "severity": "weak",
+        "cue": "Le lien direct entre un nouvel aménagement des rayons visibles et la perception immédiate d’une offre \"nettement réduite\" et d’un \"choix de titres\" plus limité (option 3) correspond très naturellement à la réaction visuelle d’un client, alors que les délais de commande (option 1) dépendent moins de l’aménagement physique, et que la mise en avant d’éditeurs régionaux (option 0) ou l’impossibilité totale d’obtenir certains titres (option 2) sont des interprétations plus spécifiques du simple ré-aménagement."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur une librairie qui a changé sa présentation, le libraire explique qu’il a réduit le nombre de livres en vitrine et sur les tables pour mieux mettre chaque ouvrage en valeur. Il précise que certains clients, en voyant moins de livres exposés, croient au début que les prix ont augmenté et qu’ils en achèteront donc moins, alors qu’en réalité les tarifs n’ont pas changé."
+        "context": "Un responsable de librairie explique qu’ils ont réorganisé les rayons de façon à mieux mettre en valeur les éditeurs locaux. Certains clients, en voyant de grands présentoirs consacrés aux éditeurs de la région, réagissent d’abord en disant que ce sont maintenant ces livres-là qui sont vraiment mis en avant, au détriment du reste."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une interview d’un libraire qui a réaménagé sa boutique, il raconte qu’il a choisi d’exposer moins de livres pour rendre le magasin plus clair. Il dit qu’au début, certains clients, en voyant moins de livres exposés, pensent que l’offre de la librairie a diminué et qu’il y a moins de choix, alors que la majorité du stock est désormais rangée autrement ou accessible sur commande."
+        "context": "Lors d’une réunion d’information, le libraire annonce un nouvel aménagement des rayons et, en parallèle, un changement de procédure pour les commandes. Certains clients confondent les deux annonces et réagissent en pensant que, puisqu’on revoit l’organisation des rayons, l’accès aux ouvrages non présents sur place sera plus lent, avec des délais de commande allongés."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un sujet de radio sur les difficultés des petites librairies, la gérante explique qu’elle a retiré des présentoirs une partie des livres pour alléger la surface de vente. Elle remarque qu’en voyant moins de livres exposés, certains clients interprètent cela comme un signe que la librairie va bientôt fermer, ce qui est une erreur, car elle essaie justement de se réorganiser pour continuer l’activité."
+        "context": "Dans un enregistrement, un libraire explique qu’il a retiré beaucoup de titres des étagères pour gagner de la place. Certains clients, en revenant et ne voyant plus certains livres en rayon, réagissent en pensant que ces titres ne peuvent tout simplement plus être obtenus auprès de la librairie, au lieu de comprendre qu’ils sont encore commandables."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un documentaire sur la promotion des éditeurs locaux, un libraire explique qu’il met temporairement en avant des maisons d’édition régionales sur ses tables, ce qui réduit le nombre de titres exposés d’autres origines. Il raconte qu’en voyant moins de livres exposés et beaucoup de titres locaux, certains clients pensent au début, à tort, que seuls les éditeurs de la région sont encore proposés, alors que le reste de l’offre reste disponible en rayon ou sur commande."
+        "context": "Un responsable décrit un nouvel aménagement qui rend les rayons plus aérés, avec moins d’exemplaires visibles. Les clients, en entrant après les travaux, réagissent d’abord en disant que le choix a visiblement diminué et que la librairie a nettement réduit l’étendue de son offre, avec un choix de titres qui leur paraît beaucoup plus limité."
       }
     ]
   }

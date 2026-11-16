@@ -2,16 +2,16 @@
   "question": {
     "number": 37,
     "kind": "interview",
-    "question": "Selon le document, que fait-on des situations particulières évoquées après la vérification des horaires et des dépenses ?",
+    "question": "Comment le document caractérise-t-il l’usage de la moyenne pour analyser les effets du nouveau calendrier scolaire sur les familles ?",
     "options": [
-      "On les corrige afin de calculer une moyenne plus fiable des effets du calendrier.",
-      "On les écarte pour ne garder que des cas considérés comme représentatifs.",
-      "On les regroupe en grandes catégories de contraintes familiales similaires.",
-      "On les conserve pour analyser comment se répartissent les bénéfices et les difficultés."
+      "Elle est présentée comme un indicateur central qui permet de décrire globalement les effets du nouveau calendrier sur l’ensemble des familles.",
+      "Elle est présentée comme un outil servant surtout à atténuer le poids des situations les plus extrêmes afin de faire apparaître une tendance générale.",
+      "Elle est décrite comme un indicateur qui peut gommer une partie des écarts individuels entre les familles.",
+      "Elle est décrite comme un indicateur incomplet, qui laisse subsister des écarts et doit être complété par l’examen de cas situés de part et d’autre de cette valeur."
     ],
     "correct": "D",
-    "explanation": "Le document indique clairement : « Nous vérifions les horaires et les dépenses, mais nous conservons aussi ces situations particulières pour comprendre la répartition des bénéfices et des difficultés. » Les situations particulières sont donc gardées et utilisées pour analyser la répartition des effets, pas corrigées, regroupées ni éliminées.",
-    "transcript": "Question 37.\nLes élèves, les familles et les enseignants racontent des expériences opposées du nouveau calendrier scolaire. Pourquoi ne pas choisir le récit le plus représentatif ?\nParce que les effets varient selon les contraintes. Une famille peut apprécier une sortie plus tôt, tandis qu'une autre doit payer une garde supplémentaire. Nous vérifions les horaires et les dépenses, mais nous conservons aussi ces situations particulières pour comprendre la répartition des bénéfices et des difficultés. Une moyenne ne fait pas disparaître les écarts. Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre.\nSelon le document, que fait-on des situations particulières évoquées après la vérification des horaires et des dépenses ?",
+    "explanation": "Le texte affirme explicitement : « Une moyenne ne fait pas disparaître les écarts. Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre. » La moyenne ne supprime donc pas les différences et doit être complétée par l’étude des cas opposés, ce que reprend la réponse A.",
+    "transcript": "Question 37.\nLes élèves, les familles et les enseignants racontent des expériences opposées du nouveau calendrier scolaire. Pourquoi ne pas choisir le récit le plus représentatif ?\nParce que les effets varient selon les contraintes. Une famille peut apprécier une sortie plus tôt, tandis qu'une autre doit payer une garde supplémentaire. Nous vérifions les horaires et les dépenses, mais nous conservons aussi ces situations particulières pour comprendre la répartition des bénéfices et des difficultés. Une moyenne ne fait pas disparaître les écarts. Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre.\nComment le document caractérise-t-il l’usage de la moyenne pour analyser les effets du nouveau calendrier scolaire sur les familles ?",
     "segments": [
       {
         "voice": "female",
@@ -27,120 +27,232 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, que fait-on des situations particulières évoquées après la vérification des horaires et des dépenses ?"
+        "text": "Comment le document caractérise-t-il l’usage de la moyenne pour analyser les effets du nouveau calendrier scolaire sur les familles ?"
       }
     ],
     "audio": "q-37.mp3",
     "audioSeconds": null,
     "slotSeconds": 70
   },
-  "rounds": 6,
+  "rounds": 5,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzqz9uhyIj6ke3jLoJRNWFw5NXLM",
+    "result": {
+      "question": "Que dit le document du rôle de la moyenne dans l’analyse des effets du nouveau calendrier scolaire ?",
+      "choices": [
+        "Elle ne fait pas disparaître les écarts et doit être complétée par l’étude des personnes situées de part et d’autre.",
+        "Elle sert à neutraliser les situations les plus extrêmes pour dégager une tendance générale.",
+        "Elle suffit à résumer les effets du nouveau calendrier pour l’ensemble des familles.",
+        "Elle a tendance à masquer une partie des écarts individuels entre les familles."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte affirme explicitement : « Une moyenne ne fait pas disparaître les écarts. Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre. » La moyenne ne supprime donc pas les différences et doit être complétée par l’étude des cas opposés, ce que reprend la réponse A.",
+      "design": "Axe précis : fonction et limites de la moyenne statistique dans l’analyse des effets du nouveau calendrier. Les quatre options décrivent des rôles possibles d’une moyenne (neutraliser des extrêmes, suffire à résumer, masquer des écarts, ne pas les faire disparaître et être complétée). Sans le document, toutes paraissent techniquement plausibles dans un texte d’évaluation. Seule l’écoute permet d’identifier que la moyenne ne fait pas disparaître les écarts et doit être complétée par l’analyse des personnes « de part et d’autre ».",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme la remarque sur les limites de la moyenne en fonction positive de « neutralisation » des situations extrêmes. Le document souligne au contraire que la moyenne ne fait pas disparaître les écarts et qu’elle doit être complétée, non qu’elle absorbe les extrêmes.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Une moyenne ne fait pas disparaître les écarts.",
+            "Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La réponse C attribue à la moyenne un rôle suffisant pour résumer tous les effets, alors que le texte insiste qu’une moyenne, seule, ne suffit pas et doit être complétée par l’analyse des situations particulières.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous vérifions les horaires et les dépenses, mais nous conservons aussi ces situations particulières",
+            "Une moyenne ne fait pas disparaître les écarts."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La réponse D inverse le propos : elle suppose que la moyenne masque les écarts, alors que le document dit précisément qu’elle ne les fait pas disparaître et recommande de la compléter, ce qui suppose que les écarts restent visibles.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Une moyenne ne fait pas disparaître les écarts.",
+            "Elle gagne à être complétée par l'analyse des personnes qui se trouvent de part et d'autre."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4563,
+      "completion_tokens": 1219,
+      "total_tokens": 5782,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 601,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01789375,
+    "inputHash": "3186f28d570da257275b50024d49ad420af160a26213d4e068007d7bcf5df425",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:36:14721af7be4c27b55696caf7:author:4:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Que dit le document du rôle de la moyenne dans l’analyse des effets du nouveau calendrier scolaire ?",
+      "choices": [
+        "Elle suffit à résumer les effets du nouveau calendrier pour l’ensemble des familles.",
+        "Elle sert à neutraliser les situations les plus extrêmes pour dégager une tendance générale.",
+        "Elle a tendance à masquer une partie des écarts individuels entre les familles.",
+        "Elle ne fait pas disparaître les écarts et doit être complétée par l’étude des personnes situées de part et d’autre."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzrXDhyshOzlO8vv0TUmlN9EeTef",
+      "result": {
+        "question": "Comment le document caractérise-t-il l’usage de la moyenne pour analyser les effets du nouveau calendrier scolaire sur les familles ?",
+        "choices": [
+          "Elle est présentée comme un indicateur central qui permet de décrire globalement les effets du nouveau calendrier sur l’ensemble des familles.",
+          "Elle est présentée comme un outil servant surtout à atténuer le poids des situations les plus extrêmes afin de faire apparaître une tendance générale.",
+          "Elle est décrite comme un indicateur qui peut gommer une partie des écarts individuels entre les familles.",
+          "Elle est décrite comme un indicateur incomplet, qui laisse subsister des écarts et doit être complété par l’examen de cas situés de part et d’autre de cette valeur."
+        ],
+        "notes": "Question reformulée pour rester neutre sur la valeur de la moyenne. Les quatre choix décrivent chacun un rôle possible de la moyenne, avec un niveau de langage et de précision comparable, sans qu’un seul paraisse naturellement le plus raisonnable ou le plus prudent."
+      },
+      "usage": {
+        "prompt_tokens": 688,
+        "completion_tokens": 611,
+        "total_tokens": 1299,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 388,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00697,
+      "inputHash": "153652352b50866fc50069da6b66012d6b9e7507785076e5bffefa0822efcdaa",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:36:14721af7be4c27b55696caf7:blind-edit:5"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
+        0,
         2,
-        1,
-        0
+        3,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyWIvDkOaiQXX8WtJqkv54WaxFkv",
+        "responseId": "chatcmpl-EkzreX45VulQ5KkVaviVJMEpe8RZc",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un rapport d’évaluation d’une réforme des horaires de travail et de leurs conséquences sur les dépenses des ménages, les auteurs expliquent qu’après avoir vérifié les horaires et les dépenses déclarées, ils conservent les situations particulières (cas atypiques) pour analyser plus finement comment se répartissent les bénéfices (économies, meilleurs horaires) et les difficultés (surcoûts, contraintes) entre différents profils de ménages."
+              "context": "Dans une émission de radio éducative, un statisticien invité explique les résultats d’une enquête sur les conséquences du nouveau calendrier scolaire pour les familles. Il dit : « Nous avons calculé une moyenne du nombre de difficultés déclarées par famille. Cette moyenne constitue un indicateur central qui permet de décrire globalement les effets du nouveau calendrier sur l’ensemble des familles. » Cela répondrait directement à la question en présentant la moyenne comme indicateur central et global."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une enquête sociologique sur l’impact des nouveaux horaires d’un service public sur les dépenses des usagers, le document précise qu’après la vérification des horaires pratiqués et des dépenses engagées, les chercheurs prennent les situations particulières (cas atypiques) et les regroupent en grandes catégories de contraintes familiales similaires (garde d’enfants, prise en charge d’un proche, familles monoparentales) afin d’identifier des profils récurrents."
+              "context": "Dans un podcast sur la sociologie de l’éducation, la présentatrice commente un rapport : « Attention, la moyenne peut gommer une partie des écarts individuels entre les familles. Certaines sont très pénalisées par le nouveau calendrier, d’autres pas du tout, mais la moyenne lisse ces différences. » Elle caractérise alors explicitement la moyenne comme un indicateur qui peut masquer des écarts, ce qui répondrait à la question."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un protocole d’étude statistique sur l’effet d’un changement de calendrier (horaires d’ouverture, périodes de facturation) sur les dépenses des ménages, le document explique qu’après avoir vérifié la cohérence des horaires et des montants de dépenses, les situations particulières ou trop atypiques sont écartées pour ne garder que des cas jugés représentatifs, afin de ne pas biaiser les résultats globaux."
+              "context": "Lors d’une conférence en ligne sur l’impact du nouveau calendrier scolaire, le chercheur auteur du document explique : « La moyenne reste un indicateur incomplet : elle laisse subsister des écarts importants entre les familles. Il faut donc la compléter par l’examen de cas situés de part et d’autre de cette valeur moyenne pour comprendre la diversité des situations. » Ici, la moyenne est clairement qualifiée d’incomplète et à compléter par des exemples contrastés, ce qui correspond exactement à la formulation de la réponse."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un rapport méthodologique d’un organisme de transport étudiant l’effet du nouveau calendrier horaire sur les dépenses de déplacement, il est indiqué qu’après vérification des horaires et des dépenses, certaines situations particulières (par exemple des erreurs de saisie ou des cas extrêmes) sont \"corrigées\" ou ajustées afin de calculer une moyenne plus fiable des effets du calendrier sur le coût moyen pour les usagers."
+              "context": "Dans un reportage radiophonique sur une étude statistique, le journaliste résume le propos d’un démographe : « La moyenne est surtout utilisée ici pour atténuer le poids des situations les plus extrêmes et faire apparaître une tendance générale sur l’effet du nouveau calendrier scolaire. » Cette description caractérise la moyenne comme un outil qui réduit l’impact des cas extrêmes pour dégager une tendance, ce qui répond littéralement à la question."
             }
           ],
           "cues": [
             {
               "option": 2,
               "severity": "clear",
-              "cue": "Le terme \"situations particulières\" renvoie naturellement à des cas atypiques qu’on peut décider d’\"écarter\" pour ne garder que des cas \"représentatifs\", ce qui correspond exactement au vocabulaire méthodologique de l’option 2. Les autres options introduisent de nouvelles notions non mentionnées dans la question (bénéfices/difficultés, contraintes familiales, effets du calendrier) et s’éloignent davantage du lien direct avec la représentativité des cas particuliers."
+              "cue": "Formulation plus nuancée et complète : seule cette option combine le caractère “incomplet” de la moyenne avec la nécessité explicite de la compléter par l’examen de cas situés de part et d’autre de la valeur moyenne, ce qui correspond typiquement à un commentaire méthodologique dans un document d’analyse des effets sur les familles. Les autres options sont soit trop générales (0), soit partielles ou redondantes (1 et 3) sans évoquer explicitement le besoin de compléter la moyenne par des cas contrastés."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.15,
+            0.1,
             0.2,
             0.5,
-            0.15
+            0.2
           ],
           "guess": 2,
-          "reason": "Le lien lexical et méthodologique entre \"situations particulières\" et l’idée de les écarter comme non représentatives rend l’option 2 nettement plus alignée avec la formulation de la question que les autres, qui ajoutent des notions nouvelles. L’incertitude demeure faute d’accès au document, mais l’avantage rédactionnel de l’option 2 est net."
+          "reason": "La question invite à une caractérisation réflexive de l’usage de la moyenne. Parmi les formulations, l’option 2 est la plus méthodologiquement précise et met en avant la limite de la moyenne pour rendre compte d’effets différenciés, en insistant sur la nécessité de l’accompagner d’exemples de part et d’autre de la moyenne, ce qui correspond bien à une analyse de la diversité des impacts familiaux. Les autres réponses restent plausibles mais plus générales ou redondantes, d’où une probabilité plus forte pour l’option 2, avec une incertitude non négligeable faute du document source."
         },
         "usage": {
-          "prompt_tokens": 641,
-          "completion_tokens": 1146,
-          "total_tokens": 1787,
+          "prompt_tokens": 699,
+          "completion_tokens": 1004,
+          "total_tokens": 1703,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 496,
+            "reasoning_tokens": 274,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01226125,
-        "inputHash": "61326596a4ded13a130acec2ba23a6fbf39e709d3ae169b1c1861262b5686c64",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:36:initial:screen:6:0"
+        "costUsd": 0.01091375,
+        "inputHash": "d2b1d0161bae1063d2d6cdb02175e9e4a575ba42d8ee3e5f0ab6b0b3699f36e3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:36:14721af7be4c27b55696caf7:screen:5:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le lien lexical et méthodologique entre \"situations particulières\" et l’idée de les écarter comme non représentatives rend l’option 2 nettement plus alignée avec la formulation de la question que les autres, qui ajoutent des notions nouvelles. L’incertitude demeure faute d’accès au document, mais l’avantage rédactionnel de l’option 2 est net.",
+    "reason": "La question invite à une caractérisation réflexive de l’usage de la moyenne. Parmi les formulations, l’option 2 est la plus méthodologiquement précise et met en avant la limite de la moyenne pour rendre compte d’effets différenciés, en insistant sur la nécessité de l’accompagner d’exemples de part et d’autre de la moyenne, ce qui correspond bien à une analyse de la diversité des impacts familiaux. Les autres réponses restent plausibles mais plus générales ou redondantes, d’où une probabilité plus forte pour l’option 2, avec une incertitude non négligeable faute du document source.",
     "cues": [
       {
         "option": 2,
         "severity": "clear",
-        "cue": "Le terme \"situations particulières\" renvoie naturellement à des cas atypiques qu’on peut décider d’\"écarter\" pour ne garder que des cas \"représentatifs\", ce qui correspond exactement au vocabulaire méthodologique de l’option 2. Les autres options introduisent de nouvelles notions non mentionnées dans la question (bénéfices/difficultés, contraintes familiales, effets du calendrier) et s’éloignent davantage du lien direct avec la représentativité des cas particuliers."
+        "cue": "Formulation plus nuancée et complète : seule cette option combine le caractère “incomplet” de la moyenne avec la nécessité explicite de la compléter par l’examen de cas situés de part et d’autre de la valeur moyenne, ce qui correspond typiquement à un commentaire méthodologique dans un document d’analyse des effets sur les familles. Les autres options sont soit trop générales (0), soit partielles ou redondantes (1 et 3) sans évoquer explicitement le besoin de compléter la moyenne par des cas contrastés."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un rapport d’évaluation d’une réforme des horaires de travail et de leurs conséquences sur les dépenses des ménages, les auteurs expliquent qu’après avoir vérifié les horaires et les dépenses déclarées, ils conservent les situations particulières (cas atypiques) pour analyser plus finement comment se répartissent les bénéfices (économies, meilleurs horaires) et les difficultés (surcoûts, contraintes) entre différents profils de ménages."
+        "context": "Dans une émission de radio éducative, un statisticien invité explique les résultats d’une enquête sur les conséquences du nouveau calendrier scolaire pour les familles. Il dit : « Nous avons calculé une moyenne du nombre de difficultés déclarées par famille. Cette moyenne constitue un indicateur central qui permet de décrire globalement les effets du nouveau calendrier sur l’ensemble des familles. » Cela répondrait directement à la question en présentant la moyenne comme indicateur central et global."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une enquête sociologique sur l’impact des nouveaux horaires d’un service public sur les dépenses des usagers, le document précise qu’après la vérification des horaires pratiqués et des dépenses engagées, les chercheurs prennent les situations particulières (cas atypiques) et les regroupent en grandes catégories de contraintes familiales similaires (garde d’enfants, prise en charge d’un proche, familles monoparentales) afin d’identifier des profils récurrents."
+        "context": "Dans un podcast sur la sociologie de l’éducation, la présentatrice commente un rapport : « Attention, la moyenne peut gommer une partie des écarts individuels entre les familles. Certaines sont très pénalisées par le nouveau calendrier, d’autres pas du tout, mais la moyenne lisse ces différences. » Elle caractérise alors explicitement la moyenne comme un indicateur qui peut masquer des écarts, ce qui répondrait à la question."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un protocole d’étude statistique sur l’effet d’un changement de calendrier (horaires d’ouverture, périodes de facturation) sur les dépenses des ménages, le document explique qu’après avoir vérifié la cohérence des horaires et des montants de dépenses, les situations particulières ou trop atypiques sont écartées pour ne garder que des cas jugés représentatifs, afin de ne pas biaiser les résultats globaux."
+        "context": "Lors d’une conférence en ligne sur l’impact du nouveau calendrier scolaire, le chercheur auteur du document explique : « La moyenne reste un indicateur incomplet : elle laisse subsister des écarts importants entre les familles. Il faut donc la compléter par l’examen de cas situés de part et d’autre de cette valeur moyenne pour comprendre la diversité des situations. » Ici, la moyenne est clairement qualifiée d’incomplète et à compléter par des exemples contrastés, ce qui correspond exactement à la formulation de la réponse."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un rapport méthodologique d’un organisme de transport étudiant l’effet du nouveau calendrier horaire sur les dépenses de déplacement, il est indiqué qu’après vérification des horaires et des dépenses, certaines situations particulières (par exemple des erreurs de saisie ou des cas extrêmes) sont \"corrigées\" ou ajustées afin de calculer une moyenne plus fiable des effets du calendrier sur le coût moyen pour les usagers."
+        "context": "Dans un reportage radiophonique sur une étude statistique, le journaliste résume le propos d’un démographe : « La moyenne est surtout utilisée ici pour atténuer le poids des situations les plus extrêmes et faire apparaître une tendance générale sur l’effet du nouveau calendrier scolaire. » Cette description caractérise la moyenne comme un outil qui réduit l’impact des cas extrêmes pour dégager une tendance, ce qui répond littéralement à la question."
       }
     ]
   }

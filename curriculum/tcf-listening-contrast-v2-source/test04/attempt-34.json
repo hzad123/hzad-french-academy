@@ -2,16 +2,16 @@
   "question": {
     "number": 34,
     "kind": "roundtable",
-    "question": "Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ?",
+    "question": "Selon le document, à quel public la salle informatique serait-elle principalement réservée en dehors des heures de cours ?",
     "options": [
-      "Les enseignants",
-      "Les parents",
-      "Les élèves",
-      "La direction de l'établissement"
+      "Aux enseignants qui souhaitent préparer ou finaliser leurs cours",
+      "Aux élèves qui ne disposent pas d’un équipement ou d’un accès numérique satisfaisant à la maison",
+      "Aux élèves de l’établissement qui souhaitent rester travailler en autonomie",
+      "Aux parents d’élèves qui veulent utiliser les outils et services numériques du lycée"
     ],
     "correct": "B",
-    "explanation": "Le document dit explicitement : «Les parents signalent pourtant que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable.» Ce sont donc bien les parents qui formulent cette remarque, et non les enseignants, les élèves ou la direction.",
-    "transcript": "Question 34.\nPlusieurs écoles proposent des devoirs exclusivement en ligne. Est-ce souhaitable ?\nLes enseignants gagnent du temps pour donner des retours rapides.\nLes parents signalent pourtant que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable.\nNous pourrions conserver les activités interactives, mais proposer aussi une version imprimée des consignes.\nEt ouvrir la salle informatique après les cours pour les élèves qui en ont besoin.\nOui, évaluons les deux possibilités avant de retirer une solution.\nSelon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ?",
+    "explanation": "Le document précise : ouvrir la salle informatique après les cours pour les élèves qui en ont besoin, en lien avec le fait que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable. Il s’agit donc des élèves qui manquent d’accès au numérique chez eux, et non des parents, des enseignants ou de tous les élèves sans distinction.",
+    "transcript": "Question 34.\nPlusieurs écoles proposent des devoirs exclusivement en ligne. Est-ce souhaitable ?\nLes enseignants gagnent du temps pour donner des retours rapides.\nLes parents signalent pourtant que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable.\nNous pourrions conserver les activités interactives, mais proposer aussi une version imprimée des consignes.\nEt ouvrir la salle informatique après les cours pour les élèves qui en ont besoin.\nOui, évaluons les deux possibilités avant de retirer une solution.\nSelon le document, à quel public la salle informatique serait-elle principalement réservée en dehors des heures de cours ?",
     "segments": [
       {
         "voice": "female",
@@ -50,7 +50,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ?",
+        "text": "Selon le document, à quel public la salle informatique serait-elle principalement réservée en dehors des heures de cours ?",
         "speaker": "female"
       }
     ],
@@ -60,12 +60,124 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzpSf1WTPcPW0W3Jb2d5wl445xL0",
+    "result": {
+      "question": "Selon le document, pour quel public la salle informatique serait-elle ouverte après les cours ?",
+      "choices": [
+        "Pour les parents qui souhaitent utiliser les outils numériques du lycée",
+        "Pour les élèves qui ne disposent pas facilement d’un accès au numérique chez eux",
+        "Pour les enseignants qui veulent préparer leurs cours",
+        "Pour l’ensemble des élèves qui souhaitent rester travailler"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le document précise : ouvrir la salle informatique après les cours pour les élèves qui en ont besoin, en lien avec le fait que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable. Il s’agit donc des élèves qui manquent d’accès au numérique chez eux, et non des parents, des enseignants ou de tous les élèves sans distinction.",
+      "design": "Axe choisi : le public visé par l’ouverture de la salle informatique après les cours. Les quatre réponses sont toutes des publics réalistes pour un tel dispositif (parents, élèves en difficulté d’accès, enseignants, ensemble des élèves). Seule la réponse correcte reprend le ciblage effectivement associé, dans l’enregistrement, à cette ouverture (les élèves qui en ont besoin faute d’accès chez eux). Les distracteurs redistribuent ce même dispositif à d’autres publics ou l’élargissent à tous, ce qui reste plausible sans écoute mais ne correspond pas au rôle réellement donné dans le document.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Cette option attribue l’ouverture de la salle informatique à un public de parents, alors que le document la relie explicitement aux élèves. La confusion est tentante car on parle de foyers et de contraintes de connexion à la maison, ce qui peut faire penser aux parents, mais la mesure annoncée vise les élèves, pas leurs parents.",
+          "operation": "role_swap",
+          "anchors": [
+            "certains foyers partagent un seul appareil ou n'ont pas une connexion fiable",
+            "ouvrir la salle informatique après les cours pour les élèves qui en ont besoin"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, l’accès après les cours est attribué aux enseignants. C’est plausible dans un établissement, mais le document met en avant un problème d’accès des familles et une solution pour les élèves concernés. La salle informatique est présentée comme un soutien aux devoirs en ligne pour les élèves, non comme un espace de préparation pour les enseignants.",
+          "operation": "role_swap",
+          "anchors": [
+            "des devoirs exclusivement en ligne",
+            "ouvrir la salle informatique après les cours pour les élèves qui en ont besoin"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse élargit la mesure à tous les élèves, alors que le document limite l’ouverture aux élèves qui en ont besoin, c’est‑à‑dire ceux qui n’ont pas facilement accès au numérique chez eux. La tentation vient du fait qu’on parle d’ouvrir la salle après les cours, ce qui pourrait sembler naturellement destiné à tout élève voulant travailler, mais le texte précise un ciblage restreint.",
+          "operation": "scope_shift",
+          "anchors": [
+            "certains foyers partagent un seul appareil ou n'ont pas une connexion fiable",
+            "pour les élèves qui en ont besoin"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4378,
+      "completion_tokens": 866,
+      "total_tokens": 5244,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 227,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0141325,
+    "inputHash": "f7dec16a9e3562b90d31cce31b819f1a814178f73d8fecf18403611a09309018",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:33:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, pour quel public la salle informatique serait-elle ouverte après les cours ?",
+      "choices": [
+        "Pour les enseignants qui veulent préparer leurs cours",
+        "Pour les élèves qui ne disposent pas facilement d’un accès au numérique chez eux",
+        "Pour l’ensemble des élèves qui souhaitent rester travailler",
+        "Pour les parents qui souhaitent utiliser les outils numériques du lycée"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzplDxL8iY0EWkuACm1NIVQCCViT",
+      "result": {
+        "question": "Selon le document, à quel public la salle informatique serait-elle principalement réservée en dehors des heures de cours ?",
+        "choices": [
+          "Aux enseignants qui souhaitent préparer ou finaliser leurs cours",
+          "Aux élèves qui ne disposent pas d’un équipement ou d’un accès numérique satisfaisant à la maison",
+          "Aux élèves de l’établissement qui souhaitent rester travailler en autonomie",
+          "Aux parents d’élèves qui veulent utiliser les outils et services numériques du lycée"
+        ],
+        "notes": "La question reste centrée sur le public visé par l’ouverture de la salle, sans suggérer qu’un groupe est plus légitime qu’un autre. Chaque choix décrit un groupe cible cohérent (enseignants, élèves sans accès, tous les élèves, parents) avec un niveau de détail et de plausibilité comparable, sans justification normative ou administrative qui donnerait un avantage implicite à l’un d’eux."
+      },
+      "usage": {
+        "prompt_tokens": 654,
+        "completion_tokens": 471,
+        "total_tokens": 1125,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 281,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0055275,
+      "inputHash": "e669deb70e08154dac8eb4bcdeebf0bd16cbfa9ca9c40e10228adef55f997186",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:33:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
         0,
-        2,
         1,
+        2,
         3
       ],
       "receipt": {
@@ -73,86 +185,98 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyUKkoaj6dhuwUoDZggLxZ9vTDuZ",
+        "responseId": "chatcmpl-EkzpsYz92kCyQhhkNvpak8XOD3MKV",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur l’école à distance, une journaliste interroge une responsable académique : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » La responsable répond : « Ce sont surtout les enseignants qui nous ont fait remonter ces difficultés, à partir de leurs échanges avec les familles. »"
+              "context": "Règlement intérieur du lycée ou note de service expliquant que la salle informatique, en dehors des cours, est réservée en priorité aux enseignants qui veulent préparer ou finaliser leurs supports de cours ou corriger des copies en utilisant des logiciels spécifiques."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une présentation d’une enquête sur le vécu du confinement, un animateur explique : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » et précise que l’enquête est basée sur des questionnaires remplis par les élèves eux-mêmes, qui y ont indiqué leurs problèmes d’équipement et de connexion."
+              "context": "Document d’information aux familles décrivant une mesure pour réduire la fracture numérique : il est indiqué que la salle informatique sera principalement réservée, hors cours, aux élèves qui n’ont pas d’ordinateur ou de connexion satisfaisante à domicile afin qu’ils puissent faire leurs devoirs."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une réunion d’association de parents d’élèves, une présidente de fédération commente une enquête nationale : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » puis elle explique que ce sont les parents répondants qui ont décrit ces difficultés dans le questionnaire."
+              "context": "Présentation de l’organisation du lycée mentionnant que, après les heures de cours, la salle informatique est surtout réservée aux élèves de l’établissement qui souhaitent rester pour travailler en autonomie, faire des recherches ou rédiger des dossiers."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un bilan institutionnel sur la continuité pédagogique, un inspecteur lit un rapport et demande : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » Le rapport précise que c’est la direction de l’établissement, après recensement auprès des familles, qui remonte officiellement ces informations au rectorat."
+              "context": "Lettre du proviseur aux parents expliquant que le lycée ouvre sa salle informatique en dehors des cours et qu’elle est surtout destinée aux parents qui veulent se familiariser avec l’ENT, consulter les bulletins ou utiliser certains services numériques du lycée."
             }
           ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.4,
-            0.2,
-            0.2,
-            0.2
+          "cues": [
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "La tournure « principalement réservée » correspond typiquement à une priorité donnée à un public cible précis et légitimé (élèves sans équipement à la maison). L’option 1 est plus spécifique, socialement ciblée et formulée de façon nuancée (« ne disposent pas d’un équipement ou d’un accès numérique satisfaisant »), ce qui ressemble au langage d’un document officiel visant à réduire les inégalités, davantage que les formulations plus générales ou moins plausibles des autres choix."
+            }
           ],
-          "guess": 0,
-          "reason": "Tous les groupes pourraient remonter ce type d’information, mais dans le contexte habituel des difficultés de continuité pédagogique, on voit fréquemment les enseignants signaler que des foyers partagent un seul appareil ou disposent d’une connexion instable, ce qui donne un léger avantage à cette option sans certitude forte."
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.55,
+            0.25,
+            0.05
+          ],
+          "guess": 1,
+          "reason": "La formulation « principalement réservée » suggère une priorité à un public défini plutôt qu’un simple accès général. L’option 1 se distingue par son ciblage précis et son lexique institutionnel sur la fracture numérique, ce qui correspond bien à un document réglementaire ou informatif de lycée, d’où une probabilité plus élevée malgré l’absence d’enregistrement."
         },
         "usage": {
-          "prompt_tokens": 593,
-          "completion_tokens": 567,
-          "total_tokens": 1160,
+          "prompt_tokens": 636,
+          "completion_tokens": 738,
+          "total_tokens": 1374,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 114,
+            "reasoning_tokens": 254,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00641125,
-        "inputHash": "f47f53285032ffb5f58346e62990ffdc7577e2073d731b6f1ef4e5b9b5d3d64b",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:33:initial:screen:6:0"
+        "costUsd": 0.008175,
+        "inputHash": "d75d22a4c27f3c99b5e6dbbe4b9814f8726bba78e1e175f0e0ed9dd67dc1827b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:33:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Tous les groupes pourraient remonter ce type d’information, mais dans le contexte habituel des difficultés de continuité pédagogique, on voit fréquemment les enseignants signaler que des foyers partagent un seul appareil ou disposent d’une connexion instable, ce qui donne un léger avantage à cette option sans certitude forte.",
-    "cues": [],
+    "reason": "La formulation « principalement réservée » suggère une priorité à un public défini plutôt qu’un simple accès général. L’option 1 se distingue par son ciblage précis et son lexique institutionnel sur la fracture numérique, ce qui correspond bien à un document réglementaire ou informatif de lycée, d’où une probabilité plus élevée malgré l’absence d’enregistrement.",
+    "cues": [
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "La tournure « principalement réservée » correspond typiquement à une priorité donnée à un public cible précis et légitimé (élèves sans équipement à la maison). L’option 1 est plus spécifique, socialement ciblée et formulée de façon nuancée (« ne disposent pas d’un équipement ou d’un accès numérique satisfaisant »), ce qui ressemble au langage d’un document officiel visant à réduire les inégalités, davantage que les formulations plus générales ou moins plausibles des autres choix."
+      }
+    ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur l’école à distance, une journaliste interroge une responsable académique : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » La responsable répond : « Ce sont surtout les enseignants qui nous ont fait remonter ces difficultés, à partir de leurs échanges avec les familles. »"
+        "context": "Règlement intérieur du lycée ou note de service expliquant que la salle informatique, en dehors des cours, est réservée en priorité aux enseignants qui veulent préparer ou finaliser leurs supports de cours ou corriger des copies en utilisant des logiciels spécifiques."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Lors d’une présentation d’une enquête sur le vécu du confinement, un animateur explique : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » et précise que l’enquête est basée sur des questionnaires remplis par les élèves eux-mêmes, qui y ont indiqué leurs problèmes d’équipement et de connexion."
+        "context": "Document d’information aux familles décrivant une mesure pour réduire la fracture numérique : il est indiqué que la salle informatique sera principalement réservée, hors cours, aux élèves qui n’ont pas d’ordinateur ou de connexion satisfaisante à domicile afin qu’ils puissent faire leurs devoirs."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans une réunion d’association de parents d’élèves, une présidente de fédération commente une enquête nationale : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » puis elle explique que ce sont les parents répondants qui ont décrit ces difficultés dans le questionnaire."
+        "context": "Présentation de l’organisation du lycée mentionnant que, après les heures de cours, la salle informatique est surtout réservée aux élèves de l’établissement qui souhaitent rester pour travailler en autonomie, faire des recherches ou rédiger des dossiers."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un bilan institutionnel sur la continuité pédagogique, un inspecteur lit un rapport et demande : « Selon le document, qui signale que certains foyers partagent un seul appareil ou n'ont pas une connexion fiable ? » Le rapport précise que c’est la direction de l’établissement, après recensement auprès des familles, qui remonte officiellement ces informations au rectorat."
+        "context": "Lettre du proviseur aux parents expliquant que le lycée ouvre sa salle informatique en dehors des cours et qu’elle est surtout destinée aux parents qui veulent se familiariser avec l’ENT, consulter les bulletins ou utiliser certains services numériques du lycée."
       }
     ]
   }

@@ -10,7 +10,7 @@
       "Proposition D"
     ],
     "correct": "A",
-    "explanation": "Réponse A : La question demande explicitement une réservation d’un panier de légumes pour samedi. La réponse A accepte clairement cette réservation et reprend le jour demandé (« pour samedi »), ce qui constitue une réponse directe et adéquate à la demande formulée. B : La question porte sur la réservation d’un panier de légumes, pas sur un film. Quelqu’un qui n’a saisi que le mot « samedi » pourrait être tenté par B car elle mentionne aussi « samedi », mais elle change complètement de sujet (film au lieu de panier de légumes), ce qui ne répond pas à la demande de réservation. C : La question concerne un « panier de légumes » à réserver, tandis que la réponse C parle de la qualité des « paniers de fruits » et ne confirme aucune réservation. Un auditeur distrait pourrait se laisser tromper par le mot commun « paniers » et penser que cela répond au sujet, mais le type de panier (fruits vs légumes) et l’absence de réponse à la demande de réservation rendent cette option inadaptée. D : La question demande une réservation, sans lien avec le lieu d’habitation du locuteur. La réponse D introduit une information hors sujet (« je n'habite pas dans le quartier ») et refuse implicitement sans raison liée à la réservation. Quelqu’un comprenant mal pourrait croire qu’un refus est plausible en général, mais rien dans la question n’évoque le quartier ou la nécessité d’y habiter, donc cette réponse ne convient pas.",
+    "explanation": "Réponse A : La question est une demande de réservation : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 0 accepte explicitement cette réservation et reprend le même jour : « Oui, bien sûr, je vous note pour samedi. ». C’est une réponse directe, cohérente et pragmatiquement adaptée à la demande formulée. B : La question porte sur la réservation d’un panier de légumes, pas sur un loisir ni un horaire : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 1 change complètement de sujet en parlant d’un film : « À quelle heure commence le film samedi ? ». Elle ne répond pas à la demande de réservation et introduit un nouvel objet (« le film ») qui n’apparaît pas dans la question. Elle pourrait tenter quelqu’un qui n’aurait saisi que le mot « samedi » et croirait qu’on parle d’une activité prévue ce jour-là, mais rien dans l’enregistrement ne fait allusion à un film ou à un horaire. C : La question porte spécifiquement sur un « panier de légumes », donc sur une réservation précise. La réponse 2 commente la qualité d’un autre produit : « Les paniers de fruits sont très bons ici. ». On reste dans le champ lexical des paniers, ce qui peut tromper un auditeur inattentif qui ne distinguerait pas « légumes » de « fruits », mais la réponse ne confirme ni ne refuse la réservation et déplace l’objet de la demande. Elle n’apporte donc pas la réponse adéquate à la question posée. D : La question concerne une action de service (réserver un panier) et une date : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 3 parle du lieu d’habitation du locuteur : « Non, je n'habite pas dans le quartier. ». Le lien de cause ou de condition n’est jamais évoqué dans la question : la possibilité de réserver n’est pas présentée comme dépendant du fait d’habiter le quartier. Un auditeur pourrait imaginer, à tort, qu’on refuse la réservation en invoquant une condition d’habitation, mais cet élément n’est présent que dans la réponse et n’a aucun appui dans la question enregistrée.",
     "transcript": "Question 6.\nPuis-je réserver un panier de légumes pour samedi ?\nA. Oui, bien sûr, je vous note pour samedi. B. À quelle heure commence le film samedi ? C. Les paniers de fruits sont très bons ici. D. Non, je n'habite pas dans le quartier.",
     "segments": [
       {
@@ -31,112 +31,48 @@
     "slotSeconds": 35
   },
   "sourceHash": "b7624221d2b97d868104f183fa1cd4e8e7a74bf7ceb6cedc0eb1bec8d3f6f6f6",
-  "contentHash": "9640f812643782efdc39116e6bdb56b50c4718f50aac9f02b59a8beb6369fe27",
+  "contentHash": "f93a279a10c2096d391df7bba2fa2ff092e7268773dac74eefdc9dc5cea267b0",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 1,
+  "rounds": 0,
   "pass": true,
-  "author": {
-    "stage": "author",
-    "policy": "listening-comprehension-qc-v2",
-    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-    "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyajjbX9iUN1tl4xsstecebCoRhf",
-    "result": {
-      "question": "Quelle réponse convient ?",
-      "choices": [
-        "Oui, bien sûr, je vous note pour samedi.",
-        "Non, je n'habite pas dans le quartier.",
-        "À quelle heure commence le film samedi ?",
-        "Les paniers de fruits sont très bons ici."
-      ],
-      "correctIndex": 0,
-      "explanation": "La question porte sur la possibilité de réserver un panier de légumes pour un jour précis (« réserver un panier de légumes », « pour samedi »). La réponse 0 accepte clairement cette demande et reprend le même jour. Les autres réponses changent de sujet ou de rôle et ne répondent pas à la demande de réservation.",
-      "design": "Réplique à une demande de réservation précise. L’axe testé est le type de réponse pragmatique (acceptation explicite d’une réservation demandée). Les quatre propositions sont toutes des phrases naturelles au téléphone ou au comptoir, mais une seule correspond à l’acte de confirmer la réservation formulée dans le stimulus. Les autres, bien que plausibles en soi, deviennent inadaptées lorsqu’elles sont mises en regard de la demande de réservation pour samedi.",
-      "distractorReasons": [
-        {
-          "index": 1,
-          "reason": "La réponse 1 parle du lieu d’habitation du locuteur (« je n'habite pas dans le quartier ») au lieu de répondre à la demande de réservation (« Puis-je réserver », « un panier de légumes »). C’est tentant comme réplique réaliste d’un client, mais ici le rôle est inversé : on attend une réponse du commerçant sur la réservation, pas une information personnelle sur le logement.",
-          "operation": "role_swap",
-          "anchors": [
-            "Puis-je réserver",
-            "un panier de légumes pour samedi"
-          ]
-        },
-        {
-          "index": 2,
-          "reason": "La réponse 2 reste sur le thème général du samedi mais déplace totalement l’objet de la demande vers un film. Elle ne traite ni la réservation ni le panier de légumes. On a ainsi un échange plausible sur un film, mais qui n’a plus le bon objet par rapport à « réserver un panier de légumes » et « pour samedi ».",
-          "operation": "scope_shift",
-          "anchors": [
-            "réserver un panier de légumes",
-            "pour samedi"
-          ]
-        },
-        {
-          "index": 3,
-          "reason": "La réponse 3 évoque des paniers de fruits, ce qui peut sembler proche du sujet, mais elle se contente d’un commentaire évaluatif et ignore l’acte de « réserver » ainsi que la précision du jour (« pour samedi »). Elle associe un élément réel du champ lexical (paniers) à un autre produit et change la fonction de l’énoncé (avis plutôt que acceptation ou refus de réservation).",
-          "operation": "scope_shift",
-          "anchors": [
-            "réserver un panier de légumes",
-            "panier de légumes pour samedi"
-          ]
-        }
-      ]
-    },
-    "usage": {
-      "prompt_tokens": 2395,
-      "completion_tokens": 1210,
-      "total_tokens": 3605,
-      "prompt_tokens_details": {
-        "cached_tokens": 1152,
-        "audio_tokens": 0
-      },
-      "completion_tokens_details": {
-        "reasoning_tokens": 651,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
-      }
-    },
-    "costUsd": 0.01509375,
-    "inputHash": "5ed7a4b25161a31f98c178bdda581dfaeacd8c079e539941bf9e83365742cba9",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:5:initial:author:0:0"
-  },
+  "author": null,
+  "blindEdit": null,
   "blind": [
     {
       "order": [
-        3,
+        2,
         0,
         1,
-        2
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyavA44s1ViMJfE1l7NX01slytp8",
+        "responseId": "chatcmpl-EkzwU7TdE9j3204j0eeGLmIVZWkRF",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un exercice de compréhension orale, l’enseignant fait écouter un court dialogue présentant quatre options, puis demande : « Quelle réponse convient ? » L’élève a remarqué que la bonne solution dans l’enregistrement était nommée comme la quatrième proposition, donc il répond : « Proposition D. »"
+              "context": "Dans un marché ou une épicerie, un client demande : « Comment sont vos paniers de fruits ? » Le vendeur répond : « Les paniers de fruits sont très bons ici. »"
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’un entraînement à un examen, on diffuse un message audio avec une question à choix multiples, où les options sont simplement lues comme « Proposition A, Proposition B, Proposition C, Proposition D ». Après l’écoute, l’animateur demande : « Quelle réponse convient ? » et un participant, convaincu que c’était la première, répond : « Proposition A. »"
+              "context": "Au téléphone avec un restaurant, le client dit : « Est-ce que je peux réserver une table pour deux personnes ? » Le serveur répond : « Oui, bien sûr, je vous note pour samedi. »"
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un test de compréhension, un enregistrement présente une situation, puis quatre réponses possibles : « Proposition A, Proposition B, Proposition C, Proposition D ». À la fin, l’examinateur demande : « Quelle réponse convient ? » Un candidat qui a identifié la deuxième comme correcte répond : « Proposition B. »"
+              "context": "Deux amis discutent de leurs projets du week-end. L’un dit : « On va au cinéma samedi ? » L’autre, qui ne connaît pas l’horaire, demande : « À quelle heure commence le film samedi ? »"
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Pendant un QCM oral, la voix enregistrée annonce successivement « Proposition A, Proposition B, Proposition C, Proposition D », chacune correspondant à un choix. Après la diffusion, la consigne écrite est : « Quelle réponse convient ? » Un élève, ayant jugé le troisième choix pertinent, coche ou dit : « Proposition C. »"
+              "context": "Quelqu’un dans la rue demande : « Vous habitez dans le quartier ? » L’autre répond : « Non, je n'habite pas dans le quartier. »"
             }
           ],
           "cues": [],
@@ -148,26 +84,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre options sont formellement symétriques, purement nominales et répondent toutes de manière directe à la consigne générale « Quelle réponse convient ? » sans aucun indice textuel permettant de privilégier l’une plutôt que l’autre ; l’incertitude est donc totale et le choix de l’index 0 n’est qu’un tie-break arbitraire."
+          "reason": "Les quatre propositions peuvent facilement être des réponses adéquates à des questions ordinaires entendues dans un enregistrement, sans indice textuel clair permettant de privilégier l’une d’elles. Aucune formulation ne présente d’avantage évident (longueur, précision, registre, correction) lié à l’intitulé très général « Quelle réponse convient ? », d’où une forte incertitude et une répartition de probabilité uniforme malgré un choix obligatoire."
         },
         "usage": {
-          "prompt_tokens": 574,
-          "completion_tokens": 468,
-          "total_tokens": 1042,
+          "prompt_tokens": 600,
+          "completion_tokens": 483,
+          "total_tokens": 1083,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 26,
+            "reasoning_tokens": 138,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0053975,
-        "inputHash": "f6f4911a8db4c67a2886004e526a74520df8e4dcd881ccc49bb969904095ecee",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:5:initial:screen:1:0"
+        "costUsd": 0.00558,
+        "inputHash": "0202eda8bc0f6bce5fc2a0a0564f55636a315e4118f025a047ab84fb90dc14a4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:5:14721af7be4c27b55696caf7:screen:0:0"
       }
     }
   ],
@@ -176,14 +112,14 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Ekyb0vEHMBK6x6rIS2dmHnmp5ZHKN",
+    "responseId": "chatcmpl-EkzwbWU4CPLpA3BcjrzZkpHclKDB0",
     "result": {
       "supportedIndices": [
         0
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "La réponse appropriée à la demande de réservation pour samedi est la réponse A, qui accepte explicitement la réservation pour ce jour-là.",
+      "summary": "La seule réponse appropriée à la demande de réservation d’un panier de légumes pour samedi est la réponse 0, qui accepte clairement la réservation pour ce jour-là.",
       "options": [
         {
           "index": 0,
@@ -193,7 +129,7 @@
             "Puis-je réserver un panier de légumes pour samedi ?",
             "Oui, bien sûr, je vous note pour samedi."
           ],
-          "reason": "La question demande explicitement une réservation d’un panier de légumes pour samedi. La réponse A accepte clairement cette réservation et reprend le jour demandé (« pour samedi »), ce qui constitue une réponse directe et adéquate à la demande formulée.",
+          "reason": "La question est une demande de réservation : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 0 accepte explicitement cette réservation et reprend le même jour : « Oui, bien sûr, je vous note pour samedi. ». C’est une réponse directe, cohérente et pragmatiquement adaptée à la demande formulée.",
           "misunderstanding": null
         },
         {
@@ -204,8 +140,8 @@
             "Puis-je réserver un panier de légumes pour samedi ?",
             "À quelle heure commence le film samedi ?"
           ],
-          "reason": "La question porte sur la réservation d’un panier de légumes, pas sur un film. Quelqu’un qui n’a saisi que le mot « samedi » pourrait être tenté par B car elle mentionne aussi « samedi », mais elle change complètement de sujet (film au lieu de panier de légumes), ce qui ne répond pas à la demande de réservation.",
-          "misunderstanding": "changement_de_theme"
+          "reason": "La question porte sur la réservation d’un panier de légumes, pas sur un loisir ni un horaire : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 1 change complètement de sujet en parlant d’un film : « À quelle heure commence le film samedi ? ». Elle ne répond pas à la demande de réservation et introduit un nouvel objet (« le film ») qui n’apparaît pas dans la question. Elle pourrait tenter quelqu’un qui n’aurait saisi que le mot « samedi » et croirait qu’on parle d’une activité prévue ce jour-là, mais rien dans l’enregistrement ne fait allusion à un film ou à un horaire.",
+          "misunderstanding": "referent_confusion"
         },
         {
           "index": 2,
@@ -215,8 +151,8 @@
             "Puis-je réserver un panier de légumes pour samedi ?",
             "Les paniers de fruits sont très bons ici."
           ],
-          "reason": "La question concerne un « panier de légumes » à réserver, tandis que la réponse C parle de la qualité des « paniers de fruits » et ne confirme aucune réservation. Un auditeur distrait pourrait se laisser tromper par le mot commun « paniers » et penser que cela répond au sujet, mais le type de panier (fruits vs légumes) et l’absence de réponse à la demande de réservation rendent cette option inadaptée.",
-          "misunderstanding": "mauvais_objet"
+          "reason": "La question porte spécifiquement sur un « panier de légumes », donc sur une réservation précise. La réponse 2 commente la qualité d’un autre produit : « Les paniers de fruits sont très bons ici. ». On reste dans le champ lexical des paniers, ce qui peut tromper un auditeur inattentif qui ne distinguerait pas « légumes » de « fruits », mais la réponse ne confirme ni ne refuse la réservation et déplace l’objet de la demande. Elle n’apporte donc pas la réponse adéquate à la question posée.",
+          "misunderstanding": "lexical_confusion"
         },
         {
           "index": 3,
@@ -226,29 +162,29 @@
             "Puis-je réserver un panier de légumes pour samedi ?",
             "Non, je n'habite pas dans le quartier."
           ],
-          "reason": "La question demande une réservation, sans lien avec le lieu d’habitation du locuteur. La réponse D introduit une information hors sujet (« je n'habite pas dans le quartier ») et refuse implicitement sans raison liée à la réservation. Quelqu’un comprenant mal pourrait croire qu’un refus est plausible en général, mais rien dans la question n’évoque le quartier ou la nécessité d’y habiter, donc cette réponse ne convient pas.",
-          "misunderstanding": "hors_sujet"
+          "reason": "La question concerne une action de service (réserver un panier) et une date : « Puis-je réserver un panier de légumes pour samedi ? ». La réponse 3 parle du lieu d’habitation du locuteur : « Non, je n'habite pas dans le quartier. ». Le lien de cause ou de condition n’est jamais évoqué dans la question : la possibilité de réserver n’est pas présentée comme dépendant du fait d’habiter le quartier. Un auditeur pourrait imaginer, à tort, qu’on refuse la réservation en invoquant une condition d’habitation, mais cet élément n’est présent que dans la réponse et n’a aucun appui dans la question enregistrée.",
+          "misunderstanding": "invented_condition"
         }
       ]
     },
     "usage": {
       "prompt_tokens": 703,
-      "completion_tokens": 625,
-      "total_tokens": 1328,
+      "completion_tokens": 988,
+      "total_tokens": 1691,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 57,
+        "reasoning_tokens": 253,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.00712875,
+    "costUsd": 0.01075875,
     "inputHash": "6dbdb7541a9828dc7104f345d284cd060099f76426251782d91b1bfd9cc22294",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:5:initial:ground:1"
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:5:14721af7be4c27b55696caf7:ground:0"
   },
   "feedback": null,
   "imageHash": null,

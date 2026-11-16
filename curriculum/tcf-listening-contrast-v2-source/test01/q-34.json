@@ -2,16 +2,16 @@
   "question": {
     "number": 34,
     "kind": "dialogue",
-    "question": "Quel inconvénient précis le second intervenant associe à une stratégie qui miserait surtout sur la formation des usagers ?",
+    "question": "Dans le document, à quoi sont censés servir principalement les tests réalisés sur le formulaire ?",
     "options": [
-      "Elle suppose que le simple fait d’avoir un téléphone suffit pour comprendre pourquoi un dossier est bloqué.",
-      "Elle revient à demander aux usagers d’apprendre à contourner une difficulté que le service pourrait supprimer.",
-      "Elle remplace complètement le contact humain par des écrans plus simples.",
-      "Elle risque de multiplier les démarches en ligne sans réduire les files d’attente à l’accueil."
+      "Identifier les types de téléphones ou d’ordinateurs sur lesquels le formulaire est le plus souvent rempli.",
+      "Repérer les endroits du formulaire où les personnes s’arrêtent, hésitent ou reviennent en arrière.",
+      "Comprendre les raisons précises pour lesquelles certains dossiers liés à ce formulaire se retrouvent bloqués.",
+      "Repérer les difficultés que rencontrent les agents d’accueil lorsqu’ils expliquent les démarches en ligne liées à ce formulaire."
     ],
     "correct": "B",
-    "transcript": "Question 34.\nNous avons mis toutes les démarches en ligne, mais les files d'attente à l'accueil n'ont presque pas diminué.\nCela ne m'étonne pas. Une personne peut avoir un téléphone sans savoir joindre un document ou comprendre pourquoi son dossier est bloqué.\nIl faudrait donc multiplier les formations ?\nOui, pour certains besoins. Mais il faut aussi simplifier les écrans et garder un contact humain. Sinon, nous demandons aux usagers d'apprendre à contourner une difficulté que le service pourrait supprimer.\nEssayons les deux : une permanence accompagnée et des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement.\nQuel inconvénient précis le second intervenant associe à une stratégie qui miserait surtout sur la formation des usagers ?",
-    "explanation": "Le second intervenant critique explicitement l’idée de se reposer surtout sur la formation des usagers en disant : « Sinon, nous demandons aux usagers d'apprendre à contourner une difficulté que le service pourrait supprimer. » L’inconvénient mis en avant est donc que cette stratégie fait porter aux usagers la charge de contourner une difficulté qui devrait être traitée par le service lui‑même, et non un autre effet comme la disparition du contact humain ou l’augmentation des démarches en ligne.",
+    "transcript": "Question 34.\nNous avons mis toutes les démarches en ligne, mais les files d'attente à l'accueil n'ont presque pas diminué.\nCela ne m'étonne pas. Une personne peut avoir un téléphone sans savoir joindre un document ou comprendre pourquoi son dossier est bloqué.\nIl faudrait donc multiplier les formations ?\nOui, pour certains besoins. Mais il faut aussi simplifier les écrans et garder un contact humain. Sinon, nous demandons aux usagers d'apprendre à contourner une difficulté que le service pourrait supprimer.\nEssayons les deux : une permanence accompagnée et des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement.\nDans le document, à quoi sont censés servir principalement les tests réalisés sur le formulaire ?",
+    "explanation": "Le document dit explicitement à propos des tests : «des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement». L’objectif principal est donc de repérer les endroits du formulaire où les personnes hésitent.",
     "segments": [
       {
         "voice": "female",
@@ -39,145 +39,238 @@
       },
       {
         "voice": "female",
-        "text": "Quel inconvénient précis le second intervenant associe à une stratégie qui miserait surtout sur la formation des usagers ?"
+        "text": "Dans le document, à quoi sont censés servir principalement les tests réalisés sur le formulaire ?"
       }
     ],
     "audio": "q-34.mp3",
     "audioSeconds": null,
     "slotSeconds": 70
   },
-  "contentHash": "7c8bff915e42ab44cdd14de7285332ba7e16049fb8ea03ce57fc9c0e8191965f",
+  "contentHash": "ab7765cd2e8aad9c3dec720565dc588b74e5018215ecb3b41c71d0bfcf8aaf9a",
   "sourceHash": "e56ea94eb4782eaf25d9a013e3c40d2653b2f635fdaabae508e1c6982b826673",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 6,
   "pass": false,
   "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzSJ7laSjxy727VcUoDPPNcwtFsw",
+    "result": {
+      "question": "Dans le document, quel est l’objectif principal donné aux tests du formulaire ?",
+      "choices": [
+        "Repérer les endroits du formulaire où les personnes s’arrêtent ou hésitent.",
+        "Identifier les types de téléphones ou d’ordinateurs utilisés pour le remplir.",
+        "Comprendre les raisons précises pour lesquelles les dossiers se retrouvent bloqués.",
+        "Repérer les difficultés des agents d’accueil à expliquer les démarches en ligne."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit explicitement à propos des tests : «des tests du formulaire avec des personnes qui le découvrent. Nous verrons où elles hésitent réellement». L’objectif principal est donc de repérer les endroits du formulaire où les personnes hésitent.",
+      "design": "Axe précis : l’objet principal de l’observation pendant les «tests du formulaire». Les quatre choix proposent chacun un type de focalisation possible pour des tests (comportement d’hésitation, équipement, causes de blocage, difficultés des agents). Sans le document, ils sont tous plausibles dans un contexte de dématérialisation administrative. La bonne réponse est l’unique focalisation explicitement associée aux tests : les moments d’hésitation des usagers face au formulaire.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transpose aux tests du formulaire la question des équipements numériques mentionnée plus tôt («une personne peut avoir un téléphone»), en supposant que les tests serviraient surtout à cartographier les supports techniques. En réalité, lorsqu’il est question des tests, le texte précise qu’ils visent les hésitations sur le formulaire, pas les appareils utilisés.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Une personne peut avoir un téléphone",
+            "des tests du formulaire avec des personnes qui le découvrent"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le document évoque bien la difficulté de «comprendre pourquoi son dossier est bloqué», ce qui rend crédible l’idée de tests centrés sur les causes de blocage. Mais cette difficulté est citée pour illustrer les limites de la mise en ligne, non comme objectif assigné aux tests. Ceux-ci sont orientés vers l’observation des hésitations, pas vers une analyse détaillée des motifs de blocage des dossiers.",
+          "operation": "role_swap",
+          "anchors": [
+            "comprendre pourquoi son dossier est bloqué",
+            "Nous verrons où elles hésitent réellement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La «permanence accompagnée» pourrait effectivement servir à soutenir les agents d’accueil, ce qui rend l’interprétation plausible. Cependant, le document présente la permanence et les tests comme deux dispositifs au service des usagers : le problème décrit est que «nous demandons aux usagers d'apprendre à contourner une difficulté», et les tests visent leurs hésitations, pas les difficultés des agents à expliquer les démarches.",
+          "operation": "role_swap",
+          "anchors": [
+            "Une permanence accompagnée",
+            "nous demandons aux usagers d'apprendre à contourner une difficulté",
+            "Nous verrons où elles hésitent réellement"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4473,
+      "completion_tokens": 1362,
+      "total_tokens": 5835,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 741,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01921125,
+    "inputHash": "560a622942267b8f8f4c842499aa387ccd7c94d20bcfb466763502e7fb1a7f8e",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:33:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, quel est l’objectif principal donné aux tests du formulaire ?",
+      "choices": [
+        "Identifier les types de téléphones ou d’ordinateurs utilisés pour le remplir.",
+        "Repérer les endroits du formulaire où les personnes s’arrêtent ou hésitent.",
+        "Comprendre les raisons précises pour lesquelles les dossiers se retrouvent bloqués.",
+        "Repérer les difficultés des agents d’accueil à expliquer les démarches en ligne."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzSiQz6N4NDE0qSzchN4RKObMzE6",
+      "result": {
+        "question": "Dans le document, à quoi sont censés servir principalement les tests réalisés sur le formulaire ?",
+        "choices": [
+          "Identifier les types de téléphones ou d’ordinateurs sur lesquels le formulaire est le plus souvent rempli.",
+          "Repérer les endroits du formulaire où les personnes s’arrêtent, hésitent ou reviennent en arrière.",
+          "Comprendre les raisons précises pour lesquelles certains dossiers liés à ce formulaire se retrouvent bloqués.",
+          "Repérer les difficultés que rencontrent les agents d’accueil lorsqu’ils expliquent les démarches en ligne liées à ce formulaire."
+        ],
+        "notes": "Formulation recentrée sur la finalité générale des tests, sans suggérer qu’un objectif serait plus évident que les autres. Les quatre options restent factuellement distinctes (appareils utilisés, zones d’hésitation, raisons de blocage des dossiers, difficultés des agents) mais apparaissent toutes comme des objectifs plausibles et professionnels d’un test de formulaire."
+      },
+      "usage": {
+        "prompt_tokens": 669,
+        "completion_tokens": 457,
+        "total_tokens": 1126,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 255,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00540625,
+      "inputHash": "a300923cb322f16d39ecb9c9b2f50b20bba4174f1f84fe1a8ccd805e95c61099",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:33:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        0,
         3,
-        2,
-        1
+        1,
+        0,
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Ekyn4ku6G8sGyc7ovOtJ0GAcZxOhS",
+        "responseId": "chatcmpl-EkzSqYNqrH3yd6LbPcNyxaDYH8xFb",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un débat sur la dématérialisation des démarches administratives, le second intervenant critique une stratégie qui consisterait surtout à « former les usagers » à utiliser leur smartphone. Il explique que c’est problématique car cette approche revient à supposer que, du seul fait qu’ils ont un téléphone, ils sauront forcément comprendre en ligne pourquoi leur dossier est bloqué, ce qui est faux pour beaucoup de personnes peu à l’aise avec ces outils."
+              "context": "Dans une administration, un document interne présente un projet de tests destinés à observer comment les agents d’accueil expliquent au public les démarches en ligne associées à un formulaire. On filme ou enregistre les interactions au guichet pour repérer les passages du discours où les agents butent, cherchant ainsi à adapter le formulaire ou les consignes qu’ils doivent donner."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une émission consacrée à l’organisation d’un service public, le second intervenant commente un projet misant principalement sur la formation des usagers aux démarches en ligne. Il souligne comme inconvénient que cela risque de multiplier les démarches numériques (plus de formulaires et comptes à gérer) sans pour autant réduire les files d’attente à l’accueil, car de nombreux usagers continueront à se déplacer en personne malgré la formation."
+              "context": "Un service public décrit dans un document une campagne de tests utilisateurs d’un formulaire en ligne. Des personnes sont invitées à remplir le formulaire pendant qu’on enregistre leurs clics et leurs déplacements, afin de repérer précisément les champs ou étapes où elles s’arrêtent, hésitent ou reviennent en arrière, pour améliorer l’ergonomie."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Lors d’une table ronde sur la modernisation d’un service administratif, le second intervenant réagit à une stratégie centrée sur la formation des usagers à de nouveaux outils numériques. Il formule une critique exagérée en disant que, poussée à l’extrême, cette logique aboutit à remplacer complètement le contact humain par des écrans, même si ceux-ci sont rendus plus simples grâce à la formation des usagers."
+              "context": "Le service informatique explique dans un document qu’il va mettre en place des tests sur un formulaire en ligne afin de collecter des statistiques techniques : type de téléphones, de tablettes ou d’ordinateurs utilisés, pour optimiser la compatibilité et les performances selon les supports les plus fréquents."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un reportage radio sur les difficultés d’accès aux droits en ligne, le second intervenant réagit à l’idée de surtout former les usagers pour qu’ils sachent mieux naviguer sur le site. Il explique que le vrai inconvénient de cette stratégie est qu’elle revient à demander aux usagers d’apprendre à contourner une complication de la procédure (parcours en ligne peu clair, étape inutile, jargon) que le service lui-même pourrait supprimer en simplifiant son fonctionnement."
+              "context": "Un document de gestion de procédures indique que des tests seront réalisés sur un formulaire afin de reconstituer le parcours des dossiers liés à ce formulaire. On simule des dépôts de dossiers, puis on suit leur traitement pour comprendre à quelles étapes et pour quelles raisons certains dossiers se retrouvent bloqués."
             }
           ],
           "cues": [
             {
-              "option": 0,
+              "option": 1,
               "severity": "clear",
-              "cue": "Lien faible et assez artificiel avec la « formation des usagers » : le fait de posséder un téléphone n’est pas une conséquence directe d’une stratégie de formation ; l’énoncé semble décaler le problème vers l’équipement plutôt que vers la stratégie."
-            },
-            {
-              "option": 2,
-              "severity": "clear",
-              "cue": "Formulation très absolue (« remplace complètement le contact humain ») et focalisation sur les écrans plutôt que sur la formation ; l’inconvénient décrit relève davantage d’une numérisation extrême que d’une stratégie centrée sur la formation des usagers."
-            },
-            {
-              "option": 3,
-              "severity": "clear",
-              "cue": "Formulation directement alignée sur l’idée de « stratégie qui miserait surtout sur la formation des usagers » : elle critique précisément le fait de former les usagers au lieu de supprimer la difficulté à la source. Le propos est nuancé, responsabilise le service, et décrit un inconvénient conceptuel cohérent avec ce type de débat sur les politiques publiques."
+              "cue": "L’énoncé parle de « tests réalisés sur le formulaire », ce qui oriente vers des tests d’ergonomie centrés sur le parcours de l’usager dans le formulaire lui‑même. L’option 1 décrit précisément l’observation des arrêts, hésitations et retours en arrière sur le formulaire, ce qui correspond directement à ce type de tests. Les autres options se focalisent soit sur les agents d’accueil (0), soit sur des aspects techniques d’appareil (2), soit sur le blocage ultérieur des dossiers (3), qui sont des objectifs plus indirects et moins typiques de « tests sur le formulaire » proprement dits."
             }
           ],
           "standsOut": true,
           "probabilities": [
             0.1,
-            0.2,
-            0.15,
-            0.55
+            0.7,
+            0.1,
+            0.1
           ],
-          "guess": 3,
-          "reason": "Les quatre options sont contextuellement plausibles, mais la 3 formule un inconvénient qui cible exactement la logique même de la « formation des usagers » (on forme pour contourner un problème structurel que le service pourrait corriger). Les réponses 0 et 2 paraissent moins directement liées à la notion de formation et comportent des formulations plus extrêmes ou décalées, tandis que la 1 reste plausible mais moins étroitement arrimée à la critique de principe d’une telle stratégie. Cela donne un avantage net à l’option 3, d’où une probabilité plus élevée mais non certaine."
+          "guess": 1,
+          "reason": "Le libellé « tests réalisés sur le formulaire » correspond de façon privilégiée à une démarche de test d’utilisabilité visant à localiser les zones problématiques du formulaire lui‑même, exactement décrite par l’option 1. Les autres propositions nécessitent de déduire des objectifs plus périphériques (agents, types d’appareils, raisons des blocages de dossiers), moins directement alignés avec cette formulation, d’où une probabilité nettement plus forte pour l’option 1 malgré l’absence d’accès au document audio."
         },
         "usage": {
-          "prompt_tokens": 654,
-          "completion_tokens": 1319,
-          "total_tokens": 1973,
+          "prompt_tokens": 659,
+          "completion_tokens": 834,
+          "total_tokens": 1493,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 513,
+            "reasoning_tokens": 216,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0140075,
-        "inputHash": "85919b5e6809d20fd9cd9ab62b7063ce9ddfec25f4fb9ec227f207c9c775f6d0",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:33:ce40c9091f7f36b9e4c06d49:screen:6:0"
+        "costUsd": 0.00916375,
+        "inputHash": "b100cced52fbff81944139a20719382427d94f1823efe18beeabaa84c7b7b99f",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:33:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Les quatre options sont contextuellement plausibles, mais la 3 formule un inconvénient qui cible exactement la logique même de la « formation des usagers » (on forme pour contourner un problème structurel que le service pourrait corriger). Les réponses 0 et 2 paraissent moins directement liées à la notion de formation et comportent des formulations plus extrêmes ou décalées, tandis que la 1 reste plausible mais moins étroitement arrimée à la critique de principe d’une telle stratégie. Cela donne un avantage net à l’option 3, d’où une probabilité plus élevée mais non certaine.",
+    "reason": "Le libellé « tests réalisés sur le formulaire » correspond de façon privilégiée à une démarche de test d’utilisabilité visant à localiser les zones problématiques du formulaire lui‑même, exactement décrite par l’option 1. Les autres propositions nécessitent de déduire des objectifs plus périphériques (agents, types d’appareils, raisons des blocages de dossiers), moins directement alignés avec cette formulation, d’où une probabilité nettement plus forte pour l’option 1 malgré l’absence d’accès au document audio.",
     "cues": [
       {
-        "option": 0,
+        "option": 1,
         "severity": "clear",
-        "cue": "Lien faible et assez artificiel avec la « formation des usagers » : le fait de posséder un téléphone n’est pas une conséquence directe d’une stratégie de formation ; l’énoncé semble décaler le problème vers l’équipement plutôt que vers la stratégie."
-      },
-      {
-        "option": 2,
-        "severity": "clear",
-        "cue": "Formulation très absolue (« remplace complètement le contact humain ») et focalisation sur les écrans plutôt que sur la formation ; l’inconvénient décrit relève davantage d’une numérisation extrême que d’une stratégie centrée sur la formation des usagers."
-      },
-      {
-        "option": 3,
-        "severity": "clear",
-        "cue": "Formulation directement alignée sur l’idée de « stratégie qui miserait surtout sur la formation des usagers » : elle critique précisément le fait de former les usagers au lieu de supprimer la difficulté à la source. Le propos est nuancé, responsabilise le service, et décrit un inconvénient conceptuel cohérent avec ce type de débat sur les politiques publiques."
+        "cue": "L’énoncé parle de « tests réalisés sur le formulaire », ce qui oriente vers des tests d’ergonomie centrés sur le parcours de l’usager dans le formulaire lui‑même. L’option 1 décrit précisément l’observation des arrêts, hésitations et retours en arrière sur le formulaire, ce qui correspond directement à ce type de tests. Les autres options se focalisent soit sur les agents d’accueil (0), soit sur des aspects techniques d’appareil (2), soit sur le blocage ultérieur des dossiers (3), qui sont des objectifs plus indirects et moins typiques de « tests sur le formulaire » proprement dits."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un débat sur la dématérialisation des démarches administratives, le second intervenant critique une stratégie qui consisterait surtout à « former les usagers » à utiliser leur smartphone. Il explique que c’est problématique car cette approche revient à supposer que, du seul fait qu’ils ont un téléphone, ils sauront forcément comprendre en ligne pourquoi leur dossier est bloqué, ce qui est faux pour beaucoup de personnes peu à l’aise avec ces outils."
+        "context": "Dans une administration, un document interne présente un projet de tests destinés à observer comment les agents d’accueil expliquent au public les démarches en ligne associées à un formulaire. On filme ou enregistre les interactions au guichet pour repérer les passages du discours où les agents butent, cherchant ainsi à adapter le formulaire ou les consignes qu’ils doivent donner."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une émission consacrée à l’organisation d’un service public, le second intervenant commente un projet misant principalement sur la formation des usagers aux démarches en ligne. Il souligne comme inconvénient que cela risque de multiplier les démarches numériques (plus de formulaires et comptes à gérer) sans pour autant réduire les files d’attente à l’accueil, car de nombreux usagers continueront à se déplacer en personne malgré la formation."
+        "context": "Un service public décrit dans un document une campagne de tests utilisateurs d’un formulaire en ligne. Des personnes sont invitées à remplir le formulaire pendant qu’on enregistre leurs clics et leurs déplacements, afin de repérer précisément les champs ou étapes où elles s’arrêtent, hésitent ou reviennent en arrière, pour améliorer l’ergonomie."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Lors d’une table ronde sur la modernisation d’un service administratif, le second intervenant réagit à une stratégie centrée sur la formation des usagers à de nouveaux outils numériques. Il formule une critique exagérée en disant que, poussée à l’extrême, cette logique aboutit à remplacer complètement le contact humain par des écrans, même si ceux-ci sont rendus plus simples grâce à la formation des usagers."
+        "context": "Le service informatique explique dans un document qu’il va mettre en place des tests sur un formulaire en ligne afin de collecter des statistiques techniques : type de téléphones, de tablettes ou d’ordinateurs utilisés, pour optimiser la compatibilité et les performances selon les supports les plus fréquents."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un reportage radio sur les difficultés d’accès aux droits en ligne, le second intervenant réagit à l’idée de surtout former les usagers pour qu’ils sachent mieux naviguer sur le site. Il explique que le vrai inconvénient de cette stratégie est qu’elle revient à demander aux usagers d’apprendre à contourner une complication de la procédure (parcours en ligne peu clair, étape inutile, jargon) que le service lui-même pourrait supprimer en simplifiant son fonctionnement."
+        "context": "Un document de gestion de procédures indique que des tests seront réalisés sur un formulaire afin de reconstituer le parcours des dossiers liés à ce formulaire. On simule des dépôts de dossiers, puis on suit leur traitement pour comprendre à quelles étapes et pour quelles raisons certains dossiers se retrouvent bloqués."
       }
     ]
   },

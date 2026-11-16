@@ -2,16 +2,16 @@
   "question": {
     "number": 34,
     "kind": "roundtable",
-    "question": "Selon le document, quel type de demandes doit continuer à être traité immédiatement malgré le nouveau dispositif proposé ?",
+    "question": "Selon le document, quelle condition est évoquée pour accepter la mise en place d’un suivi des demandes de panne ?",
     "options": [
-      "Les pannes concernant uniquement les parties communes de l’immeuble",
-      "Les problèmes signalés par téléphone par les résidents",
-      "Les urgences techniques signalées par les locataires",
-      "Les demandes sans description précise envoyées aux gestionnaires"
+      "À condition que chaque demande décrive suffisamment la panne.",
+      "À condition que les locataires connaissent une date d’intervention après avoir signalé la panne.",
+      "À condition que les urgences continuent d’être traitées sans délai.",
+      "À condition que les résidents sans Internet ne soient pas limités au seul téléphone."
     ],
     "correct": "C",
-    "explanation": "Le locuteur accepte le dispositif en ajoutant : «Oui, à condition que les urgences restent traitées immédiatement.» Il ne limite pas cette exigence aux demandes floues, aux appels téléphoniques ou aux seules pannes des parties communes, mais à toute demande considérée comme urgente.",
-    "transcript": "Question 34.\nNous parlons de l'entretien des immeubles collectifs.\nLes locataires signalent les pannes, mais ne savent pas toujours quand une intervention aura lieu.\nLes gestionnaires reçoivent de nombreuses demandes sans description précise, ce qui complique les priorités.\nNous pourrions instaurer un suivi des demandes avec un numéro et une réponse sur les délais prévus.\nEt conserver un téléphone pour les résidents qui n'utilisent pas Internet.\nOui, à condition que les urgences restent traitées immédiatement.\nSelon le document, quel type de demandes doit continuer à être traité immédiatement malgré le nouveau dispositif proposé ?",
+    "explanation": "Le document conclut : Oui, à condition que les urgences restent traitées immédiatement. La seule condition explicitement posée pour accepter le suivi des demandes concerne donc le traitement immédiat des urgences, et non la précision des descriptions, l’abandon du téléphone ou la connaissance préalable d’une date d’intervention.",
+    "transcript": "Question 34.\nNous parlons de l'entretien des immeubles collectifs.\nLes locataires signalent les pannes, mais ne savent pas toujours quand une intervention aura lieu.\nLes gestionnaires reçoivent de nombreuses demandes sans description précise, ce qui complique les priorités.\nNous pourrions instaurer un suivi des demandes avec un numéro et une réponse sur les délais prévus.\nEt conserver un téléphone pour les résidents qui n'utilisent pas Internet.\nOui, à condition que les urgences restent traitées immédiatement.\nSelon le document, quelle condition est évoquée pour accepter la mise en place d’un suivi des demandes de panne ?",
     "segments": [
       {
         "voice": "female",
@@ -50,7 +50,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, quel type de demandes doit continuer à être traité immédiatement malgré le nouveau dispositif proposé ?",
+        "text": "Selon le document, quelle condition est évoquée pour accepter la mise en place d’un suivi des demandes de panne ?",
         "speaker": "female"
       }
     ],
@@ -60,111 +60,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzwgHtovyTO6ZPPlBv2Jh4voTWc8",
+    "result": {
+      "question": "Selon le document, sous quelle condition l’instauration du suivi des demandes est-elle acceptée ?",
+      "choices": [
+        "À condition que les urgences restent traitées immédiatement.",
+        "À condition que chaque demande décrive précisément la panne.",
+        "À condition que les résidents sans Internet renoncent au téléphone.",
+        "À condition que les locataires connaissent la date d’intervention avant de signaler la panne."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document conclut : Oui, à condition que les urgences restent traitées immédiatement. La seule condition explicitement posée pour accepter le suivi des demandes concerne donc le traitement immédiat des urgences, et non la précision des descriptions, l’abandon du téléphone ou la connaissance préalable d’une date d’intervention.",
+      "design": "On cible la condition explicitement posée pour accepter la mise en place du suivi des demandes. Toutes les options sont formulées comme des conditions plausibles d’acceptation d’un nouveau dispositif de gestion (qualité des descriptions, maintien ou non du téléphone, information sur les dates), mais une seule correspond à la condition réellement énoncée dans l’enregistrement : le maintien du traitement immédiat des urgences. Sans le document, chacune pourrait sembler une clause raisonnable d’acceptation ; seule l’écoute permet de repérer laquelle est effectivement mentionnée.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’option transforme une difficulté actuelle (demandes sans description précise) en condition d’acceptation du nouveau suivi. Le document mentionne le manque de précision comme un problème qui complique les priorités, mais ne l’énonce jamais comme condition pour instaurer le dispositif.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "de nombreuses demandes sans description précise",
+            "ce qui complique les priorités"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option attribue à tort au document l’idée qu’il faudrait renoncer au téléphone comme condition, alors que le texte propose au contraire de conserver un téléphone pour certains résidents. Elle inverse donc le rôle de cet élément, qui est présenté comme un aménagement du dispositif, pas comme une condition restrictive pour l’accepter.",
+          "operation": "role_swap",
+          "anchors": [
+            "Et conserver un téléphone",
+            "pour les résidents qui n'utilisent pas Internet"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option déplace dans le temps l’exigence d’information : elle fait croire que les locataires devraient connaître la date d’intervention avant de signaler la panne. Or le document décrit seulement qu’ils ne savent pas quand une intervention aura lieu et propose un suivi donnant une réponse sur les délais, sans en faire une condition préalable au signalement.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les locataires signalent les pannes",
+            "ne savent pas toujours quand une intervention aura lieu"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4517,
+      "completion_tokens": 1118,
+      "total_tokens": 5635,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 545,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01682625,
+    "inputHash": "e972262413721fd0891b19a281b9139bd6f40f5c30a155afc6a4a48721c01987",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:33:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, sous quelle condition l’instauration du suivi des demandes est-elle acceptée ?",
+      "choices": [
+        "À condition que chaque demande décrive précisément la panne.",
+        "À condition que les locataires connaissent la date d’intervention avant de signaler la panne.",
+        "À condition que les urgences restent traitées immédiatement.",
+        "À condition que les résidents sans Internet renoncent au téléphone."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Ekzx43kwPYSKn9gK1qUvSqWUizigO",
+      "result": {
+        "question": "Selon le document, quelle condition est évoquée pour accepter la mise en place d’un suivi des demandes de panne ?",
+        "choices": [
+          "À condition que chaque demande décrive suffisamment la panne.",
+          "À condition que les locataires connaissent une date d’intervention après avoir signalé la panne.",
+          "À condition que les urgences continuent d’être traitées sans délai.",
+          "À condition que les résidents sans Internet ne soient pas limités au seul téléphone."
+        ],
+        "notes": "La question reste centrée sur une condition pour accepter la mise en place du suivi. Chaque option formule une condition professionnelle et crédible (description des pannes, information sur la date d’intervention, traitement des urgences, accès des résidents sans Internet), sans qu’une seule paraisse manifestement plus raisonnable ou protectrice que les autres. Les formulations extrêmes ou illogiques (date connue avant le signalement, renoncer au téléphone) ont été atténuées tout en conservant les acteurs et objets distinctifs."
+      },
+      "usage": {
+        "prompt_tokens": 665,
+        "completion_tokens": 851,
+        "total_tokens": 1516,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 635,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00934125,
+      "inputHash": "0693038fbd96f79329fd0eaa1496cdab6d27d23398ca0ad4b08283c28cd4d6e7",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:33:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
+        3,
         1,
-        2,
         0,
-        3
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Ekyb0t4Oier2hx53GBmOgtqYRe0YR",
+        "responseId": "chatcmpl-EkzxDmnSPQQwmImjg9ScWXTBoU1y0",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Réunion d’un syndic avec un prestataire de maintenance présentant un nouveau portail en ligne pour centraliser les demandes. Le document précise qu’avec ce nouveau dispositif, la plupart des requêtes passeront par la plateforme, mais que les problèmes signalés par téléphone par les résidents doivent continuer à être pris en charge immédiatement en cas de difficulté particulière ou de personnes âgées peu à l’aise avec le numérique."
+              "context": "Réunion d’un conseil de résidents où l’on propose un nouvel outil de suivi en ligne des demandes de panne. Un participant accepte le principe, mais ajoute : « Je suis d’accord pour la mise en place de ce suivi, à condition que les résidents sans Internet ne soient pas limités au seul téléphone, qu’ils aient aussi, par exemple, la possibilité de passer à l’accueil. »"
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Présentation d’un nouveau système de gestion des demandes de maintenance dans un parc locatif social. Le document explique que désormais toutes les demandes passeront par un formulaire en ligne ou une application, mais que les urgences techniques signalées par les locataires (fuite importante, panne de chauffage en hiver, danger électrique, etc.) doivent continuer à être traitées immédiatement, sans passer par la file classique."
+              "context": "Réunion entre le bailleur social et des locataires pour présenter un système de suivi des pannes. Un représentant des locataires dit : « On est prêts à accepter ce dispositif, à condition que les locataires connaissent une date d’intervention après avoir signalé la panne. »"
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Notice explicative envoyée aux résidents lors de la mise en place d’un nouvel outil de suivi des travaux. Le document indique que la plupart des pannes seront planifiées, mais que les pannes concernant uniquement les parties communes de l’immeuble (éclairage du hall, porte d’entrée bloquée) doivent continuer à être traitées immédiatement pour des raisons de sécurité et d’accès."
+              "context": "Présentation du futur système de suivi des incidents techniques d’un immeuble. Le responsable technique explique : « On mettra ce suivi en place, à condition que chaque demande décrive suffisamment la panne, sinon on ne pourra pas bien planifier les interventions. »"
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Consigne interne à des gestionnaires immobiliers détaillant un nouveau processus de tri via une plateforme numérique. Le document pourrait, de façon un peu paradoxale, préciser que les demandes sans description précise envoyées aux gestionnaires, jugées potentiellement critiques par leur caractère flou, doivent continuer à être vérifiées et traitées immédiatement pour identifier d’éventuelles urgences cachées."
+              "context": "Réunion de copropriété où l’on discute d’un système informatisé de suivi des pannes (chauffage, ascenseur, etc.). Un copropriétaire s’inquiète : « D’accord pour ce suivi, à condition que les urgences continuent d’être traitées sans délai. »"
             }
           ],
           "cues": [
             {
-              "option": 1,
+              "option": 3,
               "severity": "clear",
-              "cue": "Formulation neutre et cohérente avec la notion de traitement immédiat (« urgences techniques ») directement reliée à une priorité opérationnelle ; description précise et professionnelle, sans restriction artificielle (« uniquement les parties communes ») ni formulation étrange (comme prioriser des demandes « sans description précise »)."
+              "cue": "La formulation correspond très directement à une condition générale pour accepter un système de suivi : ne pas dégrader le traitement des urgences. Elle répond de façon large et prudente à la question, sans introduire de détail spécifique (Internet, date d’intervention, qualité de description) qui n’est pas suggéré par l’énoncé. Stylistiquement, elle est simple, naturelle et très cohérente avec une réserve typique lors de la mise en place d’un suivi administratif."
             }
           ],
           "standsOut": true,
           "probabilities": [
             0.15,
-            0.55,
-            0.15,
-            0.15
+            0.2,
+            0.2,
+            0.45
           ],
-          "guess": 1,
-          "reason": "Le libellé de la question (« doit continuer à être traité immédiatement ») s’aligne très naturellement avec l’expression « les urgences techniques signalées par les locataires », qui constitue une catégorie claire et justifiant logiquement une prise en charge prioritaire. Les autres options paraissent soit trop restreintes, soit moins rationnelles à prioriser, ce qui donne à l’option 1 un avantage rédactionnel net malgré l’absence du document audio."
+          "guess": 3,
+          "reason": "Toutes les options sont plausibles dans un échange sur la mise en place d’un suivi des demandes de panne, mais la 3 correspond le mieux à une condition globale et rassurante : accepter le suivi à la seule condition que les urgences restent traitées immédiatement. Les autres portent sur des exigences plus particulières (accès sans Internet, connaissance d’une date, niveau de détail des descriptions) qui semblent moins naturellement être LA condition mentionnée, d’où une probabilité plus élevée pour la réponse 3, malgré une incertitude réelle liée à l’absence de document audio."
         },
         "usage": {
-          "prompt_tokens": 621,
-          "completion_tokens": 721,
-          "total_tokens": 1342,
+          "prompt_tokens": 639,
+          "completion_tokens": 875,
+          "total_tokens": 1514,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 142,
+            "reasoning_tokens": 304,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00798625,
-        "inputHash": "53cc3a2be95b36e9307e6c27f9637615a09f32f6a89657b6048d64d204b5b29a",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:33:initial:screen:6:0"
+        "costUsd": 0.00954875,
+        "inputHash": "844f65f02112b9515bad83aaac0be26da6e5ede1cc3eee5902aa9122b3878839",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:33:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le libellé de la question (« doit continuer à être traité immédiatement ») s’aligne très naturellement avec l’expression « les urgences techniques signalées par les locataires », qui constitue une catégorie claire et justifiant logiquement une prise en charge prioritaire. Les autres options paraissent soit trop restreintes, soit moins rationnelles à prioriser, ce qui donne à l’option 1 un avantage rédactionnel net malgré l’absence du document audio.",
+    "reason": "Toutes les options sont plausibles dans un échange sur la mise en place d’un suivi des demandes de panne, mais la 3 correspond le mieux à une condition globale et rassurante : accepter le suivi à la seule condition que les urgences restent traitées immédiatement. Les autres portent sur des exigences plus particulières (accès sans Internet, connaissance d’une date, niveau de détail des descriptions) qui semblent moins naturellement être LA condition mentionnée, d’où une probabilité plus élevée pour la réponse 3, malgré une incertitude réelle liée à l’absence de document audio.",
     "cues": [
       {
-        "option": 1,
+        "option": 3,
         "severity": "clear",
-        "cue": "Formulation neutre et cohérente avec la notion de traitement immédiat (« urgences techniques ») directement reliée à une priorité opérationnelle ; description précise et professionnelle, sans restriction artificielle (« uniquement les parties communes ») ni formulation étrange (comme prioriser des demandes « sans description précise »)."
+        "cue": "La formulation correspond très directement à une condition générale pour accepter un système de suivi : ne pas dégrader le traitement des urgences. Elle répond de façon large et prudente à la question, sans introduire de détail spécifique (Internet, date d’intervention, qualité de description) qui n’est pas suggéré par l’énoncé. Stylistiquement, elle est simple, naturelle et très cohérente avec une réserve typique lors de la mise en place d’un suivi administratif."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Réunion d’un syndic avec un prestataire de maintenance présentant un nouveau portail en ligne pour centraliser les demandes. Le document précise qu’avec ce nouveau dispositif, la plupart des requêtes passeront par la plateforme, mais que les problèmes signalés par téléphone par les résidents doivent continuer à être pris en charge immédiatement en cas de difficulté particulière ou de personnes âgées peu à l’aise avec le numérique."
+        "context": "Réunion d’un conseil de résidents où l’on propose un nouvel outil de suivi en ligne des demandes de panne. Un participant accepte le principe, mais ajoute : « Je suis d’accord pour la mise en place de ce suivi, à condition que les résidents sans Internet ne soient pas limités au seul téléphone, qu’ils aient aussi, par exemple, la possibilité de passer à l’accueil. »"
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Présentation d’un nouveau système de gestion des demandes de maintenance dans un parc locatif social. Le document explique que désormais toutes les demandes passeront par un formulaire en ligne ou une application, mais que les urgences techniques signalées par les locataires (fuite importante, panne de chauffage en hiver, danger électrique, etc.) doivent continuer à être traitées immédiatement, sans passer par la file classique."
+        "context": "Réunion entre le bailleur social et des locataires pour présenter un système de suivi des pannes. Un représentant des locataires dit : « On est prêts à accepter ce dispositif, à condition que les locataires connaissent une date d’intervention après avoir signalé la panne. »"
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Notice explicative envoyée aux résidents lors de la mise en place d’un nouvel outil de suivi des travaux. Le document indique que la plupart des pannes seront planifiées, mais que les pannes concernant uniquement les parties communes de l’immeuble (éclairage du hall, porte d’entrée bloquée) doivent continuer à être traitées immédiatement pour des raisons de sécurité et d’accès."
+        "context": "Présentation du futur système de suivi des incidents techniques d’un immeuble. Le responsable technique explique : « On mettra ce suivi en place, à condition que chaque demande décrive suffisamment la panne, sinon on ne pourra pas bien planifier les interventions. »"
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Consigne interne à des gestionnaires immobiliers détaillant un nouveau processus de tri via une plateforme numérique. Le document pourrait, de façon un peu paradoxale, préciser que les demandes sans description précise envoyées aux gestionnaires, jugées potentiellement critiques par leur caractère flou, doivent continuer à être vérifiées et traitées immédiatement pour identifier d’éventuelles urgences cachées."
+        "context": "Réunion de copropriété où l’on discute d’un système informatisé de suivi des pannes (chauffage, ascenseur, etc.). Un copropriétaire s’inquiète : « D’accord pour ce suivi, à condition que les urgences continuent d’être traitées sans délai. »"
       }
     ]
   }

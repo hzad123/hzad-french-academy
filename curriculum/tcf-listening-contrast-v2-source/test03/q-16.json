@@ -2,16 +2,16 @@
   "question": {
     "number": 16,
     "kind": "dialogue",
-    "question": "À quoi le second échange à distance sera-t-il principalement consacré ?",
+    "question": "Selon le document, pour quelle raison la durée du rendez-vous de jeudi est-elle réduite ?",
     "options": [
-      "À corriger et commenter le carnet de repas préparé",
-      "À répondre aux questions complémentaires du patient",
-      "À régler les formalités administratives du suivi",
-      "À faire le bilan de la visite de la diététicienne dans le foyer"
+      "Parce que tout l’entretien aura finalement lieu à distance au lieu d’être en présentiel.",
+      "Parce que la diététicienne effectuera aussi une visite dans un foyer après son service.",
+      "Parce que le nombre de patients prévus ce jour-là a augmenté.",
+      "Parce que l’entretien sur les habitudes alimentaires est reporté au second échange à distance."
     ],
     "correct": "B",
-    "explanation": "Le document précise que le second échange à distance sera prévu «pour les questions complémentaires», ce qui correspond à la réponse A. Rien n’indique qu’il portera surtout sur des formalités administratives, sur l’analyse détaillée du carnet de repas ou sur le bilan de la visite dans le foyer, même si ces interprétations peuvent sembler plausibles sans écouter attentivement la formulation exacte.",
-    "transcript": "Question 16.\nLe rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.\nEst-ce à cause du nombre de patients ?\nNon, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires.\nD'accord, je préparerai mon carnet de repas.\nÀ quoi le second échange à distance sera-t-il principalement consacré ?",
+    "explanation": "Réponse B : La question « Est-ce à cause du nombre de patients ? » reçoit la réponse négative « Non », suivie de la véritable raison : « la diététicienne assurera aussi une visite dans un foyer après son service ». C’est explicitement présenté comme la cause de la réduction de la durée du rendez-vous. A : On parle d’un « second échange à distance », ce qui peut faire croire que tout l’entretien se fait finalement à distance. Cependant, le document ne dit nulle part que le rendez-vous de jeudi passe en visioconférence ou au téléphone : seule une partie ultérieure est « à distance ». La raison donnée pour la réduction de durée concerne l’organisation de la diététicienne, pas un changement complet de format du rendez-vous. C : Le nombre de patients est évoqué dans la question : « Est-ce à cause du nombre de patients ? », ce qui peut inciter quelqu’un à le retenir comme cause. Mais la réponse commence par « Non » et enchaîne avec la véritable raison. Le document exclut explicitement le nombre de patients comme cause de la réduction. D : On pourrait croire que si un « second échange à distance » est prévu, c’est que l’entretien sur les habitudes alimentaires est repoussé à ce second temps. Mais la phrase dit l’inverse : « Nous garderons l'entretien sur vos habitudes alimentaires », donc cette partie a bien lieu pendant le rendez-vous de jeudi. Seules les « questions complémentaires » sont reportées, ce qui ne constitue pas la raison de la réduction de durée.",
+    "transcript": "Question 16.\nLe rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.\nEst-ce à cause du nombre de patients ?\nNon, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires.\nD'accord, je préparerai mon carnet de repas.\nSelon le document, pour quelle raison la durée du rendez-vous de jeudi est-elle réduite ?",
     "segments": [
       {
         "voice": "female",
@@ -35,128 +35,350 @@
       },
       {
         "voice": "female",
-        "text": "À quoi le second échange à distance sera-t-il principalement consacré ?"
+        "text": "Selon le document, pour quelle raison la durée du rendez-vous de jeudi est-elle réduite ?"
       }
     ],
     "audio": "q-16.mp3",
     "audioSeconds": null,
     "slotSeconds": 42
   },
-  "contentHash": "f5b2b1b9544296807e1f1c9d10af2fb02f680d9fccb6e22f2a3af84f5e38c721",
   "sourceHash": "7230c3a1e22a79fc31dd5ec25b1cfdbe643569c0ad5682b5896670814914a346",
+  "contentHash": "15aeba27532fe59369162376d421bfb428ae7179b99f989d11a2453955ac1678",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 6,
-  "pass": false,
-  "blocked": true,
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzZLBrm4HaOJliepkXm7c74Y632C",
+    "result": {
+      "question": "Selon le document, pour quelle raison la durée du rendez-vous de jeudi est-elle réduite ?",
+      "choices": [
+        "Parce que la diététicienne effectuera aussi une visite dans un foyer après son service.",
+        "Parce que le nombre de patients prévus ce jour-là a augmenté.",
+        "Parce que l’entretien sur les habitudes alimentaires est reporté au second échange à distance.",
+        "Parce que tout l’entretien aura finalement lieu à distance au lieu d’être en présentiel."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réduction à trente minutes est expliquée par le fait que «la diététicienne assurera aussi une visite dans un foyer après son service». Ce nouvel engagement limite le temps disponible pour le rendez-vous de jeudi, d’où la durée plus courte.",
+      "design": "On teste la cause précise de la réduction de la durée du rendez-vous. Toutes les options proposent une raison organisationnelle plausible (surcharge de patients, déplacement de contenus vers un autre échange, passage intégral à la visioconsultation, ajout d’une visite extérieure). Sans le document, ces causes seraient toutes sensées. Seule l’écoute permet de repérer que la cause retenue est la visite dans un foyer après le service, tandis que le nombre de patients est explicitement écarté et que le contenu et le format des échanges sont précisés autrement.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le nombre de patients est explicitement proposé puis écarté comme cause : «Est-ce à cause du nombre de patients ? — Non…». L’option transforme cette hypothèse refusée en véritable raison, en inversant le statut de cette explication pourtant rejetée.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Est-ce à cause du nombre de patients ?",
+            "Non, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’entretien sur les habitudes alimentaires n’est pas reporté, il est justement maintenu dans le créneau raccourci : «Nous garderons l'entretien sur vos habitudes alimentaires» ; c’est le reste qui passe au second échange : «prévoirons un second échange à distance pour les questions complémentaires». L’option transfère à tort cet entretien au deuxième échange et en fait la cause du raccourcissement.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Nous garderons l'entretien sur vos habitudes alimentaires",
+            "prévoirons un second échange à distance pour les questions complémentaires."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le document parle uniquement d’un «second échange à distance», pas d’un passage de l’ensemble du rendez-vous en distanciel. Le premier rendez-vous reste un entretien sur place, simplement plus court. L’option élargit indûment la portée de «second échange à distance» à tout l’entretien, et en fait la raison de la réduction de durée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous garderons l'entretien sur vos habitudes alimentaires",
+            "prévoirons un second échange à distance"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4491,
+      "completion_tokens": 1091,
+      "total_tokens": 5582,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 466,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01652375,
+    "inputHash": "53f5d36a08d0f2e3b88d20838b3f675c1f705cc55a58285da4119557b93a369a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:14721af7be4c27b55696caf7:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, à quoi sera principalement consacré le second échange à distance ?",
+      "choices": [
+        "À régler les points administratifs liés au suivi diététique.",
+        "À traiter les questions complémentaires du patient.",
+        "À reprendre en détail le carnet de repas préparé par le patient.",
+        "À faire le bilan de la visite de la diététicienne dans un foyer."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzZ312DYJAExaw65fswxSnOc4EX8",
+      "result": {
+        "question": "Selon le document, quel sera l’objectif principal du deuxième échange à distance ?",
+        "choices": [
+          "À clarifier les aspects administratifs et pratiques liés au suivi diététique.",
+          "À répondre aux nouvelles questions ou précisions demandées par le patient.",
+          "À analyser en détail le carnet de repas que le patient aura rempli.",
+          "À discuter le bilan de la visite récente de la diététicienne dans un foyer."
+        ],
+        "notes": "L’énoncé a été légèrement reformulé en « objectif principal du deuxième échange à distance » pour rester neutre. Chaque choix décrit désormais un type de contenu possible (administratif, questions du patient, analyse de carnet, bilan de visite en foyer) avec un niveau de détail et un ton professionnels comparables, sans suggérer qu’un type d’échange serait plus pertinent que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 659,
+        "completion_tokens": 644,
+        "total_tokens": 1303,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 462,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00726375,
+      "inputHash": "41bff96161ef397c282f141516e9c89f810b3e24a133de534ad5f3a44a52e2f8",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:14721af7be4c27b55696caf7:blind-edit:1"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
         1,
-        0,
-        2
+        3,
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyM37GtFioEki9ETpzO1EWn6J1aa",
+        "responseId": "chatcmpl-EkzZYBnWX2mIef7oB8dO4ULkZk9i4",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une diététicienne a fait une visite à domicile dans un foyer (maison de retraite, foyer d’hébergement). Un premier échange à distance a servi à organiser la visite. Un second échange en visioconférence est prévu ensuite pour faire le bilan de cette visite avec le responsable du foyer ou le patient référent."
+              "context": "Dans un message vocal laissé à un patient, une diététicienne explique que le rendez-vous de jeudi sera un peu plus court que prévu, car juste après son service à l’hôpital elle doit se rendre dans un foyer pour une visite programmée, ce qui l’oblige à réduire la durée de la consultation individuelle."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une première téléconsultation, un patient a reçu des conseils diététiques. On lui a proposé un second échange à distance, principalement destiné à permettre au patient de poser des questions complémentaires ou de demander des précisions après avoir essayé d’appliquer les recommandations."
+              "context": "Lors d’un appel d’organisation, une diététicienne précise à un patient que le rendez-vous en présentiel de jeudi sera plus court, parce que la partie détaillée sur les habitudes alimentaires est finalement repoussée au deuxième échange, qui se fera en visioconsultation la semaine suivante."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Au premier échange à distance, la diététicienne explique au patient comment tenir un carnet de repas pendant deux semaines. Un second échange en visioconférence est programmé et présenté comme étant principalement consacré à corriger et commenter ce carnet de repas que le patient aura préparé entre les deux rendez-vous."
+              "context": "Un secrétariat médical appelle un patient pour l’informer que la durée de son rendez-vous de jeudi est réduite, car de nouveaux patients ont été ajoutés ce jour-là et le praticien doit raccourcir tous les créneaux pour pouvoir les recevoir."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un parcours de soins nutritionnels, le premier échange à distance a permis de faire connaissance et d’évaluer la situation. Un second échange, plus administratif, est annoncé comme servant surtout à régler les formalités administratives du suivi (consentements, prise en charge, programme de rendez-vous)."
+              "context": "Dans un message audio, la diététicienne annonce au patient que le rendez-vous de jeudi sera intégralement à distance plutôt qu’en présentiel et, pour cette raison, qu’il sera un peu plus court que prévu initialement, les téléconsultations étant systématiquement programmées sur un créneau réduit."
             }
           ],
-          "cues": [
-            {
-              "option": 2,
-              "severity": "weak",
-              "cue": "Formulation plus précise et opérationnelle (« corriger et commenter le carnet de repas préparé ») correspondant typiquement à un objectif central d’un second entretien structuré, tandis que « répondre aux questions complémentaires » ou « régler les formalités administratives » décrivent plutôt des activités annexes ; la mention d’un support préparé entre deux échanges cadre bien avec l’idée d’un second rendez-vous « principalement consacré » à cette tâche."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.2,
             0.25,
-            0.4,
-            0.15
+            0.25,
+            0.25,
+            0.25
           ],
           "guess": 2,
-          "reason": "Tous les choix sont plausibles, mais l’option 2 décrit une activité pédagogique centrale et clairement annoncée comme objectif principal d’un second échange après une préparation (« carnet de repas préparé »), ce qui lui donne un léger avantage par rapport aux autres formulations plus générales ou secondaires."
+          "reason": "Toutes les options pourraient répondre directement à la question dans un contexte ordinaire de prise de rendez-vous avec une diététicienne, sans indice clair dans la seule formulation des propositions pour en privilégier une ; en l’absence de tout enregistrement ou indication supplémentaire, il reste une incertitude forte et le choix de la réponse 2 n’est qu’un meilleur pari arbitraire parmi des options équiplausibles."
         },
         "usage": {
-          "prompt_tokens": 615,
-          "completion_tokens": 755,
-          "total_tokens": 1370,
+          "prompt_tokens": 643,
+          "completion_tokens": 631,
+          "total_tokens": 1274,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 262,
+            "reasoning_tokens": 206,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00831875,
-        "inputHash": "5dc3ff8e4116ce751b579f034707031e42a90229de7e6b791648606edf7d20c1",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:initial:screen:6:0"
+        "costUsd": 0.00711375,
+        "inputHash": "7508364a4d8c8c768cd3b10cf3c1b0e7386d566c7278cd2b4fbbac9b2152846c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:14721af7be4c27b55696caf7:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzZhcu4HmxrtRpxARi7ycHziODGx",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un message vocal laissé par une diététicienne à un patient, elle explique que le rendez-vous de jeudi sera plus court que prévu parce que la partie de l’entretien consacrée aux habitudes alimentaires sera finalement reportée à un second entretien en visio la semaine suivante. Elle précise que cela permet de mieux répartir le contenu sur deux échanges à distance."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une annonce téléphonique d’un cabinet médical, la secrétaire explique à un patient que son rendez-vous de suivi nutritionnel du jeudi a été légèrement raccourci parce que beaucoup plus de patients que prévu ont pris rendez-vous ce jour-là, ce qui oblige à réduire la durée de chaque consultation."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Sur un répondeur, une diététicienne prévient un patient que la consultation de jeudi sera un peu plus courte, car après son service à l’hôpital elle doit encore effectuer une visite programmée dans un foyer, et ne pourra donc pas prolonger l’entretien comme initialement envisagé."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un message audio d’un centre de santé, la diététicienne explique à un patient que le rendez-vous de jeudi sera un peu réduit parce qu’il se fera entièrement à distance au lieu d’être en présentiel, et que les consultations en visio sont généralement plus courtes que celles en cabinet."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "La formulation relie explicitement la réduction de durée à une réorganisation précise du contenu de l’entretien (partie sur les habitudes alimentaires reportée à un second échange à distance), ce qui apparaît comme une justification plus ciblée et nuancée que les contraintes plus générales des autres options."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.4,
+            0.25,
+            0.15,
+            0.2
+          ],
+          "guess": 0,
+          "reason": "Plusieurs réponses restent plausibles sans accès à l’audio, mais l’option 0 présente une raison directement liée à la structure même du rendez-vous (déplacement d’une partie de l’entretien vers un second échange), ce qui semble légèrement privilégié par sa précision par rapport aux autres justifications plus générales."
+        },
+        "usage": {
+          "prompt_tokens": 643,
+          "completion_tokens": 883,
+          "total_tokens": 1526,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 399,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00963375,
+        "inputHash": "120916b70edad07c88a9f928694ab8c001f8516c200ecb80fda8cde1cf14fe23",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:14721af7be4c27b55696caf7:screen:2:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Tous les choix sont plausibles, mais l’option 2 décrit une activité pédagogique centrale et clairement annoncée comme objectif principal d’un second échange après une préparation (« carnet de repas préparé »), ce qui lui donne un léger avantage par rapport aux autres formulations plus générales ou secondaires.",
-    "cues": [
-      {
-        "option": 2,
-        "severity": "weak",
-        "cue": "Formulation plus précise et opérationnelle (« corriger et commenter le carnet de repas préparé ») correspondant typiquement à un objectif central d’un second entretien structuré, tandis que « répondre aux questions complémentaires » ou « régler les formalités administratives » décrivent plutôt des activités annexes ; la mention d’un support préparé entre deux échanges cadre bien avec l’idée d’un second rendez-vous « principalement consacré » à cette tâche."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzZtZ6f24h74F9U65JVxpeLndrON",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La durée du rendez-vous de jeudi est réduite parce que la diététicienne doit aussi effectuer une visite dans un foyer après son service.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.",
+            "prévoirons un second échange à distance"
+          ],
+          "reason": "On parle d’un « second échange à distance », ce qui peut faire croire que tout l’entretien se fait finalement à distance. Cependant, le document ne dit nulle part que le rendez-vous de jeudi passe en visioconférence ou au téléphone : seule une partie ultérieure est « à distance ». La raison donnée pour la réduction de durée concerne l’organisation de la diététicienne, pas un changement complet de format du rendez-vous.",
+          "misunderstanding": "scope_error"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Non, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ],
+          "reason": "La question « Est-ce à cause du nombre de patients ? » reçoit la réponse négative « Non », suivie de la véritable raison : « la diététicienne assurera aussi une visite dans un foyer après son service ». C’est explicitement présenté comme la cause de la réduction de la durée du rendez-vous.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce à cause du nombre de patients ?\nNon, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ],
+          "reason": "Le nombre de patients est évoqué dans la question : « Est-ce à cause du nombre de patients ? », ce qui peut inciter quelqu’un à le retenir comme cause. Mais la réponse commence par « Non » et enchaîne avec la véritable raison. Le document exclut explicitement le nombre de patients comme cause de la réduction.",
+          "misunderstanding": "negation_ignored"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires."
+          ],
+          "reason": "On pourrait croire que si un « second échange à distance » est prévu, c’est que l’entretien sur les habitudes alimentaires est repoussé à ce second temps. Mais la phrase dit l’inverse : « Nous garderons l'entretien sur vos habitudes alimentaires », donc cette partie a bien lieu pendant le rendez-vous de jeudi. Seules les « questions complémentaires » sont reportées, ce qui ne constitue pas la raison de la réduction de durée.",
+          "misunderstanding": "inversion_du_contenu"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 765,
+      "completion_tokens": 1093,
+      "total_tokens": 1858,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 493,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Une diététicienne a fait une visite à domicile dans un foyer (maison de retraite, foyer d’hébergement). Un premier échange à distance a servi à organiser la visite. Un second échange en visioconférence est prévu ensuite pour faire le bilan de cette visite avec le responsable du foyer ou le patient référent."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Lors d’une première téléconsultation, un patient a reçu des conseils diététiques. On lui a proposé un second échange à distance, principalement destiné à permettre au patient de poser des questions complémentaires ou de demander des précisions après avoir essayé d’appliquer les recommandations."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Au premier échange à distance, la diététicienne explique au patient comment tenir un carnet de repas pendant deux semaines. Un second échange en visioconférence est programmé et présenté comme étant principalement consacré à corriger et commenter ce carnet de repas que le patient aura préparé entre les deux rendez-vous."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Dans un parcours de soins nutritionnels, le premier échange à distance a permis de faire connaissance et d’évaluer la situation. Un second échange, plus administratif, est annoncé comme servant surtout à régler les formalités administratives du suivi (consentements, prise en charge, programme de rendez-vous)."
-      }
-    ]
+    },
+    "costUsd": 0.01188625,
+    "inputHash": "b0583e6b2d0427eaea3cf6e9ada7075821b7c50937d709ed49cf71a04bd98311",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:14721af7be4c27b55696caf7:ground:2"
   },
+  "feedback": null,
   "imageHash": null,
   "designSeedHash": null
 }

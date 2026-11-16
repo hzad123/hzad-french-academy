@@ -2,16 +2,16 @@
   "question": {
     "number": 35,
     "kind": "interview",
-    "question": "D’après le document, qu’est-ce qu’une bonne adaptation automatique du niveau des exercices ne garantit pas, même lorsque le logiciel propose le bon niveau de difficulté ?",
+    "question": "Selon le document, sur quel autre aspect les chercheurs doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel, pour expliquer pourquoi les résultats diffèrent d’une classe à l’autre ?",
     "options": [
-      "Que les parents restent durablement motivés à suivre les progrès de l’enfant.",
-      "Que l’enseignant passe moins de temps à corriger les travaux des élèves.",
-      "Que l’élève comprenne la consigne et continue à travailler.",
-      "Que les exercices restent exactement alignés sur le programme officiel de la classe."
+      "La durée moyenne d’utilisation du logiciel par chaque élève pendant les séances.",
+      "La progression des niveaux de difficulté que le logiciel attribue à chaque élève au fil des séances.",
+      "Les interactions en classe, notamment la façon dont l’enseignant formule ses explications.",
+      "Le nombre et le type d’erreurs de compréhension de consigne que le logiciel signale automatiquement."
     ],
     "correct": "C",
-    "explanation": "Le document précise qu’«une bonne adaptation automatique n'assure pas que l'élève comprend la consigne ou persévère». Même si «un programme peut proposer le bon niveau de difficulté», cela ne garantit donc ni la compréhension de la consigne ni la persévérance de l’élève. Les autres propositions ne sont jamais présentées comme des garanties ou des objectifs directs de cette adaptation automatique.",
-    "transcript": "Question 35.\nVotre laboratoire étudie les logiciels qui adaptent les exercices au niveau de chaque élève. Pourquoi les résultats sont-ils moins bons dans certaines classes ?\nParce qu'une bonne adaptation automatique n'assure pas que l'élève comprend la consigne ou persévère. Un programme peut proposer le bon niveau de difficulté, mais si l'activité manque de sens ou si l'enseignant ne peut pas intervenir, l'apprentissage reste limité. Nous devons observer les échanges dans la classe et la qualité des explications, pas seulement la précision des calculs du logiciel.\nD’après le document, qu’est-ce qu’une bonne adaptation automatique du niveau des exercices ne garantit pas, même lorsque le logiciel propose le bon niveau de difficulté ?",
+    "explanation": "Le document indique que « Nous devons observer les échanges dans la classe et la qualité des explications, pas seulement la précision des calculs du logiciel ». L’élément à examiner en plus des performances techniques est donc bien la dynamique d’interaction en classe et la façon dont les explications sont données, ce que reprend la réponse A.",
+    "transcript": "Question 35.\nVotre laboratoire étudie les logiciels qui adaptent les exercices au niveau de chaque élève. Pourquoi les résultats sont-ils moins bons dans certaines classes ?\nParce qu'une bonne adaptation automatique n'assure pas que l'élève comprend la consigne ou persévère. Un programme peut proposer le bon niveau de difficulté, mais si l'activité manque de sens ou si l'enseignant ne peut pas intervenir, l'apprentissage reste limité. Nous devons observer les échanges dans la classe et la qualité des explications, pas seulement la précision des calculs du logiciel.\nSelon le document, sur quel autre aspect les chercheurs doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel, pour expliquer pourquoi les résultats diffèrent d’une classe à l’autre ?",
     "segments": [
       {
         "voice": "female",
@@ -27,7 +27,7 @@
       },
       {
         "voice": "female",
-        "text": "D’après le document, qu’est-ce qu’une bonne adaptation automatique du niveau des exercices ne garantit pas, même lorsque le logiciel propose le bon niveau de difficulté ?"
+        "text": "Selon le document, sur quel autre aspect les chercheurs doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel, pour expliquer pourquoi les résultats diffèrent d’une classe à l’autre ?"
       }
     ],
     "audio": "q-35.mp3",
@@ -36,111 +36,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzr2DbeHh00O7whcNaUvhX8QfI2O",
+    "result": {
+      "question": "Selon le document, que les chercheurs doivent-ils examiner, en plus de la précision des calculs du logiciel, pour comprendre pourquoi les résultats varient entre les classes ?",
+      "choices": [
+        "Les échanges dans la classe et la manière dont les explications sont données.",
+        "Le temps que chaque élève passe connecté au logiciel à chaque séance.",
+        "L’enchaînement des niveaux de difficulté proposés par le programme à chaque élève.",
+        "La fréquence des erreurs de compréhension de consigne automatiquement repérées par le logiciel."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique que « Nous devons observer les échanges dans la classe et la qualité des explications, pas seulement la précision des calculs du logiciel ». L’élément à examiner en plus des performances techniques est donc bien la dynamique d’interaction en classe et la façon dont les explications sont données, ce que reprend la réponse A.",
+      "design": "L’axe choisi est : « quel type d’élément les chercheurs doivent-ils observer, en plus des mesures internes du logiciel, pour expliquer les différences de résultats entre classes ? ». Les quatre options proposent toutes des objets d’observation plausibles dans une étude sur un logiciel éducatif adaptatif (interaction en classe, temps de connexion, progression de difficulté, erreurs de compréhension). Sans le document, chacune semble un indicateur raisonnable à surveiller. Seule l’écoute permet d’identifier que le texte oppose explicitement les observations de classe (échanges, explications) à la seule « précision des calculs du logiciel », ce qui valide l’option A et disqualifie les trois autres, qui réinterprètent des éléments mentionnés (persévérance, niveau de difficulté, compréhension de consigne) comme des métriques logicielles à surveiller.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme la « persévérance » de l’élève en simple durée de connexion. Le document signale bien que le problème tient à la capacité de l’élève à « persévérer », ce qui peut amener à croire qu’il faut mesurer le temps passé sur le logiciel. Mais le texte précise que ce qu’il faut observer en plus des calculs, ce sont « les échanges dans la classe et la qualité des explications », pas des indicateurs temporels automatisés.",
+          "operation": "scope_shift",
+          "anchors": [
+            "persévère",
+            "Nous devons observer les échanges dans la classe et la qualité des explications, pas seulement la précision des calculs du logiciel."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option attribue à l’observation des chercheurs le suivi détaillé des niveaux de difficulté, alors que cet aspect relève du fonctionnement du programme lui-même. Le texte dit qu’« un programme peut proposer le bon niveau de difficulté », mais ce passage sert à montrer la limite d’une bonne adaptation technique. Ce que les chercheurs doivent regarder en plus, ce ne sont pas d’autres paramètres d’adaptation, mais les interactions et explications en classe.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Un programme peut proposer le bon niveau de difficulté",
+            "Nous devons observer les échanges dans la classe et la qualité des explications"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option inverse le rôle attribué à la compréhension de la consigne : elle la fait devenir un indicateur généré par le logiciel, alors que le texte relie ce point à la situation de classe et à l’intervention humaine. Le document souligne qu’« une bonne adaptation automatique n’assure pas que l’élève comprend la consigne » et insiste ensuite sur « la qualité des explications ». Il ne parle jamais d’une détection automatique de ces erreurs comme objet d’observation supplémentaire.",
+          "operation": "role_swap",
+          "anchors": [
+            "une bonne adaptation automatique n'assure pas que l'élève comprend la consigne",
+            "la qualité des explications"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4352,
+      "completion_tokens": 1376,
+      "total_tokens": 5728,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 588,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0192,
+    "inputHash": "f78268e676ad976bc5b14127f485fbd1f4809727ca52a3e19879e1d9468fdaf6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:34:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, que les chercheurs doivent-ils examiner, en plus de la précision des calculs du logiciel, pour comprendre pourquoi les résultats varient entre les classes ?",
+      "choices": [
+        "Le temps que chaque élève passe connecté au logiciel à chaque séance.",
+        "L’enchaînement des niveaux de difficulté proposés par le programme à chaque élève.",
+        "Les échanges dans la classe et la manière dont les explications sont données.",
+        "La fréquence des erreurs de compréhension de consigne automatiquement repérées par le logiciel."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzrYnsGF3Mldp5TPVcJupVNHFvEr",
+      "result": {
+        "question": "Selon le document, sur quel autre aspect les chercheurs doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel, pour expliquer pourquoi les résultats diffèrent d’une classe à l’autre ?",
+        "choices": [
+          "La durée moyenne d’utilisation du logiciel par chaque élève pendant les séances.",
+          "La progression des niveaux de difficulté que le logiciel attribue à chaque élève au fil des séances.",
+          "Les interactions en classe, notamment la façon dont l’enseignant formule ses explications.",
+          "Le nombre et le type d’erreurs de compréhension de consigne que le logiciel signale automatiquement."
+        ],
+        "notes": "Tous les choix décrivent des aspects à examiner en plus des calculs du logiciel, sans qu’aucun ne paraisse naturellement plus pertinent ou plus responsable que les autres. Le style est harmonisé, chacun restant factuellement distinct (durée d’usage, progression de difficulté, interactions de classe, erreurs de consigne). Le stem reste centré sur l’idée d’un « autre aspect » à examiner, sans suggérer une catégorie particulière comme forcément décisive."
+      },
+      "usage": {
+        "prompt_tokens": 687,
+        "completion_tokens": 590,
+        "total_tokens": 1277,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 356,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00675875,
+      "inputHash": "b258bf49b4d223fa602f4b59b3cb94696aeddeb5d9f8b0eaf6048aca7bb82c0b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:34:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
+        0,
         3,
-        1,
-        0
+        2,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyUdMSBUIlKxeTVu7o9jeax1GcF9",
+        "responseId": "chatcmpl-Ekzrgq5cz7t7DKyh4SyB7jSgAWPeA",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un documentaire sur les logiciels d’exercices scolaires explique que ces outils peuvent très bien ajuster automatiquement la difficulté des exercices, mais que cela ne garantit pas pour autant que l’élève comprenne bien la consigne ni qu’il reste engagé et continue à travailler. L’intervenant insiste sur le fait que la compréhension des consignes et la motivation dépendent aussi de la formulation, de l’accompagnement humain et du contexte de travail."
+              "context": "Des chercheurs analysent l’impact d’un logiciel éducatif sur les résultats en mathématiques dans plusieurs classes. Après avoir vérifié que les calculs internes du logiciel sont fiables, ils expliquent en réunion qu’il faudra aussi examiner si, dans certaines classes, les élèves utilisent moins le logiciel ou moins longtemps que dans d’autres. On leur demande alors : « Selon le document, sur quel autre aspect les chercheurs doivent-ils se pencher… ? », et l’on répond : sur la durée moyenne d’utilisation du logiciel par chaque élève pendant les séances."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Une émission de radio sur le numérique éducatif évoque les limites des plateformes adaptatives : même si le logiciel choisit un niveau de difficulté adapté à chaque élève, cela ne garantit pas que les exercices restent exactement alignés sur le programme officiel de la classe, car les concepteurs peuvent avoir pris d’autres repères ou ne pas suivre à la lettre les progressions nationales."
+              "context": "Un compte rendu d’étude présente un logiciel qui corrige des exercices et signale automatiquement les erreurs de compréhension de consigne (mauvaise lecture ou interprétation de la tâche). Les chercheurs constatent des écarts de résultats entre classes et, après avoir vérifié la fiabilité des calculs du logiciel, l’un d’eux propose de regarder aussi si certaines classes ont plus d’erreurs de compréhension de consigne que d’autres, telles que détectées par le logiciel. La question demande alors sur quel autre aspect les chercheurs doivent se pencher, et la réponse est le nombre et le type d’erreurs de compréhension de consigne signalées."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Un reportage interroge un expert en pédagogie numérique qui explique que l’adaptation automatique du niveau permet de proposer à chaque élève des exercices ni trop faciles ni trop difficiles, mais que cela ne garantit absolument pas que l’enseignant passera moins de temps à corriger, car il doit toujours analyser les productions, commenter les erreurs et préparer les séances suivantes."
+              "context": "Dans une conférence sur l’usage d’un logiciel pédagogique, un chercheur explique que, même si les algorithmes de calcul du logiciel sont fiables, les résultats obtenus varient beaucoup d’une classe à l’autre. Il ajoute que ces différences peuvent venir de facteurs contextuels, par exemple la manière dont l’enseignant introduit l’activité, reformule les consignes et interagit avec les élèves pendant l’utilisation du logiciel. À la question « sur quel autre aspect doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel ? », la réponse donnée est : les interactions en classe, notamment la façon dont l’enseignant formule ses explications."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Une table ronde sur les outils d’apprentissage à la maison souligne que, même si le logiciel ajuste très bien la difficulté aux capacités de l’enfant, cela ne garantit pas que les parents resteront durablement motivés pour suivre ses progrès, car cette motivation dépend de leur disponibilité, de leur intérêt pour l’école et de la façon dont la plateforme leur présente les résultats."
+              "context": "Un rapport de recherche décrit un logiciel adaptatif qui ajuste automatiquement la difficulté des exercices en fonction des performances des élèves. Les chercheurs remarquent que les progrès varient d’une classe à l’autre et, après avoir vérifié que les calculs du logiciel sont fiables, ils envisagent que ces écarts proviennent aussi de la manière dont la progression des niveaux de difficulté est attribuée aux élèves (par exemple, certains groupes étant plus vite confrontés à des exercices difficiles que d’autres). La question orale porte alors sur l’autre aspect à examiner, et la réponse mentionne la progression des niveaux de difficulté que le logiciel attribue à chaque élève au fil des séances."
             }
           ],
           "cues": [
             {
-              "option": 0,
+              "option": 2,
               "severity": "clear",
-              "cue": "Cette option traite directement du lien entre le ‘bon niveau de difficulté’ et l’effet immédiat sur l’élève (compréhension de la consigne et poursuite du travail), ce qui est au cœur de la notion d’adaptation automatique du niveau. Les autres réponses introduisent des dimensions plus périphériques (programme officiel, temps de correction, motivation des parents), moins directement reliées à ce mécanisme. La formulation est aussi plus pédagogique et nuancée que les autres."
+              "cue": "Seule option portant sur un facteur externe au logiciel (interactions en classe, formulation de l’enseignant), ce qui répond très directement à l’idée d’expliquer des écarts entre classes « en plus de » la fiabilité des calculs. Les autres portent encore sur des paramètres internes ou mesurés par le logiciel, donc moins nettement distincts du premier aspect mentionné. Formulation plus nuancée et contextuelle, cohérente avec une analyse pédagogique globale."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.45,
-            0.25,
             0.15,
-            0.15
+            0.15,
+            0.6,
+            0.1
           ],
-          "guess": 0,
-          "reason": "Le texte de la question insiste sur la bonne adaptation automatique du niveau et demande ce qu’elle ne garantit pas ‘même lorsque le logiciel propose le bon niveau de difficulté’. Cela oriente logiquement vers un effet immédiat sur l’activité de l’élève plutôt que sur des aspects externes (programme officiel, charge de correction, implication parentale). L’option 0 correspond exactement à cette idée tout en restant pédagogique et nuancée, ce qui lui donne un avantage perceptible sur les autres choix, bien que ceux-ci restent plausibles dans d’autres contextes."
+          "guess": 2,
+          "reason": "La question oppose explicitement la fiabilité des calculs du logiciel à un « autre aspect » pour expliquer des différences entre classes. L’option sur les interactions en classe et le rôle de l’enseignant apporte un facteur contextuel clairement distinct du fonctionnement interne du logiciel, ce qui correspond bien à cette opposition. Les autres choix restent centrés sur des variables issues du logiciel lui-même, donc moins nettement séparables de la fiabilité des calculs. D’où une probabilité nettement plus élevée pour l’option 2, malgré un certain degré d’incertitude faute d’accès au document source."
         },
         "usage": {
-          "prompt_tokens": 649,
-          "completion_tokens": 872,
-          "total_tokens": 1521,
+          "prompt_tokens": 670,
+          "completion_tokens": 1027,
+          "total_tokens": 1697,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 244,
+            "reasoning_tokens": 188,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00953125,
-        "inputHash": "0784823c50bae53aecbba4e0654a9ba3a8a1a36654c0770bf5395a86aeb5e929",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:34:initial:screen:6:0"
+        "costUsd": 0.0111075,
+        "inputHash": "02f9bf774144558cd947ac575fb32a537b394595854423b81f77694115df7d80",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:34:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le texte de la question insiste sur la bonne adaptation automatique du niveau et demande ce qu’elle ne garantit pas ‘même lorsque le logiciel propose le bon niveau de difficulté’. Cela oriente logiquement vers un effet immédiat sur l’activité de l’élève plutôt que sur des aspects externes (programme officiel, charge de correction, implication parentale). L’option 0 correspond exactement à cette idée tout en restant pédagogique et nuancée, ce qui lui donne un avantage perceptible sur les autres choix, bien que ceux-ci restent plausibles dans d’autres contextes.",
+    "reason": "La question oppose explicitement la fiabilité des calculs du logiciel à un « autre aspect » pour expliquer des différences entre classes. L’option sur les interactions en classe et le rôle de l’enseignant apporte un facteur contextuel clairement distinct du fonctionnement interne du logiciel, ce qui correspond bien à cette opposition. Les autres choix restent centrés sur des variables issues du logiciel lui-même, donc moins nettement séparables de la fiabilité des calculs. D’où une probabilité nettement plus élevée pour l’option 2, malgré un certain degré d’incertitude faute d’accès au document source.",
     "cues": [
       {
-        "option": 0,
+        "option": 2,
         "severity": "clear",
-        "cue": "Cette option traite directement du lien entre le ‘bon niveau de difficulté’ et l’effet immédiat sur l’élève (compréhension de la consigne et poursuite du travail), ce qui est au cœur de la notion d’adaptation automatique du niveau. Les autres réponses introduisent des dimensions plus périphériques (programme officiel, temps de correction, motivation des parents), moins directement reliées à ce mécanisme. La formulation est aussi plus pédagogique et nuancée que les autres."
+        "cue": "Seule option portant sur un facteur externe au logiciel (interactions en classe, formulation de l’enseignant), ce qui répond très directement à l’idée d’expliquer des écarts entre classes « en plus de » la fiabilité des calculs. Les autres portent encore sur des paramètres internes ou mesurés par le logiciel, donc moins nettement distincts du premier aspect mentionné. Formulation plus nuancée et contextuelle, cohérente avec une analyse pédagogique globale."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Un documentaire sur les logiciels d’exercices scolaires explique que ces outils peuvent très bien ajuster automatiquement la difficulté des exercices, mais que cela ne garantit pas pour autant que l’élève comprenne bien la consigne ni qu’il reste engagé et continue à travailler. L’intervenant insiste sur le fait que la compréhension des consignes et la motivation dépendent aussi de la formulation, de l’accompagnement humain et du contexte de travail."
+        "context": "Des chercheurs analysent l’impact d’un logiciel éducatif sur les résultats en mathématiques dans plusieurs classes. Après avoir vérifié que les calculs internes du logiciel sont fiables, ils expliquent en réunion qu’il faudra aussi examiner si, dans certaines classes, les élèves utilisent moins le logiciel ou moins longtemps que dans d’autres. On leur demande alors : « Selon le document, sur quel autre aspect les chercheurs doivent-ils se pencher… ? », et l’on répond : sur la durée moyenne d’utilisation du logiciel par chaque élève pendant les séances."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Une émission de radio sur le numérique éducatif évoque les limites des plateformes adaptatives : même si le logiciel choisit un niveau de difficulté adapté à chaque élève, cela ne garantit pas que les exercices restent exactement alignés sur le programme officiel de la classe, car les concepteurs peuvent avoir pris d’autres repères ou ne pas suivre à la lettre les progressions nationales."
+        "context": "Un compte rendu d’étude présente un logiciel qui corrige des exercices et signale automatiquement les erreurs de compréhension de consigne (mauvaise lecture ou interprétation de la tâche). Les chercheurs constatent des écarts de résultats entre classes et, après avoir vérifié la fiabilité des calculs du logiciel, l’un d’eux propose de regarder aussi si certaines classes ont plus d’erreurs de compréhension de consigne que d’autres, telles que détectées par le logiciel. La question demande alors sur quel autre aspect les chercheurs doivent se pencher, et la réponse est le nombre et le type d’erreurs de compréhension de consigne signalées."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Un reportage interroge un expert en pédagogie numérique qui explique que l’adaptation automatique du niveau permet de proposer à chaque élève des exercices ni trop faciles ni trop difficiles, mais que cela ne garantit absolument pas que l’enseignant passera moins de temps à corriger, car il doit toujours analyser les productions, commenter les erreurs et préparer les séances suivantes."
+        "context": "Dans une conférence sur l’usage d’un logiciel pédagogique, un chercheur explique que, même si les algorithmes de calcul du logiciel sont fiables, les résultats obtenus varient beaucoup d’une classe à l’autre. Il ajoute que ces différences peuvent venir de facteurs contextuels, par exemple la manière dont l’enseignant introduit l’activité, reformule les consignes et interagit avec les élèves pendant l’utilisation du logiciel. À la question « sur quel autre aspect doivent-ils se pencher, en plus de la fiabilité des calculs du logiciel ? », la réponse donnée est : les interactions en classe, notamment la façon dont l’enseignant formule ses explications."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Une table ronde sur les outils d’apprentissage à la maison souligne que, même si le logiciel ajuste très bien la difficulté aux capacités de l’enfant, cela ne garantit pas que les parents resteront durablement motivés pour suivre ses progrès, car cette motivation dépend de leur disponibilité, de leur intérêt pour l’école et de la façon dont la plateforme leur présente les résultats."
+        "context": "Un rapport de recherche décrit un logiciel adaptatif qui ajuste automatiquement la difficulté des exercices en fonction des performances des élèves. Les chercheurs remarquent que les progrès varient d’une classe à l’autre et, après avoir vérifié que les calculs du logiciel sont fiables, ils envisagent que ces écarts proviennent aussi de la manière dont la progression des niveaux de difficulté est attribuée aux élèves (par exemple, certains groupes étant plus vite confrontés à des exercices difficiles que d’autres). La question orale porte alors sur l’autre aspect à examiner, et la réponse mentionne la progression des niveaux de difficulté que le logiciel attribue à chaque élève au fil des séances."
       }
     ]
   }

@@ -2,16 +2,16 @@
   "question": {
     "number": 33,
     "kind": "commentary",
-    "question": "Selon le document, sur quel élément repose le chiffre de réduction du gaspillage annoncé par l’enseigne ?",
+    "question": "Selon le document, quelle réserve est évoquée au sujet des produits revendus à bas prix ?",
     "options": [
-      "Sur le nombre de produits donnés à des associations",
-      "Sur le montant des ventes réalisées à bas prix",
-      "Sur le volume total des invendus enregistrés en magasin",
-      "Sur le poids des déchets effectivement jetés"
+      "Ils pourraient modifier le volume de dons effectués aux associations.",
+      "Ils sortent du suivi statistique habituel du magasin.",
+      "Le suivi de leurs dates de péremption devient moins fiable.",
+      "Une partie de ces produits pourrait malgré tout ne pas être consommée."
     ],
     "correct": "D",
-    "explanation": "Le document précise que le chiffre «repose uniquement sur le poids des déchets jetés». Il ne s’appuie ni sur les dons, ni sur les reventes à bas prix, ni sur l’ensemble des invendus.",
-    "transcript": "Question 33.\nUne enseigne annonce avoir réduit de moitié le gaspillage dans ses magasins. C'est encourageant, mais ce chiffre repose uniquement sur le poids des déchets jetés. Certains produits ont désormais été donnés à des associations, ce qui constitue un progrès; d'autres sont simplement revendus à bas prix alors qu'ils ne seront pas forcément consommés. Il faut suivre la destination réelle des aliments et les quantités effectivement utilisées. Déplacer un produit hors de la poubelle ne signifie pas toujours qu'il a évité le gaspillage.\nSelon le document, sur quel élément repose le chiffre de réduction du gaspillage annoncé par l’enseigne ?",
+    "explanation": "Le document précise que certains produits sont « simplement revendus à bas prix alors qu'ils ne seront pas forcément consommés ». La réserve porte donc sur l’incertitude quant à leur consommation réelle, et donc sur le fait que cette revente ne garantit pas une réduction effective du gaspillage.",
+    "transcript": "Question 33.\nUne enseigne annonce avoir réduit de moitié le gaspillage dans ses magasins. C'est encourageant, mais ce chiffre repose uniquement sur le poids des déchets jetés. Certains produits ont désormais été donnés à des associations, ce qui constitue un progrès; d'autres sont simplement revendus à bas prix alors qu'ils ne seront pas forcément consommés. Il faut suivre la destination réelle des aliments et les quantités effectivement utilisées. Déplacer un produit hors de la poubelle ne signifie pas toujours qu'il a évité le gaspillage.\nSelon le document, quelle réserve est évoquée au sujet des produits revendus à bas prix ?",
     "segments": [
       {
         "voice": "female",
@@ -23,7 +23,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, sur quel élément repose le chiffre de réduction du gaspillage annoncé par l’enseigne ?"
+        "text": "Selon le document, quelle réserve est évoquée au sujet des produits revendus à bas prix ?"
       }
     ],
     "audio": "q-33.mp3",
@@ -32,111 +32,369 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-El054z3eg8bTZcbTcP7mJemXgtFel",
+    "result": {
+      "question": "Dans le document, quelle réserve est formulée à propos des produits revendus à bas prix ?",
+      "choices": [
+        "Ils ne seront pas forcément consommés.",
+        "Ils ne sont plus comptabilisés dans les statistiques du magasin.",
+        "Ils risquent de concurrencer les dons aux associations.",
+        "Ils perdent toute traçabilité sur leur date de péremption."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que certains produits sont « simplement revendus à bas prix alors qu'ils ne seront pas forcément consommés ». La réserve porte donc sur l’incertitude quant à leur consommation réelle, et donc sur le fait que cette revente ne garantit pas une réduction effective du gaspillage.",
+      "design": "On cible une réserve précise associée à un seul type de débouché : la revente à bas prix. Les quatre réponses proposent des limites plausibles de ce même type d’action (revente à bas prix) : non-consommation, problème statistique, concurrence avec les dons, perte de traçabilité. Sans le document, chacune pourrait être une critique raisonnable. Le texte, lui, n’attribue explicitement qu’une seule réserve à cette revente : le doute sur la consommation effective, en lien avec la nécessité de suivre la « destination réelle » et les « quantités effectivement utilisées ».",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option généralise à tort la critique du chiffre global fondé sur le « poids des déchets jetés » en une difficulté spécifique de la revente : on croit que le problème est la disparition des produits revendus des statistiques. En réalité, le texte conteste l’indicateur de départ et demande de suivre la « destination réelle des aliments », sans dire que les produits revendus cessent d’être comptés; la réserve propre à la revente porte seulement sur le fait qu’ils peuvent ne pas être consommés.",
+          "operation": "scope_shift",
+          "anchors": [
+            "ce chiffre repose uniquement sur le poids des déchets jetés",
+            "Il faut suivre la destination réelle des aliments"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le passage oppose « donnés à des associations » et « simplement revendus à bas prix », ce qui peut faire croire qu’il y a concurrence entre ces deux débouchés. Cependant, le texte ne mentionne jamais un risque de concurrence : il signale que les dons constituent « un progrès » et que la réserve sur la revente concerne l’incertitude sur la consommation réelle, pas un déplacement des produits donnés vers la vente à bas prix.",
+          "operation": "role_swap",
+          "anchors": [
+            "Certains produits ont désormais été donnés à des associations",
+            "d'autres sont simplement revendus à bas prix"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’exigence de « suivre la destination réelle des aliments » peut être mal comprise comme un problème de traçabilité sanitaire ou de dates de péremption. En fait, le document ne parle pas de perte d’information sur les dates, mais du besoin de savoir si les aliments sont effectivement utilisés; la réserve spécifique sur la revente est qu’ils « ne seront pas forcément consommés », non qu’on ne connaît plus leur date limite.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Il faut suivre la destination réelle des aliments",
+            "ne seront pas forcément consommés"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4224,
+      "completion_tokens": 1228,
+      "total_tokens": 5452,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 554,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01756,
+    "inputHash": "86e5d8645af9d405a5f789586cf0f0c051eb6507cc19371d77adb9f9ba7a7adb",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, quelle réserve est formulée à propos des produits revendus à bas prix ?",
+      "choices": [
+        "Ils risquent de concurrencer les dons aux associations.",
+        "Ils ne sont plus comptabilisés dans les statistiques du magasin.",
+        "Ils perdent toute traçabilité sur leur date de péremption.",
+        "Ils ne seront pas forcément consommés."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-El05tfsO3Dhzh0cHaUnxvs8LVsh4A",
+      "result": {
+        "question": "Selon le document, quelle réserve est évoquée au sujet des produits revendus à bas prix ?",
+        "choices": [
+          "Ils pourraient modifier le volume de dons effectués aux associations.",
+          "Ils sortent du suivi statistique habituel du magasin.",
+          "Le suivi de leurs dates de péremption devient moins fiable.",
+          "Une partie de ces produits pourrait malgré tout ne pas être consommée."
+        ],
+        "notes": "La question reste centrée sur la réserve évoquée, sans indiquer quel type de réserve serait plus pertinent. Chaque option formule une réserve professionnelle plausible (impact sur les dons, sur les statistiques, sur la traçabilité, sur l’usage effectif), avec un niveau de sérieux comparable et sans justification morale ou administrative disproportionnée dans une seule réponse."
+      },
+      "usage": {
+        "prompt_tokens": 657,
+        "completion_tokens": 469,
+        "total_tokens": 1126,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 304,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00551125,
+      "inputHash": "965ee9bcfe03c216f814933dbd0af9793d8b3238141e2443db85eed3ff645250",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        2,
-        0,
         3,
-        1
+        1,
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyfvkEBALHJRwkDTQ1hrWLolpmem",
+        "responseId": "chatcmpl-El061U2XsHpp0f9rkfA6daKP83uWc",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur une grande surface, le responsable explique : « Pour calculer notre réduction du gaspillage, nous partons du volume total des invendus enregistrés en magasin l’an dernier. » Le narrateur précise alors que le pourcentage annoncé repose sur le volume global des invendus comptabilisés en magasin."
+              "context": "Un reportage radio sur la lutte contre le gaspillage alimentaire présente un dispositif de revente à bas prix de produits proches de la date limite. Le journaliste précise qu’une réserve existe : même si ces produits sont bradés, une partie d’entre eux risque malgré tout de ne pas être consommée et donc d’être quand même jetée."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une interview radio, un représentant d’enseigne décrit son partenariat avec des associations caritatives : « Le chiffre de réduction du gaspillage que nous annonçons est basé sur le nombre de produits que nous parvenons à donner chaque année aux associations plutôt que de les jeter. » L’animateur résume en précisant que le pourcentage présenté repose sur la quantité de produits donnés."
+              "context": "Dans une interview avec le responsable d’un supermarché, on explique comment les produits proches de la date sont revendus moins cher. Le responsable signale une réserve : ces articles, lorsqu’ils passent par un circuit de revente spécifique, sortent du suivi statistique habituel du magasin (chiffre d’affaires par rayon, taux de casse, etc.), ce qui complique l’analyse des ventes."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un documentaire sur la lutte contre le gaspillage, une enseigne détaille sa méthode : « Nous pesons précisément nos déchets alimentaires chaque jour. Le chiffre de réduction du gaspillage annoncé repose sur le poids des déchets effectivement jetés, comparé à l’an dernier. » Le narrateur insiste sur la mesure en kilos des déchets réels."
+              "context": "Un responsable qualité d’une chaîne de magasins explique à la radio la politique de revente à bas prix des produits en fin de vie. Il émet une réserve : en multipliant les manipulations et les changements de rayon ou d’étiquetage, le suivi des dates de péremption de ces produits devient moins fiable, ce qui pose un risque sanitaire ou organisationnel."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une émission économique, la directrice d’un supermarché explique un dispositif de vente à prix réduit en fin de journée : « Notre indicateur de réduction du gaspillage repose sur le montant des ventes réalisées à bas prix, ce qui correspond à autant de produits évités à la poubelle. » Le journaliste précise que le calcul est fondé sur ces ventes promotionnelles."
+              "context": "Dans un débat sur les nouvelles pratiques commerciales, un représentant d’association caritative explique que la revente à prix cassés des invendus est intéressante, mais soulève une réserve : ces produits pourraient modifier le volume de dons effectués aux associations, en diminuant la quantité que les magasins leur remettent gratuitement."
             }
           ],
           "cues": [
             {
-              "option": 2,
+              "option": 3,
               "severity": "weak",
-              "cue": "Formulation plus technique et mesurable (« poids des déchets effectivement jetés ») qui correspond mieux à un indicateur objectivable de réduction du gaspillage que des critères plus indirects comme le nombre de dons ou le montant des ventes."
+              "cue": "Mention des dons aux associations qui introduit un effet collatéral social et quantifiable typique des réserves évoquées dans des documents d’information sur la revente des invendus, formulation plus nuancée que les risques purement internes au magasin."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.2,
+            0.2,
+            0.35
+          ],
+          "guess": 3,
+          "reason": "Plusieurs options restent plausibles pour une réserve, mais la formulation sur l’impact potentiel sur le volume de dons aux associations correspond fréquemment aux mises en garde présentes dans des documents traitant de la revente des invendus alimentaires, ce qui lui donne un léger avantage sans lever l’incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 735,
+          "total_tokens": 1360,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 227,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00813125,
+        "inputHash": "d33e6783a7b5bb2249f0b0d1f93e14276df5f32d6bf0a6e06a701c309bc96480",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:14721af7be4c27b55696caf7:screen:6:edited:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-El06BPbelH4HsHnpQMafVjgTSf5uD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur la lutte contre le gaspillage alimentaire en grande surface, un responsable explique que les produits revendus à très bas prix sont sortis des circuits normaux du magasin, et précise : « La seule réserve, c’est qu’ils sortent du suivi statistique habituel du magasin. » Cela répond directement à une question sur la réserve évoquée concernant ces produits à bas prix."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une interview sur la mise en place d’un rayon de produits très remisés en fin de date, un responsable qualité indique qu’une difficulté concerne la gestion des DLC : « La réserve qu’on peut avoir sur ces produits revendus à bas prix, c’est que le suivi de leurs dates de péremption devient moins fiable. » Cela répondrait directement à la question sur la réserve évoquée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un documentaire sur la répartition entre revente à bas prix et dons aux associations, un directeur de magasin explique : « Notre seule réserve avec ces produits revendus à bas prix, c’est qu’ils pourraient modifier le volume de dons effectués aux associations. » Cette phrase répond explicitement à la réserve évoquée au sujet de ces produits."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une émission radio sur les dispositifs anti-gaspillage (revente à bas prix, dons, etc.), un intervenant nuance : « La réserve qu’on peut avoir, c’est qu’une partie de ces produits pourrait malgré tout ne pas être consommée. » Il s’agit clairement d’une réserve directement liée aux produits revendus à bas prix."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Formulation très générale et nuancée (« une partie de ces produits pourrait malgré tout ne pas être consommée ») qui ressemble à une réserve globale sur l’efficacité du dispositif, sans détail technique spécifique, ce qui est typique d’un commentaire de synthèse dans un document explicatif ou journalistique."
             }
           ],
           "standsOut": false,
           "probabilities": [
             0.2,
             0.2,
-            0.4,
-            0.2
+            0.25,
+            0.35
           ],
-          "guess": 2,
-          "reason": "Tous les choix pourraient logiquement servir de base à un indicateur, mais la mention précise du « poids des déchets effectivement jetés » correspond le mieux, par sa formulation concrète et mesurable, à ce qu’un document présenterait explicitement comme fondement d’un chiffre de réduction du gaspillage, d’où un léger avantage pour l’option 2 malgré une incertitude réelle."
+          "guess": 3,
+          "reason": "Toutes les options décrivent des réserves plausibles dans un document sur la revente à bas prix, sans contradiction évidente. L’option 3 se distingue légèrement par une formulation générale de mise en garde sur l’efficacité réelle du dispositif, typique d’une « réserve » synthétique dans un document de sensibilisation. L’avantage reste faible, d’où une incertitude notable."
         },
         "usage": {
-          "prompt_tokens": 618,
-          "completion_tokens": 622,
-          "total_tokens": 1240,
+          "prompt_tokens": 625,
+          "completion_tokens": 733,
+          "total_tokens": 1358,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 97,
+            "reasoning_tokens": 189,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0069925,
-        "inputHash": "5a9944682cb80de9fa8d1c2df33e64542b2accb35bdbf2c4604d25664cfb4937",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:initial:screen:6:0"
+        "costUsd": 0.00811125,
+        "inputHash": "f7496ab2ec82247beafeeaf74b50836ba603b3bdd6bb7a3a4d668405f7ac81e1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:14721af7be4c27b55696caf7:screen:6:edited:1"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-El06J8h6DjTs4e1igB4HvNn3LnJyy",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un reportage sur la lutte contre le gaspillage, un responsable de magasin explique que les produits revendus à très bas prix ne sont plus enregistrés dans le même système de caisse ou de gestion, et ajoute en réserve que ces produits sortent du suivi statistique habituel du magasin, ce qui complique l’analyse des ventes et des stocks."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une interview sur les partenariats entre supermarchés et associations caritatives, un directeur précise que la mise en place d’un rayon de revente à bas prix peut avoir un effet pervers : il émet la réserve que ces ventes pourraient modifier, voire réduire, le volume de dons effectués aux associations habituelles."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un document audio sur les nouvelles pratiques de gestion des invendus alimentaires, une responsable qualité explique qu’avec la multiplication des circuits de revente à bas prix, il devient plus compliqué d’assurer un contrôle homogène des dates limites, et formule la réserve que le suivi de leurs dates de péremption devient alors moins fiable."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un reportage sur la revente de produits proches de la date limite pour lutter contre le gaspillage, un expert en économie circulaire souligne, en guise de réserve, que même bradés, une partie de ces produits pourrait malgré tout ne pas être consommée et finir jetée, ce qui limite l’impact réel du dispositif sur le gaspillage."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation typique d’une « réserve » générale et prudente (« une partie… pourrait malgré tout ne pas être consommée »), au ton nuancé et global sur l’efficacité du dispositif, plutôt que sur un détail technique (statistiques, dons, suivi de péremption)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.2,
+            0.15,
+            0.15,
+            0.5
+          ],
+          "guess": 3,
+          "reason": "La question mentionne une « réserve » au sujet des produits revendus à bas prix, ce qui suggère une mise en garde globale sur leur impact réel. L’option 3 formule précisément ce type de réserve générale et nuancée (« malgré tout », « une partie pourrait ne pas être consommée »), tandis que les autres portent sur des aspects plus techniques ou institutionnels. Cela lui donne un avantage plausible sans certitude absolue."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 715,
+          "total_tokens": 1340,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 189,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00793125,
+        "inputHash": "9cb4760244836de0147971a37271273b70789cfcc1915ad18cd038afb99e4c4a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:32:14721af7be4c27b55696caf7:screen:6:edited:2"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Tous les choix pourraient logiquement servir de base à un indicateur, mais la mention précise du « poids des déchets effectivement jetés » correspond le mieux, par sa formulation concrète et mesurable, à ce qu’un document présenterait explicitement comme fondement d’un chiffre de réduction du gaspillage, d’où un léger avantage pour l’option 2 malgré une incertitude réelle.",
+    "reason": "La question mentionne une « réserve » au sujet des produits revendus à bas prix, ce qui suggère une mise en garde globale sur leur impact réel. L’option 3 formule précisément ce type de réserve générale et nuancée (« malgré tout », « une partie pourrait ne pas être consommée »), tandis que les autres portent sur des aspects plus techniques ou institutionnels. Cela lui donne un avantage plausible sans certitude absolue.",
     "cues": [
       {
-        "option": 2,
-        "severity": "weak",
-        "cue": "Formulation plus technique et mesurable (« poids des déchets effectivement jetés ») qui correspond mieux à un indicateur objectivable de réduction du gaspillage que des critères plus indirects comme le nombre de dons ou le montant des ventes."
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation typique d’une « réserve » générale et prudente (« une partie… pourrait malgré tout ne pas être consommée »), au ton nuancé et global sur l’efficacité du dispositif, plutôt que sur un détail technique (statistiques, dons, suivi de péremption)."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur une grande surface, le responsable explique : « Pour calculer notre réduction du gaspillage, nous partons du volume total des invendus enregistrés en magasin l’an dernier. » Le narrateur précise alors que le pourcentage annoncé repose sur le volume global des invendus comptabilisés en magasin."
+        "context": "Dans un reportage sur la lutte contre le gaspillage, un responsable de magasin explique que les produits revendus à très bas prix ne sont plus enregistrés dans le même système de caisse ou de gestion, et ajoute en réserve que ces produits sortent du suivi statistique habituel du magasin, ce qui complique l’analyse des ventes et des stocks."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une interview radio, un représentant d’enseigne décrit son partenariat avec des associations caritatives : « Le chiffre de réduction du gaspillage que nous annonçons est basé sur le nombre de produits que nous parvenons à donner chaque année aux associations plutôt que de les jeter. » L’animateur résume en précisant que le pourcentage présenté repose sur la quantité de produits donnés."
+        "context": "Lors d’une interview sur les partenariats entre supermarchés et associations caritatives, un directeur précise que la mise en place d’un rayon de revente à bas prix peut avoir un effet pervers : il émet la réserve que ces ventes pourraient modifier, voire réduire, le volume de dons effectués aux associations habituelles."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un documentaire sur la lutte contre le gaspillage, une enseigne détaille sa méthode : « Nous pesons précisément nos déchets alimentaires chaque jour. Le chiffre de réduction du gaspillage annoncé repose sur le poids des déchets effectivement jetés, comparé à l’an dernier. » Le narrateur insiste sur la mesure en kilos des déchets réels."
+        "context": "Dans un document audio sur les nouvelles pratiques de gestion des invendus alimentaires, une responsable qualité explique qu’avec la multiplication des circuits de revente à bas prix, il devient plus compliqué d’assurer un contrôle homogène des dates limites, et formule la réserve que le suivi de leurs dates de péremption devient alors moins fiable."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans une émission économique, la directrice d’un supermarché explique un dispositif de vente à prix réduit en fin de journée : « Notre indicateur de réduction du gaspillage repose sur le montant des ventes réalisées à bas prix, ce qui correspond à autant de produits évités à la poubelle. » Le journaliste précise que le calcul est fondé sur ces ventes promotionnelles."
+        "context": "Dans un reportage sur la revente de produits proches de la date limite pour lutter contre le gaspillage, un expert en économie circulaire souligne, en guise de réserve, que même bradés, une partie de ces produits pourrait malgré tout ne pas être consommée et finir jetée, ce qui limite l’impact réel du dispositif sur le gaspillage."
       }
     ]
   }

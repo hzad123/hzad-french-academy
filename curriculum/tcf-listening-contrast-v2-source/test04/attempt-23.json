@@ -2,16 +2,16 @@
   "question": {
     "number": 23,
     "kind": "panel-discussion",
-    "question": "Dans l’organisation proposée par le professeur, quel élément est présenté comme facultatif ?",
+    "question": "Selon le document, à quoi serait principalement destinée la permanence facultative évoquée ?",
     "options": [
-      "L’évaluation du dispositif après un trimestre.",
-      "La présence d’un adulte pour accompagner les enfants.",
-      "Le fait de commencer les devoirs en classe.",
-      "La permanence pour terminer les exercices."
+      "À recevoir les parents qui souhaitent des explications sur les consignes et les méthodes de révision",
+      "À proposer un accompagnement régulier aux élèves qui ne peuvent pas être aidés chez eux",
+      "À permettre aux élèves de réaliser une partie de leurs devoirs écrits sur place pour en limiter la charge à la maison",
+      "À offrir un temps encadré pour reprendre et achever les exercices qui leur posent difficulté"
     ],
     "correct": "D",
-    "explanation": "La seule chose qualifiée explicitement de « facultative » est « une permanence facultative pour terminer ce qui pose problème ». Commencer les exercices en classe, la présence d’un adulte et l’évaluation pendant un trimestre sont évoqués, mais pas comme facultatifs.",
-    "transcript": "Question 23.\nUne représentante de parents estime que les devoirs écrits prennent trop de temps aux familles.\nComme professeur, je comprends cette difficulté, mais je souhaite conserver une occasion de réviser les notions.\nLes enfants n'ont pas tous un adulte disponible pour les accompagner.\nNous pourrions proposer des exercices courts, commencés en classe, avec une permanence facultative pour terminer ce qui pose problème.\nSi les consignes sont claires et que la charge est limitée, ce serait un progrès.\nÉvaluons cette formule pendant un trimestre.\nDans l’organisation proposée par le professeur, quel élément est présenté comme facultatif ?",
+    "explanation": "La permanence est présentée comme un temps pour « terminer ce qui pose problème » après des « exercices courts, commencés en classe ». Elle sert donc d’abord à permettre aux élèves de finir les exercices qui leur posent difficulté, et non à organiser un soutien familial, à réformer l’ensemble des devoirs écrits ou à former les parents.",
+    "transcript": "Question 23.\nUne représentante de parents estime que les devoirs écrits prennent trop de temps aux familles.\nComme professeur, je comprends cette difficulté, mais je souhaite conserver une occasion de réviser les notions.\nLes enfants n'ont pas tous un adulte disponible pour les accompagner.\nNous pourrions proposer des exercices courts, commencés en classe, avec une permanence facultative pour terminer ce qui pose problème.\nSi les consignes sont claires et que la charge est limitée, ce serait un progrès.\nÉvaluons cette formule pendant un trimestre.\nSelon le document, à quoi serait principalement destinée la permanence facultative évoquée ?",
     "segments": [
       {
         "voice": "female",
@@ -50,7 +50,7 @@
       },
       {
         "voice": "female",
-        "text": "Dans l’organisation proposée par le professeur, quel élément est présenté comme facultatif ?",
+        "text": "Selon le document, à quoi serait principalement destinée la permanence facultative évoquée ?",
         "speaker": "female"
       }
     ],
@@ -60,178 +60,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzlh6fUXH4gbZOEeHKz1beq8hTdd",
+    "result": {
+      "question": "Selon le document, à quoi servirait principalement la permanence facultative évoquée ?",
+      "choices": [
+        "À permettre aux élèves de terminer les exercices qui leur posent difficulté",
+        "À offrir un soutien régulier aux enfants sans adulte disponible à la maison",
+        "À réduire fortement la durée des devoirs écrits à effectuer à la maison",
+        "À aider les parents à mieux comprendre les consignes de révision données en classe"
+      ],
+      "correctIndex": 0,
+      "explanation": "La permanence est présentée comme un temps pour « terminer ce qui pose problème » après des « exercices courts, commencés en classe ». Elle sert donc d’abord à permettre aux élèves de finir les exercices qui leur posent difficulté, et non à organiser un soutien familial, à réformer l’ensemble des devoirs écrits ou à former les parents.",
+      "design": "On cible le rôle précis de la « permanence facultative » dans le dispositif proposé. Les quatre réponses décrivent chacune un objectif réaliste pour une permanence scolaire liée aux devoirs (soutien ciblé, aide aux élèves sans adulte, réduction du temps de devoirs, accompagnement des parents). Sans le document, aucune ne paraît absurde. Le document tranche cependant en attribuant explicitement à la permanence la fonction de « terminer ce qui pose problème », distincte des autres éléments du discours (inégalités de soutien familial, durée des devoirs, clarté des consignes).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "La mention « Les enfants n'ont pas tous un adulte disponible pour les accompagner » peut faire croire que la permanence vise principalement ces élèves. En réalité, cette remarque sert à reconnaître une difficulté, mais la fonction assignée à la permanence est de « terminer ce qui pose problème » sur les exercices commencés en classe, pas d’organiser un soutien régulier en fonction de la présence d’un adulte à la maison.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Les enfants n'ont pas tous un adulte disponible pour les accompagner.",
+            "avec une permanence facultative pour terminer ce qui pose problème."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le début du document insiste sur le fait que « les devoirs écrits prennent trop de temps aux familles », ce qui rend crédible l’idée que la permanence servirait surtout à réduire fortement cette durée. Mais la réduction du temps est l’arrière-plan du débat ; la fonction concrète donnée à la permanence est plus limitée : elle concerne la fin des exercices problématiques, sans qu’il soit question de supprimer la majeure partie des devoirs écrits à la maison.",
+          "operation": "scope_shift",
+          "anchors": [
+            "les devoirs écrits prennent trop de temps aux familles.",
+            "avec une permanence facultative pour terminer ce qui pose problème."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le professeur veut « conserver une occasion de réviser les notions » et évoque la nécessité que « les consignes soient claires ». On peut en déduire, à tort, que la permanence servirait aux parents pour mieux comprendre ces consignes. Pourtant, la permanence est décrite comme un temps pour les élèves eux-mêmes, afin de « terminer ce qui pose problème » dans les exercices, sans mention d’un accueil ou d’une formation des parents.",
+          "operation": "role_swap",
+          "anchors": [
+            "je souhaite conserver une occasion de réviser les notions.",
+            "avec une permanence facultative pour terminer ce qui pose problème."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4445,
+      "completion_tokens": 1025,
+      "total_tokens": 5470,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 332,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01580625,
+    "inputHash": "3c7b8d019a257a084c47d4e7d00a2aac11cb1a46daaebf51737cb36cb915e1a3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:22:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, à quoi servirait principalement la permanence facultative évoquée ?",
+      "choices": [
+        "À aider les parents à mieux comprendre les consignes de révision données en classe",
+        "À offrir un soutien régulier aux enfants sans adulte disponible à la maison",
+        "À réduire fortement la durée des devoirs écrits à effectuer à la maison",
+        "À permettre aux élèves de terminer les exercices qui leur posent difficulté"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzmKjFyLkbzTKG2PY5usV0sLbkAC",
+      "result": {
+        "question": "Selon le document, à quoi serait principalement destinée la permanence facultative évoquée ?",
+        "choices": [
+          "À recevoir les parents qui souhaitent des explications sur les consignes et les méthodes de révision",
+          "À proposer un accompagnement régulier aux élèves qui ne peuvent pas être aidés chez eux",
+          "À permettre aux élèves de réaliser une partie de leurs devoirs écrits sur place pour en limiter la charge à la maison",
+          "À offrir un temps encadré pour reprendre et achever les exercices qui leur posent difficulté"
+        ],
+        "notes": "Tous les choix décrivent désormais un usage principal plausible et professionnel de la permanence (soutien aux parents, accompagnement d’élèves sans aide à domicile, réduction de la charge de devoirs à la maison, aide ciblée sur les exercices difficiles) avec un niveau de détail et de sérieux comparable. Le terme ‘réduire fortement’ a été atténué pour éviter un caractère extrême. La question reste centrée sur la finalité principale de la permanence, sans suggérer qu’une option serait naturellement plus responsable ou réaliste qu’une autre."
+      },
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 774,
+        "total_tokens": 1442,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 537,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.008575,
+      "inputHash": "34778c73697a874bb49c853f5c36615ef36f2a4def78024544028a2335485d35",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:22:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        3,
-        0,
-        2,
-        1
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyS0YTMQZRDoJlxaNmYfzIHgrrEl",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Un professeur présente aux parents une nouvelle organisation du travail personnel : il prévoit une permanence hebdomadaire après les cours pour que les élèves puissent terminer leurs exercices. Il précise que cette permanence est proposée, mais qu’elle reste facultative et que les élèves ne sont pas obligés d’y assister."
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Lors d’une réunion avec ses collègues, un professeur expose un dispositif pédagogique à tester pendant un trimestre. Il explique qu’il serait intéressant de faire une évaluation du dispositif après un trimestre pour voir s’il fonctionne bien, mais il ajoute que cette évaluation est facultative et dépendra du temps et de la disponibilité de l’équipe."
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Un professeur décrit à ses élèves et à leurs parents une nouvelle façon de gérer les devoirs : ils peuvent commencer les devoirs en classe sur un temps dédié. Il précise que ce démarrage en classe est facultatif : les élèves qui préfèrent peuvent utiliser ce temps pour une autre activité encadrée et faire tous leurs devoirs à la maison."
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Lors d’une réunion d’information, un professeur présente un système d’étude surveillée pour les devoirs. Il indique qu’un adulte (assistant d’éducation ou parent bénévole) pourra être présent pour accompagner les enfants, mais que cette présence est facultative et dépendra des disponibilités ; le dispositif peut fonctionner sans cet adulte, même si ce serait moins idéal."
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
-          ],
-          "guess": 0,
-          "reason": "Les quatre propositions peuvent aisément être présentées comme facultatives dans une organisation pédagogique décrite par un professeur, sans contradiction ni absurdité. Aucune différence claire de formulation, de registre ou de pertinence ne donne un avantage objectif à une option particulière ; l’incertitude reste donc élevée et la répartition de probabilité est uniforme."
-        },
-        "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 566,
-          "total_tokens": 1173,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 136,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00641875,
-        "inputHash": "3d839543df6888eb3d98e9efdd3678383b2e243ae41d3682e9633d9578d7af0c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:22:initial:screen:6:0"
-      }
-    },
-    {
-      "order": [
         1,
-        3,
         2,
-        0
+        0,
+        3
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyS7jdOYwmY0B6jmSeh6U2FsewD8",
+        "responseId": "chatcmpl-EkzmVdEXf9ifVha1aFVcjRWrurtoq",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Le professeur explique l’organisation d’une sortie scolaire ou d’un trajet après les cours : les élèves peuvent rentrer seuls ou, facultativement, être accompagnés par un adulte si les parents le demandent. Il précise alors que « la présence d’un adulte pour accompagner les enfants est facultative » selon les familles."
+              "context": "Dans une école, un enseignant présente aux familles une nouvelle permanence facultative en expliquant qu’elle servira surtout à accompagner régulièrement les élèves dont les parents ne peuvent pas les aider pour les devoirs à la maison (horaires de travail, difficultés scolaires, maîtrise du français, etc.)."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Le professeur présente un nouveau dispositif de travail : les élèves commenceront leurs devoirs en classe et il y aura, en plus, une permanence en fin de journée pour ceux qui veulent terminer leurs exercices sur place. Il précise que cette permanence est facultative, chacun pouvant choisir d’y rester ou non."
+              "context": "Lors d’une réunion de rentrée, la direction décrit une permanence facultative dont l’objectif principal est de permettre aux élèves de faire sur place une partie de leurs devoirs écrits, pour qu’ils en aient moins à réaliser chez eux en fin de journée."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Le professeur décrit l’organisation des devoirs : les élèves devront faire la plus grande partie à la maison, mais ceux qui le souhaitent pourront, de manière facultative, commencer leurs devoirs en classe pendant un temps d’étude encadrée, les autres pouvant utiliser ce temps pour lire ou réviser."
+              "context": "Un directeur d’établissement envoie un message aux parents pour expliquer qu’une permanence facultative sera mise en place, essentiellement pour recevoir les familles qui souhaitent des éclaircissements sur les consignes données en classe et les méthodes de révision attendues."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Le professeur met en place un nouveau dispositif pédagogique (tutorat, ateliers, etc.) et explique son fonctionnement. Il ajoute qu’au bout d’un trimestre, il sera possible, de façon facultative, de réaliser une évaluation du dispositif avec les élèves et/ou les parents, pour ceux qui voudront donner leur avis."
+              "context": "Un professeur annonce qu’une permanence facultative sera ouverte après les cours, surtout pour offrir aux élèves un temps encadré pendant lequel ils pourront reprendre les exercices qu’ils n’ont pas compris et terminer ceux qui leur posent problème."
             }
           ],
           "cues": [
             {
               "option": 1,
-              "severity": "weak",
-              "cue": "Dans le contexte scolaire francophone, une « permanence » pour terminer les exercices est typiquement une option supplémentaire proposée aux élèves (étude surveillée, aide aux devoirs), souvent explicitement présentée comme facultative, alors que la présence d’un adulte accompagnateur, le fait de commencer les devoirs en classe ou l’évaluation du dispositif relèvent plus souvent de décisions générales de l’enseignant et sont moins naturellement qualifiées de facultatives dans la formulation."
+              "severity": "clear",
+              "cue": "La formulation « permettre aux élèves de réaliser une partie de leurs devoirs écrits sur place pour en limiter la charge à la maison » ressemble à une justification complète et typique d’une permanence facultative dans un document adressé aux familles, avec but principal explicité (devoirs écrits + réduction de la charge à la maison), alors que les autres propositions ciblent soit un public plus restreint (élèves non aidés), soit les parents, soit un objectif plus étroit (exercices difficiles seulement)."
             }
           ],
-          "standsOut": false,
+          "standsOut": true,
           "probabilities": [
-            0.22,
-            0.4,
-            0.18,
-            0.2
+            0.15,
+            0.5,
+            0.1,
+            0.25
           ],
           "guess": 1,
-          "reason": "Tous les choix peuvent être intégrés à une organisation et être rendus facultatifs dans un enregistrement plausible. Cependant, la notion de « permanence » pour terminer les exercices correspond assez directement, dans l’usage scolaire courant, à un dispositif volontaire proposé aux élèves, ce qui s’accorde particulièrement bien avec l’adjectif « facultatif ». Les autres éléments sont usuellement décidés pour tout le groupe et moins typiquement désignés comme facultatifs, d’où un avantage modéré pour l’option 1 mais avec une incertitude importante."
+          "reason": "Les quatre options sont plausibles, mais l’option 1 formule un objectif général, directement lié aux devoirs écrits et à la réduction de la charge à la maison, ce qui correspond bien à la finalité principale attendue pour une « permanence facultative » décrite dans un document informatif. Cela lui donne un avantage rédactionnel clair sur les autres, jugées plus ciblées ou moins centrales."
         },
         "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 1075,
-          "total_tokens": 1682,
+          "prompt_tokens": 654,
+          "completion_tokens": 799,
+          "total_tokens": 1453,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 515,
+            "reasoning_tokens": 299,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01150875,
-        "inputHash": "b3a46f4a5bc8bda2a071385797f4b3de2d65df328e7966a6c0f25878419c2a7c",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:22:initial:screen:6:1"
+        "costUsd": 0.0088075,
+        "inputHash": "8dcdd30be7163ede2b13ea196bf4904dac5475cb153d25ab0637d8823026d775",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:22:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Tous les choix peuvent être intégrés à une organisation et être rendus facultatifs dans un enregistrement plausible. Cependant, la notion de « permanence » pour terminer les exercices correspond assez directement, dans l’usage scolaire courant, à un dispositif volontaire proposé aux élèves, ce qui s’accorde particulièrement bien avec l’adjectif « facultatif ». Les autres éléments sont usuellement décidés pour tout le groupe et moins typiquement désignés comme facultatifs, d’où un avantage modéré pour l’option 1 mais avec une incertitude importante.",
+    "reason": "Les quatre options sont plausibles, mais l’option 1 formule un objectif général, directement lié aux devoirs écrits et à la réduction de la charge à la maison, ce qui correspond bien à la finalité principale attendue pour une « permanence facultative » décrite dans un document informatif. Cela lui donne un avantage rédactionnel clair sur les autres, jugées plus ciblées ou moins centrales.",
     "cues": [
       {
         "option": 1,
-        "severity": "weak",
-        "cue": "Dans le contexte scolaire francophone, une « permanence » pour terminer les exercices est typiquement une option supplémentaire proposée aux élèves (étude surveillée, aide aux devoirs), souvent explicitement présentée comme facultative, alors que la présence d’un adulte accompagnateur, le fait de commencer les devoirs en classe ou l’évaluation du dispositif relèvent plus souvent de décisions générales de l’enseignant et sont moins naturellement qualifiées de facultatives dans la formulation."
+        "severity": "clear",
+        "cue": "La formulation « permettre aux élèves de réaliser une partie de leurs devoirs écrits sur place pour en limiter la charge à la maison » ressemble à une justification complète et typique d’une permanence facultative dans un document adressé aux familles, avec but principal explicité (devoirs écrits + réduction de la charge à la maison), alors que les autres propositions ciblent soit un public plus restreint (élèves non aidés), soit les parents, soit un objectif plus étroit (exercices difficiles seulement)."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Le professeur explique l’organisation d’une sortie scolaire ou d’un trajet après les cours : les élèves peuvent rentrer seuls ou, facultativement, être accompagnés par un adulte si les parents le demandent. Il précise alors que « la présence d’un adulte pour accompagner les enfants est facultative » selon les familles."
+        "context": "Dans une école, un enseignant présente aux familles une nouvelle permanence facultative en expliquant qu’elle servira surtout à accompagner régulièrement les élèves dont les parents ne peuvent pas les aider pour les devoirs à la maison (horaires de travail, difficultés scolaires, maîtrise du français, etc.)."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Le professeur présente un nouveau dispositif de travail : les élèves commenceront leurs devoirs en classe et il y aura, en plus, une permanence en fin de journée pour ceux qui veulent terminer leurs exercices sur place. Il précise que cette permanence est facultative, chacun pouvant choisir d’y rester ou non."
+        "context": "Lors d’une réunion de rentrée, la direction décrit une permanence facultative dont l’objectif principal est de permettre aux élèves de faire sur place une partie de leurs devoirs écrits, pour qu’ils en aient moins à réaliser chez eux en fin de journée."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Le professeur décrit l’organisation des devoirs : les élèves devront faire la plus grande partie à la maison, mais ceux qui le souhaitent pourront, de manière facultative, commencer leurs devoirs en classe pendant un temps d’étude encadrée, les autres pouvant utiliser ce temps pour lire ou réviser."
+        "context": "Un directeur d’établissement envoie un message aux parents pour expliquer qu’une permanence facultative sera mise en place, essentiellement pour recevoir les familles qui souhaitent des éclaircissements sur les consignes données en classe et les méthodes de révision attendues."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Le professeur met en place un nouveau dispositif pédagogique (tutorat, ateliers, etc.) et explique son fonctionnement. Il ajoute qu’au bout d’un trimestre, il sera possible, de façon facultative, de réaliser une évaluation du dispositif avec les élèves et/ou les parents, pour ceux qui voudront donner leur avis."
+        "context": "Un professeur annonce qu’une permanence facultative sera ouverte après les cours, surtout pour offrir aux élèves un temps encadré pendant lequel ils pourront reprendre les exercices qu’ils n’ont pas compris et terminer ceux qui leur posent problème."
       }
     ]
   }

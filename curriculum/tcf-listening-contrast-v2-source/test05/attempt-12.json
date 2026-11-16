@@ -2,16 +2,16 @@
   "question": {
     "number": 12,
     "kind": "dialogue",
-    "question": "Selon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?",
+    "question": "Selon le document, quel type de travaux est mentionné comme pouvant être programmé ultérieurement ?",
     "options": [
-      "Le carrelage du sol",
-      "La fenêtre de la salle de bains",
-      "La peinture du plafond",
-      "Le joint autour de la douche"
+      "Contrôler et ajuster la ventilation de la salle de bains.",
+      "Réparer un problème d’étanchéité autour de la douche.",
+      "Refaire le joint d’étanchéité de la douche.",
+      "Remplacer le carrelage de la salle de bains."
     ],
     "correct": "D",
-    "explanation": "Le professionnel répond que le problème d’humidité peut être réglé «si l’on traite aussi le joint et si l’on vérifie la ventilation». L’élément explicitement ajouté au traitement de l’étanchéité est donc le joint, et non le carrelage, la peinture ou la fenêtre, qui ne sont jamais cités comme conditions.",
-    "transcript": "Question 12.\nLe devis prévoit de refaire toute la salle de bains, mais notre budget ne le permet pas.\nNous pouvons réparer d'abord l'étanchéité autour de la douche. Le changement du carrelage peut attendre.\nEst-ce que cela règle le problème d'humidité ?\nOui, si l'on traite aussi le joint et si l'on vérifie la ventilation. Je vous prépare un devis réduit.\nD'accord, faisons les travaux indispensables en priorité.\nSelon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?",
+    "explanation": "Réponse D : Le texte indique clairement que seul le changement du carrelage est explicitement présenté comme pouvant être reporté (\"peut attendre\"), ce qui correspond à l’idée de travaux programmés ultérieurement : il s’agit donc de remplacer le carrelage de la salle de bains. A : La vérification de la ventilation est présentée comme une condition pour régler le problème d’humidité (\"si l'on ... vérifie la ventilation\"), donc comme un travail indispensable à faire maintenant, pas comme quelque chose à programmer ultérieurement. On pourrait se tromper en pensant que, parce que le devis est \"réduit\", toutes les interventions supplémentaires comme la ventilation sont repoussées, mais le document ne le dit pas : au contraire, elles font partie du nécessaire immédiat. B : La réparation de l’étanchéité autour de la douche est explicitement prévue \"d'abord\" et rangée parmi \"les travaux indispensables en priorité\". Elle doit donc être faite tout de suite, pas programmée plus tard. On peut se laisser tromper parce que cette réparation est distinguée du changement de carrelage et qu’on parle de budget limité, ce qui pourrait faire penser que toute l’étanchéité est reportée, mais en réalité seules certaines tâches sont repoussées, pas celle-ci. C : Le traitement du joint est également posé comme une condition pour résoudre le problème d’humidité (\"si l'on traite aussi le joint\"), donc il fait partie des \"travaux indispensables\" à réaliser en priorité. Quelqu’un qui comprend partiellement pourrait croire que, puisque le devis initial prévoyait de \"refaire toute la salle de bains\" et qu’on le réduit, tout ce qui touche au joint serait reporté ; mais le document précise que ce traitement est nécessaire maintenant, pas ultérieur.",
+    "transcript": "Question 12.\nLe devis prévoit de refaire toute la salle de bains, mais notre budget ne le permet pas.\nNous pouvons réparer d'abord l'étanchéité autour de la douche. Le changement du carrelage peut attendre.\nEst-ce que cela règle le problème d'humidité ?\nOui, si l'on traite aussi le joint et si l'on vérifie la ventilation. Je vous prépare un devis réduit.\nD'accord, faisons les travaux indispensables en priorité.\nSelon le document, quel type de travaux est mentionné comme pouvant être programmé ultérieurement ?",
     "segments": [
       {
         "voice": "female",
@@ -39,21 +39,137 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, quel autre élément doit être traité, en plus de l’étanchéité autour de la douche, pour régler le problème d’humidité ?"
+        "text": "Selon le document, quel type de travaux est mentionné comme pouvant être programmé ultérieurement ?"
       }
     ],
     "audio": "q-12.mp3",
     "audioSeconds": null,
     "slotSeconds": 43
   },
-  "rounds": 6,
-  "pass": false,
+  "sourceHash": "7165ef3b360e00a92c7526f6f70f755878ecb64ce5c174b1813ee0d21b8dbac0",
+  "contentHash": "8fefb55f0f9f5dfef63bb0fccb0c9f27e92f7bf780de18dace2bfe055b0c28ba",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzqTLbjDINEKBqNZgDqrrN8bDAuv",
+    "result": {
+      "question": "Selon le document, pour quel type d’intervention les travaux peuvent-ils être différés ?",
+      "choices": [
+        "Remplacer le carrelage de la salle de bains.",
+        "Réparer l’étanchéité autour de la douche.",
+        "Traiter le joint de la douche.",
+        "Vérifier la ventilation de la pièce."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «Le changement du carrelage peut attendre», alors que l’étanchéité, le joint et la ventilation sont associés aux travaux «indispensables en priorité».",
+      "design": "Axe unique : le moment prévu pour différentes interventions dans la salle de bains (immédiat vs différé). Les quatre choix sont quatre travaux crédibles de la même famille (rénovation technique de salle de bains) qui pourraient, en situation réelle, être faits soit tout de suite soit plus tard. Le document n’autorise explicitement le report que pour le changement de carrelage, ce qui distingue la réponse correcte des autres, sans que cela soit évident sans l’enregistrement.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse le rôle temporel de l’étanchéité. On peut croire qu’elle peut attendre parce que d’autres réparations semblent plus urgentes, mais le texte dit au contraire qu’on peut «réparer d'abord l'étanchéité autour de la douche», ce qui la place parmi les travaux immédiats et «indispensables en priorité», non parmi ceux à différer.",
+          "operation": "time_swap",
+          "anchors": [
+            "Nous pouvons réparer d'abord l'étanchéité autour de la douche.",
+            "faisons les travaux indispensables en priorité."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le traitement du joint peut paraître secondaire et donc reportable, car il est présenté comme une condition ajoutée à d’autres travaux. En réalité, il est explicitement inclus dans ce qu’il faut faire maintenant pour régler l’humidité («si l'on traite aussi le joint»). Le considérer comme reportable revient à échanger son statut de condition immédiate avec celui d’un travail différé.",
+          "operation": "time_swap",
+          "anchors": [
+            "Est-ce que cela règle le problème d'humidité ?",
+            "Oui, si l'on traite aussi le joint"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La vérification de la ventilation pourrait être interprétée comme un contrôle ultérieur, une fois les travaux finis. Le document l’associe pourtant directement à la résolution actuelle du problème («si l'on vérifie la ventilation») et aux travaux «indispensables». La prendre pour l’intervention qui peut attendre suppose de permuter son timing avec celui, réellement différé, du carrelage.",
+          "operation": "time_swap",
+          "anchors": [
+            "Oui, si l'on traite aussi le joint et si l'on vérifie la ventilation.",
+            "faisons les travaux indispensables en priorité."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4374,
+      "completion_tokens": 1126,
+      "total_tokens": 5500,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 534,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0167275,
+    "inputHash": "64286647d4271944306b63e9ac0d8aca7c742d34baf3f58ac0936282c8b8df91",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:14721af7be4c27b55696caf7:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, pour quel type d’intervention les travaux peuvent-ils être différés ?",
+      "choices": [
+        "Vérifier la ventilation de la pièce.",
+        "Réparer l’étanchéité autour de la douche.",
+        "Traiter le joint de la douche.",
+        "Remplacer le carrelage de la salle de bains."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzrBFjlLVfdM2QFXr2NeR4fnxVI6",
+      "result": {
+        "question": "Selon le document, quel type de travaux est mentionné comme pouvant être programmé ultérieurement ?",
+        "choices": [
+          "Contrôler et ajuster la ventilation de la salle de bains.",
+          "Réparer un problème d’étanchéité autour de la douche.",
+          "Refaire le joint d’étanchéité de la douche.",
+          "Remplacer le carrelage de la salle de bains."
+        ],
+        "notes": "L’énoncé a été légèrement reformulé pour neutraliser l’idée d’urgence, en parlant de programmation ultérieure. Les quatre options décrivent désormais des travaux de même nature (interventions dans la salle de bains), sans hiérarchie évidente de pertinence. Les formulations ont été homogénéisées tout en conservant les différences factuelles : ventilation générale, étanchéité autour de la douche, joint de douche, et carrelage de la salle de bains."
+      },
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 757,
+        "total_tokens": 1406,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 563,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00838125,
+      "inputHash": "acf7690cfbda7f96c500d9d91fca67f33645aae7350a49d458578898b1573314",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:14721af7be4c27b55696caf7:blind-edit:2"
+    }
+  },
   "blind": [
     {
       "order": [
         0,
-        1,
         3,
+        1,
         2
       ],
       "receipt": {
@@ -61,99 +177,205 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyWiRPfPIN5o67Wq6jsDrdlnWOjI",
+        "responseId": "chatcmpl-EkzrKLjlpYiAXMn59qLMcRE3WjejT",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un artisan explique à des clients qu’il faudra non seulement refaire l’étanchéité autour de la douche, mais aussi reprendre le carrelage du sol qui laisse passer l’eau, afin de supprimer définitivement les traces d’humidité."
+              "context": "Un technicien fait un diagnostic dans un logement : il signale immédiatement un petit défaut de robinetterie mais explique que pour la ventilation de la salle de bains, il suffira de programmer plus tard une intervention pour contrôler et ajuster le système, car ce n’est pas urgent."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un professionnel du bâtiment commente un rapport de diagnostic : pour régler l’humidité, il faudra améliorer l’étanchéité autour de la douche et également intervenir sur la fenêtre de la salle de bains, dont l’isolation et la ventilation sont insuffisantes."
+              "context": "Lors d’une visite d’état des lieux, un professionnel distingue les travaux urgents (fuite, moisissures) de ceux qui peuvent attendre et précise que le remplacement du carrelage de la salle de bains est un chantier plus lourd qui pourra être programmé ultérieurement."
             },
             {
               "index": 2,
-              "credible": false,
-              "context": "La question précise qu’il faut traiter, « en plus de l’étanchéité autour de la douche », un autre élément. Or « le joint autour de la douche » renvoie précisément à cette étanchéité, ce qui ne constitue pas un élément supplémentaire distinct et ne répond donc pas réellement à la formulation « quel autre élément ». Aucun contexte ordinaire ne fait de cette répétition un véritable second point à traiter."
+              "credible": true,
+              "context": "Un plombier décrit à un client des travaux à effectuer : il insiste sur le fait qu’un problème d’étanchéité autour de la douche risque d’aggraver les infiltrations et doit être traité en priorité, mais dans un autre scénario ordinaire il pourrait dire qu’on peut planifier cette réparation un peu plus tard si les dégâts restent limités."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un peintre explique qu’il faut traiter l’origine de l’humidité en refaisant l’étanchéité autour de la douche, mais aussi reprendre la peinture du plafond qui s’écaille et favoriser l’usage d’une peinture spéciale pièces humides pour éviter le retour de moisissures."
+              "context": "Lors d’un contrôle de salle de bains, un professionnel indique que la remise en état complète n’est pas indispensable immédiatement, et que l’on peut simplement prévoir de refaire le joint d’étanchéité de la douche à une date ultérieure, par exemple lors d’une prochaine intervention programmée."
             }
           ],
-          "cues": [
-            {
-              "option": 2,
-              "severity": "clear",
-              "cue": "La question demande explicitement un « autre élément » en plus de « l’étanchéité autour de la douche » ; « le joint autour de la douche » renomme pratiquement le même élément plutôt qu’un point supplémentaire distinct, ce qui le met en décalage avec la consigne."
-            }
-          ],
+          "cues": [],
           "standsOut": false,
           "probabilities": [
-            0.32,
-            0.32,
-            0.04,
-            0.32
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
-          "guess": 1,
-          "reason": "Les trois options 0, 1 et 3 peuvent toutes raisonnablement constituer un deuxième élément à traiter contre l’humidité ; seule l’option 2 est défavorisée car elle reformule l’élément déjà mentionné (« étanchéité autour de la douche ») au lieu d’en ajouter un autre. Entre 0, 1 et 3, aucun indice textuel décisif ne départage clairement, mais traiter la fenêtre s’accorde légèrement avec l’idée courante de gestion de l’humidité (aération/ventilation), d’où un léger avantage et le choix de l’option 1 avec incertitude élevée."
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent des travaux qui, dans des situations ordinaires, pourraient raisonnablement être mentionnés comme programmables ultérieurement. Les formulations sont toutes grammaticales, pertinentes et d’une longueur comparable, sans avantage rédactionnel net pour l’une d’elles. Faute d’indice concret dans l’énoncé seul, l’incertitude reste élevée et conduit à des probabilités réparties de manière uniforme, avec un choix de réponse purement obligé comme meilleure hypothèse formelle."
         },
         "usage": {
-          "prompt_tokens": 613,
-          "completion_tokens": 1040,
-          "total_tokens": 1653,
+          "prompt_tokens": 628,
+          "completion_tokens": 631,
+          "total_tokens": 1259,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 494,
+            "reasoning_tokens": 192,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.01116625,
-        "inputHash": "2934e932fb85778cd8e0e17ed95d8b733745c63631aeeef6a578afa7dbb8dee3",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:initial:screen:6:0"
+        "costUsd": 0.007095,
+        "inputHash": "0d5de5e896f92d2e2e508bd0087a9f5af6cbeb05aca36adf2ef55d58f8e1e028",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:14721af7be4c27b55696caf7:screen:2:edited:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzrWzlT0Sm2rhkLUSTconBInshQK",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un plombier fait un état des lieux dans une salle de bains : il signale une fuite d’eau minime liée à un problème d’étanchéité autour de la douche, explique que ce n’est pas urgent et que ce type de réparation pourra être programmé ultérieurement si le client préfère regrouper plusieurs petits travaux."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une visite d’appartement, un professionnel du bâtiment commente l’état de la salle de bains : il précise que le carrelage est ancien mais encore fonctionnel, et que le remplacement complet du carrelage pourra être programmé ultérieurement comme un chantier de rénovation plutôt qu’une intervention urgente."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un technicien d’entretien explique à un locataire qu’il y a un joint d’étanchéité usé autour de la douche, mais que cela ne provoque pour l’instant qu’un léger écoulement d’eau ; il indique que refaire ce joint est un petit travail qui pourra être programmé ultérieurement, lors du prochain passage de maintenance."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un diagnostic d’humidité dans un logement, le technicien mentionne que la ventilation de la salle de bains est un peu faible mais pas critique et qu’un contrôle et un ajustement de la ventilation pourront être programmés ultérieurement, après les interventions prioritaires."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions correspondent chacune à un type de travaux qui pourrait raisonnablement être qualifié de non urgent et donc « programmé ultérieurement » dans un enregistrement ordinaire. Aucune différence évidente de formulation, de longueur ou de précision ne donne un avantage clair à une option en lien direct avec l’énoncé de la question seule, sans contenu audio. Faute d’indice textuel décisif, les probabilités restent réparties de manière uniforme et le choix du numéro 0 n’est qu’un meilleur candidat arbitraire sous forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 753,
+          "total_tokens": 1381,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 282,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.008315,
+        "inputHash": "b1678907952a493b5a55c4a6fde1881d6bc22ec03fb78a46c204f82f603f84b8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:14721af7be4c27b55696caf7:screen:2:edited:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Les trois options 0, 1 et 3 peuvent toutes raisonnablement constituer un deuxième élément à traiter contre l’humidité ; seule l’option 2 est défavorisée car elle reformule l’élément déjà mentionné (« étanchéité autour de la douche ») au lieu d’en ajouter un autre. Entre 0, 1 et 3, aucun indice textuel décisif ne départage clairement, mais traiter la fenêtre s’accorde légèrement avec l’idée courante de gestion de l’humidité (aération/ventilation), d’où un léger avantage et le choix de l’option 1 avec incertitude élevée.",
-    "cues": [
-      {
-        "option": 2,
-        "severity": "clear",
-        "cue": "La question demande explicitement un « autre élément » en plus de « l’étanchéité autour de la douche » ; « le joint autour de la douche » renomme pratiquement le même élément plutôt qu’un point supplémentaire distinct, ce qui le met en décalage avec la consigne."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzrfRtUVPqmirVKYkOe7J5Jr9OWj",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le seul travail explicitement mentionné comme pouvant être reporté est le changement du carrelage de la salle de bains.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Oui, si l'on traite aussi le joint et si l'on vérifie la ventilation."
+          ],
+          "reason": "La vérification de la ventilation est présentée comme une condition pour régler le problème d’humidité (\"si l'on ... vérifie la ventilation\"), donc comme un travail indispensable à faire maintenant, pas comme quelque chose à programmer ultérieurement. On pourrait se tromper en pensant que, parce que le devis est \"réduit\", toutes les interventions supplémentaires comme la ventilation sont repoussées, mais le document ne le dit pas : au contraire, elles font partie du nécessaire immédiat.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous pouvons réparer d'abord l'étanchéité autour de la douche.",
+            "D'accord, faisons les travaux indispensables en priorité."
+          ],
+          "reason": "La réparation de l’étanchéité autour de la douche est explicitement prévue \"d'abord\" et rangée parmi \"les travaux indispensables en priorité\". Elle doit donc être faite tout de suite, pas programmée plus tard. On peut se laisser tromper parce que cette réparation est distinguée du changement de carrelage et qu’on parle de budget limité, ce qui pourrait faire penser que toute l’étanchéité est reportée, mais en réalité seules certaines tâches sont repoussées, pas celle-ci.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Oui, si l'on traite aussi le joint et si l'on vérifie la ventilation.",
+            "D'accord, faisons les travaux indispensables en priorité."
+          ],
+          "reason": "Le traitement du joint est également posé comme une condition pour résoudre le problème d’humidité (\"si l'on traite aussi le joint\"), donc il fait partie des \"travaux indispensables\" à réaliser en priorité. Quelqu’un qui comprend partiellement pourrait croire que, puisque le devis initial prévoyait de \"refaire toute la salle de bains\" et qu’on le réduit, tout ce qui touche au joint serait reporté ; mais le document précise que ce traitement est nécessaire maintenant, pas ultérieur.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le changement du carrelage peut attendre."
+          ],
+          "reason": "Le texte indique clairement que seul le changement du carrelage est explicitement présenté comme pouvant être reporté (\"peut attendre\"), ce qui correspond à l’idée de travaux programmés ultérieurement : il s’agit donc de remplacer le carrelage de la salle de bains.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 760,
+      "completion_tokens": 1113,
+      "total_tokens": 1873,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 488,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Un artisan explique à des clients qu’il faudra non seulement refaire l’étanchéité autour de la douche, mais aussi reprendre le carrelage du sol qui laisse passer l’eau, afin de supprimer définitivement les traces d’humidité."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Un professionnel du bâtiment commente un rapport de diagnostic : pour régler l’humidité, il faudra améliorer l’étanchéité autour de la douche et également intervenir sur la fenêtre de la salle de bains, dont l’isolation et la ventilation sont insuffisantes."
-      },
-      {
-        "index": 2,
-        "credible": false,
-        "context": "La question précise qu’il faut traiter, « en plus de l’étanchéité autour de la douche », un autre élément. Or « le joint autour de la douche » renvoie précisément à cette étanchéité, ce qui ne constitue pas un élément supplémentaire distinct et ne répond donc pas réellement à la formulation « quel autre élément ». Aucun contexte ordinaire ne fait de cette répétition un véritable second point à traiter."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Un peintre explique qu’il faut traiter l’origine de l’humidité en refaisant l’étanchéité autour de la douche, mais aussi reprendre la peinture du plafond qui s’écaille et favoriser l’usage d’une peinture spéciale pièces humides pour éviter le retour de moisissures."
-      }
-    ]
-  }
+    },
+    "costUsd": 0.01208,
+    "inputHash": "c580125c8f3e31da3f6263e84c17f5ee2720104d1e4c34fd70bb8467fc39d4aa",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:11:14721af7be4c27b55696caf7:ground:2:edited"
+  },
+  "feedback": null
 }

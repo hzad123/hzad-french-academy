@@ -2,16 +2,16 @@
   "question": {
     "number": 31,
     "kind": "academic-monologue",
-    "question": "Selon le document, sur quel point précis doit porter la comparaison des périodes pour mesurer les économies de chauffage après les travaux ?",
+    "question": "Dans le document, que désigne l’expression « réduction théorique » ?",
     "options": [
-      "Sur des périodes ayant des températures comparables",
-      "Sur la consommation moyenne observée au niveau national",
-      "Sur des logements voisins situés dans la même rue",
-      "Sur des périodes où le prix de l’énergie est resté stable"
+      "Une économie de consommation calculée sur la base du projet, avant toute mesure sur le terrain.",
+      "La différence entre la consommation attendue après travaux et la consommation réellement mesurée.",
+      "Une économie estimée en appliquant uniquement les performances annoncées des matériaux d’isolation.",
+      "Une économie de consommation évaluée à partir de scénarios de changement de comportement des habitants."
     ],
     "correct": "A",
-    "explanation": "Le document précise qu’«il faut comparer des périodes aux températures comparables» pour mesurer les économies. A est donc la seule réponse qui reprend ce critère explicite. Les autres propositions décrivent d’autres types de comparaison possibles en pratique, mais elles ne sont jamais mentionnées dans le texte.",
-    "transcript": "Question 31.\nAprès des travaux d'isolation, les consommations de chauffage peuvent diminuer moins que prévu. Cela ne signifie pas nécessairement que les matériaux sont inefficaces. Certains habitants choisissent de chauffer davantage des pièces auparavant trop froides. D'autres rencontrent des problèmes de réglage ou d'aération. Pour mesurer les économies, il faut comparer des périodes aux températures comparables et tenir compte de ces modifications de comportement. Une réduction théorique calculée avant les travaux ne doit pas être confondue avec la consommation réellement observée ensuite.\nSelon le document, sur quel point précis doit porter la comparaison des périodes pour mesurer les économies de chauffage après les travaux ?",
+    "explanation": "La réduction théorique est définie comme un calcul « avant les travaux » et le document précise qu’elle « ne doit pas être confondue avec la consommation réellement observée ensuite » : il s’agit donc bien d’une estimation préalable, distincte du constat après rénovation.",
+    "transcript": "Question 31.\nAprès des travaux d'isolation, les consommations de chauffage peuvent diminuer moins que prévu. Cela ne signifie pas nécessairement que les matériaux sont inefficaces. Certains habitants choisissent de chauffer davantage des pièces auparavant trop froides. D'autres rencontrent des problèmes de réglage ou d'aération. Pour mesurer les économies, il faut comparer des périodes aux températures comparables et tenir compte de ces modifications de comportement. Une réduction théorique calculée avant les travaux ne doit pas être confondue avec la consommation réellement observée ensuite.\nDans le document, que désigne l’expression « réduction théorique » ?",
     "segments": [
       {
         "voice": "female",
@@ -23,7 +23,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, sur quel point précis doit porter la comparaison des périodes pour mesurer les économies de chauffage après les travaux ?"
+        "text": "Dans le document, que désigne l’expression « réduction théorique » ?"
       }
     ],
     "audio": "q-31.mp3",
@@ -32,111 +32,223 @@
   },
   "rounds": 6,
   "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzwSJCnD7BaSCceL2hZHSvUAsnIR",
+    "result": {
+      "question": "Dans le document, à quoi correspond la « réduction théorique » évoquée à la fin ?",
+      "choices": [
+        "À une estimation faite avant les travaux, qui ne doit pas être confondue avec la consommation réelle ensuite.",
+        "À la baisse de consommation effectivement observée après que les habitants ont changé leurs habitudes de chauffage.",
+        "À l’écart causé par des problèmes de réglage ou d’aération dans les logements rénovés.",
+        "À la part d’économies directement liée au choix des matériaux d’isolation, indépendamment des comportements."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réduction théorique est définie comme un calcul « avant les travaux » et le document précise qu’elle « ne doit pas être confondue avec la consommation réellement observée ensuite » : il s’agit donc bien d’une estimation préalable, distincte du constat après rénovation.",
+      "design": "On cible le rôle précis de la « réduction théorique » dans l’argument. Toutes les options proposent un type d’indicateur de performance énergétique (estimation préalable, baisse observée, écart lié à des dysfonctionnements, part imputable aux matériaux). Sans le document, chacune pourrait décrire de manière crédible ce que signifie une « réduction théorique » dans un contexte de rénovation. L’écoute est nécessaire pour repérer qu’ici elle est explicitement présentée comme un calcul avant travaux, opposé à la consommation réellement observée et non comme un résultat mesuré, un écart dû aux réglages ou une part isolant-only.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse le statut de la réduction théorique en la présentant comme une baisse « effectivement observée » après modification des habitudes, alors que le texte oppose précisément la réduction théorique calculée avant aux consommations réellement constatées après travaux.",
+          "operation": "role_swap",
+          "anchors": [
+            "Une réduction théorique calculée avant les travaux",
+            "ne doit pas être confondue avec la consommation réellement observée ensuite"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’énoncé mentionne bien des « problèmes de réglage ou d’aération », mais ils sont cités comme une des raisons pour lesquelles la consommation peut diminuer moins que prévu, pas comme la définition de la réduction théorique elle-même, qui reste un calcul préalable indépendant de ces dysfonctionnements.",
+          "operation": "role_swap",
+          "anchors": [
+            "D'autres rencontrent des problèmes de réglage ou d'aération",
+            "Une réduction théorique calculée avant les travaux"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le document explique que des consommations plus élevées peuvent venir de comportements (chauffer davantage certaines pièces) et de problèmes techniques, ce qui montre justement que la réduction théorique n’isole pas la part due aux seuls matériaux : elle est un calcul global avant travaux, sans retrancher spécifiquement l’effet des usages.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Certains habitants choisissent de chauffer davantage des pièces auparavant trop froides",
+            "Cela ne signifie pas nécessairement que les matériaux sont inefficaces"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4346,
+      "completion_tokens": 1098,
+      "total_tokens": 5444,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 473,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0164125,
+    "inputHash": "671b4d05b124f1fd1ab9aeeb807a2390b4c6886a454d0f3f74345e67ba0774c5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:14721af7be4c27b55696caf7:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, à quoi correspond la « réduction théorique » évoquée à la fin ?",
+      "choices": [
+        "À une estimation faite avant les travaux, qui ne doit pas être confondue avec la consommation réelle ensuite.",
+        "À l’écart causé par des problèmes de réglage ou d’aération dans les logements rénovés.",
+        "À la part d’économies directement liée au choix des matériaux d’isolation, indépendamment des comportements.",
+        "À la baisse de consommation effectivement observée après que les habitants ont changé leurs habitudes de chauffage."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzwmF9ekS8xLVHvGM2Rq7Fk4iyE7",
+      "result": {
+        "question": "Dans le document, que désigne l’expression « réduction théorique » ?",
+        "choices": [
+          "Une économie de consommation calculée sur la base du projet, avant toute mesure sur le terrain.",
+          "La différence entre la consommation attendue après travaux et la consommation réellement mesurée.",
+          "Une économie estimée en appliquant uniquement les performances annoncées des matériaux d’isolation.",
+          "Une économie de consommation évaluée à partir de scénarios de changement de comportement des habitants."
+        ],
+        "notes": "La mention temporelle « à la fin » a été supprimée pour éviter d’orienter vers une conclusion spécifique. Les quatre propositions décrivent désormais chacune un type d’« économie » ou de « réduction » définie de façon théorique, avec des bases différentes (projection globale, écart théorie/mesure, performances matériaux, comportements), sans opposer calcul théorique et observation réelle de manière trop évidente. Aucune option n’est formulée comme la mise en garde métalinguistique présente initialement dans le choix 0, afin de ne pas le privilégier."
+      },
+      "usage": {
+        "prompt_tokens": 695,
+        "completion_tokens": 612,
+        "total_tokens": 1307,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 383,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00698875,
+      "inputHash": "33421db8c7246e49dcea6c71df5efdec8f70de8cf0b83b22be28c2003397f84b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:14721af7be4c27b55696caf7:blind-edit:6"
+    }
+  },
   "blind": [
     {
       "order": [
-        0,
-        2,
         3,
-        1
+        2,
+        1,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyZyix9M6To9FNq9BNGlZorFrgjO",
+        "responseId": "chatcmpl-EkzwvOjGzl3akQ9U37m5xvvy0nmPe",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un conseiller en rénovation énergétique explique dans un enregistrement comment vérifier les économies de chauffage après des travaux d’isolation : il précise qu’il faut comparer la consommation avant/après sur des périodes où les conditions météo, notamment les températures extérieures, sont comparables afin que la comparaison soit pertinente."
+              "context": "Un ingénieur présente plusieurs types d’économies possibles après rénovation énergétique : les économies « théoriques » issues de modèles techniques, les économies « comportementales » issues de scénarios de changement d’habitudes des habitants, etc. Dans ce cadre, il définit « réduction théorique » comme une économie de consommation évaluée à partir de scénarios de changement de comportement des habitants, en distinguant ces scénarios des mesures réelles qui seront faites plus tard."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une émission radio sur la performance énergétique, un expert évoque une méthode simplifiée (mais discutable) où l’on compare sa consommation de chauffage après travaux avec celle de logements voisins de la même rue, considérés comme exposés à des conditions similaires, pour estimer les économies réalisées."
+              "context": "Lors d’une réunion de chantier sur l’isolation d’un immeuble, le thermicien explique que la « réduction théorique » correspond ici à l’économie d’énergie calculée en appliquant directement les performances annoncées par les fabricants de matériaux d’isolation, sans tenir compte des aléas de pose ni des comportements des occupants."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Un documentaliste en énergie explique que pour calculer des économies en euros, il est préférable de comparer des périodes où le prix de l’énergie n’a pas trop varié, afin d’éviter de confondre baisse de consommation et hausse/baisse des tarifs, et que la comparaison des périodes doit porter sur une stabilité relative du prix."
+              "context": "Une équipe de suivi de travaux commente un rapport de performance énergétique : le document présente la consommation attendue après travaux, puis la consommation réellement relevée sur un an. L’ingénieur utilise, de façon propre à ce rapport, le terme « réduction théorique » pour désigner l’écart entre la consommation modélisée (attendue) et celle mesurée sur le terrain, afin d’analyser les dérives."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une capsule pédagogique un organisme public explique, de façon très générale, que certains ménages comparent leur consommation de chauffage avant/après travaux à la consommation moyenne nationale, pour situer leurs économies, et précise que cette comparaison de périodes se fait par rapport aux niveaux moyens observés au niveau national."
+              "context": "Dans une présentation de diagnostic énergétique, le bureau d’études explique que le document distingue la « réduction théorique », calculée sur plan à partir du projet (avant toute mesure réelle), et la « réduction constatée », basée sur les relevés de consommation après travaux. L’expression « réduction théorique » désigne donc l’économie de consommation attendue sur la seule base du projet, avant toute mesure sur le terrain."
             }
           ],
           "cues": [
             {
-              "option": 0,
+              "option": 3,
               "severity": "clear",
-              "cue": "La question demande explicitement « sur quel point précis doit porter la comparaison des périodes pour mesurer les économies de chauffage », ce qui suggère un critère technique directement lié à la pertinence de la comparaison temporelle elle-même. Parmi les choix, seul « des périodes ayant des températures comparables » répond précisément à cette exigence méthodologique courante en énergie (neutraliser l’effet météo). Les autres portent sur le choix d’autres logements, la stabilité de prix (facteur économique, pas physique) ou une moyenne nationale, qui ne sont pas une caractéristique intrinsèque des périodes à comparer."
+              "cue": "La réponse 3 reprend la formulation générale et standard de « réduction théorique » comme économie calculée à partir du projet avant mesures réelles, sans introduire de restriction spécifique (comportement des habitants, seuls matériaux d’isolation, ou écart entre théorie et réalité). Elle est plus large, plus neutre et correspond mieux à une définition générique dans un document technique."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.6,
-            0.1,
             0.15,
-            0.15
+            0.2,
+            0.15,
+            0.5
           ],
-          "guess": 0,
-          "reason": "La formulation insiste sur le « point précis » de comparaison des périodes pour mesurer des économies de chauffage. En analyse énergétique, la recommandation standard est de comparer des périodes aux conditions climatiques similaires pour isoler l’effet des travaux. L’option 0 correspond exactement à ce principe, tandis que les autres s’écartent de l’idée de caractéristique temporelle indispensable, d’où une probabilité nettement plus élevée pour 0 malgré l’absence du document audio."
+          "guess": 3,
+          "reason": "L’expression « réduction théorique » désigne habituellement une économie calculée par modélisation avant toute mesure sur site. L’option 3 correspond exactement à cette idée sans la restreindre à un facteur particulier, d’où une probabilité nettement plus élevée malgré la plausibilité des autres choix."
         },
         "usage": {
-          "prompt_tokens": 622,
-          "completion_tokens": 624,
-          "total_tokens": 1246,
+          "prompt_tokens": 641,
+          "completion_tokens": 752,
+          "total_tokens": 1393,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 59,
+            "reasoning_tokens": 177,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0070175,
-        "inputHash": "d3d8d1df48f4b6f9512f5f05e24b8851d2500c7ca15078f3edc6f0e6b7ee38d6",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:initial:screen:6:0"
+        "costUsd": 0.00832125,
+        "inputHash": "0ce89da593f98e8a077af3f855e5cdf715b14115035ac56b93dd562d84780661",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:14721af7be4c27b55696caf7:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "La formulation insiste sur le « point précis » de comparaison des périodes pour mesurer des économies de chauffage. En analyse énergétique, la recommandation standard est de comparer des périodes aux conditions climatiques similaires pour isoler l’effet des travaux. L’option 0 correspond exactement à ce principe, tandis que les autres s’écartent de l’idée de caractéristique temporelle indispensable, d’où une probabilité nettement plus élevée pour 0 malgré l’absence du document audio.",
+    "reason": "L’expression « réduction théorique » désigne habituellement une économie calculée par modélisation avant toute mesure sur site. L’option 3 correspond exactement à cette idée sans la restreindre à un facteur particulier, d’où une probabilité nettement plus élevée malgré la plausibilité des autres choix.",
     "cues": [
       {
-        "option": 0,
+        "option": 3,
         "severity": "clear",
-        "cue": "La question demande explicitement « sur quel point précis doit porter la comparaison des périodes pour mesurer les économies de chauffage », ce qui suggère un critère technique directement lié à la pertinence de la comparaison temporelle elle-même. Parmi les choix, seul « des périodes ayant des températures comparables » répond précisément à cette exigence méthodologique courante en énergie (neutraliser l’effet météo). Les autres portent sur le choix d’autres logements, la stabilité de prix (facteur économique, pas physique) ou une moyenne nationale, qui ne sont pas une caractéristique intrinsèque des périodes à comparer."
+        "cue": "La réponse 3 reprend la formulation générale et standard de « réduction théorique » comme économie calculée à partir du projet avant mesures réelles, sans introduire de restriction spécifique (comportement des habitants, seuls matériaux d’isolation, ou écart entre théorie et réalité). Elle est plus large, plus neutre et correspond mieux à une définition générique dans un document technique."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Un conseiller en rénovation énergétique explique dans un enregistrement comment vérifier les économies de chauffage après des travaux d’isolation : il précise qu’il faut comparer la consommation avant/après sur des périodes où les conditions météo, notamment les températures extérieures, sont comparables afin que la comparaison soit pertinente."
+        "context": "Un ingénieur présente plusieurs types d’économies possibles après rénovation énergétique : les économies « théoriques » issues de modèles techniques, les économies « comportementales » issues de scénarios de changement d’habitudes des habitants, etc. Dans ce cadre, il définit « réduction théorique » comme une économie de consommation évaluée à partir de scénarios de changement de comportement des habitants, en distinguant ces scénarios des mesures réelles qui seront faites plus tard."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une émission radio sur la performance énergétique, un expert évoque une méthode simplifiée (mais discutable) où l’on compare sa consommation de chauffage après travaux avec celle de logements voisins de la même rue, considérés comme exposés à des conditions similaires, pour estimer les économies réalisées."
+        "context": "Lors d’une réunion de chantier sur l’isolation d’un immeuble, le thermicien explique que la « réduction théorique » correspond ici à l’économie d’énergie calculée en appliquant directement les performances annoncées par les fabricants de matériaux d’isolation, sans tenir compte des aléas de pose ni des comportements des occupants."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Un documentaliste en énergie explique que pour calculer des économies en euros, il est préférable de comparer des périodes où le prix de l’énergie n’a pas trop varié, afin d’éviter de confondre baisse de consommation et hausse/baisse des tarifs, et que la comparaison des périodes doit porter sur une stabilité relative du prix."
+        "context": "Une équipe de suivi de travaux commente un rapport de performance énergétique : le document présente la consommation attendue après travaux, puis la consommation réellement relevée sur un an. L’ingénieur utilise, de façon propre à ce rapport, le terme « réduction théorique » pour désigner l’écart entre la consommation modélisée (attendue) et celle mesurée sur le terrain, afin d’analyser les dérives."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans une capsule pédagogique un organisme public explique, de façon très générale, que certains ménages comparent leur consommation de chauffage avant/après travaux à la consommation moyenne nationale, pour situer leurs économies, et précise que cette comparaison de périodes se fait par rapport aux niveaux moyens observés au niveau national."
+        "context": "Dans une présentation de diagnostic énergétique, le bureau d’études explique que le document distingue la « réduction théorique », calculée sur plan à partir du projet (avant toute mesure réelle), et la « réduction constatée », basée sur les relevés de consommation après travaux. L’expression « réduction théorique » désigne donc l’économie de consommation attendue sur la seule base du projet, avant toute mesure sur le terrain."
       }
     ]
   }
