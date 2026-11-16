@@ -49,7 +49,7 @@ export function applyAlternatives(original,result,target,seed) {
  if(hash(q.segments)!==hash(original.segments))q.audioSeconds=null;
  return q;
 }
-function receiptValid(receipt,stage,input) {
+export function receiptValid(receipt,stage,input) {
  if(receipt?.stage!==stage||receipt.policy!==POLICY_VERSION||typeof receipt.model!=='string'||!receipt.responseId?.startsWith('chatcmpl-')||receipt.inputHash!==hash(input))throw Error('Missing/stale real-model receipt');
  if(receipt.model!==MODELS[stage]&&!receipt.model.startsWith(MODELS[stage]+'-20'))throw Error('Unexpected independent evaluator model');
  if(receipt.policyHash!==policyHash)throw Error('Evaluation prompts/model changed; old receipt cannot approve new content');

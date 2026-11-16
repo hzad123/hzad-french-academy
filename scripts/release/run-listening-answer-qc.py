@@ -9,7 +9,9 @@ ROOT=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location('management',Path(__file__).with_name('tcf-marking.py'))
 api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--bundle',type=Path,required=True);args,forwarded=parser.parse_known_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--bundle',type=Path,required=True)
+ parser.add_argument('--script',choices=['scripts/run-listening-answer-qc.mjs','scripts/prepare-listening-01-06-live-review.mjs'],default='scripts/run-listening-answer-qc.mjs')
+ args,forwarded=parser.parse_known_args()
  access_token=os.environ.get('SUPABASE_ACCESS_TOKEN','').strip()
  if not access_token:raise RuntimeError('Trusted Actions credential not configured')
  authoring_token=hmac.new(access_token.encode(),b'hzad-listening-authoring-only-v1',hashlib.sha256).hexdigest()
@@ -44,7 +46,7 @@ def main():
   except Exception:reason='AUTH_GATEWAY'
   raise RuntimeError('Private evaluator preflight failed: HTTP'+str(error.code)+' '+str(reason)[:60]+'. No model request made.')
  print('Private evaluator authentication/provider preflight passed; no paid health call.',flush=True)
- result=subprocess.run(['node','scripts/run-listening-answer-qc.mjs',*forwarded],cwd=ROOT,env=env)
+ result=subprocess.run(['node',args.script,*forwarded],cwd=ROOT,env=env)
  raise SystemExit(result.returncode)
 if __name__=='__main__':
  try:main()
