@@ -64,7 +64,8 @@ async function processQuestion([p,index]){
  try{
   let starting=saved?.policyHash===policyHash?saved.question:null;
   const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
-  if(!starting&&designSeed){
+  const designSeedHash=designSeed?hash(designSeed.authored):null;
+  if(designSeed&&(!starting||!saved?.pass&&saved?.designSeedHash!==designSeedHash)){
    if(!contrastPlan(original,designSeed.authored).pass)throw Error('Design example lacks faithful anchors');
    starting=rewrite(original,designSeed.authored,positions[p][index],`${seed}:human-design:${p}:${index}`);
   }
@@ -77,7 +78,7 @@ async function processQuestion([p,index]){
   }
   const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,imageData:image?.data,maxAttempts:6,
    onAttempt:r=>saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`attempt-${original.number}.json`),r)});
-  result.imageHash=image?.hash??null;await saveJson(file,result);evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
+  result.imageHash=image?.hash??null;result.designSeedHash=designSeedHash;await saveJson(file,result);evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
   console.log(`Test${p+1} Q${index+1}: ${result.pass?'STRICT PASS':'BLOCKED'} (${result.rounds??0} rewrites)`);
  }catch(error){errors.push({test:p+1,number:index+1,error:error.message});evidence[p].questions[index]={pass:false,blocked:true,error:error.message};console.log(`Test${p+1} Q${index+1}: ERROR ${error.message}`);}
 }

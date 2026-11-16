@@ -119,8 +119,10 @@ available manually, including the withdrawn07–20 papers outside this release.
 
 ## Validation record
 
-298 repository tests and the production build passed after the generation and
+300 repository tests and the production build passed after the generation and
 validation changes. Fresh content evaluation is pending; this document does
 not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
 calling the issue resolved.
+
+Drafting now uses exact-schema responses, independently verified exemplars, and a single source-based answer axis. Drafting remains separate from all acceptance reviewers. The task ledger retains all earlier calls and reserved failed-call costs; its overall offline authoring ceiling is USD45. Student budgets and credits are unchanged.

@@ -12,12 +12,12 @@ export function authorInput(q,{imageData,feedback}={}){
  // built afresh from the recording, rather than cosmetically rephrased.
  const eligible=verifiedExamples.filter(e=>e.stimulus!==stimulus(q));
  const examples=q.number>=9?permutation(eligible.length,hash(stimulus(q))).slice(0,2).map(i=>{
-  const {stimulus,question,choices,correctIndex,keyEvidence,wrongInterpretations}=eligible[i];
-  return {stimulus,question,choices,correctIndex,keyEvidence,wrongInterpretations};
+  const {stimulus,answer}=eligible[i];return {stimulus,answer};
  }):[];
  return {question:q.number>=9?'Question d’interprétation à construire à partir du document.':q.question,
   choices:q.number>=9?[...letters].map(l=>'Proposition '+l+' à construire.'):spokenChoices(q),stimulus:stimulus(q),mode:mode(q),
   feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback,
+   answerAxis:'Choose one precise answer axis from this source (a role, expense, recipient, trigger, scale, or type of action). Give four ordinary close values of that SAME axis, with comparable human/practical salience. Not every wrong value has to be literally spoken; it must be a realistic misunderstanding of the recorded distinction. Avoid a uniquely cautious policy against three dogmatic policies. Narrowing the focus is preferable to inventing administrative reasons to make foils wrong.',
    verifiedExamples:examples,exampleUse:'Independently screened examples of competitive design. Learn the distinction between four equally credible interpretations; keep the current source, invent no example topic, and vary focus and syntax.'},...(imageData?{imageData}:{})};
 }
 export function contrastPlan(q,authored){

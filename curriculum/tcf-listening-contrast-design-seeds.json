@@ -136,5 +136,557 @@
         }
       ]
     }
+  },
+  {
+    "test": 1,
+    "number": 38,
+    "sourceHash": "5aff43c5223ead7a08052e7917ae38c7b95ddb4d8ab4a9b17a312a5875701cae",
+    "authored": {
+      "question": "Quel risque est attribué à la proposition envisagée ?",
+      "choices": [
+        "Une fréquentation accrue d’espaces qui restent fragiles.",
+        "Une concentration des visiteurs sur les lieux déjà les plus connus.",
+        "Une multiplication des visites aux périodes déjà les plus chargées.",
+        "Un accès plus difficile pour les habitants aux lieux les plus fréquentés."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "time_swap",
+          "anchors": [
+            "déplacer la pression vers des espaces encore fragiles",
+            "une file se forme pour reproduire exactement cette photographie"
+          ],
+          "reason": "Confond la file actuelle devant le point de vue connu avec le risque futur attribué à la diffusion d’autres images."
+        },
+        {
+          "index": 2,
+          "operation": "condition_transfer",
+          "anchors": [
+            "déplacer la pression vers des espaces encore fragiles",
+            "à quelles périodes"
+          ],
+          "reason": "Transfère au changement d’images la question des périodes, qui relève de la concertation et non du risque annoncé."
+        },
+        {
+          "index": 3,
+          "operation": "role_swap",
+          "anchors": [
+            "déplacer la pression vers des espaces encore fragiles",
+            "avec quels accès et quelles limites"
+          ],
+          "reason": "Attribue aux habitants une perte d’accès hypothétique ; le déplacement de la pression touristique, et non cette restriction, est le risque cité."
+        }
+      ]
+    }
+  },
+  {
+    "test": 1,
+    "number": 39,
+    "sourceHash": "ddbf6f669797d6c55461b548bd0d4644000de4fd19b77b98cc73367f67a81fe5",
+    "authored": {
+      "question": "Quelle activité pourrait donner lieu à une rémunération ?",
+      "choices": [
+        "Une partie de l’accueil du public.",
+        "La répartition des responsabilités dans l’équipe.",
+        "La recherche de plusieurs soutiens au projet.",
+        "L’écoute des visiteurs et des participants."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "rémunérer une partie de l'accueil",
+            "partager les responsabilités"
+          ],
+          "reason": "Confond le partage des responsabilités, cité séparément, avec la partie de l’accueil qui pourrait être rémunérée."
+        },
+        {
+          "index": 2,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "rémunérer une partie de l'accueil",
+            "envisager plusieurs soutiens"
+          ],
+          "reason": "Attribue une rémunération à la recherche des soutiens ; celle-ci est une autre préparation et non la prestation explicitement visée."
+        },
+        {
+          "index": 3,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "rémunérer une partie de l'accueil",
+            "écouter les visiteurs et ceux qui font fonctionner le service"
+          ],
+          "reason": "Transforme la consultation souhaitée en activité rémunérée, en mélangeant deux propositions bien distinctes du document."
+        }
+      ]
+    }
+  },
+  {
+    "test": 2,
+    "number": 30,
+    "sourceHash": "57edd438bfa091d479a996de94048c81a4346879482726af36eaf054d75d5b7a",
+    "authored": {
+      "question": "Qu’est-il prévu de documenter ?",
+      "choices": [
+        "Les transformations apportées au bâtiment.",
+        "Le fonctionnement de l’ancienne gare de marchandises.",
+        "L’histoire de ses différents usages dans la ville.",
+        "L’état de ses éléments architecturaux avant les travaux."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "documenter les transformations",
+            "les anciennes activités"
+          ],
+          "reason": "Confond ce que racontent les traces des activités passées avec l’objet précis de la documentation annoncée, à savoir les transformations."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "documenter les transformations",
+            "une nouvelle place dans la ville"
+          ],
+          "reason": "Transfère à la documentation l’idée de la nouvelle place du lieu dans la ville, qui est attribuée à sa fréquentation."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "documenter les transformations",
+            "Les grandes portes, la charpente et les traces laissées"
+          ],
+          "reason": "Confond la conservation d’éléments existants avec une reconstitution documentaire de leur état avant les travaux, non annoncée."
+        }
+      ]
+    }
+  },
+  {
+    "test": 2,
+    "number": 38,
+    "sourceHash": "a90f067ea8ac812559cac04bfe5d5312bf42c4d2112f51175cb434ed782ee9ff",
+    "authored": {
+      "question": "Quel usage de certains logements est évoqué ?",
+      "choices": [
+        "La location pour des séjours temporaires.",
+        "L’occupation comme résidences secondaires.",
+        "L’hébergement des personnes employées sur place.",
+        "L’accueil de groupes dans des résidences collectives."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "certains logements se convertissent en locations temporaires",
+            "la vie locale"
+          ],
+          "reason": "Confond l’usage locatif temporaire explicitement cité avec une résidence secondaire occupée par ses propriétaires, autre phénomène plausible mais non décrit."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "certains logements se convertissent en locations temporaires",
+            "les habitants perdent des commerces nécessaires au quotidien"
+          ],
+          "reason": "Remplace les visiteurs de passage par les personnes qui travaillent sur place, en rapprochant à tort logements et commerces évoqués."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "certains logements se convertissent en locations temporaires",
+            "des milliers de visites"
+          ],
+          "reason": "Déduit de l’affluence des hébergements collectifs ; le document cite une conversion en locations temporaires sans cette forme d’accueil."
+        }
+      ]
+    }
+  },
+  {
+    "test": 2,
+    "number": 39,
+    "sourceHash": "50c65f401af23dfd52f993a0ec292a80d9f7ddbff6b15820bda0810641c843ff",
+    "authored": {
+      "question": "Quelle dépense nouvelle est envisagée ?",
+      "choices": [
+        "La rémunération de certaines tâches.",
+        "Le versement d’un loyer pour le local.",
+        "Le remboursement de frais engagés par les bénévoles.",
+        "L’achat des fournitures nécessaires au fonctionnement."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "condition_transfer",
+          "anchors": [
+            "peut-être rémunérer certaines tâches",
+            "La salle était mise gratuitement à disposition"
+          ],
+          "reason": "Transforme la gratuité du local pendant l’essai en proposition de loyer ; la nouvelle dépense expressément envisagée concerne des tâches rémunérées."
+        },
+        {
+          "index": 2,
+          "operation": "time_swap",
+          "anchors": [
+            "peut-être rémunérer certaines tâches",
+            "les bénévoles ont fourni un effort exceptionnel"
+          ],
+          "reason": "Confond la rémunération envisagée pour le fonctionnement futur avec un remboursement aux bénévoles pour la phase d’essai."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "peut-être rémunérer certaines tâches",
+            "préciser les dépenses"
+          ],
+          "reason": "Prend la clarification générale des dépenses pour une proposition d’achat de fournitures, alors que la dépense expressément ajoutée concerne la rémunération."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 30,
+    "sourceHash": "5620478f66c70fedb04b7fb011ebd78a7fb984e51422b8ec32d1aafbc85ebf28",
+    "authored": {
+      "question": "Quelle adaptation des visites est citée ?",
+      "choices": [
+        "Employer des exemples différents pour éclairer un concept.",
+        "Adapter la durée des étapes aux demandes des familles.",
+        "Confier les différentes étapes à des médiateurs spécialisés.",
+        "Prévoir des échanges entre les visiteurs de plusieurs langues."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "condition_transfer",
+          "anchors": [
+            "des exemples différents",
+            "consulté des familles"
+          ],
+          "reason": "Confond la consultation des familles avec une adaptation de la durée des étapes, qui n’est pas annoncée parmi les ajustements."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "des exemples différents",
+            "des médiateurs de plusieurs langues"
+          ],
+          "reason": "Transforme la collaboration de médiateurs lors de la conception en répartition des étapes d’une visite entre spécialistes."
+        },
+        {
+          "index": 3,
+          "operation": "role_swap",
+          "anchors": [
+            "des exemples différents",
+            "pour des publics divers"
+          ],
+          "reason": "Attribue aux visiteurs un échange entre langues, alors que la diversité linguistique concerne le travail des médiateurs et l’adaptation du même patrimoine."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 38,
+    "sourceHash": "6242b57dd87ced366e25e843649866c9fad60d9201ef3f9d7c95530640679601",
+    "authored": {
+      "question": "Quelle difficulté de fonctionnement est décrite ?",
+      "choices": [
+        "Moins de temps peut être consacré à chaque élève.",
+        "Les contenus proposés aux élèves deviennent moins variés.",
+        "Les changements de tuteur sont plus fréquents pour les élèves.",
+        "Les séances se concentrent sur des objectifs moins exigeants."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "les bénévoles disposent de moins de temps pour chaque élève",
+            "mesurer les progrès réels"
+          ],
+          "reason": "Confond la nécessité de mesurer les progrès avec un appauvrissement des contenus ; le mécanisme décrit concerne le temps disponible pour chacun."
+        },
+        {
+          "index": 2,
+          "operation": "causal_reversal",
+          "anchors": [
+            "les bénévoles disposent de moins de temps pour chaque élève",
+            "préparer davantage de tuteurs"
+          ],
+          "reason": "Transforme le besoin de préparer plus de tuteurs en augmentation des changements de tuteur, phénomène plausible mais non décrit."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "les bénévoles disposent de moins de temps pour chaque élève",
+            "amélioration de l'apprentissage"
+          ],
+          "reason": "Confond l’absence de preuve d’amélioration de l’apprentissage avec une baisse annoncée du niveau des objectifs pédagogiques."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 39,
+    "sourceHash": "f96e1bfd2d23cb29ea1cf739cad95f3bcd1a42b13750540af02ec8c2d877f55d",
+    "authored": {
+      "question": "Dans quel cas le suivi d’un élève est-il expressément évoqué ?",
+      "choices": [
+        "L’accompagnateur bénévole se retire.",
+        "L’élève change d’établissement scolaire.",
+        "La famille de l’élève déménage dans une autre ville.",
+        "Un tuteur achève sa formation et rejoint le réseau."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "assurer le suivi des élèves lorsqu'un bénévole se retire",
+            "coordination régulière avec les écoles"
+          ],
+          "reason": "Confond la coordination avec les écoles avec un changement d’établissement de l’élève, qui n’est pas le cas cité pour le suivi."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "assurer le suivi des élèves lorsqu'un bénévole se retire",
+            "quittent la ville"
+          ],
+          "reason": "Attribue à la famille de l’élève le départ de la ville, alors que ce départ concerne certains étudiants bénévoles."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "assurer le suivi des élèves lorsqu'un bénévole se retire",
+            "former de nouveaux tuteurs"
+          ],
+          "reason": "Inverse le moment du relais : le suivi est explicitement associé au retrait d’un bénévole, non à l’arrivée d’un nouveau tuteur formé."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 30,
+    "sourceHash": "5ea66c97a48f3cd0eda33daea4c87c186c29fd45abea2db53516fed3f22aa838",
+    "authored": {
+      "question": "Quels éléments sont cités pour la conservation ?",
+      "choices": [
+        "La charpente et des traces de machines.",
+        "Les murs en briques et les enseignes de l’usine.",
+        "Les anciennes voies de transport et les espaces de stockage.",
+        "La cheminée du site et les outils de fabrication."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "La grande charpente et certaines traces de machines méritent d'être conservées",
+            "L'ancienne usine de briques"
+          ],
+          "reason": "Remplace les éléments nommés par d’autres signes habituels du patrimoine industriel, en prenant le type d’usine pour un inventaire des éléments à garder."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "La grande charpente et certaines traces de machines méritent d'être conservées",
+            "comprendre son ancien usage"
+          ],
+          "reason": "Déduit de la volonté de faire comprendre l’ancien usage une conservation des voies et du stockage, alors que ces éléments ne sont pas ceux cités."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "La grande charpente et certaines traces de machines méritent d'être conservées",
+            "certaines traces de machines"
+          ],
+          "reason": "Confond les traces de machines explicitement mentionnées avec la conservation d’une cheminée et des outils, autres objets industriels plausibles mais non nommés."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 39,
+    "sourceHash": "10c0eb7264aff2ceec8ff98e50b0b13efb42fb7b6806c392a0905b97c1c22dd9",
+    "authored": {
+      "question": "Quel apport financier est mentionné ?",
+      "choices": [
+        "Des subventions accordées au lancement du projet.",
+        "Des participations régulières versées par les membres.",
+        "Un emprunt consacré aux grosses réparations.",
+        "Des recettes liées à la location des logements."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "subventions de lancement qui ne se répéteront pas nécessairement",
+            "former de nouveaux membres aux décisions collectives"
+          ],
+          "reason": "Transfère aux membres une participation financière régulière, alors que leur participation évoquée concerne les décisions collectives."
+        },
+        {
+          "index": 2,
+          "operation": "proposal_attribution",
+          "anchors": [
+            "subventions de lancement qui ne se répéteront pas nécessairement",
+            "financer les grosses réparations"
+          ],
+          "reason": "Transforme le besoin de financer des réparations en emprunt déjà obtenu ; le financement effectivement mentionné est celui des subventions de lancement."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "subventions de lancement qui ne se répéteront pas nécessairement",
+            "les logements existants restent abordables"
+          ],
+          "reason": "Déduit de logements abordables une recette locative comme apport cité ; l’accessibilité est une condition à préserver et non le financement nommé."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 30,
+    "sourceHash": "02406e557dfc33578d6bcce3cfa33529fa3834054fab34dace8496c28a07a602",
+    "authored": {
+      "question": "Quel élément est présenté comme devant être documenté ?",
+      "choices": [
+        "Les méthodes employées autrefois.",
+        "Les variantes proposées aujourd’hui par les familles.",
+        "L’évolution de la disponibilité des ingrédients.",
+        "Les préférences des cuisiniers et de leurs clients."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "time_swap",
+          "anchors": [
+            "documenter les méthodes anciennes",
+            "les familles adaptent leurs gestes"
+          ],
+          "reason": "Confond la capacité des familles à adapter leurs gestes avec l’objet de la documentation, qui porte sur les méthodes anciennes."
+        },
+        {
+          "index": 2,
+          "operation": "causal_reversal",
+          "anchors": [
+            "documenter les méthodes anciennes",
+            "Les ingrédients disponibles changent"
+          ],
+          "reason": "Transforme une cause de l’évolution des recettes en objet annoncé de documentation ; ce travail concerne les méthodes anciennes."
+        },
+        {
+          "index": 3,
+          "operation": "scope_shift",
+          "anchors": [
+            "documenter les méthodes anciennes",
+            "aux goûts et aux contraintes actuels"
+          ],
+          "reason": "Confond les goûts actuels auxquels les cuisiniers peuvent répondre avec ce que l’intervenant demande de documenter."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 38,
+    "sourceHash": "e050dfda3eea41770d47a7b8ea55d61fd7bc53b70db38e35b996644242eb0b45",
+    "authored": {
+      "question": "À quelles exigences les producteurs risquent-ils de s’adapter ?",
+      "choices": [
+        "Aux quantités et aux présentations souhaitées par les touristes.",
+        "Aux produits et aux prix auxquels les touristes veulent accéder.",
+        "Aux volumes et aux présentations privilégiés par leurs clients réguliers.",
+        "Aux produits et aux prix recherchés par la clientèle habituelle."
+      ],
+      "correctIndex": 0,
+      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
+      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "des volumes et des présentations adaptés aux visiteurs",
+            "l'accès aux produits et aux prix"
+          ],
+          "reason": "Attribue aux touristes le couple produits-prix, qui est évoqué à propos de l’accès perdu par les habitants, plutôt que les volumes et présentations."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "des volumes et des présentations adaptés aux visiteurs",
+            "leurs clients habituels"
+          ],
+          "reason": "Conserve les bons critères mais les attribue aux clients habituels ; la pression décrite pousse à privilégier les visiteurs."
+        },
+        {
+          "index": 3,
+          "operation": "role_swap",
+          "anchors": [
+            "des volumes et des présentations adaptés aux visiteurs",
+            "les habitants risquent de perdre"
+          ],
+          "reason": "Combine les critères et les acteurs liés à la perte d’accès locale avec la pression nouvelle exercée sur les producteurs par les visiteurs."
+        }
+      ]
+    }
   }
 ]

@@ -88,7 +88,7 @@ export function attackStatistics(papers,proofs=[]) {
   for(const {q,choices,key} of rows) {
    let values;
    if(attack==='longest'||attack==='shortest')values=choices.map(t=>t.length*(attack==='shortest'?-1:1));
-   else if(attack==='mostQualified')values=choices.map(t=>(t.match(/\b(?:mais|sans|tout en|selon|afin|avant|si|plutôt|tenant compte|à condition)\b/gi)||[]).length);
+   else if(attack==='mostQualified')values=choices.map(t=>(t.match(/(?<![\p{L}])(?:mais|sans|tout en|selon|afin|avant|si|plutôt|tenant compte|à condition)(?![\p{L}])/giu)||[]).length);
    else {const words=new Set(q.question.toLowerCase().match(/[\p{L}]{4,}/gu)||[]);values=choices.map(t=>(t.toLowerCase().match(/[\p{L}]{4,}/gu)||[]).filter(w=>words.has(w)).length);}
    const max=Math.max(...values),ties=values.filter(v=>v===max).length;
    if(values[key]===max)hits+=1/ties;
