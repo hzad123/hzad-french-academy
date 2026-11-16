@@ -34,7 +34,7 @@
     "audioSeconds": null,
     "slotSeconds": 86
   },
-  "rounds": 6,
+  "rounds": 0,
   "pass": false,
   "blind": [
     {
@@ -49,98 +49,128 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkxBwLUKOjDlYuZLANmR5xjAzS353",
+        "responseId": "chatcmpl-EkxPUv0FqC8VCp8mCZYs1SqnS2gd0",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un reportage sur une épicerie solidaire en phase de test, l’intervenant explique que pour l’instant l’expérience fonctionne bien, en partie parce qu’un propriétaire leur prête gratuitement un local, tout en ajoutant que ce coup de pouce n’est pas garanti à long terme et qu’il faudra trouver une solution pérenne. La référence au local prêté sert alors à montrer que la réussite actuelle repose aussi sur des avantages temporaires non assurés dans la durée."
+              "context": "Dans un reportage sur une épicerie solidaire, la responsable explique que le projet fonctionne bien pour l’instant, mais qu’il bénéficie d’un local prêté gratuitement par la mairie pour un an seulement. Elle précise que cet avantage est temporaire et qu’il faudra ensuite trouver un lieu payant, ce qui montre que la réussite actuelle repose aussi sur une condition fragile et non garantie dans le temps."
             },
             {
               "index": 1,
-              "credible": true,
-              "context": "Dans une émission qui présente un projet associatif déjà bien installé, la responsable explique que la mairie et les habitants ont décidé de s’engager durablement en mettant à disposition, de façon reconduite d’année en année, un local prêté à l’association. Elle insiste sur le fait que ce prêt est devenu une sorte de mise à disposition permanente et symbolise le soutien continu du quartier au projet."
+              "credible": false,
+              "context": "Le terme « local prêté » implique normalement un caractère temporaire ou au moins révocable. Pour que cette option réponde directement à la question, il faudrait que l’extrait parle d’une mise à disposition permanente et contractuellement garantie, ce qui contredit l’idée même de « prêt ». Sans inventer une signification inhabituelle du mot, on ne dispose pas d’un contexte ordinaire où la simple référence à un local prêté servirait à prouver un soutien durable et permanent."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une interview sur les difficultés d’organisation d’un café associatif, le responsable précise que le local prêté est très petit, ce qui les oblige à limiter le nombre de personnes accueillies et à adapter les horaires d’ouverture pour éviter les nuisances. La mention du local prêté sert alors surtout à souligner que la taille du lieu, et non le statut juridique du prêt, restreint beaucoup les horaires envisageables."
+              "context": "Dans une interview sur l’organisation d’un café associatif hébergé dans un local prêté, le président mentionne que le lieu est très petit et qu’il faut partager le local avec une autre association. Il explique que, à cause de cette configuration et de la taille réduite du local prêté, ils ne peuvent ouvrir que sur quelques créneaux, ce qui sert à souligner que la dimension du lieu limite déjà fortement les horaires d’ouverture envisageables."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un bilan d’étape d’un projet culturel, l’animatrice explique que le local dans lequel ils travaillent est prêté gratuitement, ce qui réduit pour l’instant la pression financière. Elle ajoute qu’ils ont donc choisi de concentrer leurs efforts sur le recrutement de bénévoles plutôt que sur la recherche de financements supplémentaires, la référence au local prêté servant à justifier cette priorité stratégique."
+              "context": "Dans une émission de radio consacrée à une association naissante, la présidente raconte qu’on leur prête un local, ce qui allège leurs dépenses fixes. Elle enchaîne en disant que, du coup, le problème le plus urgent n’est pas l’argent mais le manque de bras pour assurer les permanences. La référence au local prêté sert alors à justifier qu’ils donnent la priorité au recrutement de bénévoles plutôt qu’au montage financier."
             }
           ],
           "cues": [
             {
               "option": 0,
               "severity": "clear",
-              "cue": "Le mot « prêté » suggère explicitement un caractère provisoire ou non garanti du local, ce qui correspond directement à l’idée « d’avantages temporaires qui ne sont pas assurés dans la durée ». Les autres propositions ajoutent des éléments non contenus dans la seule notion de « local prêté » : la permanence et le soutien durable (réponse 1) contredisent l’idée de prêt comme situation précaire, la taille du lieu (réponse 2) n’est pas suggérée par « prêté », et la hiérarchisation entre bénévoles et montage financier (réponse 3) dépasse ce que le seul statut de local prêté permet d’inférer. Sur le plan rédactionnel, l’option 0 est aussi la plus directement reliée au champ lexical de la précarité implicite du prêt."
+              "cue": "L’expression « local prêté » suggère explicitement un avantage par nature temporaire ou incertain, ce qui s’accorde directement avec l’idée « d’avantages temporaires qui ne sont pas assurés dans la durée » formulée par l’option 0."
+            },
+            {
+              "option": 1,
+              "severity": "clear",
+              "cue": "L’option 1 parle de « mise à disposition permanente », en tension nette avec la notion de « local prêté » qui n’implique ni permanence ni garantie durable. Ce décalage lexical affaiblit fortement cette réponse."
+            },
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "L’option 2 introduit un détail très spécifique (« limite déjà fortement les horaires d’ouverture envisageables ») qui n’est pas suggéré par la simple mention d’un local prêté ; rien dans l’énoncé ne pointe vers la taille ou les horaires."
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "L’option 3 reste possible mais rajoute une hiérarchisation précise des priorités (bénévoles vs montage financier) qui n’est pas directement annoncée par la seule référence au local prêté, alors que l’option 0 reste strictement dans le champ durée/temporarité déjà porté par « prêté »."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.65,
+            0.6,
+            0.05,
             0.15,
-            0.1,
-            0.1
+            0.2
           ],
           "guess": 0,
-          "reason": "Le terme « prêté » porte normalement une nuance de non‑pérennité, ce qui donne un avantage net à la réponse 0, qui exploite précisément cette idée d’avantage temporaire non garanti. Les autres options supposent des éléments (permanence, taille, choix stratégiques internes) qui ne découlent pas naturellement du seul fait que le local est prêté, d’où une probabilité nettement plus élevée pour l’option 0 tout en gardant une part d’incertitude faute d’accès à l’extrait sonore."
+          "reason": "Le mot « prêté » renvoie naturellement à un avantage non garanti dans le temps, ce que reprend presque mot pour mot l’option 0, tandis que l’option 1 contredit cette idée en parlant de mise à disposition permanente, et les options 2 et 3 ajoutent des aspects (taille, priorités de gestion) non suggérés par l’énoncé."
         },
         "usage": {
           "prompt_tokens": 655,
-          "completion_tokens": 910,
-          "total_tokens": 1565,
+          "completion_tokens": 1080,
+          "total_tokens": 1735,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 171,
+            "reasoning_tokens": 266,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00991875,
+        "costUsd": 0.01161875,
         "inputHash": "6ff68499afd839d6b0ceb18c5e301987acce6c86d9c88854c7f7088db760e309",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:38:e751e4423565d5ae9d61421f:screen:6:0"
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:38:fd221dfbe9a7ff32b3be83aa:screen:0:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Le terme « prêté » porte normalement une nuance de non‑pérennité, ce qui donne un avantage net à la réponse 0, qui exploite précisément cette idée d’avantage temporaire non garanti. Les autres options supposent des éléments (permanence, taille, choix stratégiques internes) qui ne découlent pas naturellement du seul fait que le local est prêté, d’où une probabilité nettement plus élevée pour l’option 0 tout en gardant une part d’incertitude faute d’accès à l’extrait sonore.",
+    "reason": "Le mot « prêté » renvoie naturellement à un avantage non garanti dans le temps, ce que reprend presque mot pour mot l’option 0, tandis que l’option 1 contredit cette idée en parlant de mise à disposition permanente, et les options 2 et 3 ajoutent des aspects (taille, priorités de gestion) non suggérés par l’énoncé.",
     "cues": [
       {
         "option": 0,
         "severity": "clear",
-        "cue": "Le mot « prêté » suggère explicitement un caractère provisoire ou non garanti du local, ce qui correspond directement à l’idée « d’avantages temporaires qui ne sont pas assurés dans la durée ». Les autres propositions ajoutent des éléments non contenus dans la seule notion de « local prêté » : la permanence et le soutien durable (réponse 1) contredisent l’idée de prêt comme situation précaire, la taille du lieu (réponse 2) n’est pas suggérée par « prêté », et la hiérarchisation entre bénévoles et montage financier (réponse 3) dépasse ce que le seul statut de local prêté permet d’inférer. Sur le plan rédactionnel, l’option 0 est aussi la plus directement reliée au champ lexical de la précarité implicite du prêt."
+        "cue": "L’expression « local prêté » suggère explicitement un avantage par nature temporaire ou incertain, ce qui s’accorde directement avec l’idée « d’avantages temporaires qui ne sont pas assurés dans la durée » formulée par l’option 0."
+      },
+      {
+        "option": 1,
+        "severity": "clear",
+        "cue": "L’option 1 parle de « mise à disposition permanente », en tension nette avec la notion de « local prêté » qui n’implique ni permanence ni garantie durable. Ce décalage lexical affaiblit fortement cette réponse."
+      },
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "L’option 2 introduit un détail très spécifique (« limite déjà fortement les horaires d’ouverture envisageables ») qui n’est pas suggéré par la simple mention d’un local prêté ; rien dans l’énoncé ne pointe vers la taille ou les horaires."
+      },
+      {
+        "option": 3,
+        "severity": "weak",
+        "cue": "L’option 3 reste possible mais rajoute une hiérarchisation précise des priorités (bénévoles vs montage financier) qui n’est pas directement annoncée par la seule référence au local prêté, alors que l’option 0 reste strictement dans le champ durée/temporarité déjà porté par « prêté »."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un reportage sur une épicerie solidaire en phase de test, l’intervenant explique que pour l’instant l’expérience fonctionne bien, en partie parce qu’un propriétaire leur prête gratuitement un local, tout en ajoutant que ce coup de pouce n’est pas garanti à long terme et qu’il faudra trouver une solution pérenne. La référence au local prêté sert alors à montrer que la réussite actuelle repose aussi sur des avantages temporaires non assurés dans la durée."
+        "context": "Dans un reportage sur une épicerie solidaire, la responsable explique que le projet fonctionne bien pour l’instant, mais qu’il bénéficie d’un local prêté gratuitement par la mairie pour un an seulement. Elle précise que cet avantage est temporaire et qu’il faudra ensuite trouver un lieu payant, ce qui montre que la réussite actuelle repose aussi sur une condition fragile et non garantie dans le temps."
       },
       {
         "index": 1,
-        "credible": true,
-        "context": "Dans une émission qui présente un projet associatif déjà bien installé, la responsable explique que la mairie et les habitants ont décidé de s’engager durablement en mettant à disposition, de façon reconduite d’année en année, un local prêté à l’association. Elle insiste sur le fait que ce prêt est devenu une sorte de mise à disposition permanente et symbolise le soutien continu du quartier au projet."
+        "credible": false,
+        "context": "Le terme « local prêté » implique normalement un caractère temporaire ou au moins révocable. Pour que cette option réponde directement à la question, il faudrait que l’extrait parle d’une mise à disposition permanente et contractuellement garantie, ce qui contredit l’idée même de « prêt ». Sans inventer une signification inhabituelle du mot, on ne dispose pas d’un contexte ordinaire où la simple référence à un local prêté servirait à prouver un soutien durable et permanent."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans une interview sur les difficultés d’organisation d’un café associatif, le responsable précise que le local prêté est très petit, ce qui les oblige à limiter le nombre de personnes accueillies et à adapter les horaires d’ouverture pour éviter les nuisances. La mention du local prêté sert alors surtout à souligner que la taille du lieu, et non le statut juridique du prêt, restreint beaucoup les horaires envisageables."
+        "context": "Dans une interview sur l’organisation d’un café associatif hébergé dans un local prêté, le président mentionne que le lieu est très petit et qu’il faut partager le local avec une autre association. Il explique que, à cause de cette configuration et de la taille réduite du local prêté, ils ne peuvent ouvrir que sur quelques créneaux, ce qui sert à souligner que la dimension du lieu limite déjà fortement les horaires d’ouverture envisageables."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un bilan d’étape d’un projet culturel, l’animatrice explique que le local dans lequel ils travaillent est prêté gratuitement, ce qui réduit pour l’instant la pression financière. Elle ajoute qu’ils ont donc choisi de concentrer leurs efforts sur le recrutement de bénévoles plutôt que sur la recherche de financements supplémentaires, la référence au local prêté servant à justifier cette priorité stratégique."
+        "context": "Dans une émission de radio consacrée à une association naissante, la présidente raconte qu’on leur prête un local, ce qui allège leurs dépenses fixes. Elle enchaîne en disant que, du coup, le problème le plus urgent n’est pas l’argent mais le manque de bras pour assurer les permanences. La référence au local prêté sert alors à justifier qu’ils donnent la priorité au recrutement de bénévoles plutôt qu’au montage financier."
       }
     ]
   }

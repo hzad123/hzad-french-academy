@@ -14,8 +14,8 @@
     },
     {
       "test": "tcf-listening-03",
-      "accepted": 2,
-      "lateAccepted": 2
+      "accepted": 3,
+      "lateAccepted": 3
     },
     {
       "test": "tcf-listening-04",
@@ -35,9 +35,24 @@
   ],
   "errors": [
     {
+      "test": 1,
+      "number": 39,
+      "error": "Authoring gateway failed: HTTP 502 QC_AUTHOR_SCHEMA; no automatic paid retry"
+    },
+    {
       "test": 4,
       "number": 39,
+      "error": "Authoring gateway failed: HTTP 502 QC_AUTHOR_SCHEMA; no automatic paid retry"
+    },
+    {
+      "test": 6,
+      "number": 30,
       "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    },
+    {
+      "test": 5,
+      "number": 30,
+      "error": "Authoring gateway failed: HTTP 502 QC_AUTHOR_SCHEMA; no automatic paid retry"
     }
   ]
 }
