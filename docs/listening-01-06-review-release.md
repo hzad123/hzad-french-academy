@@ -40,3 +40,17 @@ Rollback and repeat-publication tests use the real listening engine in PGlite.
 Publication order: finish grounding, produce/verify media, run tests/build,
 merge and verify the live assets, then activate the exact six banks. New test
 starts use v4; historical attempts retain their original content and results.
+
+## Verified release payload
+
+Six v4 banks contain234 independently grounded questions, with39questions and
+2100seconds per paper. All234 complete recordings pass source/hash/duration
+checks:217were synthesized and17retain matching prior audio. The24retained
+images were checked against their new spoken choices. All291repository tests
+and the production build pass. The exact publication transaction also passed
+a production rehearsal under rollback, including preservation assertions.
+
+The full blind benchmark remains unpassed (229item warnings are retained).
+This publication follows the owner’s explicit review request, without changing
+the ordinary full-quality acceptance gate. Deployment and activation evidence
+are recorded in PR#51 after verification of the live files and registry.
