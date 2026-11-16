@@ -1,3 +1,5 @@
+// Historical publication path retired; immutable prior migrations stay intact.
+throw Error('Use new immutable candidates with independent blind/grounded evidence; historical publication SQL must not be regenerated.');
 import {readFile,writeFile} from 'node:fs/promises';
 for(const n of [4,5,6]){
  const label=String(n).padStart(2,'0');

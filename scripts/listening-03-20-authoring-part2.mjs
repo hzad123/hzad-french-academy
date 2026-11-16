@@ -1,3 +1,5 @@
+// Retired: historical template/keyword repair is not an accepted authoring path.
+throw Error('Retired listening generator: use scripts/run-listening-answer-qc.mjs and independent blind/grounded review before recording or publication.');
 import {mkdir,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 // Higher-level listening passages: interview, report, debate, academic
