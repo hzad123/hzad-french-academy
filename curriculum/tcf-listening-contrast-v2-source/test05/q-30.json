@@ -2,16 +2,16 @@
   "question": {
     "number": 30,
     "kind": "interview",
-    "question": "Que soutient l’architecte à propos de la survie du bâtiment ?",
+    "question": "Selon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?",
     "options": [
-      "Que la meilleure façon d’assurer sa survie est d’y installer des logements confortables, accessibles et peu énergivores, même si cela conduit à effacer une partie des éléments liés à son ancien usage.",
-      "Que, si l’on veut vraiment garantir sa survie, il vaut mieux le garder vide et intact plutôt que de le transformer en logements qui en brouilleraient la lecture.",
-      "Que la survie du bâtiment dépend avant tout du maintien de la grande charpente et des traces de machines, la manière dont on documente les transformations n’étant qu’un complément secondaire.",
-      "Que pour assurer sa survie comme patrimoine, l’essentiel est de documenter les transformations et de conserver des éléments lisibles de son passé plutôt que de compter sur le fait de le laisser vide."
+      "Quand on ne touche plus à la grande charpente ni aux traces de machines, quitte à limiter le confort des futurs logements.",
+      "Quand on laisse le bâtiment vide, car c’est ainsi que sa survie est le mieux assurée.",
+      "Quand on privilégie surtout des logements confortables, accessibles et peu énergivores, même si les éléments de l’ancien usage disparaissent.",
+      "Quand l’histoire du lieu reste lisible grâce à la conservation de certains éléments et à la documentation des transformations."
     ],
     "correct": "D",
-    "explanation": "L’architecte affirme que « le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage » et précise que « garder le bâtiment vide ne garantit pas sa survie ». Il fait donc de la lisibilité de l’histoire (documentation + éléments conservés) la condition centrale de sa survie comme patrimoine, et non le simple fait de le laisser vide, ni la seule présence de logements ou de la charpente.",
-    "transcript": "Question 30.\nL'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?\nOui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage.\nQue soutient l’architecte à propos de la survie du bâtiment ?",
+    "explanation": "L’intervenant répond qu’on peut parler de conservation du patrimoine \"si nous rendons lisible son histoire\" en conservant la \"grande charpente\" et \"certaines traces de machines\" et en \"document[ant] les transformations\". Il refuse l’idée que garder le bâtiment vide suffise et insiste sur le maintien d’éléments permettant de comprendre l’ancien usage tout en installant des logements confortables.",
+    "transcript": "Question 30.\nL'ancienne usine de briques va devenir des logements. Peut-on parler de conservation du patrimoine ?\nOui, si nous rendons lisible son histoire. La grande charpente et certaines traces de machines méritent d'être conservées. Mais nous devons aussi installer des logements confortables, accessibles et peu énergivores. Garder le bâtiment vide ne garantit pas sa survie. Le plus important est de documenter les transformations et de ne pas effacer les éléments qui permettent de comprendre son ancien usage.\nSelon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?",
     "segments": [
       {
         "voice": "female",
@@ -27,25 +27,82 @@
       },
       {
         "voice": "female",
-        "text": "Que soutient l’architecte à propos de la survie du bâtiment ?"
+        "text": "Selon l’intervenant, dans quelles conditions la transformation de l’ancienne usine en logements peut-elle être considérée comme une forme de conservation du patrimoine ?"
       }
     ],
     "audio": "q-30.mp3",
     "audioSeconds": null,
     "slotSeconds": 69
   },
-  "contentHash": "f271d3cc36bfa157ea15e6c04c06c291aec0ee6202ef8a97caae32ddeba7f164",
+  "contentHash": "63a3630d4ef5b178092357721f8dcb99b9cb201c0b11f9af8e9bff2bd05fd45d",
   "sourceHash": "5ea66c97a48f3cd0eda33daea4c87c186c29fd45abea2db53516fed3f22aa838",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+  "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
+  "rounds": 6,
   "pass": false,
   "blocked": true,
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EkveBST1O88o5U1qJzFfmVObAJIVw",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.05,
+            0.1,
+            0.15,
+            0.7
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 3,
+              "severity": "clear",
+              "cue": "met en avant la lisibilité de l’histoire du lieu via conservation d’éléments et documentation, formulation nuancée et centrée sur la valeur patrimoniale"
+            }
+          ],
+          "reason": "La réponse 3 formule précisément la condition qui relève clairement d’une conservation du patrimoine (conserver des éléments visibles et documenter les transformations), ce qui correspond logiquement à la définition usuelle de ‘conservation’. Les autres options sont soit excessives (laisser vide), peu praticables et pénalisantes pour l’usage (ne rien toucher au point de limiter le confort), ou opposées à la conservation (prioriser le confort même si les éléments historiques disparaissent). Il reste une incertitude modérée car je n’ai pas accès au contexte complet de l’intervention, mais la formulation de l’option 3 lui donne un avantage défendable."
+        },
+        "usage": {
+          "prompt_tokens": 460,
+          "completion_tokens": 414,
+          "total_tokens": 874,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.000943,
+        "inputHash": "97d643c5d734fd6a8902e501d03a834a8bd124b978e99368073be461a133ee88",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:29:b322096703aa4aa7aa0af672:screen:6:0"
+      }
+    }
+  ],
   "feedback": {
-    "stage": "contrast-plan",
-    "errors": [
-      "Missing faithful recorded anchors for distractor 1",
-      "Missing faithful recorded anchors for distractor 2",
-      "Missing faithful recorded anchors for distractor 3"
+    "stage": "blind",
+    "reason": "La réponse 3 formule précisément la condition qui relève clairement d’une conservation du patrimoine (conserver des éléments visibles et documenter les transformations), ce qui correspond logiquement à la définition usuelle de ‘conservation’. Les autres options sont soit excessives (laisser vide), peu praticables et pénalisantes pour l’usage (ne rien toucher au point de limiter le confort), ou opposées à la conservation (prioriser le confort même si les éléments historiques disparaissent). Il reste une incertitude modérée car je n’ai pas accès au contexte complet de l’intervention, mais la formulation de l’option 3 lui donne un avantage défendable.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "clear",
+        "cue": "met en avant la lisibilité de l’histoire du lieu via conservation d’éléments et documentation, formulation nuancée et centrée sur la valeur patrimoniale"
+      }
     ]
   },
   "imageHash": null

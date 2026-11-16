@@ -1,10 +1,26 @@
 {
   "protocol": "six-listening-contrast-v2",
   "policy": "listening-comprehension-qc-v2",
-  "policyHash": "414f8fffa130eca942e03a17b3b68319ec049a40fe9382a44faf7a5e7a9313df",
+  "policyHash": "2625fd45cd95a674ffcee678a860efe07532fb2c4174c5703f455c276bf1c81d",
   "status": "pilot-blocked",
   "readyForMedia": false,
   "pilotSample": 18,
   "pilotPassed": 0,
-  "errors": []
+  "errors": [
+    {
+      "test": 1,
+      "number": 30,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    },
+    {
+      "test": 4,
+      "number": 38,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    },
+    {
+      "test": 5,
+      "number": 38,
+      "error": "Authoring gateway failed: HTTP 502 QC_INCOMPLETE_OUTPUT; no automatic paid retry"
+    }
+  ]
 }
