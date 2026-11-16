@@ -49,6 +49,19 @@ test('uniform guesses cannot conceal an implausible alternative or missing four-
  assert(blindVerdict(review).pass);review.plausibility[2].credible=false;assert(!blindVerdict(review).pass);
  review.plausibility.pop();assert(!blindVerdict(review).pass);
 });
+test('a chance-level primary reviewer cannot conceal above-chance guessing by the unchanged second model',()=>{
+ const score=(n,k)=>scoreGroup(Array.from({length:n},(_,i)=>({correct:i<k})));
+ const good={all:score(234,59),written:score(186,47),late:score(102,26)};
+ const neutral={guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'All accounts are credible.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'An ordinary recording could support this particular arrangement.'}))};
+ // Synthetic gate fixtures, never evidence of actual model performance.
+ const papers=Array.from({length:6},()=>({})),evidence=papers.map(()=>({questions:Array.from({length:39},()=>({pass:true,heldout:{receipt:{result:neutral}}})),paperAssessment:{result:{pass:true,patterns:[]}}}));
+ const stats={...good,challenge:structuredClone(good),patterns:{positionPatterns:papers.map(()=>({counts:{A:10,B:10,C:10,D:9},suspiciousFourItemDeck:false})),heuristicAttacks:{longest:{sample:186,credit:47}}}};
+ assert(ready(papers,evidence,stats));
+ assert(!ready(papers,evidence,{...stats,challenge:{...good,late:score(102,60)}}));
+ assert(!ready(papers,evidence,{...stats,challenge:{...good,written:score(99,25)}}));
+ const badPosition=structuredClone(stats);badPosition.patterns.positionPatterns[0].counts={A:20,B:8,C:6,D:5};
+ assert(!ready(papers,evidence,badPosition));
+});
 test('a conspicuous incorrect option rejects before grounding, without exposing gold to the blind reviewer',async()=>{
  const q=paper.questions[29];let calls=0;
  const r=await inspect(q,async(stage,input)=>{calls++;assert.equal(stage,'blind');assert.deepEqual(Object.keys(input),['question','choices']);
