@@ -57,7 +57,7 @@ for(let number=1;number<=6;number++){
      best={number:i+1,policy:POLICY_VERSION,policyHash,sourceHash:contentHash(originalQ),imageHash:image?.hash??null,
       question:q,contentHash:contentHash(q),groundedPass:true,groundContext,overrideHash,grounded,blind,blindPass:blindAssessment.pass,author,rounds:round+1};
      await saveJson(file,best);
-     if(blindAssessment.pass||round>=1)break;
+     if(blindAssessment.pass||round>=1||override)break;
     }
     feedback={round:round+1,grounding:verdict,groundedAssessment:verdict.pass?null:grounded.result,
      blind:{reason:blind.result.reason,cues:blind.result.cues},instruction:'Replace a common-sense question focus with an actual discriminating detail or competing interpretation. Do not add irrelevant justifications to options. Preserve the language level.'};

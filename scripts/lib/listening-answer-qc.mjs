@@ -173,6 +173,7 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
   if(!response.ok) {
    const detail=await response.json().catch(()=>({}));
    const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';
+   if(detail.diagnostic)await saveJson(file.replace(/\.json$/,'.rejected.json'),{stage,inputHash,policyHash,code,diagnostic:detail.diagnostic});
    if([401,403,404,409,503].includes(response.status)) {
     ledger.reservedUsd-=reserve;await persist();
     fatal='Private authoring gateway unavailable: HTTP'+response.status+' '+code+'; no further paid calls';

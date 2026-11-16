@@ -22,7 +22,9 @@ export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
    if(!response.ok)return reply(502,{error:'QC_PROVIDER',providerStatus:response.status});
    const raw=await response.json();
    if(raw.choices?.[0]?.finish_reason!=='stop')return reply(502,{error:'QC_INCOMPLETE_OUTPUT'});
-   const result=validateResult(stage,JSON.parse(raw.choices[0].message.content));
+   let result;
+   try{result=validateResult(stage,JSON.parse(raw.choices[0].message.content));}
+   catch{return reply(502,{error:'QC_'+stage.toUpperCase()+'_SCHEMA',diagnostic:{stage,responseId:raw.id,model:raw.model,usage:raw.usage,output:raw.choices?.[0]?.message?.content?.slice(0,32000)}});}
    const usage=raw.usage;
    if(!raw.id||!Number.isInteger(usage?.prompt_tokens)||!Number.isInteger(usage?.completion_tokens)||usage.prompt_tokens<0||usage.completion_tokens<0||usage.completion_tokens>MAX_OUTPUT[stage])return reply(502,{error:'QC_USAGE'});
    const price=stagePrice(stage);
