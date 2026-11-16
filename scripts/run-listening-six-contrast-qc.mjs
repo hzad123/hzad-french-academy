@@ -58,14 +58,14 @@ async function processQuestion([p,index]){
  const original=originals[p].questions[index],image=imageMaps[p].get(original.number),file=join(root,'test'+String(p+1).padStart(2,'0'),`q-${original.number}.json`);
  let saved=null;
  if(await exists(file))saved=await loadJson(file);
- if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)){
+ const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
+ const designSeedHash=designSeed?hash(designSeed.authored):null;
+ if(saved?.policyHash===policyHash&&saved.sourceHash===contentHash(original)&&saved.pass&&!saved.blocked&&saved.contentHash===contentHash(saved.question)&&(!saved.designSeedHash||saved.designSeedHash===designSeedHash)){
   evidence[p].questions[index]=saved;papers[p].questions[index]=saved.question;return;
  }
  try{
   let starting=saved?.policyHash===policyHash?saved.question:null;
-  const designSeed=designSeeds.find(s=>s.test===p+1&&s.number===index+1&&s.sourceHash===contentHash(original));
-  const designSeedHash=designSeed?hash(designSeed.authored):null;
-  if(designSeed&&(!starting||!saved?.pass&&saved?.designSeedHash!==designSeedHash)){
+  if(designSeed&&(!starting||saved?.designSeedHash!==designSeedHash)){
    if(!contrastPlan(original,designSeed.authored).pass)throw Error('Design example lacks faithful anchors');
    starting=rewrite(original,designSeed.authored,positions[p][index],`${seed}:human-design:${p}:${index}`);
   }

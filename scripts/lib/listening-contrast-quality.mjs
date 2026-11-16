@@ -17,7 +17,7 @@ export function authorInput(q,{imageData,feedback}={}){
  return {question:q.number>=9?'Question d’interprétation à construire à partir du document.':q.question,
   choices:q.number>=9?[...letters].map(l=>'Proposition '+l+' à construire.'):spokenChoices(q),stimulus:stimulus(q),mode:mode(q),
   feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback,
-   answerAxis:'Choose one precise answer axis from this source (a role, expense, recipient, trigger, scale, or type of action). Give four ordinary close values of that SAME axis, with comparable human/practical salience. Not every wrong value has to be literally spoken; it must be a realistic misunderstanding of the recorded distinction. Avoid a uniquely cautious policy against three dogmatic policies. Narrowing the focus is preferable to inventing administrative reasons to make foils wrong.',
+   answerAxis:'Choose one precise answer axis from this source (a role, expense, recipient, trigger, scale, or type of action). Give four ordinary close values of that SAME axis, with comparable human/practical salience. Not every wrong value has to be literally spoken; it must be a realistic misunderstanding of the recorded distinction. Avoid a uniquely cautious policy against three dogmatic policies. Keep foils as direct and concise as the key; do not append invented reasons. Vary wording naturally, without padding or a word-count quota. Narrowing the focus is preferable to inventing administrative reasons to make foils wrong.',
    verifiedExamples:examples,exampleUse:'Independently screened examples of competitive design. Learn the distinction between four equally credible interpretations; keep the current source, invent no example topic, and vary focus and syntax.'},...(imageData?{imageData}:{})};
 }
 export function contrastPlan(q,authored){
@@ -98,12 +98,12 @@ export function summarize(papers,evidence){
  const rows=evidence.flatMap(e=>e.questions.filter(r=>r?.heldout).map(r=>({number:r.question.number,...r.heldout}))),written=rows.filter(r=>r.number>=9),late=rows.filter(r=>r.number>=23);
  const challenge=evidence.flatMap(e=>e.questions.filter(r=>r?.challenge).map(r=>({number:r.question.number,...r.challenge})));
  return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),displayOnly:scoreGroup(rows.filter(r=>r.number<=8)),
-  challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers)};
+  challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers),lateHeuristicAttacks:attackStatistics(papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=23)}))).heuristicAttacks};
 }
 export function ready(papers,evidence,stats){
  return papers.length===6&&evidence.every(e=>e.questions.length===39&&e.questions.every(r=>r?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&
   stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.challenge.written.sample===186&&stats.challenge.late.sample===102&&stats.challenge.written.passes&&stats.challenge.late.passes&&stats.challenge.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&
-  Object.values(stats.patterns.heuristicAttacks).every(a=>binomialUpperTail(a.sample,Math.ceil(a.credit))>=.01);
+  [...Object.values(stats.patterns.heuristicAttacks),...Object.values(stats.lateHeuristicAttacks)].every(a=>binomialUpperTail(a.sample,Math.ceil(a.credit))>=.01);
 }
 export function assertPaper(paper,evidence,original,images){
  sourceInvariant(original,paper);

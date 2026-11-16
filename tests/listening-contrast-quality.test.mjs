@@ -56,10 +56,11 @@ test('a chance-level primary reviewer cannot conceal above-chance guessing by th
  const neutral={guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'All accounts are credible.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'An ordinary recording could support this particular arrangement.'}))};
  // Synthetic gate fixtures, never evidence of actual model performance.
  const papers=Array.from({length:6},()=>({})),evidence=papers.map(()=>({questions:Array.from({length:39},()=>({pass:true,heldout:{receipt:{result:neutral}}})),paperAssessment:{result:{pass:true,patterns:[]}}}));
- const stats={...good,challenge:structuredClone(good),patterns:{positionPatterns:papers.map(()=>({counts:{A:10,B:10,C:10,D:9},suspiciousFourItemDeck:false})),heuristicAttacks:{longest:{sample:186,credit:47}}}};
+ const stats={...good,challenge:structuredClone(good),patterns:{positionPatterns:papers.map(()=>({counts:{A:10,B:10,C:10,D:9},suspiciousFourItemDeck:false})),heuristicAttacks:{longest:{sample:186,credit:47}}},lateHeuristicAttacks:{shortest:{sample:102,credit:26}}};
  assert(ready(papers,evidence,stats));
  assert(!ready(papers,evidence,{...stats,challenge:{...good,late:score(102,60)}}));
  assert(!ready(papers,evidence,{...stats,challenge:{...good,written:score(99,25)}}));
+ assert(!ready(papers,evidence,{...stats,lateHeuristicAttacks:{shortest:{sample:102,credit:60}}}));
  const badPosition=structuredClone(stats);badPosition.patterns.positionPatterns[0].counts={A:20,B:8,C:6,D:5};
  assert(!ready(papers,evidence,badPosition));
 });
