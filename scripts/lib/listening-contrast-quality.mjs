@@ -75,9 +75,9 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
   q=rewrite(original,author.result,target,seed+':author:'+round);
  }
 }
-export async function measure(q,provider,nonce){
+export async function measure(q,provider,nonce,stage='blind'){
  const projection=displayProjection(q),order=permutation(4,nonce),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
- const receipt=receiptValid(await provider('blind',input,{nonce}),'blind',input);
+ const receipt=receiptValid(await provider(stage,input,{nonce}),stage,input);
  return {order,receipt,correct:order[receipt.result.guess]===letters.indexOf(q.correct)};
 }
 export function scoreGroup(rows){
@@ -88,11 +88,13 @@ export function scoreGroup(rows){
 }
 export function summarize(papers,evidence){
  const rows=evidence.flatMap(e=>e.questions.filter(r=>r?.heldout).map(r=>({number:r.question.number,...r.heldout}))),written=rows.filter(r=>r.number>=9),late=rows.filter(r=>r.number>=23);
- return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),displayOnly:scoreGroup(rows.filter(r=>r.number<=8)),patterns:attackStatistics(papers)};
+ const challenge=evidence.flatMap(e=>e.questions.filter(r=>r?.challenge).map(r=>({number:r.question.number,...r.challenge})));
+ return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),displayOnly:scoreGroup(rows.filter(r=>r.number<=8)),
+  challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers)};
 }
 export function ready(papers,evidence,stats){
  return papers.length===6&&evidence.every(e=>e.questions.length===39&&e.questions.every(r=>r?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&
-  stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&
+  stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.challenge.written.sample===186&&stats.challenge.late.sample===102&&stats.challenge.written.passes&&stats.challenge.late.passes&&stats.challenge.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&
   Object.values(stats.patterns.heuristicAttacks).every(a=>binomialUpperTail(a.sample,Math.ceil(a.credit))>=.01);
 }
 export function assertPaper(paper,evidence,original,images){
@@ -109,6 +111,10 @@ export function assertPaper(paper,evidence,original,images){
    check(trial.receipt,'blind',{question:proj.question,choices:trial.order.map(k=>proj.choices[k])});if(!blindVerdict(trial.receipt.result).pass)throw Error('Blind cue remains');
   }
   if(record.heldout.correct!==(record.heldout.order[record.heldout.receipt.result.guess]===letters.indexOf(q.correct)))throw Error('Held-out score changed');
+  const challenge=record.challenge;
+  if(!challenge||[...challenge.order].sort().join('')!=='0123')throw Error('Missing second-model frozen experiment');
+  check(challenge.receipt,'challenge',{question:proj.question,choices:challenge.order.map(k=>proj.choices[k])});
+  if(challenge.correct!==(challenge.order[challenge.receipt.result.guess]===letters.indexOf(q.correct)))throw Error('Second-model score changed');
   const input=groundInput(q,images[q.number]?.data);check(record.grounded,'ground',input);
   if(!groundingVerdict(q,record.grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true}).pass)throw Error('Unsupported/ambiguous key');
  }
@@ -122,7 +128,7 @@ export function assertCohort(cohort,originals){
  if(papers.some((p,i)=>p.id!==`tcf-listening-${String(i+1).padStart(2,'0')}`))throw Error('Wrong cohort coverage');
  for(const [i,member] of cohort.papers.entries()){
   assertPaper(member.paper,member.evidence,originals[i],member.images);
-  for(const r of member.evidence.questions)for(const receipt of [...r.blind.map(t=>t.receipt),r.heldout.receipt,r.grounded]){
+  for(const r of member.evidence.questions)for(const receipt of [...r.blind.map(t=>t.receipt),r.heldout.receipt,r.challenge.receipt,r.grounded]){
    if(seen.has(receipt.responseId))throw Error('Cross-paper evaluation response reused');seen.add(receipt.responseId);
   }
  }

@@ -48,8 +48,15 @@ conversation history. Each is a new isolated provider conversation. Author,
 grounding, blind and paper calls have separate receipts, exact input hashes,
 model IDs, policy fingerprints, token usage and response IDs.
 
-The blind model is calibrated on two symmetric factual controls and an obvious
-wording giveaway. It must report honest guesses and uncertainty; it is never
+The primary blind reviewer is gpt-5.1. The earlier gpt-5-mini reviewer sometimes
+invented context (for instance assuming a training session was on site), then
+declared a credible alternative overwhelmingly likely. Primary screening now
+uses the stronger model with the same strict thresholds. The original mini
+model remains a second independent frozen experiment with its own accuracy
+gate; changing reviewers cannot conceal a systematic shortcut on that model.
+
+The primary reviewer is calibrated on symmetric factual and qualitative
+controls and an obvious wording giveaway. It must report honest guesses and uncertainty; it is never
 instructed to miss a known key or force uniform probabilities. Any clear cue,
 reported standout, probability above0.42 or first/second gap above0.15 rejects
 the candidate. Q23–39 require three shuffled blind screens, Q9–22 two, and
@@ -83,6 +90,9 @@ spoken; their48 answers cannot establish the quality of written distractors.
 Written and late groups each require at least100 observations, accuracy at most
 32%, a Wilson95% interval containing25%, and a one-sided binomial p-value of at
 least0.05 against above-chance accuracy. The all-item group must also pass. A
+second frozen sample from gpt-5-mini must meet the same all/written/late accuracy
+rules. Its raw confidence/cue observations remain available; primary per-item
+admission is determined by the calibrated gpt-5.1 reviewer. A
 successful cohort also needs no held-out clear cue and no significant longest,
 shortest, qualifier or question-overlap attack at p<0.01. These are operational
 acceptance rules for this model and sample, not proof of exact human25% accuracy.

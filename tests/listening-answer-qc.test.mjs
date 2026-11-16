@@ -46,9 +46,12 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.throws(()=>validateInput('blind',{...blindProjection(item),history:[]}),/only question/);
  const request=modelRequest('blind',blindProjection(item));
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
- assert.equal(request.model,'gpt-5-mini');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
+ assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
  assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-5.1');
  assert.equal(stagePrice('ground').outputPerMillion,10);
+ const challenge=modelRequest('challenge',blindProjection(item));assert.equal(challenge.model,'gpt-5-mini');
+ assert.equal(challenge.messages.length,2);assert.equal(stagePrice('challenge').outputPerMillion,2);
+ for(const hidden of ['correct','transcript','explanation','history'])assert.throws(()=>validateInput('challenge',{...blindProjection(item),[hidden]:'LEAK'}),/only question/);
 });
 
 test('a conspicuous WRONG choice also rejects an item; author cannot game a blind guess',async()=>{

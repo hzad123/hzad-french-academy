@@ -2,7 +2,7 @@ import {mkdir,readFile,copyFile,readdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
-import {POLICY_VERSION} from '../supabase/functions/academy-listening-qc/contracts.js';
+import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
 import {protocol,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
@@ -11,12 +11,13 @@ const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJso
 await saveJson(join(root,'summary.json'),{protocol,policy:POLICY_VERSION,policyHash,readyForMedia:false,status:'running'});
 const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,token:process.env.LISTENING_QC_TOKEN,adminToken:process.env.LISTENING_QC_ADMIN_TOKEN,
  directory:join(root,'model-receipts'),maxUsd:Number(get('--max-usd','35'))});
-const papers=[],originals=[],evidence=[],imageMaps=[],positions=[],errors=[],baseline=[],runNonce=randomBytes(12).toString('hex');
+const papers=[],originals=[],evidence=[],imageMaps=[],positions=[],errors=[],baseline=[],baselineMini=[],runNonce=randomBytes(12).toString('hex');
 const workers=Number(get('--workers','8'));
 const designSeeds=await loadJson('curriculum/tcf-listening-contrast-design-seeds.json');
 const controls=[
  {question:'Dans quelle salle la réunion se tiendra-t-elle ?',choices:['Dans la salle deux.','Dans la salle trois.','Dans la salle quatre.','Dans la salle cinq.'],clear:false},
  {question:'À quelle heure commence la consultation ?',choices:['À huit heures quinze.','À neuf heures quinze.','À dix heures quinze.','À onze heures quinze.'],clear:false},
+ {question:'Quelle raison explique la décision évoquée ?',choices:["Un changement d'horaire.","Un changement d'adresse.","Un changement d'équipe.",'Un changement de tarif.'],clear:false},
  {question:'Pourquoi le bus arrive-t-il en retard ?',choices:['Des travaux ralentissent son trajet.','Les trottoirs ont appris à voler.','Les voyageurs arrivent hier matin.','Le café a changé de couleur.'],clear:true}
 ];
 const calibration=[];
@@ -46,6 +47,7 @@ async function save(){
  }
  await saveJson(join(root,'progress.json'),{protocol,policyHash,papers:evidence.map(e=>({test:e.test,accepted:e.questions.filter(q=>q?.pass&&!q.blocked).length,lateAccepted:e.questions.filter(q=>q?.pass&&!q.blocked&&q.question.number>=23).length})),errors});
  await saveJson(join(root,'baseline.json'),baseline);
+ await saveJson(join(root,'baseline-mini.json'),baselineMini);
 }
 async function processQuestion([p,index]){
  const original=originals[p].questions[index],image=imageMaps[p].get(original.number),file=join(root,'test'+String(p+1).padStart(2,'0'),`q-${original.number}.json`);
@@ -79,12 +81,12 @@ const all=originals.flatMap((p,i)=>p.questions.map((q,index)=>[i,index]));
 // Historical baseline receipts remain descriptive evidence if their exact
 // displayed source is unchanged. They cannot approve any replacement content.
 const previousBaseline=await exists(join(root,'baseline.json'))?await loadJson(join(root,'baseline.json')):[];
-for(const r of previousBaseline){
+const previousMini=await exists(join(root,'baseline-mini.json'))?await loadJson(join(root,'baseline-mini.json')):[];
+for(const r of [...previousBaseline,...previousMini]){
  const q=originals[r.test-1]?.questions[r.number-1];
- if(q&&q.number>=9&&r.receipt?.stage==='blind'&&r.receipt.responseId?.startsWith('chatcmpl-')&&[...r.order].sort().join('')==='0123'&&r.receipt.inputHash===hash({question:q.question,choices:r.order.map(i=>q.options[i])})&&r.correct===(r.order[r.receipt.result.guess]===letters.indexOf(q.correct))&&!baseline.some(x=>x.test===r.test&&x.number===r.number))baseline.push(r);
+ const bucket=r.receipt?.model?.startsWith(MODELS.blind)?baseline:r.receipt?.model?.startsWith(MODELS.challenge)?baselineMini:null;
+ if(bucket&&q&&q.number>=9&&['blind','challenge'].includes(r.receipt?.stage)&&r.receipt.responseId?.startsWith('chatcmpl-')&&[...r.order].sort().join('')==='0123'&&r.receipt.inputHash===hash({question:q.question,choices:r.order.map(i=>q.options[i])})&&r.correct===(r.order[r.receipt.result.guess]===letters.indexOf(q.correct))&&!bucket.some(x=>x.test===r.test&&x.number===r.number))bucket.push(r);
 }
-await parallel(all.filter(([p,i])=>i>=8&&!baseline.some(r=>r.test===p+1&&r.number===i+1)),async([p,i])=>{try{const r=await measure(originals[p].questions[i],provider,`baseline-v2:${seed}:${p}:${i}`);baseline.push({test:p+1,number:i+1,...r});}catch(error){errors.push({stage:'baseline',test:p+1,number:i+1,error:error.message});}});
-await saveJson(join(root,'baseline.json'),baseline);
 // Stop a weak design after three different source situations, before paying
 // for the18-item pilot or the complete cohort. Final coverage remains234.
 const probe=[[0,29],[2,37],[5,38]];await parallel(probe,processQuestion);await save();
@@ -96,6 +98,12 @@ if(pilot.some(([p,i])=>!evidence[p].questions[i]?.pass)){
  await saveJson(join(root,'summary.json'),{protocol,policy:POLICY_VERSION,policyHash,status:'pilot-blocked',readyForMedia:false,pilotSample:18,pilotPassed:pilot.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});
  process.exit(1);
 }
+for(const [stage,bucket] of [['blind',baseline],['challenge',baselineMini]]){
+ await parallel(all.filter(([p,i])=>i>=8&&!bucket.some(r=>r.test===p+1&&r.number===i+1)),async([p,i])=>{try{
+  const r=await measure(originals[p].questions[i],provider,`baseline-v2:${stage}:${seed}:${p}:${i}`,stage);bucket.push({test:p+1,number:i+1,...r});
+ }catch(error){errors.push({stage:'baseline-'+stage,test:p+1,number:i+1,error:error.message});}});
+}
+await save();
 await parallel(all.filter(([,i])=>![29,37,38].includes(i)),processQuestion);await save();
 for(let p=0;p<6;p++){
  sourceInvariant(originals[p],papers[p]);
@@ -123,7 +131,10 @@ await save();
 if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)){
  const freezeHash=hash(papers.map(p=>p.questions.map(contentHash))),file=join(root,'freeze.json');let freeze=await exists(file)?await loadJson(file):null;
  if(freeze?.hash!==freezeHash)freeze={hash:freezeHash,nonce:randomBytes(32).toString('hex')};await saveJson(file,freeze);
- await parallel(all,async([p,i])=>{try{evidence[p].questions[i].heldout=await measure(papers[p].questions[i],provider,`frozen-v2:${freeze.nonce}:${p}:${i}`);}catch(error){errors.push({stage:'heldout',test:p+1,number:i+1,error:error.message});}});
+ await parallel(all,async([p,i])=>{try{
+  const [heldout,challenge]=await Promise.all([measure(papers[p].questions[i],provider,`frozen-v2:${freeze.nonce}:${p}:${i}`),measure(papers[p].questions[i],provider,`frozen-challenge-v2:${freeze.nonce}:${p}:${i}`,'challenge')]);
+  Object.assign(evidence[p].questions[i],{heldout,challenge});
+ }catch(error){errors.push({stage:'heldout',test:p+1,number:i+1,error:error.message});}});
  // Retain the complete experiment, including every successful blind guess.
  // A clear cue rejects that item for the next authoring pass. Accuracy alone
  // never selects individual questions for rewriting or permits rerolling.
@@ -139,6 +150,6 @@ if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessmen
 const stats=summarize(papers,evidence),accepted=ready(papers,evidence,stats);
 await save();await saveJson(join(root,'cohort.json'),{protocol,policy:POLICY_VERSION,policyHash,papers:papers.map((p,i)=>({paper:p,evidence:evidence[i],images:Object.fromEntries(imageMaps[i])})),statistics:stats});
 const summary={protocol,policy:POLICY_VERSION,policyHash,tests:[1,2,3,4,5,6],readyForMedia:accepted,status:accepted?'accepted':'blocked',acceptedItems:evidence.reduce((n,e)=>n+e.questions.filter(r=>r?.pass&&!r.blocked).length,0),totalItems:234,
- statistics:stats,baseline:{written:summaryGroup(baseline),late:summaryGroup(baseline.filter(r=>r.number>=23))},errors};
+ statistics:stats,baseline:{written:summaryGroup(baseline),late:summaryGroup(baseline.filter(r=>r.number>=23))},baselineMini:{written:summaryGroup(baselineMini),late:summaryGroup(baselineMini.filter(r=>r.number>=23))},errors};
 function summaryGroup(rows){return {sample:rows.length,correct:rows.filter(r=>r.correct).length,accuracy:rows.length?rows.filter(r=>r.correct).length/rows.length:null};}
 await saveJson(join(root,'summary.json'),summary);console.log(JSON.stringify(summary,null,2));if(!accepted)process.exitCode=1;
