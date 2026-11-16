@@ -54,6 +54,12 @@ declared a credible alternative overwhelmingly likely. Primary screening now
 uses the stronger model with the same strict thresholds. The original mini
 model remains a second independent frozen experiment with its own accuracy
 gate; changing reviewers cannot conceal a systematic shortcut on that model.
+The primary reviewer assesses each alternative's credibility before guessing,
+giving an ordinary possible recording context for each. This counters the
+observed tendency to choose first, then invent unstated circumstances to justify
+that choice. All four credibility checks must pass, alongside the unchanged
+standout, clear-cue and probability rules. The mini experiment retains its
+original prompt so its baseline and replacement measurements remain comparable.
 
 The primary reviewer is calibrated on symmetric factual and qualitative
 controls and an obvious wording giveaway. It must report honest guesses and uncertainty; it is never

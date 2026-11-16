@@ -19,7 +19,7 @@ test('validator formatting removes only exact duplicate rows and preserves confl
  const ambiguous=structuredClone(original);ambiguous.ambiguous=true;
  assert(!groundingVerdict(q(),normalizeModelResult('ground',ambiguous).result).pass);
 });
-const uncertain=()=>({guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
+const uncertain=()=>({plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'A normal recording could explicitly select this particular appointment.'})),guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
 const q=()=>({number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi à neuf heures.','Mercredi à neuf heures.','Jeudi à dix heures.','Vendredi à dix heures.'],correct:'A',explanation:'PRIVATE_EXPLANATION_NOT_FOR_THE_BLIND_MODEL',segments:[{voice:'female',text:'Question 9.'},{voice:'female',text:'Le rendez-vous prévu mercredi aura finalement lieu jeudi à neuf heures, sans changement de salle.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],audio:'q-09.mp3',audioSeconds:17,slotSeconds:40});
 function ground(input) {
  const index=input.choices.indexOf('Jeudi à neuf heures.');
@@ -50,6 +50,7 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-5.1');
  assert.equal(stagePrice('ground').outputPerMillion,10);
  const challenge=modelRequest('challenge',blindProjection(item));assert.equal(challenge.model,'gpt-5-mini');
+ assert(request.messages[0].content.includes('FIRST assess EACH'));assert(!challenge.messages[0].content.includes('FIRST assess EACH'));
  assert.equal(challenge.messages.length,2);assert.equal(stagePrice('challenge').outputPerMillion,2);
  for(const hidden of ['correct','transcript','explanation','history'])assert.throws(()=>validateInput('challenge',{...blindProjection(item),[hidden]:'LEAK'}),/only question/);
 });

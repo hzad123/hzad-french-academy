@@ -1,4 +1,4 @@
-import {CONTRAST_PROMPTS} from './contrast-prompts.js';
+import {CONTRAST_PROMPTS,CHALLENGE_PROMPT} from './contrast-prompts.js';
 // Authoring only. No student sessions, grading, wallet or examination runtime.
 export const POLICY_VERSION='listening-comprehension-qc-v2';
 export const MODEL='gpt-5.1';
@@ -31,7 +31,7 @@ Return {"question":"French question","choices":["...","...","...","..."],"correc
 Audit the ENTIRE examination for answer-only guessing cues. You can see marked keys now; you are NOT the blind per-item evaluator. Check whether keys are consistently the longest, shortest, most balanced, most humane, most central or sophisticated. Check repeated syntax/stock phrasing, recurring distractor types, exaggerated or strangely specific wrong claims, grammatical mismatches, paraphrase alignment and answer-position cycles (including four-item decks). Natural length variation is good; demanding uniform lengths or a rigid position quota per four questions creates a new cue. Do not rewrite anything and do not invent certainty from a short sample. Flag genuinely recurring patterns with question numbers and a concrete reason, rather than penalizing ordinary French articles/shared domain nouns.
 Return {"pass":true,"patterns":[{"questions":[9,12],"kind":"specific recurring cue","reason":"specific evidence"}],"summary":"assessment"}. pass=true only if there is no clear exploitable pattern.`
 };
-export const PROMPTS={...LEGACY_PROMPTS,...CONTRAST_PROMPTS,challenge:CONTRAST_PROMPTS.blind};
+export const PROMPTS={...LEGACY_PROMPTS,...CONTRAST_PROMPTS,challenge:CHALLENGE_PROMPT};
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
 const exact=(x,keys)=>object(x)&&Object.keys(x).every(k=>keys.includes(k));
 const choices=x=>Array.isArray(x)&&x.length===4&&x.every(s=>typeof s==='string'&&s.trim().length>=2&&s.length<=500)&&new Set(x.map(s=>s.trim().toLowerCase())).size===4;

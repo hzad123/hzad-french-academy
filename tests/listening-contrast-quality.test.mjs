@@ -42,7 +42,12 @@ test('late distractors need two genuine anchors and an explicit recorded misunde
 test('late cohort cannot be concealed by easy items; no small-sample or review waiver passes',()=>{
  const chance=Array.from({length:102},(_,i)=>({correct:i<26}));assert(scoreGroup(chance).passes);assert(!scoreGroup(chance.slice(0,18)).passes);
  assert(!scoreGroup(chance.map((_,i)=>({correct:i<60}))).passes);assert(!ready([],[],{written:{sample:186,passes:true},late:{sample:102,passes:true},all:{passes:true}}));
- assert(blindVerdict({guess:0,probabilities:[.28,.24,.24,.24],standsOut:false,cues:[{severity:'weak',cue:'Admitted very weak prior'}],reason:'Uncertain.'}).pass);
+ assert(blindVerdict({plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'A normal recording could select this particular account.'})),guess:0,probabilities:[.28,.24,.24,.24],standsOut:false,cues:[{severity:'weak',cue:'Admitted very weak prior'}],reason:'Uncertain.'}).pass);
+});
+test('uniform guesses cannot conceal an implausible alternative or missing four-option review',()=>{
+ const review={guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'No strong preference.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'A normal source could select this particular arrangement.'}))};
+ assert(blindVerdict(review).pass);review.plausibility[2].credible=false;assert(!blindVerdict(review).pass);
+ review.plausibility.pop();assert(!blindVerdict(review).pass);
 });
 test('a conspicuous incorrect option rejects before grounding, without exposing gold to the blind reviewer',async()=>{
  const q=paper.questions[29];let calls=0;

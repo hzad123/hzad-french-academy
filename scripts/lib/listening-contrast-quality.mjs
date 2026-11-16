@@ -46,7 +46,7 @@ export async function inspect(q,provider,{seed,imageData,round=0}){
   const order=permutation(4,seed+':screen:'+round+':'+trial),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
   const receipt=receiptValid(await provider('blind',input,{nonce:seed+':screen:'+round+':'+trial}),'blind',input);
   blind.push({order,receipt});
-  if(!blindVerdict(receipt.result).pass)return {pass:false,blind,feedback:{stage:'blind',reason:receipt.result.reason,cues:receipt.result.cues}};
+  if(!blindVerdict(receipt.result).pass)return {pass:false,blind,feedback:{stage:'blind',reason:receipt.result.reason,cues:receipt.result.cues,plausibility:receipt.result.plausibility}};
  }
  const input=groundInput(q,imageData),grounded=receiptValid(await provider('ground',input,{nonce:seed+':ground:'+round}),'ground',input);
  const verdict=groundingVerdict(q,grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true});

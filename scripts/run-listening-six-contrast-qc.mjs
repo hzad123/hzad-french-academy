@@ -147,7 +147,7 @@ if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessmen
  for(const [p,i] of all){
   const r=evidence[p].questions[i],result=r.heldout?.receipt.result;
   if(result&&!blindVerdict(result).pass){
-   r.pass=false;r.blocked=true;r.regenerateFrom={stage:'blind',reason:result.reason,cues:result.cues};
+   r.pass=false;r.blocked=true;r.regenerateFrom={stage:'blind',reason:result.reason,cues:result.cues,plausibility:result.plausibility};
    await saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`q-${i+1}.json`),r);
   }
  }

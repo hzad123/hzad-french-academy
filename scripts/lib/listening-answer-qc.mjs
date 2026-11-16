@@ -59,7 +59,8 @@ export function receiptValid(receipt,stage,input) {
 export function blindVerdict(result) {
  validateResult('blind',result);
  const sorted=[...result.probabilities].sort((a,b)=>b-a);
- return {pass:!result.standsOut&&!result.cues.some(c=>c.severity!=='weak')&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
+ const fourCredible=Array.isArray(result.plausibility)&&result.plausibility.length===4&&new Set(result.plausibility.map(p=>p.index)).size===4&&result.plausibility.every(p=>Number.isInteger(p.index)&&p.index>=0&&p.index<4&&p.credible===true&&typeof p.context==='string'&&p.context.length>=10);
+ return {pass:fourCredible&&!result.standsOut&&!result.cues.some(c=>c.severity!=='weak')&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
   maximum:sorted[0],gap:sorted[0]-sorted[1]};
 }
 export function groundingVerdict(q,result,{evidenceSource=stimulus(q),normalizeEvidence=false}={}) {
