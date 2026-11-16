@@ -3,11 +3,22 @@ import assert from 'node:assert/strict';
 import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {createQcHandler} from '../supabase/functions/academy-listening-qc/handler.js';
+import {createQcHandler,normalizeModelResult} from '../supabase/functions/academy-listening-qc/handler.js';
 import {POLICY_VERSION,MODEL,MODELS,stagePrice,validateInput,validateResult,modelRequest} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {hash,contentHash,policyHash,spokenChoices,stimulus,blindProjection,blindVerdict,groundingVerdict,balancedPositions,
  applyAlternatives,assessQuestion,repairQuestion,binomialUpperTail,attackStatistics,createGatewayProvider,assertAnswerQuality,frozenCohort,assertCohortQuality} from '../scripts/lib/listening-answer-qc.mjs';
 const adminToken='a'.repeat(64);
+test('validator formatting removes only exact duplicate rows and preserves conflicting assessments for rejection',()=>{
+ const input={...blindProjection(q()),stimulus:stimulus(q()),mode:'document'},original=ground(input);
+ original.options.push(structuredClone(original.options[3]));
+ const normalized=normalizeModelResult('ground',original);
+ assert.equal(original.options.length,5);assert.equal(normalized.result.options.length,4);assert.equal(normalized.corrections[0].removed,1);
+ assert(groundingVerdict(q(),normalized.result).pass);
+ const conflict=structuredClone(original);conflict.options[4].supported=true;
+ assert.throws(()=>validateResult('ground',normalizeModelResult('ground',conflict).result),/Malformed/);
+ const ambiguous=structuredClone(original);ambiguous.ambiguous=true;
+ assert(!groundingVerdict(q(),normalizeModelResult('ground',ambiguous).result).pass);
+});
 const uncertain=()=>({guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
 const q=()=>({number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi à neuf heures.','Mercredi à neuf heures.','Jeudi à dix heures.','Vendredi à dix heures.'],correct:'A',explanation:'PRIVATE_EXPLANATION_NOT_FOR_THE_BLIND_MODEL',segments:[{voice:'female',text:'Question 9.'},{voice:'female',text:'Le rendez-vous prévu mercredi aura finalement lieu jeudi à neuf heures, sans changement de salle.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],audio:'q-09.mp3',audioSeconds:17,slotSeconds:40});
 function ground(input) {

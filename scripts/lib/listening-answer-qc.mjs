@@ -49,7 +49,7 @@ export function applyAlternatives(original,result,target,seed) {
  if(hash(q.segments)!==hash(original.segments))q.audioSeconds=null;
  return q;
 }
-function receiptValid(receipt,stage,input) {
+export function receiptValid(receipt,stage,input) {
  if(receipt?.stage!==stage||receipt.policy!==POLICY_VERSION||typeof receipt.model!=='string'||!receipt.responseId?.startsWith('chatcmpl-')||receipt.inputHash!==hash(input))throw Error('Missing/stale real-model receipt');
  if(receipt.model!==MODELS[stage]&&!receipt.model.startsWith(MODELS[stage]+'-20'))throw Error('Unexpected independent evaluator model');
  if(receipt.policyHash!==policyHash)throw Error('Evaluation prompts/model changed; old receipt cannot approve new content');
@@ -62,13 +62,14 @@ export function blindVerdict(result) {
  return {pass:!result.standsOut&&result.cues.length===0&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
   maximum:sorted[0],gap:sorted[0]-sorted[1]};
 }
-export function groundingVerdict(q,result) {
- validateResult('ground',result);const key=letters.indexOf(q.correct),source=stimulus(q),errors=[];
+export function groundingVerdict(q,result,{evidenceSource=stimulus(q),normalizeEvidence=false}={}) {
+ validateResult('ground',result);const key=letters.indexOf(q.correct),source=evidenceSource,errors=[];
+ const canonical=s=>normalizeEvidence?s.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr'):s;
  if(result.ambiguous||!result.questionSupported||result.supportedIndices.length!==1||result.supportedIndices[0]!==key)errors.push('Not exactly the independently supported marked answer');
  for(const option of result.options) {
   if(option.supported!==(option.index===key))errors.push('Support verdict inconsistent at '+option.index);
   if(option.index!==key&&(!option.plausibleMisunderstanding||option.reason.length<25))errors.push('Distractor lacks a specific plausible misunderstanding at '+option.index);
-  if(q.number>4&&(option.evidence.length===0||option.evidence.some(quote=>quote.length<6||!source.includes(quote))))errors.push('Missing/fabricated verbatim evidence at '+option.index);
+  if(q.number>4&&(option.evidence.length===0||option.evidence.some(quote=>quote.length<6||!canonical(source).includes(canonical(quote)))))errors.push('Missing/fabricated verbatim evidence at '+option.index);
  }
  return {pass:errors.length===0,errors};
 }
@@ -172,6 +173,7 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
   if(!response.ok) {
    const detail=await response.json().catch(()=>({}));
    const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';
+   if(detail.diagnostic)await saveJson(file.replace(/\.json$/,'.rejected.json'),{stage,inputHash,policyHash,code,diagnostic:detail.diagnostic});
    if([401,403,404,409,503].includes(response.status)) {
     ledger.reservedUsd-=reserve;await persist();
     fatal='Private authoring gateway unavailable: HTTP'+response.status+' '+code+'; no further paid calls';
