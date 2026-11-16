@@ -1,8 +1,13 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect} from '../scripts/lib/listening-contrast-quality.mjs';
+import {displayProjection,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput} from '../scripts/lib/listening-contrast-quality.mjs';
 import {hash,policyHash,blindVerdict} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
+test('rewriting starts from the unchanged recording without anchoring to a defective written key',()=>{
+ const q=paper.questions[29],input=authorInput(q,{feedback:{stage:'blind'}});
+ assert(!input.choices.some(c=>q.options.includes(c)));assert.notEqual(input.question,q.question);
+ assert(input.stimulus.includes(q.segments[2].text));assert.equal(input.feedback.advanced,true);
+});
 test('blind sees only displayed options; spoken answers cannot leak into display-only controls',()=>{
  const q=paper.questions[0],projection=displayProjection(q);assert.deepEqual(projection.choices,q.options);assert.deepEqual(Object.keys(projection),['question','choices']);
  assert(!JSON.stringify(projection).includes(q.explanation));assert(!JSON.stringify(projection).includes('A. Un'));

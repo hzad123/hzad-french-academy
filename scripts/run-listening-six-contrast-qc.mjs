@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict} from './lib/listening-answer-qc.mjs';
-import {protocol,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan} from './lib/listening-contrast-quality.mjs';
+import {protocol,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
 import {spokenChoices,stimulus,mode} from './lib/listening-answer-qc.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
@@ -80,7 +80,7 @@ for(let p=0;p<6;p++){
    const flagged=[...new Set(audit.patterns.flatMap(pattern=>pattern.questions))].filter(n=>Number.isInteger(n)&&n>=1&&n<=39);
    for(const number of flagged){
     const index=number-1,q=papers[p].questions[index],original=originals[p].questions[index],image=imageMaps[p].get(number);
-    const authored=await provider('author',{question:q.question,choices:spokenChoices(q),stimulus:stimulus(original),mode:mode(q),feedback:{number,advanced:number>=23,paperPatterns:audit.patterns},...(image?{imageData:image.data}:{})},{nonce:`pattern-v2:${seed}:${p}:${round}:${number}`});
+    const authored=await provider('author',authorInput(original,{imageData:image?.data,feedback:{paperPatterns:audit.patterns}}),{nonce:`pattern-v2:${seed}:${p}:${round}:${number}`});
     if(!contrastPlan(original,authored.result).pass)throw Error('Pattern repair lacks transcript anchors');
     const candidate=rewrite(original,authored.result,positions[p][index],`${seed}:pattern:${p}:${round}:${number}`);
     const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:pattern-screen:${p}:${round}:${number}`,starting:candidate,imageData:image?.data,maxAttempts:4});

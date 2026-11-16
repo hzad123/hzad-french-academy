@@ -5,6 +5,13 @@ export const displayProjection=q=>({question:q.question,choices:[...q.options]})
 export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
 export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
 const canon=t=>t.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr');
+export function authorInput(q,{imageData,feedback}={}){
+ // Do not anchor a rewrite to the failed stem/key. Written alternatives are
+ // built afresh from the recording, rather than cosmetically rephrased.
+ return {question:q.number>=9?'Question d’interprétation à construire à partir du document.':q.question,
+  choices:q.number>=9?[...letters].map(l=>'Proposition '+l+' à construire.'):spokenChoices(q),stimulus:stimulus(q),mode:mode(q),
+  feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback},...(imageData?{imageData}:{})};
+}
 export function contrastPlan(q,authored){
  if(q.number<9)return {pass:true,errors:[]};
  const source=canon(stimulus(q)),errors=[];
@@ -59,7 +66,7 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
   if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,...assessment};
   let plan;
   for(let planning=0;planning<2;planning++){
-   const input={question:q.question,choices:spokenChoices(q),stimulus:stimulus(original),mode:mode(q),feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback},...(imageData?{imageData}:{})};
+   const input=authorInput(original,{imageData,feedback});
    author=receiptValid(await provider('author',input,{nonce:seed+':author:'+round+':'+planning}),'author',input);
    plan=contrastPlan(original,author.result);if(plan.pass)break;feedback={stage:'contrast-plan',errors:plan.errors};
   }
