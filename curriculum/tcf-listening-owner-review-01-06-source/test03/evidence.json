@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test03-v3",
   "test": "tcf-listening-03",
   "version": "tcf-listening-2026-11-test03-v4",
-  "paperHash": "37fa281cea63899e53a5682ab416ef43cc62d03b94926bf60735947ac1f91454",
+  "paperHash": "5430372ae2ab3b74c9e8f464e784fc32f59031f342e4b6be86784b9c0bb0bb8b",
   "questions": [
     {
       "number": 1,
@@ -226,8 +226,8 @@
           "Proposition D"
         ],
         "correct": "B",
-        "explanation": "Réponse B : La patiente est assise et regarde l’écran où s’affiche le numéro appelé, ce qui correspond parfaitement à la description. A : On ne voit pas la patiente discuter avec la secrétaire ni de comptoir d’accueil visible. Quelqu’un pourrait croire que le panneau 'ACCUEIL' implique une interaction, mais la patiente est assise seule. C : La patiente est assise, elle ne se lève pas pour aller au guichet. Quelqu’un pourrait croire qu’elle va se lever car le numéro est affiché, mais elle reste assise. D : La patiente ne lit pas de formulaire et regarde l’écran d’appel. On pourrait croire qu’elle ignore l’écran si on ne voit pas la direction de son regard, mais ce n’est pas le cas.",
-        "transcript": "Question 2.\nRegardez l’image et écoutez les propositions.\nA. Une patiente discute avec la secrétaire derrière le comptoir d’accueil. B. Une patiente attend en surveillant l’affichage du numéro appelé. C. Une patiente se lève pour aller au guichet dès que son numéro s’affiche. D. Une patiente lit un formulaire sur sa chaise en ignorant l’écran d’appel.",
+        "explanation": "Réponse B : L'image montre clairement la patiente qui regarde le panneau d'affichage du numéro appelé, ce qui correspond à la description. A : On ne voit pas la patiente remplir un formulaire, il n'y a aucun papier ni stylo visible. C : Aucune carte n'est visible dans l'image, la patiente n'est pas en train de présenter un document. D : Il n'y a aucun échange d'argent ou de facture visible, la patiente est simplement assise.",
+        "transcript": "Question 2.\nRegardez l’image et écoutez les propositions.\nA. Une patiente complète un formulaire médical. B. Une patiente consulte le numéro affiché. C. Une patiente présente sa carte d’assurance. D. Une patiente règle sa facture médicale.",
         "segments": [
           {
             "voice": "female",
@@ -239,7 +239,7 @@
           },
           {
             "voice": "female",
-            "text": "A. Une patiente discute avec la secrétaire derrière le comptoir d’accueil. B. Une patiente attend en surveillant l’affichage du numéro appelé. C. Une patiente se lève pour aller au guichet dès que son numéro s’affiche. D. Une patiente lit un formulaire sur sa chaise en ignorant l’écran d’appel."
+            "text": "A. Une patiente complète un formulaire médical. B. Une patiente consulte le numéro affiché. C. Une patiente présente sa carte d’assurance. D. Une patiente règle sa facture médicale."
           }
         ],
         "audio": "q-02.mp3",
@@ -247,14 +247,16 @@
         "slotSeconds": 32,
         "image": "q-02.svg"
       },
-      "contentHash": "dd007190e4469f3ea00e98e7fd274ce315861e7943c7aaa3a99374163556800e",
+      "contentHash": "f2d128ce722bc7818c366e31a68bea7621a48d61ddcd695748a9b86b88ad82dd",
       "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "9e2e951ef40bd2606e51d6bf804dbea1fbd320db635b57cf37ad3bdf41ab34ae",
       "grounded": {
         "stage": "ground",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-4.1-2025-04-14",
-        "responseId": "chatcmpl-EkskxpJ9vKoSfr94ww0iua4T8Kk0R",
+        "responseId": "chatcmpl-EktJ1Ln7cGR5S4LVGLIeAqQMUjfzP",
         "result": {
           "supportedIndices": [
             1
@@ -267,15 +269,17 @@
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "On ne voit pas la patiente discuter avec la secrétaire ni de comptoir d’accueil visible. Quelqu’un pourrait croire que le panneau 'ACCUEIL' implique une interaction, mais la patiente est assise seule.",
-              "misunderstanding": "confusion entre la présence du panneau 'ACCUEIL' et une interaction avec le personnel."
+              "reason": "On ne voit pas la patiente remplir un formulaire, il n'y a aucun papier ni stylo visible.",
+              "misunderstanding": "action_swap"
             },
             {
               "index": 1,
               "supported": true,
               "plausibleMisunderstanding": false,
-              "evidence": [],
-              "reason": "La patiente est assise et regarde l’écran où s’affiche le numéro appelé, ce qui correspond parfaitement à la description.",
+              "evidence": [
+                "La patiente regarde le numéro affiché 'N° APPELÉ 42'."
+              ],
+              "reason": "L'image montre clairement la patiente qui regarde le panneau d'affichage du numéro appelé, ce qui correspond à la description.",
               "misunderstanding": null
             },
             {
@@ -283,24 +287,24 @@
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "La patiente est assise, elle ne se lève pas pour aller au guichet. Quelqu’un pourrait croire qu’elle va se lever car le numéro est affiché, mais elle reste assise.",
-              "misunderstanding": "interprétation anticipée de l’action à partir du contexte du numéro affiché."
+              "reason": "Aucune carte n'est visible dans l'image, la patiente n'est pas en train de présenter un document.",
+              "misunderstanding": "objet_swap"
             },
             {
               "index": 3,
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "La patiente ne lit pas de formulaire et regarde l’écran d’appel. On pourrait croire qu’elle ignore l’écran si on ne voit pas la direction de son regard, mais ce n’est pas le cas.",
-              "misunderstanding": "mauvaise interprétation de la posture ou du regard."
+              "reason": "Il n'y a aucun échange d'argent ou de facture visible, la patiente est simplement assise.",
+              "misunderstanding": "action_swap"
             }
           ],
-          "summary": "La seule description soutenue par l’image est que la patiente attend en surveillant l’affichage du numéro appelé. Les autres options sont contredites par la posture et l’action visibles."
+          "summary": "La seule description soutenue par l'image est que la patiente consulte le numéro affiché, car elle regarde l'écran où apparaît 'N° APPELÉ 42'. Les autres options ne sont pas illustrées."
         },
         "usage": {
-          "prompt_tokens": 666,
-          "completion_tokens": 379,
-          "total_tokens": 1045,
+          "prompt_tokens": 635,
+          "completion_tokens": 295,
+          "total_tokens": 930,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
@@ -312,105 +316,82 @@
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.004364,
-        "inputHash": "32618fcd4f2f12fa6071b2ffd88beec795f675827bdc2b2725214315d543014b",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:2:ground:1"
+        "costUsd": 0.00363,
+        "inputHash": "5e776c95f945c76a22e4b35d373c12d560cfbfcf9869a3fd0a2fad4682e904d6",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:2:ground:0"
       },
       "blind": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-5-mini-2025-08-07",
-        "responseId": "chatcmpl-EkskxFjO1Ke8DdodOcG0gylVEWGaG",
+        "responseId": "chatcmpl-EktJ1L2BqBoEgbU5kht3s9oixhAZy",
         "result": {
-          "guess": 1,
+          "guess": 0,
           "probabilities": [
+            0.5,
             0.15,
-            0.55,
-            0.18,
-            0.12
+            0.25,
+            0.1
           ],
-          "standsOut": false,
+          "standsOut": true,
           "cues": [
             {
-              "option": 1,
-              "cue": "Description names a passive, visually observable behavior (attendre en regardant l’affichage) that fits a static image better than alternatives implying interaction or timing."
+              "option": 0,
+              "cue": "Option 0 is a neutral, common clinic action (remplir un formulaire) and is phrased generally without extra context, making it a plausible default description of an image when others are more specific (payer, montrer une carte, regarder un numéro affiché)."
             }
           ],
-          "reason": "I do not have the image, so I cannot know what it shows. The choices include both passive, observable states (waiting and watching a display, reading a form) and dynamic actions or interactions (getting up as soon as a number appears, talking to the receptionist). A single still image is more likely to depict someone sitting and watching the call screen than the immediate moment of rising when a number appears or an interaction behind the counter, so option 2 is slightly more plausible. However, without the image, all options remain plausible, so confidence is limited."
+          "reason": "I have no image or audio, so this is a reasoned guess only. Option 0 is a broadly applicable, typical scene in medical settings and is phrased neutrally; the other options are more specific (consulting a displayed number, presenting an insurance card, paying a bill) and would require visible cues in the image. Because I cannot see those cues, I assign higher probability to the general action of completing a medical form but remain uncertain."
         },
         "usage": {
-          "prompt_tokens": 454,
-          "completion_tokens": 741,
-          "total_tokens": 1195,
+          "prompt_tokens": 423,
+          "completion_tokens": 453,
+          "total_tokens": 876,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 512,
+            "reasoning_tokens": 256,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0015955,
-        "inputHash": "f8ded63ec2f83cf64c2ddadaf3dc66f30c771acb7928e7de7f814c6d658347ba",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:2:blind:1"
+        "costUsd": 0.00101175,
+        "inputHash": "bc00191ce7247ec3e1c2ed10030f1832e3f92922c5297c6b3f872fb84ffdc368",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:2:blind:0"
       },
       "blindPass": false,
       "author": {
-        "stage": "author",
-        "policy": "listening-comprehension-qc-v1",
-        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Ekskp9IUKLLyVMohNeGyqdMd9tYTG",
+        "source": "editorial-fix",
         "result": {
           "question": "Quelle description correspond à l’image ?",
           "choices": [
-            "Une patiente attend en surveillant l’affichage du numéro appelé.",
-            "Une patiente discute avec la secrétaire derrière le comptoir d’accueil.",
-            "Une patiente se lève pour aller au guichet dès que son numéro s’affiche.",
-            "Une patiente lit un formulaire sur sa chaise en ignorant l’écran d’appel."
+            "Une patiente consulte le numéro affiché.",
+            "Une patiente complète un formulaire médical.",
+            "Une patiente présente sa carte d’assurance.",
+            "Une patiente règle sa facture médicale."
           ],
           "correctIndex": 0,
-          "explanation": "L’image montre une patiente assise sur des chaises, sous l’indication « ACCUEIL », qui regarde vers un écran où figure « N° APPELÉ 42 ». Elle semble attendre tout en surveillant le numéro affiché, ce qui correspond à la première description. On ne voit ni secrétaire, ni déplacement vers le guichet, ni formulaire dans ses mains.",
+          "explanation": "La personne assise regarde le numéro d’appel affiché sur l’écran de la salle d’attente.",
           "distractorReasons": [
             {
               "index": 1,
-              "reason": "On n’aperçoit aucun personnel ni comptoir d’accueil dans l’image : la patiente est seule, assise, sans interaction visible avec une secrétaire."
+              "reason": "La scène ne montre ni écriture sur un formulaire ni personne penchée sur un dossier."
             },
             {
               "index": 2,
-              "reason": "La patiente reste assise sur les sièges ; l’image ne suggère pas qu’elle soit en train de se lever ni de se diriger vers le guichet au moment où le numéro 42 est affiché."
+              "reason": "La personne ne tend pas de carte d’assurance à un agent d’accueil ; elle consulte l’affichage."
             },
             {
               "index": 3,
-              "reason": "La patiente regarde clairement l’écran où s’affiche le numéro appelé ; rien n’indique qu’elle tienne ou lise un formulaire ni qu’elle ignore l’écran."
+              "reason": "La scène montre l’attente et le numéro d’appel, pas un règlement au guichet."
             }
-          ],
-          "design": "Contraste entre différentes interprétations de la même scène d’attente à l’accueil (regarder l’écran, parler à la secrétaire, se lever déjà, ou lire un formulaire) pour vérifier l’observation précise de la position et du regard de la patiente."
-        },
-        "usage": {
-          "prompt_tokens": 1202,
-          "completion_tokens": 743,
-          "total_tokens": 1945,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 372,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.0089325,
-        "inputHash": "69abafa92d99d1debab6afd169ec022733445597458a9c7cb4d5d6f627202d90",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:2:author:1"
+          ]
+        }
       },
-      "rounds": 2
+      "rounds": 1
     },
     {
       "number": 3,
@@ -6947,7 +6928,215 @@
     },
     {
       "number": 33,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "aace3bd55e8f75c6c92d2f8815e9d2bd9a3b42ced509983f2ef8ba123b5f1e6f",
+      "imageHash": null,
+      "question": {
+        "number": 33,
+        "kind": "commentary",
+        "question": "Que souligne la chroniqueuse à propos du délai moyen de huit jours annoncé ?",
+        "options": [
+          "Qu’il peut donner une image trompeuse en masquant de fortes différences entre patients.",
+          "Qu’il devient vite obsolète dès que la demande de rendez-vous augmente.",
+          "Qu’il reflète surtout la situation des spécialités où l’attente est la plus longue.",
+          "Qu’il manque surtout une séparation claire entre les urgences et les autres consultations."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La chroniqueuse explique que le délai moyen de huit jours peut donner une image trompeuse car il masque de grandes différences entre les patients (certains attendent deux jours, d'autres deux mois). C'est exactement ce que dit l'option 0. B : Quelqu’un pourrait croire que le délai devient obsolète si la demande augmente, car la chroniqueuse évoque des situations d'urgence et des différences selon les spécialités. Cependant, elle ne dit pas que le chiffre devient obsolète avec l’augmentation de la demande, mais que la moyenne masque la diversité des situations. C : La chroniqueuse mentionne qu'il serait utile de publier les différences entre spécialités, mais elle ne dit pas que la moyenne reflète surtout les spécialités où l’attente est la plus longue. Elle critique la moyenne pour masquer les écarts, pas pour être biaisée vers les longues attentes. D : La chroniqueuse évoque qu’il serait utile de distinguer les situations d’urgence, mais elle ne dit pas que le problème principal est l’absence de séparation claire entre urgences et autres consultations. Elle insiste sur le caractère trompeur de la moyenne, pas sur la séparation des types de rendez-vous.",
+        "transcript": "Question 33.\nLe nouvel indicateur municipal annonce un délai moyen de huit jours pour consulter un spécialiste. C'est une information intéressante, mais elle ne nous dit pas ce que vivent tous les patients. Si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse. Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence. Le problème n'est pas le chiffre en lui-même, mais ce qu'on lui fait raconter.\nQue souligne la chroniqueuse à propos du délai moyen de huit jours annoncé ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 33."
+          },
+          {
+            "voice": "female",
+            "text": "Le nouvel indicateur municipal annonce un délai moyen de huit jours pour consulter un spécialiste. C'est une information intéressante, mais elle ne nous dit pas ce que vivent tous les patients. Si certaines personnes obtiennent une place sous deux jours et d'autres attendent deux mois, la moyenne peut donner une impression trompeuse. Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence. Le problème n'est pas le chiffre en lui-même, mais ce qu'on lui fait raconter."
+          },
+          {
+            "voice": "female",
+            "text": "Que souligne la chroniqueuse à propos du délai moyen de huit jours annoncé ?"
+          }
+        ],
+        "audio": "q-33.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 67
+      },
+      "contentHash": "11dccc44fc5c08c402c43cd54fe10eade1186cfc783e951bdf6f1e665d8629b9",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktJEUvJEHv5ELcDo95Ztk5zVaq28",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "la moyenne peut donner une impression trompeuse"
+              ],
+              "reason": "La chroniqueuse explique que le délai moyen de huit jours peut donner une image trompeuse car il masque de grandes différences entre les patients (certains attendent deux jours, d'autres deux mois). C'est exactement ce que dit l'option 0.",
+              "misunderstanding": null
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Il serait utile de publier aussi la proportion de patients vus dans un délai raisonnable, les différences entre spécialités et les situations d'urgence."
+              ],
+              "reason": "Quelqu’un pourrait croire que le délai devient obsolète si la demande augmente, car la chroniqueuse évoque des situations d'urgence et des différences selon les spécialités. Cependant, elle ne dit pas que le chiffre devient obsolète avec l’augmentation de la demande, mais que la moyenne masque la diversité des situations.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les différences entre spécialités"
+              ],
+              "reason": "La chroniqueuse mentionne qu'il serait utile de publier les différences entre spécialités, mais elle ne dit pas que la moyenne reflète surtout les spécialités où l’attente est la plus longue. Elle critique la moyenne pour masquer les écarts, pas pour être biaisée vers les longues attentes.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les situations d'urgence"
+              ],
+              "reason": "La chroniqueuse évoque qu’il serait utile de distinguer les situations d’urgence, mais elle ne dit pas que le problème principal est l’absence de séparation claire entre urgences et autres consultations. Elle insiste sur le caractère trompeur de la moyenne, pas sur la séparation des types de rendez-vous.",
+              "misunderstanding": "scope_swap"
+            }
+          ],
+          "summary": "La chroniqueuse souligne que le délai moyen de huit jours peut donner une image trompeuse, car il masque de fortes différences entre patients. Elle ne dit pas que le chiffre devient obsolète, ni qu’il reflète surtout les longues attentes ou qu’il manque principalement une séparation entre urgences et autres consultations."
+        },
+        "usage": {
+          "prompt_tokens": 682,
+          "completion_tokens": 493,
+          "total_tokens": 1175,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005308,
+        "inputHash": "8302993bf70245b1cd4c39d3cc6a647a6d86674ab876b1f8bfb1f84c5a7a8cd5",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:33:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktJElAiJD0fOx6ArUv2a51stxeX5",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.7,
+            0.1,
+            0.1,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "La formulation souligne un effet moyen potentiellement trompeur (masquage de fortes différences) — commentaire typique d’une chroniqueuse critiquant une moyenne annoncée."
+            }
+          ],
+          "reason": "La première option correspond au commentaire critique le plus naturel sur un « délai moyen » communiqué publiquement : une moyenne peut être trompeuse en cachant de fortes disparités entre patients. Les autres options sont plausibles mais plus spécifiques (obsolescence rapide, concentration sur certaines spécialités, confusion urgences/consultations) et ne bénéficient d’aucun indice clair dans l’énoncé seul. Sans l’enregistrement, on ne peut pas être certain, mais l’argument sur le caractère trompeur de la moyenne est le plus directement lié à la formulation de la question."
+        },
+        "usage": {
+          "prompt_tokens": 466,
+          "completion_tokens": 398,
+          "total_tokens": 864,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0009125,
+        "inputHash": "30a77612bcbd7a1d0d33782776430d0c10ada7539bb0b344122a7d7ab735fc4c",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:33:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktJ4eVuvnMZbc9zvz0XW5qTbcK6k",
+        "result": {
+          "question": "Que souligne la chroniqueuse à propos du délai moyen de huit jours annoncé ?",
+          "choices": [
+            "Qu’il peut donner une image trompeuse en masquant de fortes différences entre patients.",
+            "Qu’il devient vite obsolète dès que la demande de rendez-vous augmente.",
+            "Qu’il manque surtout une séparation claire entre les urgences et les autres consultations.",
+            "Qu’il reflète surtout la situation des spécialités où l’attente est la plus longue."
+          ],
+          "correctIndex": 0,
+          "explanation": "La chroniqueuse explique que la moyenne de huit jours « ne nous dit pas ce que vivent tous les patients » et prend précisément l’exemple de personnes vues en deux jours contre d’autres en deux mois : elle reproche donc à ce délai moyen de masquer de grands écarts individuels et de pouvoir donner « une impression trompeuse ». Elle ne dit pas qu’il devient obsolète dès que la demande augmente, ni que le principal problème serait uniquement l’absence de distinction urgences/consultations ordinaires ou le poids excessif de certaines spécialités, même si elle évoque ces dimensions comme des informations complémentaires souhaitables.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Elle ne parle pas d’un indicateur qui deviendrait inutile ou obsolète quand la demande augmente, mais de la façon dont la moyenne peut être trompeuse parce qu’elle cache l’hétérogénéité des situations."
+            },
+            {
+              "index": 2,
+              "reason": "Les urgences sont mentionnées comme une information qu’il serait utile d’ajouter, mais ce n’est pas présenté comme la réserve centrale : la critique porte d’abord sur la moyenne qui ne reflète pas ce que vivent tous les patients."
+            },
+            {
+              "index": 3,
+              "reason": "Elle souhaite des données par spécialité, mais ne dit pas que la moyenne est « faussée » principalement par celles où l’attente est la plus longue ; son propos général vise plutôt le fait que la moyenne lisse des écarts importants entre patients."
+            }
+          ],
+          "design": "Met en contraste la critique centrale (moyenne trompeuse car elle masque la dispersion des délais) avec d’autres réserves plausibles mais secondaires ou non formulées dans l’extrait (obsolescence liée à la demande, priorité à la distinction urgences/ordinaire, biais par certaines spécialités)."
+        },
+        "usage": {
+          "prompt_tokens": 1244,
+          "completion_tokens": 581,
+          "total_tokens": 1825,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 106,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007365,
+        "inputHash": "1ae3ee249abca2f3c84dcbe3521e04f97f321e02a770b1636d7eb7abb4c257af",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-03:33:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 34,
@@ -8289,5 +8478,43 @@
       "rounds": 2
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktJJsGBYqNhKysoUgCHfTk2xoDd0",
+    "result": {
+      "pass": true,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "Both questions feature a correct answer that is notably more specific and detailed than the distractors, referencing precise locations or times, which could be a cue if this pattern recurred more broadly."
+        }
+      ],
+      "summary": "Overall, the examination does not display clear, systematic answer-only guessing cues such as consistent answer length, position, or sophistication patterns across the full set. There is natural variation in answer length and complexity, and the correct answers are not consistently the longest, shortest, or most qualified. The answer positions are well-mixed and do not follow a rigid cycle. However, there are isolated cases (e.g., questions 9 and 12) where the correct answer is more specific than the distractors, but this does not constitute a pervasive pattern. No major issues with grammatical mismatches, repeated stock phrasing, or distractor types were found. The exam passes the audit."
+    },
+    "usage": {
+      "prompt_tokens": 4174,
+      "completion_tokens": 199,
+      "total_tokens": 4373,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00994,
+    "inputHash": "ac003c216ad98d372158277eefa4b49b0ae2f1aa181b61b5ee766e8168f78726",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-03"
+  }
 }

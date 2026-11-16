@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-v1",
   "test": "tcf-listening-01",
   "version": "tcf-listening-2026-11-test01-v4",
-  "paperHash": "1235dfcb68cadb8f8bf5e93fd3bb69ca67e2887121f8371e67e5734bc68473a5",
+  "paperHash": "11a8987a9298b9fce12a52abcdcab6d38011f2df44fb50e5ced6bd4505699a1a",
   "questions": [
     {
       "number": 1,
@@ -4937,7 +4937,195 @@
     },
     {
       "number": 24,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "96d72769b6d09fc7c118f34e72cf8a138d36fa25c806c06bae1cfc8cd2dbedbf",
+      "imageHash": null,
+      "question": {
+        "number": 24,
+        "kind": "interview",
+        "question": "Que dit la chercheuse des travailleurs de nuit et des anciens usagers ?",
+        "options": [
+          "Les travailleurs de nuit ont surtout répondu ; les anciens usagers sont peu représentés.",
+          "Les travailleurs de nuit sont peu représentés ; les anciens usagers n’ont pas été interrogés.",
+          "Les deux groupes ont reçu le questionnaire, mais n’ont pas souhaité y répondre.",
+          "Les deux groupes ont répondu, mais leurs réponses ont été écartées du bilan."
+        ],
+        "correct": "B",
+        "transcript": "Question 24.\nVotre enquête montre que les voyageurs sont satisfaits des nouveaux horaires. Peut-on dire que la réforme est un succès ?\nC'est un signal intéressant, mais notre questionnaire a surtout été distribué dans les bus en journée. Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne. Avant de conclure, il faut les contacter. Une enquête auprès des usagers actuels décrit une partie de la situation ; elle ne dit pas automatiquement ce que vivent les personnes absentes.\nQue dit la chercheuse des travailleurs de nuit et des anciens usagers ?",
+        "explanation": "Réponse B : C'est exactement ce que dit la chercheuse : les travailleurs de nuit sont peu représentés dans les réponses et les anciens usagers n'ont pas été interrogés. A : Cette option inverse la situation des deux groupes : elle affirme que les travailleurs de nuit ont surtout répondu, alors que le texte dit explicitement qu'ils sont peu présents dans les réponses. Elle affirme aussi que les anciens usagers sont peu représentés, mais le texte précise qu'ils n'ont pas été interrogés du tout. Quelqu'un pourrait confondre 'peu présents' et 'peu représentés', mais la formulation du texte contredit cette option. C : Cette option suppose que les deux groupes ont reçu le questionnaire mais n'ont pas souhaité répondre. Or, le texte précise que les anciens usagers n'ont pas été interrogés du tout, et que les travailleurs de nuit sont peu présents dans les réponses, ce qui ne signifie pas nécessairement qu'ils ont refusé de répondre, mais plutôt qu'ils n'ont pas été suffisamment sollicités. D : Cette option affirme que les deux groupes ont répondu mais que leurs réponses ont été écartées, ce qui n'est pas le cas. Le texte dit que les travailleurs de nuit sont peu présents dans les réponses (donc très peu ont répondu) et que les anciens usagers n'ont pas été interrogés du tout. Quelqu'un pourrait mal comprendre 'peu présents' comme 'leurs réponses ont été écartées', mais ce n'est pas ce qui est dit.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 24."
+          },
+          {
+            "voice": "male",
+            "text": "Votre enquête montre que les voyageurs sont satisfaits des nouveaux horaires. Peut-on dire que la réforme est un succès ?"
+          },
+          {
+            "voice": "female",
+            "text": "C'est un signal intéressant, mais notre questionnaire a surtout été distribué dans les bus en journée. Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne. Avant de conclure, il faut les contacter. Une enquête auprès des usagers actuels décrit une partie de la situation ; elle ne dit pas automatiquement ce que vivent les personnes absentes."
+          },
+          {
+            "voice": "female",
+            "text": "Que dit la chercheuse des travailleurs de nuit et des anciens usagers ?"
+          }
+        ],
+        "audio": "q-24.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 59
+      },
+      "contentHash": "5fe8e61c7ba5867037b3656da1bb0fc5c5c4cb1f61f0432b652a207d5aaebe7c",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "6d3950b21a938fdd34937bd2f2ba81199fa5367842910acfeeaed7013d0d1864",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktInQKx2V2daCXh1QzIDjLSOnSgR",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne."
+              ],
+              "reason": "Cette option inverse la situation des deux groupes : elle affirme que les travailleurs de nuit ont surtout répondu, alors que le texte dit explicitement qu'ils sont peu présents dans les réponses. Elle affirme aussi que les anciens usagers sont peu représentés, mais le texte précise qu'ils n'ont pas été interrogés du tout. Quelqu'un pourrait confondre 'peu présents' et 'peu représentés', mais la formulation du texte contredit cette option.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne."
+              ],
+              "reason": "C'est exactement ce que dit la chercheuse : les travailleurs de nuit sont peu représentés dans les réponses et les anciens usagers n'ont pas été interrogés."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne."
+              ],
+              "reason": "Cette option suppose que les deux groupes ont reçu le questionnaire mais n'ont pas souhaité répondre. Or, le texte précise que les anciens usagers n'ont pas été interrogés du tout, et que les travailleurs de nuit sont peu présents dans les réponses, ce qui ne signifie pas nécessairement qu'ils ont refusé de répondre, mais plutôt qu'ils n'ont pas été suffisamment sollicités.",
+              "misunderstanding": "condition_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les salariés qui travaillent la nuit sont peu présents dans les réponses. Nous n'avons pas non plus interrogé ceux qui ont cessé de prendre cette ligne."
+              ],
+              "reason": "Cette option affirme que les deux groupes ont répondu mais que leurs réponses ont été écartées, ce qui n'est pas le cas. Le texte dit que les travailleurs de nuit sont peu présents dans les réponses (donc très peu ont répondu) et que les anciens usagers n'ont pas été interrogés du tout. Quelqu'un pourrait mal comprendre 'peu présents' comme 'leurs réponses ont été écartées', mais ce n'est pas ce qui est dit.",
+              "misunderstanding": "condition_swap"
+            }
+          ],
+          "summary": "La seule option qui correspond exactement aux propos de la chercheuse est la deuxième : les travailleurs de nuit sont peu représentés et les anciens usagers n’ont pas été interrogés. Les autres options reposent sur une mauvaise interprétation des conditions de participation ou sur une inversion des groupes concernés."
+        },
+        "usage": {
+          "prompt_tokens": 687,
+          "completion_tokens": 618,
+          "total_tokens": 1305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006318,
+        "inputHash": "efad91478af38032c57fe46861d78189bbe346b4a19b6d4aff458711c66ce033",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-01:24:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktIn8QK15lf7fA4x6nV719OqguIN",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.6,
+            0.15,
+            0.15,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions differential representation (one group responded more, the other underrepresented) which is a common sampling observation and fits question about 'les travailleurs de nuit et des anciens usagers'."
+            }
+          ],
+          "reason": "I do not have the recording, so this is a guess based on wording and plausibility. Option 1 presents a typical researcher comment about response bias (one subgroup responded more while another is underrepresented), making it more likely than the other options which assert non-interrogation, universal refusal, or exclusion of responses—claims that are stronger or less typical. However, without the audio, confidence is limited."
+        },
+        "usage": {
+          "prompt_tokens": 468,
+          "completion_tokens": 427,
+          "total_tokens": 895,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.000971,
+        "inputHash": "2fa15e5cd5c827e63cefa736287505b6e90ad596f8f6806b9cceed02258eaef1",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-01:24:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "source": "editorial-fix",
+        "result": {
+          "question": "Que dit la chercheuse des travailleurs de nuit et des anciens usagers ?",
+          "choices": [
+            "Les travailleurs de nuit ont surtout répondu ; les anciens usagers sont peu représentés.",
+            "Les travailleurs de nuit sont peu représentés ; les anciens usagers n’ont pas été interrogés.",
+            "Les deux groupes ont répondu, mais leurs réponses ont été écartées du bilan.",
+            "Les deux groupes ont reçu le questionnaire, mais n’ont pas souhaité y répondre."
+          ],
+          "correctIndex": 1,
+          "explanation": "La chercheuse distingue les salariés de nuit peu présents dans les réponses et les anciens usagers qui n’ont pas été interrogés.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Cette proposition inverse la représentation des salariés de nuit et celle des anciens usagers dans l’enquête."
+            },
+            {
+              "index": 2,
+              "reason": "Le problème concerne les personnes peu ou pas interrogées, et non des réponses collectées puis exclues de l’analyse."
+            },
+            {
+              "index": 3,
+              "reason": "Le message ne décrit pas un refus de répondre après réception du questionnaire, mais une collecte qui manque une partie des personnes concernées."
+            }
+          ]
+        }
+      },
+      "rounds": 1
     },
     {
       "number": 25,
@@ -6437,7 +6625,218 @@
     },
     {
       "number": 32,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "f3690043d2058c0c736747befcc9eccbdcfb3333e7f2d488af59c5351272f0dc",
+      "imageHash": null,
+      "question": {
+        "number": 32,
+        "kind": "interview",
+        "question": "Selon le scientifique, qu’est‑ce qu’il faut ajouter à un simple chiffre pour qu’il informe vraiment sur une estimation incertaine ?",
+        "options": [
+          "Des repères sur les observations, la méthode et ce qui pourrait modifier la conclusion.",
+          "Une comparaison avec les opinions d’autres spécialistes pour situer ce chiffre parmi leurs avis.",
+          "Une reformulation en termes simples, sans entrer dans les détails techniques de la méthode.",
+          "Une marge d’erreur chiffrée plus étroite autour de la valeur annoncée."
+        ],
+        "correct": "A",
+        "transcript": "Question 32.\nQuand vous dites que votre estimation comporte une incertitude, certains auditeurs comprennent que vous ne savez rien. Comment leur répondez-vous ?\nJe leur donne un exemple. Prévoir une zone de risque ne permet pas de dire quelle maison sera touchée à quelle date. Cela reste pourtant utile pour préparer les secours ou éviter une construction mal située. L'incertitude indique la portée de ce que nous pouvons affirmer. Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion. Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information. Reconnaître des limites n'oblige pas à traiter comme équivalentes toutes les affirmations.\nSelon le scientifique, qu’est‑ce qu’il faut ajouter à un simple chiffre pour qu’il informe vraiment sur une estimation incertaine ?",
+        "explanation": "Réponse A : Le scientifique explique qu'il faut accompagner un chiffre d'explications sur les observations, la méthode et les facteurs pouvant modifier la conclusion, pour que l'information soit vraiment utile et compréhensible. B : Quelqu'un pourrait croire que comparer avec d'autres spécialistes est utile pour situer le chiffre, mais le texte ne parle pas de comparaison avec des avis extérieurs, seulement d'expliquer le contexte et la méthode. C : On pourrait penser qu'une reformulation simple suffit, mais le scientifique insiste sur la nécessité de donner des repères précis, pas juste de simplifier le discours. D : Quelqu'un pourrait croire qu'une marge d'erreur plus étroite rend le chiffre plus informatif, mais le scientifique explique que ce sont les repères contextuels qui sont essentiels, pas seulement la précision apparente.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 32."
+          },
+          {
+            "voice": "male",
+            "text": "Quand vous dites que votre estimation comporte une incertitude, certains auditeurs comprennent que vous ne savez rien. Comment leur répondez-vous ?"
+          },
+          {
+            "voice": "female",
+            "text": "Je leur donne un exemple. Prévoir une zone de risque ne permet pas de dire quelle maison sera touchée à quelle date. Cela reste pourtant utile pour préparer les secours ou éviter une construction mal située. L'incertitude indique la portée de ce que nous pouvons affirmer. Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion. Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information. Reconnaître des limites n'oblige pas à traiter comme équivalentes toutes les affirmations."
+          },
+          {
+            "voice": "female",
+            "text": "Selon le scientifique, qu’est‑ce qu’il faut ajouter à un simple chiffre pour qu’il informe vraiment sur une estimation incertaine ?"
+          }
+        ],
+        "audio": "q-32.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 70
+      },
+      "contentHash": "57e857668810a530ef43ce440b484ef78eab88ac7f8036a5cb5609e9f50730d1",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktInr3mjiW1oA1uor9Y8SqBzt5fb",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion."
+              ],
+              "reason": "Le scientifique explique qu'il faut accompagner un chiffre d'explications sur les observations, la méthode et les facteurs pouvant modifier la conclusion, pour que l'information soit vraiment utile et compréhensible."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information."
+              ],
+              "reason": "Quelqu'un pourrait croire que comparer avec d'autres spécialistes est utile pour situer le chiffre, mais le texte ne parle pas de comparaison avec des avis extérieurs, seulement d'expliquer le contexte et la méthode.",
+              "misunderstanding": "scope_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion."
+              ],
+              "reason": "On pourrait penser qu'une reformulation simple suffit, mais le scientifique insiste sur la nécessité de donner des repères précis, pas juste de simplifier le discours.",
+              "misunderstanding": "qualification_swap"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information."
+              ],
+              "reason": "Quelqu'un pourrait croire qu'une marge d'erreur plus étroite rend le chiffre plus informatif, mais le scientifique explique que ce sont les repères contextuels qui sont essentiels, pas seulement la précision apparente.",
+              "misunderstanding": "scope_swap"
+            }
+          ],
+          "summary": "La bonne réponse est la première option, car le scientifique insiste sur l'importance d'ajouter des repères sur les observations, la méthode et les facteurs pouvant modifier la conclusion pour qu'un chiffre informe vraiment sur une estimation incertaine. Les autres options ne sont pas soutenues par le texte ou ne répondent pas précisément à la question posée."
+        },
+        "usage": {
+          "prompt_tokens": 732,
+          "completion_tokens": 445,
+          "total_tokens": 1177,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005024,
+        "inputHash": "ce775749b35989b444d3091078abec56770b659473529123ed819459a5c54d8a",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-01:32:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt8UwmlVNaJPLJmvsdhVxup2Rqrf",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.7,
+            0.15,
+            0.05,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "mentions observations, method and factors that could change the conclusion — directly addresses the sources of uncertainty and context"
+            }
+          ],
+          "reason": "Option 0 uniquely supplies contextual information (observations, methodology, and possible modifiers) that explains and bounds uncertainty, which matches the question about making a simple number informative for an uncertain estimate. The other choices are less directly about communicating the sources and limits of uncertainty: option 1 (comparing experts) offers relative judgement but not methodological transparency; option 2 (simplification) reduces technical detail without adding uncertainty context; option 3 (narrower margin) would mislead by appearing more precise rather than explaining uncertainty. Given only the text and no recording, option 0 clearly stands out as the most defensible choice."
+        },
+        "usage": {
+          "prompt_tokens": 481,
+          "completion_tokens": 327,
+          "total_tokens": 808,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 128,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00077425,
+        "inputHash": "aed716d47b016e351c63c84935d5b506913d243fd489c9c3189464371c4f0cab",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-01:32:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt8JUW6gl1LDoHBAHgs50xceZfJK",
+        "result": {
+          "question": "Selon le scientifique, qu’est‑ce qu’il faut ajouter à un simple chiffre pour qu’il informe vraiment sur une estimation incertaine ?",
+          "choices": [
+            "Des repères sur les observations, la méthode et ce qui pourrait modifier la conclusion.",
+            "Une marge d’erreur chiffrée plus étroite autour de la valeur annoncée.",
+            "Une reformulation en termes simples, sans entrer dans les détails techniques de la méthode.",
+            "Une comparaison avec les opinions d’autres spécialistes pour situer ce chiffre parmi leurs avis."
+          ],
+          "correctIndex": 0,
+          "explanation": "Le scientifique explique que « l’incertitude indique la portée de ce que nous pouvons affirmer » et ajoute : « Nous devons expliquer les observations, la méthode et ce qui pourrait modifier la conclusion. Présenter un chiffre sans ces repères donne une apparence de précision, mais pas nécessairement une meilleure information. » Il insiste donc sur l’ajout de repères qualitatifs sur la démarche et ses limites, pas seulement sur un ajustement numérique ou stylistique.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Il réduit ce qu’il faut ajouter à une simple marge d’erreur chiffrée. Or l’orateur parle de repères sur les observations, la méthode et les conditions pouvant modifier la conclusion, pas d’un resserrement de l’intervalle numérique."
+            },
+            {
+              "index": 2,
+              "reason": "Il transforme l’exigence d’explication en une simple vulgarisation linguistique. Dans l’enregistrement, le scientifique insiste sur le contenu (observations, méthode, facteurs de révision), pas sur le fait de rester à distance des détails techniques."
+            },
+            {
+              "index": 3,
+              "reason": "Il suppose que l’essentiel est de comparer le chiffre à d’autres avis. Le scientifique évoque le risque de traiter toutes les affirmations comme équivalentes, mais il ne préconise pas une mise en parallèle d’opinions : il demande d’expliciter la base empirique et méthodologique du chiffre lui‑même."
+            }
+          ],
+          "design": "Contraste entre un chiffre présenté seul et un chiffre accompagné de repères sur observations, méthode et conditions de validité."
+        },
+        "usage": {
+          "prompt_tokens": 1723,
+          "completion_tokens": 847,
+          "total_tokens": 2570,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 400,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01062375,
+        "inputHash": "5363d33a21e22a76a59a6ae2a09b4c71683d487ca1b3f61bf0804e934acf38bb",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-01:32:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 33,
@@ -7989,5 +8388,43 @@
       "rounds": 2
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktIstSl8ohBwDDYnZBPukzr1JXol",
+    "result": {
+      "pass": false,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "In both questions, the correct answer is the only one that affirms a prior action or status quo (e.g., 'L’heure de départ reste la même.' and 'Qu’elle l’a déjà réglée en ligne.'), while the distractors introduce changes or additional requirements. This could cue test-wise students to guess the correct answer by looking for the 'no change/status quo' option."
+        }
+      ],
+      "summary": "Most questions show natural variation in answer length, position, and phrasing. However, questions 9 and 12 both feature a correct answer that is the only one affirming a status quo or prior completion, while all distractors introduce change or additional requirements. This recurring cue could be exploitable by test-wise students. No other clear, systematic cues are present across the rest of the exam."
+    },
+    "usage": {
+      "prompt_tokens": 4112,
+      "completion_tokens": 185,
+      "total_tokens": 4297,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009704,
+    "inputHash": "02d4e78202d9ba3581f9d6338e3e2f902bb268d507611d381bf644bf9e3c19e8",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-01"
+  }
 }

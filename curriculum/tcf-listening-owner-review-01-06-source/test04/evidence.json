@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test04-v3",
   "test": "tcf-listening-04",
   "version": "tcf-listening-2026-11-test04-v4",
-  "paperHash": "ae02643632d92906c40be042f8929ce1919952aa641a2b510eb69a5125ed8c75",
+  "paperHash": "ac564ac5c6d7e132f05e692a627aff3cca21a21904450cd87d06e5c6b097d9fa",
   "questions": [
     {
       "number": 1,
@@ -826,11 +826,438 @@
     },
     {
       "number": 5,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "14c7cc0dcd87b9f046b02835ba9bdf6f09f3e4aecfc294476187bc43ffa74f59",
+      "imageHash": null,
+      "question": {
+        "number": 5,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : La bonne réponse est clairement indiquée dans la formulation de la question et des choix. Le cours de conversation a lieu dans la salle trois, au fond du couloir. A : Quelqu’un pourrait confondre la salle si l’attention est portée sur le numéro ou l’emplacement, mais le texte ne mentionne pas la salle quatre pour le cours de conversation. C : Quelqu’un pourrait se tromper de numéro de salle en retenant seulement l’emplacement 'au fond du couloir', mais la salle deux n’est pas mentionnée pour le cours de conversation. D : On pourrait confondre la salle trois avec un autre emplacement, mais la localisation correcte est 'au fond du couloir', pas 'près de la cour'.",
+        "transcript": "Question 5.\nLe cours de conversation a lieu dans quelle salle ?\nA. Dans la salle quatre, à côté du bureau. B. Dans la salle trois, au fond du couloir. C. Dans la salle deux, au fond du couloir. D. Dans la salle trois, près de la cour.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 5."
+          },
+          {
+            "voice": "female",
+            "text": "Le cours de conversation a lieu dans quelle salle ?"
+          },
+          {
+            "voice": "male",
+            "text": "A. Dans la salle quatre, à côté du bureau. B. Dans la salle trois, au fond du couloir. C. Dans la salle deux, au fond du couloir. D. Dans la salle trois, près de la cour."
+          }
+        ],
+        "audio": "q-05.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 35
+      },
+      "contentHash": "d02a3c1945e870cf12217ed2656341f6533dab6234574ce34d98b2db9f946eb0",
+      "groundedPass": true,
+      "groundContext": "spoken-recording",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktJNDId664piELoZiHLSVSpTACDo",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "salle quatre, à côté du bureau"
+              ],
+              "reason": "Quelqu’un pourrait confondre la salle si l’attention est portée sur le numéro ou l’emplacement, mais le texte ne mentionne pas la salle quatre pour le cours de conversation.",
+              "misunderstanding": "numéro de salle confondu avec la bonne localisation."
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "salle trois, au fond du couloir"
+              ],
+              "reason": "La bonne réponse est clairement indiquée dans la formulation de la question et des choix. Le cours de conversation a lieu dans la salle trois, au fond du couloir."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "salle deux, au fond du couloir"
+              ],
+              "reason": "Quelqu’un pourrait se tromper de numéro de salle en retenant seulement l’emplacement 'au fond du couloir', mais la salle deux n’est pas mentionnée pour le cours de conversation.",
+              "misunderstanding": "emplacement correct mais numéro de salle erroné."
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "salle trois, près de la cour"
+              ],
+              "reason": "On pourrait confondre la salle trois avec un autre emplacement, mais la localisation correcte est 'au fond du couloir', pas 'près de la cour'.",
+              "misunderstanding": "numéro de salle correct mais emplacement erroné."
+            }
+          ],
+          "summary": "La seule réponse qui correspond exactement à la salle et à l’emplacement donnés pour le cours de conversation est la salle trois, au fond du couloir (B). Les autres choix comportent soit une erreur de numéro de salle, soit d’emplacement."
+        },
+        "usage": {
+          "prompt_tokens": 603,
+          "completion_tokens": 400,
+          "total_tokens": 1003,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004406,
+        "inputHash": "01774d3c513408eebff4ceb700fc2e9a9a2baf8f65b9550ccff1228ad997d9a4",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:5:ground:2"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktBopqaZF0C0AXjIRoinbhQsMf1g",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.35,
+            0.3,
+            0.2,
+            0.15
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Unique pairing of salle quatre with 'à côté du bureau' (distinct landmark)."
+            },
+            {
+              "option": 1,
+              "cue": "One of two options using the same phrase 'au fond du couloir' (competes with option 2)."
+            },
+            {
+              "option": 2,
+              "cue": "Shares wording 'au fond du couloir' with option 1, making them mutually competing choices."
+            },
+            {
+              "option": 3,
+              "cue": "'Près de la cour' is a distinct location but less specific than 'à côté du bureau'."
+            }
+          ],
+          "reason": "I have no access to the recording and cannot know which location was indicated; choices 1 and 2 directly compete by repeating 'au fond du couloir', making them less distinguishable. Option 0 stands out slightly because it names a different room number and a concrete nearby landmark ('à côté du bureau'), so I give it the highest single probability, but overall uncertainty remains high and no option clearly wins from the text alone."
+        },
+        "usage": {
+          "prompt_tokens": 431,
+          "completion_tokens": 688,
+          "total_tokens": 1119,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 448,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00148375,
+        "inputHash": "904a0a7af02631b0b3a5b162d874931175e7c8e0d35985a03276599a70793dab",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:5:blind:2"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktBe4CJbspq0VZoJvYouhqzCCd39",
+        "result": {
+          "question": "Quelle réponse convient à la situation ?",
+          "choices": [
+            "Dans la salle trois, au fond du couloir.",
+            "Dans la salle deux, au fond du couloir.",
+            "Dans la salle trois, près de la cour.",
+            "Dans la salle quatre, à côté du bureau."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’énoncé précise que le cours de conversation a lieu « dans la salle trois, au fond du couloir ». Seule la première réponse reprend à la fois le bon numéro de salle et l’indication de position donnée dans l’enregistrement.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "L’auditeur retient correctement « au fond du couloir », mais confond le numéro de la salle en entendant « deux » au lieu de « trois »."
+            },
+            {
+              "index": 2,
+              "reason": "Le numéro de salle est juste, mais la localisation « près de la cour » ne correspond pas à ce qui est annoncé (« au fond du couloir »)."
+            },
+            {
+              "index": 3,
+              "reason": "Cette option repose sur une confusion globale : ni le numéro de salle ni la position « à côté du bureau » ne figurent dans l’indication donnée pour le cours de conversation."
+            }
+          ],
+          "design": "Contraste précis entre le numéro de salle et la localisation interne (fond du couloir / près de la cour / à côté du bureau), tous les éléments étant proches pour favoriser les confusions de détail."
+        },
+        "usage": {
+          "prompt_tokens": 1531,
+          "completion_tokens": 910,
+          "total_tokens": 2441,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 612,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01101375,
+        "inputHash": "152c55e7914f84a977f7103a744c1b34a6fb477def6d006af0be77ca7285a40b",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:5:author:2"
+      },
+      "rounds": 3
     },
     {
       "number": 6,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "d25c038ed4524fa4bfd6aa71e4821beb6b32164cc07a19c0f48c56ed6098604b",
+      "imageHash": null,
+      "question": {
+        "number": 6,
+        "kind": "response",
+        "question": "Quelle réponse convient à la situation ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : La personne demande de l'aide pour un identifiant oublié. Répondre qu'on peut le réinitialiser répond directement à la demande d'aide et à la situation décrite. B : Cette réponse pourrait être choisie si l'on pense que l'interlocuteur ne peut pas aider directement, mais la question porte sur une aide immédiate. Or, la formulation 'Vous pouvez m'aider ?' attend une réponse directe, pas un renvoi. C : Quelqu'un pourrait croire que l'identifiant n'est pas nécessaire, mais la question porte sur l'oubli de l'identifiant pour accéder aux exercices. Rien n'indique dans l'énoncé que les exercices sont accessibles sans code. D : On pourrait penser que la demande d'accès n'est plus pertinente, mais la question ne mentionne pas que les exercices sont terminés, seulement un problème d'identifiant.",
+        "transcript": "Question 6.\nJ'ai oublié mon identifiant pour consulter les exercices. Vous pouvez m'aider ?\nA. Bien sûr, je peux le réinitialiser. B. Essayez plutôt d'appeler le secrétariat. C. Oui, les exercices sont accessibles sans code. D. Non, les exercices sont déjà terminés.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 6."
+          },
+          {
+            "voice": "male",
+            "text": "J'ai oublié mon identifiant pour consulter les exercices. Vous pouvez m'aider ?"
+          },
+          {
+            "voice": "female",
+            "text": "A. Bien sûr, je peux le réinitialiser. B. Essayez plutôt d'appeler le secrétariat. C. Oui, les exercices sont accessibles sans code. D. Non, les exercices sont déjà terminés."
+          }
+        ],
+        "audio": "q-06.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 36
+      },
+      "contentHash": "981c1edd5f7d0a113033bac67adb7d66e7a1a16ff098c4a915438939ca9ab2e7",
+      "groundedPass": true,
+      "groundContext": "spoken-recording",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktBP6kkhmRdFBmFzucLuCgL1zEkl",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Vous pouvez m'aider ?",
+                "Bien sûr, je peux le réinitialiser."
+              ],
+              "reason": "La personne demande de l'aide pour un identifiant oublié. Répondre qu'on peut le réinitialiser répond directement à la demande d'aide et à la situation décrite."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Essayez plutôt d'appeler le secrétariat."
+              ],
+              "reason": "Cette réponse pourrait être choisie si l'on pense que l'interlocuteur ne peut pas aider directement, mais la question porte sur une aide immédiate. Or, la formulation 'Vous pouvez m'aider ?' attend une réponse directe, pas un renvoi.",
+              "misunderstanding": "interprétation erronée du rôle de l'interlocuteur (pense qu'il ne peut pas aider directement)"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Oui, les exercices sont accessibles sans code."
+              ],
+              "reason": "Quelqu'un pourrait croire que l'identifiant n'est pas nécessaire, mais la question porte sur l'oubli de l'identifiant pour accéder aux exercices. Rien n'indique dans l'énoncé que les exercices sont accessibles sans code.",
+              "misunderstanding": "suppose à tort que l'identifiant n'est pas requis"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Non, les exercices sont déjà terminés."
+              ],
+              "reason": "On pourrait penser que la demande d'accès n'est plus pertinente, mais la question ne mentionne pas que les exercices sont terminés, seulement un problème d'identifiant.",
+              "misunderstanding": "confusion entre accès et disponibilité des exercices"
+            }
+          ],
+          "summary": "La seule réponse qui répond directement à la demande d'aide pour un identifiant oublié est la proposition A : 'Bien sûr, je peux le réinitialiser.' Les autres options reposent sur des interprétations erronées ou non justifiées par la situation décrite."
+        },
+        "usage": {
+          "prompt_tokens": 603,
+          "completion_tokens": 446,
+          "total_tokens": 1049,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004774,
+        "inputHash": "04a2a71d5f694c63364ce27eed350e9792e726deadfe55619eabf4b33cdd5903",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:6:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksoLr3yMfd2ooN0D6VC0zLpBL07O",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.4,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Proactive, polite offer to 'réinitialiser' directly addresses a common user problem (accès/compte) and is a natural immediate response; other options are more deflecting or assertive."
+            }
+          ],
+          "reason": "No recording or context provided, so any choice is speculative. Option 0 has a modest advantage because it is a direct, helpful reply to a likely request about access or malfunction (offers to reset), whereas option 1 redirects the person elsewhere, option 2 affirms access without a code (a specific factual claim that could be false), and option 3 closes the possibility by saying the exercises are finished. Without context, none clearly fits uniquely, so the guess is tentative."
+        },
+        "usage": {
+          "prompt_tokens": 428,
+          "completion_tokens": 511,
+          "total_tokens": 939,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.001129,
+        "inputHash": "c7272b3815bf78a95b00fca920b068d8296be8d032da197116b3c966d8a1b308",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:6:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksoGjzzP1wuWPovtQ9zVKS48V5S9",
+        "result": {
+          "question": "Quelle réponse convient à la situation ?",
+          "choices": [
+            "Bien sûr, je peux le réinitialiser.",
+            "Oui, les exercices sont accessibles sans code.",
+            "Non, les exercices sont déjà terminés.",
+            "Essayez plutôt d'appeler le secrétariat."
+          ],
+          "correctIndex": 0,
+          "explanation": "La personne explique qu’elle a oublié son identifiant pour consulter les exercices et demande de l’aide. La réponse adéquate est donc une proposition d’aide directe pour résoudre ce problème : « Bien sûr, je peux le réinitialiser. » répond clairement à la demande d’assistance concernant l’identifiant.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Affirme qu’un identifiant n’est pas nécessaire alors que la demande porte précisément sur l’oubli de cet identifiant, ce qui contredit la situation décrite."
+            },
+            {
+              "index": 2,
+              "reason": "Parle de la disponibilité temporelle des exercices (déjà terminés) au lieu de traiter le problème d’identifiant oublié, donc ne répond pas à la demande d’aide formulée."
+            },
+            {
+              "index": 3,
+              "reason": "Détourne la demande vers une autre personne (le secrétariat) sans offrir d’aide directe, alors que l’interlocuteur est explicitement sollicité pour aider à récupérer l’identifiant."
+            }
+          ],
+          "design": "Réponse pragmatique à une demande d’aide pour identifiant oublié, une seule option offrant une assistance directe et pertinente."
+        },
+        "usage": {
+          "prompt_tokens": 965,
+          "completion_tokens": 468,
+          "total_tokens": 1433,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 167,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00588625,
+        "inputHash": "64dbb2eb3f55441741fcd436d94244af6a4e7e31c2a4a9bebe7a8933842165a8",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:6:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 7,
@@ -2120,7 +2547,7 @@
     },
     {
       "number": 13,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
     },
     {
       "number": 14,

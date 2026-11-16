@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test05-v3",
   "test": "tcf-listening-05",
   "version": "tcf-listening-2026-11-test05-v4",
-  "paperHash": "4d5ef31e2e8ea3546544970b3c952c619c5cc4449bad051a5764da328eb32335",
+  "paperHash": "91bd9114da88246df93aaee99af573b21a79973b0bb0f499316476498a314ffa",
   "questions": [
     {
       "number": 1,
@@ -2779,7 +2779,226 @@
     },
     {
       "number": 14,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "083e4cffa5acdb1581293eff08823082b174410e608044e7b8d031839b22d8ca",
+      "imageHash": null,
+      "question": {
+        "number": 14,
+        "kind": "dialogue",
+        "question": "Après avoir accepté le principe d’un repas qui se termine avant vingt heures, comment le voisin prévoit-il de faire valider ce projet ?",
+        "options": [
+          "Le présenter au conseil des résidents et vérifier que tout le monde est d’accord.",
+          "Rédiger une affiche pour annoncer que le repas aura bien lieu samedi soir.",
+          "Glisser un questionnaire dans les boîtes aux lettres des familles concernées par le bruit.",
+          "Demander au gardien de recueillir individuellement l’avis des habitants pendant sa tournée."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le voisin dit explicitement qu'il va présenter le projet au conseil des résidents et vérifier l'accord de tous, ce qui correspond exactement à l'option 0. B : Quelqu'un pourrait penser qu'une affiche est nécessaire pour annoncer l'événement, mais le texte ne mentionne pas la rédaction d'une affiche, seulement la discussion au conseil. C : On pourrait croire qu'un questionnaire permettrait de recueillir l'avis des familles concernées, mais il n'est jamais question d'un tel document dans l'extrait. D : Il serait logique de demander au gardien de faire une tournée, mais le voisin prévoit une validation collective au conseil, pas une démarche individuelle par le gardien.",
+        "transcript": "Question 14.\nNous voulions organiser un repas collectif samedi soir, mais des enfants se couchent tôt dans les appartements qui donnent sur la cour.\nEt si nous commencions en fin d'après-midi, puis terminions avant vingt heures ?\nCela me paraît raisonnable. Nous pourrions aussi installer les tables loin des fenêtres.\nJe vais en parler au conseil des résidents et vérifier si tout le monde est d'accord.\nAprès avoir accepté le principe d’un repas qui se termine avant vingt heures, comment le voisin prévoit-il de faire valider ce projet ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 14."
+          },
+          {
+            "voice": "male",
+            "text": "Nous voulions organiser un repas collectif samedi soir, mais des enfants se couchent tôt dans les appartements qui donnent sur la cour."
+          },
+          {
+            "voice": "female",
+            "text": "Et si nous commencions en fin d'après-midi, puis terminions avant vingt heures ?"
+          },
+          {
+            "voice": "male",
+            "text": "Cela me paraît raisonnable. Nous pourrions aussi installer les tables loin des fenêtres."
+          },
+          {
+            "voice": "female",
+            "text": "Je vais en parler au conseil des résidents et vérifier si tout le monde est d'accord."
+          },
+          {
+            "voice": "female",
+            "text": "Après avoir accepté le principe d’un repas qui se termine avant vingt heures, comment le voisin prévoit-il de faire valider ce projet ?"
+          }
+        ],
+        "audio": "q-14.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 47
+      },
+      "contentHash": "892bfd0708c5d6e120106e7bb7b5d795cdd5e80fe5c62a376e9884b30c3b9966",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktJoYTYDbum1waNtsmFVN5EsXPON",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Je vais en parler au conseil des résidents et vérifier si tout le monde est d'accord."
+              ],
+              "reason": "Le voisin dit explicitement qu'il va présenter le projet au conseil des résidents et vérifier l'accord de tous, ce qui correspond exactement à l'option 0."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vais en parler au conseil des résidents"
+              ],
+              "reason": "Quelqu'un pourrait penser qu'une affiche est nécessaire pour annoncer l'événement, mais le texte ne mentionne pas la rédaction d'une affiche, seulement la discussion au conseil.",
+              "misunderstanding": "confusion entre annoncer l'événement et valider le projet"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vais en parler au conseil des résidents"
+              ],
+              "reason": "On pourrait croire qu'un questionnaire permettrait de recueillir l'avis des familles concernées, mais il n'est jamais question d'un tel document dans l'extrait.",
+              "misunderstanding": "confusion entre consultation formelle et discussion collective"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vais en parler au conseil des résidents"
+              ],
+              "reason": "Il serait logique de demander au gardien de faire une tournée, mais le voisin prévoit une validation collective au conseil, pas une démarche individuelle par le gardien.",
+              "misunderstanding": "confusion entre validation collective et consultation individuelle par le gardien"
+            }
+          ],
+          "summary": "La bonne réponse est l’option 0, car le voisin prévoit de présenter le projet au conseil des résidents et de vérifier l’accord de tous. Les autres options décrivent des méthodes de validation qui ne sont pas mentionnées dans l’extrait."
+        },
+        "usage": {
+          "prompt_tokens": 669,
+          "completion_tokens": 398,
+          "total_tokens": 1067,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004522,
+        "inputHash": "a5610c106aa6a9ebb9ab96a4369a253568ed4713670734ea8701ee61929852db",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:14:ground:4"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktCfb1q1YASxDyY3rilfboj0OcWo",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.6,
+            0.1,
+            0.15,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "proposes a formal step (présenter au conseil des résidents et vérifier l’accord) which matches 'faire valider' better than announcing, surveying a subset, or informal collection by the gardien"
+            }
+          ],
+          "reason": "The phrase 'faire valider ce projet' implies a formal agreement or endorsement; option 0 explicitly describes presenting to a residents' council and checking everyone agrees, which fits that phrasing. The other choices describe announcement, partial surveying, or informal individual collection, which are less clearly 'validation' steps. I have no recording or transcript, so this is an informed guess based on wording and plausibility, not evidence from the audio."
+        },
+        "usage": {
+          "prompt_tokens": 479,
+          "completion_tokens": 436,
+          "total_tokens": 915,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00099175,
+        "inputHash": "4f844d24687892709677be9c9808128a331c016251d37bbc16327279d54df8be",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:14:blind:4"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktCZsa6Mwn0iQNdH6U1pgYUjDuPn",
+        "result": {
+          "question": "Après avoir accepté le principe d’un repas qui se termine avant vingt heures, comment le voisin prévoit-il de faire valider ce projet ?",
+          "choices": [
+            "Le présenter au conseil des résidents et vérifier que tout le monde est d’accord.",
+            "Glisser un questionnaire dans les boîtes aux lettres des familles concernées par le bruit.",
+            "Rédiger une affiche pour annoncer que le repas aura bien lieu samedi soir.",
+            "Demander au gardien de recueillir individuellement l’avis des habitants pendant sa tournée."
+          ],
+          "correctIndex": 0,
+          "explanation": "Le voisin conclut en disant : « Je vais en parler au conseil des résidents et vérifier si tout le monde est d'accord. » Il prévoit donc de passer par le conseil des résidents pour faire valider le projet, en s’assurant de l’accord de tous, ce qui correspond uniquement à la première proposition.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Restreint la consultation aux seules familles gênées par le bruit, alors que le locuteur parle d’en discuter au conseil des résidents et de vérifier l’accord de tout le monde, sans limitation à un sous-groupe."
+            },
+            {
+              "index": 2,
+              "reason": "Inverse l’ordre des étapes en supposant que le repas est déjà validé et simplement annoncé, alors que dans l’enregistrement la validation par le conseil doit encore avoir lieu avant toute confirmation."
+            },
+            {
+              "index": 3,
+              "reason": "Attribue la procédure de validation au gardien, qui n’est jamais mentionné : le locuteur précise au contraire qu’il passera par le conseil des résidents, et non par un recueil d’avis informel assuré par le gardien."
+            }
+          ],
+          "design": "Contraste entre consultation formelle via le conseil des résidents et d’autres modes de validation ou d’information (restreints, informels ou postérieurs à la décision)."
+        },
+        "usage": {
+          "prompt_tokens": 1661,
+          "completion_tokens": 513,
+          "total_tokens": 2174,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 126,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00720625,
+        "inputHash": "5ee9b1a4ed570ab80e8814570043b06b6bf3f5ecc35e62a4bcfaddd74e495db8",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:14:author:4"
+      },
+      "rounds": 5
     },
     {
       "number": 15,
@@ -5868,7 +6087,237 @@
     },
     {
       "number": 29,
-      "error": "Authoring gateway failed: HTTP 502 QC_PROVIDER_OR_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "590d8c7b4145f630ba9d08b5eb04ccf8d18915d01098d883d344857b62c8d13f",
+      "imageHash": null,
+      "question": {
+        "number": 29,
+        "kind": "debate",
+        "question": "Sur quel point les intervenants affirment-ils explicitement être d’accord ?",
+        "options": [
+          "Sur l’idée que l’encadrement des loyers aura inévitablement des effets immédiats négatifs.",
+          "Sur la nécessité d’augmenter la construction de logements abordables.",
+          "Sur le fait qu’il faut surtout renforcer les aides à la rénovation plutôt que construire davantage.",
+          "Sur le principe d’étendre le plafonnement des loyers à l’ensemble du territoire."
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : Les intervenants affirment explicitement être d'accord sur la nécessité d'augmenter la construction de logements abordables. A : Quelqu'un pourrait croire que les intervenants sont d'accord sur les effets négatifs immédiats de l'encadrement, car ils évoquent des risques (réduction de l'offre), mais la phrase citée indique explicitement qu'ils ne sont pas d'accord sur ce point. C : La combinaison des aides à la rénovation et de la construction est proposée, mais il n'est jamais dit qu'il faut surtout privilégier la rénovation au détriment de la construction. Quelqu'un pourrait mal interpréter la proposition de combinaison comme une préférence exclusive. D : La discussion porte sur l'encadrement dans certains quartiers, et il n'est jamais question d'étendre le plafonnement à l'ensemble du territoire. Quelqu'un pourrait généraliser à tort la question locale à une portée nationale.",
+        "transcript": "Question 29.\nFaut-il encadrer davantage les loyers dans les quartiers où les prix augmentent ?\nUne limitation peut protéger les locataires actuels contre des hausses soudaines.\nMais si les propriétaires renoncent à mettre des logements sur le marché, nous risquons de réduire l'offre disponible.\nC'est pourquoi je propose de combiner l'encadrement avec des aides à la rénovation et une production de logements abordables.\nNous sommes d'accord sur le besoin de construire. Nous divergeons surtout sur les conséquences immédiates du plafond de loyer.\nSur quel point les intervenants affirment-ils explicitement être d’accord ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 29.",
+            "speaker": "female"
+          },
+          {
+            "voice": "female",
+            "text": "Faut-il encadrer davantage les loyers dans les quartiers où les prix augmentent ?",
+            "speaker": "female"
+          },
+          {
+            "voice": "male",
+            "text": "Une limitation peut protéger les locataires actuels contre des hausses soudaines.",
+            "speaker": "male"
+          },
+          {
+            "voice": "female",
+            "text": "Mais si les propriétaires renoncent à mettre des logements sur le marché, nous risquons de réduire l'offre disponible.",
+            "speaker": "female_alt"
+          },
+          {
+            "voice": "male",
+            "text": "C'est pourquoi je propose de combiner l'encadrement avec des aides à la rénovation et une production de logements abordables.",
+            "speaker": "male"
+          },
+          {
+            "voice": "female",
+            "text": "Nous sommes d'accord sur le besoin de construire. Nous divergeons surtout sur les conséquences immédiates du plafond de loyer.",
+            "speaker": "female_alt"
+          },
+          {
+            "voice": "female",
+            "text": "Sur quel point les intervenants affirment-ils explicitement être d’accord ?",
+            "speaker": "female"
+          }
+        ],
+        "audio": "q-29.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 64
+      },
+      "contentHash": "378b584b15e08b0ab96fc0b1dabbd2269cd5698a570fa079dbc974dff87c1bc5",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktKLJ6H8i0s0hitR8PZKzQrWg5cm",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Nous divergeons surtout sur les conséquences immédiates du plafond de loyer."
+              ],
+              "reason": "Quelqu'un pourrait croire que les intervenants sont d'accord sur les effets négatifs immédiats de l'encadrement, car ils évoquent des risques (réduction de l'offre), mais la phrase citée indique explicitement qu'ils ne sont pas d'accord sur ce point.",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Nous sommes d'accord sur le besoin de construire."
+              ],
+              "reason": "Les intervenants affirment explicitement être d'accord sur la nécessité d'augmenter la construction de logements abordables."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je propose de combiner l'encadrement avec des aides à la rénovation et une production de logements abordables."
+              ],
+              "reason": "La combinaison des aides à la rénovation et de la construction est proposée, mais il n'est jamais dit qu'il faut surtout privilégier la rénovation au détriment de la construction. Quelqu'un pourrait mal interpréter la proposition de combinaison comme une préférence exclusive.",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Faut-il encadrer davantage les loyers dans les quartiers où les prix augmentent ?"
+              ],
+              "reason": "La discussion porte sur l'encadrement dans certains quartiers, et il n'est jamais question d'étendre le plafonnement à l'ensemble du territoire. Quelqu'un pourrait généraliser à tort la question locale à une portée nationale.",
+              "misunderstanding": "scope"
+            }
+          ],
+          "summary": "Les intervenants affirment explicitement être d'accord sur la nécessité d'augmenter la construction de logements abordables (« Nous sommes d'accord sur le besoin de construire »). Les autres propositions sont contredites ou non soutenues par le texte."
+        },
+        "usage": {
+          "prompt_tokens": 693,
+          "completion_tokens": 522,
+          "total_tokens": 1215,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005562,
+        "inputHash": "405e343db78594601fd7d06e0bcea73d725e9a2f154750d8eb24be51e470e5f6",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:29:ground:2"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktKLSnwfh4EdUMD1OAFmCY2TYrW6",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.1,
+            0.65,
+            0.1,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 1,
+              "cue": "Option is a moderate, widely endorsed policy goal that debate participants often agree on, unlike the more polarized or specific proposals in the other choices."
+            }
+          ],
+          "reason": "I have no access to the recording, so I cannot know which point was explicitly affirmed. However, among the choices, 'augmenter la construction de logements abordables' is a broadly acceptable, central policy goal that discussion participants from different positions commonly endorse, whereas the other options are more specific or contentious (predicting inevitable negative effects, prioritizing renovation over construction, or extending rent caps nationwide). That gives a defensible asymmetry to favor option 2, though this is an inference from typical discourse patterns rather than evidence from the missing audio; uncertainty remains."
+        },
+        "usage": {
+          "prompt_tokens": 471,
+          "completion_tokens": 411,
+          "total_tokens": 882,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00093975,
+        "inputHash": "6d2ba7c8f333c91580fe673dde53afd665fa5759e515ee24d071043144d19500",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:29:blind:2"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktK7FMvfYHcJ7jd1FdpwaWuSV37G",
+        "result": {
+          "question": "Sur quel point les intervenants affirment-ils explicitement être d’accord ?",
+          "choices": [
+            "Sur le fait qu’il faut surtout renforcer les aides à la rénovation plutôt que construire davantage.",
+            "Sur la nécessité d’augmenter la construction de logements abordables.",
+            "Sur l’idée que l’encadrement des loyers aura inévitablement des effets immédiats négatifs.",
+            "Sur le principe d’étendre le plafonnement des loyers à l’ensemble du territoire."
+          ],
+          "correctIndex": 1,
+          "explanation": "Le passage dit clairement : « Nous sommes d'accord sur le besoin de construire. » et, juste avant, la locutrice parle de « production de logements abordables ». C’est donc l’accord explicite sur la nécessité d’augmenter la construction de logements abordables. Les autres points ne sont jamais présentés comme un consensus : les aides à la rénovation sont proposées par une personne (« je propose de combiner… »), les conséquences immédiates du plafonnement sont justement le sujet de divergence (« Nous divergeons surtout sur les conséquences immédiates du plafond de loyer. »), et il n’est jamais question d’un plafonnement généralisé à tout le territoire, seulement des quartiers où les prix augmentent.",
+          "distractorReasons": [
+            {
+              "index": 0,
+              "reason": "Confond une proposition individuelle (« je propose de combiner l'encadrement avec des aides à la rénovation ») avec un accord collectif ; le texte ne dit pas que tous partagent cette priorité ni qu’elle se substitue à la construction."
+            },
+            {
+              "index": 2,
+              "reason": "S’appuie sur le débat autour des risques de l’encadrement, mais le texte précise qu’ils « divergent » justement sur les conséquences immédiates du plafond, ce n’est donc pas un point d’accord."
+            },
+            {
+              "index": 3,
+              "reason": "Généralise à partir de la question sur certains quartiers ; l’enregistrement évoque uniquement les zones où les prix augmentent et ne mentionne jamais un accord sur un plafonnement national systématique."
+            }
+          ],
+          "design": "Accent mis sur l’unique formule explicite d’accord (« Nous sommes d’accord sur le besoin de construire ») face à des éléments de la proposition individuelle et au point identifié comme divergence (conséquences immédiates du plafond)."
+        },
+        "usage": {
+          "prompt_tokens": 1792,
+          "completion_tokens": 895,
+          "total_tokens": 2687,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 426,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01119,
+        "inputHash": "af1123b9194c3d52bd1a878d9b453219303ad82aced9c3c040c8001850831a3f",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-05:29:author:2"
+      },
+      "rounds": 3
     },
     {
       "number": 30,
@@ -8040,5 +8489,43 @@
       "rounds": 2
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktKQyn71SVqphnN06DchK5TBNbxT",
+    "result": {
+      "pass": true,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "Both questions have correct answers that are the last option (D), and both concern procedural or technical requirements (reporting or treating a problem). However, this is not a strong enough pattern to be considered an exploitable cue across the exam."
+        }
+      ],
+      "summary": "The examination shows natural variation in answer length, position, and sophistication. There is no evidence of systematic answer-only guessing cues such as consistent longest/shortest key, repeated syntax, or position cycles. The minor pattern in questions 9 and 12 is not sufficient to compromise the integrity of the exam. Overall, the exam passes the audit."
+    },
+    "usage": {
+      "prompt_tokens": 4463,
+      "completion_tokens": 144,
+      "total_tokens": 4607,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.010078,
+    "inputHash": "b3f2105a1e07545bd330c60e5d278357baea31e676b65c5f8fbe6d49c135613a",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-05"
+  }
 }
