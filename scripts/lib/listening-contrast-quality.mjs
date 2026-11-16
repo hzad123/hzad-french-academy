@@ -54,6 +54,15 @@ export function rewrite(original,result,target,seed){
  const copy=structuredClone(result);copy.question=copy.question.replace(/^\[Question\s+révisée\]\s*/iu,'').replace(/\s*\(question reformulée[^)]*\)\s*$/iu,'');
  return applyAlternatives(original,copy,target,seed);
 }
+export function applyBlindEdit(original,result){
+ const q=structuredClone(original);q.question=q.number<=8?original.question:result.question.trim();
+ if(q.number<=8){
+  const segment=q.segments.findLast(s=>/\bA\.\s/.test(s.text)),prefix=segment.text.slice(0,segment.text.search(/\bA\.\s/));
+  segment.text=prefix+result.choices.map((text,i)=>letters[i]+'. '+text).join(' ');
+ }else{q.options=[...result.choices];q.segments.at(-1).text=q.question;}
+ q.transcript=q.segments.map(s=>s.text).join('\n');if(hash(q.segments)!==hash(original.segments))q.audioSeconds=null;
+ return q;
+}
 export async function inspect(q,provider,{seed,imageData,round=0}){
  const projection=qualityProjection(q),blind=[];
  for(let trial=0;trial<trialsFor(q);trial++){
@@ -69,16 +78,24 @@ export async function inspect(q,provider,{seed,imageData,round=0}){
 export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,starting=null,onAttempt=async()=>{}}){
  let q=starting?structuredClone(starting):original.number<=8?structuredClone(original):rewrite(original,{question:original.question,choices:spokenChoices(original),correctIndex:letters.indexOf(original.correct),explanation:original.explanation,
   distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
- let feedback=null,author=null;
+ let feedback=null,author=null,blindEdit=null;
  for(let round=0;round<=maxAttempts;round++){
-  const assessment=await inspect(q,provider,{seed,imageData,round});
+  let assessment=await inspect(q,provider,{seed,imageData,round});
+  if(!assessment.pass&&assessment.feedback?.stage==='blind'){
+   const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:'+round}),'polish',input);
+   const edited=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
+   // No reroll for an unchanged candidate. A real edit must pass a fresh,
+   // independent review and exactly the same transcript-grounding rules.
+   const wording=item=>hash({question:canon(item.question),choices:spokenChoices(item).map(canon)});
+   if(wording(edited)!==wording(q)){q=edited;assessment=await inspect(q,provider,{seed,imageData,round:round+':edited'});}
+  }
   if(assessment.pass){
    q.explanation='Réponse '+q.correct+' : '+assessment.grounded.result.options.find(o=>o.index===letters.indexOf(q.correct)).reason+' '+assessment.grounded.result.options.filter(o=>o.index!==letters.indexOf(q.correct)).map(o=>letters[o.index]+' : '+o.reason).join(' ');
-   const result={question:q,sourceHash:contentHash(original),contentHash:contentHash(q),policy:POLICY_VERSION,policyHash,rounds:round,pass:true,author,...assessment};
+   const result={question:q,sourceHash:contentHash(original),contentHash:contentHash(q),policy:POLICY_VERSION,policyHash,rounds:round,pass:true,author,blindEdit,...assessment};
    await onAttempt(result);return result;
   }
-  await onAttempt({question:q,rounds:round,pass:false,...assessment});feedback=assessment.feedback;
-  if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,...assessment};
+  await onAttempt({question:q,rounds:round,pass:false,author,blindEdit,...assessment});feedback=assessment.feedback;
+  if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,author,blindEdit,...assessment};
   let plan;
   for(let planning=0;planning<2;planning++){
    const input=authorInput(original,{imageData,feedback});

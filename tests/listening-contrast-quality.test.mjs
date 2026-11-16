@@ -1,9 +1,32 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput} from '../scripts/lib/listening-contrast-quality.mjs';
-import {hash,policyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
-import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
+import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit} from '../scripts/lib/listening-contrast-quality.mjs';
+import {hash,policyHash,draftPolicyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
+import {POLICY_VERSION,MODELS,stageModel,modelRequest,validateInput,policyFingerprint} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
+test('the editor has no source/key and its prompt fingerprint cannot change admission policy',async()=>{
+ const q=paper.questions[29],input=qualityProjection(q),request=modelRequest('polish',input);
+ assert.equal(request.messages.length,2);assert.equal(request.messages[1].content,JSON.stringify(input));
+ for(const hidden of ['correct','transcript','explanation','feedback','imageData'])assert.throws(()=>validateInput('polish',{...input,[hidden]:'LEAK'}),/only question/);
+ assert.equal(await policyFingerprint(),policyHash);assert.equal(await policyFingerprint('polish'),draftPolicyHash);assert.notEqual(draftPolicyHash,policyHash);
+ const edited=applyBlindEdit(q,{question:'Quel objectif est évoqué ?',choices:q.options.map(t=>t+' '),notes:'Test edit.'});
+ assert.equal(edited.correct,q.correct);assert.deepEqual(edited.segments.slice(0,-1),q.segments.slice(0,-1));
+});
+test('a key-blind edit still fails when its marked answer loses transcript support',async()=>{
+ const q={number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi.','Mercredi.','Vendredi.','Mardi.'],correct:'A',explanation:'PRIVATE_CORRECTION_MUST_NOT_REACH_THE_EDITOR',segments:[{voice:'female',text:'Le rendez-vous aura lieu jeudi.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],slotSeconds:40,audioSeconds:12};q.transcript=q.segments.map(s=>s.text).join('\n');
+ const neutral={guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'Four ordinary days.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'The missing announcement could name this particular day.'}))};
+ let calls=0;
+ const provider=async(stage,input)=>{
+  let result;
+  if(stage==='blind')result=calls++===0?{...neutral,standsOut:true,cues:[{option:0,severity:'clear',cue:'Synthetic fixture requires an edit.'}]}:neutral;
+  else if(stage==='polish'){
+   assert.deepEqual(Object.keys(input),['question','choices']);assert(!JSON.stringify(input).includes('PRIVATE_CORRECTION'));
+   result={question:'Quel jour est annoncé ?',choices:['Vendredi.','Jeudi.','Mercredi.','Mardi.'],notes:'Synthetic edit deliberately breaks the old index0 key.'};
+  }else{assert.equal(stage,'ground');result={supportedIndices:[1],ambiguous:false,questionSupported:true,options:input.choices.map((_,index)=>({index,supported:index===1,plausibleMisunderstanding:index!==1,evidence:['aura lieu jeudi'],reason:'La source annonce jeudi ; les autres jours constituent des confusions plausibles.'})),summary:'Seul jeudi est annoncé.'};}
+  return {stage,policy:POLICY_VERSION,policyHash:stage==='polish'?draftPolicyHash:policyHash,model:stageModel(stage),responseId:'chatcmpl-unit-editor-'+stage+'-'+calls,inputHash:hash(input),result};
+ };
+ const r=await repair(q,provider,{target:0,seed:'source-guard',maxAttempts:0});assert(!r.pass);assert(r.blocked);assert.equal(r.feedback.stage,'ground');assert.equal(r.question.correct,'A');
+});
 test('new releases require all six immutable replacements; historical warnings are not declared passes',()=>{
  const old=Array.from({length:6},(_,i)=>`tcf-listening-test${String(i+1).padStart(2,'0')}-v4.json`);
  assert.deepEqual(selectStrictBanks(old),[]);
@@ -56,6 +79,19 @@ test('uniform guesses cannot conceal an implausible alternative or missing four-
  const review={guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'No strong preference.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'A normal source could select this particular arrangement.'}))};
  assert(blindVerdict(review).pass);review.plausibility[2].credible=false;assert(!blindVerdict(review).pass);
  review.plausibility.pop();assert(!blindVerdict(review).pass);
+});
+test('a mathematically exact probability boundary is not rejected by floating-point subtraction',()=>{
+ const r={guess:0,probabilities:[.4,.25,.2,.15],standsOut:false,cues:[],reason:'A weak preference without a clear cue.',plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'Each interpretation has an ordinary possible source.'}))};
+ assert(blindVerdict(r).pass);r.probabilities=[.4,.24,.2,.16];assert(!blindVerdict(r).pass);
+});
+test('an unchanged blind edit cannot reroll a rejected question',async()=>{
+ const q=structuredClone(paper.questions[29]);let blindCalls=0,editCalls=0;
+ const provider=async(stage,input)=>{
+  let result;if(stage==='blind'){blindCalls++;result={guess:0,probabilities:[.7,.1,.1,.1],standsOut:true,cues:[{option:0,severity:'clear',cue:'Synthetic obvious wording cue.'}],reason:'Synthetic rejected candidate.'};}
+  else{assert.equal(stage,'polish');editCalls++;result={question:' '+input.question+' ',choices:input.choices.map(t=>' '+t+' '),notes:'Whitespace only is not a substantive repair.'};}
+  return {stage,policy:POLICY_VERSION,policyHash:stage==='polish'?draftPolicyHash:policyHash,model:stageModel(stage),responseId:'chatcmpl-unit-no-reroll-'+stage,inputHash:hash(input),result};
+ };
+ const r=await repair(q,provider,{target:0,seed:'no-reroll',maxAttempts:0});assert(!r.pass);assert.equal(blindCalls,1);assert.equal(editCalls,1);
 });
 test('a chance-level primary reviewer cannot conceal above-chance guessing by the unchanged second model',()=>{
  const score=(n,k)=>scoreGroup(Array.from({length:n},(_,i)=>({correct:i<k})));

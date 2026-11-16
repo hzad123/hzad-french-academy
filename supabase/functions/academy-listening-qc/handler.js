@@ -1,4 +1,4 @@
-import {modelRequest,validateResult,MODEL,MODELS,MAX_OUTPUT,stagePrice,POLICY_VERSION,policyFingerprint} from './contracts.js';
+import {modelRequest,validateResult,MODEL,stageModel,MAX_OUTPUT,stagePrice,POLICY_VERSION,policyFingerprint} from './contracts.js';
 const reply=(status,body)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
 // Exact duplicate output rows do not add a fifth judgement. Preserve the raw
 // model object for audit; conflicting rows remain invalid and fail validation.
@@ -24,7 +24,7 @@ export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
    if(stage==='health')return reply(200,{ready:true,policy:POLICY_VERSION,policyHash:await policyFingerprint(),model:MODEL});
    body=modelRequest(stage,input);
   }catch{return reply(400,{error:'QC_INPUT'});}
-  const policyHash=await policyFingerprint();
+  const policyHash=await policyFingerprint(stage);
   if(expectedPolicyHash!==policyHash)return reply(409,{error:'QC_POLICY_MISMATCH'});
   try {
    const response=await fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+providerKey,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(110000)});
@@ -37,7 +37,7 @@ export function createQcHandler({adminToken,providerKey,fetcher=fetch}) {
    const usage=raw.usage;
    if(!raw.id||!Number.isInteger(usage?.prompt_tokens)||!Number.isInteger(usage?.completion_tokens)||usage.prompt_tokens<0||usage.completion_tokens<0||usage.completion_tokens>MAX_OUTPUT[stage])return reply(502,{error:'QC_USAGE'});
    const price=stagePrice(stage);
-   return reply(200,{stage,policy:POLICY_VERSION,policyHash,model:raw.model||MODELS[stage],responseId:raw.id,result,usage,...(formatCorrections.length?{originalResult,formatCorrections}:{}),
+   return reply(200,{stage,policy:POLICY_VERSION,policyHash,model:raw.model||stageModel(stage),responseId:raw.id,result,usage,...(formatCorrections.length?{originalResult,formatCorrections}:{}),
     costUsd:(usage.prompt_tokens*price.inputPerMillion+usage.completion_tokens*price.outputPerMillion)/1e6});
   }catch{return reply(502,{error:'QC_PROVIDER_OR_SCHEMA'});}
  };

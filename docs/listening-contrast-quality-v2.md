@@ -125,4 +125,6 @@ not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
 calling the issue resolved.
 
-Drafting now uses exact-schema responses, independently verified exemplars, and a single source-based answer axis. Drafting remains separate from all acceptance reviewers. The task ledger retains all earlier calls and reserved failed-call costs; its overall offline authoring ceiling is USD45. Student budgets and credits are unchanged.
+Drafting now uses exact-schema responses, independently verified exemplars, and a single source-based answer axis. Drafting remains separate from all acceptance reviewers. The task ledger retains all earlier calls and reserved failed-call costs; its overall offline authoring ceiling is USD70. Student budgets and credits are unchanged.
+
+A key-blind drafting editor now receives only the stem and actual four alternatives, with no transcript, image, key, explanation or prior review. It removes stem clues and unequal phrasing before fresh independent admission reviews. Its separately fingerprinted drafting prompt does not invalidate already verified questions: admission models, prompts and thresholds are unchanged, and every edited candidate needs new exact-input receipts. Identical wording and whitespace-only edits cannot trigger a fresh draw.
