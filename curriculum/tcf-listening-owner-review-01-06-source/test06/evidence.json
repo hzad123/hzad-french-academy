@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test06-v3",
   "test": "tcf-listening-06",
   "version": "tcf-listening-2026-11-test06-v4",
-  "paperHash": "11cd503388e69d6e39a8d7143c51cbbdc785ddc7078024ba0f0e68e9f674dbc2",
+  "paperHash": "f61cad0b108febe934016c6ecb1b3e16a4940f57a8f763be67e2491bcee54856",
   "questions": [
     {
       "number": 1,
@@ -441,8 +441,8 @@
           "Proposition D"
         ],
         "correct": "C",
-        "explanation": "Réponse C : On voit clairement le bénévole empiler ou placer des pains dans une caisse sur laquelle est écrit '2,5 kg'. C’est l’action représentée. A : On ne voit pas de file de personnes ni de distribution de pains à d’autres personnes. Quelqu’un pourrait croire à une distribution à cause du geste du bénévole, mais il n’y a qu’une seule personne visible. B : Le bénévole ne lit pas l’étiquette, il est en train de manipuler les pains. La mention '2,5 kg' est visible, ce qui pourrait faire croire à une lecture, mais l’action montrée est différente. D : Il n’y a pas de balance visible sur l’image. Quelqu’un pourrait confondre la caisse marquée '2,5 kg' avec une opération de pesée, mais aucun instrument de mesure n’est présent.",
-        "transcript": "Question 3.\nRegardez l’image et écoutez les propositions.\nA. Un bénévole tend des pains à des personnes en file. B. Un bénévole lit l’étiquette 2,5 kg sur la caisse avant d’ouvrir un paquet. C. Un bénévole empile des pains dans une caisse marquée 2,5 kg. D. Un bénévole pèse une caisse de pains sur une balance.",
+        "explanation": "Réponse C : L’image montre clairement du pain posé sur un objet affichant un poids, ce qui correspond à une balance. A : On ne voit aucun placard sur l’image et le pain est posé sur une boîte ou une balance, pas rangé dans un placard. B : Le pain n’est pas emballé dans un sachet, il est visible à l’air libre sur la boîte ou la balance. D : Le pain n’est pas découpé, il est entier et posé sur la boîte ou la balance.",
+        "transcript": "Question 3.\nRegardez l’image et écoutez les propositions.\nA. Le pain est rangé dans un placard. B. Du pain est emballé dans un sachet. C. Du pain est posé sur une balance. D. Le pain est découpé sur la table.",
         "segments": [
           {
             "voice": "female",
@@ -454,7 +454,7 @@
           },
           {
             "voice": "female",
-            "text": "A. Un bénévole tend des pains à des personnes en file. B. Un bénévole lit l’étiquette 2,5 kg sur la caisse avant d’ouvrir un paquet. C. Un bénévole empile des pains dans une caisse marquée 2,5 kg. D. Un bénévole pèse une caisse de pains sur une balance."
+            "text": "A. Le pain est rangé dans un placard. B. Du pain est emballé dans un sachet. C. Du pain est posé sur une balance. D. Le pain est découpé sur la table."
           }
         ],
         "audio": "q-03.mp3",
@@ -462,14 +462,16 @@
         "slotSeconds": 34,
         "image": "q-03.svg"
       },
-      "contentHash": "bbcd92cd8656ea293cf89623fc21512a00f52e2648df93b274eb693b02ccb5aa",
+      "contentHash": "5b7a1678fc88964e5ce9b0503666e24e97b22e7148c1bf39af94c5fa270a0f3c",
       "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "79396037ea68f872286880e598495b4350fde9fca098aaff0f803481bffebe0b",
       "grounded": {
         "stage": "ground",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-4.1-2025-04-14",
-        "responseId": "chatcmpl-Eksvp05qXtNsAxT1Qw0yRB7UnQCun",
+        "responseId": "chatcmpl-EktTpGduYY8hxABy6zJLcZhPoLtOv",
         "result": {
           "supportedIndices": [
             2
@@ -482,43 +484,41 @@
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "On ne voit pas de file de personnes ni de distribution de pains à d’autres personnes. Quelqu’un pourrait croire à une distribution à cause du geste du bénévole, mais il n’y a qu’une seule personne visible.",
-              "misunderstanding": "scope_swap"
+              "reason": "On ne voit aucun placard sur l’image et le pain est posé sur une boîte ou une balance, pas rangé dans un placard.",
+              "misunderstanding": "confusion entre poser et ranger"
             },
             {
               "index": 1,
               "supported": false,
               "plausibleMisunderstanding": true,
-              "evidence": [
-                "2,5 kg sur la caisse"
-              ],
-              "reason": "Le bénévole ne lit pas l’étiquette, il est en train de manipuler les pains. La mention '2,5 kg' est visible, ce qui pourrait faire croire à une lecture, mais l’action montrée est différente.",
-              "misunderstanding": "action_swap"
+              "evidence": [],
+              "reason": "Le pain n’est pas emballé dans un sachet, il est visible à l’air libre sur la boîte ou la balance.",
+              "misunderstanding": "confusion entre emballer et poser"
             },
             {
               "index": 2,
               "supported": true,
               "plausibleMisunderstanding": false,
               "evidence": [
-                "Le bénévole place des pains dans une caisse marquée 2,5 kg."
+                "Le pain est posé sur une boîte affichant '2,5 kg', ce qui évoque une balance."
               ],
-              "reason": "On voit clairement le bénévole empiler ou placer des pains dans une caisse sur laquelle est écrit '2,5 kg'. C’est l’action représentée."
+              "reason": "L’image montre clairement du pain posé sur un objet affichant un poids, ce qui correspond à une balance."
             },
             {
               "index": 3,
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "Il n’y a pas de balance visible sur l’image. Quelqu’un pourrait confondre la caisse marquée '2,5 kg' avec une opération de pesée, mais aucun instrument de mesure n’est présent.",
-              "misunderstanding": "object_swap"
+              "reason": "Le pain n’est pas découpé, il est entier et posé sur la boîte ou la balance.",
+              "misunderstanding": "confusion entre découper et poser"
             }
           ],
-          "summary": "La seule action clairement représentée est celle d’un bénévole qui empile des pains dans une caisse marquée 2,5 kg. Les autres propositions sont contredites par l’absence de file, de lecture d’étiquette ou de balance."
+          "summary": "La seule action visible est que le pain est posé sur une balance (ou une boîte indiquant un poids), ce qui correspond à la proposition 3. Les autres propositions ne sont pas compatibles avec l’image."
         },
         "usage": {
-          "prompt_tokens": 664,
-          "completion_tokens": 382,
-          "total_tokens": 1046,
+          "prompt_tokens": 637,
+          "completion_tokens": 399,
+          "total_tokens": 1036,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
@@ -530,117 +530,82 @@
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.004384,
-        "inputHash": "176c2245bacc2a5b272f1ec910af4c3d76399821f5d2b2fc393efd7f4a421253",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:3:ground:2"
+        "costUsd": 0.004466,
+        "inputHash": "bf564c14511c0fbdf344197b2dbea915ac88d1f09e10e7f40a00cafbe4b80f43",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:3:ground:0"
       },
       "blind": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-5-mini-2025-08-07",
-        "responseId": "chatcmpl-Eksvp1TEt9hmZa6ZPFGIuSEnzkbXz",
+        "responseId": "chatcmpl-EktTp2NcnFx6WR2zR7x80lx7nT70N",
         "result": {
-          "guess": 0,
+          "guess": 1,
           "probabilities": [
+            0.15,
             0.5,
             0.2,
-            0.15,
             0.15
           ],
-          "standsOut": true,
+          "standsOut": false,
           "cues": [
             {
-              "option": 0,
-              "cue": "most prototypical action for a volunteer in a food-distribution context ('tend des pains à des personnes en file' is a common, straightforward depiction)"
-            },
-            {
               "option": 1,
-              "cue": "mentions reading an exact weight label before opening — more specific and less likely to be the primary visible action"
-            },
-            {
-              "option": 2,
-              "cue": "involves stacking into a crate marked with weight — plausible but more staged/less central than handing out to people"
-            },
-            {
-              "option": 3,
-              "cue": "weighing on a scale is specific and less commonly shown as a simple visible action in a short clip"
+              "cue": "'Du pain est emballé dans un sachet' is a broadly plausible visible action (packaging/bagging is common in shop or kitchen scenes), giving it a slight plausibility edge over more specific actions."
             }
           ],
-          "reason": "I have no recording or transcript, so I cannot know which action is actually shown. The first option seems most naturally expected in a volunteer food-distribution scene, which gives it an advantage, but the other options remain plausible because they describe concrete visual actions that could equally be depicted. The guess reflects this uncertainty rather than any direct evidence."
+          "reason": "I have no recording or image, so I cannot know which action actually occurs. The four choices are all plausible; none is uniquely favored by the wording alone. I assigned a higher probability to the packaging option because placing bread in a bag is a common, easily visible action in many contexts, but this is only a weak heuristic and not evidence of the actual correct answer."
         },
         "usage": {
-          "prompt_tokens": 452,
-          "completion_tokens": 493,
-          "total_tokens": 945,
+          "prompt_tokens": 425,
+          "completion_tokens": 554,
+          "total_tokens": 979,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 256,
+            "reasoning_tokens": 384,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.001099,
-        "inputHash": "4f5162544cbedc05f125fb935e57c6f21fceca151d2a6dc274db81dc1a36a610",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:3:blind:2"
+        "costUsd": 0.00121425,
+        "inputHash": "f98cf440911cc6550c79cc988888e94f4a5e22aad653bbe3695391970e9088e6",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:3:blind:0"
       },
       "blindPass": false,
       "author": {
-        "stage": "author",
-        "policy": "listening-comprehension-qc-v1",
-        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EksvgUKM813ND4psokcXsDM9DxDgq",
+        "source": "editorial-fix",
         "result": {
-          "question": "Quelle action voit-on ?",
+          "question": "Quelle description correspond à l’image ?",
           "choices": [
-            "Un bénévole empile des pains dans une caisse marquée 2,5 kg.",
-            "Un bénévole tend des pains à des personnes en file.",
-            "Un bénévole pèse une caisse de pains sur une balance.",
-            "Un bénévole lit l’étiquette 2,5 kg sur la caisse avant d’ouvrir un paquet."
+            "Du pain est posé sur une balance.",
+            "Le pain est découpé sur la table.",
+            "Du pain est emballé dans un sachet.",
+            "Le pain est rangé dans un placard."
           ],
           "correctIndex": 0,
-          "explanation": "Sur l’image, on voit une seule personne assise à une table, en train de poser ou empiler des pains dans une caisse sur laquelle est indiqué « 2,5 kg ». Aucune autre personne, file d’attente, balance ou geste de lecture attentive de l’étiquette n’apparaît : l’action représentée est donc l’empilement de pains dans la caisse marquée 2,5 kg.",
+          "explanation": "Les pains se trouvent sur une balance dont l’affichage indique un poids.",
           "distractorReasons": [
             {
               "index": 1,
-              "reason": "Cette option suppose la présence de plusieurs personnes et d’une distribution effective (une file, des bénéficiaires), alors que l’image ne montre qu’un seul bénévole sans interaction avec d’autres."
+              "reason": "Aucun couteau ni geste de découpe n’est visible sur cette scène de pesée."
             },
             {
               "index": 2,
-              "reason": "Elle interprète la mention « 2,5 kg » comme liée à une opération de pesée sur une balance, mais aucun appareil de pesée n’est visible ; on voit seulement une caisse déjà étiquetée et des pains qu’on y dépose."
+              "reason": "Les pains reposent sur la balance, sans sachet ni geste d’emballage."
             },
             {
               "index": 3,
-              "reason": "Elle transforme l’étiquette « 2,5 kg » en objet principal de l’action (lecture avant d’ouvrir un paquet), tandis que l’image met en avant la manipulation des pains et non un contrôle visuel de l’étiquette ou l’ouverture d’emballages."
+              "reason": "La scène montre une table et une balance, et non un rangement dans un placard."
             }
-          ],
-          "design": "contraste entre empiler des pains dans une caisse étiquetée, les distribuer, les peser ou se concentrer sur la lecture de l’étiquette"
-        },
-        "usage": {
-          "prompt_tokens": 1659,
-          "completion_tokens": 719,
-          "total_tokens": 2378,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 328,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00926375,
-        "inputHash": "63092837c0c628346a12a81dcc7dc352318b3825c1fd40ddedfe61b7b1b3e3f3",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:3:author:2"
+          ]
+        }
       },
-      "rounds": 3
+      "rounds": 1
     },
     {
       "number": 4,
@@ -659,8 +624,8 @@
           "Proposition D"
         ],
         "correct": "A",
-        "explanation": "Réponse A : On voit clairement le cuisinier utiliser une pince pour retourner ou manipuler des légumes (ronds et verts/oranges) sur une plaque posée devant lui. Il n’y a pas d’autres ustensiles ou récipients visibles, et le geste correspond à l’action décrite. B : Le cuisinier n’utilise pas de gants et il ne sort pas un plateau du four. Il travaille sur une plaque posée devant lui, non à la sortie d’un four. Quelqu’un pourrait confondre la plaque avec un plateau, mais il n’y a aucun four visible. C : Le cuisinier ne dépose pas de légumes dans des assiettes, il n’y a aucune assiette visible sur la plaque. La confusion pourrait venir du fait qu’il manipule des légumes, mais il ne les place pas dans des assiettes. D : Il n’y a pas de saladier visible et le cuisinier ne mélange pas les légumes, il les retourne ou les déplace sur la plaque. Quelqu’un pourrait mal interpréter l’ustensile comme servant à mélanger, mais ce n’est pas le cas ici.",
-        "transcript": "Question 4.\nRegardez l’image et écoutez les propositions.\nA. Le cuisinier retourne des légumes avec une pince sur la plaque. B. Le cuisinier sort un grand plateau du four avec des gants. C. Le cuisinier dépose des légumes cuits dans des assiettes posées sur la plaque. D. Le cuisinier mélange des légumes dans un saladier posé sur le comptoir.",
+        "explanation": "Réponse A : On voit une personne qui manipule des légumes posés sur un plan de travail avec des ustensiles, ce qui correspond à la préparation de légumes sur un plan de travail. B : On pourrait croire que les légumes sont cuits au four car ils sont dans un plat, mais il n'y a aucun signe de four ou de cuisson visible sur l'image. C : Quelqu’un pourrait penser que les légumes sont pesés car ils sont regroupés, mais il n’y a aucune balance visible sur l’image. D : On pourrait croire que les légumes sont lavés car ils sont manipulés, mais il n’y a ni robinet ni eau visible sur l’image.",
+        "transcript": "Question 4.\nRegardez l’image et écoutez les propositions.\nA. Des légumes sont préparés sur un plan de travail. B. Des légumes sont cuits au four dans un plat. C. Des légumes sont pesés sur une balance. D. Des légumes sont lavés sous le robinet.",
         "segments": [
           {
             "voice": "female",
@@ -672,7 +637,7 @@
           },
           {
             "voice": "female",
-            "text": "A. Le cuisinier retourne des légumes avec une pince sur la plaque. B. Le cuisinier sort un grand plateau du four avec des gants. C. Le cuisinier dépose des légumes cuits dans des assiettes posées sur la plaque. D. Le cuisinier mélange des légumes dans un saladier posé sur le comptoir."
+            "text": "A. Des légumes sont préparés sur un plan de travail. B. Des légumes sont cuits au four dans un plat. C. Des légumes sont pesés sur une balance. D. Des légumes sont lavés sous le robinet."
           }
         ],
         "audio": "q-04.mp3",
@@ -680,14 +645,16 @@
         "slotSeconds": 33,
         "image": "q-04.svg"
       },
-      "contentHash": "1611c43cd0d0aa68b9d697af613b08725721cfc2118197432652b4b69180bca9",
+      "contentHash": "b335a88fe3389695bcc26eebd433ed58361cfe61262bc79766821fc8015d6f95",
       "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "63bec6d2c47b86d301e21a522a36416064577b32314ea155db56a634688bd306",
       "grounded": {
         "stage": "ground",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-4.1-2025-04-14",
-        "responseId": "chatcmpl-Eksve6QnwlTCiiDrF1Zh2XyKNE3Rb",
+        "responseId": "chatcmpl-EktTpVyq62P1p4UHxbSiFR6MsIpxA",
         "result": {
           "supportedIndices": [
             0
@@ -700,39 +667,39 @@
               "supported": true,
               "plausibleMisunderstanding": false,
               "evidence": [],
-              "reason": "On voit clairement le cuisinier utiliser une pince pour retourner ou manipuler des légumes (ronds et verts/oranges) sur une plaque posée devant lui. Il n’y a pas d’autres ustensiles ou récipients visibles, et le geste correspond à l’action décrite."
+              "reason": "On voit une personne qui manipule des légumes posés sur un plan de travail avec des ustensiles, ce qui correspond à la préparation de légumes sur un plan de travail."
             },
             {
               "index": 1,
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "Le cuisinier n’utilise pas de gants et il ne sort pas un plateau du four. Il travaille sur une plaque posée devant lui, non à la sortie d’un four. Quelqu’un pourrait confondre la plaque avec un plateau, mais il n’y a aucun four visible.",
-              "misunderstanding": "confusion entre la plaque de cuisson et un plateau sortant du four"
+              "reason": "On pourrait croire que les légumes sont cuits au four car ils sont dans un plat, mais il n'y a aucun signe de four ou de cuisson visible sur l'image.",
+              "misunderstanding": "conflation plat/four"
             },
             {
               "index": 2,
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "Le cuisinier ne dépose pas de légumes dans des assiettes, il n’y a aucune assiette visible sur la plaque. La confusion pourrait venir du fait qu’il manipule des légumes, mais il ne les place pas dans des assiettes.",
-              "misunderstanding": "confusion entre manipuler des légumes et les servir dans des assiettes"
+              "reason": "Quelqu’un pourrait penser que les légumes sont pesés car ils sont regroupés, mais il n’y a aucune balance visible sur l’image.",
+              "misunderstanding": "conflation plat/balance"
             },
             {
               "index": 3,
               "supported": false,
               "plausibleMisunderstanding": true,
               "evidence": [],
-              "reason": "Il n’y a pas de saladier visible et le cuisinier ne mélange pas les légumes, il les retourne ou les déplace sur la plaque. Quelqu’un pourrait mal interpréter l’ustensile comme servant à mélanger, mais ce n’est pas le cas ici.",
-              "misunderstanding": "confusion entre retourner/mélanger et absence de saladier"
+              "reason": "On pourrait croire que les légumes sont lavés car ils sont manipulés, mais il n’y a ni robinet ni eau visible sur l’image.",
+              "misunderstanding": "conflation manipulation/lavage"
             }
           ],
-          "summary": "La seule action visible est celle du cuisinier qui retourne des légumes avec une pince sur la plaque. Les autres propositions ne correspondent pas à ce que montre l’image."
+          "summary": "La seule action clairement représentée est la préparation de légumes sur un plan de travail, car il n’y a ni four, ni balance, ni robinet visibles."
         },
         "usage": {
-          "prompt_tokens": 666,
-          "completion_tokens": 437,
-          "total_tokens": 1103,
+          "prompt_tokens": 640,
+          "completion_tokens": 312,
+          "total_tokens": 952,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
@@ -744,105 +711,82 @@
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.004828,
-        "inputHash": "c7f09738bb71db664a567f36ea4921b849acff7d938ea7a7e1afd690b47063ff",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:4:ground:1"
+        "costUsd": 0.003776,
+        "inputHash": "7ceef1cb6c692276f55bacf87aa95d67a0634551af7fc61993fd9e919e94c223",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:4:ground:0"
       },
       "blind": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v1",
         "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
         "model": "gpt-5-mini-2025-08-07",
-        "responseId": "chatcmpl-Eksve2wE0pn5KZW1aellMDJulZQ9p",
+        "responseId": "chatcmpl-EktTpjnCqU5MohesznzFQh23IbbMH",
         "result": {
-          "guess": 0,
+          "guess": 3,
           "probabilities": [
-            0.4,
-            0.3,
-            0.1,
-            0.2
+            0.2,
+            0.15,
+            0.15,
+            0.5
           ],
           "standsOut": true,
           "cues": [
             {
-              "option": 0,
-              "cue": "La formulation précise «retourne des légumes avec une pince sur la plaque» décrit une action visible et un outil concret (pince) qui rend cette option naturellement détectable visuellement."
+              "option": 3,
+              "cue": "the phrase “sous le robinet” is more specific and visually distinctive than the other options (washing under a tap is a single clear action)"
             }
           ],
-          "reason": "I have no access to the recording, so I cannot know which action actually occurs. I guessed option 1 (index 0) because its wording describes a clear, single visible action with a concrete tool (turning vegetables with tongs on a tray), which seems slightly more directly observable than the other options. I discounted option 3 more strongly because ‘‘dépose des légumes cuits dans des assiettes posées sur la plaque’’ reads awkwardly (plates sitting on a baking sheet is less typical), making it less plausible as the intended description. Options 2 and 4 remain plausible (removing a tray from an oven with gloves; mixing in a bowl on the counter), so my confidence is modest rather than certain."
+          "reason": "I have no access to the recording or image, so I cannot know which action is actually shown. However, among the four choices, “Des légumes sont lavés sous le robinet” is the most specific and visually distinctive description (a single observable gesture and location: under a tap). The other options are either more general (“préparés sur un plan de travail”) or describe less common/specialized situations in a simple visual prompt (weighing on a scale or baked in a dish). That wording asymmetry makes option 3 the best defeasible guess, but the true answer could readily be any of the four given the missing audio/visual evidence."
         },
         "usage": {
-          "prompt_tokens": 454,
-          "completion_tokens": 751,
-          "total_tokens": 1205,
+          "prompt_tokens": 428,
+          "completion_tokens": 538,
+          "total_tokens": 966,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 512,
+            "reasoning_tokens": 320,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0016155,
-        "inputHash": "7e5370b88daa2842b1924ddda9bb1c351171de5b9e28b7f4bdbdadeffab28b64",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:4:blind:1"
+        "costUsd": 0.001183,
+        "inputHash": "d57c9c8200424e8d7fbc4abfb572b1fd8151bbc55fb26c72a2a584744989c645",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:4:blind:0"
       },
       "blindPass": false,
       "author": {
-        "stage": "author",
-        "policy": "listening-comprehension-qc-v1",
-        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EksvVMkHG4uKjWebXUU7kOz2fFZwm",
+        "source": "editorial-fix",
         "result": {
-          "question": "Quelle action voit-on ?",
+          "question": "Quelle description correspond à l’image ?",
           "choices": [
-            "Le cuisinier retourne des légumes avec une pince sur la plaque.",
-            "Le cuisinier dépose des légumes cuits dans des assiettes posées sur la plaque.",
-            "Le cuisinier sort un grand plateau du four avec des gants.",
-            "Le cuisinier mélange des légumes dans un saladier posé sur le comptoir."
+            "Des légumes sont préparés sur un plan de travail.",
+            "Des légumes sont cuits au four dans un plat.",
+            "Des légumes sont lavés sous le robinet.",
+            "Des légumes sont pesés sur une balance."
           ],
           "correctIndex": 0,
-          "explanation": "On distingue une personne derrière un comptoir qui manipule des aliments allongés avec une longue pince sur une large surface plate, évoquant une plaque ou un gril. On ne voit ni assiettes, ni four, ni saladier, seulement des aliments directement sur cette surface de cuisson.",
+          "explanation": "Le cuisinier manipule les légumes devant lui, sur le plan de travail de la cuisine.",
           "distractorReasons": [
             {
               "index": 1,
-              "reason": "Il n’y a aucune assiette visible sur la surface : les aliments sont directement sur la plaque, pas déposés dans des assiettes."
+              "reason": "La scène ne montre pas l’introduction d’un plat dans un four."
             },
             {
               "index": 2,
-              "reason": "On ne voit ni four, ni porte ouverte, ni gants de protection : le cuisinier agit déjà au-dessus d’une plaque accessible, non en train de la sortir du four."
+              "reason": "Aucun robinet ni lavage sous l’eau n’apparaît dans la scène."
             },
             {
               "index": 3,
-              "reason": "Aucun saladier n’apparaît sur le comptoir : les légumes sont disposés à plat sur une grande surface, pas dans un récipient profond."
+              "reason": "La scène montre la préparation des légumes, sans balance ni pesée."
             }
-          ],
-          "design": "Distinction visuelle fine entre différents types de manipulation des aliments (sur plaque, dans assiettes, sortis du four, dans un saladier), tous plausibles en cuisine mais dont un seul correspond exactement à l’image."
-        },
-        "usage": {
-          "prompt_tokens": 1262,
-          "completion_tokens": 770,
-          "total_tokens": 2032,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 438,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.0092775,
-        "inputHash": "1554c7b917d6aa632744a356ff3aeeb52619f5b19bb68e6bad1ed28fe53c3ee7",
-        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-06:4:author:1"
+          ]
+        }
       },
-      "rounds": 2
+      "rounds": 1
     },
     {
       "number": 5,
@@ -8457,7 +8401,7 @@
     "policy": "listening-comprehension-qc-v1",
     "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
     "model": "gpt-4.1-2025-04-14",
-    "responseId": "chatcmpl-EktD52nv0wHjLtqBnBQs3Ug3dDTPf",
+    "responseId": "chatcmpl-EktTv04YxBFqD39yTLrzxIkvpozqM",
     "result": {
       "pass": false,
       "patterns": [
@@ -8467,15 +8411,15 @@
             12
           ],
           "kind": "specific recurring cue",
-          "reason": "For both questions, the correct answer is the last (D) and is also the most specific and operationally detailed among the choices, which may cue test-wise students."
+          "reason": "Both questions have the correct answer as the last option (D), and both are phrased as a condition or requirement, with the correct answer being the most operationally specific or action-oriented among the choices. This could cue test-wise students to select the most concrete or 'immediate action' answer when faced with similar question stems."
         }
       ],
-      "summary": "Most items show natural variation in answer length, specificity, and position. However, questions 9 and 12 both feature correct answers that are the last option and are notably more operationally specific than the distractors, which could serve as a guessing cue. No other clear, recurring patterns or systematic cues are present across the rest of the exam."
+      "summary": "Most items show natural variation in answer length, phrasing, and position. However, questions 9 and 12 both feature a recurring cue: the correct answer is the last option and is the most operationally specific or action-based, which could be exploited by test-wise students. No evidence of systematic answer-length or position bias across the whole test, but this specific pattern is notable and should be reviewed."
     },
     "usage": {
-      "prompt_tokens": 4368,
-      "completion_tokens": 130,
-      "total_tokens": 4498,
+      "prompt_tokens": 4315,
+      "completion_tokens": 174,
+      "total_tokens": 4489,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
@@ -8487,8 +8431,8 @@
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.009776,
-    "inputHash": "44e142337e3145f391b1c9af3b2c2c37ec92ed96f62b36ae3976ffb1690ce658",
+    "costUsd": 0.010022,
+    "inputHash": "2a578234250d3eeaf8ceb9b2b2f2b35970d5ad0889f11d32b9a9ba7608a320ef",
     "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-06"
   }
 }

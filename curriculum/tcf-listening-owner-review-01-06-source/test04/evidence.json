@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test04-v3",
   "test": "tcf-listening-04",
   "version": "tcf-listening-2026-11-test04-v4",
-  "paperHash": "ac564ac5c6d7e132f05e692a627aff3cca21a21904450cd87d06e5c6b097d9fa",
+  "paperHash": "48b2789f94ce83a04d83200e629c254d5f1deebf3efe10ea4ebf7f18be743cdf",
   "questions": [
     {
       "number": 1,
@@ -2547,7 +2547,214 @@
     },
     {
       "number": 13,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "a8908b1c2c38b94b55860b223ecf93cd2f4202599f6331c875a745dcced7c4ad",
+      "imageHash": null,
+      "question": {
+        "number": 13,
+        "kind": "announcement",
+        "question": "Quelle activité sera interrompue mardi ?",
+        "options": [
+          "Les expériences du groupe de troisième.",
+          "Les ateliers de lecture organisés à la bibliothèque.",
+          "Les contrôles des installations électriques du laboratoire.",
+          "Les préparations de cours des enseignants au laboratoire."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le texte indique explicitement que les expériences du groupe de troisième, prévues mardi, sont reportées à jeudi, donc interrompues mardi. B : Quelqu’un pourrait croire que toutes les activités scolaires sont interrompues, mais le texte précise que les ateliers de lecture à la bibliothèque continuent normalement. C : On pourrait penser que les contrôles sont interrompus, mais au contraire, ils sont la raison de la fermeture du laboratoire mardi, donc ils ont lieu ce jour-là. D : On pourrait croire que les préparations de cours des enseignants sont interrompues, mais le texte précise que le laboratoire reste accessible aux enseignants lundi et mercredi, donc ce n’est pas mardi que leur activité est explicitement interrompue.",
+        "transcript": "Question 13.\nLe laboratoire de sciences restera accessible aux enseignants lundi et mercredi, mais il sera fermé aux classes mardi pour vérifier les installations électriques. Les travaux n'affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement. Les expériences du groupe de troisième sont reportées à jeudi.\nQuelle activité sera interrompue mardi ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 13."
+          },
+          {
+            "voice": "female",
+            "text": "Le laboratoire de sciences restera accessible aux enseignants lundi et mercredi, mais il sera fermé aux classes mardi pour vérifier les installations électriques. Les travaux n'affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement. Les expériences du groupe de troisième sont reportées à jeudi."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle activité sera interrompue mardi ?"
+          }
+        ],
+        "audio": "q-13.mp3",
+        "audioSeconds": 21.717,
+        "slotSeconds": 39
+      },
+      "contentHash": "196f5e209dd68a4d6e0e1cdf867cbe5cafba012c505ea0de43e63a79fe613716",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktJN6fCVR4bCIoOWzepFirOXlohR",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Les expériences du groupe de troisième sont reportées à jeudi."
+              ],
+              "reason": "Le texte indique explicitement que les expériences du groupe de troisième, prévues mardi, sont reportées à jeudi, donc interrompues mardi."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les travaux n'affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement."
+              ],
+              "reason": "Quelqu’un pourrait croire que toutes les activités scolaires sont interrompues, mais le texte précise que les ateliers de lecture à la bibliothèque continuent normalement.",
+              "misunderstanding": "scope"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "il sera fermé aux classes mardi pour vérifier les installations électriques"
+              ],
+              "reason": "On pourrait penser que les contrôles sont interrompus, mais au contraire, ils sont la raison de la fermeture du laboratoire mardi, donc ils ont lieu ce jour-là.",
+              "misunderstanding": "cause/result"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Le laboratoire de sciences restera accessible aux enseignants lundi et mercredi"
+              ],
+              "reason": "On pourrait croire que les préparations de cours des enseignants sont interrompues, mais le texte précise que le laboratoire reste accessible aux enseignants lundi et mercredi, donc ce n’est pas mardi que leur activité est explicitement interrompue.",
+              "misunderstanding": "time_swap"
+            }
+          ],
+          "summary": "Seules les expériences du groupe de troisième seront interrompues mardi, comme indiqué dans le texte. Les autres activités continuent ou ne sont pas concernées par l’interruption."
+        },
+        "usage": {
+          "prompt_tokens": 587,
+          "completion_tokens": 368,
+          "total_tokens": 955,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004118,
+        "inputHash": "24e10a51275c131254f7a71343f06261a420a23e26b4d17a0779a287d843e0fc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:13:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EksotZx4ie01gNsg25jM1ajl8OqAm",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.5,
+            0.1,
+            0.3,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Les expériences en cours sont l'activité la plus directement vulnérable si des interventions ont lieu au laboratoire (ex. contrôles électriques) ; phrase suggère interruption d'une activité pratique."
+            }
+          ],
+          "reason": "I have no recording or transcript, so I cannot know for certain. The options mentioning the laboratory and electrical checks suggest an interruption affecting practical work; among the choices, ongoing experiments are the most directly impacted by lab interruptions, making them the best guess. However this is an inference from wording only, not evidence from the missing audio."
+        },
+        "usage": {
+          "prompt_tokens": 426,
+          "completion_tokens": 348,
+          "total_tokens": 774,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0008025,
+        "inputHash": "49f40d03d4f34758c5e98b1d44832369f069f91e21579520739372cbe9665c19",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:13:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EksolTyhvCJxbLHPowSBojBxH9ytp",
+        "result": {
+          "question": "Quelle activité sera interrompue mardi ?",
+          "choices": [
+            "Les expériences du groupe de troisième.",
+            "Les préparations de cours des enseignants au laboratoire.",
+            "Les ateliers de lecture organisés à la bibliothèque.",
+            "Les contrôles des installations électriques du laboratoire."
+          ],
+          "correctIndex": 0,
+          "explanation": "Le texte indique que « les expériences du groupe de troisième sont reportées à jeudi », car « le laboratoire de sciences [...] sera fermé aux classes mardi pour vérifier les installations électriques ». Ce sont donc les activités expérimentales de ce groupe qui sont interrompues mardi.\nLes enseignants, eux, conservent l’accès au laboratoire lundi et mercredi, sans mention d’interruption spécifique mardi, et la bibliothèque n’est pas affectée : « Les travaux n’affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement. » Quant aux contrôles électriques, ils sont précisément la raison de la fermeture du laboratoire aux classes ce jour-là, ils ne sont pas interrompus mais réalisés mardi.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Le laboratoire est seulement fermé aux classes mardi pour les vérifications, mais rien n’indique que les préparations de cours des enseignants soient annulées ce jour-là."
+            },
+            {
+              "index": 2,
+              "reason": "Le texte précise explicitement que les travaux n’affectent pas la bibliothèque et que les ateliers de lecture auront lieu normalement."
+            },
+            {
+              "index": 3,
+              "reason": "Les contrôles des installations électriques sont la cause de l’interruption des expériences, pas une activité suspendue : ils sont justement prévus pour mardi."
+            }
+          ],
+          "design": "Contraste entre les activités maintenues ou permises (enseignants au laboratoire lundi/mercredi, ateliers de lecture à la bibliothèque, vérifications électriques) et la seule activité effectivement reportée (les expériences du groupe de troisième mardi)."
+        },
+        "usage": {
+          "prompt_tokens": 1006,
+          "completion_tokens": 631,
+          "total_tokens": 1637,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 257,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0075675,
+        "inputHash": "39e6db0962d87a3b82014d42120db7de3c7fbf7baaf12b00d20cc46a31934187",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-04:13:author:0"
+      },
+      "rounds": 1
     },
     {
       "number": 14,
@@ -8231,5 +8438,43 @@
       "rounds": 3
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktTlLdpoZ8l4mh7ak5j4ZmUzROj4",
+    "result": {
+      "pass": false,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "Both correct answers are the longest and most specific options, with similar structure: 'au rez-de-chaussée'/'dans la petite salle près du secrétariat'."
+        }
+      ],
+      "summary": "Most answer choices are reasonably varied in length and phrasing, and the correct answers are not consistently the longest, shortest, or most central. However, questions 9 and 12 both feature correct answers that are the longest and most detailed, with a recurring structure referencing a specific location. This could cue test-wise guessing. No other strong patterns (such as position cycles, grammatical mismatches, or repeated distractor types) are apparent in the remainder of the set."
+    },
+    "usage": {
+      "prompt_tokens": 4019,
+      "completion_tokens": 155,
+      "total_tokens": 4174,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009278,
+    "inputHash": "7e483a2b68e7fde397a698df7b5d5bc63bc93196d7b3f9668d5a6f71387465b1",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-04"
+  }
 }

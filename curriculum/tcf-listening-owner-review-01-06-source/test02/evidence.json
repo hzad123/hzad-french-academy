@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test02-v1",
   "test": "tcf-listening-02",
   "version": "tcf-listening-2026-11-test02-v4",
-  "paperHash": "1197aec7b6c73f5ed80786db991781cd2975e7bfb97dcdb1bfe2c3881b5253ae",
+  "paperHash": "d10f10c019a7c571fbec3e1b981027c0c0fee68d3730fdbeb19550259acdf038",
   "questions": [
     {
       "number": 1,
@@ -418,7 +418,203 @@
     },
     {
       "number": 3,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "0723522f2002000a287953196bd0d8213abd31ae2be928c130304b64c5e38b0f",
+      "imageHash": "603a43a5dd4e9e0a03d261c56218b6aa48ee210b5bfe6cd561b2a1ca49b72931",
+      "question": {
+        "number": 3,
+        "kind": "image",
+        "question": "Quelle proposition correspond à l'image ?",
+        "options": [
+          "Proposition A",
+          "Proposition B",
+          "Proposition C",
+          "Proposition D"
+        ],
+        "correct": "B",
+        "explanation": "Réponse B : L'image montre clairement deux personnes assises devant le musée, ce qui correspond exactement à la description. A : On voit deux personnes devant le musée, mais elles sont assises et non en train de se promener. C : Les deux personnes sont devant le musée, mais elles ne sont pas debout en file d'attente, elles sont assises. D : Les deux personnes sont devant le musée, mais elles ne descendent pas les marches, elles sont assises.",
+        "transcript": "Question 3.\nA. Deux personnes se promènent sur la place près du musée. B. Deux personnes sont assises devant le musée. C. Deux personnes font la queue pour entrer au musée. D. Deux personnes quittent le musée en descendant les marches.",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 3."
+          },
+          {
+            "voice": "female",
+            "text": "A. Deux personnes se promènent sur la place près du musée. B. Deux personnes sont assises devant le musée. C. Deux personnes font la queue pour entrer au musée. D. Deux personnes quittent le musée en descendant les marches."
+          }
+        ],
+        "image": "q-03.svg",
+        "audio": "q-03.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 32
+      },
+      "contentHash": "63973bf74ef852483fb5f269960315bee3c1ae078c0dd6bf0fa2960cc315a857",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktSgHCpv0BfU82bmogOZcQLRTrLP",
+        "result": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "On voit deux personnes devant le musée, mais elles sont assises et non en train de se promener.",
+              "misunderstanding": "confusion entre être assis et marcher"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [],
+              "reason": "L'image montre clairement deux personnes assises devant le musée, ce qui correspond exactement à la description."
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Les deux personnes sont devant le musée, mais elles ne sont pas debout en file d'attente, elles sont assises.",
+              "misunderstanding": "confusion entre attendre debout et être assis"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [],
+              "reason": "Les deux personnes sont devant le musée, mais elles ne descendent pas les marches, elles sont assises.",
+              "misunderstanding": "confusion entre descendre les marches et être assis devant le musée"
+            }
+          ],
+          "summary": "La seule proposition correcte est que deux personnes sont assises devant le musée, car c'est ce que montre l'image. Les autres options sont des confusions plausibles mais contredites par la position assise des personnages."
+        },
+        "usage": {
+          "prompt_tokens": 644,
+          "completion_tokens": 298,
+          "total_tokens": 942,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.003672,
+        "inputHash": "ccd80e5dd42d11615bd974f8a85249978815ebd71a33a05e18a4e5e1610e3933",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:3:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktSfgNyFLOuS6LjHSyzjEAhetIno",
+        "result": {
+          "guess": 1,
+          "probabilities": [
+            0.2,
+            0.5,
+            0.15,
+            0.15
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 1,
+              "cue": "'sont assises devant le musée' is more concrete/stationary wording compared with action verbs in other choices, giving a slight lexical advantage for selection."
+            }
+          ],
+          "reason": "I have no image or audio, so I cannot know which description matches. I favored option 1 slightly because its wording is more specific and stationary (people seated in front of a museum) compared with the other options that describe actions (walking, queuing, leaving). This lexical concreteness provides a modest, defeasible basis for a guess but is not reliable evidence; the actual image could equally support any option."
+        },
+        "usage": {
+          "prompt_tokens": 432,
+          "completion_tokens": 488,
+          "total_tokens": 920,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.001084,
+        "inputHash": "4acc4230b0c2b1be63dc3d682feba645e65be4eedfd6e50c6aa1c76fc705a22d",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:3:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktSYpqs3e4FdpOjhmmIQD1f65nGq",
+        "result": {
+          "question": "Quelle proposition correspond à l'image ?",
+          "choices": [
+            "Deux personnes sont assises devant le musée.",
+            "Deux personnes font la queue pour entrer au musée.",
+            "Deux personnes quittent le musée en descendant les marches.",
+            "Deux personnes se promènent sur la place près du musée."
+          ],
+          "correctIndex": 0,
+          "explanation": "On voit deux personnages assis côte à côte sur une marche, juste devant un bâtiment portant l’inscription « MUSÉE ». Ils ne sont ni en file d’attente, ni en train de marcher, ni en train de s’éloigner du bâtiment, mais simplement assis devant l’entrée du musée.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Ils ne forment pas une file d’attente pour entrer : il n’y a que deux personnes assises côte à côte, sans indication d’entrée imminente."
+            },
+            {
+              "index": 2,
+              "reason": "Les personnages sont tournés vers le musée, assis, et non en train de descendre les marches pour le quitter."
+            },
+            {
+              "index": 3,
+              "reason": "Les deux personnes sont immobiles et assises juste devant la façade du musée, pas en train de se promener sur une place voisine."
+            }
+          ],
+          "design": "Contraste précis entre la posture (assis vs debout/en mouvement) et la direction (vers le musée vs en s’en éloignant), ainsi que la position exacte (devant l’entrée vs sur une place ou en file)."
+        },
+        "usage": {
+          "prompt_tokens": 1190,
+          "completion_tokens": 637,
+          "total_tokens": 1827,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 336,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0078575,
+        "inputHash": "221dd17e436bccbdcd874265de0979f03c1f5368e2e8f003539d05cd5ea23034",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:3:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 4,
@@ -2339,7 +2535,226 @@
     },
     {
       "number": 13,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "8b4b443de3eee3cb9e4ad0b8e1fa5745610378184c17f88066061bcaf237f059",
+      "imageHash": null,
+      "question": {
+        "number": 13,
+        "kind": "announcement",
+        "question": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+        "options": [
+          "Elle commencera à vingt heures.",
+          "Elle est avancée à dix-huit heures.",
+          "Elle est annulée pour ce soir.",
+          "Elle reste finalement à dix-neuf heures."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L'annonce précise que la projection prévue à 19h commencera finalement à 20h, ce qui correspond exactement à l'option 1. B : Quelqu'un pourrait confondre le sens du changement d'horaire et penser que la séance est avancée plutôt que retardée, mais le texte indique clairement qu'elle commencera plus tard, pas plus tôt. C : On pourrait croire que la séance est annulée à cause du problème technique, mais l'annonce précise seulement un report, pas une annulation. D : Quelqu'un pourrait ne pas remarquer le changement d'horaire et penser que l'heure reste la même, mais l'annonce indique explicitement un report à 20h.",
+        "transcript": "Question 13.\nInformation aux visiteurs du centre culturel : en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures. L'exposition et la rencontre avec les bénévoles auront lieu aux horaires habituels. Merci de votre compréhension.\nQue précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 13."
+          },
+          {
+            "voice": "male",
+            "text": "Information aux visiteurs du centre culturel : en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures. L'exposition et la rencontre avec les bénévoles auront lieu aux horaires habituels. Merci de votre compréhension."
+          },
+          {
+            "voice": "female",
+            "text": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?"
+          }
+        ],
+        "audio": "q-13.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 40
+      },
+      "contentHash": "28ec2c54d28c95d8a3569ed6a72b9de5d69df2759934e073dcf34e2eb8b5c874",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktSeusOHDDMSXdKQS70xiz7bmhPr",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "la projection du documentaire prévue à dix-neuf heures commencera à vingt heures"
+              ],
+              "reason": "L'annonce précise que la projection prévue à 19h commencera finalement à 20h, ce qui correspond exactement à l'option 1."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "commencera à vingt heures"
+              ],
+              "reason": "Quelqu'un pourrait confondre le sens du changement d'horaire et penser que la séance est avancée plutôt que retardée, mais le texte indique clairement qu'elle commencera plus tard, pas plus tôt.",
+              "misunderstanding": "time_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "commencera à vingt heures"
+              ],
+              "reason": "On pourrait croire que la séance est annulée à cause du problème technique, mais l'annonce précise seulement un report, pas une annulation.",
+              "misunderstanding": "condition"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "commencera à vingt heures"
+              ],
+              "reason": "Quelqu'un pourrait ne pas remarquer le changement d'horaire et penser que l'heure reste la même, mais l'annonce indique explicitement un report à 20h.",
+              "misunderstanding": "time_swap"
+            }
+          ],
+          "summary": "L'annonce précise que la projection prévue à 19h commencera finalement à 20h, donc seule la première option est correcte."
+        },
+        "usage": {
+          "prompt_tokens": 591,
+          "completion_tokens": 338,
+          "total_tokens": 929,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.003886,
+        "inputHash": "27cb507fc65f184b9a099e9579eda34b01f980bc9d01cf4045f1d9f0d3c73230",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:13:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktSeDprBDsIU3h2QsEQIlbqEBkN4",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.45,
+            0.15,
+            0.25,
+            0.15
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "annonce likely reports a rescheduling (delay) — 'commencera à vingt heures' is a clear, specific change"
+            },
+            {
+              "option": 1,
+              "cue": "possible but less likely: advancing an event is less common and would probably be emphasized differently"
+            },
+            {
+              "option": 2,
+              "cue": "cancellation is plausible but often phrased with stronger language; no such cue available"
+            },
+            {
+              "option": 3,
+              "cue": "confirming the same time is redundant for an announcement and thus less probable"
+            }
+          ],
+          "reason": "I have no recording; I infer from the question wording that the announcement specifies a change to the screening time. Confirming no change is less informative and thus unlikely; advancing is possible but less common than a delay. Therefore the most defensible guess is that the announcement says the film will start at 20:00, though uncertainty remains because the audio could instead cancel or confirm the original time."
+        },
+        "usage": {
+          "prompt_tokens": 434,
+          "completion_tokens": 481,
+          "total_tokens": 915,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0010705,
+        "inputHash": "20fcb590b13fc18bfbd6faca763eb5b24795c76890b7896d390dd55599b3f037",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:13:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EktSXcb35k4w6caqX7I2dZifzMJ2l",
+        "result": {
+          "question": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+          "choices": [
+            "Elle commencera à vingt heures.",
+            "Elle est avancée à dix-huit heures.",
+            "Elle est annulée pour ce soir.",
+            "Elle reste finalement à dix-neuf heures."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’annonce indique clairement : « la projection du documentaire prévue à dix-neuf heures commencera à vingt heures ». Il s’agit donc d’un report d’une heure, et non d’une avance, d’une annulation ou d’un maintien de l’horaire initial.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Confond le sens du changement d’horaire : l’enregistrement annonce un décalage plus tard, non un avancement à dix-huit heures."
+            },
+            {
+              "index": 2,
+              "reason": "Interprète à tort le problème technique comme une annulation, alors que le texte parle uniquement d’un décalage de l’heure de début."
+            },
+            {
+              "index": 3,
+              "reason": "Suppose qu’il n’y a finalement pas de changement, alors que l’annonce signale explicitement le passage de dix-neuf à vingt heures."
+            }
+          ],
+          "design": "Contraste entre les différents types de modification possibles de l’événement (report plus tard, avancé, annulé, inchangé), alors que l’enregistrement précise uniquement un décalage à vingt heures."
+        },
+        "usage": {
+          "prompt_tokens": 1464,
+          "completion_tokens": 676,
+          "total_tokens": 2140,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 381,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00859,
+        "inputHash": "ba343c6dc1bd6d36cdee3e46f3ae081efe147c85480d8f2e4c13786792ae9a8c",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:13:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 14,
@@ -4507,7 +4922,7 @@
     },
     {
       "number": 24,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "error": "No uniquely supported candidate after bounded authoring"
     },
     {
       "number": 25,
@@ -6915,7 +7330,219 @@
     },
     {
       "number": 36,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "b66ca83b0e903f3d89a7bd20e16d1336633423c4035b048b52c396f0d0e6aa14",
+      "imageHash": null,
+      "question": {
+        "number": 36,
+        "kind": "interview",
+        "question": "Selon l’invitée, quel changement concret a rendu les ateliers intergénérationnels plus satisfaisants pour les participants ?",
+        "options": [
+          "Le fait de demander aux participants ce qu’ils voulaient vraiment partager et d’ajuster les ateliers en fonction de leurs envies.",
+          "L’augmentation du nombre de séances afin que les mêmes activités reviennent plus souvent dans l’année.",
+          "La décision de séparer les discussions libres des activités organisées dans des créneaux différents.",
+          "Le retour au programme initial où les jeunes enseignent l’informatique et les aînés racontent leurs souvenirs."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : L'invitée explique que le changement concret a été de demander aux participants ce qu'ils voulaient vraiment partager et d'ajuster les ateliers en fonction de leurs envies, ce qui a permis une plus grande satisfaction. B : Quelqu'un pourrait croire que l'augmentation du nombre de séances améliore la satisfaction, mais l'invitée précise que ce n'est pas le cas et que la qualité des liens ne dépend pas du nombre de rendez-vous. C : On pourrait penser que les discussions libres ont été séparées des activités organisées, mais l'invitée dit seulement que certains préfèrent discuter, pas qu'il y a eu une séparation formelle. D : Quelqu'un pourrait croire que revenir au programme initial a amélioré la satisfaction, mais l'invitée explique que ce modèle ne convenait pas et a été abandonné.",
+        "transcript": "Question 36.\nVotre médiathèque accueille désormais des ateliers communs pour adolescents et retraités. Peut-on dire que cela suffit à lutter contre l'isolement ?\nNon, même si les occasions de rencontre sont précieuses. Au début, nous avions établi un programme très chargé, avec l'idée que les jeunes apprendraient l'informatique aux personnes âgées et que celles-ci raconteraient leurs souvenirs. Plusieurs participants ne se reconnaissaient pas dans ces rôles. Nous leur avons demandé ce qu'ils souhaitaient réellement partager. Une retraitée anime maintenant un atelier de jeux vidéo et un lycéen propose un club de jardinage. Certains préfèrent simplement discuter. L'essentiel est de pouvoir choisir, refuser une activité et construire progressivement une confiance réciproque. Le nombre de rendez-vous ne mesure pas à lui seul la qualité des liens.\nSelon l’invitée, quel changement concret a rendu les ateliers intergénérationnels plus satisfaisants pour les participants ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 36."
+          },
+          {
+            "voice": "male",
+            "text": "Votre médiathèque accueille désormais des ateliers communs pour adolescents et retraités. Peut-on dire que cela suffit à lutter contre l'isolement ?"
+          },
+          {
+            "voice": "female",
+            "text": "Non, même si les occasions de rencontre sont précieuses. Au début, nous avions établi un programme très chargé, avec l'idée que les jeunes apprendraient l'informatique aux personnes âgées et que celles-ci raconteraient leurs souvenirs. Plusieurs participants ne se reconnaissaient pas dans ces rôles. Nous leur avons demandé ce qu'ils souhaitaient réellement partager. Une retraitée anime maintenant un atelier de jeux vidéo et un lycéen propose un club de jardinage. Certains préfèrent simplement discuter. L'essentiel est de pouvoir choisir, refuser une activité et construire progressivement une confiance réciproque. Le nombre de rendez-vous ne mesure pas à lui seul la qualité des liens."
+          },
+          {
+            "voice": "female",
+            "text": "Selon l’invitée, quel changement concret a rendu les ateliers intergénérationnels plus satisfaisants pour les participants ?"
+          }
+        ],
+        "audio": "q-36.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 86
+      },
+      "contentHash": "9bafbdf3b2c2dd8e0927e48cbff5f1e211dbcc5aced215198c4acc45ea98df2c",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": null,
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktSVzLSIprhXtfvIMbEjjPaIaCjv",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Nous leur avons demandé ce qu'ils souhaitaient réellement partager.",
+                "L'essentiel est de pouvoir choisir, refuser une activité et construire progressivement une confiance réciproque."
+              ],
+              "reason": "L'invitée explique que le changement concret a été de demander aux participants ce qu'ils voulaient vraiment partager et d'ajuster les ateliers en fonction de leurs envies, ce qui a permis une plus grande satisfaction."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Le nombre de rendez-vous ne mesure pas à lui seul la qualité des liens."
+              ],
+              "reason": "Quelqu'un pourrait croire que l'augmentation du nombre de séances améliore la satisfaction, mais l'invitée précise que ce n'est pas le cas et que la qualité des liens ne dépend pas du nombre de rendez-vous.",
+              "misunderstanding": "confusion entre quantité et qualité des ateliers"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Certains préfèrent simplement discuter."
+              ],
+              "reason": "On pourrait penser que les discussions libres ont été séparées des activités organisées, mais l'invitée dit seulement que certains préfèrent discuter, pas qu'il y a eu une séparation formelle.",
+              "misunderstanding": "interprétation excessive de la mention des discussions libres"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Au début, nous avions établi un programme très chargé, avec l'idée que les jeunes apprendraient l'informatique aux personnes âgées et que celles-ci raconteraient leurs souvenirs. Plusieurs participants ne se reconnaissaient pas dans ces rôles."
+              ],
+              "reason": "Quelqu'un pourrait croire que revenir au programme initial a amélioré la satisfaction, mais l'invitée explique que ce modèle ne convenait pas et a été abandonné.",
+              "misunderstanding": "confusion entre le programme initial et le changement positif"
+            }
+          ],
+          "summary": "Le changement concret qui a rendu les ateliers plus satisfaisants est d'avoir demandé aux participants ce qu'ils voulaient vraiment partager et d'avoir adapté les ateliers à leurs envies. Les autres options sont contredites ou mal interprétées par rapport au témoignage de l'invitée."
+        },
+        "usage": {
+          "prompt_tokens": 775,
+          "completion_tokens": 594,
+          "total_tokens": 1369,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006302,
+        "inputHash": "8a7fcb32af69b326b5219231f9ea4401ce2d80b03aa77e13570e1f25cdcc1409",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:36:ground:1"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-Ekt9snpY7Jsa4YDXeoLAgGDuYuwJL",
+        "result": {
+          "guess": 0,
+          "probabilities": [
+            0.55,
+            0.15,
+            0.2,
+            0.1
+          ],
+          "standsOut": true,
+          "cues": [
+            {
+              "option": 0,
+              "cue": "Option 0 explicitly describes a participant-centered change (‘demander aux participants… et d’ajuster’), which is a common and plausible concrete adjustment noted as improving satisfaction."
+            }
+          ],
+          "reason": "I have no access to the recording; this is an inference from the wording of the options. Option 0 describes a concrete, participant-driven adjustment that naturally leads to greater satisfaction and is therefore more plausible than broader or structural changes (more sessions, separating discussion slots) or reverting to a previous program. However, without the audio, certainty is limited, so probabilities reflect that uncertainty."
+        },
+        "usage": {
+          "prompt_tokens": 497,
+          "completion_tokens": 419,
+          "total_tokens": 916,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 256,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00096225,
+        "inputHash": "d196bafd72c8f118a2c5e6122ef0c9c697de8291e4138ccca85b0ae7ff09b440",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:36:blind:1"
+      },
+      "blindPass": false,
+      "author": {
+        "stage": "author",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekt9k47wAE6CgXmY10bON4IB4LYKh",
+        "result": {
+          "question": "Selon l’invitée, quel changement concret a rendu les ateliers intergénérationnels plus satisfaisants pour les participants ?",
+          "choices": [
+            "Le fait de demander aux participants ce qu’ils voulaient vraiment partager et d’ajuster les ateliers en fonction de leurs envies.",
+            "L’augmentation du nombre de séances afin que les mêmes activités reviennent plus souvent dans l’année.",
+            "Le retour au programme initial où les jeunes enseignent l’informatique et les aînés racontent leurs souvenirs.",
+            "La décision de séparer les discussions libres des activités organisées dans des créneaux différents."
+          ],
+          "correctIndex": 0,
+          "explanation": "L’invitée explique qu’au départ, un programme très chargé avec des rôles prédéfinis ne convenait pas à tout le monde. Le tournant vient quand ils ont « demandé ce qu’ils souhaitaient réellement partager », ce qui a permis à une retraitée d’animer un atelier de jeux vidéo, à un lycéen de proposer un club de jardinage et à certains de simplement discuter. C’est donc l’ajustement des ateliers aux envies exprimées qui a rendu les rencontres plus satisfaisantes.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Elle précise que « le nombre de rendez-vous ne mesure pas à lui seul la qualité des liens » ; augmenter les séances sans changer le contenu n’est pas présenté comme le tournant."
+            },
+            {
+              "index": 2,
+              "reason": "Le programme initial avec jeunes en informatique et aînés en récits de vie est explicitement décrit comme insatisfaisant pour plusieurs participants, et non comme une solution rétablie ensuite."
+            },
+            {
+              "index": 3,
+              "reason": "La séparation stricte entre discussions et activités n’est jamais mentionnée ; au contraire, elle insiste sur la possibilité de choisir ou refuser des activités, certaines personnes préférant simplement discuter au sein du même dispositif."
+            }
+          ],
+          "design": "Focalisation sur le moment de bascule organisationnel : quel changement précis, parmi plusieurs possibles (fréquence, contenu, structure), est décrit dans l’enregistrement comme rendant effectivement les ateliers plus bénéfiques."
+        },
+        "usage": {
+          "prompt_tokens": 1836,
+          "completion_tokens": 575,
+          "total_tokens": 2411,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 136,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.008045,
+        "inputHash": "b1eb087e864f8a37c2f1509790c855824d623a315174f440afc80a4048ab99dc",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:36:author:1"
+      },
+      "rounds": 2
     },
     {
       "number": 37,

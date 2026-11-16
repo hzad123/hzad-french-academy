@@ -16,8 +16,8 @@
     "scope": "Tests01–06 only; owner requested activation after disclosure that blind quality checks failed"
   },
   "totalItems": 234,
-  "groundedItems": 229,
-  "blindWarnings": 224,
+  "groundedItems": 233,
+  "blindWarnings": 228,
   "statistics": {
     "writtenSample": 186,
     "heuristicAttacks": {
@@ -28,18 +28,18 @@
       },
       "shortest": {
         "sample": 186,
-        "credit": 50.333333333333336,
-        "accuracy": 0.27060931899641577
+        "credit": 51.333333333333336,
+        "accuracy": 0.27598566308243727
       },
       "mostQualified": {
         "sample": 186,
-        "credit": 41.5,
-        "accuracy": 0.22311827956989247
+        "credit": 41.25,
+        "accuracy": 0.2217741935483871
       },
       "closestToQuestion": {
         "sample": 186,
-        "credit": 37.08333333333333,
-        "accuracy": 0.1993727598566308
+        "credit": 38.08333333333333,
+        "accuracy": 0.2047491039426523
       }
     },
     "heldout": {
@@ -68,13 +68,13 @@
       {
         "test": "tcf-listening-02",
         "counts": {
-          "A": 8,
-          "B": 9,
-          "C": 11,
-          "D": 11
+          "A": 10,
+          "B": 10,
+          "C": 10,
+          "D": 9
         },
-        "key": "DDCDCDCBDADADBCDBCCBBDBADAAACABCCBCDBAC",
-        "permutationBlocks": 0,
+        "key": "DDBDCDCBDADAABCDBCCBBDBADAAACABCCBCABAC",
+        "permutationBlocks": 1,
         "blocks": 9,
         "suspiciousFourItemDeck": false
       },
@@ -135,28 +135,8 @@
   "errors": [
     {
       "test": "tcf-listening-02",
-      "number": 13,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
-    },
-    {
-      "test": "tcf-listening-02",
-      "number": 3,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
-    },
-    {
-      "test": "tcf-listening-02",
       "number": 24,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
-    },
-    {
-      "test": "tcf-listening-02",
-      "number": 36,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
-    },
-    {
-      "test": "tcf-listening-04",
-      "number": 13,
-      "error": "Authoring gateway failed: HTTP 502 QC_GROUND_SCHEMA; no automatic paid retry"
+      "error": "No uniquely supported candidate after bounded authoring"
     }
   ],
   "note": "Owner-requested review publication. NOT a passing full blind/held-out quality result. All234 unique answer keys and matching media remain mandatory."
