@@ -107,6 +107,9 @@ inference or wallet call is introduced; paid authoring remains private and
 bounded by its existing task cost ledger.
 The dedicated release CI recomputes these checks for the latest six immutable
 banks and rejects partial or mixed-revision replacements.
+The editorial pull-request gate requires those actual accepted replacements;
+a code-only change cannot pass it. The full twenty-bank historical audit remains
+available manually, including the withdrawn07–20 papers outside this release.
 
 ## Validation record
 

@@ -7,6 +7,7 @@ const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.js
 test('new releases require all six immutable replacements; historical warnings are not declared passes',()=>{
  const old=Array.from({length:6},(_,i)=>`tcf-listening-test${String(i+1).padStart(2,'0')}-v4.json`);
  assert.deepEqual(selectStrictBanks(old),[]);
+ assert.throws(()=>selectStrictBanks(old,{requireReplacements:true}),/warnings remain unresolved/);
  assert.throws(()=>selectStrictBanks([...old,'tcf-listening-test01-v5.json']),/all six/);
  const next=old.map(f=>f.replace('-v4','-v5'));assert.deepEqual(selectStrictBanks([...old,...next]),next.map(f=>'supabase/exams/'+f));
  assert.throws(()=>selectStrictBanks([...old,...next,'tcf-listening-test06-v6.json']),/all six/);
