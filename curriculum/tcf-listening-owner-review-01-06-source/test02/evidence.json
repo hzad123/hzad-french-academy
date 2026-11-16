@@ -5,7 +5,7 @@
   "sourceVersion": "tcf-listening-2026-11-test02-v1",
   "test": "tcf-listening-02",
   "version": "tcf-listening-2026-11-test02-v4",
-  "paperHash": "d10f10c019a7c571fbec3e1b981027c0c0fee68d3730fdbeb19550259acdf038",
+  "paperHash": "cb27fc5b79fc83f0a30f18ad67e840824044ba2a63678219f481db01f9bbf16e",
   "questions": [
     {
       "number": 1,
@@ -4922,7 +4922,196 @@
     },
     {
       "number": 24,
-      "error": "No uniquely supported candidate after bounded authoring"
+      "policy": "listening-comprehension-qc-v1",
+      "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+      "sourceHash": "aaf73787d781931e05a2cb70b7565a5dda3f28a12b083273964a93a6b2ea034e",
+      "imageHash": null,
+      "question": {
+        "number": 24,
+        "kind": "interview",
+        "question": "Quelle population sera contactée lors de la prochaine étape ?",
+        "options": [
+          "Les personnes ayant cessé de prendre cette ligne.",
+          "Les personnes chargées de distribuer les questionnaires.",
+          "Les personnes interrogées à bord des autobus.",
+          "Les voyageurs utilisant d’autres lignes de bus."
+        ],
+        "correct": "A",
+        "explanation": "Réponse A : Le texte explique clairement que la prochaine étape sera de contacter directement les personnes qui ont cessé de prendre cette ligne, car elles n'ont pas été suffisamment représentées dans l'enquête initiale. B : Quelqu’un pourrait confondre les enquêteurs (qui distribuent les questionnaires) avec la population à contacter, mais le texte précise que ce sont les anciens usagers qui seront contactés, pas les enquêteurs. C : On pourrait croire que les personnes interrogées à bord des autobus seront recontactées, mais le texte indique qu'elles ont déjà été interrogées et que la prochaine étape vise une population différente. D : Quelqu’un pourrait penser que tous les voyageurs d’autres lignes seront contactés, mais le texte cible spécifiquement ceux qui ont arrêté d’utiliser cette ligne précise.",
+        "transcript": "Question 24.\nVotre étude indique que les usagers des transports sont plutôt satisfaits. Cela prouve-t-il que le service s'est amélioré ?\nNous devons être prudents. Nos enquêteurs ont distribué les questionnaires à bord des autobus. Nous avons donc entendu surtout ceux qui continuaient à voyager. Les personnes qui ont renoncé à prendre cette ligne, parce que les horaires ne convenaient plus, n'apparaissent presque pas dans les réponses. Une prochaine étape consistera à les contacter directement. Sans cela, nous risquons de confondre satisfaction des usagers actuels et qualité générale du service.\nQuelle population sera contactée lors de la prochaine étape ?",
+        "segments": [
+          {
+            "voice": "female",
+            "text": "Question 24."
+          },
+          {
+            "voice": "male",
+            "text": "Votre étude indique que les usagers des transports sont plutôt satisfaits. Cela prouve-t-il que le service s'est amélioré ?"
+          },
+          {
+            "voice": "female",
+            "text": "Nous devons être prudents. Nos enquêteurs ont distribué les questionnaires à bord des autobus. Nous avons donc entendu surtout ceux qui continuaient à voyager. Les personnes qui ont renoncé à prendre cette ligne, parce que les horaires ne convenaient plus, n'apparaissent presque pas dans les réponses. Une prochaine étape consistera à les contacter directement. Sans cela, nous risquons de confondre satisfaction des usagers actuels et qualité générale du service."
+          },
+          {
+            "voice": "female",
+            "text": "Quelle population sera contactée lors de la prochaine étape ?"
+          }
+        ],
+        "audio": "q-24.mp3",
+        "audioSeconds": null,
+        "slotSeconds": 59
+      },
+      "contentHash": "b2413434bfe319efd02e8633f00df901b1d30535bfdfd0a5cb5d4a3335422d5d",
+      "groundedPass": true,
+      "groundContext": "stimulus",
+      "overrideHash": "bfc2dd8fb445a47695b6beb756613a005b3340ac0c9ccb82ddb120adf071a75b",
+      "grounded": {
+        "stage": "ground",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-4.1-2025-04-14",
+        "responseId": "chatcmpl-EktYfrKX8N0Y3MVqXfPTUGe4WMt4x",
+        "result": {
+          "supportedIndices": [
+            0
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "options": [
+            {
+              "index": 0,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Une prochaine étape consistera à les contacter directement.",
+                "Les personnes qui ont renoncé à prendre cette ligne"
+              ],
+              "reason": "Le texte explique clairement que la prochaine étape sera de contacter directement les personnes qui ont cessé de prendre cette ligne, car elles n'ont pas été suffisamment représentées dans l'enquête initiale."
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Nos enquêteurs ont distribué les questionnaires"
+              ],
+              "reason": "Quelqu’un pourrait confondre les enquêteurs (qui distribuent les questionnaires) avec la population à contacter, mais le texte précise que ce sont les anciens usagers qui seront contactés, pas les enquêteurs.",
+              "misunderstanding": "participant_swap"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Nous avons donc entendu surtout ceux qui continuaient à voyager"
+              ],
+              "reason": "On pourrait croire que les personnes interrogées à bord des autobus seront recontactées, mais le texte indique qu'elles ont déjà été interrogées et que la prochaine étape vise une population différente.",
+              "misunderstanding": "scope_error"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les personnes qui ont renoncé à prendre cette ligne"
+              ],
+              "reason": "Quelqu’un pourrait penser que tous les voyageurs d’autres lignes seront contactés, mais le texte cible spécifiquement ceux qui ont arrêté d’utiliser cette ligne précise.",
+              "misunderstanding": "scope_error"
+            }
+          ],
+          "summary": "La prochaine étape consiste à contacter les personnes ayant cessé de prendre cette ligne, car elles n'ont pas été suffisamment prises en compte dans l'enquête initiale."
+        },
+        "usage": {
+          "prompt_tokens": 660,
+          "completion_tokens": 377,
+          "total_tokens": 1037,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.004336,
+        "inputHash": "4eb3414f1cd50fa1d440365ae953d042c721f681be2cef748122bd8a154b7ec5",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:24:ground:0"
+      },
+      "blind": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v1",
+        "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "chatcmpl-EktYfazbg3cehzVZcZhgofMH1zdS6",
+        "result": {
+          "guess": 3,
+          "probabilities": [
+            0.2,
+            0.1,
+            0.3,
+            0.4
+          ],
+          "standsOut": false,
+          "cues": [
+            {
+              "option": 3,
+              "cue": "L'expression «prochaine étape» peut suggérer une extension de l'échantillon — contacter les voyageurs d'autres lignes paraît une continuation logique."
+            }
+          ],
+          "reason": "Impossible to know without the recording or context. All four choices are plausible: the next step could target former users to understand why they left (option 0), the people who distribute questionnaires if logistics are being arranged (option 1), passengers already interviewed on buses for follow-up (option 2), or expand to users of other lines (option 3). I favored option 3 slightly because the phrase \"prochaine étape\" often indicates broadening scope, but this is speculative; no choice clearly stands out given the lack of source material."
+        },
+        "usage": {
+          "prompt_tokens": 431,
+          "completion_tokens": 538,
+          "total_tokens": 969,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 320,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00118375,
+        "inputHash": "c47d8e989ec60106ba96d421a7f6ac998b78916e7688809fad3c828727045742",
+        "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:tcf-listening-02:24:blind:0"
+      },
+      "blindPass": false,
+      "author": {
+        "source": "editorial-fix",
+        "result": {
+          "question": "Quelle population sera contactée lors de la prochaine étape ?",
+          "choices": [
+            "Les personnes ayant cessé de prendre cette ligne.",
+            "Les personnes interrogées à bord des autobus.",
+            "Les voyageurs utilisant d’autres lignes de bus.",
+            "Les personnes chargées de distribuer les questionnaires."
+          ],
+          "correctIndex": 0,
+          "explanation": "La prochaine étape doit contacter directement les personnes qui ont abandonné la ligne et sont presque absentes des réponses.",
+          "distractorReasons": [
+            {
+              "index": 1,
+              "reason": "Ces voyageurs ont déjà été interrogés ; ils constituent l’essentiel des réponses actuelles."
+            },
+            {
+              "index": 2,
+              "reason": "Le passage concerne les anciens usagers de cette ligne, et non un élargissement de l’enquête à d’autres lignes."
+            },
+            {
+              "index": 3,
+              "reason": "Les enquêteurs distribuent le questionnaire ; la prochaine prise de contact vise les usagers absents des réponses."
+            }
+          ]
+        }
+      },
+      "rounds": 1
     },
     {
       "number": 25,
@@ -8196,5 +8385,43 @@
       "rounds": 2
     }
   ],
-  "paperAssessment": null
+  "paperAssessment": {
+    "stage": "paper",
+    "policy": "listening-comprehension-qc-v1",
+    "policyHash": "0910283cdaa8587f591f69747f4bfdf81e1a98556ec5b5750a356c47207990ee",
+    "model": "gpt-4.1-2025-04-14",
+    "responseId": "chatcmpl-EktYnQrKQRh1DRYwbkd8aBm5Fo0e7",
+    "result": {
+      "pass": true,
+      "patterns": [
+        {
+          "questions": [
+            9,
+            12
+          ],
+          "kind": "specific recurring cue",
+          "reason": "Both questions have the correct answer as the first option, which is the only one that describes a positive or completed action (remplacement de pièce, quai cinq), but this is not a strong enough pattern to be exploitable, as it does not repeat elsewhere."
+        }
+      ],
+      "summary": "There is no clear, exploitable answer-only guessing cue across the examination. Answer lengths, positions, and paraphrase alignment are varied and do not show a systematic pattern. Some questions (e.g., 9 and 12) have correct answers that are more specific or positive, but this is not consistent or frequent enough to be a cue. Distractor types and phrasing are generally balanced. The exam passes the audit."
+    },
+    "usage": {
+      "prompt_tokens": 4161,
+      "completion_tokens": 164,
+      "total_tokens": 4325,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009634,
+    "inputHash": "e960bc5ed96136e48caf1734234e51dc76747b38066f465efbc329a7b590f3ae",
+    "evaluationId": "owner-review:45302ac8e31b2502ff0519de1964a6a7f435bbee8f82113c72decb29e57784cc:paper:tcf-listening-02"
+  }
 }
