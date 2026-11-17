@@ -164,8 +164,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   }
   tcfBody.append(tcfModules);tcfHub.append(tcfBody);area.append(tcfHub);
 
-  // TEF section is intentionally an informational placeholder. Existing
-  // published legacy full-mock cards below remain unchanged and accessible.
+  // TEF section is intentionally informational until standalone modules are ready.
   const tefHub=el('section',undefined,'hz-tef-hub');
   tefHub.setAttribute('aria-label','TEF Canada mock tests coming soon');
   const tefHead=el('div',undefined,'hz-tef-hub-head');
@@ -180,27 +179,6 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   area.append(tefHub);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
-  const cards=el('div',undefined,'hz-exam-cards');
-  for(const exam of catalog.exams){
-   const card=el('article',undefined,'hz-exam-card');card.append(el('span',exam.exam==='tef-canada'?'TEF':'TCF','hz-exam-seal'),el('h4',names[exam.exam]+' · Mock 01'));
-   const sections=el('div',undefined,'hz-exam-section-outline');
-   for(const section of examSections(exam)){
-    const group=el('details',undefined,'hz-exam-section');group.dataset.skill=section.skill;group.append(sectionSummary(section));
-    const list=el('ol',undefined,'hz-exam-outline-questions');list.setAttribute('aria-label',names[exam.exam]+' '+section.name+' question list');
-    for(let i=0;i<section.items;i++){const item=el('li');if(catalog.canReviewContent){const review=button(itemLabel(section.skill,i),()=>openContent(exam.exam,section.skill,i),true);review.setAttribute('aria-label',`Review ${names[exam.exam]} ${section.name} ${itemLabel(section.skill,i).toLowerCase()}`);item.append(review)}else item.textContent=itemLabel(section.skill,i);list.append(item)}
-    group.append(list);sections.append(group);
-   }
-   card.append(sections,el('p',catalog.canReviewContent?'Select a question to review its content.':'Start the full timed test to open its questions.'));
-   if(catalog.canReviewContent)card.append(button('Review '+names[exam.exam]+' content',()=>openContent(exam.exam),true));
-   if(Number.isSafeInteger(exam.credits))card.append(el('strong',`${exam.credits} credits for the full test, including feedback`));
-   if(exam.enabled){
-    const start=button('Start full mock · '+exam.credits+' credits',()=>{void run(async(signal,current)=>{const result=await store.send({kind:'start',id:crypto.randomUUID(),exam:exam.exam,expectedCredits:exam.credits},signal);if(current()&&accept(result))render()})});
-    start.dataset.locked=String(!catalog.wallet||catalog.wallet.available<exam.credits||Date.parse(catalog.wallet.expiresAt)<=Date.now()||!catalog.wallet.budgetAvailable);card.append(start);
-    if(start.dataset.locked==='true')card.append(el('p','A paid credit top-up is needed before starting.'));
-   }else card.append(el('p','Preparing for release','hz-exam-release'));
-   cards.append(card);
-  }
-  area.append(cards);
   if(catalog.topUpUrl){try{const url=new URL(catalog.topUpUrl);if(url.protocol==='https:'){const a=el('a','Purchase AI credits','hz-btn');a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';area.append(a)}}catch{}}
   const history=el('section');history.append(el('h4','Your saved attempts'));for(const item of catalog.history)history.append(button(`${names[item.exam]} · ${new Date(item.createdAt).toLocaleDateString()} · ${item.status}`,()=>open(item.id),true));area.append(history);
  }
