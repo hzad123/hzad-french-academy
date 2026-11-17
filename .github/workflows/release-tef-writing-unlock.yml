@@ -1,0 +1,29 @@
+name: Release TEF writing section editing fix
+on:
+  push:
+    branches: [development]
+    paths:
+      - 'supabase/migrations/20261117230000_tef_writing_unlock_sections.sql'
+      - 'scripts/release/tef-writing-unlock.py'
+      - '.github/workflows/release-tef-writing-unlock.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tef-writing-section-unlock
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - name: Verify and apply TEF server-side editing unlock
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/release/tef-writing-unlock.py
