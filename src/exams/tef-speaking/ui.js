@@ -335,7 +335,8 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  }
  async function submitAnswer(provided){
   if(!visible||busy||!active()||attempt.pending)return;
-  const audio=capture?.audio||provided||recorder?.stop();
+  // Never resubmit stale WAV data from a previously finished recording.
+  const audio=capture?.audio||provided||(recorder?.isRecording?.()?recorder.stop():null);
   if(!audio){bootKey=null;status('Aucune parole audible détectée. Vérifiez votre microphone et réessayez.',true);return}
   if(!capture)capture={kind:'turn',id:attempt.id,callId:crypto.randomUUID(),audio,expectedCredits:cost('turn'),phase:attempt.phase};
   await sendCapture();
