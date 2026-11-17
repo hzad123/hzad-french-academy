@@ -35,12 +35,15 @@ if not messages:
 else:
     groups={}
     for msg in messages:
-        match=re.search(r'HZAD_TEF_FAILURE\s*(\{[^}]*\})',msg)
-        try: obj=json.loads(match.group(1)) if match else {}
-        except (ValueError,AttributeError):obj={}
-        code=str(obj.get('code','UNKNOWN'))[:45]
-        provider=str(obj.get('providerCode',''))[:45]
-        status=obj.get('status')
+        # Logs can wrap the console payload in escaped JSON; never print it.
+        marker=msg.split('HZAD_TEF_FAILURE',1)[-1]
+        code_match=re.search(r'(NETWORK|TRUNCATED|INVALID_JSON|INVALID_SCORE|UNVERIFIED_QUOTE|INVALID_FEEDBACK|FEEDBACK_FIELDS|FEEDBACK_BOUNDS|FEEDBACK_TASKS|FEEDBACK_CRITERIA|UNCHANGED_CORRECTION|OUTPUT_TOO_LARGE|PROVIDER_HTTP|UNKNOWN)',marker)
+        code=code_match.group(1) if code_match else 'NO_CODE_MATCH'
+        provider=''
+        for known in ('invalid_api_key','insufficient_quota','model_not_found','rate_limit_exceeded','unsupported_parameter','invalid_request_error','permission_denied'):
+            if known in marker:provider=known
+        status_match=re.search(r'(?<![0-9])(40[0-9]|42[0-9]|429|50[0-9]|52[0-9])(?![0-9])',marker)
+        status=int(status_match.group(1)) if status_match else None
         key=(code,provider,status if isinstance(status,int) else None)
         groups[key]=groups.get(key,0)+1
     for key,count in sorted(groups.items(),key=lambda pair:-pair[1]):
