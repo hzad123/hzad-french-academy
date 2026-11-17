@@ -557,3 +557,32 @@
 #hzad-french-academy .hz-listening-test-selector .hz-btn[aria-pressed="true"]{background:linear-gradient(110deg,#235fc0,#143665);color:white;border-color:#173c75}
 #hzad-french-academy .hz-listening-test-selector .hz-btn:focus-visible{outline:3px solid #e2a228;outline-offset:2px}
 @media(max-width:540px){#hzad-french-academy .hz-listening-test-selector{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;padding:.65rem}#hzad-french-academy .hz-listening-test-selector .hz-btn{min-height:46px;font-size:13px}}
+
+
+/* TCF module navigation hub. No changes to test engines or data. */
+#hzad-french-academy .hz-tcf-hub{margin:20px 0 26px;overflow:hidden;border:1px solid #c7d9f7;border-left:6px solid #dca026;border-radius:20px;background:linear-gradient(125deg,#f3f7ff,#fff);box-shadow:0 8px 25px #153e7710}
+#hzad-french-academy .hz-tcf-hub-summary{display:flex;align-items:center;gap:18px;padding:25px 26px;cursor:pointer;list-style:none;min-height:124px}
+#hzad-french-academy .hz-tcf-hub-summary::-webkit-details-marker{display:none}
+#hzad-french-academy .hz-tcf-hub-summary:focus-visible{outline:3px solid #2259ba;outline-offset:-5px;border-radius:16px}
+#hzad-french-academy .hz-tcf-hub-emblem{display:grid;place-items:center;flex-shrink:0;width:56px;height:56px;border-radius:16px;background:linear-gradient(140deg,#194a99,#102a56);color:#fff;font-size:27px}
+#hzad-french-academy .hz-tcf-hub-heading{display:flex;flex:1;min-width:0;flex-direction:column;gap:6px}
+#hzad-french-academy .hz-tcf-hub-eyebrow{font-size:11px;font-weight:850;letter-spacing:.15em;color:#426ca8}
+#hzad-french-academy .hz-tcf-hub-heading strong{font-size:clamp(24px,3vw,31px);letter-spacing:-.03em;color:#17325a}
+#hzad-french-academy .hz-tcf-hub-subtitle{font-size:14px;color:#526985;line-height:1.5}
+#hzad-french-academy .hz-tcf-hub-count{white-space:nowrap;background:#e8f0ff;color:#1e4e94;border:1px solid #cadcfa;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800}
+#hzad-french-academy .hz-tcf-hub-chevron{font-size:28px;line-height:1;color:#1e4e94;transition:transform .2s}
+#hzad-french-academy .hz-tcf-hub[open] .hz-tcf-hub-chevron{transform:rotate(180deg)}
+#hzad-french-academy .hz-tcf-hub-body{border-top:1px solid #dbe6f6;padding:22px 25px 26px;background:#fff}
+#hzad-french-academy .hz-tcf-hub-intro{margin:0 0 16px;color:#536783;font-size:14px}
+#hzad-french-academy .hz-tcf-module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#hzad-french-academy button.hz-tcf-module-card{display:flex;flex-direction:column;gap:8px;min-width:0;text-align:left;padding:19px;border:1px solid #d6e2f5;border-radius:16px;background:linear-gradient(155deg,#fff,#f6f9ff);color:#183153;transition:transform .16s,box-shadow .16s,border-color .16s}
+#hzad-french-academy button.hz-tcf-module-card:hover{transform:translateY(-2px);border-color:#8facda;box-shadow:0 10px 22px #18417a16}
+#hzad-french-academy button.hz-tcf-module-card:focus-visible{outline:3px solid #2259ba;outline-offset:2px}
+#hzad-french-academy .hz-tcf-module-top{display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px}
+#hzad-french-academy .hz-tcf-module-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:#e7efff;color:#1d56ae;font-size:23px;font-weight:800}
+#hzad-french-academy .hz-tcf-module-arrow{font-size:22px;color:#5d7ba7}
+#hzad-french-academy .hz-tcf-module-card strong{font-size:19px;color:#18345f}
+#hzad-french-academy .hz-tcf-module-meta{font-size:13px;font-weight:750;color:#2658a0}
+#hzad-french-academy .hz-tcf-module-description{font-size:13px;color:#60728c;line-height:1.5}
+@media(max-width:600px){#hzad-french-academy .hz-tcf-hub-summary{padding:18px 16px;gap:12px;flex-wrap:wrap}#hzad-french-academy .hz-tcf-hub-emblem{width:44px;height:44px;font-size:22px}#hzad-french-academy .hz-tcf-hub-count{display:none}#hzad-french-academy .hz-tcf-hub-body{padding:16px}#hzad-french-academy .hz-tcf-module-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-tcf-module-card,#hzad-french-academy .hz-tcf-hub-chevron{transition:none}}
