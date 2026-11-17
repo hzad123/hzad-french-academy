@@ -1,0 +1,83 @@
+import {CURRENT_BANK as bank,paperForAttempt,withPaper} from './banks.js';
+import {failureMetadata} from './failures.js';
+import {uuid,fingerprint} from '../academy-ai/contracts.js';
+const tests=new Map(bank.tests.map(t=>[t.id,t]));
+export function createWritingHandler({authenticate,db,provider,reportFailure=meta=>console.error('HZAD_TEF_FAILURE '+JSON.stringify(meta)),allowedOrigins=new Set(['https://www.teftcf.hzadeducation.org','https://hzad123.github.io'])}){
+ return async request=>{
+  const origin=request.headers.get('origin'),headers={'Content-Type':'application/json','Cache-Control':'no-store','Vary':'Origin','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info','Access-Control-Allow-Methods':'GET,POST,OPTIONS'};
+  if(origin&&allowedOrigins.has(origin))headers['Access-Control-Allow-Origin']=origin;
+  const reply=(data,status=200)=>new Response(JSON.stringify(data),{status,headers});
+  if(origin&&!allowedOrigins.has(origin))return reply({error:'This origin is not allowed.'},403);
+  if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
+  if(!['GET','POST'].includes(request.method))return reply({error:'Method not allowed.'},405);
+  try{
+   const token=request.headers.get('authorization')?.match(/^Bearer (\S+)$/i)?.[1];
+   if(!token)return reply({error:'Sign in to open TEF writing.'},401);
+   const user=await authenticate(token);
+   if(!user?.id||!user.email_confirmed_at)return reply({error:'Sign in with a verified email.'},401);
+   const command=(action,id=null,payload={})=>db.adminRpc('academy_tef_writing_command',{p_user:user.id,p_action:action,p_id:id,p_payload:payload});
+   if(request.method==='GET'){
+    const id=new URL(request.url).searchParams.get('attempt');
+    if(id){if(!uuid(id))return reply({error:'Invalid writing attempt.'},400);return reply(withPaper(await command('read',id)))}
+    const [state,history]=await Promise.all([db.userRpc(token,'academy_ai_state',{}),command('list')]);
+    const activity=state.activities?.['tef-writing'];
+    const catalogBank=bank;
+    return reply({version:catalogBank.version,durationSeconds:catalogBank.durationSeconds,tests:catalogBank.tests,history,wallet:state.wallet,topUpUrl:state.topUpUrl,credits:activity?.credits??null,enabled:!!state.enabled&&!!activity?.enabled&&provider.ready()});
+   }
+   const reader=request.body?.getReader();if(!reader)return reply({error:'Choose a writing action.'},400);
+   let bytes=0,chunks=[];
+   while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>40000){await reader.cancel();return reply({error:'Writing request is too long.'},413)}chunks.push(value)}
+   const all=new Uint8Array(bytes);let at=0;for(const part of chunks){all.set(part,at);at+=part.length}
+   let input;try{input=JSON.parse(new TextDecoder().decode(all))}catch{return reply({error:'Invalid writing request.'},400)}
+   if(!input||Array.isArray(input)||Object.keys(input).some(k=>!['kind','id','testId','revision','responses','expectedCredits','version','reviewId'].includes(k))||!uuid(input.id)||!['start','save','review','retry','reassess'].includes(input.kind))return reply({error:'Invalid writing request.'},400);
+   if(input.kind==='start'){
+    if(!tests.has(input.testId))return reply({error:'Choose one of the 20 writing tests.'},400);
+    const version=input.version;
+    if(version!==bank.version)return reply({error:'Refresh the writing papers before starting.'},409);
+    return reply(withPaper(await command('start',input.id,{testId:input.testId,version})));
+   }
+   if(input.kind==='save'){
+    if(!Number.isSafeInteger(input.revision)||input.revision<0||!Array.isArray(input.responses)||input.responses.length!==2||input.responses.some(s=>typeof s!=='string'||s.length>5000)||input.responses.join('').length>8500)return reply({error:'Check the two writing responses (8,500 characters total).'},400);
+    return reply(withPaper(await command('save',input.id,{revision:input.revision,responses:input.responses})));
+   }
+   if(input.kind==='reassess'&&!uuid(input.reviewId))return reply({error:'Reopen the completed assessment before updating its feedback.'},400);
+   let attempt=await command('read',input.id);
+   if(attempt.reviewStatus==='completed'&&input.kind!=='reassess')return reply(withPaper(attempt));
+   if(attempt.reviewStatus==='dispatched')return reply({...withPaper(attempt),processing:true},202);
+   if(attempt.reviewStatus==='failed'&&input.kind!=='retry')return reply({error:'This assessment failed and its credits were returned. Reopen the saved test and choose Retry saved feedback.'},409);
+   if(!Number.isSafeInteger(input.expectedCredits)||input.expectedCredits<1||input.expectedCredits>10000)return reply({error:'Refresh the assessment credit charge.'},400);
+   if(!provider.ready())return reply({error:'Writing assessment is unavailable. Your responses remain saved.'},503);
+   // Price/availability preview; reserve below remains the atomic authority.
+   const snapshot=await db.userRpc(token,'academy_ai_state',{}),activity=snapshot.activities?.['tef-writing'];
+   if(!snapshot.enabled||!activity?.enabled)return reply({error:'AI marking is not open yet. You can keep writing and saving your tests.'},409);
+   if(activity.credits!==input.expectedCredits)return reply({error:'The assessment credit charge changed. Reopen the test before submitting.'},409);
+   if(input.kind==='reassess')attempt=await command('reassess-review',input.id,{reviewId:input.reviewId});
+   else if(input.kind==='retry'&&attempt.reviewStatus==='failed')attempt=await command('retry-review',input.id);
+   else attempt=await command('submit',input.id);
+   const reviewId=attempt.reviewId||input.id;
+   const test=paperForAttempt(attempt);
+   const hash=await fingerprint({module:'tef-writing',version:attempt.version,testId:attempt.testId,responses:attempt.responses});
+   const reserved=await db.adminRpc('academy_ai_reserve',{p_user:user.id,p_id:reviewId,p_kind:'tef-writing',p_level:'B2',p_hash:hash,p_expected_credits:input.expectedCredits,p_session:null,p_scenario:null});
+   if(reserved.status==='completed')return reply(withPaper(await command('read',input.id)));
+   if(reserved.status==='dispatched')return reply({...withPaper(await command('read',input.id)),processing:true},202);
+   if(reserved.status==='failed')return reply({error:'This assessment failed. Reopen the saved test and choose Retry saved feedback.'},409);
+   const claim=await db.adminRpc('academy_ai_claim',{p_user:user.id,p_id:reviewId});
+   if(!claim.claimed)return reply({...withPaper(await command('read',input.id)),processing:true},202);
+   let generated;
+   try{generated=await provider.run({test,responses:attempt.responses},claim)}catch(error){
+    const diagnostic=failureMetadata(error);try{reportFailure(diagnostic)}catch{}
+    let refunded=false;try{await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:reviewId});refunded=true}catch{}
+    
+    return reply({failure:diagnostic,error:refunded?'AI marking could not finish. Your credits were returned and responses saved.':'AI marking is being checked. Reopen the saved attempt before retrying.',processing:!refunded},refunded?502:202);
+   }
+   try{await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:reviewId,p_result:generated.result,p_usage:generated.usage,p_student_text:null})}
+   catch{return reply({...withPaper(await command('read',input.id)),processing:true},202)}
+   return reply(withPaper(await command('read',input.id)));
+  }catch(error){
+   const message=String(error?.message||'');
+   if(/active academy access|Verified email|not found|permission denied/i.test(message))return reply({error:'Sign in with active academy access to open this writing attempt.'},403);
+   if(/Writing|writing|AI credit|Not enough|Daily|allowance|period has ended|already|not available|paused|another|Finish an open/i.test(message))return reply({error:message.slice(0,220)},409);
+   return reply({error:'TEF writing could not connect. Your saved responses remain available.'},503);
+  }
+ };
+}
