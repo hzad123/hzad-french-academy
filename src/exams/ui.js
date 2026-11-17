@@ -146,10 +146,10 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   tcfBody.append(el('p','Choose a module to view its practice tests.','hz-tcf-hub-intro'));
   const tcfModules=el('div',undefined,'hz-tcf-module-grid');
   const tcfOptions=[
-   {icon:'▤',title:'Reading',meta:'20 tests · 39 questions · 60 min',detail:'Reading passages and answer corrections.',event:'hzad-open-tcf-reading'},
-   {icon:'♫',title:'Listening',meta:'20 tests · 39 questions · 35 min',detail:'French audio and marked answers.',event:'hzad-open-tcf-listening'},
-   {icon:'✎',title:'Writing',meta:'20 tests · 3 tasks · 60 min',detail:'Timed writing with AI feedback.',event:'hzad-open-tcf-writing'},
-   {icon:'◉',title:'Speaking',meta:'20 tests · 3 tasks',detail:'Interactive speaking and criterion feedback.',event:'hzad-open-tcf-speaking'}
+   {icon:'▤',title:'Reading',meta:'20 tests',detail:'Reading passages and answer corrections.',event:'hzad-open-tcf-reading'},
+   {icon:'♫',title:'Listening',meta:'20 tests',detail:'French audio and marked answers.',event:'hzad-open-tcf-listening'},
+   {icon:'✎',title:'Writing',meta:'20 tests',detail:'Timed writing with AI feedback.',event:'hzad-open-tcf-writing'},
+   {icon:'◉',title:'Speaking',meta:'20 tests',detail:'Interactive speaking and criterion feedback.',event:'hzad-open-tcf-speaking'}
   ];
   for(const option of tcfOptions){
    const tile=el('button',undefined,'hz-tcf-module-card');tile.type='button';
