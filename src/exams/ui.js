@@ -163,6 +163,21 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
    tcfModules.append(tile);
   }
   tcfBody.append(tcfModules);tcfHub.append(tcfBody);area.append(tcfHub);
+
+  // TEF section is intentionally an informational placeholder. Existing
+  // published legacy full-mock cards below remain unchanged and accessible.
+  const tefHub=el('section',undefined,'hz-tef-hub');
+  tefHub.setAttribute('aria-label','TEF Canada mock tests coming soon');
+  const tefHead=el('div',undefined,'hz-tef-hub-head');
+  const tefMark=el('span','TEF','hz-tef-hub-mark');tefMark.setAttribute('aria-hidden','true');
+  const tefHeading=el('div',undefined,'hz-tef-hub-heading');
+  tefHeading.append(el('span','TEF CANADA','hz-tef-hub-eyebrow'),el('h4','TEF Mock Tests'),el('p','A dedicated home for TEF Canada practice modules.'));
+  const tefBadge=el('span','Coming soon','hz-tef-coming-soon');
+  tefHead.append(tefMark,tefHeading,tefBadge);
+  tefHub.append(tefHead);
+  const tefFoot=el('p','Reading, Listening, Writing and Speaking modules will be added here.','hz-tef-hub-foot');
+  tefHub.append(tefFoot);
+  area.append(tefHub);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
   const cards=el('div',undefined,'hz-exam-cards');
