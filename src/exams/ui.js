@@ -183,8 +183,9 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
     {name:'Speaking',icon:'◉',detail:'Coming soon'},
     {name:'Listening',icon:'♫',detail:'Coming soon'}
   ]){
-    const tile=el(option.event?'button':'div',undefined,'hz-tcf-module-card hz-tef-module-card'+(option.event?'':' hz-tef-module-unavailable'));
-    if(option.event){tile.type='button';tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));tile.setAttribute('aria-label','Open TEF '+option.name+' tests')}
+    const tile=el('button',undefined,'hz-tcf-module-card hz-tef-module-card'+(option.event?'':' hz-tef-module-unavailable'));
+    tile.type='button';if(option.event){tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));tile.setAttribute('aria-label','Open TEF '+option.name+' tests')}
+    else{tile.disabled=true;tile.dataset.locked='true';tile.setAttribute('aria-label','TEF '+option.name+' coming soon')}
     tile.append(el('span',option.icon,'hz-tcf-module-icon'),el('strong',option.name),el('span',option.detail,'hz-tcf-module-meta'));
     tefGrid.append(tile);
   }
