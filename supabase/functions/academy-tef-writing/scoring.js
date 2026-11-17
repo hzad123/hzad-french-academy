@@ -30,19 +30,37 @@ export function constraints(test,responses){return test.sections.map((section,i)
  const words=countWords(responses[i]);return {section:section.letter,words,minWords:section.minWords,status:words===0?'missing':words<section.minWords?'too-short':'within-range'};
 })}
 const issue=(code,message)=>{const e=Error(message);e.validationCode=code;throw e};
-const string=(v,max)=>{if(typeof v!=='string'||!v.trim())issue('FEEDBACK_FIELDS','Missing feedback.');if(v.length>max)issue('FEEDBACK_BOUNDS','Feedback too long.');return v.trim()};
-const array=(v,max)=>{if(!Array.isArray(v))issue('FEEDBACK_FIELDS','Invalid feedback list.');if(v.length>max)issue('FEEDBACK_BOUNDS','Feedback list too long.');return v};
+// A model can return more explanation than requested, even with a hard token
+// budget. Never waste a student's assessment because a descriptive field is
+// slightly verbose: trim display text and surplus list items, while still
+// validating every evidence quote against the immutable student response.
+const string=(v,max,{exact=false}={})=>{
+ if(typeof v!=='string'||!v.trim())issue('FEEDBACK_FIELDS','Missing feedback.');
+ const text=v.trim();
+ if(exact&&text.length>max)issue('FEEDBACK_BOUNDS','Source evidence too long.');
+ if(text.length<=max)return text;
+ const clipped=text.slice(0,max),boundary=clipped.lastIndexOf(' ');
+ return (boundary>=max-32?clipped.slice(0,boundary):clipped).trim();
+};
+const array=(v,max)=>{
+ if(!Array.isArray(v))issue('FEEDBACK_FIELDS','Invalid feedback list.');
+ return v.slice(0,max);
+};
 export function validateWritingFeedback(raw,{test,responses}){
  if(!raw||!Number.isInteger(raw.score)||raw.score<0||raw.score>699)throw Error('Invalid TEF score.');
  const limits=constraints(test,responses),seen=new Set();
  const tasks=array(raw.tasks,2).map(t=>{
   if(![1,2].includes(t.number)||seen.has(t.number))issue('FEEDBACK_TASKS','Invalid section feedback.');seen.add(t.number);
   if(typeof t.onTopic!=='boolean')issue('FEEDBACK_FIELDS','Missing relevance judgment.');
-  const mistakes=array(t.mistakes,3).map(m=>{
-   const original=string(m.original,200),corrected=string(m.corrected,240);
+  const mistakes=array(t.mistakes,3).flatMap(m=>{
+   const original=string(m.original,200,{exact:true});
    if(!responses[t.number-1].includes(original))throw Error('Invented source evidence.');
-   if(original===corrected)issue('UNCHANGED_CORRECTION','Unchanged correction.');
-   return {original,corrected,explanation:string(m.explanation,400)};
+   if(typeof m.corrected!=='string'||!m.corrected.trim())issue('FEEDBACK_FIELDS','Missing correction.');
+   // A full paragraph rewrite is not a valid precise error correction.
+   // Discard that individual suggestion, never invent or truncate a quote.
+   const corrected=m.corrected.trim();
+   if(corrected.length>240||original===corrected)return [];
+   return [{original,corrected,explanation:string(m.explanation,400)}];
   });
   return {number:t.number,onTopic:t.onTopic,mistakes,issues:array(t.issues,3).map(x=>string(x,300))};
  }).sort((a,b)=>a.number-b.number);
@@ -52,7 +70,7 @@ export function validateWritingFeedback(raw,{test,responses}){
   if(!Object.hasOwn(CRITERIA,c.id)||criteriaIds.has(c.id))issue('FEEDBACK_CRITERIA','Invalid criterion.');criteriaIds.add(c.id);
   const evidence=array(c.evidence,3).map(e=>{
    if(![1,2].includes(e.task))throw Error('Invalid evidence section.');
-   const quote=string(e.quote,180);if(!responses[e.task-1].includes(quote))throw Error('Invented source evidence.');
+   const quote=string(e.quote,180,{exact:true});if(!responses[e.task-1].includes(quote))throw Error('Invented source evidence.');
    return {task:e.task,quote};
   });
   if(raw.score>0&&!evidence.length)issue('FEEDBACK_CRITERIA','Score needs evidence.');
