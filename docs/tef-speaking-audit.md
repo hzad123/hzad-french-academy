@@ -31,4 +31,8 @@
 - Test mock AI, auth, incorrect origin, wallet failures and refund, silence, timeouts, prompt role boundaries, 40-topic uniqueness, feedback grounding, saved progress and UI; production browser/microphone tests require real user permission and cannot be substituted by mocked tests.
 
 ## Verification log
-Pending implementation, CI, database release, backend release and real browser checks. No claim of full live voice verification without a signed-in browser session and microphone.
+- Implemented 20 original papers and 40 distinct A/B roleplay scenarios, with private role facts and objections excluded from public catalog.
+- Automated tests cover the immutable paper bank, role-specific French AI prompts for all 40 scenarios, mic permission denial, silent/oversized WAV, browser French-voice choice/fallback, authenticated API boundaries, private WAV persistence, 5/10 min database phase transitions, credit refund, retry ownership and TCF attempts preserved.
+- The full repository test suite, curriculum validation and production bundle build all passed on feature commit `7cd861acb3a6da4c3e5386c088d505678a0d8408` (GitHub Actions runs 44194087754 and 44194094844).
+- Outstanding at feature CI stage: apply guarded migration on live French Academy Supabase, deploy the JWT-protected TEF Edge function, verify live Pages publication, test microphone/TTS/AI speech recognition in a real browser with signed-in student permissions. Automated fixture tests do not prove these external services or user-device behavior; do not claim full live voice QA until separately tested.
+- Supabase connected plugin currently exposes a different project; the French Academy release uses existing repository GitHub Actions secret and a scoped, verification-first workflow. No wallet or inference calls are made by CI.
