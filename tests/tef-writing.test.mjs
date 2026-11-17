@@ -54,7 +54,7 @@ test('no fabricated evidence, unchanged corrections, missing criteria or off-top
  const missing=rawFeedback();missing.tasks.pop();assert.throws(()=>validateWritingFeedback(resolveWritingSources(missing,responses),{test:paper,responses}));
  const off=rawFeedback();off.tasks[1].onTopic=false;assert.equal(validateWritingFeedback(resolveWritingSources(off,responses),{test:paper,responses}).score,null);
  const unchanged=rawFeedback();unchanged.tasks[0].mistakes=[{sourceId:'t1-s1',corrected:responses[0].slice(0,160).trim(),explanation:'No change'}];
- assert.throws(()=>validateWritingFeedback(resolveWritingSources(unchanged,responses),{test:paper,responses}));
+ assert.equal(validateWritingFeedback(resolveWritingSources(unchanged,responses),{test:paper,responses}).tasks[0].mistakes.length,0);
 });
 test('schema has two tasks and writing assessment instructions require the original TEF format',()=>{
  const format=createWritingResponseFormat(responses);
@@ -89,4 +89,26 @@ test('edge handler blocks anonymous users, untrusted origins and unknown papers'
  assert.equal((await req({kind:'start',id,testId:'tef-writing-99',version:bank.version})).status,400);
  assert.equal((await req({kind:'review',id,expectedCredits:1,score:699})).status,400);
  assert.equal(calls,0);
+});
+
+test('overlong but genuine model feedback does not waste a completed credit reservation',()=>{
+ const raw=rawFeedback();
+ raw.scoreReason='The writing is coherent but contains some errors. '.repeat(25);
+ raw.criteria[0].reason='The observed language shows an issue with precision. '.repeat(30);
+ raw.criteria[0].improvement='Use the correct tense consistently in reported events. '.repeat(9);
+ raw.tasks[0].issues=Array(8).fill('The continuation does not adequately explain one important event. '.repeat(12));
+ raw.tasks[0].mistakes=[
+  {sourceId:'t1-s1',corrected:'bonjour '.repeat(65),explanation:'This is an overlong paragraph rewrite, not a correction.'},
+  {sourceId:'t1-s1',corrected:'Bonjour '+responses[0].slice(0,120),explanation:'Sentence-initial capitalization should be corrected. '.repeat(10)}
+ ];
+ const sanitized=validateWritingFeedback(resolveWritingSources(raw,responses),{test:paper,responses});
+ assert.equal(sanitized.score,480);
+ assert.equal(sanitized.nclc,'8');
+ assert(sanitized.scoreReason.length<=600);
+ assert(sanitized.criteria[0].reason.length<=450);
+ assert(sanitized.criteria[0].improvement.length<=240);
+ assert(sanitized.tasks[0].issues.length<=3);
+ assert(sanitized.tasks[0].issues.every(x=>x.length<=300));
+ assert.equal(sanitized.tasks[0].mistakes.length,1);
+ assert(sanitized.tasks[0].mistakes[0].explanation.length<=400);
 });
