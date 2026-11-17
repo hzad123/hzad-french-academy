@@ -9,7 +9,7 @@ export function createWritingResponseFormat(responses){
  const ids=buildWritingSources(responses).flatMap(group=>group.sources.filter(source=>source.text.trim()).map(source=>source.sourceId));
  const sourceId={type:'string',enum:ids.length?ids:[NO_WRITING_EVIDENCE]};
  const schema=object({
-  score:{type:'integer',enum:Array.from({length:21},(_,i)=>i)},
+  score:{type:'integer',enum:Array.from({length:700},(_,i)=>i)},
   scoreReason:text,
   criteria:array(object({
    id:{type:'string',enum:['linguistic','pragmatic','sociolinguistic']},
