@@ -133,10 +133,36 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
  }
  function renderCatalog(){
   header('TEF/TCF AI Tests');if(!catalog)return;
-  const reading=el('section',undefined,'hz-writing-entry');reading.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Reading · 20 tests'),el('p','39 questions, 60 minutes and a marked answer sheet with corrections and your total score.'),button('Open TCF Reading tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-reading'))));area.append(reading);
-  const writing=el('section',undefined,'hz-writing-entry');writing.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Writing · 20 tests'),el('p','Three writing tasks per test, a 60-minute timer, saved responses and AI mistake feedback with estimated TCF/NCLC results.'),button('Open TCF Writing tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-writing'))));area.append(writing);
-  const listening=el('section',undefined,'hz-writing-entry');listening.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Listening · 20 tests'),el('p','39 questions, 35 minutes, French audio and a marked answer sheet with your total score.'),button('Open TCF Listening test',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-listening'))));area.append(listening);
-  const speaking=el('section',undefined,'hz-writing-entry');speaking.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Speaking · 20 tests'),el('p','Three timed speaking tasks with an AI interlocutor and TCF/NCLC criterion feedback.'),button('Open TCF Speaking tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-speaking'))));area.append(speaking);
+  // Presentation-only TCF hub: preserve the existing module events and exam engines.
+  const tcfHub=el('details',undefined,'hz-tcf-hub');
+  const tcfSummary=el('summary',undefined,'hz-tcf-hub-summary');
+  const tcfHeading=el('span',undefined,'hz-tcf-hub-heading');
+  tcfHeading.append(el('span','TCF CANADA','hz-tcf-hub-eyebrow'),el('strong','TCF Mock Tests'),el('span','Reading, Listening, Writing & Speaking · 20 tests per module','hz-tcf-hub-subtitle'));
+  const tcfMark=el('span','4 modules','hz-tcf-hub-count');
+  const tcfChevron=el('span','⌄','hz-tcf-hub-chevron');tcfChevron.setAttribute('aria-hidden','true');
+  tcfSummary.append(el('span','✦','hz-tcf-hub-emblem'),tcfHeading,tcfMark,tcfChevron);
+  tcfHub.append(tcfSummary);
+  const tcfBody=el('div',undefined,'hz-tcf-hub-body');
+  tcfBody.append(el('p','Choose a module to view its practice tests.','hz-tcf-hub-intro'));
+  const tcfModules=el('div',undefined,'hz-tcf-module-grid');
+  const tcfOptions=[
+   {icon:'▤',title:'Reading',meta:'20 tests · 39 questions · 60 min',detail:'Reading passages and answer corrections.',event:'hzad-open-tcf-reading'},
+   {icon:'♫',title:'Listening',meta:'20 tests · 39 questions · 35 min',detail:'French audio and marked answers.',event:'hzad-open-tcf-listening'},
+   {icon:'✎',title:'Writing',meta:'20 tests · 3 tasks · 60 min',detail:'Timed writing with AI feedback.',event:'hzad-open-tcf-writing'},
+   {icon:'◉',title:'Speaking',meta:'20 tests · 3 tasks',detail:'Interactive speaking and criterion feedback.',event:'hzad-open-tcf-speaking'}
+  ];
+  for(const option of tcfOptions){
+   const tile=el('button',undefined,'hz-tcf-module-card');tile.type='button';
+   tile.setAttribute('aria-label','Open TCF '+option.title+' tests');
+   const tileTop=el('span',undefined,'hz-tcf-module-top');
+   const tileIcon=el('span',option.icon,'hz-tcf-module-icon');tileIcon.setAttribute('aria-hidden','true');
+   const arrow=el('span','↗','hz-tcf-module-arrow');arrow.setAttribute('aria-hidden','true');
+   tileTop.append(tileIcon,arrow);
+   tile.append(tileTop,el('strong',option.title),el('span',option.meta,'hz-tcf-module-meta'),el('span',option.detail,'hz-tcf-module-description'));
+   tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));
+   tcfModules.append(tile);
+  }
+  tcfBody.append(tcfModules);tcfHub.append(tcfBody);area.append(tcfHub);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
   const cards=el('div',undefined,'hz-exam-cards');
