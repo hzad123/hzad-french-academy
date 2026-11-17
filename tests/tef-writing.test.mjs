@@ -59,6 +59,9 @@ test('no fabricated evidence, unchanged corrections, missing criteria or off-top
 test('schema has two tasks and writing assessment instructions require the original TEF format',()=>{
  const format=createWritingResponseFormat(responses);
  assert.deepEqual(format.json_schema.schema.properties.tasks.items.properties.number.enum,[1,2]);
+ assert.equal(format.json_schema.schema.properties.score.enum.length,700);
+ assert(format.json_schema.schema.properties.score.enum.includes(480));
+ assert(!format.json_schema.schema.properties.score.enum.includes(700));
  const messages=assessmentMessages(paper,responses);
  assert.match(messages[0].content,/at least THREE distinct/);
  assert.match(messages[0].content,/NOT an official examiner/);
