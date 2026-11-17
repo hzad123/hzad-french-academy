@@ -73,15 +73,11 @@ export function wireTefWriting(root,client,{fetcher}={}){
    if(current()){receive(next);render()}
   });
  }
- function phase(){
-  if(attempt.status==='submitted')return 2;
-  const elapsed=(Date.now()+serverOffset-Date.parse(attempt.startedAt))/1000;
-  return elapsed>=1500?1:0;
- }
+ // TEF practice allows students to complete either section at any time.
+ // The recommended 25/35-minute split remains visible, but only the overall
+ // 60-minute deadline locks edits. This matches server-side save rules.
  function remaining(){
-  const now=Date.now()+serverOffset;
-  const deadline=phase()===0?Date.parse(attempt.startedAt)+1500000:Date.parse(attempt.deadline);
-  return Math.max(0,Math.ceil((deadline-now)/1000));
+  return Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-serverOffset)/1000));
  }
  function schedule(){
   clearTimeout(saveTimer);saveTimer=setTimeout(()=>{if(!visible||busy||conflict){if(busy&&dirty)schedule();return}void run(async(signal,current)=>{await save(signal,current);if(current()&&dirty)schedule()})},750);
@@ -108,18 +104,22 @@ export function wireTefWriting(root,client,{fetcher}={}){
   const toolbar=make('div',undefined,'hz-writing-toolbar hz-tef-timer');
   const phaseLabel=make('strong'),clock=make('strong');clock.setAttribute('aria-label','TEF section time remaining');
   toolbar.append(phaseLabel,clock);area.append(toolbar);
-  const phaseNow=phase();currentSection=phaseNow;
   if(!locked){
    const update=()=>{
-    const p=phase();phaseLabel.textContent=p===0?'Section A · 25 minutes': 'Section B · 35 minutes';
+    phaseLabel.textContent='Total test time · 60 minutes';
     clock.textContent=displayTime(remaining())+' remaining';
-    if(p!==currentSection){if(dirty){notify('Section A time finished. Only text saved before its deadline can be marked.',true)}currentSection=p;render()}
-    if(!remaining()){clearInterval(timer);area.querySelectorAll('textarea').forEach(x=>x.disabled=true);notify('Time finished. Submit your saved responses for feedback.')}
+    if(!remaining()){
+     clearInterval(timer);area.querySelectorAll('textarea').forEach(x=>x.disabled=true);
+     notify('Time finished. Submit your saved responses for feedback.');
+    }
    };
    update();timer=setInterval(update,1000);
   }else{phaseLabel.textContent='Both sections completed';clock.textContent='Submitted'}
   const progress=make('div',undefined,'hz-tef-section-progress');
-  for(const s of paper.sections){const chip=make('span','SECTION '+s.letter+(locked?' · Completed':s.letter===(phaseNow===0?'A':'B')?' · In progress':' · '+(s.letter==='A'?'Closed':'Up next')));chip.className='hz-tef-progress-chip';progress.append(chip)}
+  for(const s of paper.sections){
+   const chip=make('span','SECTION '+s.letter+(locked?' · Completed':' · Editable'));
+   chip.className='hz-tef-progress-chip';progress.append(chip);
+  }
   area.append(progress);
   paper.sections.forEach((section,i)=>{
    const wrapper=make('section',undefined,'hz-tef-task');
@@ -136,14 +136,14 @@ export function wireTefWriting(root,client,{fetcher}={}){
    wrapper.append(make('p',section.instruction));
    const label=make('label','Votre réponse — Section '+section.letter);
    const editor=make('textarea');editor.rows=i===0?8:13;editor.lang='fr';editor.maxLength=5000;editor.spellcheck=false;editor.value=local.responses[i];
-   const isOpen=!locked&&phaseNow===i&&remaining()>0;
+   const isOpen=!locked&&remaining()>0;
    editor.disabled=!isOpen;editor.setAttribute('aria-label','Réponse section '+section.letter);label.append(editor);wrapper.append(label);
    const tally=make('p',undefined,'hz-writing-count');
    const update=()=>{const n=words(editor.value);tally.textContent=n+' mots · '+section.minWords+' mots minimum';tally.classList.toggle('is-outside-range',n<section.minWords)};
    editor.addEventListener('input',()=>{
     local.responses[i]=editor.value;dirty=true;update();notify('Unsaved changes…');schedule();
    });editor.addEventListener('blur',()=>{if(dirty&&isOpen)schedule()});update();wrapper.append(tally);
-   if(!isOpen&&!locked)wrapper.append(make('p',i===0?'Section A is closed after 25 minutes.':'Section B opens automatically when Section A time ends.','hz-small'));
+   if(!isOpen&&!locked)wrapper.append(make('p','The 60-minute test time has ended.','hz-small'));
    area.append(wrapper);
   });
   if(locked&&attempt.result){renderResult(attempt.result);return}
@@ -158,7 +158,7 @@ export function wireTefWriting(root,client,{fetcher}={}){
   const note=make('p',credits?'AI feedback for both sections costs '+credits+' credit'+(credits===1?'':'s')+'. Saved feedback can be reopened free.':'AI feedback is currently unavailable. Your responses remain saved.','hz-small');
   area.append(note);
   const submit=button('Submit both sections for AI feedback'+(credits?' · '+credits+' credit'+(credits===1?'':'s'):''),()=>{void review('review')});
-  submit.dataset.locked=String(!costOk||(!locked&&phaseNow===0)||conflict);
+  submit.dataset.locked=String(!costOk||conflict);
   area.append(submit);
   if(!costOk)notify('AI marking is unavailable or credits are insufficient. Your writing is saved.');
  }
