@@ -20,7 +20,7 @@ A two-signal content heuristic flagged **221** questions for prioritised review 
 - `scripts/audit-tcf-reading-quality.mjs`: read-only structural and heuristic full-bank check, optional no-passage/no-key blind-review export, optional strict diagnostics. **No automatic approval**.
 - `supabase/exams/tcf-reading-v4/test-01.json`: separate candidate for Test 01; 27 sets of answer alternatives rewritten and all 39 correct-answer positions rebalanced while retaining the same question numbers, passages, point values, correct meanings and scoring logic.
 - `supabase/exams/tcf-reading-v4/test-05.json`: separate candidate for Test 05; all 39 answer-option sets rewritten, including the deposit and ecological-restoration examples. Source passages, question numbers, point values, and correct positions retained.
-- **Remaining 18 test candidates have not been authored or reviewed.** Do not claim the bank is completed or production-ready.
+- **Remaining 18 test candidates have not been authored or reviewed.** The requested two-paper preview is published; the whole-bank editorial project remains incomplete.
 
 ## Mandatory per-question editorial acceptance (all 780 items)
 1. Verify French syntax, relevance, and literal source support for the keyed answer. A source passage must support *only one* option in the intended reading of the question.
@@ -34,7 +34,7 @@ A two-signal content heuristic flagged **221** questions for prioritised review 
 9. Reject accidental repeated passages/scenarios. Preserve the declared 39 questions, 4 options, progressive bands, 60 minutes and 699 practice points per paper.
 10. Record per-item pass/fail and independent second-reviewer signoff. No deployment while any current paper is incomplete.
 
-## Deployment plan — blocked pending completion and review
+## Deployment plan for remaining 18 tests
 1. Complete 20 v4 JSON banks (Test 01 and Tests 02–20), run independent editorial/blind review, and obtain no-passage guessing rates with proper controls rather than claiming chance-level results without a trial.
 2. Create **one additive, versioned** migration that inserts new `academy_tcf_reading.papers` content with `v4` versions **without overwriting historical versions**; update `published_papers` only after all 20 v4 papers pass acceptance.
 3. Test with rollback rehearsals and compare hashes/counts for auth, entitlements, wallets, attempts, old papers and scores. Validate `catalog`, `start`, `answer`, `submit`, resume, completed review, expired timer, and cross-account access.
@@ -43,4 +43,9 @@ A two-signal content heuristic flagged **221** questions for prioritised review 
 6. Open/finish PR against `development`; after successful complete checks and approval under the standing publication rules, merge and verify GitHub Pages and a real entitled GHL session.
 
 ## Current state
-**Partial candidate only, NOT published.** No production data, schema, scoring, UI, navigation or saved attempts were modified. No AI blind trials or full suite were run in this environment.
+**Test 01 and Test 05 published as versioned v4 papers, 17 November 2026.** The protected Actions release completed successfully:
+https://github.com/hzad123/hzad-french-academy/actions/runs/44194582809
+
+The full repository suite (306+ tests) and production build passed, followed by a read-only rollback rehearsal, exact two-bank publication, catalog verification and preservation hashes. The other 18 current published tests still use v3. Old v1/v3 papers and all attempt history remain intact. No GHL/browser interface or AI/credit logic was changed.
+
+The live backend was verified by the release job. An end-to-end logged-in GHL browser test was not performed. The two-paper content is offered for owner review; independent editorial / no-passage guessing trials have not been completed for all 780 questions. No additional banks are being claimed finished.
