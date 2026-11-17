@@ -114,16 +114,22 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   });
  }
  function historyBlock(phase){
-  const calls=turns(phase);
+  // Include failed turns: their WAV may already have been saved securely even
+  // when inference failed and credits were refunded. Never silently hide them.
+  const calls=attempt?.calls?.filter(c=>c.kind==='turn'&&c.phase===phase&&
+   ['completed','failed'].includes(c.status))||[];
   const card=el('section',undefined,'hz-tef-speaking-history');
   card.append(el('h4',phase===0?'Conversation · Section A':'Conversation · Section B'));
   if(!calls.length)card.append(el('p','Les réponses sauvegardées apparaîtront ici.'));
   calls.forEach((call,i)=>{
    const line=el('article',undefined,'hz-tef-speaking-turn');
-   line.append(el('strong','Tour '+(i+1)));
-   line.append(el('p','Vous : '+(call.result?.transcript?.trim()||'Aucune parole reconnue.')));
+   line.append(el('strong','Tour '+(i+1)+(call.status==='failed'?' · Traitement échoué':'· Enregistré')));
+   line.append(el('p',call.status==='failed'?
+    'La transcription n’a pas pu être terminée; le crédit de ce tour a été remboursé.':
+    'Vous : '+(call.result?.transcript?.trim()||'Aucune parole reconnue.')));
    if(call.result?.reply)line.append(el('p','Interlocuteur : '+call.result.reply));
-   if(call.result?.audioStored)line.append(button('Écouter mon enregistrement',()=>{void playRecording(call.id)},false,true));
+   // The owner-checked recording endpoint will report availability accurately.
+   line.append(button('Écouter mon enregistrement',()=>{void playRecording(call.id)},false,true));
    card.append(line);
   });
   return card;
