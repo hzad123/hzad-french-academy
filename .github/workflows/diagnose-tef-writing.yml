@@ -1,0 +1,16 @@
+name: Diagnose TEF marking failure codes (private content excluded)
+on:
+  push:
+    branches: [diagnostic/tef-marking-20261117]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Query sanitized TEF failure categories
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/diagnostics/tef-failure-codes.py
