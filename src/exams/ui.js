@@ -164,18 +164,31 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   }
   tcfBody.append(tcfModules);tcfHub.append(tcfBody);area.append(tcfHub);
 
-  // TEF section is intentionally informational until standalone modules are ready.
+  // TEF Writing now has its own secure full paper module. Others stay unavailable.
   const tefHub=el('section',undefined,'hz-tef-hub');
-  tefHub.setAttribute('aria-label','TEF Canada mock tests coming soon');
+  tefHub.setAttribute('aria-label','TEF Canada mock tests');
   const tefHead=el('div',undefined,'hz-tef-hub-head');
   const tefMark=el('span','TEF','hz-tef-hub-mark');tefMark.setAttribute('aria-hidden','true');
   const tefHeading=el('div',undefined,'hz-tef-hub-heading');
-  tefHeading.append(el('span','TEF CANADA','hz-tef-hub-eyebrow'),el('h4','TEF Mock Tests'),el('p','A dedicated home for TEF Canada practice modules.'));
-  const tefBadge=el('span','Coming soon','hz-tef-coming-soon');
+  tefHeading.append(el('span','TEF CANADA','hz-tef-hub-eyebrow'),el('h4','TEF Mock Tests'),el('p','Practice the TEF Canada exam with original mock papers.'));
+  const tefBadge=el('span','Writing available','hz-tef-coming-soon');
   tefHead.append(tefMark,tefHeading,tefBadge);
   tefHub.append(tefHead);
-  const tefFoot=el('p','Reading, Listening, Writing and Speaking modules will be added here.','hz-tef-hub-foot');
+  const tefFoot=el('p','Choose a module to practise. Reading, Speaking and Listening will follow.','hz-tef-hub-foot');
   tefHub.append(tefFoot);
+  const tefGrid=el('div',undefined,'hz-tcf-module-grid hz-tef-module-grid');
+  for(const option of [
+    {name:'Writing',icon:'✎',detail:'20 original tests · AI feedback',event:'hzad-open-tef-writing'},
+    {name:'Reading',icon:'▤',detail:'Coming soon'},
+    {name:'Speaking',icon:'◉',detail:'Coming soon'},
+    {name:'Listening',icon:'♫',detail:'Coming soon'}
+  ]){
+    const tile=el(option.event?'button':'div',undefined,'hz-tcf-module-card hz-tef-module-card'+(option.event?'':' hz-tef-module-unavailable'));
+    if(option.event){tile.type='button';tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));tile.setAttribute('aria-label','Open TEF '+option.name+' tests')}
+    tile.append(el('span',option.icon,'hz-tcf-module-icon'),el('strong',option.name),el('span',option.detail,'hz-tcf-module-meta'));
+    tefGrid.append(tile);
+  }
+  tefHub.append(tefGrid);
   area.append(tefHub);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
