@@ -47,7 +47,7 @@ create function public.academy_tef_speaking_command(
  p_user uuid,p_action text,p_id uuid default null,p_payload jsonb default '{}'
 ) returns jsonb language plpgsql security definer set search_path='' as $$
 declare a academy_tef_speaking.attempts;c academy_tef_speaking.calls;
- r academy_ai.requests; history jsonb; test_id text; ver text; step text;
+ r academy_ai.requests; history jsonb; paper_id text; ver text; step text;
 begin
  perform academy_ai.require_access(p_user);
  if p_action='list' then
@@ -63,8 +63,8 @@ begin
   raise exception 'Speaking attempt not found' using errcode='42501';
  end if;
  if p_action='start' then
-  test_id=p_payload->>'testId';ver=p_payload->>'version';
-  if test_id is null or test_id !~ '^tef-speaking-(0[1-9]|1[0-9]|20)$' or ver<>'tef-speaking-2026-11-v1' then
+  paper_id=p_payload->>'testId';ver=p_payload->>'version';
+  if paper_id is null or paper_id !~ '^tef-speaking-(0[1-9]|1[0-9]|20)$' or ver<>'tef-speaking-2026-11-v1' then
    raise exception 'Invalid TEF speaking paper';
   end if;
   if a.id is null then
@@ -72,8 +72,8 @@ begin
     raise exception 'Speaking attempt limit reached today';
    end if;
    insert into academy_tef_speaking.attempts(id,user_id,test_id,version)
-   values(p_id,p_user,test_id,ver) returning * into a;
-  elsif a.test_id is distinct from test_id or a.version is distinct from ver then
+   values(p_id,p_user,paper_id,ver) returning * into a;
+  elsif a.test_id is distinct from paper_id or a.version is distinct from ver then
    raise exception 'Speaking attempt already belongs to another paper';
   end if;
  elsif a.id is null then raise exception 'Speaking attempt not found' using errcode='42501';
