@@ -1,9 +1,17 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit} from '../scripts/lib/listening-contrast-quality.mjs';
+import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit,styleFindings} from '../scripts/lib/listening-contrast-quality.mjs';
 import {hash,policyHash,draftPolicyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS,stageModel,modelRequest,validateInput,policyFingerprint} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
+test('cohort writing shortcuts trigger repair without reading or selecting held-out guesses',()=>{
+ const papers=Array.from({length:6},(_,i)=>({id:'paper-'+i,questions:Array.from({length:39},(_,j)=>({number:j+1,question:'Quel élément est cité ?',options:['Court.','Une formulation ordinaire.','Une autre formulation naturelle.','Une dernière proposition possible.'],correct:'A'}))}));
+ const findings=styleFindings(papers).filter(f=>f.attack==='shortest');
+ assert.equal(findings.length,2);assert.equal(findings[0].sample,186);assert.equal(findings[1].sample,102);
+ assert(findings.every(f=>f.upperTailP<.01&&f.candidates.every(c=>c.number>=9)));
+ for(const p of papers)for(const q of p.questions)q.options=['Choix A.','Choix B.','Choix C.','Choix D.'];
+ assert.deepEqual(styleFindings(papers),[]);
+});
 test('the editor has no source/key and its prompt fingerprint cannot change admission policy',async()=>{
  const q=paper.questions[29],input=qualityProjection(q),request=modelRequest('polish',input);
  assert.equal(request.messages.length,2);assert.equal(request.messages[1].content,JSON.stringify(input));

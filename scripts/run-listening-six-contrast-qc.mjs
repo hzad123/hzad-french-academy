@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
-import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput} from './lib/listening-contrast-quality.mjs';
+import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection} from './lib/listening-contrast-quality.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
@@ -114,7 +114,7 @@ for(const [stage,bucket] of [['blind',baseline],['challenge',baselineMini]]){
 }
 await save();
 await parallel(all.filter(([,i])=>![29,37,38].includes(i)),processQuestion);await save();
-for(let p=0;p<6;p++){
+async function auditPaper(p){
  sourceInvariant(originals[p],papers[p]);
  if(evidence[p].questions.every(r=>r?.pass&&!r.blocked))try{
   for(let round=0;round<3;round++){
@@ -134,10 +134,36 @@ for(let p=0;p<6;p++){
   }
  }catch(error){errors.push({test:p+1,stage:'paper',error:error.message});}
 }
+for(let p=0;p<6;p++)await auditPaper(p);
+// Repair observable library-wide writing shortcuts before paying for a frozen
+// experiment. Selection uses only deterministic style statistics, never a
+// held-out guess or whether a reviewer happened to choose the marked answer.
+for(let round=0;round<2&&evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked));round++){
+ const findings=styleFindings(papers);await saveJson(join(root,'style-findings.json'),{round,findings});
+ if(!findings.length)break;
+ const candidates=[...new Map(findings.flatMap(f=>f.candidates.map(c=>[c.test+':'+c.number,c]))).values()];
+ const selected=candidates.sort((a,b)=>hash(seed+':style:'+round+':'+a.test+':'+a.number).localeCompare(hash(seed+':style:'+round+':'+b.test+':'+b.number))).slice(0,8),changed=new Set();
+ await parallel(selected,async({test,number})=>{
+  const p=papers.findIndex(p=>p.id===test),index=number-1,original=originals[p].questions[index],image=imageMaps[p].get(number);
+  try{
+   const patterns=findings.filter(f=>f.candidates.some(c=>c.test===test&&c.number===number)).map(({candidates,...f})=>f);
+   const feedback={stage:'cohort-style',patterns,instruction:'Across the six papers an observable writing shortcut is over-represented among keys. Rebuild all four alternatives on one coherent source-based axis with natural variation. Do not pad an answer, force equal lengths, or make every key long. Remove the repeated design that creates this shortcut, while preserving topic and comprehension difficulty.'};
+   const authored=await provider('author',authorInput(original,{imageData:image?.data,feedback}),{nonce:`style-repair:${runNonce}:${round}:${p}:${number}`});
+   if(!contrastPlan(original,authored.result).pass)throw Error('Style repair lacks faithful anchors');
+   const candidate=rewrite(original,authored.result,positions[p][index],`${seed}:style:${round}:${p}:${number}`);
+   if(hash(qualityProjection(candidate))===hash(qualityProjection(papers[p].questions[index])))throw Error('Style repair did not change the actual question/alternatives');
+   const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:style-screen:${runNonce}:${round}:${p}:${number}`,starting:candidate,imageData:image?.data,maxAttempts:4});
+   result.imageHash=image?.hash??null;result.styleAuthor=authored;result.stylePatterns=patterns;
+   evidence[p].questions[index]=result;papers[p].questions[index]=result.question;evidence[p].paperAssessment=null;changed.add(p);
+   await saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`q-${number}.json`),result);
+  }catch(error){errors.push({test:p+1,number,stage:'style',error:error.message});}
+ });
+ await save();for(const p of changed)await auditPaper(p);
+}
 await save();
 // Freeze ALL234 before any held-out call. Revisions change the cohort hash and
 // draw a wholly new measurement nonce; successful guesses are never filtered.
-if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)){
+if(evidence.every(e=>e.questions.every(r=>r?.pass&&!r.blocked)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&!styleFindings(papers).length){
  const freezeHash=hash({projectionVersion,questions:papers.map(p=>p.questions.map(contentHash))}),file=join(root,'freeze.json');let freeze=await exists(file)?await loadJson(file):null;
  if(freeze?.hash!==freezeHash)freeze={hash:freezeHash,nonce:randomBytes(32).toString('hex')};await saveJson(file,freeze);
  await parallel(all,async([p,i])=>{try{

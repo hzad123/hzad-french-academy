@@ -123,6 +123,20 @@ export function summarize(papers,evidence){
  return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),spokenAlternatives:scoreGroup(rows.filter(r=>r.number<=8)),
   challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers),lateHeuristicAttacks:attackStatistics(papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=23)}))).heuristicAttacks};
 }
+export function styleFindings(papers){
+ const findings=[];
+ for(const [scope,minNumber] of [['written',9],['late',23]]){
+  const scoped=papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=minNumber)}));
+  const attacks=attackStatistics(scoped).heuristicAttacks;
+  for(const [attack,result] of Object.entries(attacks)){
+   const upperTailP=binomialUpperTail(result.sample,Math.ceil(result.credit));
+   if(upperTailP>=.01)continue;
+   const candidates=scoped.flatMap(p=>p.questions.filter(q=>attackStatistics([{...p,questions:[q]}]).heuristicAttacks[attack].credit>.25).map(q=>({test:p.id,number:q.number})));
+   findings.push({scope,attack,...result,upperTailP,candidates});
+  }
+ }
+ return findings;
+}
 export function ready(papers,evidence,stats){
  return papers.length===6&&evidence.every(e=>e.questions.length===39&&e.questions.every(r=>r?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&
   stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.challenge.written.sample===186&&stats.challenge.late.sample===102&&stats.challenge.written.passes&&stats.challenge.late.passes&&stats.challenge.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&

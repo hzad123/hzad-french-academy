@@ -129,6 +129,14 @@ Drafting now uses exact-schema responses, independently verified exemplars, and 
 
 A key-blind drafting editor now receives only the stem and actual four alternatives, with no transcript, image, key, explanation or prior review. It removes stem clues and unequal phrasing before fresh independent admission reviews. Its separately fingerprinted drafting prompt does not invalidate already verified questions: admission models, prompts and thresholds are unchanged, and every edited candidate needs new exact-input receipts. Identical wording and whitespace-only edits cannot trigger a fresh draw.
 
+Library-wide style checks now trigger bounded regeneration before a frozen
+experiment, including a separate late-question check. A significant shortest,
+longest, qualifier or stem-overlap shortcut selects candidates by that observable
+writing feature only. All four options are redesigned without padding or equal
+length quotas, independently screened and grounded again, then the changed
+paper is audited again. Held-out guesses play no part in candidate selection.
+An unresolved style shortcut blocks measurement and publication.
+
 The completed editor run43968516419 passed184/234 individual questions and
 rejected50. It did not reach the frozen benchmark. Its shortest-choice attack
 still scored41.5/102 late items (40.7%), so that snapshot cannot be released.
