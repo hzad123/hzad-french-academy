@@ -90,6 +90,9 @@ test('Both Speaking assessments expose score and NCLC labels and avoid official-
  assert.match(grade,/Niveau NCLC estimé/);
  assert.match(grade,/Section A · estimation partielle/);
  assert.match(grade,/Sections A \+ B · estimation globale/);
+ assert.match(grade,/Section B · estimation partielle/);
+ assert.match(grade,/result\.sectionBScore/);
+ assert.match(grade,/result\.sectionBNclc/);
  assert.match(grade,/Seul le résultat officiel du TEF Canada/);
  assert.match(styles,/hz-tef-speaking-score-figures/);
 });
