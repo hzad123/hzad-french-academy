@@ -176,3 +176,30 @@ test('B-only TEF/NCLC estimation uses only its own model score, not the overall 
  assert.equal(legacy.sectionBScore,null);
  assert.equal(legacy.sectionBNclc,null);
 });
+
+test('TEF feedback provider requests separate Section B-only score only for final A+B grading',async()=>{
+ for(const kind of ['feedback_a','feedback_b']){
+  let count=0;
+  const ids=kind==='feedback_a'?[uuid1]:[uuid1,uuid2];
+  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(_url,options)=>{
+   count++;
+   const body=JSON.parse(options.body);
+   const schema=body.response_format?.json_schema?.schema;
+   assert(schema,'Examiner feedback must have structured response schema');
+   assert.equal(schema.properties.sectionBScore!==undefined,kind==='feedback_b');
+   assert.equal(body.store,false);
+   return Response.json({model:'fixture',usage:{prompt_tokens:200,completion_tokens:160},
+    choices:[{finish_reason:'stop',message:{content:JSON.stringify(raw(ids))}}]});
+  }});
+  const result=await provider.run({kind,attempt:attempt(kind==='feedback_a'?1:3)},{
+   model:'fixture',maxOutputTokens:3500
+  });
+  assert.equal(count,1);
+  assert.equal(result.result.score,487);
+  assert.equal(result.result.nclc,'7');
+  if(kind==='feedback_b'){
+   assert.equal(result.result.sectionBScore,465);
+   assert.equal(result.result.sectionBNclc,'7');
+  }else assert.equal(result.result.sectionBScore,null);
+ }
+});
