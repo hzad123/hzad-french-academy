@@ -55,7 +55,13 @@ export function validateTefFeedback(value,attempt,kind){
  const assessable=kind==='feedback_a'?!noA:!noA&&!noB;
  const scoreStatus=assessable?(kind==='feedback_a'?'unofficial-section-a-estimate':'unofficial-practice-estimate'):
   'insufficient-evidence';
+ // An independently estimated Section B result is distinct from the global
+ // A+B result. Missing data never inherits or fabricates a section-only score.
+ const validB=kind==='feedback_b'&&!noB&&Number.isInteger(value.sectionBScore)&&
+  value.sectionBScore>=0&&value.sectionBScore<=699;
  return {kind,section,score:assessable?value.score:null,nclc:assessable?tefSpeakingNclc(value.score):null,
+  sectionBScore:validB?value.sectionBScore:null,
+  sectionBNclc:validB?tefSpeakingNclc(value.sectionBScore):null,
  estimatedLevel:['A1','A2','B1','B2','C1','C2'].includes(value.estimatedLevel)?value.estimatedLevel:null,
  scoreStatus,
  summary:safe(value.summary,650),criteria:items,mistakes,recommendations,
@@ -63,9 +69,10 @@ export function validateTefFeedback(value,attempt,kind){
  sectionBTurns:all.filter(t=>t.phase===2&&t.intelligible).length},
  rubricVersion:'tef-speaking-public-criteria-2026-11-v1'};
 }
-const feedbackSchema=ids=>({type:'json_schema',json_schema:{
+const feedbackSchema=(ids,kind)=>({type:'json_schema',json_schema:{
  name:'hzad_tef_speaking_feedback',strict:true,schema:obj({
- score:{type:'integer',enum:Array.from({length:700},(_,i)=>i)},
+ score:{type:'integer',minimum:0,maximum:699},
+ ...(kind==='feedback_b'?{sectionBScore:{type:'integer',minimum:0,maximum:699}}:{}),
  estimatedLevel:{type:'string',enum:['A1','A2','B1','B2','C1','C2']},summary:str,
  criteria:{type:'array',items:obj({id:{type:'string',enum:criteria},turnId:{type:'string',enum:ids},reason:str,improvement:str})},
  mistakes:{type:'array',items:obj({turnId:{type:'string',enum:ids},original:str,corrected:str,explanation:str})},
@@ -125,6 +132,7 @@ function gradeMessages(test,kind,attempt){
   ' pragmatic (questions variées et adaptées en A; présentation, arguments, objections et exemples en B), sociolinguistic (registre et politesse).'+
   ' Sépare les propos du candidat et de l’IA, appuie toute remarque sur des turnId de réponses authentiquement reconnues.'+
   ' Retourne score entier 0–699 uniquement comme estimation pédagogique, estimatedLevel A1–C2, résumé et exactement 3 critères.'+
+  (kind==='feedback_b'?' Le champ sectionBScore (entier 0–699) évalue UNIQUEMENT la performance en section B; score évalue globalement A+B. N’invente pas une valeur officielle.':'')+
   ' Chaque critère a id, turnId, reason (450 caractères max), improvement (350 caractères max).'+
   ' Liste de 0 à 4 erreurs réellement visibles, originales copiées EXACTEMENT depuis le transcript du turnId, correction et explication; aucune erreur inventée.'+
   ' Donne 1–3 recommandations concrètes avec une phrase française améliorée en exemple.'+
@@ -154,7 +162,7 @@ export function createTefSpeakingProvider({key,fetcher=fetch}={}){
   const body={model:settings.model,messages,max_tokens:settings.maxOutputTokens,store:false,
    ...(kind==='turn'?{modalities:['text'],tools:[{type:'function',function:turnFunction}],
     tool_choice:{type:'function',function:{name:turnFunction.name}},parallel_tool_calls:false}
-    :{response_format:feedbackSchema(ids)})};
+    :{response_format:feedbackSchema(ids,kind)})};
   let response;try{response=await fetcher('https://api.openai.com/v1/chat/completions',{
    method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},
    body:JSON.stringify(body),signal:AbortSignal.timeout(kind==='turn'?65000:55000)
