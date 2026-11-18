@@ -16,9 +16,58 @@ test('holistic score and criterion feedback derive evidence from actual saved vo
  const out=validateSpeakingScore(raw(),turns);assert.equal(out.score,12);assert.equal(out.nclc,'8');assert.equal(out.criteria[0].evidence,turns[0].transcript);assert.deepEqual(out.criteria[0].audioEvidence,turns[0].observations);
  const invalid=raw();invalid.criteria[0].turnId='invented';assert.throws(()=>validateSpeakingScore(invalid,turns));const partial=raw();partial.criteria.forEach(c=>c.turnId=turns[0].id);assert.equal(validateSpeakingScore(partial,turns.map(t=>t.phase===2?{...t,intelligible:false}:t)).score,null);
 });
-test('audio interlocutor receives real WAV input and suppresses early Task3 interruptions without retry',async()=>{
- let calls=0;const provider=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{calls++;const p=JSON.parse(init.body);assert.equal(p.store,false);assert.equal(p.model,'audio-test');assert(p.messages.at(-1).content[0].input_audio);return Response.json({choices:[{message:{content:JSON.stringify({transcript:'Je pense que les langues sont utiles.',reply:'Pourquoi ?',intelligible:true,observations:['The liaison is audible.']})}}]})}});
- const out=await provider.run({kind:'turn',audio:'fixture',attempt:{phase:3,calls:[]}},{model:'audio-test',maxOutputTokens:1200});assert.equal(out.result.reply,'');assert.equal(calls,1);
+test('TCF 30-second interaction preserves mistaken and unfinished words despite examiner rewriting',async()=>{
+ const spoken='Moi je aller au cinéma euh parce que je...';
+ const audio=Buffer.from('sample WAV bytes').toString('base64');
+ for(const phase of [0,2]){
+  let transcriptionCalls=0,examinerCalls=0;
+  const provider=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{
+   if(url.endsWith('/audio/transcriptions')){
+    transcriptionCalls++;
+    const form=init.body;
+    assert(form instanceof FormData);
+    assert.equal(form.get('model'),'gpt-transcribe');
+    assert.equal(form.get('languages[]'),'fr');
+    assert.match(form.get('prompt'),/ne complétez jamais/i);
+    assert(!form.get('prompt').includes('cinéma'));
+    assert.equal(form.get('file').name,'student-response.wav');
+    return Response.json({text:spoken,usage:{input_tokens:17,output_tokens:10}});
+   }
+   examinerCalls++;
+   const body=JSON.parse(init.body);
+   assert.equal(body.model,'audio-test');
+   assert.equal(body.store,false);
+   assert(!JSON.stringify(body).includes('input_audio'));
+   assert(JSON.stringify(body.messages).includes(spoken));
+   return Response.json({usage:{prompt_tokens:100,completion_tokens:30},choices:[{message:{content:JSON.stringify({
+    transcript:'Moi je vais au cinéma parce que je le souhaite.',
+    reply:'D’accord, pouvez-vous préciser ?',intelligible:true,
+    observations:['Prononciation parfaite inventée']
+   })}}]});
+  }});
+  const out=await provider.run({kind:'turn',audio,attempt:{phase,calls:[]}}, {model:'audio-test',maxOutputTokens:1200});
+  assert.equal(out.result.transcript,spoken);
+  assert.equal(out.result.reply,'D’accord, pouvez-vous préciser ?');
+  assert.deepEqual(out.result.observations,[]);
+  assert.equal(out.result.intelligible,true);
+  assert.equal(out.usage.transcription_input_tokens,17);
+  assert.equal(transcriptionCalls,1);assert.equal(examinerCalls,1);
+ }
+});
+test('TCF continuous Task3 transcribes the raw monologue without an unnecessary examiner call',async()=>{
+ const spoken='Les école est utile euh et si on...';
+ let calls=0;
+ const provider=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{
+  calls++;assert(url.endsWith('/audio/transcriptions'));
+  assert.match(init.body.get('prompt'),/fautives/);
+  return Response.json({text:spoken});
+ }});
+ const out=await provider.run({kind:'turn',audio:Buffer.from('wav').toString('base64'),attempt:{phase:3,calls:[]}},
+  {model:'audio-test',maxOutputTokens:1200});
+ assert.equal(calls,1);
+ assert.equal(out.result.transcript,spoken);
+ assert.equal(out.result.reply,'');
+ assert.deepEqual(out.result.observations,[]);
 });
 test('speaking handler rejects unauthenticated, cross-origin, forged score and fake audio before dispatch',async()=>{
  let dispatch=0;const handler=createSpeakingHandler({authenticate:async()=>({id:alice,email_confirmed_at:'yes'}),db:{adminRpc:async()=>({phase:0,calls:[]})},provider:{ready:()=>true,run:()=>{dispatch++}}});
