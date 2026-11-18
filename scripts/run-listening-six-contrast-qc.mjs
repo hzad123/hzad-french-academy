@@ -126,8 +126,9 @@ async function auditPaper(p){
     const authored=await provider('author',authorInput(original,{imageData:image?.data,feedback:{paperPatterns:audit.patterns}}),{nonce:`pattern-v2:${seed}:${p}:${round}:${number}`});
     if(!contrastPlan(original,authored.result).pass)throw Error('Pattern repair lacks transcript anchors');
     const candidate=rewrite(original,authored.result,positions[p][index],`${seed}:pattern:${p}:${round}:${number}`);
-    const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:pattern-screen:${p}:${round}:${number}`,starting:candidate,imageData:image?.data,maxAttempts:4});
-    result.imageHash=image?.hash??null;result.paperPatternAuthor=authored;evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
+    const previous=evidence[p].questions[index];
+    const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:pattern-screen:${p}:${round}:${number}`,starting:candidate,previouslyRejected:previous,imageData:image?.data,maxAttempts:4});
+    result.imageHash=image?.hash??null;result.designSeedHash=previous?.designSeedHash??null;result.paperPatternAuthor=authored;evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
     await saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`q-${number}.json`),result);
    }
    if(!evidence[p].questions.every(r=>r?.pass&&!r.blocked))break;
@@ -152,8 +153,9 @@ for(let round=0;round<2&&evidence.every(e=>e.questions.every(r=>r?.pass&&!r.bloc
    if(!contrastPlan(original,authored.result).pass)throw Error('Style repair lacks faithful anchors');
    const candidate=rewrite(original,authored.result,positions[p][index],`${seed}:style:${round}:${p}:${number}`);
    if(hash(qualityProjection(candidate))===hash(qualityProjection(papers[p].questions[index])))throw Error('Style repair did not change the actual question/alternatives');
-   const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:style-screen:${runNonce}:${round}:${p}:${number}`,starting:candidate,imageData:image?.data,maxAttempts:4});
-   result.imageHash=image?.hash??null;result.styleAuthor=authored;result.stylePatterns=patterns;
+   const previous=evidence[p].questions[index];
+   const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:style-screen:${runNonce}:${round}:${p}:${number}`,starting:candidate,previouslyRejected:previous,imageData:image?.data,maxAttempts:4});
+   result.imageHash=image?.hash??null;result.designSeedHash=previous?.designSeedHash??null;result.styleAuthor=authored;result.stylePatterns=patterns;
    evidence[p].questions[index]=result;papers[p].questions[index]=result.question;evidence[p].paperAssessment=null;changed.add(p);
    await saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`q-${number}.json`),result);
   }catch(error){errors.push({test:p+1,number,stage:'style',error:error.message});}
