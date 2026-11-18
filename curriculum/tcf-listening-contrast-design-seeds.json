@@ -142,7 +142,7 @@
     "number": 38,
     "sourceHash": "5aff43c5223ead7a08052e7917ae38c7b95ddb4d8ab4a9b17a312a5875701cae",
     "authored": {
-      "question": "Avec quels interlocuteurs les habitants discutent-ils des visites ?",
+      "question": "Quel autre groupe est consulté en plus des habitants ?",
       "choices": [
         "Avec les gestionnaires du territoire.",
         "Avec les commerçants du secteur.",
@@ -1109,43 +1109,43 @@
     "number": 28,
     "sourceHash": "e22f5def329e35b285e297eaa2ec8d6c28d58a511a9e9c2609f176e85461c2ca",
     "authored": {
-      "question": "Quel besoin de certains enfants est mis en avant ?",
+      "question": "Pour le passage des fauteuils, quelle contrainte est signalée ?",
       "choices": [
-        "Disposer d’un espace à l’écart du bruit des jeux.",
-        "Trouver des jeux adaptés à plusieurs tranches d’âge.",
-        "Pouvoir se reposer entre deux activités physiques.",
-        "Suivre des parcours signalés pour circuler sans aide."
+        "L’espace disponible en largeur.",
+        "L’inclinaison des allées.",
+        "Le revêtement des chemins.",
+        "La hauteur des seuils d’entrée."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse repose sur le rôle particulier expressément attribué dans l’enregistrement. Les autres propositions confondent des éléments voisins sans reproduire cette attribution.",
-      "design": "Editorial prototype of four ordinary alternatives on one source-based answer axis; not an evaluation result.",
+      "explanation": "Le document cite des cheminements assez larges pour un fauteuil. La pente, le revêtement et les seuils sont d’autres contraintes plausibles mais ne sont pas celles énoncées.",
+      "design": "Four ordinary physical accessibility dimensions, rather than one wise inclusive policy and three inferior choices. Prototype only, requiring actual independent evaluations.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "sensibles au bruit",
-            "cherchent des espaces plus calmes"
+            "cheminements assez larges pour un fauteuil",
+            "ajouter une rampe"
           ],
-          "reason": "Transforme la diversité des publics en différence d’âge des jeux ; le besoin cité pour ces enfants est le calme."
+          "reason": "Associe la rampe évoquée à une pente des allées, alors que le besoin effectivement signalé concerne la largeur."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "sensibles au bruit",
-            "cherchent des espaces plus calmes"
+            "observer comment différents publics utilisent le parc",
+            "cheminements assez larges pour un fauteuil"
           ],
-          "reason": "Confond le besoin d’un lieu calme lié au bruit avec un temps de repos physique."
+          "reason": "Transforme l’observation des parcours en problème de revêtement, dimension plausible mais non citée dans cet exemple."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "scope_shift",
           "anchors": [
-            "sensibles au bruit",
-            "cherchent des espaces plus calmes"
+            "ajouter une rampe",
+            "cheminements assez larges pour un fauteuil"
           ],
-          "reason": "Transfère aux enfants sensibles au bruit la question des cheminements, évoquée pour le passage d’un fauteuil, en ajoutant un besoin de signalétique."
+          "reason": "Interprète la rampe comme une réponse à des seuils d’entrée ; aucun seuil n’est décrit et la largeur est la contrainte énoncée."
         }
       ]
     }
