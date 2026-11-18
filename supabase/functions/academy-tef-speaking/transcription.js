@@ -11,7 +11,7 @@ export async function transcribeTefWav({audio,key,fetcher=fetch}){
  const form=new FormData();
  form.append('file',new Blob([bytes],{type:'audio/wav'}),'student-response.wav');
  form.append('model','gpt-transcribe');
- form.append('languages[]','fr');
+ form.append('language','fr');
  // Deliberately do not include task topics, example dialogue, or expected words:
  // context can bias speech recognition to produce words never spoken.
  let response;
