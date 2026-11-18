@@ -126,7 +126,7 @@ available manually, including the withdrawn07–20 papers outside this release.
 
 ## Validation record
 
-374 repository tests and the production build passed, including the mandatory
+375 repository tests and the production build passed, including the mandatory
 editor and persistent rejection checks. Fresh content evaluation is pending; this document does
 not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
@@ -156,3 +156,19 @@ still scored41.5/102 late items (40.7%), so that snapshot cannot be released.
 Focused editorial prototypes preserve the original recordings and provide
 ordinary alternatives based on specific source roles, measurements and
 conditions. These are candidates only and must earn independent receipts.
+
+Run44402780719 completed on18November2026 with217/234 passing its individual
+checks, including86/102 late items, and17 rejected items. Its shortest-choice
+attack scored43.5/102 late items (42.6%); it did not reach a frozen experiment
+and remains blocked. Later mandatory-edit/consensus rules still need actual
+execution across the complete set.
+
+The next runs44408949793 and44409869031 stopped during backend setup with
+Supabase Management HTTP401 before any new model call. The existing Actions
+secret `SUPABASE_ACCESS_TOKEN` must be replaced with a valid Supabase personal
+access token for Academy project `ogntvgvzmjrnppcullsj`; tokens must never be
+pasted into chat or committed. All actual work and the cumulative cost ledger
+are retained. A read-only live catalog check in run44403796963 confirmed all
+six unchanged v4 hashes. No v5 recordings, publication migration or activation
+have been produced. PR52 remains a draft; restoring authorization is required
+to resume the outstanding checks and release.
