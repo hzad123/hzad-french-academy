@@ -36,7 +36,7 @@ test('Send is enabled only when an actual recording is active and affordable',()
 test('TEF live UI renders a microphone activation control and recorder-only submit',()=>{
  const source=readFileSync('src/exams/tef-speaking/ui.js','utf8');
  assert.match(source,/import \{tefMicrophoneControls\} from '\.\/mic-state\.js'/);
- assert.match(source,/data\.tefMicIndicator='true'/);
+ assert.match(source,/micState\.dataset\.tefMicIndicator='true'/);
  assert.match(source,/send\.dataset\.tefSend='true'/);
  assert.match(source,/start\.dataset\.tefStartMic='true'/);
  assert.match(source,/function syncMicControls\(\)/);
