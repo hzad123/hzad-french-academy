@@ -89,7 +89,7 @@ const anchors={
     "La part des sacs effectivement",
     "Il peut masquer",
     "Le décalage possible",
-    "Assimiler une capture annoncée"
+    "Présenter une capture future"
   ],
   "6": [
     "Une transformation des choix",
