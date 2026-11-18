@@ -66,6 +66,29 @@ const feedbackSchema=ids=>({type:'json_schema',json_schema:{
  mistakes:{type:'array',items:obj({turnId:{type:'string',enum:ids},original:str,corrected:str,explanation:str})},
  recommendations:{type:'array',items:obj({advice:str,example:str})}
  })}});
+// GPT-Audio mini supports function calling but not Structured Outputs.
+// Force a single named function for reliable typed results from audio, rather
+// than trusting unconstrained JSON prose. No second paid inference is made.
+const turnFunction={name:'submit_tef_speaking_turn',description:'Return only what the student actually said and one brief French examiner reply.',
+ parameters:{type:'object',additionalProperties:false,required:['transcript','reply','intelligible','questionAsked','observations'],
+ properties:{transcript:{type:'string',description:'Verbatim French learner speech; empty for silence.'},
+ reply:{type:'string',description:'One natural examiner reply in French, no grading.'},
+ intelligible:{type:'boolean',description:'Whether the audio includes intelligible student speech.'},
+ questionAsked:{type:'boolean',description:'True only when the student actually asked a relevant information question in Section A.'},
+ observations:{type:'array',items:{type:'string'},description:'Only verified acoustic observations; empty if none.'}}}};
+export function normalizeTefSpeakingTurn(value,phase){
+ if(!value||typeof value!=='object'||Array.isArray(value))throw new WritingFailure('INVALID_TURN_SHAPE');
+ if(typeof value.intelligible!=='boolean')throw new WritingFailure('INVALID_TURN_SHAPE');
+ const transcript=typeof value.transcript==='string'?safe(value.transcript,1100,true):'';
+ const reply=typeof value.reply==='string'?safe(value.reply,320,true):'';
+ if(value.intelligible&&!transcript)throw new WritingFailure('TRANSCRIPT_MISSING');
+ if(!reply)throw new WritingFailure('EXAMINER_REPLY_MISSING');
+ const observations=Array.isArray(value.observations)?value.observations
+  .filter(v=>typeof v==='string'&&v.trim()).slice(0,3).map(v=>safe(v,160)):[];
+ return {transcript:value.intelligible?transcript:'',reply,
+  intelligible:value.intelligible,questionAsked:phase===0&&value.intelligible&&value.questionAsked===true,
+  observations};
+}
 function examinerMessages(test,phase,turns,audio){
  const s=test.sections[phase===0?0:1],previous=turns.filter(t=>t.phase===phase).slice(-8);
  const role=phase===0?
@@ -124,7 +147,9 @@ export function createTefSpeakingProvider({key,fetcher=fetch}={}){
   const ids=turns.filter(t=>t.intelligible&&t.transcript.trim()&&(kind!=='feedback_a'||t.phase===0)).map(t=>t.id);
   if(kind!=='turn'&&!ids.length)throw Error('No audible speaking evidence.');
   const body={model:settings.model,messages,max_tokens:settings.maxOutputTokens,store:false,
-   ...(kind==='turn'?{modalities:['text']}:{response_format:feedbackSchema(ids)})};
+   ...(kind==='turn'?{modalities:['text'],tools:[{type:'function',function:turnFunction}],
+    tool_choice:{type:'function',function:{name:turnFunction.name}},parallel_tool_calls:false}
+    :{response_format:feedbackSchema(ids)})};
   let response;try{response=await fetcher('https://api.openai.com/v1/chat/completions',{
    method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},
    body:JSON.stringify(body),signal:AbortSignal.timeout(kind==='turn'?65000:55000)
@@ -132,17 +157,19 @@ export function createTefSpeakingProvider({key,fetcher=fetch}={}){
   if(!response.ok){const err=await response.json().catch(()=>({}));throw new WritingFailure('PROVIDER_HTTP',{status:response.status,providerCode:err.error?.code})}
   let raw;try{raw=await response.json()}catch{throw new WritingFailure('INVALID_JSON')}
   if(raw.choices?.[0]?.finish_reason==='length')throw new WritingFailure('TRUNCATED',{usage:raw.usage});
-  let value;try{value=JSON.parse(raw.choices?.[0]?.message?.content)}catch{throw new WritingFailure('INVALID_JSON',{usage:raw.usage})}
+  const message=raw.choices?.[0]?.message;
+  const toolCall=kind==='turn'?message?.tool_calls?.find(c=>c.type==='function'&&c.function?.name===turnFunction.name):null;
+  // Older test fixtures and some model snapshots can still provide content
+  // instead of tool arguments; support that only when it is valid JSON.
+  const serialized=toolCall?.function?.arguments??message?.content;
+  if(typeof serialized!=='string'||!serialized.trim())throw new WritingFailure('TURN_OUTPUT_MISSING',{usage:raw.usage});
+  let value;try{value=JSON.parse(serialized)}catch{throw new WritingFailure('INVALID_JSON',{usage:raw.usage})}
   let result;
-  try{
-   if(kind==='turn'){
-    if(typeof value.intelligible!=='boolean')throw Error('Invalid speech recognition result');
-    result={transcript:safe(value.transcript||'',1100,true),reply:safe(value.reply||'',320,true),
-     intelligible:value.intelligible,questionAsked:attempt.phase===0&&!!value.questionAsked,
-     observations:list(value.observations,3).map(t=>safe(t,160)).filter(Boolean)};
-    if(!result.intelligible)result.transcript='';
-   }else result=validateTefFeedback(value,attempt,kind);
-  }catch{throw new WritingFailure('INVALID_FEEDBACK',{usage:raw.usage})}
+  try{result=kind==='turn'?normalizeTefSpeakingTurn(value,attempt.phase):validateTefFeedback(value,attempt,kind)}
+  catch(error){
+   if(error instanceof WritingFailure)throw error;
+   throw new WritingFailure('INVALID_FEEDBACK',{usage:raw.usage});
+  }
   const usage={model:String(raw.model||settings.model).slice(0,100)};
   for(const k of ['prompt_tokens','completion_tokens','total_tokens'])
    if(Number.isSafeInteger(raw.usage?.[k])&&raw.usage[k]>=0)usage[k]=raw.usage[k];
