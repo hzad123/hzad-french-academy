@@ -31,7 +31,7 @@ test('TEF speaking scenario and exact French instructions appear inside the acti
 });
 test('The selected test determines the live start request and saved rows reopen the same attempt',()=>{
  assert.match(catalog,/selectedTestId=select\.value/);
- assert.match(catalog,/start\.textContent='Commencer le test '/);
+ assert.match(catalog,/start\.textContent='Consulter les consignes/);
  assert.match(catalog,/open\(row\.id\)/);
  assert.match(ui,/testId:paper\.id,version:paper\.version/);
  assert.match(ui,/hz-tef-speaking-header-compact/);
