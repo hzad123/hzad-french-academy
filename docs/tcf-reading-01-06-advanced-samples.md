@@ -1,6 +1,6 @@
-# TCF Reading Tests 01–06 — Advanced owner review samples
+# TCF Reading Tests 01–06 — 18 advanced samples for owner review
 
-These 18 examples show Questions 30, 37 and 39 from each of six editorial candidate papers. They are original HZad practice texts and are not official TCF material. The complete 90-question manual editorial review is documented separately. The new versions are **not yet published**.
+All six **v5 candidates remain unpublished**. These examples are Q30, Q37 and Q39 from each test. Each sample includes the original passage, final stem, four final choices and a collapsible answer/explanation. Correct answers were independently checked against source evidence before regression expectations were updated.
 
 
 ## Test 01
@@ -11,17 +11,17 @@ These 18 examples show Questions 30, 37 and 39 from each of six editorial candid
 
 **Question :** Quel mécanisme rend le rôle climatique des océans ambivalent ?
 
-A. L'absorption du carbone protège les récifs tout en réduisant la régulation climatique
+A. L'absorption marine réduit l'effet des émissions tout en accélérant la disparition du carbone dissous
 
-B. Un même processus peut réguler le climat et dégrader certains milieux marins
+B. Un même processus modère l'effet du CO₂ atmosphérique tout en modifiant défavorablement l'eau de mer
 
-C. La réduction des émissions améliore le climat mais accélère l'acidification
+C. Les émissions favorisent l'absorption océanique, qui réduit ensuite l'acidité autour des récifs
 
-D. Le stockage océanique dépend surtout du dioxyde de carbone absorbé par les récifs
+D. Le stockage du carbone par les océans devient nuisible surtout lorsque les émissions diminuent
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse C.** Les océans absorbent du CO₂ et participent à la régulation climatique, mais cette absorption acidifie les eaux et menace récifs et biodiversité. Le rôle protecteur comporte un effet négatif.
+**B.** B. Les océans atténuent une partie de l'accumulation atmosphérique du CO₂ mais l'absorption acidifie l'eau et menace certains écosystèmes. A déplace le mécanisme vers une disparition du carbone dissous, C inverse l'effet sur l'acidité et D attribue le risque à une baisse des émissions.
 
 </details>
 
@@ -33,15 +33,15 @@ D. Le stockage océanique dépend surtout du dioxyde de carbone absorbé par les
 
 A. Les salariés apprécient une souplesse utile à leur vie personnelle et familiale
 
-B. La pérennité du travail hybride exige des ajustements dans la vie des équipes
+B. Les entreprises envisagent aussi les économies permises sur leurs locaux
 
-C. Les entreprises envisagent aussi les économies permises sur leurs locaux
+C. La pérennité du travail hybride exige des ajustements dans la vie des équipes
 
 D. Les difficultés de séparation des espaces privés et professionnels persistent
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse B.** L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
+**C.** L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
 
 </details>
 
@@ -51,17 +51,17 @@ D. Les difficultés de séparation des espaces privés et professionnels persist
 
 **Question :** Quelle condition détermine l'intégration future des trottinettes ?
 
-A. L'avenir de ce transport dépend d'une coexistence sécurisée en ville
+A. La pérennité du service suppose de régler la cohabitation avec les autres usagers
 
-B. Le prix et l'évitement des embouteillages déterminent l'adoption par les villes
+B. Le succès de l'usage permettrait de réduire progressivement les contraintes de circulation
 
-C. Les règles actuelles visent à maintenir l'utilisation sur les trottoirs
+C. Le développement des locations conditionne l'efficacité des règles de sécurité
 
-D. La réglementation repose principalement sur l'équipement de protection
+D. La possibilité d'éviter les embouteillages rendrait secondaire l'occupation des trottoirs
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse A.** Le succès des trottinettes crée des problèmes de sécurité et de partage de l'espace, auxquels répondent différentes réglementations. Le casque ne suffit pas à résoudre l'ensemble.
+**A.** A. L'avenir de ces véhicules est explicitement subordonné à une intégration sûre dans l'espace urbain. Popularité et avantages pratiques ne suffisent pas.
 
 </details>
 
@@ -81,9 +81,9 @@ C. Des échanges informels pourraient encourager les personnes réservées
 
 D. De courtes activités partagées pourraient être le début d'un lien
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse B.** Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
+**B.** Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
 
 </details>
 
@@ -93,17 +93,17 @@ D. De courtes activités partagées pourraient être le début d'un lien
 
 **Question :** Quel ajustement explique le maintien de l'objectif initial ?
 
-A. Maintenir un repas hebdomadaire en aménageant seulement les horaires
+A. Maintenir une présence hebdomadaire en laissant choisir seulement le créneau horaire
 
-B. Remplacer l'ensemble des rencontres par des contributions à distance
+B. Remplacer la participation commune par une aide individuelle à domicile
 
-C. Conserver une obligation collective en laissant chacun choisir son rôle
+C. Distinguer les résidents selon leur disponibilité pour prévoir des repas obligatoires
 
-D. Diversifier les formes de participation tout en préservant les échanges
+D. Conserver la convivialité en diversifiant les moments et les formes d'engagement
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
+**D.** Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
 
 </details>
 
@@ -113,17 +113,17 @@ D. Diversifier les formes de participation tout en préservant les échanges
 
 **Question :** Quel principe de conception est retenu par les architectes ?
 
-A. Utiliser des composants adaptés à chaque logement sans solutions partagées
+A. L'uniformité de tous les logements limite les coûts dès lors que les occupants sont différents
 
-B. Adopter un plan commun, puis laisser chaque occupant modifier les finitions
+B. Les adaptations doivent être décidées après la construction pour réduire les dépenses initiales
 
-C. Réduire le nombre de composants pour fixer durablement les usages
+C. L'usage d'éléments réutilisables dispense de prévoir l'accès aux installations
 
-D. Standardiser des éléments tout en permettant plusieurs configurations de vie
+D. Une base technique commune peut s'accompagner d'aménagements modulables selon les usages
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Les architectes acceptent de répéter des composants techniques, mais refusent une distribution unique pour des besoins d'habitants différents.
+**D.** D. Les architectes acceptent les composants répétés, tout en prévoyant des cloisons mobiles et des accès techniques permettant des adaptations.
 
 </details>
 
@@ -135,17 +135,17 @@ D. Standardiser des éléments tout en permettant plusieurs configurations de vi
 
 **Question :** Quelle critique la représentante adresse-t-elle à l'indicateur utilisé ?
 
-A. Le temps passé à distance doit être comparé aux horaires contractuels
+A. Le temps contractuel suffit à apprécier les dossiers difficiles dans leur contexte
 
-B. Le nombre de dossiers terminés suffit mieux à apprécier la qualité du travail
+B. La durée de connexion devrait être remplacée par un simple décompte de dossiers
 
-C. La durée en ligne peut refléter la complexité des tâches sans mesurer leur valeur
+C. La durée de présence devrait être interprétée avec la complexité des tâches accomplies
 
-D. La représentante préfère supprimer la mesure du temps des évaluations
+D. La difficulté des dossiers doit être estimée à partir des heures de présence seules
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse C.** Une durée de connexion longue peut refléter un dossier complexe. Il faut confronter le temps aux résultats et aux difficultés au lieu de traiter la présence comme une mesure suffisante.
+**C.** C. Le temps en ligne ne révèle pas à lui seul les résultats ni la complexité des dossiers traités.
 
 </details>
 
@@ -155,17 +155,17 @@ D. La représentante préfère supprimer la mesure du temps des évaluations
 
 **Question :** Quel désaccord persiste malgré l'acceptation du logiciel ?
 
-A. La nécessité d'investir le gain de temps dans davantage de logiciels
+A. Affecter le temps libéré aux seuls dossiers qui présentent un risque d'erreur
 
-B. La répartition de la productivité en fonction des seuls objectifs commerciaux
+B. Déterminer le rendement du logiciel à partir du nombre de demandes en attente
 
-C. Le choix entre traiter plus de dossiers et mieux accompagner les cas difficiles
+C. Arbitrer entre accroître le volume et approfondir le traitement des cas difficiles
 
-D. L'intérêt de supprimer les dossiers les plus complexes grâce à l'automatisation
+D. Réserver l'automatisation aux dossiers simples pour éliminer les suivis complexes
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse C.** Les salariés approuvent le logiciel mais contestent l'affectation de tout le temps gagné à davantage de dossiers ; ils proposent de mieux suivre les cas complexes.
+**C.** C. La direction vise le volume; les salariés veulent consacrer une partie du gain à la qualité du suivi des cas complexes.
 
 </details>
 
@@ -175,17 +175,17 @@ D. L'intérêt de supprimer les dossiers les plus complexes grâce à l'automati
 
 **Question :** Sur quel type de changement repose une ouverture effective ?
 
-A. Réviser les qualifications requises pour ouvrir davantage de postes
+A. Réviser les seuils de compétences pour permettre davantage de candidatures
 
-B. Évaluer les capacités grâce à de longs stages en situation non rémunérés
+B. Maintenir des stages longs en donnant aux candidats plus de créneaux d'entretien
 
-C. Communiquer plus clairement les objectifs d'ouverture à tous les profils
+C. Diffuser l'objectif de diversité avant d'adapter les modalités de sélection
 
-D. Changer les procédures qui excluent sans mesurer les compétences recherchées
+D. Modifier les contraintes de candidature sans abaisser les capacités recherchées
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Horaires d'entretien et stages non rémunérés peuvent écarter des profils malgré les annonces de diversité. L'association demande de modifier ces procédures.
+**D.** D. Les modalités d'entretien et stages non rémunérés agissent comme des filtres sans rapport avec les qualifications.
 
 </details>
 
@@ -197,17 +197,17 @@ D. Changer les procédures qui excluent sans mesurer les compétences recherché
 
 **Question :** Pourquoi la commune juge-t-elle les arrivées insuffisantes pour évaluer le tourisme ?
 
-A. Le nombre de passages ne renseigne pas à lui seul sur les bénéfices pour l'économie locale
+A. La fréquentation ne renseigne pas seule sur les dépenses et la durée des séjours
 
-B. La durée moyenne des séjours permettrait à elle seule de décrire les dépenses locales
+B. La durée des séjours permettrait à elle seule d'estimer la totalité des retombées
 
-C. Les données des hébergeurs seraient inutiles pour mesurer l'apport des visiteurs
+C. Les passages comptés devraient être remplacés par des enquêtes auprès des visiteurs
 
-D. Le nombre d'arrivées devrait être corrigé par la fréquentation des lieux culturels
+D. Les dépenses locales peuvent être évaluées indépendamment des hébergements
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse A.** Un visiteur peut ne faire qu'un bref passage en encombrant le centre sans soutenir beaucoup les commerces. Le nombre d'arrivées ne mesure donc pas seul les retombées.
+**A.** A. Les arrivées ne permettent pas de déduire les retombées réelles sans durée des séjours et dépenses locales.
 
 </details>
 
@@ -217,17 +217,17 @@ D. Le nombre d'arrivées devrait être corrigé par la fréquentation des lieux 
 
 **Question :** Quelle adaptation conditionne l'essor de l'itinérance cycliste ?
 
-A. Une coordination entre les voyageurs avant de réserver leur première étape
+A. Organiser les réservations de façon groupée pour les cyclistes arrivant le même jour
 
-B. Des séjours plus longs dans chaque hébergement pour limiter les démarches
+B. Favoriser des séjours plus longs pour diminuer la charge des hébergeurs
 
-C. Une offre de logement compatible avec le rythme d'un trajet à étapes
+C. Proposer des nuitées qui permettent de progresser par étapes sans détour
 
-D. Un financement supplémentaire des pistes indépendamment des services
+D. Augmenter les itinéraires balisés avant de revoir les conditions d'accueil
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse C.** Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
+**C.** Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
 
 </details>
 
@@ -237,17 +237,17 @@ D. Un financement supplémentaire des pistes indépendamment des services
 
 **Question :** Quel effet collectif peut contredire l'intention des recommandations ?
 
-A. La consultation locale devient plus difficile quand les suggestions changent souvent
+A. Des recommandations plus variées peuvent rendre les visites moins prévisibles
 
-B. La fréquentation se concentre lorsque les plateformes privilégient les grands sites
+B. La concentration des visites suppose que les voyageurs partagent la même heure de départ
 
-C. Des recommandations variées rendent les lieux moins familiers aux visiteurs
+C. Un détour conseillé individuellement n'affecte les quartiers que si le site est célèbre
 
-D. Une destination peu connue peut attirer une foule après des conseils répétés
+D. Des choix identiques proposés à grande échelle peuvent créer un nouveau lieu surfréquenté
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Conseiller une petite place à des milliers de voyageurs peut créer une nouvelle concentration là où la recommandation cherchait à disperser les visites.
+**D.** D. Une plateforme peut concentrer collectivement ses utilisateurs sur un même lieu discret en le recommandant massivement.
 
 </details>
 
@@ -259,17 +259,17 @@ D. Une destination peu connue peut attirer une foule après des conseils répét
 
 **Question :** Pourquoi le designer associe-t-il les fabricants aux spécialistes du traitement ?
 
-A. Pour que les centres de traitement choisissent les matériaux avant la fabrication
+A. Pour ajuster après la vente les consignes aux matières déjà assemblées
 
-B. Pour vérifier que les consignes de tri décrivent les équipements disponibles
+B. Pour mettre les performances des machines de tri au centre du choix initial
 
-C. Pour organiser la récupération des produits dès leur mise en vente
+C. Pour négocier les filières de reprise indépendamment de la composition des produits
 
-D. Pour anticiper les difficultés de séparation dans les choix de conception
+D. Pour tenir compte dès la fabrication des obstacles rencontrés au démontage
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Le traitement en fin de vie guide les choix de matériaux et d'assemblage dès la fabrication. Il ne s'agit pas de déléguer les matériaux aux centres, de rédiger les consignes ni d'organiser une collecte anticipée.
+**D.** D. Les contraintes observées au traitement final orientent les choix de matériaux et d'assemblage dès la conception.
 
 </details>
 
@@ -279,17 +279,17 @@ D. Pour anticiper les difficultés de séparation dans les choix de conception
 
 **Question :** Pourquoi un seul chiffre mensuel risque-t-il de déformer le jugement ?
 
-A. Les observations mensuelles rendent difficiles les comparaisons de financement
+A. Un résultat mensuel devrait être écarté lorsque les partenaires demandent des chiffres simples
 
-B. Un indicateur isolé peut masquer les rythmes différents des effets observés
+B. Un relevé peut être dominé par un épisode ponctuel sans indiquer les évolutions durables
 
-C. Les saisons obligent à réduire le nombre d'espèces étudiées dans les relevés
+C. Les financeurs accordent davantage de poids aux variations que l'association elle-même
 
-D. La durée du programme ne permet pas d'observer les changements du cours d'eau
+D. La comparaison des espèces renseigne moins sur le projet que la circulation de l'eau
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse B.** Les effets de la restauration dépendent des saisons, des espèces et des évolutions lentes. Un chiffre mensuel peut confondre une fluctuation momentanée avec un échec.
+**B.** B. Un chiffre mensuel isole une observation alors que les effets de la restauration suivent des rythmes écologiques et saisonniers différents.
 
 </details>
 
@@ -297,19 +297,19 @@ D. La durée du programme ne permet pas d'observer les changements du cours d'ea
 
 **Texte :** La plantation d'arbres est parfois proposée comme compensation immédiate d'émissions présentes. Les arbres peuvent contribuer au stockage du carbone, mais leur croissance prend du temps et leur survie dépend des conditions locales. Annoncer une équivalence instantanée efface ces incertitudes et risque de faire passer une promesse future pour un résultat déjà acquis. Une sécheresse, une maladie ou un changement d'usage du terrain peut réduire le stockage attendu. Les responsables d'un programme sérieux doivent donc préciser le suivi, la durée et les hypothèses sur lesquelles reposent leurs estimations. Des plantations peuvent apporter d'autres bénéfices utiles, notamment pour le paysage et la biodiversité. Ces intérêts ne doivent toutefois pas servir à faire disparaître les différences entre une réduction déjà obtenue et un engagement à long terme. Les citoyens ont besoin de ces informations pour comprendre la portée réelle des annonces et comparer des actions différentes.
 
-**Question :** Sur quel glissement repose la critique des annonces de compensation ?
+**Question :** Quel glissement est particulièrement visé par l'annonce d'une « compensation immédiate » ?
 
-A. Présenter un stockage encore incertain comme une compensation déjà réalisée
+A. Traiter un stockage futur envisagé comme une réduction déjà obtenue
 
-B. Déduire les émissions évitées de la croissance potentielle des arbres
+B. Assimiler une croissance attendue à une garantie de survie des plantations
 
-C. Compenser des émissions actuelles par les seuls effets sur la biodiversité
+C. Prendre les bénéfices paysagers pour la preuve d'un suivi rigoureux
 
-D. Traiter la durée du suivi comme une mesure du carbone déjà stocké
+D. Présenter une première estimation de stockage comme une mesure définitive
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse A.** Une plantation met du temps à stocker du carbone et sa survie reste incertaine. La critique vise l'annonce d'une compensation déjà obtenue à partir de promesses futures.
+**A.** L'annonce assimile une absorption future, dépendante du temps et de la survie des arbres, à une réduction déjà réalisée : A. B et D évoquent des incertitudes réelles mais pas l'équivalence temporelle qui fonde l'annonce de compensation immédiate; C confond un avantage annexe et la qualité du suivi.
 
 </details>
 
@@ -321,17 +321,17 @@ D. Traiter la durée du suivi comme une mesure du carbone déjà stocké
 
 **Question :** Quelle difficulté l'accompagnement ajouté cherche-t-il à résoudre ?
 
-A. L'accès officiel au programme ne donne pas nécessairement les moyens de s'y orienter
+A. Permettre à ceux qui disposent déjà d'un droit d'entrée de savoir comment en profiter
 
-B. Les personnes qui fréquentent peu la bibliothèque ignorent l'existence des abonnements
+B. Rendre l'abonnement accessible en réduisant le nombre d'activités proposées
 
-C. L'aide de lecteurs habitués doit remplacer la présentation des programmes
+C. Remplacer les rencontres avec des lecteurs par une présentation préalable obligatoire
 
-D. Le choix d'une activité dépend surtout du nombre de lieux couverts par l'abonnement
+D. Orienter les personnes en fonction des seuls lieux déjà présents dans l'abonnement
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse A.** Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
+**A.** Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
 
 </details>
 
@@ -341,17 +341,17 @@ D. Le choix d'une activité dépend surtout du nombre de lieux couverts par l'ab
 
 **Question :** Quelle simplification des témoignages le réalisateur refuse-t-il ?
 
-A. Attribuer les différences entre témoins à une seule génération d'habitants
+A. Attribuer les divergences à des souvenirs différents avant de les confronter
 
-B. Présenter les souvenirs comme des faits identiques à vérifier lors du montage
+B. Faire apparaître les positions des habitants sans expliquer leurs désaccords
 
-C. Ramener les divergences à une opposition entre participants et journalistes
+C. Laisser les témoins valider leurs propos avant d'en présenter plusieurs versions
 
-D. Présenter les habitants comme s'ils exprimaient une parole collective uniforme
+D. Traiter la visibilité des habitants comme l'expression d'une parole commune et uniforme
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse D.** Le réalisateur conserve les désaccords entre habitants. Les rendre visibles ne signifie pas les réunir dans un discours unique.
+**D.** D. Le réalisateur refuse la fabrication d'une voix homogène qui effacerait les désaccords internes.
 
 </details>
 
@@ -359,20 +359,20 @@ D. Présenter les habitants comme s'ils exprimaient une parole collective unifor
 
 **Texte :** On associe parfois un grand nombre de visiteurs à la réussite d'un lieu culturel. Dans une petite salle, l'augmentation des entrées a réduit le temps d'échange et rendu certaines personnes moins à l'aise. L'équipe choisit des groupes plus petits malgré une baisse du chiffre annoncé. Le succès dépend ici de la relation rendue possible, et non de la seule capacité à remplir la salle. Les médiateurs pourront désormais adapter le parcours et laisser davantage de temps aux questions. La direction suivra les retours des visiteurs pour vérifier que le changement ne favorise pas seulement les personnes déjà familières des musées. Elle souhaite conserver une ouverture large, même avec moins de passages simultanés. Le choix n'oppose donc pas mécaniquement quantité et qualité : il cherche une organisation qui permette de mieux accueillir les publics visés, avec les moyens réellement disponibles.
 
-**Question :** Quel compromis la salle accepte-t-elle en réorganisant les visites ?
+**Question :** Quel arbitrage l'équipe assume-t-elle pour rendre la visite plus utile ?
 
-A. La réduction des groupes sert principalement à augmenter la satisfaction des habitués
+A. Garder le même nombre d'entrées en répartissant les visiteurs sur davantage de séances
 
-B. La baisse des entrées est compensée par un parcours plus court et plus fréquent
+B. Consacrer davantage de temps aux échanges en réduisant l'accès des visiteurs novices
 
-C. La salle accepte moins de passages pour permettre un accueil plus approfondi
+C. Accepter une fréquentation annoncée plus faible afin d'améliorer l'accompagnement
 
-D. Les visiteurs sont répartis selon leur niveau de familiarité avec les musées
+D. Maintenir la durée des visites en supprimant les échanges jugés secondaires
 
-<details><summary>Corrigé éditorial</summary>
+<details><summary>Réponse et justification</summary>
 
-**Réponse C.** L'équipe limite la taille des groupes pour mieux accueillir et dialoguer, malgré une baisse du nombre d'entrées annoncé.
+**C.** C. Le texte présente l'acceptation de groupes plus petits, donc d'un chiffre d'entrées moindre, afin de mieux dialoguer et adapter les parcours. A conserverait le volume, B exclurait les visiteurs novices contrairement à l'intention, et D supprimerait les échanges que la salle veut privilégier.
 
 </details>
 
-See [the complete 90-question editorial log](./tcf-reading-01-06-manual-review.md). All original passage topics, exam timing, scoring and previous saved student results are preserved.
+See the [full independent 90-question audit](./tcf-reading-01-06-manual-review.md). These are not official calibrated TCF items.
