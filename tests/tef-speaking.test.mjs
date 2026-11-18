@@ -86,23 +86,48 @@ test('Feedback rejects invented examples while tolerating verbose text without l
  assert(scored.mistakes.every(m=>turns.some(t=>t.id===m.turnId&&t.result.transcript.includes(m.original))));
  assert(!JSON.stringify(scored).includes('un mot inexistant'));
 });
-test('Audio examiner uses actual WAV, distinct French role rules and exactly one provider request',async()=>{
+test('TEF transcription is isolated from examiner context and cannot be overwritten by examiner hallucinations',async()=>{
  for(const phase of [0,2]){
-  let calls=0;
-  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(_url,init)=>{
-   calls++;const req=JSON.parse(init.body);
+  const urls=[];
+  const studentSpeech=phase===0?'Bonjour, quels sont les horaires ?':'Je veux venir samedi avec toi.';
+  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{
+   urls.push(url);
+   if(url.endsWith('/audio/transcriptions')){
+    assert(init.body instanceof FormData);
+    assert.equal(init.body.get('languages[]'),'fr');
+    assert.equal(init.body.get('model'),'gpt-transcribe');
+    assert.equal(init.body.get('file').name,'student-response.wav');
+    assert(!JSON.stringify([...init.body.entries()].filter(([k])=>k!=='file')).includes('privateFacts'));
+    return Response.json({text:studentSpeech});
+   }
+   const req=JSON.parse(init.body);
    assert.equal(req.model,'gpt-audio-mini');assert.equal(req.store,false);
-   assert(req.messages.at(-1).content[0].input_audio);
-   assert.match(req.messages[0].content,/français/);
-   if(phase===0){assert.match(req.messages[0].content,/Le candidat mène/);assert.match(req.messages[0].content,/questions/)}
-   else{assert.match(req.messages[0].content,/ami/);assert.match(req.messages[0].content,/objection/i)}
+   assert(!JSON.stringify(req).includes('input_audio'));
+   assert(JSON.stringify(req.messages).includes(studentSpeech));
+   if(phase===0)assert.match(req.messages[0].content,/Le candidat mène/);
+   else assert.match(req.messages[0].content,/objection/i);
    return Response.json({model:'gpt-audio-mini',usage:{prompt_tokens:340,completion_tokens:80},
-    choices:[{message:{content:JSON.stringify({transcript:'Bonjour, quels sont les horaires ?',reply:'Le samedi à neuf heures.',intelligible:true,questionAsked:true,observations:['Prononciation intelligible.']})}}]});
+    choices:[{message:{content:JSON.stringify({transcript:'Invented speech never said by the student.',reply:'Très bien.',intelligible:true,questionAsked:true,observations:['Invented pronunciation praise']})}}]});
   }});
   const result=await provider.run({kind:'turn',audio:wav,attempt:attempt(phase)},{model:'gpt-audio-mini',maxOutputTokens:2000});
-  assert.equal(calls,1);assert.equal(result.result.transcript,'Bonjour, quels sont les horaires ?');
+  assert.deepEqual(urls,['https://api.openai.com/v1/audio/transcriptions','https://api.openai.com/v1/chat/completions']);
+  assert.equal(result.result.transcript,studentSpeech);
+  assert.deepEqual(result.result.observations,[]);
   assert.equal(result.result.questionAsked,phase===0);
  }
+});
+test('Silence cannot be filled in with examiner generated words',async()=>{
+ const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{
+  if(url.endsWith('/audio/transcriptions'))return Response.json({text:''});
+  return Response.json({model:'fixture',choices:[{message:{content:JSON.stringify({
+   transcript:'Bonjour, je voudrais connaître le prix',reply:'Pouvez-vous répéter ?',
+   intelligible:true,questionAsked:true,observations:['Good pronunciation']})}}]});
+ }});
+ const result=await provider.run({kind:'turn',audio:wav,attempt:attempt(0)},{model:'gpt-audio-mini',maxOutputTokens:2000});
+ assert.equal(result.result.transcript,'');
+ assert.equal(result.result.intelligible,false);
+ assert.equal(result.result.questionAsked,false);
+ assert.deepEqual(result.result.observations,[]);
 });
 test('Private recording broker stores exact WAV and cannot issue public URLs',async()=>{
  let saved=null;
