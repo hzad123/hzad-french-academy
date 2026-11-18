@@ -153,7 +153,7 @@ test('The TEF UI keeps both sections, prevents task-switch per spoken turn and s
  assert.match(ui,/recorderInstance\(\)\.start\(Math\.min\(30,remaining\(\)\)\)/);
  assert.match(ui,/function renderBreak/);
  assert.match(ui,/function renderFinal/);
- assert.match(ui,/Commencer la Section B/);
+ assert.match(ui,/Démarrer la section B/);
  assert.match(ui,/Écouter mon enregistrement/);
  assert.match(m,/create schema academy_tef_speaking/);
  assert.match(m,/enable row level security/);
