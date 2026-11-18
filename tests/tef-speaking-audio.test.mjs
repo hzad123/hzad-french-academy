@@ -46,20 +46,26 @@ test('a real 30-second French speaking WAV reaches the AI provider without count
  let calls=0;
  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url,opts)=>{
   calls++;
+  if(url.endsWith('/audio/transcriptions')){
+   assert.equal(opts.body.get('model'),'gpt-transcribe');
+   assert.equal(opts.body.get('file').size,960044);
+   return Response.json({text:'Bonjour, pourriez-vous préciser les horaires de la visite ?'});
+  }
   assert.equal(url,'https://api.openai.com/v1/chat/completions');
   const body=JSON.parse(opts.body);
-  assert.equal(body.messages.at(-1).content[0].input_audio.data,audio);
+  assert(!JSON.stringify(body).includes('input_audio'));
   assert(body.messages[0].content.includes('français'));
   assert.equal(body.max_tokens,1500);
   return Response.json({model:'gpt-audio-mini',usage:{prompt_tokens:350,completion_tokens:120},
    choices:[{message:{content:JSON.stringify({
-    transcript:'Bonjour, pourriez-vous préciser les horaires de la visite ?',
+    transcript:'Fabricated transcript must be ignored',
     reply:'Les visites ont lieu le samedi matin.',
     intelligible:true,questionAsked:true,observations:[]})}}]});
  }});
  const attempt={test_id:BANK.tests[0].id,version:BANK.version,phase:0,calls:[]};
  const result=await provider.run({kind:'turn',audio,attempt},{model:'gpt-audio-mini',maxOutputTokens:1500});
- assert.equal(calls,1,'Provider must receive the valid audio request exactly once');
+ assert.equal(calls,2,'Dedicated ASR and one examiner call');
+ assert.equal(result.result.transcript,'Bonjour, pourriez-vous préciser les horaires de la visite ?');
  assert.equal(result.result.intelligible,true);
  assert.equal(result.result.questionAsked,true);
  assert.match(result.result.reply,/samedi/);
