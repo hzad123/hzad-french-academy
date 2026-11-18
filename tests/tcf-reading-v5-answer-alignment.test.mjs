@@ -34,6 +34,7 @@ test('Test 01 Q30 is B because carbon uptake both regulates climate and acidifie
  const q=p.questions[29];
  assert.equal(q.correct,'B');
  assert.match(q.passage,/absorption entraîne l.acidification/);
- assert.match(q.options[1],/réguler le climat/);
+ assert.match(q.options[1],/modère l'effet du CO₂ atmosphérique/);
+ assert.match(q.options[1],/modifiant défavorablement l'eau de mer/);
  assert.match(q.explanation,/acidifi/);
 });
