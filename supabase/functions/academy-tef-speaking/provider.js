@@ -113,7 +113,14 @@ export function createTefSpeakingProvider({key,fetcher=fetch}={}){
  async run({kind,audio,attempt},settings){
   const test=attemptTest(attempt),turns=speakingTurns(attempt);
   const messages=kind==='turn'?examinerMessages(test,attempt.phase,turns,audio):gradeMessages(test,kind,attempt);
-  if(size(messages)>54000)throw Error('Speaking context exceeds reserved limit.');
+  // The 54 KB budget protects TEXT context only. The final message of a
+  // speaking turn is a separately validated WAV (up to 30 seconds, ~1.28 MB
+  // when base64 encoded). Counting that WAV as text rejected every normal
+  // recorded answer before the model was ever called.
+  // WAV duration, size and audibility are already checked by inspectAudio()
+  // in the authenticated Edge handler before any AI credits are reserved.
+  const textMessages=kind==='turn'?messages.slice(0,-1):messages;
+  if(size(textMessages)>54000)throw new WritingFailure('CONTEXT_LIMIT');
   const ids=turns.filter(t=>t.intelligible&&t.transcript.trim()&&(kind!=='feedback_a'||t.phase===0)).map(t=>t.id);
   if(kind!=='turn'&&!ids.length)throw Error('No audible speaking evidence.');
   const body={model:settings.model,messages,max_tokens:settings.maxOutputTokens,store:false,
