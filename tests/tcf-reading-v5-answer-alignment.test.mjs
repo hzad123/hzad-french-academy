@@ -64,7 +64,7 @@ const anchors={
     "La méthode de validation",
     "La possibilité d'étaler",
     "Un volume d'entrées élevé",
-    "La synchronisation des dessertes",
+    "Des horaires mieux raccordés",
     "Le flou sur la part de mise",
     "La continuité de parcours",
     "La possibilité de conserver",
