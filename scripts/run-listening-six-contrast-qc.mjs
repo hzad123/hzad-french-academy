@@ -13,6 +13,15 @@ const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,tok
  directory:join(root,'model-receipts'),maxUsd:Number(get('--max-usd','35'))});
 const papers=[],originals=[],evidence=[],imageMaps=[],positions=[],errors=[],baseline=[],baselineMini=[],runNonce=randomBytes(12).toString('hex');
 const workers=Number(get('--workers','8'));
+let completed=0,lastCheckpoint=Date.now();
+function checkpoint(){
+ completed++;
+ if(process.env.GITHUB_ACTIONS!=='true'||Date.now()-lastCheckpoint<90000)return;
+ lastCheckpoint=Date.now();
+ return saveJson(join(root,'live-progress.json'),{runId:process.env.GITHUB_RUN_ID,sourceCommit:process.env.GITHUB_SHA,updatedAt:new Date().toISOString(),completed,total:234,
+  papers:evidence.map(e=>({test:e.test,reviewed:e.questions.filter(Boolean).length,accepted:e.questions.filter(q=>q?.pass&&!q.blocked).length,lateAccepted:e.questions.filter(q=>q?.pass&&!q.blocked&&q.question.number>=23).length}))})
+  .then(()=>execFileSync('python3',['scripts/release/checkpoint-listening-contrast.py',join(root,'live-progress.json')],{stdio:'inherit'}));
+}
 const designSeeds=await loadJson('curriculum/tcf-listening-contrast-design-seeds.json');
 const controls=[
  {question:'Dans quelle salle la réunion se tiendra-t-elle ?',choices:['Dans la salle deux.','Dans la salle trois.','Dans la salle quatre.','Dans la salle cinq.'],clear:false},
@@ -31,7 +40,7 @@ for(const [i,{clear,classification=false,...input}] of controls.entries()){
 }
 await saveJson(join(root,'calibration.json'),calibration);
 if(calibration.some(c=>!c.pass)){await saveJson(join(root,'summary.json'),{protocol,policyHash,readyForMedia:false,status:'calibration-blocked'});process.exit(1);}
-async function parallel(items,fn){let index=0;await Promise.all(Array.from({length:Math.min(workers,items.length)},async()=>{while(index<items.length){const i=index++;await fn(items[i]);}}));}
+async function parallel(items,fn){let index=0;await Promise.all(Array.from({length:Math.min(workers,items.length)},async()=>{while(index<items.length){const i=index++;await fn(items[i]);if(fn===processQuestion)await checkpoint();}}));}
 const bankFiles=await readdir('supabase/exams');
 for(let n=1;n<=6;n++){
  const label=String(n).padStart(2,'0'),available=bankFiles.filter(f=>new RegExp(`^tcf-listening-test${label}-v[0-9]+\\.json$`).test(f)).sort((a,b)=>Number(b.match(/-v(\d+)\.json$/)[1])-Number(a.match(/-v(\d+)\.json$/)[1]));
