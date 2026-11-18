@@ -10,7 +10,7 @@ const uuid1='11111111-1111-4111-8111-111111111111';
 const uuid2='22222222-2222-4222-8222-222222222222';
 const wav=Buffer.from(encodeWav(Float32Array.from({length:16000},(_,i)=>Math.sin(i/9)*.15),16000)).toString('base64');
 const bank=BANK;
-const raw=(ids)=>({score:487,estimatedLevel:'B2',summary:'Le candidat explique son choix, mais développe peu ses exemples.',
+const raw=(ids)=>({score:487,sectionBScore:465,estimatedLevel:'B2',summary:'Le candidat explique son choix, mais développe peu ses exemples.',
  criteria:['linguistic','pragmatic','sociolinguistic'].map((id,i)=>({id,turnId:ids[i%ids.length],reason:'Un fait concret montre une difficulté d’expression.',improvement:'Précisez votre argument. ' .repeat(40)})),
  mistakes:[],recommendations:[{advice:'Posez une question plus ciblée et donnez des détails. '.repeat(15),example:'Pourriez-vous préciser le prix et les horaires ?'}]});
 const turns=[
@@ -55,17 +55,20 @@ test('IRCC post-2023 TEF Canada oral 0-699 NCLC conversion, never TCF /20',()=>{
 test('Section A has a labelled partial TEF/NCLC estimate; B final score needs audible A and B',()=>{
  const section=validateTefFeedback(raw([uuid1]),attempt(1),'feedback_a');
  assert.equal(section.score,487);assert.equal(section.nclc,'7');
+ assert.equal(section.sectionBScore,null);assert.equal(section.sectionBNclc,null);
  assert.equal(section.scoreStatus,'unofficial-section-a-estimate');
  assert.equal(section.criteria.length,3);
  assert(section.criteria.every(c=>c.turnId===uuid1));
  const overall=validateTefFeedback(raw([uuid1,uuid2]),attempt(3),'feedback_b');
  assert.equal(overall.score,487);assert.equal(overall.nclc,'7');
+ assert.equal(overall.sectionBScore,465);assert.equal(overall.sectionBNclc,'7');
  assert.equal(overall.scoreStatus,'unofficial-practice-estimate');
  assert(overall.recommendations[0].advice.length<=250);
  assert(overall.criteria.every(c=>c.improvement.length<=350));
  const partial=validateTefFeedback(raw([uuid1,uuid2]),{...attempt(3),calls:turns.slice(0,1)},'feedback_b');
  assert.equal(partial.score,null);
  assert.equal(partial.nclc,null);
+ assert.equal(partial.sectionBScore,null);assert.equal(partial.sectionBNclc,null);
  const noSpeech=attempt(1);noSpeech.calls=[];
  assert.throws(()=>validateTefFeedback(raw([uuid1]),noSpeech,'feedback_a'),/No assessable French evidence/);
 });
@@ -157,4 +160,19 @@ test('The TEF UI keeps both sections, prevents task-switch per spoken turn and s
  assert.match(m,/storage\.buckets/);
  assert.match(m,/grant execute on function public\.academy_tef_speaking_command/);
  assert.doesNotMatch(m,/update academy_tcf_speaking|drop table academy_tcf/i);
+});
+
+test('B-only TEF/NCLC estimation uses only its own model score, not the overall A+B score',()=>{
+ const result=raw([uuid1,uuid2]);
+ result.score=555; // Overall A+B => NCLC 9
+ result.sectionBScore=422; // Section B alone => NCLC 6
+ const assessment=validateTefFeedback(result,attempt(3),'feedback_b');
+ assert.equal(assessment.score,555);
+ assert.equal(assessment.nclc,'9');
+ assert.equal(assessment.sectionBScore,422);
+ assert.equal(assessment.sectionBNclc,'6');
+ const legacy=validateTefFeedback({...result,sectionBScore:undefined},attempt(3),'feedback_b');
+ assert.equal(legacy.score,555);
+ assert.equal(legacy.sectionBScore,null);
+ assert.equal(legacy.sectionBNclc,null);
 });
