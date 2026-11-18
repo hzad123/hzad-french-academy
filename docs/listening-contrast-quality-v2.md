@@ -119,8 +119,8 @@ available manually, including the withdrawn07–20 papers outside this release.
 
 ## Validation record
 
-372 repository tests and the production build passed after merging the latest application changes. Focused tests cover the subsequently added mandatory editor and persistent rejection checks. After the generation and
-validation changes. Fresh content evaluation is pending; this document does
+374 repository tests and the production build passed, including the mandatory
+editor and persistent rejection checks. Fresh content evaluation is pending; this document does
 not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
 calling the issue resolved.

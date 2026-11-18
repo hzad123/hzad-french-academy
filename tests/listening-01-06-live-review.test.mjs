@@ -122,7 +122,11 @@ test('review and strict publication roll back, preserve historical results and s
   await db.exec('begin;'+strictSql+'commit;');await db.exec('begin;'+strictSql+'commit;');
   assert.deepEqual((await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows,attemptsBefore);
   assert.equal((await db.query('select count(*) n from academy_tcf_listening.papers')).rows[0].n,36);
-  const a=await cmd(alice,'start',crypto.randomUUID(),{testId:strict[0].id,version:strict[0].version});
-  assert.equal(a.paper.version,strict[0].version);assert.equal(Date.parse(a.deadline)-Date.parse(a.startedAt),2100000);
+  for(const p of strict){
+   const id=crypto.randomUUID();let a=await cmd(alice,'start',id,{testId:p.id,version:p.version});
+   const deadline=a.deadline;assert.equal(a.paper.version,p.version);assert.equal(Date.parse(deadline)-Date.parse(a.startedAt),2100000);
+   for(const q of p.questions){a=await cmd(alice,'answer',id,{number:q.number,choice:q.correct,revision:a.revision});if(q.number<39)a=await cmd(alice,'next',id,{number:q.number,revision:a.revision});assert.equal(a.deadline,deadline);}
+   a=await cmd(alice,'submit',id,{revision:a.revision});assert.equal(a.result.correct,39);assert.equal(a.result.total,39);
+  }
  }finally{await db.close();}
 });
