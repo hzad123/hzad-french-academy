@@ -2989,5 +2989,373 @@
         }
       ]
     }
+  },
+  {
+    "test": 2,
+    "number": 19,
+    "sourceHash": "e0a424a6fe7f7bfac1261ddce040fbbcc25f788a427c003ebfc168a38b25e5a9",
+    "authored": {
+      "question": "En fonction de quoi le parcours doit-il être adapté ?",
+      "choices": [
+        "Des centres d’intérêt des visiteurs du groupe.",
+        "Du temps prévu lors de la réservation de la visite.",
+        "Des connaissances signalées avant de participer à la visite.",
+        "De l’âge moyen des personnes qui composent le groupe."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "adapter le parcours",
+            "aux intérêts des visiteurs"
+          ],
+          "reason": "Confond la réservation requise avec un choix de durée qui définirait le parcours."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "adapter le parcours",
+            "aux intérêts des visiteurs"
+          ],
+          "reason": "Transforme la mention d’un accueil non réservé aux spécialistes en évaluation préalable des connaissances."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "adapter le parcours",
+            "aux intérêts des visiteurs"
+          ],
+          "reason": "Attribue l’adaptation à l’âge plutôt qu’aux intérêts, critère explicitement donné."
+        }
+      ]
+    }
+  },
+  {
+    "test": 2,
+    "number": 21,
+    "sourceHash": "0a5f6cb80d460b654b00dfc4dbc3ebd638e1d3d132f2ec5ac1bd3fe85a874a68",
+    "authored": {
+      "question": "Quelles équipes doit-on constituer ?",
+      "choices": [
+        "L’accueil, le nettoyage et l’animation.",
+        "L’accueil, la cuisine et la buvette.",
+        "Le nettoyage, l’installation et la sécurité.",
+        "L’animation, le montage et la communication."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "les équipes d’accueil, de nettoyage",
+            "et d’animation"
+          ],
+          "reason": "Conserve l’accueil mais remplace deux fonctions citées par d’autres tâches plausibles d’une fête."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "les équipes d’accueil, de nettoyage",
+            "et d’animation"
+          ],
+          "reason": "Conserve le nettoyage mais ajoute l’installation et la sécurité, qui ne sont pas les équipes énumérées."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "les équipes d’accueil, de nettoyage",
+            "et d’animation"
+          ],
+          "reason": "Conserve l’animation mais remplace l’accueil et le nettoyage par deux autres fonctions non citées."
+        }
+      ]
+    }
+  },
+  {
+    "test": 3,
+    "number": 10,
+    "sourceHash": "b66ad8df837c8b096bd61866e2f668d25b2fe17044861036467709d6c0f1e161",
+    "authored": {
+      "question": "Quelle démarche est proposée auprès de la médecin ?",
+      "choices": [
+        "Le pharmacien contactera son cabinet pour vérifier la substitution.",
+        "Le patient l’appellera avant de revenir à la pharmacie.",
+        "La pharmacie lui écrira pour comparer les dosages disponibles.",
+        "Le patient attendra qu’elle le rappelle pour donner son accord."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "contacter son cabinet",
+            "pour vérifier la substitution"
+          ],
+          "reason": "Confond le souhait du patient de prévenir sa médecin avec la prise de contact par le pharmacien effectivement proposée."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "contacter son cabinet",
+            "pour vérifier la substitution"
+          ],
+          "reason": "Transforme l’égalité de dosage déjà indiquée en comparaison écrite que la médecin devrait effectuer."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "contacter son cabinet",
+            "pour vérifier la substitution"
+          ],
+          "reason": "Inverse la prise de contact : le pharmacien propose de joindre le cabinet, aucun rappel direct au patient n’est annoncé."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 22,
+    "sourceHash": "6874672853de3b6c66ba6d9b22dc9971d245eeb62f1fee7a7e788675e6a03554",
+    "authored": {
+      "question": "Qu’est-ce qui aide les apprenants à poursuivre leur parcours ?",
+      "choices": [
+        "Découvrir que d’autres partagent leurs doutes et leurs oublis.",
+        "Constater leur progression grâce aux exercices faits ensemble.",
+        "Recevoir des explications adaptées à leur situation personnelle.",
+        "Construire un programme de révision avec les autres participants."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "Ils découvrent qu’ils ne sont pas seuls",
+            "Cette confiance les aide à poursuivre"
+          ],
+          "reason": "Attribue la poursuite du parcours aux exercices plutôt qu’à la confiance que crée le soutien entre apprenants."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "Ils découvrent qu’ils ne sont pas seuls",
+            "Cette confiance les aide à poursuivre"
+          ],
+          "reason": "Transforme le besoin de revoir des notions en explications individuelles, alors que le changement mis en avant vient du groupe."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "Ils découvrent qu’ils ne sont pas seuls",
+            "Cette confiance les aide à poursuivre"
+          ],
+          "reason": "Confond les rencontres avec la construction d’un programme de révision, action non décrite."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 21,
+    "sourceHash": "ad1b32430974929b486882cdfdc061ae17e84071c4ef3c6358dfaf68b64aa7ef",
+    "authored": {
+      "question": "Quand les entretiens pourront-ils avoir lieu ?",
+      "choices": [
+        "En soirée et le samedi.",
+        "Le midi et le vendredi.",
+        "En fin d’après-midi et le dimanche.",
+        "Le matin et le mercredi."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "Les entretiens individuels",
+            "le soir et le samedi"
+          ],
+          "reason": "Remplace les deux possibilités citées par deux autres moments proches d’un calendrier de consultation."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "Les entretiens individuels",
+            "le soir et le samedi"
+          ],
+          "reason": "Confond la soirée avec la fin d’après-midi et déplace le rendez-vous du samedi au dimanche."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "Les entretiens individuels",
+            "le soir et le samedi"
+          ],
+          "reason": "Transforme les horaires décalés des résidents en plages de matinée et de mercredi qui ne sont pas proposées."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 17,
+    "sourceHash": "954ea951f72f8194da3125a6cee1d3bbf545e4c86fa5d2c9f21bc55ad741dbeb",
+    "authored": {
+      "question": "Quand la collecte aura-t-elle lieu ?",
+      "choices": [
+        "Le jeudi à la fermeture du marché.",
+        "Le mercredi après la fermeture du marché.",
+        "Le vendredi, quand le marché est terminé.",
+        "Le samedi, à la fin du marché."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "se tiendra jeudi",
+            "à la fermeture du marché"
+          ],
+          "reason": "Conserve le moment de fin de marché mais avance la collecte d’un jour."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "se tiendra jeudi",
+            "à la fermeture du marché"
+          ],
+          "reason": "Conserve la fin de marché mais décale la collecte au vendredi."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "se tiendra jeudi",
+            "à la fermeture du marché"
+          ],
+          "reason": "Conserve la fin de marché mais la situe le samedi plutôt que le jeudi annoncé."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 19,
+    "sourceHash": "6101d698ad7db5d3d5f1451bf94fb05b7ef782a47763681de05711c359bf75fa",
+    "authored": {
+      "question": "Combien de personnes pourront composer un groupe ?",
+      "choices": [
+        "Jusqu’à huit personnes.",
+        "Six visiteurs maximum.",
+        "Pas plus de dix personnes.",
+        "Douze personnes tout au plus."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "les groupes ne dépasseront pas",
+            "huit personnes"
+          ],
+          "reason": "Propose une limite plus basse que le maximum annoncé pour les espaces étroits."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "les groupes ne dépasseront pas",
+            "huit personnes"
+          ],
+          "reason": "Propose un maximum supérieur à la limite de huit effectivement annoncée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "les groupes ne dépasseront pas",
+            "huit personnes"
+          ],
+          "reason": "Augmente la capacité autorisée alors que le document limite précisément le nombre à huit."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 20,
+    "sourceHash": "e3289af428c860eed69d46eff0e921403140f2a5692d2521a3f54c7ae5120054",
+    "authored": {
+      "question": "Quelle crainte est exprimée ?",
+      "choices": [
+        "Annoncer des plats qu’on ne pourra pas servir toute l’année.",
+        "Recevoir des légumes en quantités trop grandes pour le restaurant.",
+        "Payer des prix qui changent à chaque nouvelle livraison.",
+        "Devoir modifier les recettes à cause d’une qualité variable."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
+      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "promettre les mêmes plats toute l’année",
+            "les récoltes sont irrégulières"
+          ],
+          "reason": "Confond l’irrégularité et l’absence saisonnière de certaines variétés avec des livraisons trop abondantes."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "promettre les mêmes plats toute l’année",
+            "les récoltes sont irrégulières"
+          ],
+          "reason": "Transforme l’offre jugée intéressante et les variations des récoltes en variation de prix non évoquée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "promettre les mêmes plats toute l’année",
+            "les récoltes sont irrégulières"
+          ],
+          "reason": "Confond les récoltes irrégulières selon la saison avec une qualité variable des produits, qui n’est pas la crainte exprimée."
+        }
+      ]
+    }
   }
 ]
