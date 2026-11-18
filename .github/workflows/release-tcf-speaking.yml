@@ -1,7 +1,12 @@
-name: Release TCF speaking Test01
+name: Release TCF Speaking Backend
 on:
   push:
-    branches: [feature/tcf-speaking-test-01-20261112, fix/tcf-speaking-submit-flow-20261112, feature/tcf-speaking-twenty-papers]
+    branches: [development, feature/tcf-speaking-test-01-20261112, fix/tcf-speaking-submit-flow-20261112, feature/tcf-speaking-twenty-papers]
+    paths:
+      - 'supabase/functions/academy-tcf-speaking/**'
+      - 'supabase/functions/academy-ai/verbatim-transcription.js'
+      - 'scripts/release/tcf-speaking.py'
+      - '.github/workflows/release-tcf-speaking.yml'
 permissions:
   contents: read
 concurrency:

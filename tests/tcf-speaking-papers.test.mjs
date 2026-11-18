@@ -20,8 +20,8 @@ test('20 immutable papers preserve approved Test01, distinct interviews/scenario
 });
 test('all20 saved identities select original private scenario for conversation and original paper for grading',async()=>{
  for(const paper of TESTS){let payload;
- const provider=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{payload=JSON.parse(init.body);return Response.json({choices:[{message:{content:JSON.stringify({transcript:'Je demande les horaires.',reply:'Bonjour.',intelligible:true,observations:['Audible liaison.']})}}]})}});
- const attempt={test_id:paper.id,version:paper.version,phase:2,calls:[]};await provider.run({kind:'turn',audio:'fixture',attempt},{model:'fixture',maxOutputTokens:2000});
+ const provider=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{if(url.endsWith('/audio/transcriptions'))return Response.json({text:'Je demande les horaires.'});payload=JSON.parse(init.body);return Response.json({choices:[{message:{content:JSON.stringify({reply:'Bonjour.'})}}]})}});
+ const attempt={test_id:paper.id,version:paper.version,phase:2,calls:[]};await provider.run({kind:'turn',audio:Buffer.from('voice').toString('base64'),attempt},{model:'fixture',maxOutputTokens:2000});
  assert(payload.messages[0].content.includes(paper.phases[2].role));assert.equal(JSON.parse(payload.messages[1].content).task,paper.phases[2].prompt);
  const turns=[0,2,3].map((phase,i)=>({id:'t'+i,phase,kind:'turn',status:'completed',result:{transcript:'Je présente une idée.',intelligible:true,observations:['Clear vowel.']}}));
  let marked;const marker=createSpeakingProvider({key:'fixture',fetcher:async(url,init)=>{marked=JSON.parse(JSON.parse(init.body).messages[1].content);return Response.json({choices:[{message:{content:JSON.stringify({score:12,summary:'Argument incomplete.',criteria:['linguistic','pragmatic','sociolinguistic'].map(id=>({id,turnId:'t0',reason:'Agreement error.',improvement:''}))})}}]})}});
