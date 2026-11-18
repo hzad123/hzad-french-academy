@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,access,readdir} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
 import {publicationSQL6} from '../scripts/release/listening-01-06-v4.mjs';
-import {protectedTables} from '../scripts/release/listening-owner-review.mjs';
+import {protectedTables,strictProtectedTables} from '../scripts/release/listening-owner-review.mjs';
 import {assertReviewAuthorization,assertReviewQuestion,reviewRequest} from '../scripts/lib/listening-owner-review.mjs';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {policyHash,hash,contentHash,blindProjection,stimulus} from '../scripts/lib/listening-answer-qc.mjs';
@@ -78,7 +78,7 @@ test('review and strict publication roll back, preserve historical results and s
    await db.query('insert into academy_tcf_listening.papers values($1,$2,$3) on conflict do nothing',[p.id,p.version,p]);
    await db.query('insert into academy_tcf_listening.published values($1,$2) on conflict(test_id) do update set version=excluded.version',[p.id,p.version]);
   }
-  for(const table of protectedTables)if(!(await db.query('select to_regclass($1) name',[table])).rows[0].name){await db.exec(`create schema if not exists ${table.split('.')[0]};create table ${table}(fixture_data jsonb);`);await db.query(`insert into ${table} values($1)`,[{preserve:'unchanged'}]);}
+  for(const table of strictProtectedTables)if(!(await db.query('select to_regclass($1) name',[table])).rows[0].name){await db.exec(`create schema if not exists ${table.split('.')[0]};create table ${table}(fixture_data jsonb);`);await db.query(`insert into ${table} values($1)`,[{preserve:'unchanged'}]);}
   const cmd=async(user,action,id=null,payload={})=>{await db.query("select set_config('request.jwt.claim.sub',$1,false)",[user]);return (await db.query('select public.academy_tcf_listening_command($1,$2,$3) value',[action,id,payload])).rows[0].value;};
   const pendingId=crypto.randomUUID(),completedId=crypto.randomUUID();
   let pending=await cmd(alice,'start',pendingId,{testId:current[0].id,version:current[0].version});
@@ -106,9 +106,17 @@ test('review and strict publication roll back, preserve historical results and s
   await assert.rejects(()=>db.exec(publicationSQL6(changed)),/Immutable review version differs/);
   // These are transaction fixtures, never evidence of real authoring quality.
   // Validate the new revision's preservation/rollback behavior independently.
-  const strict=fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
+  const strictPaths=fixtures.map(p=>`supabase/exams/tcf-listening-test${p.id.slice(-2)}-v5.json`);
+  const strictPresent=await Promise.all(strictPaths.map(p=>access(p).then(()=>true,()=>false)));
+  if(strictPresent.some(Boolean)&&!strictPresent.every(Boolean))throw Error('All six actual strict banks required');
+  const strict=strictPresent.every(Boolean)?await Promise.all(strictPaths.map(read)):fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
   const attemptsBefore=(await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows;
-  const strictSql=publicationSQL6(strict,protectedTables,{revision:5});
+  const strictSql=publicationSQL6(strict,strictProtectedTables,{revision:5});
+  for(const table of ['academy_tef_writing.attempts','academy_tef_speaking.attempts','academy_tef_speaking.calls'])assert(strictSql.includes('from '+table+' t)'));
+  if(strictPresent.every(Boolean)){
+   const migrations=(await readdir('supabase/migrations')).filter(f=>/_tcf_listening_01_06_strict_v5\.sql$/.test(f));
+   assert.equal(migrations.length,1);assert.equal(await readFile('supabase/migrations/'+migrations[0],'utf8'),strictSql);
+  }
   await db.exec('begin;'+strictSql);assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v5')));await db.exec('rollback;');
   assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v4')));
   await db.exec('begin;'+strictSql+'commit;');await db.exec('begin;'+strictSql+'commit;');

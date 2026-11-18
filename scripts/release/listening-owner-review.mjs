@@ -10,6 +10,10 @@ export const protectedTables=Object.freeze([
  'academy_tcf_reading.papers','academy_tcf_reading.published_papers','academy_tcf_reading.attempts',
  'academy_tcf_listening.attempts','academy_tcf_listening.navigation'
 ]);
+// Later modules are protected by new releases without changing historical SQL.
+export const strictProtectedTables=Object.freeze([...protectedTables,
+ 'academy_tef_writing.attempts','academy_tef_speaking.attempts','academy_tef_speaking.calls'
+]);
 const literal=s=>"'"+String(s).replaceAll("'","''")+"'";
 export const loadPapers=()=>Promise.all([3,4,5,6].map(n=>readFile(`supabase/exams/tcf-listening-test0${n}-v3.json`,'utf8').then(JSON.parse)));
 export function publicationSQL(papers,tables=protectedTables) {
