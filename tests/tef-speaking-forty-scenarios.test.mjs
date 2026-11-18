@@ -11,7 +11,8 @@ test('All 40 TEF oral scenarios independently dispatch the intended A/B examiner
     result:{transcript:'Je te conseille de participer, car cela serait enrichissant.',reply:'Et si je ne suis pas prêt ?',intelligible:true,observations:[],seconds:8}}];
   for(const phase of [0,2]){
    let promptSeen=false;
-   const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(_url,opts)=>{
+   const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url,opts)=>{
+    if(url.endsWith('/audio/transcriptions'))return Response.json({text:phase===0?'Bonjour, pourriez-vous préciser vos horaires ?':'Je voudrais te convaincre de venir.'});
     const payload=JSON.parse(opts.body);
     const system=payload.messages[0].content;
     const student=payload.messages[1].content;
@@ -31,7 +32,7 @@ test('All 40 TEF oral scenarios independently dispatch the intended A/B examiner
      intelligible:true,questionAsked:phase===0,observations:['La parole est intelligible.']})}}]});
    }});
    const attempt={test_id:paper.id,version:paper.version,phase,calls:histories};
-   const res=await provider.run({kind:'turn',audio:'fixture-wav',attempt},{model:'gpt-audio-mini',maxOutputTokens:2000});
+   const res=await provider.run({kind:'turn',audio:Buffer.from('test wave').toString('base64'),attempt},{model:'gpt-audio-mini',maxOutputTokens:2000});
    assert(promptSeen);assert(res.result.reply.length>5);
    assert.equal(res.result.questionAsked,phase===0);
    total++;
