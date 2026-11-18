@@ -1,12 +1,7 @@
 name: Strict blind quality for Listening Tests01–06
 on:
-  push:
-    branches: [fix/listening-six-blind-cues-v5]
-    paths:
-      - .github/workflows/listening-answer-qc.yml
-      - scripts/run-listening-six-contrast-qc.mjs
-      - scripts/lib/listening-contrast-quality.mjs
-      - supabase/functions/academy-listening-qc/**
+  # Paid authoring starts explicitly. Code/media CI still runs automatically;
+  # a push must not replace an active project-authorized recovery deployment.
   workflow_dispatch:
 permissions:
   contents: write

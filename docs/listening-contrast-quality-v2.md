@@ -172,3 +172,13 @@ are retained. A read-only live catalog check in run44403796963 confirmed all
 six unchanged v4 hashes. No v5 recordings, publication migration or activation
 have been produced. PR52 remains a draft; restoring authorization is required
 to resume the outstanding checks and release.
+
+The owner reconnected Supabase on18November and project access was verified
+ACTIVE_HEALTHY. Evaluation can now run locally through project-authorized
+deployment without retrieving provider or service-role secrets. A four-hour
+random authoring credential is held only in a mode0600 local runner file; only
+its SHA256 digest and expiry are deployed. JWT verification and permanent
+admin authentication remain enabled. Live health checks rejected an unknown
+token (401) and accepted the scoped token (200), without paid inference.
+Automatic code-push authoring is disabled to prevent concurrent replacement of
+this private deployment; explicit authoring and all deterministic CI remain.
