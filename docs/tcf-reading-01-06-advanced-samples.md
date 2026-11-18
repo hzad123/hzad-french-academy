@@ -1,10 +1,11 @@
 # TCF Reading 01–06 — Advanced question review samples
 
-**Editorial candidates only.** These are original HZad texts, not official FEI questions. Each bank retains 39 items, the same passage topics and original practice scoring. Only Q25–39 were rewritten in this iteration; Q1–24 were retained. This file is for examiner/owner inspection and must **not** be used to publish answers in the student interface.
+**Editorial candidates only.** These are original HZad texts, not official FEI questions. Each bank retains 39 items, the same passages/topics and original practice scoring. Q25–39 have been rewritten; Q1–24 are unchanged. This file is for owner/editor review, not student-facing answer publication.
 
-The automated review pipeline runs: (1) static schema/cue checks; (2) independent **passage-free** AI choice guesses on three randomized orderings, with no key/explanation; (3) a separate AI passage/evidence review with no author key; (4) an author-key comparison and rejection of ambiguous/guessable items. The independent API stage **cannot pass** without a GitHub secret named `OPENAI_API_KEY_TCF_REVIEW`. Reproducible no-passage *heuristic* scores are not AI results.
+Independent review procedure: 3 shuffled blind no-passage/no-key rounds, then a separate passage-grounded single-answer review. The AI reviewer is currently **blocked by an unavailable GitHub Actions API key**. The deterministic heuristic measured separately is not an AI review. No new v5 paper has been published.
 
-Official format reference: https://www.france-education-international.fr/test/tcf-canada and public examples https://www.france-education-international.fr/test/exemples-epreuves-tcf .
+Official TCF examples: https://www.france-education-international.fr/test/exemples-epreuves-tcf
+
 
 ## Test 01
 
@@ -322,15 +323,15 @@ D. Déduire le stockage initial des futurs bénéfices pour la biodiversité
 
 **Texte :** Un abonnement culturel donne accès à de nombreux lieux. Pourtant, les personnes qui ne connaissent pas les programmes l'utilisent peu. Un accompagnement à la découverte est ajouté : disposer d'un droit d'entrée ne suffit pas toujours à se sentir invité. Des présentations courtes et des échanges avec des lecteurs familiers sont donc proposés. La bibliothèque souhaite permettre une première visite concrète, sans supposer que tous les bénéficiaires savent déjà où aller ni comment choisir une activité.
 
-**Question :** Pourquoi l'abonnement ne suffit-il pas toujours à favoriser la découverte ?
+**Question :** Quelle difficulté l'accompagnement ajouté cherche-t-il à résoudre ?
 
-A. Un droit d'entrée doit parfois s'accompagner de repères pour être réellement utilisé
+A. Une entrée autorisée devient plus accessible avec des repères de découverte
 
-B. La diversité des lieux suffit à rendre les programmes accessibles aux visiteurs
+B. La bibliothèque complète les programmes par de courtes présentations
 
-C. Un abonnement est utile seulement après plusieurs visites guidées obligatoires
+C. Les lecteurs habitués peuvent aider à choisir une première activité
 
-D. L'information écrite remplace les échanges pour les nouveaux publics
+D. Certains détenteurs de l'abonnement se rendent rarement dans les lieux
 
 <details><summary>Corrigé pour l'éditeur</summary>
 
@@ -342,15 +343,15 @@ D. L'information écrite remplace les échanges pour les nouveaux publics
 
 **Texte :** Un documentaire donne la parole à des habitants longtemps absents des médias. Le réalisateur refuse pourtant de présenter ces voix comme un groupe parfaitement homogène. Les désaccords font partie de leur expérience commune. Accorder une visibilité ne consiste pas à fabriquer une parole unique qui effacerait les différences internes. Certains témoins ont des intérêts proches mais des souvenirs contradictoires d'un même événement. Le réalisateur les laisse apparaître, en donnant au spectateur les éléments nécessaires pour comprendre leurs positions. Il refuse d'effacer les nuances simplement pour obtenir un récit plus facile à résumer. Les participants sont informés du cadre et peuvent vérifier leurs propres propos avant diffusion. Cette méthode ne prétend pas supprimer tous les choix du montage, mais rend moins plausible l'idée qu'une personne pourrait parler naturellement au nom de toutes celles qui partagent son lieu de vie.
 
-**Question :** Comment le réalisateur entend-il rendre ces habitants visibles ?
+**Question :** Quelle simplification des témoignages le réalisateur refuse-t-il ?
 
-A. Les témoignages doivent être choisis pour faire entendre une position commune
+A. Associer tous les désaccords à des conflits de génération entre habitants
 
-B. Les divergences doivent être expliquées par la différence des générations
+B. Expliquer les témoignages seulement par des intérêts économiques divergents
 
-C. Les personnes interrogées peuvent remplacer les choix de montage du réalisateur
+C. Traiter les contradictions de souvenirs comme des erreurs à corriger
 
-D. Un même groupe peut être rendu visible sans lui attribuer une voix uniforme
+D. Présenter ces habitants comme porteurs d'une seule parole collective
 
 <details><summary>Corrigé pour l'éditeur</summary>
 
@@ -362,15 +363,15 @@ D. Un même groupe peut être rendu visible sans lui attribuer une voix uniforme
 
 **Texte :** On associe parfois un grand nombre de visiteurs à la réussite d'un lieu culturel. Dans une petite salle, l'augmentation des entrées a réduit le temps d'échange et rendu certaines personnes moins à l'aise. L'équipe choisit des groupes plus petits malgré une baisse du chiffre annoncé. Le succès dépend ici de la relation rendue possible, et non de la seule capacité à remplir la salle. Les médiateurs pourront désormais adapter le parcours et laisser davantage de temps aux questions. La direction suivra les retours des visiteurs pour vérifier que le changement ne favorise pas seulement les personnes déjà familières des musées. Elle souhaite conserver une ouverture large, même avec moins de passages simultanés. Le choix n'oppose donc pas mécaniquement quantité et qualité : il cherche une organisation qui permette de mieux accueillir les publics visés, avec les moyens réellement disponibles.
 
-**Question :** Quel arbitrage l'équipe accepte-t-elle pour améliorer l'accueil ?
+**Question :** Quel compromis la salle accepte-t-elle en réorganisant les visites ?
 
-A. Réduire les groupes avant d'étudier l'effet sur les visiteurs peu habitués
+A. Le projet doit vérifier que les visiteurs peu habitués restent accueillis
 
-B. Augmenter les visites accompagnées pour accroître la fréquentation annoncée
+B. Les groupes plus petits laissent davantage de temps aux échanges
 
-C. Réserver du temps à l'échange même si le nombre d'entrées diminue
+C. L'équipe privilégie la qualité de la relation malgré une moindre affluence
 
-D. Maintenir les objectifs de fréquentation en raccourcissant les médiations
+D. Les médiateurs peuvent adapter le parcours aux questions des visiteurs
 
 <details><summary>Corrigé pour l'éditeur</summary>
 
@@ -380,8 +381,8 @@ D. Maintenir les objectifs de fréquentation en raccourcissant les médiations
 
 ## Review status
 
-- **90 advanced items revised** across Tests 01–06; all 144 earlier questions retained exactly.
-- **Backend and frontend:** unchanged; the current published versions remain active. These v5 papers are not deployed.
-- **Automated static and semantic-anchor checks:** built into the repository tests.
-- **Independent AI blind/evidence checks:** blocked until the protected reviewer API credential exists; do not claim accuracy or release approval based on heuristics alone.
-- **Remaining concerns:** free-form editorial review of borderline distractors and formal independent AI acceptance remain necessary.
+- 90 advanced question-and-option sets revised in six separately versioned candidates, with exact existing passages preserved.
+- 144 early/intermediate questions retained unchanged.
+- Paper structure and answer-key alignment checked through repository tests.
+- Only the deterministic options-only benchmark has completed. The independent AI blind and grounded stages have not completed because the review key is missing.
+- Production: not changed; current students continue seeing existing published paper versions.
