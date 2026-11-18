@@ -1,5 +1,5 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit,styleFindings} from '../scripts/lib/listening-contrast-quality.mjs';
+import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit,styleFindings,editedForQuestion} from '../scripts/lib/listening-contrast-quality.mjs';
 import {hash,policyHash,draftPolicyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS,stageModel,modelRequest,validateInput,policyFingerprint} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
@@ -26,7 +26,7 @@ test('a key-blind edit still fails when its marked answer loses transcript suppo
  let calls=0;
  const provider=async(stage,input)=>{
   let result;
-  if(stage==='blind')result=calls++===0?{...neutral,standsOut:true,cues:[{option:0,severity:'clear',cue:'Synthetic fixture requires an edit.'}]}:neutral;
+  if(stage==='blind'){calls++;result=neutral;}
   else if(stage==='polish'){
    assert.deepEqual(Object.keys(input),['question','choices']);assert(!JSON.stringify(input).includes('PRIVATE_CORRECTION'));
    result={question:'Quel jour est annoncé ?',choices:['Vendredi.','Jeudi.','Mercredi.','Mardi.'],notes:'Synthetic edit deliberately breaks the old index0 key.'};
@@ -34,6 +34,15 @@ test('a key-blind edit still fails when its marked answer loses transcript suppo
   return {stage,policy:POLICY_VERSION,policyHash:stage==='polish'?draftPolicyHash:policyHash,model:stageModel(stage),responseId:'chatcmpl-unit-editor-'+stage+'-'+calls,inputHash:hash(input),result};
  };
  const r=await repair(q,provider,{target:0,seed:'source-guard',maxAttempts:0});assert(!r.pass);assert(r.blocked);assert.equal(r.feedback.stage,'ground');assert.equal(r.question.correct,'A');
+});
+test('written choices need a key-blind edit of their actual final wording, including initially plausible items',()=>{
+ const q=paper.questions[29],input=qualityProjection(q);
+ assert(!editedForQuestion(q,{pass:true}));
+ const receipt={stage:'polish',policy:POLICY_VERSION,policyHash:draftPolicyHash,model:stageModel('polish'),responseId:'chatcmpl-unit-final-edit',inputHash:hash(input),result:{question:q.question,choices:q.options,notes:'All four formulations are ordinary alternatives.'}};
+ assert(editedForQuestion(q,{blindEdit:{input,receipt}}));
+ const changed=structuredClone(q);changed.options[0]+=' Une autre précision.';
+ assert(!editedForQuestion(changed,{blindEdit:{input,receipt}}));
+ assert(editedForQuestion(paper.questions[0],{}));
 });
 test('new releases require all six immutable replacements; historical warnings are not declared passes',()=>{
  const old=Array.from({length:6},(_,i)=>`tcf-listening-test${String(i+1).padStart(2,'0')}-v4.json`);

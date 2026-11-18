@@ -5,6 +5,14 @@ export const protocol='six-listening-contrast-v2';
 export const displayProjection=q=>({question:q.question,choices:[...q.options]});
 export const qualityProjection=blindProjection;
 export const projectionVersion='actual-alternatives-v1';
+export function editedForQuestion(q,record){
+ if(q.number<=8)return true;
+ try{
+  const edit=record?.blindEdit;if(!edit)return false;
+  receiptValid(edit.receipt,'polish',edit.input);
+  return hash(qualityProjection(applyBlindEdit(q,edit.receipt.result)))===hash(qualityProjection(q));
+ }catch{return false;}
+}
 export function screeningMatches(q,record){
  const projection=qualityProjection(q);
  return record?.blind?.length===trialsFor(q)&&record.blind.every(b=>[...b.order].sort().join('')==='0123'&&b.receipt.inputHash===hash({question:projection.question,choices:b.order.map(i=>projection.choices[i])}));
@@ -80,8 +88,12 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
   distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
  let feedback=null,author=null,blindEdit=null;
  for(let round=0;round<=maxAttempts;round++){
+  if(q.number>=9){
+   const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:before:'+round}),'polish',input);
+   q=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
+  }
   let assessment=await inspect(q,provider,{seed,imageData,round});
-  if(!assessment.pass&&assessment.feedback?.stage==='blind'){
+  if(q.number<=8&&!assessment.pass&&assessment.feedback?.stage==='blind'){
    const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:'+round}),'polish',input);
    const edited=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
    // No reroll for an unchanged candidate. A real edit must pass a fresh,
@@ -103,7 +115,7 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
    plan=contrastPlan(original,author.result);if(plan.pass)break;feedback={stage:'contrast-plan',errors:plan.errors};
   }
   if(!plan.pass)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,pass:false,blocked:true,feedback:{stage:'contrast-plan',errors:plan.errors}};
-  q=rewrite(original,author.result,target,seed+':author:'+round);
+  q=rewrite(original,author.result,target,seed+':author:'+round);blindEdit=null;
  }
 }
 export async function measure(q,provider,nonce,stage='blind'){
@@ -147,7 +159,7 @@ export function assertPaper(paper,evidence,original,images){
  if(evidence.protocol!==protocol||evidence.policyHash!==policyHash||evidence.paperHash!==hash(paper.questions.map(contentHash))||evidence.version!==paper.version||evidence.questions.length!==39)throw Error('Stale strict evidence');
  const ids=new Set();
  for(const [i,q] of paper.questions.entries()){
-  const record=evidence.questions[i];if(!record?.pass||record.blocked||record.contentHash!==contentHash(q)||record.sourceHash!==contentHash(original.questions[i])||record.blind.length!==trialsFor(q))throw Error('Question has not passed strict validation: '+q.number);
+  const record=evidence.questions[i];if(!record?.pass||record.blocked||record.contentHash!==contentHash(q)||record.sourceHash!==contentHash(original.questions[i])||record.blind.length!==trialsFor(q)||!editedForQuestion(q,record))throw Error('Question has not passed strict validation: '+q.number);
   if(q.number<=4&&record.imageHash!==images[q.number]?.hash)throw Error('Image changed');
   const check=(receipt,stage,input)=>{receiptValid(receipt,stage,input);if(ids.has(receipt.responseId))throw Error('Evaluation response reused');ids.add(receipt.responseId);};
   const proj=qualityProjection(q);
