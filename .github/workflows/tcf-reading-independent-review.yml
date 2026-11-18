@@ -39,6 +39,8 @@ jobs:
         run: node scripts/review-tcf-reading-ai.mjs --lint
         env:
           TCF_REVIEW_REPORT: tcf-reading-static-report.json
+      - name: Reproducible options-only guessing baseline
+        run: node scripts/check-tcf-reading-blind-heuristics.mjs
       - name: Independent blind review then separate grounded review
         shell: bash
         env:
@@ -57,4 +59,5 @@ jobs:
           path: |
             tcf-reading-static-report.json
             tcf-reading-ai-report.json
+            tcf-reading-blind-heuristic-baseline.json
           if-no-files-found: warn
