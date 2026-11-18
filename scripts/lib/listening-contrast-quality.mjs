@@ -89,7 +89,8 @@ export async function repair(original,provider,{target,seed,imageData,maxAttempt
   distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
  let feedback=null,author=null,blindEdit=null;
  const rejected=new Map((previouslyRejected?.rejections??[]).map(r=>[r.signature,r.feedback]));
- if(previouslyRejected?.question&&previouslyRejected.feedback)rejected.set(wordingSignature(previouslyRejected.question),previouslyRejected.feedback);
+ const priorFeedback=previouslyRejected?.regenerateFrom??(!previouslyRejected?.pass?previouslyRejected?.feedback:null);
+ if(previouslyRejected?.question&&priorFeedback)rejected.set(wordingSignature(previouslyRejected.question),priorFeedback);
  const rejections=()=>[...rejected].map(([signature,feedback])=>({signature,feedback}));
  async function checkCandidate(round){
   const signature=wordingSignature(q);

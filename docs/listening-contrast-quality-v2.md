@@ -119,7 +119,7 @@ available manually, including the withdrawn07–20 papers outside this release.
 
 ## Validation record
 
-307 repository tests and the production build passed after the generation and
+372 repository tests and the production build passed after merging the latest application changes. Focused tests cover the subsequently added mandatory editor and persistent rejection checks. After the generation and
 validation changes. Fresh content evaluation is pending; this document does
 not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
@@ -136,6 +136,12 @@ writing feature only. All four options are redesigned without padding or equal
 length quotas, independently screened and grounded again, then the changed
 paper is audited again. Held-out guesses play no part in candidate selection.
 An unresolved style shortcut blocks measurement and publication.
+
+Rejected wording is retained across authoring restarts. Changing whitespace,
+capitalisation or the order of identical alternatives cannot obtain a new
+blind draw for the same rejected item. The author must make a substantive
+revision; the final frozen cohort also retains its original measurement nonce
+unless actual content changes.
 
 The completed editor run43968516419 passed184/234 individual questions and
 rejected50. It did not reach the frozen benchmark. Its shortest-choice attack

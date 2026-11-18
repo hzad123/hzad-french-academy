@@ -76,7 +76,7 @@ async function processQuestion([p,index]){
    if(!contrastPlan(original,authored.result).pass)throw Error('Held-out cue repair lacks faithful anchors');
    starting=rewrite(original,authored.result,positions[p][index],`${seed}:heldout-cue:${runNonce}:${p}:${index}`);
   }
-  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,previouslyRejected:saved?.policyHash===policyHash&&!saved.pass?saved:null,imageData:image?.data,maxAttempts:6,
+  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,previouslyRejected:saved?.policyHash===policyHash?saved:null,imageData:image?.data,maxAttempts:6,
    onAttempt:r=>saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`attempt-${original.number}.json`),r)});
   result.imageHash=image?.hash??null;result.designSeedHash=designSeedHash;await saveJson(file,result);evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
   console.log(`Test${p+1} Q${index+1}: ${result.pass?'STRICT PASS':'BLOCKED'} (${result.rounds??0} rewrites)`);
