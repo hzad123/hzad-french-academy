@@ -29,7 +29,14 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  function recorderInstance(){
   if(!recorder)recorder=recorderFactory({
    onLimit:audio=>{void submitAnswer(audio,true)},
-   onStatus:message=>{if(visible){status(message);syncMicControls()}}
+   onStatus:message=>{if(visible){
+    const translated=message.includes('No audible speech')?'Aucune voix suffisamment forte détectée. Rapprochez-vous du microphone.':
+     message.includes('Speak for at least')?'Parlez au moins une seconde avant d’envoyer.':
+     message.includes('Microphone ready')?'Microphone prêt.':
+     message.includes('Allow microphone')?'Autorisez l’accès au microphone.':
+     message.includes('Recording')?'● Enregistrement en cours. Parlez maintenant.':message;
+    status(translated);syncMicControls();
+   }}
   });
   return recorder;
  }
