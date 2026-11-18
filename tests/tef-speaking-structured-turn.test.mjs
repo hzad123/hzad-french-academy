@@ -42,7 +42,7 @@ test('optional malformed or blank acoustic observations do not invalidate the en
 });
 test('malformed examiner reply is rejected while false examiner transcripts never replace ASR',async()=>{
  for(const [bad,code] of [
-  [null,'INVALID_TURN_SHAPE'],
+  [null,'EXAMINER_REPLY_MISSING'],
   [{...full,reply:'  '},'EXAMINER_REPLY_MISSING'],
  ]){
   const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url)=>{
