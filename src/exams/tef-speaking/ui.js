@@ -16,7 +16,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  const store=makeTefSpeakingStore(client,fetcher);
  let catalog=null,attempt=null,recorder=null,voice=null,controller=null,timer=null,pollTimer=null,
   capture=null,bootKey=null,epoch=0,recordEpoch=0,visible=false,busy=false,viewer=null,
-  selectedTestId=null,preflight=false,serverOffset=0,pollCount=0,playing=null,micStarting=false,examinerSpeaking=false;
+  selectedTestId=null,preflight=false,sectionBReady=false,serverOffset=0,pollCount=0,playing=null,micStarting=false,examinerSpeaking=false;
  const active=()=>attempt&&[0,2].includes(attempt.phase);
  const remaining=()=>active()?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-serverOffset)/1000)):0;
  const accept=v=>{attempt=v;serverOffset=Date.parse(v.serverNow)-Date.now()};
@@ -46,7 +46,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   controller?.abort();controller=null;clearInterval(timer);clearTimeout(pollTimer);
   recorder?.dispose();recorder=null;voice?.dispose?.();voice=null;
   if(playing){playing.pause?.();playing=null}
-  capture=null;bootKey=null;preflight=false;micStarting=false;examinerSpeaking=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
+  capture=null;bootKey=null;preflight=false;sectionBReady=false;micStarting=false;examinerSpeaking=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
  }
  function reset(){clean();catalog=null;attempt=null;viewer=null;selectedTestId=null}
  root.addEventListener('hzad-route-reset',clean);root.addEventListener('hzad-clear-lessons',reset);
@@ -174,10 +174,23 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  function gradeCard(result,heading){
   const wrapper=el('section',undefined,'hz-tef-speaking-feedback');
   wrapper.append(el('h4',heading));
-  if(result.score!==null){
-   wrapper.append(el('strong','Performance TEF estimée : '+result.score+'/699 · NCLC '+result.nclc));
-   wrapper.append(el('p','Estimation pédagogique non officielle, non équivalente à une attestation TEF.'));
-  }else wrapper.append(el('strong','Bilan pédagogique de la section · aucune note officielle'));
+  const isSectionA=result.kind==='feedback_a';
+  if(Number.isInteger(result.score)&&result.nclc!==null&&result.nclc!==undefined){
+   const scoreBox=el('div',undefined,'hz-tef-speaking-score');
+   scoreBox.append(el('span',isSectionA?'Section A · estimation partielle':'Sections A + B · estimation globale','hz-tef-speaking-score-label'));
+   const figures=el('div',undefined,'hz-tef-speaking-score-figures');
+   const tef=el('div',undefined,'hz-tef-speaking-score-figure');
+   tef.append(el('span','Score TEF estimé','hz-tef-speaking-score-caption'),el('strong',String(result.score)+'/699'));
+   const nclc=el('div',undefined,'hz-tef-speaking-score-figure');
+   nclc.append(el('span','Niveau NCLC estimé','hz-tef-speaking-score-caption'),el('strong',String(result.nclc)));
+   figures.append(tef,nclc);scoreBox.append(figures);
+   scoreBox.append(el('p',isSectionA?
+    'Estimation pédagogique fondée uniquement sur la section A. Ce score partiel ne correspond pas à un résultat TEF officiel complet.':
+    'Estimation pédagogique fondée sur les deux sections. Seul le résultat officiel du TEF Canada permet de justifier un niveau NCLC.'));
+   wrapper.append(scoreBox);
+  }else wrapper.append(el('p',isSectionA?
+   'Cette ancienne évaluation partielle ne contient pas de score chiffré. Les nouvelles évaluations de la section A afficheront un score TEF et un niveau NCLC estimés.':
+   'Un score global ne peut pas être estimé sans réponses compréhensibles dans les deux sections.'));
   if(result.estimatedLevel)wrapper.append(el('p','Niveau CECR estimé : '+result.estimatedLevel));
   wrapper.append(el('p',result.summary));
   const names={linguistic:'Compétence linguistique',pragmatic:'Compétence pragmatique',sociolinguistic:'Compétence sociolinguistique'};
@@ -377,21 +390,40 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   tick();timer=setInterval(tick,350);
  }
  function renderBreak(){
+  // Server phase 1 has no countdown. Read the feedback first, then go to a
+  // dedicated untimed Section B preview with a separate confirmation button.
   area.append(el('h4','Section A terminée'));
-  area.append(el('p','Vous pouvez consulter votre bilan de la Section A avant de commencer la section B. Son chronomètre ne démarre qu’au moment où vous choisissez de commencer.'));
-  const b=attempt.test.sections[1];
-  const preview=el('article',undefined,'hz-tef-speaking-document');
-  preview.append(el('span','SECTION B · 10:00','hz-eyebrow'),
-   el('h4',b.heading),el('blockquote',b.document),el('p',b.instructions));
-  area.append(preview,historyBlock(0));
+  area.append(el('p','La section B ne commence pas automatiquement. Consultez votre bilan puis ouvrez ses consignes quand vous êtes prêt(e).'));
+  area.append(historyBlock(0));
   const grade=showFeedback('feedback_a');if(grade)area.append(grade);
-  area.append(button('Commencer la Section B · 10 minutes',()=>{
-   void run(async(signal,current)=>{
-    try{await recorderInstance().prepare()}catch{throw Error('Autorisez le microphone pour commencer la section B.')}
-    accept(await store.send({kind:'begin_b',id:attempt.id},signal));
-    if(current())render();
-   });
+  area.append(button('Lire les consignes de la Section B',()=>{
+   sectionBReady=true;render();
   },!!attempt.pending));
+ }
+ function renderSectionBPreflight(){
+  // Do not call begin_b until the learner presses Start. The 10 minute
+  // deadline, AI speech, and microphone are not triggered on this screen.
+  const b=attempt.test.sections[1];
+  const intro=el('section',undefined,'hz-tef-speaking-preflight');
+  intro.append(el('span','AVANT DE COMMENCER · SECTION B','hz-eyebrow'),
+   el('h4','Lisez les consignes à votre rythme'),
+   el('p','Le chronomètre de 10 minutes et l’enregistrement ne commenceront que lorsque vous appuierez sur « Démarrer la section B ».'));
+  const paper=el('article',undefined,'hz-tef-speaking-document');
+  paper.append(el('span','SECTION B · 10:00','hz-eyebrow'),el('h4',b.heading),
+   el('blockquote',b.document),el('p',b.instructions));
+  intro.append(paper);
+  intro.append(el('p','Vous parlerez à un(e) ami(e) qui hésite. Vous devrez expliquer l’annonce, répondre à ses objections et le (la) convaincre.','hz-tef-speaking-preflight-note'));
+  const actions=el('div',undefined,'hz-tef-speaking-preflight-actions');
+  actions.append(button('Démarrer la section B · 10 min',()=>{
+   void run(async(signal,current)=>{
+    try{await recorderInstance().prepare()}
+    catch{throw Error('Autorisez le microphone avant de démarrer la section B.')}
+    const next=await store.send({kind:'begin_b',id:attempt.id},signal);
+    if(current()){sectionBReady=false;accept(next);render()}
+   });
+  },!!attempt.pending),
+   button('Retour au bilan de la section A',()=>{sectionBReady=false;render()},false,true));
+  intro.append(actions);area.append(intro);
  }
  function renderFinal(){
   area.append(el('h4','Les deux sections sont terminées'));
@@ -408,7 +440,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   area.append(header,button('← Tests TEF / TCF',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
   if(!attempt){if(preflight)renderPreflight();else renderCatalog()}
   else if(active())renderActive();
-  else if(attempt.phase===1)renderBreak();
+  else if(attempt.phase===1){if(sectionBReady)renderSectionBPreflight();else renderBreak()}
   else renderFinal();
   if(!catalog?.enabled)status('Le simulateur vocal IA est temporairement indisponible.');
   const id=attempt?.id;recordView(root,'tef-speaking:'+(id||'home'),()=>open(id));controls();
