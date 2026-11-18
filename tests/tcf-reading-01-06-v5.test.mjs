@@ -63,3 +63,13 @@ test('manual editorial revision does not introduce an AI or live grading depende
  assert(!script.includes('OPENAI_API_KEY'));
  assert(!script.includes('https://api.openai.com'));
 });
+
+test('Test 01 no longer leaks the repeated ABCD answer cycle',()=>{
+ const keys=revised[0].questions.map(q=>q.correct).join('');
+ assert.equal(keys.length,39);
+ assert.notEqual(keys,'ABCD'.repeat(9)+'ABC');
+ for(let j=0;j<=keys.length-12;j++){
+   const run=keys.slice(j,j+12);
+   for(const cycle of ['ABCD','BCDA','CDAB','DABC'])assert.notEqual(run,cycle.repeat(3),'repeating four-letter key pattern');
+ }
+});
