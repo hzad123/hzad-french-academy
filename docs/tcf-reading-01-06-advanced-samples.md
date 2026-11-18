@@ -1,6 +1,6 @@
-# TCF Reading Tests 01–06 — 18 advanced samples for owner review
+# TCF Reading Tests 01–06 — Advanced owner-review samples
 
-All six **v5 candidates remain unpublished**. These examples are Q30, Q37 and Q39 from each test. Each sample includes the original passage, final stem, four final choices and a collapsible answer/explanation. Correct answers were independently checked against source evidence before regression expectations were updated.
+These **18 samples** cover Q30, Q37 and Q39 from each of six v5 candidates. The final passage-first review independently verified 90 answers; details are in [the independent review log](./tcf-reading-01-06-manual-review.md). The tests have **not** been published.
 
 
 ## Test 01
@@ -19,9 +19,9 @@ C. Les émissions favorisent l'absorption océanique, qui réduit ensuite l'acid
 
 D. Le stockage du carbone par les océans devient nuisible surtout lorsque les émissions diminuent
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**B.** B. Les océans atténuent une partie de l'accumulation atmosphérique du CO₂ mais l'absorption acidifie l'eau et menace certains écosystèmes. A déplace le mécanisme vers une disparition du carbone dissous, C inverse l'effet sur l'acidité et D attribue le risque à une baisse des émissions.
+**B** — B. Les océans atténuent une partie de l'accumulation atmosphérique du CO₂ mais l'absorption acidifie l'eau et menace certains écosystèmes. A déplace le mécanisme vers une disparition du carbone dissous, C inverse l'effet sur l'acidité et D attribue le risque à une baisse des émissions.
 
 </details>
 
@@ -39,9 +39,9 @@ C. La pérennité du travail hybride exige des ajustements dans la vie des équi
 
 D. Les difficultés de séparation des espaces privés et professionnels persistent
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**C.** L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
+**C** — L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
 
 </details>
 
@@ -59,9 +59,9 @@ C. Le développement des locations conditionne l'efficacité des règles de séc
 
 D. La possibilité d'éviter les embouteillages rendrait secondaire l'occupation des trottoirs
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**A.** A. L'avenir de ces véhicules est explicitement subordonné à une intégration sûre dans l'espace urbain. Popularité et avantages pratiques ne suffisent pas.
+**A** — A. L'avenir de ces véhicules est explicitement subordonné à une intégration sûre dans l'espace urbain. Popularité et avantages pratiques ne suffisent pas.
 
 </details>
 
@@ -81,9 +81,9 @@ C. Des échanges informels pourraient encourager les personnes réservées
 
 D. De courtes activités partagées pourraient être le début d'un lien
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**B.** Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
+**B** — Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
 
 </details>
 
@@ -101,9 +101,9 @@ C. Distinguer les résidents selon leur disponibilité pour prévoir des repas o
 
 D. Conserver la convivialité en diversifiant les moments et les formes d'engagement
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
+**D** — Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
 
 </details>
 
@@ -121,9 +121,9 @@ C. L'usage d'éléments réutilisables dispense de prévoir l'accès aux install
 
 D. Une base technique commune peut s'accompagner d'aménagements modulables selon les usages
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** D. Les architectes acceptent les composants répétés, tout en prévoyant des cloisons mobiles et des accès techniques permettant des adaptations.
+**D** — D. Les architectes acceptent les composants répétés, tout en prévoyant des cloisons mobiles et des accès techniques permettant des adaptations.
 
 </details>
 
@@ -135,17 +135,17 @@ D. Une base technique commune peut s'accompagner d'aménagements modulables selo
 
 **Question :** Quelle critique la représentante adresse-t-elle à l'indicateur utilisé ?
 
-A. Le temps contractuel suffit à apprécier les dossiers difficiles dans leur contexte
+A. La durée de connexion devrait être ajustée selon le nombre de dossiers, avant d'en examiner la difficulté
 
-B. La durée de connexion devrait être remplacée par un simple décompte de dossiers
+B. Le nombre de dossiers terminés serait un indicateur suffisant de la qualité du travail
 
 C. La durée de présence devrait être interprétée avec la complexité des tâches accomplies
 
 D. La difficulté des dossiers doit être estimée à partir des heures de présence seules
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**C.** C. Le temps en ligne ne révèle pas à lui seul les résultats ni la complexité des dossiers traités.
+**C** — C. Le temps en ligne ne révèle pas à lui seul les résultats ni la complexité des dossiers traités.
 
 </details>
 
@@ -163,9 +163,9 @@ C. Arbitrer entre accroître le volume et approfondir le traitement des cas diff
 
 D. Réserver l'automatisation aux dossiers simples pour éliminer les suivis complexes
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**C.** C. La direction vise le volume; les salariés veulent consacrer une partie du gain à la qualité du suivi des cas complexes.
+**C** — C. La direction vise le volume; les salariés veulent consacrer une partie du gain à la qualité du suivi des cas complexes.
 
 </details>
 
@@ -183,9 +183,9 @@ C. Diffuser l'objectif de diversité avant d'adapter les modalités de sélectio
 
 D. Modifier les contraintes de candidature sans abaisser les capacités recherchées
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** D. Les modalités d'entretien et stages non rémunérés agissent comme des filtres sans rapport avec les qualifications.
+**D** — D. Les modalités d'entretien et stages non rémunérés agissent comme des filtres sans rapport avec les qualifications.
 
 </details>
 
@@ -205,9 +205,9 @@ C. Les passages comptés devraient être remplacés par des enquêtes auprès de
 
 D. Les dépenses locales peuvent être évaluées indépendamment des hébergements
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**A.** A. Les arrivées ne permettent pas de déduire les retombées réelles sans durée des séjours et dépenses locales.
+**A** — A. Les arrivées ne permettent pas de déduire les retombées réelles sans durée des séjours et dépenses locales.
 
 </details>
 
@@ -225,9 +225,9 @@ C. Proposer des nuitées qui permettent de progresser par étapes sans détour
 
 D. Augmenter les itinéraires balisés avant de revoir les conditions d'accueil
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**C.** Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
+**C** — Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
 
 </details>
 
@@ -245,9 +245,9 @@ C. Un détour conseillé individuellement n'affecte les quartiers que si le site
 
 D. Des choix identiques proposés à grande échelle peuvent créer un nouveau lieu surfréquenté
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** D. Une plateforme peut concentrer collectivement ses utilisateurs sur un même lieu discret en le recommandant massivement.
+**D** — D. Une plateforme peut concentrer collectivement ses utilisateurs sur un même lieu discret en le recommandant massivement.
 
 </details>
 
@@ -267,9 +267,9 @@ C. Pour négocier les filières de reprise indépendamment de la composition des
 
 D. Pour tenir compte dès la fabrication des obstacles rencontrés au démontage
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** D. Les contraintes observées au traitement final orientent les choix de matériaux et d'assemblage dès la conception.
+**D** — D. Les contraintes observées au traitement final orientent les choix de matériaux et d'assemblage dès la conception.
 
 </details>
 
@@ -279,17 +279,17 @@ D. Pour tenir compte dès la fabrication des obstacles rencontrés au démontage
 
 **Question :** Pourquoi un seul chiffre mensuel risque-t-il de déformer le jugement ?
 
-A. Un résultat mensuel devrait être écarté lorsque les partenaires demandent des chiffres simples
+A. Un relevé influencé par une crue devrait être retiré du suivi plutôt qu'expliqué
 
 B. Un relevé peut être dominé par un épisode ponctuel sans indiquer les évolutions durables
 
-C. Les financeurs accordent davantage de poids aux variations que l'association elle-même
+C. Les effets sur les espèces devraient être relevés uniquement à la fin du programme
 
-D. La comparaison des espèces renseigne moins sur le projet que la circulation de l'eau
+D. La circulation de l'eau devrait devenir le seul indicateur transmis aux financeurs
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**B.** B. Un chiffre mensuel isole une observation alors que les effets de la restauration suivent des rythmes écologiques et saisonniers différents.
+**B** — B. Les effets écologiques se manifestent sur des périodes différentes et varient selon les saisons; l'équipe demande donc plusieurs indicateurs suivis dans la durée. A propose de retirer les relevés atypiques alors que le passage demande de les interpréter, et C/D réduisent la variété des mesures.
 
 </details>
 
@@ -307,9 +307,9 @@ C. Prendre les bénéfices paysagers pour la preuve d'un suivi rigoureux
 
 D. Présenter une première estimation de stockage comme une mesure définitive
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**A.** L'annonce assimile une absorption future, dépendante du temps et de la survie des arbres, à une réduction déjà réalisée : A. B et D évoquent des incertitudes réelles mais pas l'équivalence temporelle qui fonde l'annonce de compensation immédiate; C confond un avantage annexe et la qualité du suivi.
+**A** — L'annonce assimile une absorption future, dépendante du temps et de la survie des arbres, à une réduction déjà réalisée : A. B et D évoquent des incertitudes réelles mais pas l'équivalence temporelle qui fonde l'annonce de compensation immédiate; C confond un avantage annexe et la qualité du suivi.
 
 </details>
 
@@ -329,9 +329,9 @@ C. Remplacer les rencontres avec des lecteurs par une présentation préalable o
 
 D. Orienter les personnes en fonction des seuls lieux déjà présents dans l'abonnement
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**A.** Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
+**A** — Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
 
 </details>
 
@@ -349,9 +349,9 @@ C. Laisser les témoins valider leurs propos avant d'en présenter plusieurs ver
 
 D. Traiter la visibilité des habitants comme l'expression d'une parole commune et uniforme
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**D.** D. Le réalisateur refuse la fabrication d'une voix homogène qui effacerait les désaccords internes.
+**D** — D. Le réalisateur refuse la fabrication d'une voix homogène qui effacerait les désaccords internes.
 
 </details>
 
@@ -369,10 +369,8 @@ C. Accepter une fréquentation annoncée plus faible afin d'améliorer l'accompa
 
 D. Maintenir la durée des visites en supprimant les échanges jugés secondaires
 
-<details><summary>Réponse et justification</summary>
+<details><summary>Réponse justifiée</summary>
 
-**C.** C. Le texte présente l'acceptation de groupes plus petits, donc d'un chiffre d'entrées moindre, afin de mieux dialoguer et adapter les parcours. A conserverait le volume, B exclurait les visiteurs novices contrairement à l'intention, et D supprimerait les échanges que la salle veut privilégier.
+**C** — C. Le texte présente l'acceptation de groupes plus petits, donc d'un chiffre d'entrées moindre, afin de mieux dialoguer et adapter les parcours. A conserverait le volume, B exclurait les visiteurs novices contrairement à l'intention, et D supprimerait les échanges que la salle veut privilégier.
 
 </details>
-
-See the [full independent 90-question audit](./tcf-reading-01-06-manual-review.md). These are not official calibrated TCF items.
