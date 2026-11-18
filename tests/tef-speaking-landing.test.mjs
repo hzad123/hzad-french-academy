@@ -62,6 +62,37 @@ test('TEF preflight shows student document before timer and explicit button star
  assert.match(start,/kind:'start'/);
  assert.match(start,/preflight=false;accept\(next\);render\(\)/);
  assert.match(ui,/if\(!attempt\)\{if\(preflight\)renderPreflight\(\);else renderCatalog\(\)\}/);
- assert.match(ui,/const b=attempt\.test\.sections\[1\]/,'Section B also has untimed preview before its clock');
+ assert.match(ui,/function renderSectionBPreflight\(\)/,'Section B has a dedicated untimed preview');
  assert.match(styles,/hz-tef-speaking-preflight-actions/);
+});
+
+test('Section B requires an untimed instructions stage and an explicit confirmation before recording',()=>{
+ const review=ui.split(' function renderBreak(){')[1]?.split(' function renderSectionBPreflight(){')[0];
+ const preview=ui.split(' function renderSectionBPreflight(){')[1]?.split(' function renderFinal(){')[0];
+ assert(review&&preview);
+ assert.match(review,/Lire les consignes de la Section B/);
+ assert.match(review,/sectionBReady=true;render\(\)/);
+ assert.doesNotMatch(review,/kind:'begin_b'/);
+ assert.match(preview,/Le chronomètre de 10 minutes et l’enregistrement ne commenceront/);
+ assert.match(preview,/b\.document/);
+ assert.match(preview,/b\.instructions/);
+ assert.match(preview,/Démarrer la section B/);
+ assert.match(preview,/kind:'begin_b'/);
+ assert.match(preview,/await recorderInstance\(\)\.prepare\(\)/);
+ assert.match(preview,/Retour au bilan de la section A/);
+ assert.match(ui,/if\(sectionBReady\)renderSectionBPreflight\(\);else renderBreak\(\)/);
+});
+test('Both Speaking assessments expose score and NCLC labels and avoid official-result claims',()=>{
+ const grade=ui.split(' function gradeCard(result,heading){')[1]?.split(' function showFeedback(kind){')[0];
+ assert(grade);
+ assert.match(grade,/result\.kind==='feedback_a'/);
+ assert.match(grade,/Score TEF estimé/);
+ assert.match(grade,/Niveau NCLC estimé/);
+ assert.match(grade,/Section A · estimation partielle/);
+ assert.match(grade,/Sections A \+ B · estimation globale/);
+ assert.match(grade,/Section B · estimation partielle/);
+ assert.match(grade,/result\.sectionBScore/);
+ assert.match(grade,/result\.sectionBNclc/);
+ assert.match(grade,/Seul le résultat officiel du TEF Canada/);
+ assert.match(styles,/hz-tef-speaking-score-figures/);
 });
