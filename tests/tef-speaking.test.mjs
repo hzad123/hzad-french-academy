@@ -187,6 +187,9 @@ test('TEF feedback provider requests separate Section B-only score only for fina
    const schema=body.response_format?.json_schema?.schema;
    assert(schema,'Examiner feedback must have structured response schema');
    assert.equal(schema.properties.sectionBScore!==undefined,kind==='feedback_b');
+   if(kind==='feedback_b')assert.equal(schema.properties.sectionBScore.type,'integer');
+   const enumCount=Object.values(schema.properties).reduce((total,p)=>total+(p.enum?.length||0),0);
+   assert(enumCount<=1000,'Structured Outputs supports at most 1000 enum values');
    assert.equal(body.store,false);
    return Response.json({model:'fixture',usage:{prompt_tokens:200,completion_tokens:160},
     choices:[{finish_reason:'stop',message:{content:JSON.stringify(raw(ids))}}]});
