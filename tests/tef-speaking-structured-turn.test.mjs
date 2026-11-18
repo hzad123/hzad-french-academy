@@ -4,6 +4,7 @@ import {BANK} from '../supabase/functions/academy-tef-speaking/bank.js';
 import {createTefSpeakingProvider,normalizeTefSpeakingTurn} from '../supabase/functions/academy-tef-speaking/provider.js';
 import {failureMetadata} from '../supabase/functions/academy-tcf-writing/failures.js';
 const paper=BANK.tests[0];
+const wav=Buffer.from('fixture WAV').toString('base64');
 const attempt=phase=>({test_id:paper.id,version:paper.version,phase,calls:[]});
 const full={transcript:'Bonjour, pourriez-vous préciser les horaires ?',reply:'Nous ouvrons samedi matin.',intelligible:true,questionAsked:true,observations:['Articulation intelligible.']};
 function fakeResponse(value,tool=true){
@@ -13,18 +14,21 @@ function fakeResponse(value,tool=true){
 }
 test('GPT Audio mini turn uses a forced named function and returns a grounded French transcript and reply',async()=>{
  let calls=0;
- const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(_url,opts)=>{
-  calls++;const body=JSON.parse(opts.body);
+ const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url,opts)=>{
+  calls++;
+  if(url.endsWith('/audio/transcriptions'))return Response.json({text:full.transcript});
+  const body=JSON.parse(opts.body);
   assert.equal(body.tool_choice.function.name,'submit_tef_speaking_turn');
   assert.equal(body.tools[0].function.name,'submit_tef_speaking_turn');
   assert.deepEqual(body.tools[0].function.parameters.required,['transcript','reply','intelligible','questionAsked','observations']);
   assert.equal(body.parallel_tool_calls,false);
   assert.equal(body.modalities[0],'text');
-  assert(body.messages.at(-1).content[0].input_audio);
+  assert(!JSON.stringify(body).includes('input_audio'));
+  assert(body.messages.at(-1).content.includes(full.transcript));
   return fakeResponse(full,true);
  }});
- const res=await provider.run({kind:'turn',attempt:attempt(0),audio:'fixture'}, {model:'gpt-audio-mini',maxOutputTokens:2000});
- assert.equal(calls,1);
+ const res=await provider.run({kind:'turn',attempt:attempt(0),audio:wav}, {model:'gpt-audio-mini',maxOutputTokens:2000});
+ assert.equal(calls,2);
  assert.equal(res.result.transcript,full.transcript);
  assert.equal(res.result.reply,full.reply);
  assert.equal(res.result.questionAsked,true);
@@ -36,28 +40,41 @@ test('optional malformed or blank acoustic observations do not invalidate the en
  assert.equal(normalizeTefSpeakingTurn({...full,questionAsked:'oui'},0).questionAsked,false);
  assert.equal(normalizeTefSpeakingTurn(full,2).questionAsked,false);
 });
-test('invalid model output is categorized precisely; no fabricated transcript or examiner reply',async()=>{
+test('malformed examiner reply is rejected while false examiner transcripts never replace ASR',async()=>{
  for(const [bad,code] of [
-  [{...full,intelligible:'yes'},'INVALID_TURN_SHAPE'],
-  [{...full,transcript:''},'TRANSCRIPT_MISSING'],
+  [null,'INVALID_TURN_SHAPE'],
   [{...full,reply:'  '},'EXAMINER_REPLY_MISSING'],
  ]){
-  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async()=>fakeResponse(bad)});
+  const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url)=>{
+   if(url.endsWith('/audio/transcriptions'))return Response.json({text:full.transcript});
+   return fakeResponse(bad);
+  }});
   let actual=null;
-  try{await provider.run({kind:'turn',attempt:attempt(0),audio:'fixture'},{model:'gpt-audio-mini',maxOutputTokens:2000})}
+  try{await provider.run({kind:'turn',attempt:attempt(0),audio:wav},{model:'gpt-audio-mini',maxOutputTokens:2000})}
   catch(error){actual=failureMetadata(error).code}
   assert.equal(actual,code);
  }
+ const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url)=>{
+  if(url.endsWith('/audio/transcriptions'))return Response.json({text:full.transcript});
+  return fakeResponse({...full,transcript:'Untrue text',intelligible:'yes',observations:['Unverified audio claim']});
+ }});
+ const result=await provider.run({kind:'turn',attempt:attempt(0),audio:wav},{model:'gpt-audio-mini',maxOutputTokens:2000});
+ assert.equal(result.result.transcript,full.transcript);
+ assert.deepEqual(result.result.observations,[]);
 });
 test('explicit silence result is saved without inventing words; examiner can ask to repeat',()=>{
  const result=normalizeTefSpeakingTurn({transcript:'',reply:'Pourriez-vous répéter, s’il vous plaît ?',intelligible:false,questionAsked:false,observations:[]},0);
  assert.equal(result.transcript,'');
  assert.equal(result.questionAsked,false);
 });
-test('JSON content-only legacy responses remain accepted without secondary billable AI requests',async()=>{
+test('JSON content-only legacy examiner response remains accepted with separate ASR',async()=>{
  let calls=0;
- const provider=createTefSpeakingProvider({key:'fixture',fetcher:async()=>{calls++;return fakeResponse(full,false)}});
- const result=await provider.run({kind:'turn',attempt:attempt(0),audio:'fixture'},{model:'gpt-audio-mini',maxOutputTokens:2000});
- assert.equal(calls,1);
+ const provider=createTefSpeakingProvider({key:'fixture',fetcher:async(url)=>{
+  calls++;
+  if(url.endsWith('/audio/transcriptions'))return Response.json({text:full.transcript});
+  return fakeResponse(full,false);
+ }});
+ const result=await provider.run({kind:'turn',attempt:attempt(0),audio:wav},{model:'gpt-audio-mini',maxOutputTokens:2000});
+ assert.equal(calls,2);
  assert.equal(result.result.reply,full.reply);
 });
