@@ -7,21 +7,21 @@ import {readFile} from 'node:fs/promises';
 // It does not replace independent source-based validity review.
 const anchors={
   "1": [
-    "Les difficultés de concentration",
-    "Un projet personnel",
-    "Articuler la prévention",
-    "Faire découvrir les musées",
-    "Les éclairages nocturnes",
-    "La régulation du climat",
-    "L'approche suscite",
-    "Un espace reconverti",
-    "Les qualités stylistiques",
-    "Des expériences personnelles",
-    "La musique agit",
-    "La cuisine végétale gagne",
-    "Le travail hybride demande",
-    "Les classes rurales encouragent",
-    "Leur place en ville suppose"
+    "La fatigue touche",
+    "La démarche de Clémence",
+    "Associer prévention",
+    "Ouvrir différentes",
+    "Le dérèglement",
+    "Le rôle climatique",
+    "L'intérêt pédagogique",
+    "La reconversion associe",
+    "Le récit manque",
+    "La valeur accordée",
+    "Le souvenir pourrait",
+    "La création culinaire",
+    "La pérennité",
+    "Les niveaux réunis",
+    "La place des trottinettes"
   ],
   "2": [
     "Répartir les sujets",
