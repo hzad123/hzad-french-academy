@@ -84,7 +84,10 @@ export function modelRequest(stage,input) {
  validateInput(stage,input);
  const {imageData,...text}=input;
  const content=imageData?[{type:'text',text:JSON.stringify(text)},{type:'image_url',image_url:{url:imageData,detail:'low'}}]:JSON.stringify(text);
- const model=stageModel(stage),settings=model.startsWith('gpt-5')?{reasoning_effort:['blind','challenge','author'].includes(stage)?'low':'medium',max_completion_tokens:MAX_OUTPUT[stage]}:{temperature:0.2,max_tokens:MAX_OUTPUT[stage]};
+ // Drafting long arguments needs enough reasoning to preserve source roles
+ // instead of falling back to a generally sensible conclusion. Independent
+ // blind/challenge settings remain fixed for comparable measurements.
+ const model=stageModel(stage),settings=model.startsWith('gpt-5')?{reasoning_effort:['blind','challenge'].includes(stage)?'low':'medium',max_completion_tokens:MAX_OUTPUT[stage]}:{temperature:0.2,max_tokens:MAX_OUTPUT[stage]};
  return {model,...settings,store:false,response_format:outputSchemas[stage]?{type:'json_schema',json_schema:{name:'listening_'+stage,strict:true,schema:outputSchemas[stage]}}:{type:'json_object'},messages:[{role:'system',content:stage==='polish'?DRAFT_PROMPT:PROMPTS[stage]},{role:'user',content}]};
 }
 export async function policyFingerprint(stage) {

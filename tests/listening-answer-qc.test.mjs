@@ -202,7 +202,7 @@ test('reasoning author requests use compatible parameters and account for billed
  const handler=createQcHandler({adminToken,providerKey:'private-test-only',fetcher:async(url,options)=>{
   assert.equal(url,'https://api.openai.com/v1/chat/completions');
   const request=JSON.parse(options.body);
-  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');
+  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'medium');
   assert.equal(request.max_completion_tokens,6000);assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
   assert.equal(request.response_format.type,'json_schema');assert.equal(request.response_format.json_schema.strict,true);
   assert.equal(request.response_format.json_schema.schema.properties.distractorReasons.maxItems,3);
