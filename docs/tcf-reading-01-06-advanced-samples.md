@@ -1,8 +1,6 @@
 # TCF Reading Tests 01–06 — Advanced owner review samples
 
-These are **18 owner-facing samples** (Questions 30, 37 and 39 from each of six candidate papers). The full set of 90 advanced questions has been manually reread and refined. Source passages and topics remain unchanged. Reviewers should try choosing without the passage, then read the passage and check the specific reason for the correct answer.
-
-This is manual editorial review, not an official TCF calibration or an automated AI review. **New v5 papers are not published.** The current live test versions remain unchanged.
+These 18 examples show Questions 30, 37 and 39 from each of six editorial candidate papers. They are original HZad practice texts and are not official TCF material. The complete 90-question manual editorial review is documented separately. The new versions are **not yet published**.
 
 
 ## Test 01
@@ -13,17 +11,17 @@ This is manual editorial review, not an official TCF calibration or an automated
 
 **Question :** Quel mécanisme rend le rôle climatique des océans ambivalent ?
 
-A. L'absorption du carbone réduit simultanément les risques pour les récifs
+A. L'absorption du carbone protège les récifs tout en réduisant la régulation climatique
 
-B. L'acidification affaiblit surtout la capacité des océans à absorber du carbone
+B. Un même processus peut réguler le climat et dégrader certains milieux marins
 
-C. Un mécanisme régulateur du climat peut fragiliser les milieux marins
+C. La réduction des émissions améliore le climat mais accélère l'acidification
 
-D. Les émissions humaines diminuent la surface océanique disponible
+D. Le stockage océanique dépend surtout du dioxyde de carbone absorbé par les récifs
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : C.** Les océans absorbent du CO₂ et participent à la régulation climatique, mais cette absorption acidifie les eaux et menace récifs et biodiversité. Le rôle protecteur comporte un effet négatif.
+**Réponse C.** Les océans absorbent du CO₂ et participent à la régulation climatique, mais cette absorption acidifie les eaux et menace récifs et biodiversité. Le rôle protecteur comporte un effet négatif.
 
 </details>
 
@@ -41,9 +39,9 @@ C. Les entreprises envisagent aussi les économies permises sur leurs locaux
 
 D. Les difficultés de séparation des espaces privés et professionnels persistent
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : B.** L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
+**Réponse B.** L'organisation hybride est appréciée mais impose des méthodes de suivi et de communication pour préserver la cohésion. Les bénéfices immobiliers ne sont qu'un aspect.
 
 </details>
 
@@ -61,9 +59,9 @@ C. Les règles actuelles visent à maintenir l'utilisation sur les trottoirs
 
 D. La réglementation repose principalement sur l'équipement de protection
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : A.** Le succès des trottinettes crée des problèmes de sécurité et de partage de l'espace, auxquels répondent différentes réglementations. Le casque ne suffit pas à résoudre l'ensemble.
+**Réponse A.** Le succès des trottinettes crée des problèmes de sécurité et de partage de l'espace, auxquels répondent différentes réglementations. Le casque ne suffit pas à résoudre l'ensemble.
 
 </details>
 
@@ -73,19 +71,19 @@ D. La réglementation repose principalement sur l'équipement de protection
 
 **Texte :** On présente souvent les immeubles partagés comme une réponse automatique à la solitude. Pourtant, un salon commun ne crée pas à lui seul des relations. Dans une résidence récente, les rencontres ont commencé lorsque des habitants ont proposé des activités souples, auxquelles chacun pouvait refuser de participer. Ces activités n'étaient pas obligatoirement longues : partager un café ou arroser les plantes a parfois suffi à commencer une conversation. Le dispositif a fonctionné parce qu'il laissait une marge de choix aux personnes les plus réservées.
 
-**Question :** Quelle hypothèse le texte conteste-t-il ?
+**Question :** Quelle idée initiale l'auteur remet-il principalement en cause ?
 
-A. Des activités régulières et structurées seraient indispensables aux liens sociaux
+A. Des activités choisies librement pourraient faciliter les rencontres
 
-B. La seule présence d'un espace partagé suffirait à rapprocher les habitants
+B. La mise à disposition d'un salon suffirait à créer des relations entre habitants
 
-C. L'absence de participation obligatoire découragerait les personnes réservées
+C. Des échanges informels pourraient encourager les personnes réservées
 
-D. La fréquence des rencontres déterminerait à elle seule leur qualité
+D. De courtes activités partagées pourraient être le début d'un lien
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : B.** Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
+**Réponse B.** Les contacts ne viennent pas automatiquement de l'existence du salon. Ils naissent d'activités facultatives adaptées aux habitants, même brèves.
 
 </details>
 
@@ -103,9 +101,9 @@ C. Conserver une obligation collective en laissant chacun choisir son rôle
 
 D. Diversifier les formes de participation tout en préservant les échanges
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
+**Réponse D.** Le conseil abandonne l'obligation identique et admet plusieurs créneaux ou formes de participation, tout en conservant le projet de convivialité.
 
 </details>
 
@@ -123,9 +121,9 @@ C. Réduire le nombre de composants pour fixer durablement les usages
 
 D. Standardiser des éléments tout en permettant plusieurs configurations de vie
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Les architectes acceptent de répéter des composants techniques, mais refusent une distribution unique pour des besoins d'habitants différents.
+**Réponse D.** Les architectes acceptent de répéter des composants techniques, mais refusent une distribution unique pour des besoins d'habitants différents.
 
 </details>
 
@@ -145,9 +143,9 @@ C. La durée en ligne peut refléter la complexité des tâches sans mesurer leu
 
 D. La représentante préfère supprimer la mesure du temps des évaluations
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : C.** Une durée de connexion longue peut refléter un dossier complexe. Il faut confronter le temps aux résultats et aux difficultés au lieu de traiter la présence comme une mesure suffisante.
+**Réponse C.** Une durée de connexion longue peut refléter un dossier complexe. Il faut confronter le temps aux résultats et aux difficultés au lieu de traiter la présence comme une mesure suffisante.
 
 </details>
 
@@ -165,9 +163,9 @@ C. Le choix entre traiter plus de dossiers et mieux accompagner les cas difficil
 
 D. L'intérêt de supprimer les dossiers les plus complexes grâce à l'automatisation
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : C.** Les salariés approuvent le logiciel mais contestent l'affectation de tout le temps gagné à davantage de dossiers ; ils proposent de mieux suivre les cas complexes.
+**Réponse C.** Les salariés approuvent le logiciel mais contestent l'affectation de tout le temps gagné à davantage de dossiers ; ils proposent de mieux suivre les cas complexes.
 
 </details>
 
@@ -185,9 +183,9 @@ C. Communiquer plus clairement les objectifs d'ouverture à tous les profils
 
 D. Changer les procédures qui excluent sans mesurer les compétences recherchées
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Horaires d'entretien et stages non rémunérés peuvent écarter des profils malgré les annonces de diversité. L'association demande de modifier ces procédures.
+**Réponse D.** Horaires d'entretien et stages non rémunérés peuvent écarter des profils malgré les annonces de diversité. L'association demande de modifier ces procédures.
 
 </details>
 
@@ -207,9 +205,9 @@ C. Les données des hébergeurs seraient inutiles pour mesurer l'apport des visi
 
 D. Le nombre d'arrivées devrait être corrigé par la fréquentation des lieux culturels
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : A.** Un visiteur peut ne faire qu'un bref passage en encombrant le centre sans soutenir beaucoup les commerces. Le nombre d'arrivées ne mesure donc pas seul les retombées.
+**Réponse A.** Un visiteur peut ne faire qu'un bref passage en encombrant le centre sans soutenir beaucoup les commerces. Le nombre d'arrivées ne mesure donc pas seul les retombées.
 
 </details>
 
@@ -227,9 +225,9 @@ C. Une offre de logement compatible avec le rythme d'un trajet à étapes
 
 D. Un financement supplémentaire des pistes indépendamment des services
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : C.** Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
+**Réponse C.** Les itinéraires cyclables financés restent difficiles à utiliser lorsque les hébergements refusent les nuitées courtes nécessaires aux étapes.
 
 </details>
 
@@ -239,17 +237,17 @@ D. Un financement supplémentaire des pistes indépendamment des services
 
 **Question :** Quel effet collectif peut contredire l'intention des recommandations ?
 
-A. La multiplication des détours individuels réduit les besoins de consultation locale
+A. La consultation locale devient plus difficile quand les suggestions changent souvent
 
-B. La précision des recommandations évite que les visiteurs se retrouvent au même lieu
+B. La fréquentation se concentre lorsque les plateformes privilégient les grands sites
 
-C. Les conseils personnalisés répartissent les visiteurs lorsqu'ils restent identiques
+C. Des recommandations variées rendent les lieux moins familiers aux visiteurs
 
-D. Une destination peu connue peut devenir saturée après des recommandations massives
+D. Une destination peu connue peut attirer une foule après des conseils répétés
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Conseiller une petite place à des milliers de voyageurs peut créer une nouvelle concentration là où la recommandation cherchait à disperser les visites.
+**Réponse D.** Conseiller une petite place à des milliers de voyageurs peut créer une nouvelle concentration là où la recommandation cherchait à disperser les visites.
 
 </details>
 
@@ -269,9 +267,9 @@ C. Pour organiser la récupération des produits dès leur mise en vente
 
 D. Pour anticiper les difficultés de séparation dans les choix de conception
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Le traitement en fin de vie guide les choix de matériaux et d'assemblage dès la fabrication. Il ne s'agit pas de déléguer les matériaux aux centres, de rédiger les consignes ni d'organiser une collecte anticipée.
+**Réponse D.** Le traitement en fin de vie guide les choix de matériaux et d'assemblage dès la fabrication. Il ne s'agit pas de déléguer les matériaux aux centres, de rédiger les consignes ni d'organiser une collecte anticipée.
 
 </details>
 
@@ -289,9 +287,9 @@ C. Les saisons obligent à réduire le nombre d'espèces étudiées dans les rel
 
 D. La durée du programme ne permet pas d'observer les changements du cours d'eau
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : B.** Les effets de la restauration dépendent des saisons, des espèces et des évolutions lentes. Un chiffre mensuel peut confondre une fluctuation momentanée avec un échec.
+**Réponse B.** Les effets de la restauration dépendent des saisons, des espèces et des évolutions lentes. Un chiffre mensuel peut confondre une fluctuation momentanée avec un échec.
 
 </details>
 
@@ -309,9 +307,9 @@ C. Compenser des émissions actuelles par les seuls effets sur la biodiversité
 
 D. Traiter la durée du suivi comme une mesure du carbone déjà stocké
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : A.** Une plantation met du temps à stocker du carbone et sa survie reste incertaine. La critique vise l'annonce d'une compensation déjà obtenue à partir de promesses futures.
+**Réponse A.** Une plantation met du temps à stocker du carbone et sa survie reste incertaine. La critique vise l'annonce d'une compensation déjà obtenue à partir de promesses futures.
 
 </details>
 
@@ -331,9 +329,9 @@ C. L'aide de lecteurs habitués doit remplacer la présentation des programmes
 
 D. Le choix d'une activité dépend surtout du nombre de lieux couverts par l'abonnement
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : A.** Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
+**Réponse A.** Un droit d'entrée inutilisé faute de repères ne donne pas pleinement accès à la culture. Présentations et échanges facilitent la première visite.
 
 </details>
 
@@ -343,17 +341,17 @@ D. Le choix d'une activité dépend surtout du nombre de lieux couverts par l'ab
 
 **Question :** Quelle simplification des témoignages le réalisateur refuse-t-il ?
 
-A. Le réalisateur réduit les divergences à des souvenirs imprécis d'une même histoire
+A. Attribuer les différences entre témoins à une seule génération d'habitants
 
-B. Le montage donne priorité aux témoins qui partagent une interprétation commune
+B. Présenter les souvenirs comme des faits identiques à vérifier lors du montage
 
-C. La variété des récits est présentée comme la preuve d'une division définitive
+C. Ramener les divergences à une opposition entre participants et journalistes
 
-D. La visibilité médiatique est assimilée à une voix représentative et uniforme
+D. Présenter les habitants comme s'ils exprimaient une parole collective uniforme
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : D.** Le réalisateur conserve les désaccords entre habitants. Les rendre visibles ne signifie pas les réunir dans un discours unique.
+**Réponse D.** Le réalisateur conserve les désaccords entre habitants. Les rendre visibles ne signifie pas les réunir dans un discours unique.
 
 </details>
 
@@ -371,12 +369,10 @@ C. La salle accepte moins de passages pour permettre un accueil plus approfondi
 
 D. Les visiteurs sont répartis selon leur niveau de familiarité avec les musées
 
-<details><summary>Afficher le corrigé éditorial</summary>
+<details><summary>Corrigé éditorial</summary>
 
-**Réponse : C.** L'équipe limite la taille des groupes pour mieux accueillir et dialoguer, malgré une baisse du nombre d'entrées annoncé.
+**Réponse C.** L'équipe limite la taille des groupes pour mieux accueillir et dialoguer, malgré une baisse du nombre d'entrées annoncé.
 
 </details>
 
-## Complete editorial audit
-
-See [the 90-question manual review log](./tcf-reading-01-06-manual-review.md). Existing student papers, history, scoring and progress have not been modified.
+See [the complete 90-question editorial log](./tcf-reading-01-06-manual-review.md). All original passage topics, exam timing, scoring and previous saved student results are preserved.
