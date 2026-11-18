@@ -50,43 +50,43 @@
     "number": 38,
     "sourceHash": "9964b73785d4c38c9c98c209e46c112e334d00ea8ac18d217abc7516265d9887",
     "authored": {
-      "question": "Quelle difficulté est décrite dans le document ?",
+      "question": "Quelle vérification est demandée concernant les personnes vulnérables ?",
       "choices": [
-        "L'afflux de demandes d'examens excède les consultations disponibles.",
-        "Les équipes tardent à adapter les examens aux risques signalés.",
-        "Les habitants sont sensibilisés avant que les équipes soient formées.",
-        "Les personnes les plus vulnérables participent peu aux examens proposés."
+        "L’accès effectif à une prise en charge.",
+        "La compréhension du message de prévention.",
+        "Le délai entre le diagnostic et le traitement.",
+        "Les frais médicaux restant à payer."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition correspond à la relation particulière attribuée dans le document ; les autres propositions attribuent aux mêmes éléments un rôle, une portée ou une chronologie différents.",
-      "design": "Four reasonable alternatives in the same semantic family; human-authored design probe, not a fabricated AI evaluation.",
+      "explanation": "Le document demande de vérifier que les personnes vulnérables obtiennent réellement une prise en charge. Les autres indicateurs déplacent la vérification vers la compréhension, le traitement après diagnostic ou les frais.",
+      "design": "Four practical health-service checks for the same population. Wrong links: awareness versus care, access after risk discovery versus treatment after diagnosis, and medical care versus financial charges. No blind evaluation is claimed.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "causal_reversal",
+          "operation": "scope_shift",
           "anchors": [
-            "davantage de demandes d'examens que le système local n'est capable d'en absorber",
-            "un risque sans pouvoir accéder rapidement au suivi annoncé"
+            "nombre de personnes sensibilisées",
+            "obtiennent réellement une prise en charge"
           ],
-          "reason": "Confondre un défaut de capacité à absorber la demande avec une adaptation insuffisante des examens aux risques, qui n'est pas le constat rapporté."
+          "reason": "Confond le public sensibilisé avec la vérification d’une prise en charge ; le document demande de dépasser le premier indicateur."
         },
         {
           "index": 2,
           "operation": "time_swap",
           "anchors": [
-            "former les équipes",
-            "Informer les habitants est essentiel"
+            "s’ils découvrent un risque",
+            "accéder rapidement au suivi annoncé"
           ],
-          "reason": "Transformer la recommandation de former les équipes en une chronologie observée dans les villes ; le paradoxe décrit concerne la demande et les capacités de suivi."
+          "reason": "Déplace le délai entre découverte du risque et accès au suivi vers le délai après un diagnostic médical, qui n’est pas cité."
         },
         {
           "index": 3,
           "operation": "scope_shift",
           "anchors": [
-            "les personnes les plus vulnérables obtiennent réellement une prise en charge",
-            "davantage de demandes d'examens"
+            "personnes les plus vulnérables",
+            "une prise en charge"
           ],
-          "reason": "Confondre le contrôle recommandé de la prise en charge avec un constat de faible participation des publics vulnérables."
+          "reason": "Interprète la prise en charge comme une couverture financière ; la vérification annoncée concerne l’accès effectif aux services."
         }
       ]
     }
