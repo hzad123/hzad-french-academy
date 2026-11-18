@@ -54,14 +54,9 @@ test('Test 05 three owner-reported items require distinctions rather than absurd
  assert(examples.every(q=>q.question.includes('?')&&q.options.every(o=>o.length>=45)));
  assert(!/poubelle|jamais|sans information|aucune observation|abandonn/i.test(examples.flatMap(q=>q.options).join('|')));
 });
-test('blind reviewer receives no keys or passages in the first stage',async()=>{
- const source=await readFile('scripts/review-tcf-reading-ai.mjs','utf8');
- const start=source.indexOf('const response=await reviewer(blindSystem,');
- const end=source.indexOf('const chosen=',start);
- assert(start>=0&&end>start);
- const invocation=source.slice(start,end);
- assert(!/q\.passage|q\.correct|q\.explanation/.test(invocation));
- assert(source.includes("if(!key)"));
- assert(source.includes('process.exit(2)'));
- assert(source.includes('for(let round=0;round<3;round++)'));
+test('manual editorial revision does not introduce an AI or live grading dependency',async()=>{
+ const script=await readFile('scripts/check-tcf-reading-blind-heuristics.mjs','utf8');
+ assert(script.includes('NO-PASSAGE HEURISTIC BASELINE'));
+ assert(!script.includes('OPENAI_API_KEY'));
+ assert(!script.includes('https://api.openai.com'));
 });
