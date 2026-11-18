@@ -142,43 +142,43 @@
     "number": 38,
     "sourceHash": "5aff43c5223ead7a08052e7917ae38c7b95ddb4d8ab4a9b17a312a5875701cae",
     "authored": {
-      "question": "Quel risque est attribué à la proposition envisagée ?",
+      "question": "Avec quels interlocuteurs les habitants discutent-ils des visites ?",
       "choices": [
-        "Un report de la pression vers des espaces fragiles.",
-        "L’engorgement des sites les plus connus.",
-        "Une fréquentation concentrée dans les périodes les plus chargées.",
-        "Des restrictions d’accès pour les habitants."
+        "Avec les gestionnaires du territoire.",
+        "Avec les commerçants du secteur.",
+        "Avec les professionnels de la photographie.",
+        "Avec les responsables des transports."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
+      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "time_swap",
+          "operation": "role_swap",
           "anchors": [
-            "déplacer la pression vers des espaces encore fragiles",
-            "une file se forme pour reproduire exactement cette photographie"
+            "avec les habitants et les gestionnaires",
+            "quelles visites souhaite-t-on favoriser"
           ],
-          "reason": "Confond la file actuelle devant le point de vue connu avec le risque futur attribué à la diffusion d’autres images."
+          "reason": "Attribue le rôle de partenaire de discussion aux commerçants, alors que le groupe explicitement cité est celui des gestionnaires."
         },
         {
           "index": 2,
-          "operation": "condition_transfer",
+          "operation": "scope_shift",
           "anchors": [
-            "déplacer la pression vers des espaces encore fragiles",
-            "à quelles périodes"
+            "avec les habitants et les gestionnaires",
+            "quelles visites souhaite-t-on favoriser"
           ],
-          "reason": "Transfère au changement d’images la question des périodes, qui relève de la concertation et non du risque annoncé."
+          "reason": "Confond les personnes associées aux images et photographies avec les gestionnaires consultés sur les visites."
         },
         {
           "index": 3,
-          "operation": "role_swap",
+          "operation": "condition_transfer",
           "anchors": [
-            "déplacer la pression vers des espaces encore fragiles",
-            "avec quels accès et quelles limites"
+            "avec les habitants et les gestionnaires",
+            "quelles visites souhaite-t-on favoriser"
           ],
-          "reason": "Attribue aux habitants une perte d’accès hypothétique ; le déplacement de la pression touristique, et non cette restriction, est le risque cité."
+          "reason": "Transforme la question des accès en présence de transporteurs à la discussion, groupe que le document ne cite pas."
         }
       ]
     }
@@ -234,43 +234,43 @@
     "number": 30,
     "sourceHash": "57edd438bfa091d479a996de94048c81a4346879482726af36eaf054d75d5b7a",
     "authored": {
-      "question": "Qu’est-il prévu de documenter ?",
+      "question": "Quels éléments de l’ancienne gare sont donnés en exemple ?",
       "choices": [
-        "Les transformations qu’on y apporte.",
-        "L’activité de l’ancienne gare.",
-        "L’histoire de ses usages successifs.",
-        "L’état d’origine de ses éléments architecturaux."
+        "Les portes, la charpente et les traces d’activités.",
+        "Les quais, la charpente et les anciens bureaux.",
+        "Les portes, les voies et les anciens signaux.",
+        "Les voies, les ateliers et les murs extérieurs."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
+      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "documenter les transformations",
-            "les anciennes activités"
+            "Les grandes portes, la charpente",
+            "les traces laissées par les anciennes activités"
           ],
-          "reason": "Confond ce que racontent les traces des activités passées avec l’objet précis de la documentation annoncée, à savoir les transformations."
+          "reason": "Conserve la charpente mais lui associe les quais et les bureaux, à la place des portes et des traces citées."
         },
         {
           "index": 2,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "documenter les transformations",
-            "une nouvelle place dans la ville"
+            "Les grandes portes, la charpente",
+            "les traces laissées par les anciennes activités"
           ],
-          "reason": "Transfère à la documentation l’idée de la nouvelle place du lieu dans la ville, qui est attribuée à sa fréquentation."
+          "reason": "Conserve les portes mais remplace la charpente et les traces par deux autres éléments ferroviaires."
         },
         {
           "index": 3,
-          "operation": "time_swap",
+          "operation": "condition_transfer",
           "anchors": [
-            "documenter les transformations",
-            "Les grandes portes, la charpente et les traces laissées"
+            "Les grandes portes, la charpente",
+            "les traces laissées par les anciennes activités"
           ],
-          "reason": "Confond la conservation d’éléments existants avec une reconstitution documentaire de leur état avant les travaux, non annoncée."
+          "reason": "Attribue au document une autre liste d’éléments historiques plausibles d’une gare, qui ne correspond pas aux exemples choisis."
         }
       ]
     }
@@ -418,43 +418,43 @@
     "number": 38,
     "sourceHash": "6242b57dd87ced366e25e843649866c9fad60d9201ef3f9d7c95530640679601",
     "authored": {
-      "question": "Quelle difficulté de fonctionnement est décrite ?",
+      "question": "Quelle difficulté touche certains enfants qui nécessitent le plus d’aide ?",
       "choices": [
-        "Le temps disponible pour chaque élève se réduit.",
-        "La variété des contenus diminue.",
-        "Les élèves changent plus souvent de tuteur.",
-        "Les objectifs des séances deviennent moins exigeants."
+        "Un délai de plusieurs semaines avant de recevoir de l’aide.",
+        "Des séances plus courtes que celles des autres enfants.",
+        "Un changement de tuteur au cours de l’accompagnement.",
+        "Des exercices peu adaptés à leur niveau."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
+      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "les bénévoles disposent de moins de temps pour chaque élève",
-            "mesurer les progrès réels"
+            "les besoins les plus importants",
+            "attendent plusieurs semaines"
           ],
-          "reason": "Confond la nécessité de mesurer les progrès avec un appauvrissement des contenus ; le mécanisme décrit concerne le temps disponible pour chacun."
+          "reason": "Confond la baisse du temps disponible pour chaque élève avec une durée inférieure à celle réservée aux autres enfants."
         },
         {
           "index": 2,
-          "operation": "causal_reversal",
+          "operation": "scope_shift",
           "anchors": [
-            "les bénévoles disposent de moins de temps pour chaque élève",
-            "préparer davantage de tuteurs"
+            "les besoins les plus importants",
+            "attendent plusieurs semaines"
           ],
-          "reason": "Transforme le besoin de préparer plus de tuteurs en augmentation des changements de tuteur, phénomène plausible mais non décrit."
+          "reason": "Transforme la nécessité de préparer davantage de tuteurs en changement de tuteur déjà subi par ces enfants."
         },
         {
           "index": 3,
-          "operation": "scope_shift",
+          "operation": "condition_transfer",
           "anchors": [
-            "les bénévoles disposent de moins de temps pour chaque élève",
-            "amélioration de l'apprentissage"
+            "les besoins les plus importants",
+            "attendent plusieurs semaines"
           ],
-          "reason": "Confond l’absence de preuve d’amélioration de l’apprentissage avec une baisse annoncée du niveau des objectifs pédagogiques."
+          "reason": "Confond le manque de capacité et les progrès à mesurer avec un défaut d’adaptation des exercices, qui n’est pas décrit."
         }
       ]
     }
@@ -464,43 +464,43 @@
     "number": 39,
     "sourceHash": "f96e1bfd2d23cb29ea1cf739cad95f3bcd1a42b13750540af02ec8c2d877f55d",
     "authored": {
-      "question": "Dans quel cas le suivi d’un élève est-il expressément évoqué ?",
+      "question": "Dans quel cas l’intervenante demande-t-elle d’assurer le suivi des élèves ?",
       "choices": [
-        "Lorsqu’un bénévole cesse d’accompagner l’élève.",
-        "Lorsqu’il change d’établissement scolaire.",
-        "Quand sa famille quitte la ville.",
-        "Quand un nouveau tuteur rejoint le réseau."
+        "Lorsqu’un bénévole se retire du réseau.",
+        "Lorsqu’un élève change d’établissement.",
+        "Lorsqu’un nouveau tuteur commence.",
+        "Lorsqu’un groupe est réorganisé."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
+      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "assurer le suivi des élèves lorsqu'un bénévole se retire",
-            "coordination régulière avec les écoles"
+            "assurer le suivi des élèves",
+            "lorsqu’un bénévole se retire"
           ],
-          "reason": "Confond la coordination avec les écoles avec un changement d’établissement de l’élève, qui n’est pas le cas cité pour le suivi."
+          "reason": "Transfère la coordination avec les écoles à un changement d’établissement qui n’est pas le cas présenté."
         },
         {
           "index": 2,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "assurer le suivi des élèves lorsqu'un bénévole se retire",
-            "quittent la ville"
+            "assurer le suivi des élèves",
+            "lorsqu’un bénévole se retire"
           ],
-          "reason": "Attribue à la famille de l’élève le départ de la ville, alors que ce départ concerne certains étudiants bénévoles."
+          "reason": "Confond le recrutement et la formation de nouveaux tuteurs avec le retrait qui rend nécessaire la continuité du suivi."
         },
         {
           "index": 3,
-          "operation": "time_swap",
+          "operation": "condition_transfer",
           "anchors": [
-            "assurer le suivi des élèves lorsqu'un bénévole se retire",
-            "former de nouveaux tuteurs"
+            "assurer le suivi des élèves",
+            "lorsqu’un bénévole se retire"
           ],
-          "reason": "Inverse le moment du relais : le suivi est explicitement associé au retrait d’un bénévole, non à l’arrivée d’un nouveau tuteur formé."
+          "reason": "Transforme le risque lié à une expansion des inscriptions en réorganisation de groupe, cas non cité pour le suivi."
         }
       ]
     }
@@ -510,43 +510,43 @@
     "number": 30,
     "sourceHash": "5ea66c97a48f3cd0eda33daea4c87c186c29fd45abea2db53516fed3f22aa838",
     "authored": {
-      "question": "Quels éléments sont cités pour la conservation ?",
+      "question": "Quelle caractéristique technique est explicitement mentionnée pour les logements ?",
       "choices": [
-        "La charpente et des traces de machines.",
-        "Les murs de briques et les enseignes.",
-        "Les voies de transport et les zones de stockage.",
-        "La cheminée et les outils."
+        "Une faible consommation d’énergie.",
+        "Une isolation renforcée contre le bruit.",
+        "Une bonne qualité de l’air intérieur.",
+        "Une ventilation à débit réglable."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
+      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "La grande charpente et certaines traces de machines méritent d'être conservées",
-            "L'ancienne usine de briques"
+            "des logements confortables, accessibles",
+            "peu énergivores"
           ],
-          "reason": "Remplace les éléments nommés par d’autres signes habituels du patrimoine industriel, en prenant le type d’usine pour un inventaire des éléments à garder."
+          "reason": "Interprète le confort de façon acoustique alors que la caractéristique technique explicitement nommée est la consommation énergétique."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "La grande charpente et certaines traces de machines méritent d'être conservées",
-            "comprendre son ancien usage"
+            "des logements confortables, accessibles",
+            "peu énergivores"
           ],
-          "reason": "Déduit de la volonté de faire comprendre l’ancien usage une conservation des voies et du stockage, alors que ces éléments ne sont pas ceux cités."
+          "reason": "Attribue au confort une exigence précise de qualité de l’air que le document ne formule pas."
         },
         {
           "index": 3,
-          "operation": "scope_shift",
+          "operation": "condition_transfer",
           "anchors": [
-            "La grande charpente et certaines traces de machines méritent d'être conservées",
-            "certaines traces de machines"
+            "des logements confortables, accessibles",
+            "peu énergivores"
           ],
-          "reason": "Confond les traces de machines explicitement mentionnées avec la conservation d’une cheminée et des outils, autres objets industriels plausibles mais non nommés."
+          "reason": "Confond le résultat énergétique souhaité avec une installation particulière de ventilation non citée."
         }
       ]
     }
