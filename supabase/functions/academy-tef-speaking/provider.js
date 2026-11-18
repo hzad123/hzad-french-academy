@@ -49,10 +49,15 @@ export function validateTefFeedback(value,attempt,kind){
  .map(x=>({advice:safe(x.advice,250),example:safe(x.example,200,true)}));
  const noA=!all.some(t=>t.phase===0&&t.intelligible&&t.transcript.trim());
  const noB=!all.some(t=>t.phase===2&&t.intelligible&&t.transcript.trim());
- const assessable=kind==='feedback_b'&&!noA&&!noB;
+ // Section A reports a clearly labelled partial practice estimate. Section B
+ // reports the full A+B practice estimate only when BOTH sections have audible
+ // learner evidence. Neither is an official TEF or IRCC result.
+ const assessable=kind==='feedback_a'?!noA:!noA&&!noB;
+ const scoreStatus=assessable?(kind==='feedback_a'?'unofficial-section-a-estimate':'unofficial-practice-estimate'):
+  'insufficient-evidence';
  return {kind,section,score:assessable?value.score:null,nclc:assessable?tefSpeakingNclc(value.score):null,
  estimatedLevel:['A1','A2','B1','B2','C1','C2'].includes(value.estimatedLevel)?value.estimatedLevel:null,
- scoreStatus:assessable?'unofficial-practice-estimate':'section-only-or-insufficient-evidence',
+ scoreStatus,
  summary:safe(value.summary,650),criteria:items,mistakes,recommendations,
  evidence:{sectionATurns:all.filter(t=>t.phase===0&&t.intelligible).length,
  sectionBTurns:all.filter(t=>t.phase===2&&t.intelligible).length},
@@ -114,8 +119,8 @@ function examinerMessages(test,phase,turns,audio){
 function gradeMessages(test,kind,attempt){
  const turns=speakingTurns(attempt),selected=kind==='feedback_a'?turns.filter(t=>t.phase===0):turns;
  const system='Évalue une SIMULATION TEF Canada; ceci n’est PAS un score officiel. Réponds entièrement en français.'+
-  (kind==='feedback_a'?' Analyse uniquement la section A (obtenir des renseignements avec environ dix questions) et ne prétends pas établir un résultat final.':
-   ' Analyse la section B de persuasion, l’interaction avec un ami hésitant, les objections, puis l’ensemble des sections A et B.')+
+  (kind==='feedback_a'?' Analyse uniquement la section A (obtenir des renseignements avec environ dix questions). Le score 0–699 est uniquement une estimation PARTIELLE de niveau oral à partir de la section A, et ne prétend pas établir un résultat TEF complet.':
+   ' Analyse la section B de persuasion, l’interaction avec un ami hésitant, les objections, puis l’ensemble des sections A et B. Le score 0–699 représente l’estimation de l’ensemble du test (A+B), pas uniquement de la section B.')+
   ' Trois critères : linguistic (grammaire, vocabulaire, aisance, intelligibilité, prononciation seulement si observations audio fiables),'+
   ' pragmatic (questions variées et adaptées en A; présentation, arguments, objections et exemples en B), sociolinguistic (registre et politesse).'+
   ' Sépare les propos du candidat et de l’IA, appuie toute remarque sur des turnId de réponses authentiquement reconnues.'+
