@@ -1,41 +1,28 @@
-# HZad TCF Reading: Question authoring and acceptance contract (Tests 01–06; reusable for other tests)
+# HZad TCF Reading — Manual editorial quality contract
 
-## Never change the exam engine
-- Keep one immutable source passage per question and preserve topic variation (all 39 questions), current level progression, 60-minute timer, four choices, exactly one source-supported correct answer, existing practice point bands (699 aggregate), student progress and stored historical paper versions.
-- Do **not** regenerate passages merely to inflate their length or copy official examples.
-- These are original practice questions inspired by [FEI TCF sample materials](https://www.france-education-international.fr/test/exemples-epreuves-tcf), not official calibrated TCF tests.
-- Editorial content is stored as private versioned paper JSON on the server. No student-facing live model generation or answer-key exposure.
+## Scope
+- Preserve all 20 unique topics/passage sequences; this phase focuses on **Tests 01–06**, all **Q25–Q39**.
+- Q01–Q24 passages, stems and choice wording remain unchanged; Test 01 choice *positions* may be reshuffled because the previous exact ABCD repeating key was guessable.
+- Retain 39 questions per paper, 60 minutes, 699 practice points, source-backed answers, saved student paper versions, user rights and immutable historical attempts.
+- Do not add generative AI calls to student testing or an AI-review release requirement.
 
-## Authoring rules
-**Q01–Q10:** everyday notices/actions. The correct choice should require reading, but the action can be directly stated. Use believable nearby alternatives: wrong time, participant, destination, eligibility or condition.
+## Authoring
+1. For each passage, identify the exact proposition the question tests and its source evidence.
+2. Each wrong option must arise from a plausible confusion: actor, time, condition, causal direction, evidence vs inference, intention vs effect, scope or true-but-irrelevant detail.
+3. Use comparable French fluency and roughly comparable specificity/length, without forcing identical lengths. Avoid absurd, unrelated and extreme options.
+4. Make Q25–39 test careful comprehension or reasoning, including unstated implications **only when the inference is justified by the text**.
+5. Read all four choices without the passage as an editorial sanity check. The intended answer should not be identifiable merely because the other options are bizarre, internally inconsistent, or categorically exaggerated.
+6. Re-read the complete passage, question and options and identify why exactly one choice answers the question. Rewrite the stem/options if another reasonable interpretation would also work.
+7. Ensure the correct answer is not copied verbatim from a conspicuous passage phrase.
+8. Check explanation against the selected letter and quote or paraphrase the supporting evidence. If there is an answer-to-key mismatch, reject and repair immediately.
+9. Check within-paper answer letter distribution **and sequential patterns** (not only counts). For example Test 01 previously had a completely predictable ABCD cycle.
+10. Preserve existing content as versioned JSON. Never modify historical papers or in-progress attempts.
 
-**Q11–Q24:** details, relations, procedural implications. Create incorrect answers from adjacent true details, mistaken actor/motive, narrow versus broad scope, sequence and prerequisites. Never rely on absurd options to achieve 1-of-4 certainty.
+## Validation
+- Use the current repository's `tests/tcf-reading-01-06-v5.test.mjs` and `tests/tcf-reading-v5-answer-alignment.test.mjs` to confirm paper structure and preserve the 90 reviewed answer meanings.
+- Optional `scripts/check-tcf-reading-blind-heuristics.mjs` is only a deterministic surface-cue diagnostic. It is NOT a human or AI reader, nor a guarantee of actual exam difficulty.
+- Run `npm test` and `npm run build`. Inspect the 90-row editorial log at `docs/tcf-reading-01-06-manual-review.md`.
+- Changes must not be reported as live until the versioned backend publication and authenticated frontend read are both verified.
 
-**Q25–Q39:** infer a constraint, author intention, evidence requirement, assumption, implication or causal relation. All four choices must form a plausible set that a proficient reader could consider before reading. At least two incorrect answers should have a concrete relation to the text. Some may state true details that do **not** answer the precise question. Incorrect choices must be unsupported by the passage in the requested sense, not just clumsily phrased.
-
-### Candidate generation procedure (author/editor)
-1. Read the original passage, identify the single skill/insight being tested and write the correct interpretation in concise French without copying its key sentence.
-2. Identify **three different errors a serious student might make**:
-   - confuse means with ultimate objective;
-   - overgeneralize from a specific example;
-   - confuse a possible/conditional outcome with a demonstrated result;
-   - mistake an accompanying benefit for the primary argument;
-   - swap chronology, agent or causal direction;
-   - assume one indicator captures a larger system;
-   - answer a related but different question.
-3. Write parallel, naturally phrased alternatives; vary length but do not systematically make the correct one longer, more precise or more balanced.
-4. Independently read each option alongside the passage. If two options could reasonably satisfy the question, **rewrite the stem or alternatives**.
-5. Record a short rationale: which source evidence supports the key and why the strongest near-miss fails.
-6. Save revised content to a **new immutable paper version**. Never replace historical versions of active/completed attempts.
-
-## Mandatory independent acceptance
-- **First reviewer:** a separate AI call with **only the question and shuffled A/B/C/D options**, three randomized permutations. Do not include passage, key, original text, explanation, passage word count, author notes, or previous blind attempts. If it guesses the author key with confidence from style, elimination or logic, **reject**.
-- **Second reviewer:** a separate AI call with passage, stem and alternatives but **no author key**. Require a single defensible interpretation, quote evidence, and an explanation of each realistic but false answer. Mark multiple-correct, insufficient-evidence, and implausible distractors as **fail**.
-- **After** both reviewers finish, compare to the author key. Do not let either reviewer receive the key before its assessment.
-- Use the protected workflow `.github/workflows/tcf-reading-independent-review.yml` (sample covers Q30/Q37/Q39 in Tests 01–06; **full** checks all 90 Q25–39).
-- On any failure, revise **only failed candidate questions**, then run both checks again; keep all other published content unchanged.
-- If the separate reviewer credential is absent, the review **fails closed**. A deterministic options-only heuristic does not count as an AI blind test. No candidate can become current without a successful full gate.
-- CI also checks the exact paper structure, source-passage immutability, question counts, answer-letter balance, and manually reviewed semantic-answer anchors.
-
-## Release after independent acceptance
-Run npm tests/build and mobile/desktop GHL checks. Insert the six new v5 paper versions into the **Academy** Supabase project with an additive reviewed migration; update only publication pointers for Tests 01–06. Preserve all old paper versions and attempts, exact scores/history and the other 14 tests. Do not use the HZad Talk Supabase project.
+## Current editorial limitations
+Question difficulty cannot be certified by wording inspection alone, and some original passages (particularly in Test 01) are short and straightforward. Distractor editing cannot completely substitute for deeper passage-level reasoning. The current audit is a careful editorial pass, not psychometric calibration or an official TCF equivalence.
