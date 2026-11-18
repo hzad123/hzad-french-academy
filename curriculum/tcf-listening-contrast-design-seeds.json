@@ -2029,43 +2029,43 @@
     "number": 31,
     "sourceHash": "76d4a35c1fbc81dde7db3c4ef59bbe0e276da13c10b86dde3e1dbc2aff8b2002",
     "authored": {
-      "question": "Quel changement des usages est cité après l’isolation ?",
+      "question": "Quel critère de comparaison des périodes est explicitement demandé ?",
       "choices": [
-        "Des habitants chauffent davantage des pièces auparavant trop froides.",
-        "Des habitants utilisent moins longtemps les systèmes de ventilation.",
-        "Des habitants changent de pièce pour limiter le chauffage.",
-        "Des habitants baissent la température quand ils s’absentent."
+        "Des périodes aux températures proches.",
+        "Des périodes avec le même nombre d’occupants.",
+        "Des périodes où les pièces chauffées sont identiques.",
+        "Des périodes de durée équivalente."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "choisissent de chauffer davantage",
-            "des pièces auparavant trop froides"
+            "comparer des périodes aux températures comparables",
+            "tenir compte de ces modifications de comportement"
           ],
-          "reason": "Transforme les problèmes d’aération cités en réduction volontaire du temps de ventilation, changement non rapporté."
+          "reason": "Remplace le critère météorologique explicite par un critère de nombre d’occupants, non donné."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "choisissent de chauffer davantage",
-            "des pièces auparavant trop froides"
+            "comparer des périodes aux températures comparables",
+            "tenir compte de ces modifications de comportement"
           ],
-          "reason": "Inverse le changement de confort décrit : les habitants chauffent davantage certaines pièces au lieu de les quitter pour limiter le chauffage."
+          "reason": "Transforme le changement des pièces chauffées, comportement à prendre en compte, en condition pour sélectionner les périodes."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "choisissent de chauffer davantage",
-            "des pièces auparavant trop froides"
+            "comparer des périodes aux températures comparables",
+            "tenir compte de ces modifications de comportement"
           ],
-          "reason": "Substitue une baisse pendant les absences à l’augmentation du chauffage effectivement citée."
+          "reason": "Substitue une égalité de durée à la comparaison des températures effectivement demandée."
         }
       ]
     }
@@ -2581,43 +2581,43 @@
     "number": 35,
     "sourceHash": "3c41473662759f85ca7cf8d60175e206e7e80012c37d84c32ea684197da0b7f7",
     "authored": {
-      "question": "Quel facteur de perturbation des capteurs est cité ?",
+      "question": "Quel facteur de perturbation est cité pour les capteurs ?",
       "choices": [
-        "Un bracelet mal ajusté au poignet peut perturber les capteurs.",
-        "Les variations de luminosité peuvent modifier les relevés de la montre.",
-        "Une interruption de connexion peut fausser le rythme affiché.",
-        "Une batterie peu chargée peut réduire la précision des mesures."
+        "La montre bouge pendant la mesure.",
+        "Le poignet est exposé au froid.",
+        "La peau est humide lors du relevé.",
+        "Le capteur reçoit une lumière intense."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "les capteurs peuvent être perturbés",
+            "les capteurs peuvent être perturbés par le mouvement",
             "un bracelet mal ajusté"
           ],
-          "reason": "Substitue à la perturbation par le mouvement ou le contact un effet de la lumière qui n’est pas cité."
+          "reason": "Substitue une condition de température à la perturbation mécanique explicitement citée."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "les capteurs peuvent être perturbés",
+            "les capteurs peuvent être perturbés par le mouvement",
             "un bracelet mal ajusté"
           ],
-          "reason": "Confond les notifications et les relevés avec la connexion, à laquelle le document n’attribue pas la perturbation."
+          "reason": "Confond le contact ou le mauvais ajustement du bracelet avec un problème d’humidité, facteur non cité."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "les capteurs peuvent être perturbés",
+            "les capteurs peuvent être perturbés par le mouvement",
             "un bracelet mal ajusté"
           ],
-          "reason": "Attribue le défaut de précision à la batterie plutôt qu’aux circonstances physiques effectivement mentionnées."
+          "reason": "Attribue la perturbation à la lumière plutôt qu’au mouvement ou à l’ajustement du bracelet effectivement nommés."
         }
       ]
     }
@@ -2857,43 +2857,43 @@
     "number": 37,
     "sourceHash": "c39145dcfa2779f17bfebd4460ccce3f77888a45e4619d01d3512d179f3affcf",
     "authored": {
-      "question": "Quelles informations supplémentaires l’intervenant souhaite-t-il examiner ?",
+      "question": "Quel travail a déjà été effectué ?",
       "choices": [
-        "Le temps passé dans le bruit et les heures de sommeil.",
-        "La qualité du sommeil et la fréquence des réveils nocturnes.",
-        "Les heures de présence au domicile et les pièces utilisées.",
-        "Les activités interrompues par le bruit et leur durée."
+        "Effectuer des relevés acoustiques.",
+        "Examiner les horaires de repos.",
+        "Étudier la durée d’exposition.",
+        "Analyser les horaires du chantier."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "la durée d’exposition",
-            "les horaires de repos"
+            "Nous avons mesuré les niveaux sonores",
+            "nous devons aussi examiner la durée d’exposition et les horaires de repos"
           ],
-          "reason": "Transforme les horaires de repos à examiner en mesure de qualité du sommeil et de réveils nocturnes, non proposée."
+          "reason": "Confond une analyse qui reste à réaliser avec la mesure déjà effectuée."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "la durée d’exposition",
-            "les horaires de repos"
+            "Nous avons mesuré les niveaux sonores",
+            "nous devons aussi examiner la durée d’exposition et les horaires de repos"
           ],
-          "reason": "Confond la situation des appartements et l’exposition avec un relevé des pièces utilisées, non annoncé."
+          "reason": "La durée d’exposition figure parmi les éléments restant à examiner, contrairement aux niveaux sonores déjà mesurés."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "la durée d’exposition",
-            "les horaires de repos"
+            "Nous avons mesuré les niveaux sonores",
+            "nous devons aussi examiner la durée d’exposition et les horaires de repos"
           ],
-          "reason": "Transforme la gêne quotidienne rapportée en inventaire chronométré d’activités interrompues, que l’intervenant ne propose pas."
+          "reason": "Confond les horaires de repos des résidents avec ceux du chantier, qui ne sont pas présentés comme une analyse déjà réalisée."
         }
       ]
     }
@@ -3354,6 +3354,144 @@
             "les récoltes sont irrégulières"
           ],
           "reason": "Confond les récoltes irrégulières selon la saison avec une qualité variable des produits, qui n’est pas la crainte exprimée."
+        }
+      ]
+    }
+  },
+  {
+    "test": 1,
+    "number": 33,
+    "sourceHash": "01da43e56211cf1289ef6184b72541983e44d96af0986fd110efd62b36ffb315",
+    "authored": {
+      "question": "À quoi correspond l’augmentation de douze pour cent ?",
+      "choices": [
+        "Le total des nuitées enregistrées.",
+        "La durée moyenne des séjours.",
+        "Les recettes générées par les commerces.",
+        "Le nombre de logements pour les salariés."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "les nuitées ont augmenté de douze pour cent",
+            "suivre la fréquentation"
+          ],
+          "reason": "Confond le nombre de nuitées avec la durée moyenne d’un séjour, deux mesures différentes du tourisme."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "les nuitées ont augmenté de douze pour cent",
+            "suivre la fréquentation"
+          ],
+          "reason": "Attribue aux recettes des commerces le pourcentage donné pour les nuitées ; les commerces sont évoqués pour leur fermeture en septembre."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "les nuitées ont augmenté de douze pour cent",
+            "suivre la fréquentation"
+          ],
+          "reason": "Transforme la difficulté des salariés à se loger en augmentation de logements, alors que la croissance annoncée concerne les nuitées."
+        }
+      ]
+    }
+  },
+  {
+    "test": 3,
+    "number": 36,
+    "sourceHash": "6d845b2f6df0d79372474de58bac1f7e1acb2e550b2b7982fdb17b9ded26ec56",
+    "authored": {
+      "question": "Dans l’ordre de l’énumération, quel besoin est nommé d’abord ?",
+      "choices": [
+        "Être accompagné par un interprète.",
+        "Recevoir une explication moins technique.",
+        "Disposer d’un délai de réflexion.",
+        "Pouvoir refuser sans se sentir puni."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "Certains patients ont besoin d’un interprète",
+            "d’un délai de réflexion ou d’une explication moins technique"
+          ],
+          "reason": "Ce besoin est bien cité, mais après l’interprète et le délai de réflexion, pas en premier."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "Certains patients ont besoin d’un interprète",
+            "d’un délai de réflexion ou d’une explication moins technique"
+          ],
+          "reason": "Le délai de réflexion suit l’interprète dans l’énumération."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Certains patients ont besoin d’un interprète",
+            "d’un délai de réflexion ou d’une explication moins technique"
+          ],
+          "reason": "La possibilité de refuser est évoquée dans la phrase suivante, après les trois besoins énumérés."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 36,
+    "sourceHash": "8dec1ed56cd457e158c35806d349e9437a397a6ec6f2bb827cdb04cffc926c86",
+    "authored": {
+      "question": "Quelle habitude le locuteur donne-t-il en exemple ?",
+      "choices": [
+        "Les périodes d’absence des résidents.",
+        "Les plages consacrées au télétravail.",
+        "Le rythme de sommeil des résidents.",
+        "Les horaires de visite des proches."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
+      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "certaines habitudes",
+            "comme les périodes d’absence"
+          ],
+          "reason": "Transforme la possibilité de déduire des habitudes en exemple de télétravail, qui n’est pas donné."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "certaines habitudes",
+            "comme les périodes d’absence"
+          ],
+          "reason": "Remplace l’absence explicitement nommée par le sommeil, autre rythme de vie que l’orateur ne cite pas."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "certaines habitudes",
+            "comme les périodes d’absence"
+          ],
+          "reason": "Déplace l’exemple vers les visites de proches plutôt que les absences des résidents."
         }
       ]
     }
