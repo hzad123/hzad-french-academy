@@ -13,6 +13,9 @@ on:
         options:
           - sample
           - full
+concurrency:
+  group: tcf-reading-independent-review-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
