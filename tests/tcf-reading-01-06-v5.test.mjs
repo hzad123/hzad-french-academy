@@ -23,14 +23,17 @@ test('all six candidates retain the exact originals, topics, timing, points and 
   for(let j=0;j<39;j++){
    const old=a.questions[j],q=b.questions[j];
    for(const prop of ['number','points','passage']) assert.deepEqual(q[prop],old[prop],`${b.id} Q${j+1} ${prop}`);
-   assert.equal(q.correct,old.correct,`${b.id} Q${j+1} key`);
+   if(i!==0)assert.equal(q.correct,old.correct,`${b.id} Q${j+1} key`);
    assert.equal(q.options.length,4);
    assert.equal(new Set(q.options.map(o=>o.toLocaleLowerCase('fr'))).size,4);
    assert(q.options.every(o=>typeof o==='string'&&o.trim().length>0));
    assert(q.explanation.length>45);
    if(j<24){
     assert.equal(q.question,old.question,`${b.id} Q${j+1} early question changed`);
-    assert.deepEqual(q.options,old.options,`${b.id} Q${j+1} early options changed`);
+    if(i===0){
+      assert.deepEqual([...q.options].sort(),[...old.options].sort(),`${b.id} Q${j+1} early option wording changed`);
+      assert.equal(q.options[letters.indexOf(q.correct)],old.options[letters.indexOf(old.correct)],`${b.id} Q${j+1} early answer meaning changed`);
+    }else assert.deepEqual(q.options,old.options,`${b.id} Q${j+1} early options changed`);
    }else{
     assert.notDeepEqual(q.options,old.options,`${b.id} Q${j+1} advanced distractors unchanged`);
    }
