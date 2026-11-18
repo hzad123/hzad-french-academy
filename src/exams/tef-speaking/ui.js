@@ -184,6 +184,21 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    const nclc=el('div',undefined,'hz-tef-speaking-score-figure');
    nclc.append(el('span','Niveau NCLC estimé','hz-tef-speaking-score-caption'),el('strong',String(result.nclc)));
    figures.append(tef,nclc);scoreBox.append(figures);
+   // Feedback B contains both an independently estimated Section B result
+   // and the overall A+B estimate. Never display a made-up Section B value
+   // for older saved assessments where that field was not generated.
+   if(!isSectionA&&Number.isInteger(result.sectionBScore)&&result.sectionBNclc!==null&&result.sectionBNclc!==undefined){
+    const bCard=el('div',undefined,'hz-tef-speaking-score-section-b');
+    bCard.append(el('span','Section B · estimation partielle','hz-tef-speaking-score-label'));
+    const bFigures=el('div',undefined,'hz-tef-speaking-score-figures');
+    const bTef=el('div',undefined,'hz-tef-speaking-score-figure');
+    bTef.append(el('span','Score TEF estimé','hz-tef-speaking-score-caption'),el('strong',String(result.sectionBScore)+'/699'));
+    const bNclc=el('div',undefined,'hz-tef-speaking-score-figure');
+    bNclc.append(el('span','Niveau NCLC estimé','hz-tef-speaking-score-caption'),el('strong',String(result.sectionBNclc)));
+    bFigures.append(bTef,bNclc);bCard.append(bFigures);
+    bCard.append(el('p','Estimation de la section B seule, indicative et non reconnue comme résultat TEF officiel.'));
+    scoreBox.append(bCard);
+   }
    scoreBox.append(el('p',isSectionA?
     'Estimation pédagogique fondée uniquement sur la section A. Ce score partiel ne correspond pas à un résultat TEF officiel complet.':
     'Estimation pédagogique fondée sur les deux sections. Seul le résultat officiel du TEF Canada permet de justifier un niveau NCLC.'));
