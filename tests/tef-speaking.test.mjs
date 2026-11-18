@@ -52,9 +52,11 @@ test('IRCC post-2023 TEF Canada oral 0-699 NCLC conversion, never TCF /20',()=>{
   assert.equal(tefSpeakingNclc(score),nclc);
  assert.throws(()=>tefSpeakingNclc(700));assert.throws(()=>tefSpeakingNclc(12.4));
 });
-test('Section A feedback has no overall official score; B final includes only assessable real turns',()=>{
+test('Section A has a labelled partial TEF/NCLC estimate; B final score needs audible A and B',()=>{
  const section=validateTefFeedback(raw([uuid1]),attempt(1),'feedback_a');
- assert.equal(section.score,null);assert.equal(section.nclc,null);assert.equal(section.criteria.length,3);
+ assert.equal(section.score,487);assert.equal(section.nclc,'7');
+ assert.equal(section.scoreStatus,'unofficial-section-a-estimate');
+ assert.equal(section.criteria.length,3);
  assert(section.criteria.every(c=>c.turnId===uuid1));
  const overall=validateTefFeedback(raw([uuid1,uuid2]),attempt(3),'feedback_b');
  assert.equal(overall.score,487);assert.equal(overall.nclc,'7');
@@ -63,6 +65,9 @@ test('Section A feedback has no overall official score; B final includes only as
  assert(overall.criteria.every(c=>c.improvement.length<=350));
  const partial=validateTefFeedback(raw([uuid1,uuid2]),{...attempt(3),calls:turns.slice(0,1)},'feedback_b');
  assert.equal(partial.score,null);
+ assert.equal(partial.nclc,null);
+ const noSpeech=attempt(1);noSpeech.calls=[];
+ assert.throws(()=>validateTefFeedback(raw([uuid1]),noSpeech,'feedback_a'),/No assessable French evidence/);
 });
 test('Feedback rejects invented examples while tolerating verbose text without losing credits',()=>{
  const value=raw([uuid1,uuid2]);
