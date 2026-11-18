@@ -2,8 +2,8 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 
-// Exact correct meanings independently reviewed against original source passages.
-// These assertions catch accidental correct-letter drift when updating foils.
+// Correct interpretations personally reviewed against all 90 original passages.
+// Protect against key/option drift during further editorial changes.
 const editorialAnswerReference=[
   [
     "Le manque de repos affecte à la fois les fonctions cognitives et l'humeur",
@@ -110,7 +110,7 @@ const editorialAnswerReference=[
 ];
 
 for (let i=0;i<6;i++) {
- test(`Test ${i+1}: all 15 advanced questions retain the editorially checked answer meaning`,async()=>{
+ test(`Test ${i+1}: each advanced answer retains its source-reviewed interpretation`,async()=>{
   const filename=`supabase/exams/tcf-reading-v5/test-${String(i+1).padStart(2,'0')}.json`;
   const paper=JSON.parse(await readFile(filename,'utf8'));
   assert.equal(paper.questions.length,39);
@@ -118,7 +118,7 @@ for (let i=0;i<6;i++) {
    const q=paper.questions[j+24],correctIndex='ABCD'.indexOf(q.correct);
    assert(correctIndex>=0);
    assert.equal(q.options[correctIndex],editorialAnswerReference[i][j],
-     `${paper.id} Q${q.number}: selected option changed; re-review question and evidence`);
+     `${paper.id} Q${q.number}: selected answer changed; re-review evidence and all alternatives`);
   }
  });
 }
