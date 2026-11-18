@@ -2483,5 +2483,511 @@
         }
       ]
     }
+  },
+  {
+    "test": 2,
+    "number": 31,
+    "sourceHash": "c5cbb84a71e7ae7d544b34f763265af344e36b6000900a7eb9d9f2ac54bef95f",
+    "authored": {
+      "question": "Quels autres facteurs sont cités dans l’explication du phénomène ?",
+      "choices": [
+        "La largeur des rues, les matériaux des façades et le vent.",
+        "La hauteur des arbres, leur âge et la fréquence de leur entretien.",
+        "Les matériaux des façades, le trafic automobile et la pente des rues.",
+        "La largeur des rues, la taille des logements et leur mode de chauffage."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "La largeur des rues, les matériaux des façades",
+            "le vent et l’accès à l’eau"
+          ],
+          "reason": "Transforme le nombre d’arbres et la politique de végétalisation en trois caractéristiques des arbres qui ne sont pas énumérées."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "La largeur des rues, les matériaux des façades",
+            "le vent et l’accès à l’eau"
+          ],
+          "reason": "Conserve les matériaux des façades mais ajoute deux facteurs absents de la liste donnée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "La largeur des rues, les matériaux des façades",
+            "le vent et l’accès à l’eau"
+          ],
+          "reason": "Conserve la largeur des rues mais transfère l’explication vers la taille et le chauffage des logements, non cités."
+        }
+      ]
+    }
+  },
+  {
+    "test": 3,
+    "number": 28,
+    "sourceHash": "09fa6d3ccebee07192efae4a7123f5cef7d336eb39abf2feb321fe07ca1d2cee",
+    "authored": {
+      "question": "Quel problème subsiste dans les documents traduits ?",
+      "choices": [
+        "La formulation conserve des abréviations et des phrases complexes.",
+        "Les consignes utilisent d’autres termes que ceux de la consultation.",
+        "Les informations sont dispersées entre plusieurs notices à consulter ensemble.",
+        "Les schémas reprennent mal les avertissements qui figurent dans le texte."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "des abréviations médicales",
+            "des phrases complexes"
+          ],
+          "reason": "Transforme une difficulté intrinsèque du texte en écart de vocabulaire entre le texte et la consultation, écart non décrit."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "des abréviations médicales",
+            "des phrases complexes"
+          ],
+          "reason": "Confond la pluralité des documents avec une dispersion des informations entre des notices, cause non énoncée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "des abréviations médicales",
+            "des phrases complexes"
+          ],
+          "reason": "Attribue aux schémas un défaut déjà constaté alors que leur utilisation est proposée pour faciliter la compréhension."
+        }
+      ]
+    }
+  },
+  {
+    "test": 3,
+    "number": 35,
+    "sourceHash": "3c41473662759f85ca7cf8d60175e206e7e80012c37d84c32ea684197da0b7f7",
+    "authored": {
+      "question": "Quel facteur de perturbation des capteurs est cité ?",
+      "choices": [
+        "Un bracelet mal ajusté au poignet peut perturber les capteurs.",
+        "Les variations de luminosité peuvent modifier les relevés de la montre.",
+        "Une interruption de connexion peut fausser le rythme affiché.",
+        "Une batterie peu chargée peut réduire la précision des mesures."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "les capteurs peuvent être perturbés",
+            "un bracelet mal ajusté"
+          ],
+          "reason": "Substitue à la perturbation par le mouvement ou le contact un effet de la lumière qui n’est pas cité."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "les capteurs peuvent être perturbés",
+            "un bracelet mal ajusté"
+          ],
+          "reason": "Confond les notifications et les relevés avec la connexion, à laquelle le document n’attribue pas la perturbation."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "les capteurs peuvent être perturbés",
+            "un bracelet mal ajusté"
+          ],
+          "reason": "Attribue le défaut de précision à la batterie plutôt qu’aux circonstances physiques effectivement mentionnées."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 25,
+    "sourceHash": "8b942b0690ba2b31820994b23eadb8164b516c7aceab74c0397d93e703e6cf75",
+    "authored": {
+      "question": "Quelle possibilité est conservée pour les devoirs ?",
+      "choices": [
+        "L’accès à une version sur papier des exercices.",
+        "Le travail en binôme sur une tablette prêtée.",
+        "L’envoi des exercices terminés par courrier électronique.",
+        "L’accès aux tablettes de la classe pendant la pause."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "prête désormais des équipements",
+            "laisse les exercices disponibles sur papier"
+          ],
+          "reason": "Confond le prêt d’équipements avec une organisation en binôme, qui n’est pas proposée."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "prête désormais des équipements",
+            "laisse les exercices disponibles sur papier"
+          ],
+          "reason": "Transforme le maintien d’un support papier en procédure d’envoi numérique, non citée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "prête désormais des équipements",
+            "laisse les exercices disponibles sur papier"
+          ],
+          "reason": "Attribue la solution à un temps d’accès dans la classe ; le document cite le prêt d’équipements et le support papier."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 28,
+    "sourceHash": "0d3f4d39c27b537ff836f066a8812fc0f0e964698d8d11a52c5a469bcda8be2b",
+    "authored": {
+      "question": "Quelle compétence sert d’exemple pour illustrer le problème ?",
+      "choices": [
+        "Le raisonnement dans une discipline scientifique.",
+        "La compréhension de textes littéraires complexes.",
+        "L’utilisation d’un vocabulaire technique en français.",
+        "La rapidité à effectuer des calculs sans outil."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "vérifier un raisonnement scientifique",
+            "un élève qui connaît pourtant les notions"
+          ],
+          "reason": "Confond l’obstacle de lecture avec la compétence scientifique que l’exemple veut évaluer."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "vérifier un raisonnement scientifique",
+            "un élève qui connaît pourtant les notions"
+          ],
+          "reason": "Transfère la difficulté du support vers un objectif de maîtrise du vocabulaire, qui n’est pas la compétence donnée en exemple."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "vérifier un raisonnement scientifique",
+            "un élève qui connaît pourtant les notions"
+          ],
+          "reason": "Transforme la rapidité de lecture initialement évoquée en rapidité de calcul, non donnée comme objectif."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 29,
+    "sourceHash": "3e13968fdc384b4b70c720677a829df73bf99d4e3db9901b05a5981d24f0b722",
+    "authored": {
+      "question": "Quel exemple de trace du travail de l’élève est donné ?",
+      "choices": [
+        "Les brouillons préparés pendant la rédaction.",
+        "La liste des sources consultées pour le texte.",
+        "Les corrections proposées par un camarade de classe.",
+        "Les notes de lecture prises avant le choix du sujet."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "des traces du travail",
+            "comme des brouillons"
+          ],
+          "reason": "Attribue à la vérification par traces la recommandation distincte d’apprendre à citer les sources."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "des traces du travail",
+            "comme des brouillons"
+          ],
+          "reason": "Transforme la vérification du travail de l’élève en corrections apportées par un camarade, exemple non cité."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "des traces du travail",
+            "comme des brouillons"
+          ],
+          "reason": "Remplace les brouillons par des notes de lecture préalables, autre trace plausible mais non donnée dans le débat."
+        }
+      ]
+    }
+  },
+  {
+    "test": 4,
+    "number": 32,
+    "sourceHash": "6c258c07043a3c8acb4c20cc13adcff7b1bf9d0cc83f951c7fb47e7e9c8e340a",
+    "authored": {
+      "question": "Quel exemple illustre une information dont le sens doit être vérifié ?",
+      "choices": [
+        "Une absence en cours liée au travail ou à la situation familiale.",
+        "Une baisse des notes qui suit un changement de formation.",
+        "Un retard dans les travaux qui accompagne une maladie.",
+        "Une participation irrégulière aux entretiens proposés par l’établissement."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "manquer un cours pour travailler",
+            "pour des raisons familiales"
+          ],
+          "reason": "Substitue aux absences ambiguës un changement de notes et de formation non donné en exemple."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "manquer un cours pour travailler",
+            "pour des raisons familiales"
+          ],
+          "reason": "Confond le besoin de vérifier les contraintes personnelles avec un retard et une maladie que le locuteur ne cite pas."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "manquer un cours pour travailler",
+            "pour des raisons familiales"
+          ],
+          "reason": "Transforme l’entretien recommandé pour comprendre la situation en donnée d’assiduité déjà observée."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 34,
+    "sourceHash": "34fc0ce213a88a38a521efe378e66207af5837dbc891cb0488f19b95b20f79b0",
+    "authored": {
+      "question": "Quel moyen doit rester accessible aux résidents ?",
+      "choices": [
+        "La possibilité de signaler les demandes par téléphone.",
+        "Un accueil en personne auprès du gestionnaire de l’immeuble.",
+        "Une boîte aux lettres destinée aux signalements écrits.",
+        "Des rendez-vous avec une permanence de maintenance."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "conserver un téléphone",
+            "les résidents qui n’utilisent pas Internet"
+          ],
+          "reason": "Transforme le maintien d’un contact téléphonique en accueil physique auprès du gestionnaire."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "conserver un téléphone",
+            "les résidents qui n’utilisent pas Internet"
+          ],
+          "reason": "Confond le signalement des pannes avec un dépôt de formulaires écrits, canal non proposé."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "conserver un téléphone",
+            "les résidents qui n’utilisent pas Internet"
+          ],
+          "reason": "Transforme une réponse sur les délais d’intervention en permanence de maintenance sur rendez-vous."
+        }
+      ]
+    }
+  },
+  {
+    "test": 5,
+    "number": 37,
+    "sourceHash": "c39145dcfa2779f17bfebd4460ccce3f77888a45e4619d01d3512d179f3affcf",
+    "authored": {
+      "question": "Quelles informations supplémentaires l’intervenant souhaite-t-il examiner ?",
+      "choices": [
+        "Le temps passé dans le bruit et les heures de sommeil.",
+        "La qualité du sommeil et la fréquence des réveils nocturnes.",
+        "Les heures de présence au domicile et les pièces utilisées.",
+        "Les activités interrompues par le bruit et leur durée."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "la durée d’exposition",
+            "les horaires de repos"
+          ],
+          "reason": "Transforme les horaires de repos à examiner en mesure de qualité du sommeil et de réveils nocturnes, non proposée."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "la durée d’exposition",
+            "les horaires de repos"
+          ],
+          "reason": "Confond la situation des appartements et l’exposition avec un relevé des pièces utilisées, non annoncé."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "la durée d’exposition",
+            "les horaires de repos"
+          ],
+          "reason": "Transforme la gêne quotidienne rapportée en inventaire chronométré d’activités interrompues, que l’intervenant ne propose pas."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 26,
+    "sourceHash": "772eeccde5b44e9ad08ea2b346518402b5175fd855f2b017fdef2d6facdd8391",
+    "authored": {
+      "question": "Quels facteurs sont cités en plus du type de sol ?",
+      "choices": [
+        "Les cultures, le vent et la profondeur des racines.",
+        "La pente, l’ensoleillement et la densité des plantations.",
+        "Le vent, l’âge des cultures et la distance entre les plants.",
+        "La profondeur des racines, les engrais et le calendrier des récoltes."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "Les cultures, l’exposition au vent",
+            "la profondeur des racines"
+          ],
+          "reason": "Remplace la liste donnée par trois autres caractéristiques agricoles plausibles mais non citées."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "Les cultures, l’exposition au vent",
+            "la profondeur des racines"
+          ],
+          "reason": "Conserve le vent mais substitue à la nature des cultures et à la profondeur des racines deux caractéristiques non énumérées."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "Les cultures, l’exposition au vent",
+            "la profondeur des racines"
+          ],
+          "reason": "Conserve la profondeur des racines mais ajoute les engrais et le calendrier des récoltes, absents de l’énumération."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 35,
+    "sourceHash": "710d7133faa7f40afd4cb7e8c65260a2e786c5f81573adb1ec76addcfd622020",
+    "authored": {
+      "question": "Quelle donnée concernant le lavage entre dans l’évaluation ?",
+      "choices": [
+        "Le volume d’eau consommé pour laver les contenants.",
+        "La durée entre le lavage et le séchage des contenants.",
+        "La fréquence des contrôles sanitaires réalisés sur les contenants.",
+        "La quantité de produit nettoyant nécessaire à chaque lavage."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
+      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "role_swap",
+          "anchors": [
+            "les transports nécessaires au retour",
+            "l’eau utilisée pour le lavage"
+          ],
+          "reason": "Confond la durée de vie du contenant, autre donnée à mesurer, avec une durée de séchage non citée."
+        },
+        {
+          "index": 2,
+          "operation": "scope_shift",
+          "anchors": [
+            "les transports nécessaires au retour",
+            "l’eau utilisée pour le lavage"
+          ],
+          "reason": "Transforme l’évaluation environnementale du lavage en fréquence de contrôles sanitaires, non proposée."
+        },
+        {
+          "index": 3,
+          "operation": "condition_transfer",
+          "anchors": [
+            "les transports nécessaires au retour",
+            "l’eau utilisée pour le lavage"
+          ],
+          "reason": "Substitue un volume de produit nettoyant à la quantité d’eau explicitement nommée."
+        }
+      ]
+    }
   }
 ]
