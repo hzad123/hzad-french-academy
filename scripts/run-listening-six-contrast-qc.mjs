@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
-import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection,editedForQuestion,blindConsensus} from './lib/listening-contrast-quality.mjs';
+import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection,editedForQuestion,blindConsensus,groundInput} from './lib/listening-contrast-quality.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
@@ -48,7 +48,13 @@ for(let n=1;n<=6;n++){
  const folder=join(root,'test'+label);await mkdir(join(folder,'images'),{recursive:true});const images=new Map();
  for(const q of original.questions.slice(0,4)){
   const from=join('assets/tcf-listening',original.version,'images',q.image),png=join(folder,'images',`q-${String(q.number).padStart(2,'0')}.png`);
-  await copyFile(from,join(folder,'images',q.image));execFileSync('python3',['scripts/rasterize-listening-qc.py',from,png]);
+  await copyFile(from,join(folder,'images',q.image));
+  const proofFile=join(folder,`q-${q.number}.json`);let retain=false;
+  if(await exists(png)&&await exists(proofFile)){
+   const previous=await loadJson(proofFile),data='data:image/png;base64,'+(await readFile(png)).toString('base64');
+   retain=previous.imageHash===hash(await readFile(from))&&previous.grounded?.inputHash===hash(groundInput(previous.question,data));
+  }
+  if(!retain)execFileSync('python3',['scripts/rasterize-listening-qc.py',from,png]);
   images.set(q.number,{hash:hash(await readFile(from)),data:'data:image/png;base64,'+(await readFile(png)).toString('base64')});
  }
  const e={protocol,policy:POLICY_VERSION,policyHash,test:paper.id,version:paper.version,source,sourceVersion:original.version,questions:Array(39).fill(null),paperAssessment:null};
