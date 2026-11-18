@@ -92,21 +92,21 @@ const anchors={
     "Présenter une capture future"
   ],
   "6": [
-    "Une transformation des choix",
-    "Exprimer d'abord son regard",
-    "Protéger des pièces sensibles",
-    "Une coexistence de supports",
-    "Préserver dans la durée",
-    "Un droit d'entrée doit parfois",
-    "Rendre les interventions lisibles",
-    "Une audience numérique",
-    "Conserver l'interactivité",
-    "Proposer des contraintes partagées",
-    "Relier les chiffres",
-    "Le rythme de visite",
-    "Un même groupe",
-    "Partir de certains goûts",
-    "Réserver du temps"
+    "Les contraintes de décor",
+    "Le premier regard libre",
+    "L'accès physique reste restreint",
+    "Le papier et l'audio",
+    "Mesurer si les conditions",
+    "Une entrée autorisée",
+    "Rendre l'œuvre lisible",
+    "Une audience acquise",
+    "L'équipe garde les outils",
+    "Un cadre partagé",
+    "L'évaluation croise",
+    "L'accueil continu",
+    "Présenter ces habitants",
+    "Le conseil part",
+    "L'équipe privilégie"
   ]
 };
 for (const [testNo,expected] of Object.entries(anchors)){
