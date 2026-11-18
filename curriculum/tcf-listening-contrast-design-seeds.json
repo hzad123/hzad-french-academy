@@ -2535,43 +2535,43 @@
     "number": 28,
     "sourceHash": "09fa6d3ccebee07192efae4a7123f5cef7d336eb39abf2feb321fe07ca1d2cee",
     "authored": {
-      "question": "Quel problème subsiste dans les documents traduits ?",
+      "question": "Quel support complémentaire est proposé ?",
       "choices": [
-        "La formulation conserve des abréviations et des phrases complexes.",
-        "Les consignes utilisent d’autres termes que ceux de la consultation.",
-        "Les informations sont dispersées entre plusieurs notices à consulter ensemble.",
-        "Les schémas reprennent mal les avertissements qui figurent dans le texte."
+        "Des schémas explicatifs.",
+        "Des enregistrements sonores.",
+        "Des vidéos sous-titrées.",
+        "Des démonstrations en personne."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "La réponse reprend l’information explicitement donnée. Les autres propositions déplacent la disponibilité ou la forme du support sans correspondre à ce que dit le document.",
+      "design": "Comparable concrete details instead of one responsible clinical conclusion; editorial candidate only, requiring all independent checks.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "des abréviations médicales",
-            "des phrases complexes"
+            "utiliser des schémas lorsque c’est utile",
+            "reformuler les consignes avec ses propres mots"
           ],
-          "reason": "Transforme une difficulté intrinsèque du texte en écart de vocabulaire entre le texte et la consultation, écart non décrit."
+          "reason": "Transforme la reformulation orale demandée au patient en enregistrements sonores proposés comme support."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "des abréviations médicales",
-            "des phrases complexes"
+            "utiliser des schémas lorsque c’est utile",
+            "reformuler les consignes avec ses propres mots"
           ],
-          "reason": "Confond la pluralité des documents avec une dispersion des informations entre des notices, cause non énoncée."
+          "reason": "Associe les notices traduites à un support vidéo sous-titré qui n’est pas proposé."
         },
         {
           "index": 3,
           "operation": "condition_transfer",
           "anchors": [
-            "des abréviations médicales",
-            "des phrases complexes"
+            "utiliser des schémas lorsque c’est utile",
+            "reformuler les consignes avec ses propres mots"
           ],
-          "reason": "Attribue aux schémas un défaut déjà constaté alors que leur utilisation est proposée pour faciliter la compréhension."
+          "reason": "Transforme la vérification orale de la compréhension en démonstration réalisée par le professionnel ; le support cité est le schéma."
         }
       ]
     }
@@ -3087,43 +3087,43 @@
     "number": 10,
     "sourceHash": "b66ad8df837c8b096bd61866e2f668d25b2fe17044861036467709d6c0f1e161",
     "authored": {
-      "question": "Quelle démarche est proposée auprès de la médecin ?",
+      "question": "Quelle rupture de stock est annoncée ?",
       "choices": [
-        "Le pharmacien contactera son cabinet pour vérifier la substitution.",
-        "Le patient l’appellera avant de revenir à la pharmacie.",
-        "La pharmacie lui écrira pour comparer les dosages disponibles.",
-        "Le patient attendra qu’elle le rappelle pour donner son accord."
+        "Les comprimés de la marque prescrite.",
+        "Les comprimés équivalents en générique.",
+        "Les comprimés au dosage habituel.",
+        "Les comprimés en petit conditionnement."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
-      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "explanation": "La réponse reprend l’information explicitement donnée. Les autres propositions déplacent la disponibilité ou la forme du support sans correspondre à ce que dit le document.",
+      "design": "Comparable concrete details instead of one responsible clinical conclusion; editorial candidate only, requiring all independent checks.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "role_swap",
           "anchors": [
-            "contacter son cabinet",
-            "pour vérifier la substitution"
+            "Nous n’avons plus les comprimés de cette marque",
+            "le même dosage existe en générique"
           ],
-          "reason": "Confond le souhait du patient de prévenir sa médecin avec la prise de contact par le pharmacien effectivement proposée."
+          "reason": "Inverse la disponibilité des deux versions : le générique est disponible, contrairement à la marque prescrite."
         },
         {
           "index": 2,
           "operation": "scope_shift",
           "anchors": [
-            "contacter son cabinet",
-            "pour vérifier la substitution"
+            "Nous n’avons plus les comprimés de cette marque",
+            "le même dosage existe en générique"
           ],
-          "reason": "Transforme l’égalité de dosage déjà indiquée en comparaison écrite que la médecin devrait effectuer."
+          "reason": "Confond la marque indisponible avec le dosage, qui existe justement en générique."
         },
         {
           "index": 3,
           "operation": "condition_transfer",
           "anchors": [
-            "contacter son cabinet",
-            "pour vérifier la substitution"
+            "Nous n’avons plus les comprimés de cette marque",
+            "le même dosage existe en générique"
           ],
-          "reason": "Inverse la prise de contact : le pharmacien propose de joindre le cabinet, aucun rappel direct au patient n’est annoncé."
+          "reason": "Interprète la boîte à réserver pour demain comme un problème de taille du conditionnement, alors que la rupture annoncée concerne la marque."
         }
       ]
     }
