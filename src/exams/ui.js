@@ -133,33 +133,66 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
  }
  function renderCatalog(){
   header('TEF/TCF AI Tests');if(!catalog)return;
-  const reading=el('section',undefined,'hz-writing-entry');reading.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Reading · 20 tests'),el('p','39 questions, 60 minutes and a marked answer sheet with corrections and your total score.'),button('Open TCF Reading tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-reading'))));area.append(reading);
-  const writing=el('section',undefined,'hz-writing-entry');writing.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Writing · 20 tests'),el('p','Three writing tasks per test, a 60-minute timer, saved responses and AI mistake feedback with estimated TCF/NCLC results.'),button('Open TCF Writing tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-writing'))));area.append(writing);
-  const listening=el('section',undefined,'hz-writing-entry');listening.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Listening · 20 tests'),el('p','39 questions, 35 minutes, French audio and a marked answer sheet with your total score.'),button('Open TCF Listening test',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-listening'))));area.append(listening);
-  const speaking=el('section',undefined,'hz-writing-entry');speaking.append(el('p','TCF CANADA','hz-eyebrow'),el('h4','Speaking · 20 tests'),el('p','Three timed speaking tasks with an AI interlocutor and TCF/NCLC criterion feedback.'),button('Open TCF Speaking tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-tcf-speaking'))));area.append(speaking);
+  // Presentation-only TCF hub: preserve the existing module events and exam engines.
+  const tcfHub=el('details',undefined,'hz-tcf-hub');
+  const tcfSummary=el('summary',undefined,'hz-tcf-hub-summary');
+  const tcfHeading=el('span',undefined,'hz-tcf-hub-heading');
+  tcfHeading.append(el('span','TCF CANADA','hz-tcf-hub-eyebrow'),el('strong','TCF Mock Tests'),el('span','Reading, Listening, Writing & Speaking · 20 tests per module','hz-tcf-hub-subtitle'));
+  const tcfMark=el('span','4 modules','hz-tcf-hub-count');
+  const tcfChevron=el('span','⌄','hz-tcf-hub-chevron');tcfChevron.setAttribute('aria-hidden','true');
+  tcfSummary.append(el('span','✦','hz-tcf-hub-emblem'),tcfHeading,tcfMark,tcfChevron);
+  tcfHub.append(tcfSummary);
+  const tcfBody=el('div',undefined,'hz-tcf-hub-body');
+  tcfBody.append(el('p','Choose a module to view its practice tests.','hz-tcf-hub-intro'));
+  const tcfModules=el('div',undefined,'hz-tcf-module-grid');
+  const tcfOptions=[
+   {icon:'▤',title:'Reading',meta:'20 tests',detail:'Reading passages and answer corrections.',event:'hzad-open-tcf-reading'},
+   {icon:'♫',title:'Listening',meta:'20 tests',detail:'French audio and marked answers.',event:'hzad-open-tcf-listening'},
+   {icon:'✎',title:'Writing',meta:'20 tests',detail:'Timed writing with AI feedback.',event:'hzad-open-tcf-writing'},
+   {icon:'◉',title:'Speaking',meta:'20 tests',detail:'Interactive speaking and criterion feedback.',event:'hzad-open-tcf-speaking'}
+  ];
+  for(const option of tcfOptions){
+   const tile=el('button',undefined,'hz-tcf-module-card');tile.type='button';
+   tile.setAttribute('aria-label','Open TCF '+option.title+' tests');
+   const tileTop=el('span',undefined,'hz-tcf-module-top');
+   const tileIcon=el('span',option.icon,'hz-tcf-module-icon');tileIcon.setAttribute('aria-hidden','true');
+   const arrow=el('span','↗','hz-tcf-module-arrow');arrow.setAttribute('aria-hidden','true');
+   tileTop.append(tileIcon,arrow);
+   tile.append(tileTop,el('strong',option.title),el('span',option.meta,'hz-tcf-module-meta'),el('span',option.detail,'hz-tcf-module-description'));
+   tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));
+   tcfModules.append(tile);
+  }
+  tcfBody.append(tcfModules);tcfHub.append(tcfBody);area.append(tcfHub);
+
+  // TEF Writing now has its own secure full paper module. Others stay unavailable.
+  const tefHub=el('section',undefined,'hz-tef-hub');
+  tefHub.setAttribute('aria-label','TEF Canada mock tests');
+  const tefHead=el('div',undefined,'hz-tef-hub-head');
+  const tefMark=el('span','TEF','hz-tef-hub-mark');tefMark.setAttribute('aria-hidden','true');
+  const tefHeading=el('div',undefined,'hz-tef-hub-heading');
+  tefHeading.append(el('span','TEF CANADA','hz-tef-hub-eyebrow'),el('h4','TEF Mock Tests'),el('p','Practice the TEF Canada exam with original mock papers.'));
+  const tefBadge=el('span','Writing & Speaking available','hz-tef-coming-soon');
+  tefHead.append(tefMark,tefHeading,tefBadge);
+  tefHub.append(tefHead);
+  const tefFoot=el('p','Choose a module to practise. Reading and Listening will follow.','hz-tef-hub-foot');
+  tefHub.append(tefFoot);
+  const tefGrid=el('div',undefined,'hz-tcf-module-grid hz-tef-module-grid');
+  for(const option of [
+    {name:'Writing',icon:'✎',detail:'20 original tests · AI feedback',event:'hzad-open-tef-writing'},
+    {name:'Reading',icon:'▤',detail:'Coming soon'},
+    {name:'Speaking',icon:'◉',detail:'20 tests · AI conversation & feedback',event:'hzad-open-tef-speaking'},
+    {name:'Listening',icon:'♫',detail:'Coming soon'}
+  ]){
+    const tile=el('button',undefined,'hz-tcf-module-card hz-tef-module-card'+(option.event?'':' hz-tef-module-unavailable'));
+    tile.type='button';if(option.event){tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));tile.setAttribute('aria-label','Open TEF '+option.name+' tests')}
+    else{tile.disabled=true;tile.dataset.locked='true';tile.setAttribute('aria-label','TEF '+option.name+' coming soon')}
+    tile.append(el('span',option.icon,'hz-tcf-module-icon'),el('strong',option.name),el('span',option.detail,'hz-tcf-module-meta'));
+    tefGrid.append(tile);
+  }
+  tefHub.append(tefGrid);
+  area.append(tefHub);
   if(catalog.canReviewContent)area.append(button('Audio setup',()=>root.dispatchEvent(new CustomEvent('hzad-open-exam-audio')),true));
   if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
-  const cards=el('div',undefined,'hz-exam-cards');
-  for(const exam of catalog.exams){
-   const card=el('article',undefined,'hz-exam-card');card.append(el('span',exam.exam==='tef-canada'?'TEF':'TCF','hz-exam-seal'),el('h4',names[exam.exam]+' · Mock 01'));
-   const sections=el('div',undefined,'hz-exam-section-outline');
-   for(const section of examSections(exam)){
-    const group=el('details',undefined,'hz-exam-section');group.dataset.skill=section.skill;group.append(sectionSummary(section));
-    const list=el('ol',undefined,'hz-exam-outline-questions');list.setAttribute('aria-label',names[exam.exam]+' '+section.name+' question list');
-    for(let i=0;i<section.items;i++){const item=el('li');if(catalog.canReviewContent){const review=button(itemLabel(section.skill,i),()=>openContent(exam.exam,section.skill,i),true);review.setAttribute('aria-label',`Review ${names[exam.exam]} ${section.name} ${itemLabel(section.skill,i).toLowerCase()}`);item.append(review)}else item.textContent=itemLabel(section.skill,i);list.append(item)}
-    group.append(list);sections.append(group);
-   }
-   card.append(sections,el('p',catalog.canReviewContent?'Select a question to review its content.':'Start the full timed test to open its questions.'));
-   if(catalog.canReviewContent)card.append(button('Review '+names[exam.exam]+' content',()=>openContent(exam.exam),true));
-   if(Number.isSafeInteger(exam.credits))card.append(el('strong',`${exam.credits} credits for the full test, including feedback`));
-   if(exam.enabled){
-    const start=button('Start full mock · '+exam.credits+' credits',()=>{void run(async(signal,current)=>{const result=await store.send({kind:'start',id:crypto.randomUUID(),exam:exam.exam,expectedCredits:exam.credits},signal);if(current()&&accept(result))render()})});
-    start.dataset.locked=String(!catalog.wallet||catalog.wallet.available<exam.credits||Date.parse(catalog.wallet.expiresAt)<=Date.now()||!catalog.wallet.budgetAvailable);card.append(start);
-    if(start.dataset.locked==='true')card.append(el('p','A paid credit top-up is needed before starting.'));
-   }else card.append(el('p','Preparing for release','hz-exam-release'));
-   cards.append(card);
-  }
-  area.append(cards);
   if(catalog.topUpUrl){try{const url=new URL(catalog.topUpUrl);if(url.protocol==='https:'){const a=el('a','Purchase AI credits','hz-btn');a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';area.append(a)}}catch{}}
   const history=el('section');history.append(el('h4','Your saved attempts'));for(const item of catalog.history)history.append(button(`${names[item.exam]} · ${new Date(item.createdAt).toLocaleDateString()} · ${item.status}`,()=>open(item.id),true));area.append(history);
  }

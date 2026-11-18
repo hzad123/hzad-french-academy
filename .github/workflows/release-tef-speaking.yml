@@ -1,0 +1,34 @@
+name: Release TEF Speaking 20 Tests
+on:
+  push:
+    branches: [development]
+    paths:
+      - "supabase/exams/tef-speaking-tests.json"
+      - "supabase/functions/academy-tef-speaking/**"
+      - "supabase/migrations/20261117234000_tef_speaking_twenty_tests.sql"
+      - "scripts/release/tef-speaking.py"
+      - ".github/workflows/release-tef-speaking.yml"
+permissions:
+  contents: read
+concurrency:
+  group: tef-speaking-edge-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - name: Bundle protected TEF Speaking backend
+        run: >-
+          node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-tef-speaking/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/tef-speaking-release.ts'});"
+      - name: Rehearse safe migration, verify preserved data and release
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/release/tef-speaking.py --bundle /tmp/tef-speaking-release.ts
