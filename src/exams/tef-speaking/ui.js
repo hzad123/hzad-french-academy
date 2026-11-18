@@ -207,31 +207,59 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   });
  }
  function renderCatalog(){
-  area.append(el('p','20 épreuves originales. Section A : cinq minutes pour poser une dizaine de questions. Section B : dix minutes pour convaincre un(e) ami(e).'));
-  area.append(el('p','Préparez votre microphone. L’examinateur répond en français après chacun de vos tours. Les deux sections et leurs évaluations utilisent des crédits IA.'));
-  area.append(el('p','Chaque réponse enregistrée coûte '+(cost('turn')??'—')+' crédits IA. Chaque évaluation coûte '+(cost('feedback')??'—')+' crédit(s). Les demandes sans audio ne sont pas facturées.','hz-tef-credit-info'));
-  const select=el('select');select.setAttribute('aria-label','Choisir une épreuve orale TEF');
-  if(!catalog.tests.some(t=>t.id===selectedTestId))selectedTestId=catalog.tests[0]?.id;
-  for(const p of catalog.tests){const option=el('option',p.title);option.value=p.id;option.selected=p.id===selectedTestId;select.append(option)}
-  select.onchange=()=>{selectedTestId=select.value;render()};area.append(select);
-  const chosen=catalog.tests.find(p=>p.id===selectedTestId);
-  if(chosen){
-   for(const s of chosen.sections){
-    const card=el('article',undefined,'hz-tef-speaking-document');
-    card.append(el('span','SECTION '+s.letter+' · '+formatTime(s.seconds),'hz-eyebrow'),
-     el('h4',s.heading),el('blockquote',s.document),el('p',s.instructions));
-    area.append(card);
-   }
-   area.append(button('Commencer l’épreuve '+chosen.id.slice(-2),()=>{void startTest()},!canPay('turn')));
+  // Keep the home screen focused on test selection and saved attempts.
+  // Scenario documents and examiner instructions are displayed only after Start.
+  const papers=catalog.tests||[];
+  if(!papers.some(p=>p.id===selectedTestId))selectedTestId=papers[0]?.id;
+  const picker=el('section',undefined,'hz-tef-speaking-picker');
+  picker.append(el('span','20 TESTS DISPONIBLES','hz-eyebrow'),
+   el('h4','Choisir un test'));
+  const controls=el('div',undefined,'hz-tef-speaking-picker-controls');
+  const field=el('label',undefined,'hz-tef-speaking-picker-field');
+  const label=el('span','Test à passer','hz-tef-speaking-picker-label');
+  const select=el('select',undefined,'hz-tef-speaking-select');
+  select.id='hz-tef-speaking-paper';
+  select.setAttribute('aria-label','Choisir un test TEF expression orale');
+  for(const paper of papers){
+   const option=el('option','Test '+paper.id.slice(-2));
+   option.value=paper.id;option.selected=paper.id===selectedTestId;select.append(option);
   }
-  const saved=el('section',undefined,'hz-tef-speaking-saved');
-  saved.append(el('h4','Mes épreuves sauvegardées'));
-  for(const row of catalog.history||[])saved.append(button(
-   'Épreuve '+row.testId.slice(-2)+' · '+new Date(row.createdAt).toLocaleDateString('fr-CA')+
-   (row.phase===3?' · Terminée':' · Reprendre'),
-   ()=>{void open(row.id)},false,true));
-  if(!catalog.history?.length)saved.append(el('p','Aucune épreuve sauvegardée.'));
-  area.append(saved);
+  field.append(label,select);
+  const start=button('Commencer le test '+(selectedTestId?.slice(-2)||'01'),
+   ()=>{void startTest()},!canPay('turn'));
+  select.onchange=()=>{
+   selectedTestId=select.value;
+   start.textContent='Commencer le test '+selectedTestId.slice(-2);
+  };
+  controls.append(field,start);picker.append(controls);
+  picker.append(el('p',
+   'Coût : '+(cost('turn')??'—')+' crédits IA par réponse · '+
+   (cost('feedback')??'—')+' crédit(s) par évaluation.',
+   'hz-tef-speaking-picker-cost'));
+  area.append(picker);
+
+  const history=el('section',undefined,'hz-tef-speaking-saved hz-tef-speaking-history-list');
+  const title=el('div',undefined,'hz-tef-speaking-history-title');
+  title.append(el('h4','Mes tests sauvegardés'),
+   el('span',String(catalog.history?.length||0),'hz-tef-speaking-history-count'));
+  history.append(title);
+  if(!catalog.history?.length){
+   history.append(el('p','Aucun test commencé pour le moment.','hz-tef-speaking-empty'));
+  }else for(const row of catalog.history){
+   const item=el('article',undefined,'hz-tef-speaking-history-item');
+   const info=el('div',undefined,'hz-tef-speaking-history-meta');
+   const testNumber=(row.testId||'tef-speaking-01').slice(-2);
+   info.append(el('strong','Test '+testNumber));
+   info.append(el('span',new Date(row.createdAt).toLocaleDateString('fr-CA',{
+    year:'numeric',month:'short',day:'numeric'
+   }),'hz-tef-speaking-history-date'));
+   const progress=['Section A','Section A terminée','Section B','Terminé'][row.phase]||'En cours';
+   const state=el('span',progress,'hz-tef-speaking-history-state'+(row.phase===3?' is-complete':''));
+   item.append(info,state,button(row.phase===3?'Voir les résultats':'Reprendre le test',
+    ()=>{void open(row.id)},false,true));
+   history.append(item);
+  }
+  area.append(history);
  }
  function renderActive(){
   const section=attempt.test.sections[sectionFor(attempt.phase)];
@@ -299,7 +327,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  }
  function render(){
   clearInterval(timer);clearTimeout(pollTimer);area.replaceChildren();area.classList.remove('hz-hidden');
-  const header=el('header',undefined,'hz-tef-speaking-header');
+  const header=el('header',undefined,'hz-tef-speaking-header'+(!attempt?' hz-tef-speaking-header-compact':''));
   header.append(el('span','TEF CANADA · EXPRESSION ORALE','hz-eyebrow'),
    el('h3',attempt?.test?.title||'TEF Speaking · 20 tests'));
   area.append(header,button('← Tests TEF / TCF',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
