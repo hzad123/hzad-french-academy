@@ -5,6 +5,13 @@ export const protocol='six-listening-contrast-v2';
 export const displayProjection=q=>({question:q.question,choices:[...q.options]});
 export const qualityProjection=blindProjection;
 export const projectionVersion='actual-alternatives-v1';
+export function blindConsensus(q,trials){
+ if(q.number<=8||trials?.length!==trialsFor(q))return {pass:true};
+ const preferred=trials.map(t=>t.order[t.receipt.result.guess]);
+ const stable=new Set(preferred).size===1;
+ const consistentConfidence=q.number>=23||trials.every(t=>Math.max(...t.receipt.result.probabilities)>=.35-1e-9);
+ return {pass:!stable||!consistentConfidence,...(stable&&consistentConfidence?{preferredIndex:preferred[0],reason:'The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference.'}:{})};
+}
 export function editedForQuestion(q,record){
  if(q.number<=8)return true;
  try{
@@ -15,7 +22,7 @@ export function editedForQuestion(q,record){
 }
 export function screeningMatches(q,record){
  const projection=qualityProjection(q);
- return record?.blind?.length===trialsFor(q)&&record.blind.every(b=>[...b.order].sort().join('')==='0123'&&b.receipt.inputHash===hash({question:projection.question,choices:b.order.map(i=>projection.choices[i])}));
+ return record?.blind?.length===trialsFor(q)&&record.blind.every(b=>[...b.order].sort().join('')==='0123'&&b.receipt.inputHash===hash({question:projection.question,choices:b.order.map(i=>projection.choices[i])}))&&blindConsensus(q,record.blind).pass;
 }
 export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
 export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
@@ -80,6 +87,8 @@ export async function inspect(q,provider,{seed,imageData,round=0}){
   blind.push({order,receipt});
   if(!blindVerdict(receipt.result).pass)return {pass:false,blind,feedback:{stage:'blind',reason:receipt.result.reason,cues:receipt.result.cues,plausibility:receipt.result.plausibility}};
  }
+ const consensus=blindConsensus(q,blind);
+ if(!consensus.pass)return {pass:false,blind,feedback:{stage:'blind-consensus',...consensus}};
  const input=groundInput(q,imageData),grounded=receiptValid(await provider('ground',input,{nonce:seed+':ground:'+round}),'ground',input);
  const verdict=groundingVerdict(q,grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true});
  return {pass:verdict.pass,blind,grounded,feedback:verdict.pass?null:{stage:'ground',assessment:grounded.result,errors:verdict.errors}};
@@ -171,6 +180,7 @@ export function assertPaper(paper,evidence,original,images){
  const ids=new Set();
  for(const [i,q] of paper.questions.entries()){
   const record=evidence.questions[i];if(!record?.pass||record.blocked||record.contentHash!==contentHash(q)||record.sourceHash!==contentHash(original.questions[i])||record.blind.length!==trialsFor(q)||!editedForQuestion(q,record))throw Error('Question has not passed strict validation: '+q.number);
+  if(!blindConsensus(q,record.blind).pass)throw Error('Persistent blind preference remains: '+q.number);
   if(q.number<=4&&record.imageHash!==images[q.number]?.hash)throw Error('Image changed');
   const check=(receipt,stage,input)=>{receiptValid(receipt,stage,input);if(ids.has(receipt.responseId))throw Error('Evaluation response reused');ids.add(receipt.responseId);};
   const proj=qualityProjection(q);

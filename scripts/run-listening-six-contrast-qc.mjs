@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
-import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection,editedForQuestion} from './lib/listening-contrast-quality.mjs';
+import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection,editedForQuestion,blindConsensus} from './lib/listening-contrast-quality.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
@@ -73,6 +73,8 @@ async function processQuestion([p,index]){
   evidence[p].questions[index]=saved;papers[p].questions[index]=saved.question;return;
  }
  try{
+  const consensus=saved?.blind?blindConsensus(saved.question,saved.blind):{pass:true};
+  const previous=saved&&!consensus.pass?{...saved,pass:false,feedback:{stage:'blind-consensus',...consensus}}:saved;
   let starting=saved?.policyHash===policyHash?saved.question:null;
   if(designSeed&&(!starting||saved?.designSeedHash!==designSeedHash)){
    if(!contrastPlan(original,designSeed.authored).pass)throw Error('Design example lacks faithful anchors');
@@ -85,7 +87,7 @@ async function processQuestion([p,index]){
    if(!contrastPlan(original,authored.result).pass)throw Error('Held-out cue repair lacks faithful anchors');
    starting=rewrite(original,authored.result,positions[p][index],`${seed}:heldout-cue:${runNonce}:${p}:${index}`);
   }
-  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,previouslyRejected:saved?.policyHash===policyHash?saved:null,imageData:image?.data,maxAttempts:6,
+  const result=await repair(original,provider,{target:positions[p][index],seed:`${seed}:${p}:${index}:${saved?runNonce:'initial'}`,starting,previouslyRejected:previous?.policyHash===policyHash?previous:null,imageData:image?.data,maxAttempts:6,
    onAttempt:r=>saveJson(join(root,'test'+String(p+1).padStart(2,'0'),`attempt-${original.number}.json`),r)});
   result.imageHash=image?.hash??null;result.designSeedHash=designSeedHash;await saveJson(file,result);evidence[p].questions[index]=result;papers[p].questions[index]=result.question;
   console.log(`Test${p+1} Q${index+1}: ${result.pass?'STRICT PASS':'BLOCKED'} (${result.rounds??0} rewrites)`);

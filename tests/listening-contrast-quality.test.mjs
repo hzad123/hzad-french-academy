@@ -1,9 +1,18 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit,styleFindings,editedForQuestion} from '../scripts/lib/listening-contrast-quality.mjs';
+import {displayProjection,qualityProjection,screeningMatches,trialsFor,positionsWithFrozenSpoken,sourceInvariant,contrastPlan,scoreGroup,ready,inspect,authorInput,repair,applyBlindEdit,styleFindings,editedForQuestion,blindConsensus} from '../scripts/lib/listening-contrast-quality.mjs';
 import {hash,policyHash,draftPolicyHash,blindVerdict,spokenChoices} from '../scripts/lib/listening-answer-qc.mjs';
 import {POLICY_VERSION,MODELS,stageModel,modelRequest,validateInput,policyFingerprint} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {selectStrictBanks} from '../scripts/check-listening-six-release.mjs';
 const paper=JSON.parse(await readFile('supabase/exams/tcf-listening-test01-v4.json'));
+test('stable shuffled blind preference is checked without consulting a key or transcript',()=>{
+ const q={number:23};for(const field of ['correct','transcript'])Object.defineProperty(q,field,{get(){throw Error('Hidden source/key accessed');}});
+ const trials=[{order:[0,1,2,3],guess:2},{order:[3,2,0,1],guess:1},{order:[1,0,3,2],guess:3}].map(({order,guess})=>({order,receipt:{result:{guess,probabilities:[0,1,2,3].map(i=>i===guess?.34:.22)}}}));
+ const result=blindConsensus(q,trials);assert(!result.pass);assert.equal(result.preferredIndex,2);
+ assert(blindConsensus({number:14},trials.slice(0,2)).pass);
+ for(const t of trials)t.receipt.result.probabilities=[0,1,2,3].map(i=>i===t.receipt.result.guess?.4:.2);
+ assert(!blindConsensus({number:14},trials.slice(0,2)).pass);
+ trials[2].receipt.result.guess=0;assert(blindConsensus(q,trials).pass);
+});
 test('cohort writing shortcuts trigger repair without reading or selecting held-out guesses',()=>{
  const papers=Array.from({length:6},(_,i)=>({id:'paper-'+i,questions:Array.from({length:39},(_,j)=>({number:j+1,question:'Quel élément est cité ?',options:['Court.','Une formulation ordinaire.','Une autre formulation naturelle.','Une dernière proposition possible.'],correct:'A'}))}));
  const findings=styleFindings(papers).filter(f=>f.attack==='shortest');

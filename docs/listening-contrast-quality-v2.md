@@ -68,6 +68,13 @@ reported standout, probability above0.42 or first/second gap above0.15 rejects
 the candidate. Q23–39 require three shuffled blind screens, Q9–22 two, and
 Q1–8 one. A conspicuous wrong option also causes rejection.
 
+The screens are also compared without access to the key. Q23–39 are rejected
+if all three shuffled reviews still prefer the same claim, even when each
+reviewer reports uncertainty. Earlier written items reject the same two-review
+preference when both probabilities are at least0.35. This is a conservative
+drafting filter for a stable wording preference, not an instruction to guess
+randomly or deliberately miss. Both frozen experiments remain unchanged.
+
 The key-free grounding reviewer then receives the recording transcript, actual
 spoken options, and the image for visual questions. It must independently find
 exactly one supported answer and give a specific plausible error plus faithful
