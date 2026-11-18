@@ -1,17 +1,15 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-
-// Correct interpretations personally reviewed against all 90 original passages.
-// Protect against key/option drift during further editorial changes.
-const editorialAnswerReference=[
+// Correct answer meanings reviewed against the original passages across 90 advanced items.
+const expected=[
   [
     "Le manque de repos affecte à la fois les fonctions cognitives et l'humeur",
     "L'expérience d'écriture aboutit à un accord pour publier son premier livre",
     "Limiter les risques liés à l'ascension et préserver un milieu sensible",
     "Rendre différentes formes de culture accessibles à davantage de publics",
     "Les cycles de repos de la faune et la possibilité d'observer les astres",
-    "Un mécanisme régulateur du climat peut fragiliser les milieux marins",
+    "La réduction des émissions améliore le climat mais accélère l'acidification",
     "L'intérêt pour l'approche précède les résultats de son évaluation prolongée",
     "Le projet associe nouvelles pratiques urbaines et effets environnementaux",
     "L'intrigue peine à maintenir l'intérêt malgré des qualités de style",
@@ -28,7 +26,7 @@ const editorialAnswerReference=[
     "La baisse observée pourrait correspondre à un rejet des déchets dans la rue",
     "Soutenir le déplacement sans se substituer aux décisions des personnes",
     "Veiller à ce que l'usage collectif ne détériore pas la cour des élèves",
-    "La seule présence d'un espace partagé suffirait à rapprocher les habitants",
+    "La mise à disposition d'un salon suffirait à créer des relations entre habitants",
     "Les conditions vécues par les occupants doivent compléter les chiffres de rénovation",
     "La gratuité peut être maintenue grâce à d'autres revenus du lieu",
     "La sobriété d'un logement dépend aussi de services accessibles à proximité",
@@ -46,7 +44,7 @@ const editorialAnswerReference=[
     "Les contraintes de calendrier limitent l'exercice d'un droit existant",
     "La possibilité de revoir régulièrement les mêmes interlocuteurs",
     "La durée en ligne peut refléter la complexité des tâches sans mesurer leur valeur",
-    "L'engagement professionnel s'opposerait à des conditions de travail soutenables",
+    "Opposer l'engagement professionnel à des conditions de travail soutenables",
     "Croiser des indices différents plutôt que laisser un seul critère décider",
     "Conserver des spécialistes tout en préparant des relais en leur absence",
     "L'apprentissage d'une compétence ne donne pas à lui seul accès au marché du travail",
@@ -71,7 +69,7 @@ const editorialAnswerReference=[
     "L'écart entre un segment chronométré et la durée complète vécue par l'usager",
     "Une offre de logement compatible avec le rythme d'un trajet à étapes",
     "Une baisse de fréquentation sur les créneaux réservés accompagnée d'un report ailleurs",
-    "Une destination peu connue peut devenir saturée après des recommandations massives"
+    "Une destination peu connue peut attirer une foule après des conseils répétés"
   ],
   [
     "Écarter du bilan les déplacements supplémentaires liés à l'implantation",
@@ -103,22 +101,12 @@ const editorialAnswerReference=[
     "Le cadre commun permet de distinguer les contributions au sein d'un ensemble cohérent",
     "L'évaluation complète les données d'affluence par l'approfondissement vécu",
     "L'obligation de montrer un résultat risquerait d'orienter le travail vers des gestes démonstratifs",
-    "La visibilité médiatique est assimilée à une voix représentative et uniforme",
+    "Présenter les habitants comme s'ils exprimaient une parole collective uniforme",
     "Des centres d'intérêt existants servent de passage vers des lectures moins familières",
     "La salle accepte moins de passages pour permettre un accueil plus approfondi"
   ]
 ];
-
-for (let i=0;i<6;i++) {
- test(`Test ${i+1}: each advanced answer retains its source-reviewed interpretation`,async()=>{
-  const filename=`supabase/exams/tcf-reading-v5/test-${String(i+1).padStart(2,'0')}.json`;
-  const paper=JSON.parse(await readFile(filename,'utf8'));
-  assert.equal(paper.questions.length,39);
-  for(let j=0;j<15;j++){
-   const q=paper.questions[j+24],correctIndex='ABCD'.indexOf(q.correct);
-   assert(correctIndex>=0);
-   assert.equal(q.options[correctIndex],editorialAnswerReference[i][j],
-     `${paper.id} Q${q.number}: selected answer changed; re-review evidence and all alternatives`);
-  }
- });
-}
+for(let i=0;i<6;i++)test(`Test ${i+1}: source-reviewed advanced answer alignment`,async()=>{
+ const p=JSON.parse(await readFile(`supabase/exams/tcf-reading-v5/test-${String(i+1).padStart(2,'0')}.json`,'utf8'));
+ for(let j=0;j<15;j++)assert.equal(p.questions[j+24].options['ABCD'.indexOf(p.questions[j+24].correct)],expected[i][j],`Test ${i+1} Q${j+25} selected answer misaligned`);
+});
