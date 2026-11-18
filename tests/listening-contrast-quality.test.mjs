@@ -110,6 +110,17 @@ test('an unchanged blind edit cannot reroll a rejected question',async()=>{
  };
  const r=await repair(q,provider,{target:0,seed:'no-reroll',maxAttempts:0});assert(!r.pass);assert.equal(blindCalls,1);assert.equal(editCalls,1);
 });
+test('restarting cannot resample a previously rejected wording or its reordered alternatives',async()=>{
+ const q=structuredClone(paper.questions[29]);let blindCalls=0;
+ const previous={question:q,feedback:{stage:'blind',reason:'A previously recorded concrete wording cue.'}};
+ const provider=async(stage,input)=>{
+  if(stage==='blind'){blindCalls++;throw Error('Rejected wording must not be resampled');}
+  assert.equal(stage,'polish');
+  return {stage,policy:POLICY_VERSION,policyHash:draftPolicyHash,model:stageModel(stage),responseId:'chatcmpl-unit-preserve-rejection',inputHash:hash(input),result:{question:input.question,choices:[...input.choices].reverse(),notes:'Reordering alone does not remove a wording cue.'}};
+ };
+ const r=await repair(q,provider,{target:0,seed:'restart',starting:q,previouslyRejected:previous,maxAttempts:0});
+ assert(!r.pass);assert(r.unchangedRejected);assert.equal(blindCalls,0);assert.equal(r.rejections.length,1);
+});
 test('a chance-level primary reviewer cannot conceal above-chance guessing by the unchanged second model',()=>{
  const score=(n,k)=>scoreGroup(Array.from({length:n},(_,i)=>({correct:i<k})));
  const good={all:score(234,59),written:score(186,47),late:score(102,26)};

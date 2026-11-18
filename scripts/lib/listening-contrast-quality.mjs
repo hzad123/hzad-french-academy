@@ -20,6 +20,7 @@ export function screeningMatches(q,record){
 export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
 export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
 const canon=t=>t.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr');
+const wordingSignature=q=>hash({question:canon(q.question),choices:spokenChoices(q).map(canon).sort()});
 const verifiedExamples=JSON.parse(await readFile(new URL('../../curriculum/tcf-listening-contrast-exemplars.json',import.meta.url),'utf8'));
 export function authorInput(q,{imageData,feedback}={}){
  // Do not anchor a rewrite to the failed stem/key. Written alternatives are
@@ -83,38 +84,47 @@ export async function inspect(q,provider,{seed,imageData,round=0}){
  const verdict=groundingVerdict(q,grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true});
  return {pass:verdict.pass,blind,grounded,feedback:verdict.pass?null:{stage:'ground',assessment:grounded.result,errors:verdict.errors}};
 }
-export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,starting=null,onAttempt=async()=>{}}){
+export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,starting=null,previouslyRejected=null,onAttempt=async()=>{}}){
  let q=starting?structuredClone(starting):original.number<=8?structuredClone(original):rewrite(original,{question:original.question,choices:spokenChoices(original),correctIndex:letters.indexOf(original.correct),explanation:original.explanation,
   distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
  let feedback=null,author=null,blindEdit=null;
+ const rejected=new Map((previouslyRejected?.rejections??[]).map(r=>[r.signature,r.feedback]));
+ if(previouslyRejected?.question&&previouslyRejected.feedback)rejected.set(wordingSignature(previouslyRejected.question),previouslyRejected.feedback);
+ const rejections=()=>[...rejected].map(([signature,feedback])=>({signature,feedback}));
+ async function checkCandidate(round){
+  const signature=wordingSignature(q);
+  if(rejected.has(signature))return {pass:false,blind:[],feedback:rejected.get(signature),unchangedRejected:true};
+  const assessment=await inspect(q,provider,{seed,imageData,round});
+  if(!assessment.pass)rejected.set(signature,assessment.feedback);
+  return assessment;
+ }
  for(let round=0;round<=maxAttempts;round++){
   if(q.number>=9){
    const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:before:'+round}),'polish',input);
    q=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
   }
-  let assessment=await inspect(q,provider,{seed,imageData,round});
+  let assessment=await checkCandidate(round);
   if(q.number<=8&&!assessment.pass&&assessment.feedback?.stage==='blind'){
    const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:'+round}),'polish',input);
    const edited=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
    // No reroll for an unchanged candidate. A real edit must pass a fresh,
    // independent review and exactly the same transcript-grounding rules.
-   const wording=item=>hash({question:canon(item.question),choices:spokenChoices(item).map(canon)});
-   if(wording(edited)!==wording(q)){q=edited;assessment=await inspect(q,provider,{seed,imageData,round:round+':edited'});}
+   if(wordingSignature(edited)!==wordingSignature(q)){q=edited;assessment=await checkCandidate(round+':edited');}
   }
   if(assessment.pass){
    q.explanation='Réponse '+q.correct+' : '+assessment.grounded.result.options.find(o=>o.index===letters.indexOf(q.correct)).reason+' '+assessment.grounded.result.options.filter(o=>o.index!==letters.indexOf(q.correct)).map(o=>letters[o.index]+' : '+o.reason).join(' ');
-   const result={question:q,sourceHash:contentHash(original),contentHash:contentHash(q),policy:POLICY_VERSION,policyHash,rounds:round,pass:true,author,blindEdit,...assessment};
+   const result={question:q,sourceHash:contentHash(original),contentHash:contentHash(q),policy:POLICY_VERSION,policyHash,rounds:round,pass:true,author,blindEdit,rejections:rejections(),...assessment};
    await onAttempt(result);return result;
   }
-  await onAttempt({question:q,rounds:round,pass:false,author,blindEdit,...assessment});feedback=assessment.feedback;
-  if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,author,blindEdit,...assessment};
+  await onAttempt({question:q,rounds:round,pass:false,author,blindEdit,rejections:rejections(),...assessment});feedback=assessment.feedback;
+  if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,author,blindEdit,rejections:rejections(),...assessment};
   let plan;
   for(let planning=0;planning<2;planning++){
    const input=authorInput(original,{imageData,feedback});
    author=receiptValid(await provider('author',input,{nonce:seed+':author:'+round+':'+planning}),'author',input);
    plan=contrastPlan(original,author.result);if(plan.pass)break;feedback={stage:'contrast-plan',errors:plan.errors};
   }
-  if(!plan.pass)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,pass:false,blocked:true,feedback:{stage:'contrast-plan',errors:plan.errors}};
+  if(!plan.pass)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,pass:false,blocked:true,rejections:rejections(),feedback:{stage:'contrast-plan',errors:plan.errors}};
   q=rewrite(original,author.result,target,seed+':author:'+round);blindEdit=null;
  }
 }
