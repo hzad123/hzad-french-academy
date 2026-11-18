@@ -2,16 +2,16 @@
   "question": {
     "number": 10,
     "kind": "dialogue",
-    "question": "Dans cette situation à l’officine, quelle solution concrète le pharmacien finit-il par proposer au patient ?",
+    "question": "En l’absence du médicament de marque demandé, quelle décision précise le pharmacien dit-il prendre ?",
     "options": [
-      "Il propose de commander la spécialité de marque pour le lendemain, conformément à l’ordonnance, sans effectuer de substitution.",
-      "Il propose que le patient contacte d’abord sa médecin pour préciser la prescription, puis de revenir avec une nouvelle ordonnance si besoin.",
-      "Il propose de mettre de côté une boîte pour le lendemain et de joindre le cabinet de la médecin pour discuter d’une éventuelle substitution.",
-      "Il propose de délivrer immédiatement le générique disponible et d’informer ensuite la médecin du choix effectué."
+      "Proposer de commander uniquement la spécialité de marque et ne pas délivrer le générique disponible.",
+      "Délivrer immédiatement au patient le générique qui est en stock.",
+      "Mettre de côté une boîte pour le lendemain et appeler le cabinet médical pour valider une substitution.",
+      "Ne pas délivrer de traitement pour l’instant et demander au patient de revenir avec une nouvelle ordonnance."
     ],
     "correct": "C",
-    "explanation": "Le pharmacien dit explicitement : « je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution ». La solution combine donc une réservation pour le lendemain et un appel au cabinet de la médecin afin de valider le passage au générique.",
-    "transcript": "Question 10.\nBonjour, je viens renouveler mon traitement. Voici mon ordonnance.\nNous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique.\nMa médecin m'avait recommandé de ne pas changer sans la prévenir.\nDans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution.\nJe préfère cette solution, merci.\nDans cette situation à l’officine, quelle solution concrète le pharmacien finit-il par proposer au patient ?",
+    "explanation": "Le pharmacien dit : \"je peux réserver une boîte pour demain\" et précise qu’il va \"contacter son cabinet pour vérifier la substitution\". Il ne parle ni de délivrance immédiate, ni d’exiger une nouvelle ordonnance, ni de commander uniquement la marque.",
+    "transcript": "Question 10.\nBonjour, je viens renouveler mon traitement. Voici mon ordonnance.\nNous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique.\nMa médecin m'avait recommandé de ne pas changer sans la prévenir.\nDans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution.\nJe préfère cette solution, merci.\nEn l’absence du médicament de marque demandé, quelle décision précise le pharmacien dit-il prendre ?",
     "segments": [
       {
         "voice": "female",
@@ -39,14 +39,14 @@
       },
       {
         "voice": "female",
-        "text": "Dans cette situation à l’officine, quelle solution concrète le pharmacien finit-il par proposer au patient ?"
+        "text": "En l’absence du médicament de marque demandé, quelle décision précise le pharmacien dit-il prendre ?"
       }
     ],
     "audio": "q-10.mp3",
     "audioSeconds": null,
     "slotSeconds": 42
   },
-  "contentHash": "830988b3159c2a30304c17b5c1b5c088d656a7b478bb75a5d62816ee1852f47d",
+  "contentHash": "5dd3571f25541bdcc1e91ce59c1bfb897e28b0353306c84eac692dbc118549f3",
   "sourceHash": "b66ad8df837c8b096bd61866e2f668d25b2fe17044861036467709d6c0f1e161",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
@@ -58,75 +58,75 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkzcMlzIh7hRCr1aKScBbTWKsy2kL",
+    "responseId": "chatcmpl-ElhlpTitlINjptqKtCNwgSCJtr5mj",
     "result": {
-      "question": "Dans cette situation à l’officine, quelle solution précise le pharmacien propose-t-il au patient ?",
+      "question": "Face à l’absence du médicament de marque, quelle décision précise le pharmacien annonce-t-il prendre ?",
       "choices": [
-        "Il propose de réserver une boîte pour le lendemain et d’appeler le cabinet de la médecin pour vérifier la substitution.",
-        "Il propose de délivrer tout de suite le générique puis de prévenir ensuite la médecin du changement.",
-        "Il propose de ne rien réserver et de demander au patient de recontacter lui-même sa médecin avant de revenir.",
-        "Il propose de commander la spécialité de marque sans envisager le générique, pour respecter l’ordonnance."
+        "Délivrer immédiatement le générique disponible sans autre démarche.",
+        "Réserver une boîte pour le lendemain et appeler le cabinet médical pour vérifier la substitution.",
+        "Commander uniquement la spécialité de marque et refuser le générique.",
+        "Refuser de délivrer tout traitement et demander une nouvelle ordonnance avant toute décision."
       ],
-      "correctIndex": 0,
-      "explanation": "Le pharmacien dit explicitement : « je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution ». La solution combine donc une réservation pour le lendemain et un appel au cabinet de la médecin afin de valider le passage au générique.",
-      "design": "On teste la nature exacte de la solution proposée par le pharmacien (combinaison de deux actions concrètes : réserver une boîte + contacter le cabinet médical). Les quatre options décrivent toutes des réponses professionnelles plausibles à un problème de substitution de médicament : délivrer tout de suite le générique, ne rien réserver et renvoyer au médecin, commander uniquement la marque, ou bien réserver et vérifier la substitution. Sans l’audio, toutes semblent cohérentes avec une discussion médecin–pharmacien–patient. Seul l’enregistrement permet d’identifier que la solution associe explicitement une réservation pour le lendemain et un appel au cabinet pour valider la substitution.",
+      "correctIndex": 1,
+      "explanation": "Le pharmacien dit : \"je peux réserver une boîte pour demain\" et précise qu’il va \"contacter son cabinet pour vérifier la substitution\". Il ne parle ni de délivrance immédiate, ni d’exiger une nouvelle ordonnance, ni de commander uniquement la marque.",
+      "design": "Axe précis : la décision opérationnelle prise par le pharmacien pour gérer l’ordonnance en l’absence de la spécialité de marque. Les quatre options décrivent toutes des conduites professionnelles plausibles en officine (délivrance immédiate du générique, réservation avec contact du prescripteur, commande stricte de la marque, refus provisoire en attendant une nouvelle ordonnance). Sans le document, aucune n’est absurde et toutes répondent directement à la même question : « que décide de faire le pharmacien ? ». Le document permet de trancher en identifiant l’association de deux actions bien déterminées : réserver une boîte pour le lendemain et joindre le cabinet pour valider la substitution.",
       "distractorReasons": [
         {
-          "index": 1,
-          "reason": "Cette option inverse l’ordre des actions par rapport à l’enregistrement : elle fait de la délivrance immédiate du générique la première étape, alors que le pharmacien propose d’abord de réserver une boîte et de vérifier la substitution avant de la réaliser. Elle est tentante car le texte mentionne « le même dosage existe en générique », ce qui rend crédible une délivrance immédiate.",
-          "operation": "time_swap",
+          "index": 0,
+          "reason": "Cette option transpose la mention du générique à une décision de délivrance immédiate. Le pharmacien signale bien que \"le même dosage existe en générique\", ce qui peut faire croire qu’il va le donner tout de suite. Mais il enchaîne en réalité sur une autre décision : réserver une boîte pour le lendemain et vérifier la substitution auprès du cabinet, sans parler de délivrance immédiate.",
+          "operation": "role_swap",
           "anchors": [
-            "le même dosage existe en générique",
-            "je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution"
+            "Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique.",
+            "Dans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution."
           ]
         },
         {
           "index": 2,
-          "reason": "Cette option transfère au patient la responsabilité de contacter la médecin et supprime la réservation. Dans le document, c’est pourtant le pharmacien qui prend en charge l’appel (« contacter son cabinet ») et qui propose la réservation (« réserver une boîte pour demain »). L’erreur vient d’un échange de rôles entre patient et pharmacien, plausible car le patient dit que sa médecin doit être « prévenue ».",
-          "operation": "role_swap",
+          "reason": "Cette option prête au pharmacien le choix de ne commander que la marque, en calquant la prudence de la patiente sur la décision de l’officine. La patiente dit que sa médecin a recommandé de ne pas changer, ce qui pourrait faire penser à une commande stricte de la marque. Mais le pharmacien propose explicitement une autre solution : réserver une boîte et vérifier la possibilité de substitution, il ne réduit pas son action à une simple commande de la spécialité de marque.",
+          "operation": "proposal_attribution",
           "anchors": [
-            "Ma médecin m'avait recommandé de ne pas changer sans la prévenir",
-            "je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution"
+            "Ma médecin m'avait recommandé de ne pas changer sans la prévenir.",
+            "Dans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution."
           ]
         },
         {
           "index": 3,
-          "reason": "Cette option élargit abusivement l’importance de la marque en supposant que le pharmacien ne retienne que la commande de la spécialité de marque, alors que le document signale justement l’existence du générique et propose de vérifier la substitution. Le problème porte sur la validation du changement, pas sur un refus d’envisager le générique.",
-          "operation": "scope_shift",
+          "reason": "Cette option transforme la précaution (vérifier la substitution avec le cabinet) en exigence d’une nouvelle ordonnance avant tout traitement. Le pharmacien évoque seulement le fait de \"contacter son cabinet\" pour confirmer la substitution, et la patiente conclut qu’elle \"préfère cette solution\". Rien n’indique qu’il refuse tout délivrement en attendant une prescription corrigée ; la vérification médicale reste une condition de la substitution, pas de toute délivrance possible.",
+          "operation": "condition_transfer",
           "anchors": [
-            "Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique",
-            "contacter son cabinet pour vérifier la substitution"
+            "contacter son cabinet pour vérifier la substitution.",
+            "Je préfère cette solution, merci."
           ]
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 4561,
-      "completion_tokens": 1085,
-      "total_tokens": 5646,
+      "prompt_tokens": 4533,
+      "completion_tokens": 1124,
+      "total_tokens": 5657,
       "prompt_tokens_details": {
         "cached_tokens": 1408,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 391,
+        "reasoning_tokens": 395,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.01655125,
-    "inputHash": "04e12da14912c265582c0246417a587c1d5047e478c243fcc5f55d55d3c2b0f2",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:14721af7be4c27b55696caf7:author:5:0"
+    "costUsd": 0.01690625,
+    "inputHash": "52505efc45a80b94d0667c0a0dc13ff8785569ac21ce8ddeca9d6ce24fa1b6b5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:583ea06f863af6598424143b:author:5:0"
   },
   "blindEdit": {
     "input": {
-      "question": "Dans cette situation à l’officine, quelle solution précise le pharmacien propose-t-il au patient ?",
+      "question": "Face à l’absence du médicament de marque, quelle décision précise le pharmacien annonce-t-il prendre ?",
       "choices": [
-        "Il propose de commander la spécialité de marque sans envisager le générique, pour respecter l’ordonnance.",
-        "Il propose de ne rien réserver et de demander au patient de recontacter lui-même sa médecin avant de revenir.",
-        "Il propose de réserver une boîte pour le lendemain et d’appeler le cabinet de la médecin pour vérifier la substitution.",
-        "Il propose de délivrer tout de suite le générique puis de prévenir ensuite la médecin du changement."
+        "Commander uniquement la spécialité de marque et refuser le générique.",
+        "Délivrer immédiatement le générique disponible sans autre démarche.",
+        "Réserver une boîte pour le lendemain et appeler le cabinet médical pour vérifier la substitution.",
+        "Refuser de délivrer tout traitement et demander une nouvelle ordonnance avant toute décision."
       ]
     },
     "receipt": {
@@ -134,142 +134,142 @@
       "policy": "listening-comprehension-qc-v2",
       "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-EkzcnXsWG4nqfhPm9NDkAOmby2HAC",
+      "responseId": "chatcmpl-ElhmI0J9qJpyUdc0YeYhRSl4VQeLo",
       "result": {
-        "question": "Dans cette situation à l’officine, quelle solution concrète le pharmacien finit-il par proposer au patient ?",
+        "question": "En l’absence du médicament de marque demandé, quelle décision précise le pharmacien dit-il prendre ?",
         "choices": [
-          "Il propose de commander la spécialité de marque pour le lendemain, conformément à l’ordonnance, sans effectuer de substitution.",
-          "Il propose que le patient contacte d’abord sa médecin pour préciser la prescription, puis de revenir avec une nouvelle ordonnance si besoin.",
-          "Il propose de mettre de côté une boîte pour le lendemain et de joindre le cabinet de la médecin pour discuter d’une éventuelle substitution.",
-          "Il propose de délivrer immédiatement le générique disponible et d’informer ensuite la médecin du choix effectué."
+          "Proposer de commander uniquement la spécialité de marque et ne pas délivrer le générique disponible.",
+          "Délivrer immédiatement au patient le générique qui est en stock.",
+          "Mettre de côté une boîte pour le lendemain et appeler le cabinet médical pour valider une substitution.",
+          "Ne pas délivrer de traitement pour l’instant et demander au patient de revenir avec une nouvelle ordonnance."
         ],
-        "notes": "Formulations harmonisées pour éviter les jugements de valeur (comme « ne rien réserver », « sans envisager ») et présenter quatre conduites professionnelles distinctes mais également plausibles : commande du princeps, retour préalable vers le prescripteur par le patient, réservation et appel au cabinet avant décision, délivrance immédiate du générique avec information ultérieure au médecin."
+        "notes": "Formulation du tronc légèrement généralisée sans orienter vers une option. Les quatre réponses restent distinctes (commande de marque sans générique, délivrance directe du générique, réservation avec appel au médecin, absence de délivrance en attendant une nouvelle ordonnance) mais sont toutes présentées comme des décisions professionnelles possibles, sans jugement de valeur ni indice de correction. Suppression de « sans autre démarche » pour éviter de rendre une option spécialement imprudente."
       },
       "usage": {
-        "prompt_tokens": 700,
-        "completion_tokens": 639,
-        "total_tokens": 1339,
+        "prompt_tokens": 671,
+        "completion_tokens": 1053,
+        "total_tokens": 1724,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 419,
+          "reasoning_tokens": 841,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.007265,
-      "inputHash": "e09110b18fcb35e3f2e15684bd76e1bd03c04a42f2c68d1d20c110a466d06c06",
-      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:14721af7be4c27b55696caf7:blind-edit:6"
+      "costUsd": 0.01136875,
+      "inputHash": "84a6d6676c3d9445dfe6befff29cb4929b863883ccccb69ff2bc8221f53530fd",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:583ea06f863af6598424143b:blind-edit:6"
     }
   },
   "blind": [
     {
       "order": [
         1,
-        0,
         3,
-        2
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkzcvEL4dERX6MgZe9jullUlXxqOP",
+        "responseId": "chatcmpl-ElhmV0tqFNSqEowrcckx4yecI7bpG",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Un patient arrive avec une ordonnance peu claire (posologie ambiguë ou mention manuscrite illisible). Après avoir discuté des limites de ce qu’il peut faire sans précision, le pharmacien explique qu’il est préférable que le patient contacte sa médecin pour clarifier la prescription, puis revienne avec une nouvelle ordonnance corrigée ou complétée si nécessaire. Cela répond directement à la question sur la solution concrète proposée au patient."
+              "context": "Dans une officine, un patient présente une ordonnance pour un médicament de marque, qui est momentanément en rupture. Le pharmacien voit qu’il dispose du générique correspondant en stock et explique au patient : en l’absence de la marque demandée, il décide de délivrer immédiatement le générique disponible afin de ne pas interrompre le traitement."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un patient présente une ordonnance spécifiant une spécialité de marque, et le générique équivalent est actuellement en rupture à l’officine. Après avoir examiné la situation et discuté avec le patient, le pharmacien propose de commander la spécialité de marque telle que prescrite, pour une livraison le lendemain, sans faire de substitution. C’est la solution concrète qu’il finit par proposer."
+              "context": "Dans une pharmacie, un patient demande un médicament de marque qui n’est pas disponible, et aucun générique ni alternative appropriée n’est en stock. Le pharmacien explique qu’en l’absence du médicament de marque demandé et d’équivalent disponible, il ne délivrera pour l’instant aucun traitement et demande au patient de revenir avec une nouvelle ordonnance modifiée par le médecin."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Le patient a une ordonnance pour un médicament de marque, mais le générique strictement équivalent est disponible immédiatement en stock. Après discussion sur les équivalences et la réglementation de la substitution, le pharmacien décide de délivrer tout de suite le générique au patient et indique qu’il informera ensuite la médecin du choix de substitution effectué. Cette décision finale constitue la solution concrète proposée."
+              "context": "Au comptoir, le pharmacien constate que le médicament de marque prescrit est en rupture et qu’une nouvelle livraison doit arriver le lendemain. Il indique au patient qu’il va mettre de côté une boîte pour le lendemain et qu’il appellera le cabinet médical pour valider une éventuelle substitution au générique ou une autre solution, en expliquant que c’est la décision qu’il prend dans ce type de situation."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Un patient présente une ordonnance pour une spécialité de marque alors qu’un générique est disponible, mais il existe un doute (intolérance passée, mention ambiguë, ou besoin de validation du prescripteur). Après échanges avec le patient, le pharmacien propose de réserver une boîte (marque ou générique) pour le lendemain afin d’assurer la disponibilité, et de contacter lui-même le cabinet de la médecin pour discuter d’une éventuelle substitution avant de délivrer. C’est la résolution pratique qu’il finit par formuler."
+              "context": "Lors d’une explication de ses pratiques à un patient méfiant envers les génériques, le pharmacien décrit que, lorsqu’un médicament de marque demandé manque, il peut choisir de proposer de commander uniquement cette spécialité de marque et refuser de délivrer le générique pourtant disponible, par respect d’un accord préalable avec certains patients bien informés de ce choix."
             }
           ],
           "cues": [
             {
-              "option": 3,
-              "severity": "clear",
-              "cue": "La proposition combine deux actions concrètes et responsables (réserver une boîte + joindre le cabinet de la médecin), ce qui correspond bien à un compromis final après une situation problématique en officine. Elle est aussi légèrement plus nuancée et complète que les autres (prise en charge active par le pharmacien, continuité de soin assurée), ce qui lui donne un léger avantage rédactionnel comme solution finale que « le pharmacien finit par proposer ». Les autres réponses sont plus univoques (tout faire faire au patient, ne pas substituer, ou substituer d’emblée) et paraissent moins équilibrées comme issue négociée d’une situation discutée."
+              "option": 0,
+              "severity": "weak",
+              "cue": "Formulation simple, directe et centrée sur la substitution immédiate par le générique en stock, ce qui correspond à la pratique standard et à l’interprétation la plus naturelle de la question portant sur la décision « en l’absence du médicament de marque demandé »."
             }
           ],
-          "standsOut": true,
+          "standsOut": false,
           "probabilities": [
-            0.2,
-            0.2,
-            0.2,
-            0.4
+            0.45,
+            0.15,
+            0.25,
+            0.15
           ],
-          "guess": 3,
-          "reason": "Tous les choix sont plausibles dans un scénario d’officine, mais l’option 3 se distingue par une formulation plus complète et nuancée, typique d’une solution finale après discussion : elle prévoit à la fois la mise de côté d’une boîte (garantie de disponibilité) et la prise en charge directe du contact avec la médecin par le pharmacien. Cela cadre particulièrement bien avec « dans cette situation » et « finit-il par proposer », d’où une probabilité légèrement plus élevée pour cette réponse malgré une incertitude réelle."
+          "guess": 0,
+          "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 0 correspond le mieux, de façon directe et conforme aux usages courants, à la décision typiquement décrite lorsqu’on explique quoi faire en l’absence du médicament de marque demandé ; néanmoins, sans enregistrement, une incertitude significative demeure."
         },
         "usage": {
-          "prompt_tokens": 675,
-          "completion_tokens": 880,
-          "total_tokens": 1555,
+          "prompt_tokens": 650,
+          "completion_tokens": 1061,
+          "total_tokens": 1711,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 178,
+            "reasoning_tokens": 530,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00964375,
-        "inputHash": "b0047f52beb7812f3849558a64193715b42151cfea97f547d1c3c1ba5d71ff85",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:14721af7be4c27b55696caf7:screen:6:edited:0"
+        "costUsd": 0.0114225,
+        "inputHash": "9286e5105e6ddae3485a7eddb69508b6f644aee1e6f6ae4e0eee684867846b5d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:583ea06f863af6598424143b:screen:6:edited:0"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Tous les choix sont plausibles dans un scénario d’officine, mais l’option 3 se distingue par une formulation plus complète et nuancée, typique d’une solution finale après discussion : elle prévoit à la fois la mise de côté d’une boîte (garantie de disponibilité) et la prise en charge directe du contact avec la médecin par le pharmacien. Cela cadre particulièrement bien avec « dans cette situation » et « finit-il par proposer », d’où une probabilité légèrement plus élevée pour cette réponse malgré une incertitude réelle.",
+    "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 0 correspond le mieux, de façon directe et conforme aux usages courants, à la décision typiquement décrite lorsqu’on explique quoi faire en l’absence du médicament de marque demandé ; néanmoins, sans enregistrement, une incertitude significative demeure.",
     "cues": [
       {
-        "option": 3,
-        "severity": "clear",
-        "cue": "La proposition combine deux actions concrètes et responsables (réserver une boîte + joindre le cabinet de la médecin), ce qui correspond bien à un compromis final après une situation problématique en officine. Elle est aussi légèrement plus nuancée et complète que les autres (prise en charge active par le pharmacien, continuité de soin assurée), ce qui lui donne un léger avantage rédactionnel comme solution finale que « le pharmacien finit par proposer ». Les autres réponses sont plus univoques (tout faire faire au patient, ne pas substituer, ou substituer d’emblée) et paraissent moins équilibrées comme issue négociée d’une situation discutée."
+        "option": 0,
+        "severity": "weak",
+        "cue": "Formulation simple, directe et centrée sur la substitution immédiate par le générique en stock, ce qui correspond à la pratique standard et à l’interprétation la plus naturelle de la question portant sur la décision « en l’absence du médicament de marque demandé »."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Un patient arrive avec une ordonnance peu claire (posologie ambiguë ou mention manuscrite illisible). Après avoir discuté des limites de ce qu’il peut faire sans précision, le pharmacien explique qu’il est préférable que le patient contacte sa médecin pour clarifier la prescription, puis revienne avec une nouvelle ordonnance corrigée ou complétée si nécessaire. Cela répond directement à la question sur la solution concrète proposée au patient."
+        "context": "Dans une officine, un patient présente une ordonnance pour un médicament de marque, qui est momentanément en rupture. Le pharmacien voit qu’il dispose du générique correspondant en stock et explique au patient : en l’absence de la marque demandée, il décide de délivrer immédiatement le générique disponible afin de ne pas interrompre le traitement."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Un patient présente une ordonnance spécifiant une spécialité de marque, et le générique équivalent est actuellement en rupture à l’officine. Après avoir examiné la situation et discuté avec le patient, le pharmacien propose de commander la spécialité de marque telle que prescrite, pour une livraison le lendemain, sans faire de substitution. C’est la solution concrète qu’il finit par proposer."
+        "context": "Dans une pharmacie, un patient demande un médicament de marque qui n’est pas disponible, et aucun générique ni alternative appropriée n’est en stock. Le pharmacien explique qu’en l’absence du médicament de marque demandé et d’équivalent disponible, il ne délivrera pour l’instant aucun traitement et demande au patient de revenir avec une nouvelle ordonnance modifiée par le médecin."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Le patient a une ordonnance pour un médicament de marque, mais le générique strictement équivalent est disponible immédiatement en stock. Après discussion sur les équivalences et la réglementation de la substitution, le pharmacien décide de délivrer tout de suite le générique au patient et indique qu’il informera ensuite la médecin du choix de substitution effectué. Cette décision finale constitue la solution concrète proposée."
+        "context": "Au comptoir, le pharmacien constate que le médicament de marque prescrit est en rupture et qu’une nouvelle livraison doit arriver le lendemain. Il indique au patient qu’il va mettre de côté une boîte pour le lendemain et qu’il appellera le cabinet médical pour valider une éventuelle substitution au générique ou une autre solution, en expliquant que c’est la décision qu’il prend dans ce type de situation."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Un patient présente une ordonnance pour une spécialité de marque alors qu’un générique est disponible, mais il existe un doute (intolérance passée, mention ambiguë, ou besoin de validation du prescripteur). Après échanges avec le patient, le pharmacien propose de réserver une boîte (marque ou générique) pour le lendemain afin d’assurer la disponibilité, et de contacter lui-même le cabinet de la médecin pour discuter d’une éventuelle substitution avant de délivrer. C’est la résolution pratique qu’il finit par formuler."
+        "context": "Lors d’une explication de ses pratiques à un patient méfiant envers les génériques, le pharmacien décrit que, lorsqu’un médicament de marque demandé manque, il peut choisir de proposer de commander uniquement cette spécialité de marque et refuser de délivrer le générique pourtant disponible, par respect d’un accord préalable avec certains patients bien informés de ce choix."
       }
     ]
   },
