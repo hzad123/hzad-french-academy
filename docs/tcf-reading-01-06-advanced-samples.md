@@ -302,13 +302,13 @@ D. Il laisse trop de place à l'appréciation des habitants au détriment des me
 
 **Question :** Sur quel glissement repose la critique des annonces de compensation ?
 
-A. Présenter un stockage futur incertain comme l'équivalent d'une réduction déjà acquise
+A. Présenter une capture future comme une réduction déjà obtenue
 
-B. Évaluer les risques locaux avant d'estimer la quantité de carbone à stocker
+B. Traiter les risques de sécheresse comme des émissions déjà produites
 
-C. Associer les bénéfices écologiques d'une plantation à sa capacité de stockage
+C. Considérer la durée du suivi comme une preuve suffisante du carbone stocké
 
-D. Intégrer la durée de croissance aux estimations publiées aux citoyens
+D. Déduire le stockage initial des futurs bénéfices pour la biodiversité
 
 <details><summary>Corrigé pour l'éditeur</summary>
 
