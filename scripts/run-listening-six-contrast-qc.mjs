@@ -106,7 +106,8 @@ for(const r of [...previousBaseline,...previousMini]){
 // for the18-item pilot or the complete cohort. Final coverage remains234.
 const probe=[[0,29],[2,37],[5,38]];await parallel(probe,processQuestion);await save();
 if(probe.some(([p,i])=>!evidence[p].questions[i]?.pass)){
- await saveJson(join(root,'summary.json'),{protocol,policyHash,status:'design-probe-blocked',readyForMedia:false,probeSample:3,probePassed:probe.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});process.exit(1);
+ await saveJson(join(root,'summary.json'),{protocol,policyHash,status:'design-probe-blocked',readyForMedia:false,probeSample:3,probePassed:probe.filter(([p,i])=>evidence[p].questions[i]?.pass).length,errors});
+ if(!args.includes('--finish-batch'))process.exit(1);
 }
 const pilot=all.filter(([,i])=>[29,37,38].includes(i));await parallel(pilot.filter(([p,i])=>!probe.some(([a,b])=>a===p&&b===i)),processQuestion);await save();
 if(pilot.some(([p,i])=>!evidence[p].questions[i]?.pass)){
