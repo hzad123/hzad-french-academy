@@ -94,8 +94,8 @@ test('TEF transcription is isolated from examiner context and cannot be overwrit
    urls.push(url);
    if(url.endsWith('/audio/transcriptions')){
     assert(init.body instanceof FormData);
-    assert.equal(init.body.get('language'),'fr');
-    assert.equal(init.body.get('model'),'gpt-4o-mini-transcribe');
+    assert.equal(init.body.get('languages[]'),'fr');
+    assert.equal(init.body.get('model'),'gpt-transcribe');
     assert.equal(init.body.get('file').name,'student-response.wav');
     assert(!JSON.stringify([...init.body.entries()].filter(([k])=>k!=='file')).includes('privateFacts'));
     return Response.json({text:studentSpeech});
