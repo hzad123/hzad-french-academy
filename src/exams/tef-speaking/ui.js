@@ -1,6 +1,7 @@
 import {makeTefSpeakingStore} from './store.js';
 import {createSpeakingRecorder} from '../tcf-speaking/recorder.js';
 import {createFrenchVoicePlayer} from './voice.js';
+import {tefMicrophoneControls} from './mic-state.js';
 import {recordView} from '../../ui/navigation.js';
 
 const el=(tag,text,cls)=>{
@@ -15,7 +16,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  const store=makeTefSpeakingStore(client,fetcher);
  let catalog=null,attempt=null,recorder=null,voice=null,controller=null,timer=null,pollTimer=null,
   capture=null,bootKey=null,epoch=0,recordEpoch=0,visible=false,busy=false,viewer=null,
-  selectedTestId=null,serverOffset=0,pollCount=0,playing=null;
+  selectedTestId=null,serverOffset=0,pollCount=0,playing=null,micStarting=false,examinerSpeaking=false;
  const active=()=>attempt&&[0,2].includes(attempt.phase);
  const remaining=()=>active()?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-serverOffset)/1000)):0;
  const accept=v=>{attempt=v;serverOffset=Date.parse(v.serverNow)-Date.now()};
@@ -27,8 +28,15 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  const turns=phase=>attempt?.calls?.filter(c=>c.kind==='turn'&&c.phase===phase&&c.status==='completed')||[];
  function recorderInstance(){
   if(!recorder)recorder=recorderFactory({
-   onLimit:audio=>{void submitAnswer(audio)},
-   onStatus:message=>{if(visible)status(message)}
+   onLimit:audio=>{void submitAnswer(audio,true)},
+   onStatus:message=>{if(visible){
+    const translated=message.includes('No audible speech')?'Aucune voix suffisamment forte détectée. Rapprochez-vous du microphone.':
+     message.includes('Speak for at least')?'Parlez au moins une seconde avant d’envoyer.':
+     message.includes('Microphone ready')?'Microphone prêt.':
+     message.includes('Allow microphone')?'Autorisez l’accès au microphone.':
+     message.includes('Recording')?'● Enregistrement en cours. Parlez maintenant.':message;
+    status(translated);syncMicControls();
+   }}
   });
   return recorder;
  }
@@ -38,7 +46,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   controller?.abort();controller=null;clearInterval(timer);clearTimeout(pollTimer);
   recorder?.dispose();recorder=null;voice?.dispose?.();voice=null;
   if(playing){playing.pause?.();playing=null}
-  capture=null;bootKey=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
+  capture=null;bootKey=null;micStarting=false;examinerSpeaking=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
  }
  function reset(){clean();catalog=null;attempt=null;viewer=null;selectedTestId=null}
  root.addEventListener('hzad-route-reset',clean);root.addEventListener('hzad-clear-lessons',reset);
@@ -61,6 +69,35 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  }
  function controls(){
   area.querySelectorAll('button').forEach(b=>{b.disabled=busy||b.dataset.locked==='true'});
+  syncMicControls();
+ }
+ function syncMicControls(){
+  if(!visible||!active())return;
+  const state=tefMicrophoneControls({
+   recording:!!recorder?.isRecording(),starting:micStarting,busy,
+   pending:!!attempt.pending,captured:!!capture,allowed:canPay('turn'),timeLeft:remaining()
+  });
+  const send=area.querySelector('[data-tef-send]');
+  if(send){
+   send.dataset.locked=String(!state.maySend);
+   send.disabled=!state.maySend;
+  }
+  const start=area.querySelector('[data-tef-start-mic]');
+  if(start){
+   start.dataset.locked=String(!state.mayStart);
+   start.disabled=!state.mayStart;
+   start.textContent=state.state==='recording'?'Microphone actif':micStarting?'Activation du microphone…':'Activer le microphone';
+  }
+  const indicator=area.querySelector('[data-tef-mic-indicator]');
+  if(indicator){
+   indicator.dataset.state=state.state;
+   indicator.textContent=state.state==='recording'?
+    '● Enregistrement en cours. Parlez en français, puis cliquez sur « Arrêter et envoyer ».':
+    state.state==='starting'?'Activation du microphone…':
+    state.state==='expired'?'Le temps de cette section est terminé.':
+    examinerSpeaking?'L’interlocuteur parle. Le micro démarrera après sa réponse, ou activez-le maintenant.':
+    'Microphone en attente. Cliquez sur « Activer le microphone » si l’enregistrement ne démarre pas.';
+  }
  }
  async function reconcile(signal){
   if(!attempt)return;
@@ -291,16 +328,25 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    area.append(el('p','Votre réponse est sauvegardée localement pour son envoi. Vérifiez le résultat avant tout nouvel enregistrement.'));
    area.append(button('Renvoyer la même réponse',()=>{void sendCapture()},false,true));
   }else{
-   area.append(button('Envoyer ma réponse et poursuivre la conversation',()=>{void submitAnswer()},!canPay('turn')));
-   area.append(button('Réactiver le microphone',()=>{bootKey=null;void beginAnswer()},false,true));
+   const micState=el('div',undefined,'hz-tef-speaking-microphone');
+   micState.dataset.tefMicIndicator='true';micState.setAttribute('role','status');
+   micState.setAttribute('aria-live','polite');area.append(micState);
+   const micActions=el('div',undefined,'hz-tef-speaking-mic-actions');
+   const send=button('Arrêter et envoyer ma réponse',()=>{void submitAnswer()},true);
+   send.dataset.tefSend='true';
+   const start=button('Activer le microphone',()=>{void startMicrophoneManually()},!canPay('turn'),true);
+   start.dataset.tefStartMic='true';
+   micActions.append(send,start);area.append(micActions);
   }
   area.append(historyBlock(attempt.phase));
+  syncMicControls();
   const tick=()=>{
    const n=remaining();timerText.textContent=formatTime(n)+' restantes';
    if(n<=0&&!busy&&!attempt.pending){
     clearInterval(timer);
-    if(recorder?.isRecording()){const audio=recorder.stop();void submitAnswer(audio)}
-    else if(!capture)void advance();
+    if(recorder?.isRecording()){
+     const audio=recorder.stop();if(audio)void submitAnswer(audio,true);else if(!capture)void advance();
+    }else if(!capture)void advance();
    }
   };
   tick();timer=setInterval(tick,350);
@@ -339,34 +385,82 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   const id=attempt?.id;recordView(root,'tef-speaking:'+(id||'home'),()=>open(id));controls();
  }
  const recordingKey=()=>attempt?.id+':'+attempt?.phase+':'+(turns(attempt.phase).at(-1)?.id||'opening');
+ async function startMicrophoneManually(){
+  if(!visible||busy||!active()||attempt.pending||capture||micStarting||recorder?.isRecording()||
+     !remaining()||!canPay('turn'))return;
+  const ticket=epoch,answerTicket=++recordEpoch,mic=recorderInstance();
+  // A student gesture can resume a suspended AudioContext immediately.
+  voice?.stop();examinerSpeaking=false;bootKey=recordingKey();
+  micStarting=true;syncMicControls();
+  status('Activation du microphone…');
+  try{
+   await mic.start(Math.min(30,remaining()));
+   if(ticket!==epoch||answerTicket!==recordEpoch||!visible||!active()){
+    mic.stop();return;
+   }
+   status('● Enregistrement en cours. Parlez maintenant.');
+  }catch{
+   if(ticket===epoch&&answerTicket===recordEpoch){
+    bootKey=null;
+    status('Le microphone ne démarre pas. Vérifiez son autorisation et le périphérique d’entrée du navigateur.',true);
+   }
+  }finally{
+   if(ticket===epoch&&answerTicket===recordEpoch){
+    micStarting=false;syncMicControls();
+   }
+  }
+ }
  async function beginAnswer(){
-  if(!visible||busy||!active()||attempt.pending||capture||recorder?.isRecording()||!remaining()||!canPay('turn'))return;
+  if(!visible||busy||!active()||attempt.pending||capture||micStarting||
+     recorder?.isRecording()||!remaining()||!canPay('turn'))return;
   const key=recordingKey();if(bootKey===key)return;
   const ticket=epoch,answerTicket=++recordEpoch;bootKey=key;
   try{
    await recorderInstance().prepare();
-   if(ticket!==epoch||answerTicket!==recordEpoch||!active()||key!==recordingKey())return;
+   if(ticket!==epoch||answerTicket!==recordEpoch||!active()||key!==recordingKey()||
+      recorder?.isRecording()||micStarting)return;
    const section=attempt.test.sections[sectionFor(attempt.phase)];
    const said=turns(attempt.phase).at(-1)?.result?.reply||section.opening;
+   examinerSpeaking=true;syncMicControls();
    status('L’interlocuteur vous répond…');
    const spoken=await voiceInstance().speak(said);
    if(ticket!==epoch||answerTicket!==recordEpoch||!visible||busy)return;
+   examinerSpeaking=false;syncMicControls();
    if(!spoken)status('Voix indisponible : lisez la réponse affichée, puis parlez.');
    if(!remaining()){void advance();return}
+   if(recorder?.isRecording()||micStarting)return;
+   micStarting=true;syncMicControls();
    await recorderInstance().start(Math.min(30,remaining()));
+   if(ticket!==epoch||answerTicket!==recordEpoch||!visible||!active()){
+    recorder?.stop();return;
+   }
+   status('● Enregistrement en cours. Parlez maintenant.');
   }catch{
    if(ticket===epoch&&answerTicket===recordEpoch){
     bootKey=null;
-    status('Microphone indisponible. Vérifiez les autorisations, puis cliquez sur « Réactiver le microphone ».',true);
+    status('Microphone indisponible. Autorisez son accès puis utilisez « Activer le microphone ».',true);
+   }
+  }finally{
+   if(ticket===epoch&&answerTicket===recordEpoch){
+    examinerSpeaking=false;micStarting=false;syncMicControls();
    }
   }
  }
- async function submitAnswer(provided){
+ async function submitAnswer(provided,fromTimer=false){
   if(!visible||busy||!active()||attempt.pending)return;
-  // Never resubmit stale WAV data from a previously finished recording.
-  const audio=capture?.audio||provided||(recorder?.isRecording?.()?recorder.stop():null);
-  if(!audio){bootKey=null;status('Aucune parole audible détectée. Vérifiez votre microphone et réessayez.',true);return}
+  const wasRecording=!!recorder?.isRecording();
+  // Never submit while the examiner is still talking or while the AudioContext
+  // is waiting to start. Only an actual WAV produced by the recorder can be sent.
+  const audio=capture?.audio||provided||(wasRecording?recorder.stop():null);
+  if(!audio){
+   bootKey=null;
+   status(fromTimer||wasRecording?
+    'Aucune voix suffisamment forte n’a été enregistrée. Rapprochez-vous du microphone et recommencez.':
+    'Le microphone n’enregistre pas encore. Cliquez sur « Activer le microphone », attendez le voyant rouge, puis parlez.',true);
+   syncMicControls();return;
+  }
   if(!capture)capture={kind:'turn',id:attempt.id,callId:crypto.randomUUID(),audio,expectedCredits:cost('turn'),phase:attempt.phase};
+  syncMicControls();
   await sendCapture();
  }
  async function sendCapture(){

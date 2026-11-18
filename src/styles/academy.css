@@ -708,3 +708,18 @@
 #hzad-french-academy .hz-tef-speaking-history-state.is-complete{background:#f0faf5;border-color:#c7e8d5;color:#23634a}
 #hzad-french-academy .hz-tef-speaking-history-item .hz-btn{margin:0;min-height:40px;padding:9px 15px;font-size:14px;white-space:nowrap}
 @media(max-width:640px){#hzad-french-academy .hz-tef-speaking-picker-controls{grid-template-columns:1fr}#hzad-french-academy .hz-tef-speaking-picker-controls .hz-btn{width:100%}#hzad-french-academy .hz-tef-speaking-history-item{grid-template-columns:1fr auto;gap:10px}#hzad-french-academy .hz-tef-speaking-history-item .hz-btn{grid-column:1/-1;width:100%}#hzad-french-academy .hz-tef-speaking-select{max-width:none}}
+
+
+/* TEF oral: visible microphone readiness and explicit recording control. */
+#hzad-french-academy .hz-tef-speaking-microphone{display:flex;align-items:center;gap:11px;padding:14px 18px;margin:18px 0 12px;border:1px solid #d7e2ef;border-radius:12px;background:#f3f7fc;color:#34577e;font-size:15px;font-weight:700;line-height:1.55}
+#hzad-french-academy .hz-tef-speaking-microphone::before{content:"";width:12px;height:12px;flex:none;border-radius:50%;background:#9cacc0;box-shadow:0 0 0 4px #d9e4f3}
+#hzad-french-academy .hz-tef-speaking-microphone[data-state="starting"]{background:#fff8ec;border-color:#eacba4;color:#95571e}
+#hzad-french-academy .hz-tef-speaking-microphone[data-state="starting"]::before{background:#dba33e;box-shadow:0 0 0 4px #f9e9c7}
+#hzad-french-academy .hz-tef-speaking-microphone[data-state="recording"]{background:#fff0ec;border-color:#edb9ad;color:#953927}
+#hzad-french-academy .hz-tef-speaking-microphone[data-state="recording"]::before{background:#e14b40;box-shadow:0 0 0 4px #f9d1ca;animation:hz-tef-mic-pulse 1.5s ease-in-out infinite}
+#hzad-french-academy .hz-tef-speaking-mic-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0 16px}
+#hzad-french-academy .hz-tef-speaking-mic-actions .hz-btn{margin:0;min-height:46px}
+#hzad-french-academy .hz-tef-speaking-mic-actions .hz-btn:disabled{opacity:.58;cursor:not-allowed}
+@keyframes hz-tef-mic-pulse{0%,100%{box-shadow:0 0 0 4px #f9d1ca}50%{box-shadow:0 0 0 8px #fae6e2}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-tef-speaking-microphone[data-state="recording"]::before{animation:none}}
+@media(max-width:600px){#hzad-french-academy .hz-tef-speaking-mic-actions{flex-direction:column;align-items:stretch}#hzad-french-academy .hz-tef-speaking-mic-actions .hz-btn{width:100%}}
