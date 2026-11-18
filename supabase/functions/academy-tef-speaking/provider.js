@@ -72,7 +72,9 @@ export function validateTefFeedback(value,attempt,kind){
 const feedbackSchema=(ids,kind)=>({type:'json_schema',json_schema:{
  name:'hzad_tef_speaking_feedback',strict:true,schema:obj({
  score:{type:'integer',enum:Array.from({length:700},(_,i)=>i)},
- ...(kind==='feedback_b'?{sectionBScore:{type:'integer',enum:Array.from({length:700},(_,i)=>i)}}:{}),
+ // Keep the combined count of enum values below the 1000-value Structured Outputs limit.
+ // The server validates the 0–699 range after generation for Section B.
+ ...(kind==='feedback_b'?{sectionBScore:{type:'integer'}}:{}),
  estimatedLevel:{type:'string',enum:['A1','A2','B1','B2','C1','C2']},summary:str,
  criteria:{type:'array',items:obj({id:{type:'string',enum:criteria},turnId:{type:'string',enum:ids},reason:str,improvement:str})},
  mistakes:{type:'array',items:obj({turnId:{type:'string',enum:ids},original:str,corrected:str,explanation:str})},
