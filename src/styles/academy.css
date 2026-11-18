@@ -723,3 +723,15 @@
 @keyframes hz-tef-mic-pulse{0%,100%{box-shadow:0 0 0 4px #f9d1ca}50%{box-shadow:0 0 0 8px #fae6e2}}
 @media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-tef-speaking-microphone[data-state="recording"]::before{animation:none}}
 @media(max-width:600px){#hzad-french-academy .hz-tef-speaking-mic-actions{flex-direction:column;align-items:stretch}#hzad-french-academy .hz-tef-speaking-mic-actions .hz-btn{width:100%}}
+
+
+/* TEF speaking: untimed reading/preparation before first recording. */
+#hzad-french-academy .hz-tef-speaking-preflight{margin:20px 0;padding:clamp(19px,3vw,27px);border:1px solid #d8e4f2;border-left:5px solid #ef973a;border-radius:18px;background:linear-gradient(135deg,#fff,#f8fbff);box-shadow:0 6px 25px #15396109}
+#hzad-french-academy .hz-tef-speaking-preflight>h4{font-size:clamp(21px,2.8vw,26px);margin:8px 0 12px;color:#193967}
+#hzad-french-academy .hz-tef-speaking-preflight>p{line-height:1.7;color:#526782;max-width:900px}
+#hzad-french-academy .hz-tef-speaking-preflight .hz-tef-speaking-document{margin:18px 0}
+#hzad-french-academy .hz-tef-speaking-preflight-note{background:#eff5ff;border:1px solid #d4e3fa;border-radius:12px;padding:15px 19px;color:#1d477c;margin:15px 0}
+#hzad-french-academy .hz-tef-speaking-preflight-note p{margin:7px 0 0;line-height:1.6}
+#hzad-french-academy .hz-tef-speaking-preflight-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+#hzad-french-academy .hz-tef-speaking-preflight-actions .hz-btn{min-height:48px;margin:0}
+@media(max-width:600px){#hzad-french-academy .hz-tef-speaking-preflight-actions{flex-direction:column;align-items:stretch}#hzad-french-academy .hz-tef-speaking-preflight-actions .hz-btn{width:100%}}

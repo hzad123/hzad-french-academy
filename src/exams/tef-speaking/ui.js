@@ -16,7 +16,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  const store=makeTefSpeakingStore(client,fetcher);
  let catalog=null,attempt=null,recorder=null,voice=null,controller=null,timer=null,pollTimer=null,
   capture=null,bootKey=null,epoch=0,recordEpoch=0,visible=false,busy=false,viewer=null,
-  selectedTestId=null,serverOffset=0,pollCount=0,playing=null,micStarting=false,examinerSpeaking=false;
+  selectedTestId=null,preflight=false,serverOffset=0,pollCount=0,playing=null,micStarting=false,examinerSpeaking=false;
  const active=()=>attempt&&[0,2].includes(attempt.phase);
  const remaining=()=>active()?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-serverOffset)/1000)):0;
  const accept=v=>{attempt=v;serverOffset=Date.parse(v.serverNow)-Date.now()};
@@ -46,7 +46,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   controller?.abort();controller=null;clearInterval(timer);clearTimeout(pollTimer);
   recorder?.dispose();recorder=null;voice?.dispose?.();voice=null;
   if(playing){playing.pause?.();playing=null}
-  capture=null;bootKey=null;micStarting=false;examinerSpeaking=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
+  capture=null;bootKey=null;preflight=false;micStarting=false;examinerSpeaking=false;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden');
  }
  function reset(){clean();catalog=null;attempt=null;viewer=null;selectedTestId=null}
  root.addEventListener('hzad-route-reset',clean);root.addEventListener('hzad-clear-lessons',reset);
@@ -132,7 +132,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   await run(async(signal,current)=>{
    const data=await store.catalog(signal);if(!current())return;
    catalog=data;
-   if(id){accept(await store.read(id,signal))}else attempt=null;
+   if(id){accept(await store.read(id,signal))}else{attempt=null;preflight=false;}
    if(current()){pollCount=0;render()}
   });
  }
@@ -240,7 +240,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    try{await recorderInstance().prepare()}catch{throw Error('Autorisez l’accès au microphone dans le navigateur, puis recommencez.')}
    const paper=catalog.tests.find(t=>t.id===selectedTestId);
    const next=await store.send({kind:'start',id:crypto.randomUUID(),testId:paper.id,version:paper.version},signal);
-   if(current()){accept(next);render()}
+   if(current()){preflight=false;accept(next);render()}
   });
  }
  function renderCatalog(){
@@ -262,11 +262,11 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    option.value=paper.id;option.selected=paper.id===selectedTestId;select.append(option);
   }
   field.append(label,select);
-  const start=button('Commencer le test '+(selectedTestId?.slice(-2)||'01'),
-   ()=>{void startTest()},!canPay('turn'));
+  const start=button('Consulter les consignes · Test '+(selectedTestId?.slice(-2)||'01'),
+   ()=>{preflight=true;render()},false);
   select.onchange=()=>{
    selectedTestId=select.value;
-   start.textContent='Commencer le test '+selectedTestId.slice(-2);
+   start.textContent='Consulter les consignes · Test '+selectedTestId.slice(-2);
   };
   controls.append(field,start);picker.append(controls);
   picker.append(el('p',
@@ -297,6 +297,31 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    history.append(item);
   }
   area.append(history);
+ }
+ function renderPreflight(){
+  // No server attempt exists yet. The server-owned 5-minute clock starts only
+  // inside startTest(), after explicit confirmation and microphone preflight.
+  const paper=catalog?.tests?.find(p=>p.id===selectedTestId);
+  if(!paper){preflight=false;renderCatalog();return}
+  const intro=el('section',undefined,'hz-tef-speaking-preflight');
+  intro.append(el('span','AVANT DE COMMENCER · TEST '+paper.id.slice(-2),'hz-eyebrow'),
+   el('h4','Lisez les consignes à votre rythme'));
+  intro.append(el('p','Le chronomètre ne démarre pas pendant cette préparation. Il commencera uniquement lorsque vous appuierez sur « Démarrer la section A ».'));
+  const a=paper.sections[0],b=paper.sections[1];
+  const first=el('article',undefined,'hz-tef-speaking-document');
+  first.append(el('span','SECTION A · 5:00','hz-eyebrow'),el('h4',a.heading),
+   el('blockquote',a.document),el('p',a.instructions));
+  intro.append(first);
+  const note=el('section',undefined,'hz-tef-speaking-preflight-note');
+  note.append(el('strong','Ensuite : Section B · 10:00'));
+  note.append(el('p','Vous devrez présenter une autre annonce à un(e) ami(e) et le (la) convaincre. Vous pourrez lire les consignes de la section B avant de démarrer son chronomètre.'));
+  intro.append(note);
+  intro.append(el('p','Le microphone est vérifié avant le démarrage. Les réponses enregistrées et les évaluations consomment des crédits IA uniquement lorsque vous les envoyez.'));
+  const actions=el('div',undefined,'hz-tef-speaking-preflight-actions');
+  actions.append(button('Démarrer la section A · 5 min',()=>{void startTest()},!canPay('turn')),
+   button('Retour aux tests',()=>{preflight=false;render()},false,true));
+  intro.append(actions);
+  area.append(intro);
  }
  function renderActive(){
   const section=attempt.test.sections[sectionFor(attempt.phase)];
@@ -354,7 +379,11 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  function renderBreak(){
   area.append(el('h4','Section A terminée'));
   area.append(el('p','Vous pouvez consulter votre bilan de la Section A avant de commencer la section B. Son chronomètre ne démarre qu’au moment où vous choisissez de commencer.'));
-  area.append(historyBlock(0));
+  const b=attempt.test.sections[1];
+  const preview=el('article',undefined,'hz-tef-speaking-document');
+  preview.append(el('span','SECTION B · 10:00','hz-eyebrow'),
+   el('h4',b.heading),el('blockquote',b.document),el('p',b.instructions));
+  area.append(preview,historyBlock(0));
   const grade=showFeedback('feedback_a');if(grade)area.append(grade);
   area.append(button('Commencer la Section B · 10 minutes',()=>{
    void run(async(signal,current)=>{
@@ -377,7 +406,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   header.append(el('span','TEF CANADA · EXPRESSION ORALE','hz-eyebrow'),
    el('h3',attempt?.test?.title||'TEF Speaking · 20 tests'));
   area.append(header,button('← Tests TEF / TCF',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
-  if(!attempt)renderCatalog();
+  if(!attempt){if(preflight)renderPreflight();else renderCatalog()}
   else if(active())renderActive();
   else if(attempt.phase===1)renderBreak();
   else renderFinal();
