@@ -71,8 +71,8 @@ export function validateTefFeedback(value,attempt,kind){
 }
 const feedbackSchema=(ids,kind)=>({type:'json_schema',json_schema:{
  name:'hzad_tef_speaking_feedback',strict:true,schema:obj({
- score:{type:'integer',minimum:0,maximum:699},
- ...(kind==='feedback_b'?{sectionBScore:{type:'integer',minimum:0,maximum:699}}:{}),
+ score:{type:'integer',enum:Array.from({length:700},(_,i)=>i)},
+ ...(kind==='feedback_b'?{sectionBScore:{type:'integer',enum:Array.from({length:700},(_,i)=>i)}}:{}),
  estimatedLevel:{type:'string',enum:['A1','A2','B1','B2','C1','C2']},summary:str,
  criteria:{type:'array',items:obj({id:{type:'string',enum:criteria},turnId:{type:'string',enum:ids},reason:str,improvement:str})},
  mistakes:{type:'array',items:obj({turnId:{type:'string',enum:ids},original:str,corrected:str,explanation:str})},
