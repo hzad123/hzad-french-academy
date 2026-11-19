@@ -229,12 +229,12 @@ function answerForms(n,c,short,q){
  case 10:medium='Le rendez-vous de '+one(/plus tard à (.+?) à cause/u,'activité')+' est repoussé à cause d’une réunion prolongée.';break;
  case 11:medium='Pour '+one(/pour (.+?) avant jeudi/u,'événement')+', le formulaire doit être rempli en ligne avant jeudi.';break;
  case 12:medium='Montrer à l’accueil le message de confirmation de '+one(/pour (.+?) à l’accueil/u,'activité')+'.';break;
- case 13:medium='La séance de '+one(/pour (.+?) commence/u,'activité')+' passe de quatorze à quinze heures.';break;
+ case 13:medium='La séance de '+one(/pour (.+?) commence/u,'activité')+' est décalée à quinze heures, au même endroit.';break;
  case 14:medium='Conserver '+one(/Conserver (.+?) et envoyer/u,'activité')+' et envoyer la démonstration plus tard.';break;
  case 15:medium='La mesure présentée à '+one(/Dans (.+?), la nouvelle mesure/u,'lieu')+' répond au besoin sans lever toutes les difficultés.';break;
  case 16:medium='Répartir les permanences de '+one(/accueil pour (.+?) toute la journée/u,'service')+' pour maintenir l’accueil continu.';break;
  case 17:medium='Les visiteurs de '+one(/obstacles dans (.+?)\./u,'lieu')+' qui peinent à accéder au service ordinaire.';break;
- case 18:medium='Le créneau de '+one(/prévue pour (.+?)\./u,'événement')+' chevauche ses horaires de travail.';break;
+ case 18:medium='Elle travaille encore vendredi à seize heures, au moment de '+one(/prévue pour (.+?)\./u,'événement')+'.';break;
  case 19:medium='Limiter le groupe pendant '+one(/pendant (.+?)\./u,'événement')+' afin que chacun puisse poser des questions.';break;
  case 20:medium='Elle souhaite comprendre comment le projet tient compte de '+one(/précisions sur (.+?)\./u,'préoccupation')+'.';break;
  case 21:medium='Répartir les bénévoles de '+one(/pour (.+?)\./u,'événement')+' selon les créneaux où ils sont libres.';break;
@@ -259,7 +259,7 @@ function answerForms(n,c,short,q){
  case 34:medium='Faire tester '+one(/Faire tester (.+?) par/u,'service')+' par divers publics, avec une aide humaine conservée.';break;
  case 35:medium='Les résultats techniques de '+one(/installée dans (.+?) garantit/u,'lieu')+' suffiraient même si les usages réels diffèrent.';break;
  case 36:medium='Le volontariat et les échanges réciproques pendant '+one(/à (.+?)\./u,'activité')+' renforcent les liens.';break;
- case 37:medium='Comparer les récits sur '+one(/concernant (.+?) aux/u,'service')+' aux faits vérifiables.';break;
+ case 37:medium='La chercheuse confronte les témoignages sur '+one(/concernant (.+?) aux/u,'service')+' aux dates et décisions vérifiables.';break;
  case 38:medium='Le succès de '+one(/Une initiative comme (.+?) peut/u,'initiative')+' peut créer des difficultés aux usagers.';break;
  case 39:medium='Assurer des moyens durables et suivre '+one(/suivre (.+?) pour poursuivre/u,'indicateur')+' sur la durée.';break;
  default:throw Error('Unexpected question '+n);
@@ -271,10 +271,14 @@ function bestAnswer(q,originalAnswer,forms,wrong,numero){
  const desired=(q.number*7+numero*5)%4;
  const options=forms.map(text=>({text,length:text.length}));
  if(desired===0){
-  return options.reduce((a,b)=>a.length<b.length?a:b).text;
+  const safe=options.filter(o=>o.length>=min*0.78&&o.length<=max);
+  if(safe.length)return safe.reduce((a,b)=>a.length<b.length?a:b).text;
+  return options.reduce((a,b)=>Math.abs(a.length-min)<Math.abs(b.length-min)?a:b).text;
  }
  if(desired===1){
-  return options.reduce((a,b)=>a.length>b.length?a:b).text;
+  const safe=options.filter(o=>o.length<=max*1.25&&o.length>=min);
+  if(safe.length)return safe.reduce((a,b)=>a.length>b.length?a:b).text;
+  return options.reduce((a,b)=>Math.abs(a.length-max)<Math.abs(b.length-max)?a:b).text;
  }
  const middleChoices=options.filter(o=>o.length>min&&o.length<max);
  if(middleChoices.length)return middleChoices.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
