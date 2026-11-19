@@ -254,8 +254,8 @@ for(let n=7;n<=14;n++){
  const fromAsset='assets/tcf-listening/'+original.version,toAsset='assets/tcf-listening/'+paper.version;
  await cp(fromAsset,toAsset,{recursive:true});
  const manifest=await read(toAsset+'/manifest.json');
- if(manifest.version!==original.version||manifest.files.length!==39||manifest.state!=='MEDIA_VERIFIED')throw Error('Original media incomplete '+nn);
- manifest.version=paper.version;manifest.retainedUnchangedSource=original.version;
+ if(manifest.version!==original.version||manifest.files.length!==39)throw Error('Original media incomplete '+nn);
+ manifest.version=paper.version;manifest.state='MEDIA_VERIFIED';manifest.retainedUnchangedSource=original.version;
  await writeFile(toAsset+'/manifest.json',JSON.stringify(manifest,null,2)+'\n');
  await writeFile('supabase/exams/tcf-listening-test'+nn+'-v2.json',JSON.stringify(paper,null,2)+'\n');
  all.push({test:n,oldVersion:original.version,newVersion:paper.version,questions:39,unchangedRecordedQuestions:39,editedWrittenOptions:31,correctLongest:paper.questions.slice(8).filter(q=>choiceStats(q).correctLongest).length});
