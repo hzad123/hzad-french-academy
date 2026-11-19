@@ -51,7 +51,13 @@ export function createSpeakingProvider({key,fetcher=fetch}){return {ready:()=>!!
   if(new TextEncoder().encode(JSON.stringify({messages,response_format:format})).length>45000)throw Error('Speaking evidence exceeds assessment input limit');
  }
  if(kind==='turn'&&new TextEncoder().encode(JSON.stringify(messages)).length>40000)throw Error('Speaking context exceeds the reserved input bound');
- const response=await fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:settings.model,messages,max_tokens:settings.maxOutputTokens,store:false,...(kind==='turn'?{modalities:['text']}:{response_format:format})}),signal:AbortSignal.timeout(kind==='turn'&&attempt.phase===3?90000:55000)});
+ const request={model:settings.model,messages,max_tokens:settings.maxOutputTokens,store:false,...(kind==='turn'?{modalities:['text']}:{response_format:format})};
+ const send=payload=>fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(55000)});
+ let response=await send(request);
+ // A rejected text-only audio-model request may recover without a new audio
+ // transcription. Never retry an accepted, rate-limited or server-failed call.
+ if(response.status===400&&settings.model!=='gpt-4o-mini')
+  response=await send({...request,model:'gpt-4o-mini'});
  if(!response.ok){const body=await response.json().catch(()=>({}));throw new WritingFailure('PROVIDER_HTTP',{status:response.status,providerCode:body.error?.code})}const raw=await response.json();if(raw.choices?.[0]?.finish_reason==='length')throw new WritingFailure('TRUNCATED');
  let value;try{value=JSON.parse(raw.choices?.[0]?.message?.content)}catch{throw new WritingFailure('INVALID_JSON')}let result;
  if(kind==='turn'){
