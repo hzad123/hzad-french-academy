@@ -45,7 +45,7 @@ def main(models):
     temp=Path(directory);joined=temp/"joined.wav"
     with wave.open(str(joined),"wb") as dst:
      dst.setnchannels(1);dst.setsampwidth(2);dst.setframerate(22050)
-     dst.writeframes(b"\\0"*int(22050*0.25)*2)
+     dst.writeframes(bytes(int(22050*0.25)*2))
      for i,segment in enumerate(q["segments"]):
       name,speaker=PROFILE[segment.get("speaker",segment["voice"])]
       raw=temp/f"clip{i}.wav";normalized=temp/f"normalized{i}.wav"
@@ -53,7 +53,7 @@ def main(models):
        voices[name].synthesize_wav(segment["text"],f,SynthesisConfig(speaker_id=speaker,length_scale=1.0,noise_scale=.55,noise_w_scale=.7))
       subprocess.run(["ffmpeg","-v","error","-y","-i",str(raw),"-ar","22050","-ac","1","-c:a","pcm_s16le",str(normalized)],check=True)
       with wave.open(str(normalized),"rb") as f:dst.writeframes(f.readframes(f.getnframes()))
-      dst.writeframes(b"\\0"*int(22050*.35)*2)
+      dst.writeframes(bytes(int(22050*.35)*2))
     candidate=temp/"rendered.mp3"
     subprocess.run(["ffmpeg","-v","error","-y","-i",str(joined),"-af","loudnorm=I=-18:TP=-2:LRA=11","-ar","22050","-ac","1","-c:a","libmp3lame","-b:a","64k",str(candidate)],check=True)
     measured=duration(candidate)
