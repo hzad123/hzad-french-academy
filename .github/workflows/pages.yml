@@ -90,11 +90,13 @@ jobs:
           let last='';
           for(let i=0;i<10;i++){
             try{
-              const urls=['BUILD_COMMIT.txt','academy.js','academy.css'].map(p=>base+p+'?revision='+encodeURIComponent(expected));
+              const urls=['BUILD_COMMIT.txt','academy.js','academy-app.js','academy.css'].map(p=>base+p+'?revision='+encodeURIComponent(expected));
               const responses=await Promise.all(urls.map(u=>fetch(u,{headers:{'Cache-Control':'no-cache'}})));
               if(responses.every(r=>r.ok)){
-                const [revision,js,css]=await Promise.all(responses.map(r=>r.text()));
+                const [revision,bootstrap,js,css]=await Promise.all(responses.map(r=>r.text()));
                 if(revision.trim()===expected&&
+                   bootstrap.includes('BUILD_COMMIT.txt')&&
+                   bootstrap.includes('academy-app.js')&&
                    js.includes('hz-tcf-speaking-three-tasks')&&
                    css.includes('hz-tcf-speaking-three-tasks')&&
                    js.includes('hz-tcf-speaking-scoreboard')&&
