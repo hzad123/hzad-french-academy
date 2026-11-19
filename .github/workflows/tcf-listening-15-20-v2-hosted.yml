@@ -1,0 +1,34 @@
+name: Verify hosted TCF Listening 15-20 v2 (before Supabase publish)
+on:
+  push:
+    branches: [development]
+    paths:
+      - .github/workflows/tcf-listening-15-20-v2-hosted.yml
+      - scripts/release/check-listening-15-20-v2-hosted.py
+      - supabase/exams/tcf-listening-test1?-v2.json
+      - supabase/exams/tcf-listening-test20-v2.json
+      - assets/tcf-listening/tcf-listening-2026-11-test1?-v2/**
+      - assets/tcf-listening/tcf-listening-2026-11-test20-v2/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - name: Verify all 234 recordings, source keys and timings
+        run: node scripts/check-listening-15-20-v2-draft.mjs
+      - name: Check all 271 hosted media and metadata files against deployed commit
+        run: python scripts/release/check-listening-15-20-v2-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: listening-15-20-hosted-evidence
+          path: work/tcf-listening-15-20-v2-hosted/verified.json
+          retention-days: 30
