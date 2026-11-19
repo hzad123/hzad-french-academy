@@ -784,3 +784,9 @@
 #hzad-french-academy .hz-tcf-speaking-empty{color:#637993}
 @media(max-width:700px){#hzad-french-academy .hz-tcf-speaking-timing{grid-template-columns:1fr}#hzad-french-academy .hz-tcf-speaking-history-item{grid-template-columns:minmax(0,1fr) auto}#hzad-french-academy .hz-tcf-speaking-history-item .hz-btn{grid-column:1/-1;width:100%}}
 @media(max-width:520px){#hzad-french-academy .hz-tcf-speaking-tabs{width:100%;box-sizing:border-box}#hzad-french-academy .hz-tcf-speaking-tabs .hz-tcf-speaking-tab{flex:1;min-width:0;font-size:13px;padding:11px 9px}#hzad-french-academy .hz-tcf-speaking-history-item{grid-template-columns:1fr;gap:10px}#hzad-french-academy .hz-tcf-speaking-preflight-actions .hz-btn,#hzad-french-academy .hz-tcf-speaking-select-actions .hz-btn{width:100%}#hzad-french-academy .hz-tcf-speaking-panel,#hzad-french-academy .hz-tcf-speaking-preflight{padding:17px}}
+
+/* TCF Canada Speaking has exactly three tasks; Task 2 preparation and exchange share one card. */
+#hzad-french-academy .hz-tcf-speaking-three-tasks{grid-template-columns:repeat(3,minmax(0,1fr))}
+#hzad-french-academy .hz-tcf-speaking-three-tasks .hz-tcf-speaking-timing-item{min-width:0}
+#hzad-french-academy .hz-tcf-speaking-three-tasks .hz-tcf-speaking-timing-item span{display:block}
+@media(max-width:800px){#hzad-french-academy .hz-tcf-speaking-three-tasks{grid-template-columns:1fr}}
