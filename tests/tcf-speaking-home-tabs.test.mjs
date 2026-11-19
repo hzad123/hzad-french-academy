@@ -37,7 +37,12 @@ test('TCF selected paper opens a Start button, then untimed preflight before att
  assert(home.includes("intro.dataset.tcfPreflight='true'"));
  assert(home.includes("'Read the instructions before you begin'"));
  assert(home.includes("'Your exam has not started. Take as much time as you need to read these instructions.'"));
- assert(home.includes("'Task 2 · Preparation','2 full minutes to prepare your questions · No microphone'"));
+ assert(home.includes("['Task 2 · Information gathering',['2 minutes preparation (no microphone)','Then 3 minutes 30 seconds speaking']]"));
+ assert(home.includes("['Task 1 · Interview',['2 minutes speaking','No preparation']]"));
+ assert(home.includes("['Task 3 · Opinion',['4 minutes 30 seconds speaking','No preparation']]"));
+ assert(!home.includes("['Task 2 · Conversation'"),'Preparation and conversation must not be separate task cards');
+ const tasks=home.split("   const steps=[")[1]?.split("   ];")[0]||'';
+ assert.equal((tasks.match(/\['Task [123] ·/g)||[]).length,3,'Instructions must display exactly three task cards');
  assert(home.includes("Task 2 includes 2 minutes of preparation."));
  assert(home.includes("button('Start TCF Speaking Test '+selected.id.slice(-2)"));
  const selectionBranch=home.slice(home.indexOf("const startButton="),home.indexOf("   area.append(panel);"));
@@ -64,7 +69,7 @@ test('TCF Task 2 still receives server-controlled 120-second preparation separat
 test('TCF home design remains compact and responsive on phone screens',()=>{
  for(const cls of ['hz-tcf-speaking-tabs','hz-tcf-speaking-tab','hz-tcf-speaking-panel',
   'hz-tcf-speaking-history','hz-tcf-speaking-history-item','hz-tcf-speaking-preflight',
-  'hz-tcf-speaking-timing-item.is-preparation','hz-tcf-speaking-select-field']){
+  'hz-tcf-speaking-timing-item.is-preparation','hz-tcf-speaking-three-tasks','hz-tcf-speaking-select-field']){
   assert(css.includes(cls),cls+' style missing');
  }
  assert(css.includes('@media(max-width:520px)'));
