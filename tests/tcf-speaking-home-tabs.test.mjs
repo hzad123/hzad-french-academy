@@ -61,7 +61,7 @@ test('TCF Task 2 still receives server-controlled 120-second preparation separat
  assert(ui.includes("else if(attempt.phase===1)"));
  assert(ui.includes("prep.dataset.tcfPreparation='true'"));
  assert(ui.includes("progress.max=120"));
- assert(ui.includes("if(n===0&&!switching&&!busy&&!attempt.pending)"));
+ assert(ui.includes("if(n===0&&!switching)"));
  assert(ui.includes("switching=true;clearInterval(timer);advance()"));
  const source=readFileSync('supabase/functions/academy-tcf-speaking/test.js','utf8');
  assert(source.includes("name:'Task 2 · Preparation',seconds:120"));
