@@ -81,7 +81,7 @@ jobs:
           exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify published three-task speaking UI and matching styles
+      - name: Verify published TCF speaking instructions, scorecards and corrections
         run: |
           node --input-type=module <<'NODE'
           import {readFileSync} from 'node:fs';
@@ -97,8 +97,13 @@ jobs:
                 if(revision.trim()===expected&&
                    js.includes('hz-tcf-speaking-three-tasks')&&
                    css.includes('hz-tcf-speaking-three-tasks')&&
+                   js.includes('hz-tcf-speaking-scoreboard')&&
+                   js.includes('Your French · Corrections and better expressions')&&
+                   css.includes('hz-tcf-speaking-score-figures')&&
+                   css.includes('hz-tcf-speaking-original')&&
+                   css.includes('hz-tcf-speaking-better')&&
                    !css.includes('.hz-tcf-speaking-timing-item.is-preparation')){
-                  console.log('Verified live Pages revision '+expected+' with three uniform speaking cards.');
+                  console.log('Verified live Pages revision '+expected+' with three tasks, large scorecards and red-green corrections.');
                   process.exit(0);
                 }
                 last='Unexpected revision or stale speaking assets';
