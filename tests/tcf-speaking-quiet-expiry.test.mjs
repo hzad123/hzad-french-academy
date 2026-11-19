@@ -86,7 +86,7 @@ test('Server allows expired TCF phase to advance even with old pending AI call, 
    insert into purchase_entitlements values('${alice}','active',now(),now()-interval'1 day',null,'HZAD_FULL_ACADEMY');`);
   for(const name of ['20261029_academy_learning.sql','20261105001000_ai_learning.sql','20261105001200_mock_exams.sql','20261109001500_tcf_writing.sql','20261112002400_tcf_speaking_test01.sql'])
    await db.exec(readFileSync('supabase/migrations/'+name,'utf8'));
-  await db.exec(readFileSync('supabase/migrations/20261119220000_tcf_speaking_expiry_no_audio_deadlock.sql','utf8'));
+  await db.exec(readFileSync('supabase/migrations/20261119220419_tcf_speaking_expiry_no_audio_deadlock.sql','utf8'));
   const id=crypto.randomUUID(),callId=crypto.randomUUID();
   let result=await command('start',id);
   assert.equal(result.phase,0);
