@@ -20,3 +20,15 @@ Test 19: 7 questions, 25 choices; keys {"A":10,"B":9,"C":10,"D":10}
 Test 20: 7 questions, 23 choices; keys {"A":10,"B":9,"C":10,"D":10}
 
 Automated QA can verify source consistency, scoring invariants and UI wiring but cannot prove official exam difficulty.
+
+
+## Owner-authorized production publication — complete
+
+- Applied on November 19, 2026 to Supabase project `ogntvgvzmjrnppcullsj`.
+- Migration history: `20261119221112_tcf_reading_15_20_close_reading_v4_owner_approved`.
+- Production versions checked afterward: 01–06 v6 (6), 07–14 v4 (8), and 15–20 v4 (6), total 20 tests.
+- Six immutable versioned papers inserted: historical bank count 61 -> 67. The old v3 papers are preserved.
+- Previous student attempts remain 17, with identical fingerprint `c49cff1e44bcbd900f2bacd9f28b21a5` before and after.
+- Full GitHub build/test validation passed on initial release commit `025ef112d4e919974d43d581557b336fe7050f11` (Actions run 44625898240), before applying the migration.
+- The audited SQL is archived both in `scripts/release/tcf-reading-15-20-v4.sql` and the timestamped migration file. **Do not execute it twice.**
+- The old 14-bank draft migration in PR #75 is superseded and must never be executed after this six-bank release.
