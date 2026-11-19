@@ -352,11 +352,95 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    }
   }
   if(attempt.phase===4){recorder?.stop();const result=attempt.calls.find(c=>c.kind==='feedback'&&c.status==='completed')?.result;
-   if(result){const feedback=el('section',undefined,'hz-writing-feedback');feedback.append(el('h4','Your TCF speaking result'),el('strong',result.score===null?'TCF score /20 unavailable · NCLC unavailable: audible task evidence needed':`Estimated TCF speaking ${result.score}/20 · NCLC ${result.nclc}`),el('p',result.summary));
-    const labels={linguistic:'Linguistic competence · pronunciation, fluency and language',pragmatic:'Pragmatic competence · interaction, coherence and argument',sociolinguistic:'Sociolinguistic competence · audience and register'};
-    for(const c of result.criteria){const card=el('article',undefined,'hz-writing-criterion');card.append(el('h5',labels[c.id]),el('blockquote','Task '+c.task+': '+c.evidence),el('p',c.reason));for(const observation of c.audioEvidence)card.append(el('p',observation,'hz-small'));if(c.improvement)card.append(el('h6','What to fix'),el('p',c.improvement));feedback.append(card)}
-    if(result.score!==null)feedback.append(el('strong',`Total TCF speaking score: ${result.score}/20 · NCLC ${result.nclc}`));
-    for(const task of result.missingTasks)feedback.append(el('p','Task '+task+': no usable speech was recognized. A TCF/NCLC total needs an audible response for all three tasks.'));area.append(feedback);
+   if(result){
+    const feedback=el('section',undefined,'hz-writing-feedback hz-tcf-speaking-feedback');
+    feedback.append(el('h4','Your TCF speaking assessment'));
+    const scoreboard=el('div',undefined,'hz-tcf-speaking-scoreboard');
+    const figures=el('div',undefined,'hz-tcf-speaking-score-figures');
+    const metric=(label,value,note)=>{
+     const item=el('div',undefined,'hz-tcf-speaking-score-metric');
+     item.append(el('span',label,'hz-tcf-speaking-score-label'),
+      el('strong',value,'hz-tcf-speaking-score-value'),
+      el('span',note,'hz-tcf-speaking-score-note'));
+     return item;
+    };
+    figures.append(metric('Estimated TCF speaking score',result.score===null?'—':result.score+'/20',
+     result.score===null?'Insufficient evidence across all three tasks':'Overall speaking assessment'),
+     metric('NCLC equivalent',result.nclc===null?'—':String(result.nclc).startsWith('Below')?result.nclc:'NCLC '+result.nclc,
+     result.nclc===null?'Not available for this attempt':'Speaking-equivalent level'));
+    scoreboard.append(figures);
+    if(result.summary?.trim())scoreboard.append(el('p',result.summary,'hz-tcf-speaking-summary'));
+    feedback.append(scoreboard);
+    const criteria=el('section',undefined,'hz-tcf-speaking-feedback-section');
+    criteria.append(el('h4','Why you received this score'));
+    const labels={
+     linguistic:['Language control','Grammar, vocabulary, accuracy and intelligibility'],
+     pragmatic:['Communication and interaction','Relevant questions, coherence, development and examples'],
+     sociolinguistic:['Appropriate language and register','Tone, politeness and suitability for the situation']
+    };
+    for(const item of result.criteria||[]){
+     const [label,description]=labels[item.id]||[item.id,''];
+     const card=el('article',undefined,'hz-writing-criterion hz-tcf-speaking-criterion');
+     card.append(el('h5',label),el('p',description,'hz-tcf-speaking-card-subtitle'));
+     card.append(el('span','Your actual words · Task '+item.task,'hz-tcf-speaking-evidence-label'),
+      el('blockquote',item.evidence));
+     card.append(el('h6','How this affected your performance'),el('p',item.reason));
+     if(item.improvement?.trim())card.append(el('h6','What to fix'),el('p',item.improvement,'hz-tcf-speaking-next-step'));
+     for(const observation of item.audioEvidence||[])card.append(el('p',observation,'hz-small'));
+     criteria.append(card);
+    }
+    feedback.append(criteria);
+    const corrections=el('section',undefined,'hz-tcf-speaking-feedback-section');
+    corrections.append(el('h4','Your French · Corrections and better expressions'),
+     el('p','Red shows the words in your saved transcript; green shows a suggested correction. Your recording transcript is never rewritten.','hz-tcf-speaking-section-note'));
+    const items=Array.isArray(result.corrections)?result.corrections:[];
+    if(items.length){
+     for(const correction of items){
+      const card=el('article',undefined,'hz-tcf-speaking-correction-card');
+      card.append(el('h5','Task '+correction.task+' · Sentence improvement'));
+      const original=el('div',undefined,'hz-tcf-speaking-original');
+      original.append(el('span','✕  What was transcribed','hz-tcf-speaking-diff-label'),
+       el('del',correction.original));
+      const better=el('div',undefined,'hz-tcf-speaking-better');
+      better.append(el('span','✓  Better French','hz-tcf-speaking-diff-label'),
+       el('ins',correction.better));
+      card.append(original,better,el('p',correction.why,'hz-tcf-speaking-why'));
+      corrections.append(card);
+     }
+    }else{
+     corrections.append(el('p',result.rubricVersion==='tcf-speaking-detailed-v2'?
+      'No supported sentence-level corrections were identified from the saved transcript.':
+      'This older assessment did not store sentence-by-sentence corrections. Its original score and feedback are preserved.','hz-tcf-speaking-section-note'));
+    }
+    feedback.append(corrections);
+    const strengths=Array.isArray(result.wellSaid)?result.wellSaid:[];
+    if(strengths.length){
+     const good=el('section',undefined,'hz-tcf-speaking-feedback-section');
+     good.append(el('h4','Effective expressions you used'));
+     for(const sample of strengths){
+      const card=el('article',undefined,'hz-tcf-speaking-good-card');
+      card.append(el('span','✓  Task '+sample.task+' · From your transcript','hz-tcf-speaking-evidence-label'),
+       el('blockquote',sample.quote),el('p',sample.why));
+      good.append(card);
+     }
+     feedback.append(good);
+    }
+    const practice=Array.isArray(result.taskPractice)?result.taskPractice:[];
+    if(practice.length){
+     const guidance=el('section',undefined,'hz-tcf-speaking-feedback-section');
+     guidance.append(el('h4','Next time · Task-by-task improvement'));
+     for(const item of practice){
+      const card=el('article',undefined,'hz-tcf-speaking-practice-card');
+      card.append(el('h5','Task '+item.task),el('p',item.focus),
+       el('span','Suggested example to practise · not a transcript quote','hz-tcf-speaking-evidence-label'),
+       el('blockquote',item.example));
+      guidance.append(card);
+     }
+     feedback.append(guidance);
+    }
+    for(const task of result.missingTasks||[])
+     feedback.append(el('p','Task '+task+': no usable speech was recognized. An overall TCF/NCLC estimate needs recorded evidence for all three tasks.','hz-tcf-speaking-missing'));
+    area.append(feedback);
    }else if(!attempt.pending){const assessment=el('div',undefined,'hz-speaking-assessment');area.append(assessment);assessment.append(el('strong','TCF speaking score /20 and NCLC: awaiting assessment'));assessment.append(button(`Get TCF speaking feedback · ${grade?.credits??'—'} ${grade?.credits===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{const next=await store.send({kind:'feedback',id:attempt.id,callId:crypto.randomUUID(),expectedCredits:grade.credits},signal);if(next.processing)accept(await store.read(attempt.id,signal));else accept(next);if(current())render()})},!canPay(grade?.credits)));}
    else area.append(button('Check saved feedback',()=>{void run(async(signal,current)=>{await reconcile(signal);if(current())render()})}));
   }
