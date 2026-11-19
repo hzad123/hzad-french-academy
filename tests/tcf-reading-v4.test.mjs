@@ -69,7 +69,7 @@ test('migration touches only immutable reading banks and fourteen guarded public
 test('v4 local SQL rollback/commit preserves historical versions and existing student attempts',async()=>{
   const db=new PGlite();
   try{
-    await db.exec('create schema academy_tcf_reading; create table academy_tcf_reading.papers(id text,version text,content jsonb,primary key(id,version)); create table academy_tcf_reading.published_papers(test_id text primary key,version text not null,foreign key(test_id,version) references academy_tcf_reading.papers(id,version)); create table academy_tcf_reading.attempts(id text primary key,test_id text,version text,payload jsonb); create table public.academy_learning_progress(id int primary key,payload jsonb); insert into public.academy_learning_progress values(1,''{"completed":true}''::jsonb);'.replaceAll("''","'"));
+    await db.exec('create schema academy_tcf_reading; create table academy_tcf_reading.papers(id text,version text,content jsonb,primary key(id,version)); create table academy_tcf_reading.published_papers(test_id text primary key,version text not null,foreign key(test_id,version) references academy_tcf_reading.papers(id,version)); create table academy_tcf_reading.attempts(id text primary key,test_id text,version text,payload jsonb); create table public.academy_learning_progress(id int primary key,payload jsonb); insert into public.academy_learning_progress values(1,\'{"completed":true}\'::jsonb);');
     for(const p of [...existingSix,...ids.map(id=>priorBanks.get(id))]){
       await db.query('insert into academy_tcf_reading.papers(id,version,content) values($1,$2,$3)',[p.id,p.version,p]);
       await db.query('insert into academy_tcf_reading.published_papers(test_id,version) values($1,$2)',[p.id,p.version]);
