@@ -8,14 +8,14 @@ const slots=Array.from({length:40},(_,i)=>i<4?40:i<12?45:i<20?50:i<30?65:83);
 assert.equal(items.length,40,'Exactly 40 original questions required');
 assert.equal(slots.reduce((a,b)=>a+b,0),2400);
 const checksum=x=>createHash('sha256').update(x).digest('hex');
-const keys=['B','D','A','C'];
+const keys=["C","A","D","B","A","C","B","D","B","D","C","A","D","B","A","C","C","B","A","D","A","D","B","C","B","A","D","C","D","C","B","A","A","B","C","D","C","D","A","B"];
 const keyCounts={A:0,B:0,C:0,D:0};
 const questions=items.map((record,i)=>{
  const [kind,spoken,question,correct,...rest]=record;
  const n=i+1;
  assert.equal(kind,typeAt(n));assert.equal(rest.length,4);
  const [d1,d2,d3,explanation]=rest;
- const correctLetter=keys[i%4],at='ABCD'.indexOf(correctLetter);
+ const correctLetter=keys[i],at='ABCD'.indexOf(correctLetter);
  const wrong=[d1,d2,d3],options=Array.from({length:4},(_,j)=>j===at?correct:wrong[(j-at+3)%4]);
  assert.equal(new Set(options).size,4);
  const conversational=spoken.startsWith('— ');
