@@ -1,3 +1,9 @@
+// iOS Safari/WebKit may refuse automatic SpeechSynthesis playback after an
+// asynchronous exam request. A DIRECT tap must invoke speak() synchronously.
+export function examinerVoiceNeedsTap(navigatorInfo=globalThis.navigator){
+ const ua=String(navigatorInfo?.userAgent||'');
+ return /iPhone|iPad|iPod/i.test(ua)||(/Macintosh/i.test(ua)&&Number(navigatorInfo?.maxTouchPoints||0)>1);
+}
 // Browser speech synthesis is a low-cost voice option. Voices are selected
 // explicitly when available, with visible text as an accessibility fallback.
 export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Utterance=globalThis.SpeechSynthesisUtterance}={}){
@@ -14,16 +20,9 @@ export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Ut
  };
  async function speak(text){
   stop();if(disposed||!text?.trim()||!synthesis||!Utterance)return false;
-  // SpeechSynthesis is unreliable when the browser never loads a French voice;
-  // show the textual reply regardless rather than silently blocking recording.
-  if(!synthesis.getVoices?.().length){
-   await new Promise(resolve=>{
-    let done=false;const finish=()=>{if(done)return;done=true;clearTimeout(timeout);synthesis.removeEventListener?.('voiceschanged',finish);resolve()};
-    synthesis.addEventListener?.('voiceschanged',finish,{once:true});
-    const timeout=setTimeout(finish,800);
-   });
-  }
-  if(disposed)return false;
+  // Do not await voiceschanged here: any asynchronous wait loses the iOS
+  // user gesture and may cause silently blocked speech playback. A French
+  // language tag works even before the voices list finishes loading.
   return new Promise(resolve=>{
    let done=false;
    const finish=spoken=>{
@@ -34,7 +33,7 @@ export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Ut
    const voice=pickVoice();if(voice)utterance.voice=voice;
    utterance.onend=()=>finish(true);utterance.onerror=()=>finish(false);
    const timeout=setTimeout(()=>{try{synthesis.cancel()}catch{}finish(false)},Math.min(26000,Math.max(5500,text.length*130)));
-   try{synthesis.speak(utterance)}catch{finish(false)}
+   try{synthesis.resume?.();synthesis.speak(utterance)}catch{finish(false)}
   });
  }
  return {speak,stop,dispose(){disposed=true;stop()},selectedVoice:()=>pickVoice()?.name||null};
