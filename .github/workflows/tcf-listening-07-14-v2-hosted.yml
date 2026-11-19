@@ -1,0 +1,31 @@
+name: Verify hosted TCF Listening07-14 v2
+on:
+  push:
+    branches: [development]
+    paths:
+      - .github/workflows/tcf-listening-07-14-v2-hosted.yml
+      - supabase/exams/tcf-listening-test*-v2.json
+      - assets/tcf-listening/tcf-listening-2026-11-test*-v2/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - name: Confirm all eight recording and answer-key invariants
+        run: node scripts/check-listening-07-14-v2.mjs
+      - name: Match every one of 361 hosted bytes to the deployed revision
+        run: python scripts/release/check-listening-07-14-v2-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcf-listening-07-14-v2-hosted-check
+          path: work/tcf-listening-07-14-v2-hosted/verified.json
+          retention-days: 30
