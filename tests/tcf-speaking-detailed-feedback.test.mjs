@@ -55,7 +55,8 @@ test('Legacy speaking feedback stays readable and retains its historic score',()
 });
 test('Missing Task 3 still withholds an unjustified TCF/NCLC total',()=>{
  const without3=turns.map(t=>t.phase===3?{...t,transcript:'',intelligible:false}:t);
- const out=validateSpeakingScore(detailed(),without3);
+ const raw=detailed();raw.criteria[1].turnId='a';
+ const out=validateSpeakingScore(raw,without3);
  assert.equal(out.score,null);assert.equal(out.nclc,null);
  assert.deepEqual(out.missingTasks,[3]);
  assert(out.corrections.every(x=>x.task!==3));
