@@ -280,7 +280,8 @@ function bestAnswer(q,originalAnswer,forms,wrong,numero){
  if(middleChoices.length)return middleChoices.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
  return options.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
 }
-\nfunction balanceOptions(q,numero){
+
+function balanceOptions(q,numero){
  const original=q.options['ABCD'.indexOf(q.correct)],{short,wrong}=variants(q.number,original);
  const improved=bestAnswer(q,original,answerForms(q.number,original,short,q),wrong,numero);
  // The key's role remains unchanged. No auto-generated stem or audio change.
