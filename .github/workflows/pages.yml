@@ -48,6 +48,9 @@ jobs:
           mkdir -p dist/a0-preview
           cp -R a0-feature/dist/. dist/a0-preview/
           git -C a0-feature rev-parse HEAD > dist/a0-preview/BUILD_COMMIT.txt
+      # Trace the exact development revision shipped to the GHL loader.
+      - name: Stamp published revision
+        run: git rev-parse HEAD > dist/BUILD_COMMIT.txt
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -56,3 +59,30 @@ jobs:
           path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published three-task speaking UI and matching styles
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const expected=readFileSync('dist/BUILD_COMMIT.txt','utf8').trim();
+          const base='https://hzad123.github.io/hzad-french-academy/';
+          let last='';
+          for(let i=0;i<10;i++){
+            try{
+              const urls=['BUILD_COMMIT.txt','academy.js','academy.css'].map(p=>base+p+'?revision='+encodeURIComponent(expected));
+              const responses=await Promise.all(urls.map(u=>fetch(u,{headers:{'Cache-Control':'no-cache'}})));
+              if(responses.every(r=>r.ok)){
+                const [revision,js,css]=await Promise.all(responses.map(r=>r.text()));
+                if(revision.trim()===expected&&
+                   js.includes('hz-tcf-speaking-three-tasks')&&
+                   css.includes('hz-tcf-speaking-three-tasks')&&
+                   !css.includes('.hz-tcf-speaking-timing-item.is-preparation')){
+                  console.log('Verified live Pages revision '+expected+' with three uniform speaking cards.');
+                  process.exit(0);
+                }
+                last='Unexpected revision or stale speaking assets';
+              }else last='Pages HTTP statuses: '+responses.map(r=>r.status).join(',');
+            }catch(e){last=String(e)}
+            await new Promise(resolve=>setTimeout(resolve,6000));
+          }
+          throw Error('Unable to confirm production Pages freshness: '+last);
+          NODE
