@@ -1,0 +1,23 @@
+name: Diagnose TCF Listening 15-20 baseline (not a release)
+on:
+  push:
+    branches: [review/tcf-listening-15-20-quality-20261119]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit the six existing 39-question source banks
+        run: node scripts/audit-listening-15-20-baseline.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcf-listening-15-20-baseline
+          path: reports/tcf-listening-15-20-baseline.json
+          retention-days: 30
