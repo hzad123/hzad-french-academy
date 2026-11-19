@@ -7,9 +7,9 @@ import {strictProtectedTables} from './listening-owner-review.mjs';
 // Q25 has newly validated source/audio changes; all other question sources stay unchanged.
 const output=process.argv[2];
 if(!/^supabase\/migrations\/\d+_tcf_listening_15_20_source_v2\.sql$/.test(output||''))throw Error('Use supabase migration new tcf_listening_15_20_source_v2');
-execFileSync('node',['scripts/check-listening-15-20-v2.mjs'],{stdio:'inherit'});
+execFileSync('node',['scripts/check-listening-15-20-v2-draft.mjs'],{stdio:'inherit'});
 const source=[],papers=[];
-for(let n=15;n<=20;n++{
+for(let n=15;n<=20;n++){
  const label=String(n).padStart(2,'0');
  const old=JSON.parse(await readFile('supabase/exams/tcf-listening-test'+label+'.json','utf8'));
  const revised=JSON.parse(await readFile('supabase/exams/tcf-listening-test'+label+'-v2.json','utf8'));
