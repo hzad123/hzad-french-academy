@@ -24,9 +24,10 @@ permissions:
 jobs:
   reading-ui:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     env:
       TCF_READING_V6_ARTIFACTS: /tmp/tcf-reading-v6-ui
+      TCF_READING_V4_ARTIFACTS: /tmp/tcf-reading-v4-ui
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,11 +62,29 @@ jobs:
           done
           curl --silent --show-error --fail 'http://127.0.0.1:8765/tests/fixtures/tcf-reading.html?bank=v6' >/dev/null
           python scripts/check-tcf-reading-v6-ui.py 2>&1 | tee "$TCF_READING_V6_ARTIFACTS/ui.log"
+      - name: Validate 14 pending v4 reading banks on desktop and mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$TCF_READING_V4_ARTIFACTS"
+          python -m http.server 8765 --bind 127.0.0.1 >"$TCF_READING_V4_ARTIFACTS/http-server.log" 2>&1 &
+          tcf_v4_server_pid=$!
+          trap 'kill "$tcf_v4_server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl --silent --fail 'http://127.0.0.1:8765/tests/fixtures/tcf-reading.html?bank=v4' >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl --silent --show-error --fail 'http://127.0.0.1:8765/tests/fixtures/tcf-reading.html?bank=v4' >/dev/null
+          python scripts/check-tcf-reading-v4-ui.py 2>&1 | tee "$TCF_READING_V4_ARTIFACTS/ui.log"
       - name: Upload validation screenshots and logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tcf-reading-v6-ui
-          path: /tmp/tcf-reading-v6-ui/
+          path: |
+            /tmp/tcf-reading-v6-ui/
+            /tmp/tcf-reading-v4-ui/
           if-no-files-found: warn
           retention-days: 14
