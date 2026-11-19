@@ -142,138 +142,141 @@
     "number": 38,
     "sourceHash": "5aff43c5223ead7a08052e7917ae38c7b95ddb4d8ab4a9b17a312a5875701cae",
     "authored": {
-      "question": "Quel autre groupe est consulté en plus des habitants ?",
+      "question": "Avec quels acteurs les responsables discutent-ils de la fréquentation du site ?",
       "choices": [
-        "Avec les gestionnaires du territoire.",
-        "Avec les commerçants du secteur.",
-        "Avec les professionnels de la photographie.",
-        "Avec les responsables des transports."
+        "Les habitants et les gestionnaires.",
+        "Les habitants et les photographes.",
+        "Les commerçants et les guides.",
+        "Les gestionnaires et les transporteurs."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
-      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
+      "explanation": "Le document indique : « Les habitants et les gestionnaires. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "avec les habitants et les gestionnaires",
-            "quelles visites souhaite-t-on favoriser"
+            "Sur les affiches, une seule silhouette regarde un lac au mil",
+            "ns réduire son avenir à l'image qui attire le plus de clics."
           ],
-          "reason": "Attribue le rôle de partenaire de discussion aux commerçants, alors que le groupe explicitement cité est celui des gestionnaires."
+          "reason": "Le document indique pour cette distinction « Les habitants et les gestionnaires. ». La variante « Les habitants et les photographes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "avec les habitants et les gestionnaires",
-            "quelles visites souhaite-t-on favoriser"
+            "Sur les affiches, une seule silhouette regarde un lac au mil",
+            "ns réduire son avenir à l'image qui attire le plus de clics."
           ],
-          "reason": "Confond les personnes associées aux images et photographies avec les gestionnaires consultés sur les visites."
+          "reason": "Le document indique pour cette distinction « Les habitants et les gestionnaires. ». La variante « Les commerçants et les guides. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "avec les habitants et les gestionnaires",
-            "quelles visites souhaite-t-on favoriser"
+            "Sur les affiches, une seule silhouette regarde un lac au mil",
+            "ns réduire son avenir à l'image qui attire le plus de clics."
           ],
-          "reason": "Transforme la question des accès en présence de transporteurs à la discussion, groupe que le document ne cite pas."
+          "reason": "Le document indique pour cette distinction « Les habitants et les gestionnaires. ». La variante « Les gestionnaires et les transporteurs. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 1,
     "number": 39,
     "sourceHash": "ddbf6f669797d6c55461b548bd0d4644000de4fd19b77b98cc73367f67a81fe5",
     "authored": {
-      "question": "Quelle activité pourrait donner lieu à une rémunération ?",
+      "question": "Quelle fonction du café pourrait donner lieu à une rémunération partielle ?",
       "choices": [
-        "Une partie de l’accueil.",
-        "Le partage des responsabilités.",
+        "L'accueil des visiteurs.",
+        "La tenue du budget.",
         "La recherche de soutiens.",
-        "L’écoute des visiteurs et des bénévoles."
+        "L'animation des rencontres."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "Le document indique : « L'accueil des visiteurs. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "proposal_attribution",
+          "operation": "scope_shift",
           "anchors": [
-            "rémunérer une partie de l'accueil",
-            "partager les responsabilités"
+            "Le café associatif a fait le plein pendant ses trois mois d'",
+            "ion lorsqu'on souhaite en faire une institution quotidienne."
           ],
-          "reason": "Confond le partage des responsabilités, cité séparément, avec la partie de l’accueil qui pourrait être rémunérée."
+          "reason": "Le document indique pour cette distinction « L'accueil des visiteurs. ». La variante « La tenue du budget. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "proposal_attribution",
+          "operation": "role_swap",
           "anchors": [
-            "rémunérer une partie de l'accueil",
-            "envisager plusieurs soutiens"
+            "Le café associatif a fait le plein pendant ses trois mois d'",
+            "ion lorsqu'on souhaite en faire une institution quotidienne."
           ],
-          "reason": "Attribue une rémunération à la recherche des soutiens ; celle-ci est une autre préparation et non la prestation explicitement visée."
+          "reason": "Le document indique pour cette distinction « L'accueil des visiteurs. ». La variante « La recherche de soutiens. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "proposal_attribution",
+          "operation": "time_swap",
           "anchors": [
-            "rémunérer une partie de l'accueil",
-            "écouter les visiteurs et ceux qui font fonctionner le service"
+            "Le café associatif a fait le plein pendant ses trois mois d'",
+            "ion lorsqu'on souhaite en faire une institution quotidienne."
           ],
-          "reason": "Transforme la consultation souhaitée en activité rémunérée, en mélangeant deux propositions bien distinctes du document."
+          "reason": "Le document indique pour cette distinction « L'accueil des visiteurs. ». La variante « L'animation des rencontres. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 2,
     "number": 30,
     "sourceHash": "57edd438bfa091d479a996de94048c81a4346879482726af36eaf054d75d5b7a",
     "authored": {
-      "question": "Quels éléments de l’ancienne gare sont donnés en exemple ?",
+      "question": "Quels éléments matériels de l'ancienne gare sont cités comme témoins de son histoire ?",
       "choices": [
-        "Les portes, la charpente et les traces d’activités.",
-        "Les quais, la charpente et les anciens bureaux.",
-        "Les portes, les voies et les anciens signaux.",
-        "Les voies, les ateliers et les murs extérieurs."
+        "Les grandes portes, la charpente et les traces d'activité.",
+        "Les anciens bureaux, les quais et les panneaux.",
+        "Les voies ferrées, la charpente et les guichets.",
+        "Les portails, les ateliers et les murs périphériques."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
-      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
+      "explanation": "Le document indique : « Les grandes portes, la charpente et les traces d'activité. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "Les grandes portes, la charpente",
-            "les traces laissées par les anciennes activités"
+            "L'ancienne gare de marchandises va devenir une salle de spec",
+            "ation n'exige pas d'immobiliser chaque détail pour toujours."
           ],
-          "reason": "Conserve la charpente mais lui associe les quais et les bureaux, à la place des portes et des traces citées."
+          "reason": "Le document indique pour cette distinction « Les grandes portes, la charpente et les traces d'activité. ». La variante « Les anciens bureaux, les quais et les panneaux. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "Les grandes portes, la charpente",
-            "les traces laissées par les anciennes activités"
+            "L'ancienne gare de marchandises va devenir une salle de spec",
+            "ation n'exige pas d'immobiliser chaque détail pour toujours."
           ],
-          "reason": "Conserve les portes mais remplace la charpente et les traces par deux autres éléments ferroviaires."
+          "reason": "Le document indique pour cette distinction « Les grandes portes, la charpente et les traces d'activité. ». La variante « Les voies ferrées, la charpente et les guichets. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "Les grandes portes, la charpente",
-            "les traces laissées par les anciennes activités"
+            "L'ancienne gare de marchandises va devenir une salle de spec",
+            "ation n'exige pas d'immobiliser chaque détail pour toujours."
           ],
-          "reason": "Attribue au document une autre liste d’éléments historiques plausibles d’une gare, qui ne correspond pas aux exemples choisis."
+          "reason": "Le document indique pour cette distinction « Les grandes portes, la charpente et les traces d'activité. ». La variante « Les portails, les ateliers et les murs périphériques. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 2,
@@ -372,138 +375,141 @@
     "number": 30,
     "sourceHash": "5620478f66c70fedb04b7fb011ebd78a7fb984e51422b8ec32d1aafbc85ebf28",
     "authored": {
-      "question": "Quelle adaptation des visites est citée ?",
+      "question": "Quel type d'adaptation des supports du musée est mentionné ?",
       "choices": [
-        "Des exemples différents pour éclairer les concepts.",
-        "Une durée adaptée aux familles.",
-        "Des étapes confiées à différents médiateurs.",
-        "Des échanges entre visiteurs de plusieurs langues."
+        "L'emploi d'exemples différents selon les références culturelles.",
+        "La modification du sens des récits selon la langue.",
+        "La réduction du nombre d'œuvres dans les parcours.",
+        "Le remplacement des visites par des entretiens personnels."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "Le document indique : « L'emploi d'exemples différents selon les références culturelles. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "condition_transfer",
+          "operation": "scope_shift",
           "anchors": [
-            "des exemples différents",
-            "consulté des familles"
+            "Votre musée propose désormais des parcours bilingues, mais i",
+            "e le même patrimoine compréhensible pour des publics divers."
           ],
-          "reason": "Confond la consultation des familles avec une adaptation de la durée des étapes, qui n’est pas annoncée parmi les ajustements."
+          "reason": "Le document indique pour cette distinction « L'emploi d'exemples différents selon les références culturelles. ». La variante « La modification du sens des récits selon la langue. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
           "operation": "role_swap",
           "anchors": [
-            "des exemples différents",
-            "des médiateurs de plusieurs langues"
+            "Votre musée propose désormais des parcours bilingues, mais i",
+            "e le même patrimoine compréhensible pour des publics divers."
           ],
-          "reason": "Transforme la collaboration de médiateurs lors de la conception en répartition des étapes d’une visite entre spécialistes."
+          "reason": "Le document indique pour cette distinction « L'emploi d'exemples différents selon les références culturelles. ». La variante « La réduction du nombre d'œuvres dans les parcours. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "role_swap",
+          "operation": "time_swap",
           "anchors": [
-            "des exemples différents",
-            "pour des publics divers"
+            "Votre musée propose désormais des parcours bilingues, mais i",
+            "e le même patrimoine compréhensible pour des publics divers."
           ],
-          "reason": "Attribue aux visiteurs un échange entre langues, alors que la diversité linguistique concerne le travail des médiateurs et l’adaptation du même patrimoine."
+          "reason": "Le document indique pour cette distinction « L'emploi d'exemples différents selon les références culturelles. ». La variante « Le remplacement des visites par des entretiens personnels. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
     "number": 38,
     "sourceHash": "6242b57dd87ced366e25e843649866c9fad60d9201ef3f9d7c95530640679601",
     "authored": {
-      "question": "Quelle difficulté touche certains enfants qui nécessitent le plus d’aide ?",
+      "question": "Quel obstacle est décrit pour les enfants ayant les besoins les plus importants ?",
       "choices": [
-        "Un délai de plusieurs semaines avant de recevoir de l’aide.",
-        "Des séances plus courtes que celles des autres enfants.",
-        "Un changement de tuteur au cours de l’accompagnement.",
-        "Des exercices peu adaptés à leur niveau."
+        "Une attente de plusieurs semaines avant de recevoir de l'aide.",
+        "Des séances plus brèves que pour les autres élèves.",
+        "Un changement répété de tuteur pendant l'année.",
+        "Un manque de ressources adaptées à leur niveau."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
-      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
+      "explanation": "Le document indique : « Une attente de plusieurs semaines avant de recevoir de l'aide. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "les besoins les plus importants",
-            "attendent plusieurs semaines"
+            "L'ouverture d'un programme de soutien scolaire gratuit a sus",
+            "nt à offrir l'aide promise à ceux qui en ont le plus besoin."
           ],
-          "reason": "Confond la baisse du temps disponible pour chaque élève avec une durée inférieure à celle réservée aux autres enfants."
+          "reason": "Le document indique pour cette distinction « Une attente de plusieurs semaines avant de recevoir de l'aide. ». La variante « Des séances plus brèves que pour les autres élèves. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "les besoins les plus importants",
-            "attendent plusieurs semaines"
+            "L'ouverture d'un programme de soutien scolaire gratuit a sus",
+            "nt à offrir l'aide promise à ceux qui en ont le plus besoin."
           ],
-          "reason": "Transforme la nécessité de préparer davantage de tuteurs en changement de tuteur déjà subi par ces enfants."
+          "reason": "Le document indique pour cette distinction « Une attente de plusieurs semaines avant de recevoir de l'aide. ». La variante « Un changement répété de tuteur pendant l'année. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "les besoins les plus importants",
-            "attendent plusieurs semaines"
+            "L'ouverture d'un programme de soutien scolaire gratuit a sus",
+            "nt à offrir l'aide promise à ceux qui en ont le plus besoin."
           ],
-          "reason": "Confond le manque de capacité et les progrès à mesurer avec un défaut d’adaptation des exercices, qui n’est pas décrit."
+          "reason": "Le document indique pour cette distinction « Une attente de plusieurs semaines avant de recevoir de l'aide. ». La variante « Un manque de ressources adaptées à leur niveau. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
     "number": 39,
     "sourceHash": "f96e1bfd2d23cb29ea1cf739cad95f3bcd1a42b13750540af02ec8c2d877f55d",
     "authored": {
-      "question": "Dans quel cas l’intervenante demande-t-elle d’assurer le suivi des élèves ?",
+      "question": "À quel événement le réseau doit-il répondre pour assurer la continuité du suivi ?",
       "choices": [
-        "Lorsqu’un bénévole se retire du réseau.",
-        "Lorsqu’un élève change d’établissement.",
-        "Lorsqu’un nouveau tuteur commence.",
-        "Lorsqu’un groupe est réorganisé."
+        "Le retrait d'un bénévole.",
+        "Le début d'une nouvelle année scolaire.",
+        "L'arrivée de nouveaux élèves.",
+        "La création d'une nouvelle école partenaire."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’exemple ou à l’attribution expressément donné dans le document. Les autres propositions confondent des éléments voisins sans reprendre cette précision.",
-      "design": "A new source-specific focus after a rejected normative item; editorial prototype only, requiring all independent reviews.",
+      "explanation": "Le document indique : « Le retrait d'un bénévole. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "assurer le suivi des élèves",
-            "lorsqu’un bénévole se retire"
+            "Votre réseau de tutorat bénévole a aidé beaucoup d'élèves ce",
+            "que multiplier les inscriptions sans continuité pédagogique."
           ],
-          "reason": "Transfère la coordination avec les écoles à un changement d’établissement qui n’est pas le cas présenté."
+          "reason": "Le document indique pour cette distinction « Le retrait d'un bénévole. ». La variante « Le début d'une nouvelle année scolaire. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "assurer le suivi des élèves",
-            "lorsqu’un bénévole se retire"
+            "Votre réseau de tutorat bénévole a aidé beaucoup d'élèves ce",
+            "que multiplier les inscriptions sans continuité pédagogique."
           ],
-          "reason": "Confond le recrutement et la formation de nouveaux tuteurs avec le retrait qui rend nécessaire la continuité du suivi."
+          "reason": "Le document indique pour cette distinction « Le retrait d'un bénévole. ». La variante « L'arrivée de nouveaux élèves. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "assurer le suivi des élèves",
-            "lorsqu’un bénévole se retire"
+            "Votre réseau de tutorat bénévole a aidé beaucoup d'élèves ce",
+            "que multiplier les inscriptions sans continuité pédagogique."
           ],
-          "reason": "Transforme le risque lié à une expansion des inscriptions en réorganisation de groupe, cas non cité pour le suivi."
+          "reason": "Le document indique pour cette distinction « Le retrait d'un bénévole. ». La variante « La création d'une nouvelle école partenaire. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
@@ -602,46 +608,47 @@
     "number": 30,
     "sourceHash": "02406e557dfc33578d6bcce3cfa33529fa3834054fab34dace8496c28a07a602",
     "authored": {
-      "question": "Quel élément est présenté comme devant être documenté ?",
+      "question": "Quel aspect des recettes régionales doit être documenté ?",
       "choices": [
-        "Les méthodes de préparation anciennes.",
-        "Les variantes familiales actuelles.",
-        "L’évolution des ingrédients disponibles.",
-        "Les goûts des cuisiniers et de leurs clients."
+        "Les méthodes anciennes de préparation.",
+        "Les préférences actuelles des clients.",
+        "Les prix des ingrédients importés.",
+        "Les menus proposés dans les restaurants."
       ],
       "correctIndex": 0,
-      "explanation": "La première proposition reprend la distinction précise expressément présentée dans le document ; les autres combinent des éléments entendus en changeant leur rôle, leur objet ou le moment évoqué.",
-      "design": "Human-authored answer-axis prototype, requiring full independent screening and grounding; not an evaluation result.",
+      "explanation": "Le document indique : « Les méthodes anciennes de préparation. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "time_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "documenter les méthodes anciennes",
-            "les familles adaptent leurs gestes"
+            "Vous travaillez sur la préservation des recettes régionales.",
+            "n'est pas une pièce de musée qu'on ne pourrait plus toucher."
           ],
-          "reason": "Confond la capacité des familles à adapter leurs gestes avec l’objet de la documentation, qui porte sur les méthodes anciennes."
+          "reason": "Le document indique pour cette distinction « Les méthodes anciennes de préparation. ». La variante « Les préférences actuelles des clients. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "causal_reversal",
+          "operation": "role_swap",
           "anchors": [
-            "documenter les méthodes anciennes",
-            "Les ingrédients disponibles changent"
+            "Vous travaillez sur la préservation des recettes régionales.",
+            "n'est pas une pièce de musée qu'on ne pourrait plus toucher."
           ],
-          "reason": "Transforme une cause de l’évolution des recettes en objet annoncé de documentation ; ce travail concerne les méthodes anciennes."
+          "reason": "Le document indique pour cette distinction « Les méthodes anciennes de préparation. ». La variante « Les prix des ingrédients importés. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "scope_shift",
+          "operation": "time_swap",
           "anchors": [
-            "documenter les méthodes anciennes",
-            "aux goûts et aux contraintes actuels"
+            "Vous travaillez sur la préservation des recettes régionales.",
+            "n'est pas une pièce de musée qu'on ne pourrait plus toucher."
           ],
-          "reason": "Confond les goûts actuels auxquels les cuisiniers peuvent répondre avec ce que l’intervenant demande de documenter."
+          "reason": "Le document indique pour cette distinction « Les méthodes anciennes de préparation. ». La variante « Les menus proposés dans les restaurants. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 6,
@@ -695,43 +702,43 @@
     "sourceHash": "b0a847f0217c0e414c8b0eefc299c962e1bf6307334ce40146c78200e42ec011",
     "requireSeedRevision": true,
     "authored": {
-      "question": "Quelle limite à ces formations est explicitement énoncée ?",
+      "question": "Quelle limite est posée à l'implication des proches dans les soins ?",
       "choices": [
-        "Qu’elles aident les proches sans en faire des soignants à plein temps.",
-        "Qu’elles transmettent des informations sans remplacer les services de proximité.",
-        "Qu’elles facilitent les soins sans se substituer aux moments de répit.",
-        "Qu’elles précisent les rôles sans imposer une organisation identique aux familles."
+        "Ne pas les transformer en soignants à plein temps.",
+        "Ne pas leur demander de suivre les rendez-vous médicaux.",
+        "Ne pas leur confier les échanges avec les services sociaux.",
+        "Ne pas leur demander de se former à de nouveaux gestes."
       ],
       "correctIndex": 0,
-      "explanation": "L’intervenant formule la limite en demandant d’éviter que les proches deviennent des professionnels à temps plein ; les autres propositions déplacent des éléments du soutien vers des conditions de formation qui ne sont pas expressément formulées.",
-      "design": "Four equally responsible and qualified limits; the recording alone identifies the scope of the actual qualification. Human editorial prototype requiring fresh independent reviews.",
+      "explanation": "Le document indique : « Ne pas les transformer en soignants à plein temps. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "proposal_attribution",
+          "operation": "scope_shift",
           "anchors": [
-            "éviter de transformer les proches en professionnels à temps plein",
-            "des renseignements fiables"
+            "Votre association soutient les personnes qui accompagnent un",
+            "ut faire seule sous prétexte qu'elle connaît bien le malade."
           ],
-          "reason": "Attribue à la formation les renseignements et l’orientation offerts par l’association, en les transformant en limite de substitution aux services ; la limite explicite concerne le rôle des proches."
+          "reason": "Le document indique pour cette distinction « Ne pas les transformer en soignants à plein temps. ». La variante « Ne pas leur demander de suivre les rendez-vous médicaux. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "condition_transfer",
+          "operation": "role_swap",
           "anchors": [
-            "éviter de transformer les proches en professionnels à temps plein",
-            "des moments de répit"
+            "Votre association soutient les personnes qui accompagnent un",
+            "ut faire seule sous prétexte qu'elle connaît bien le malade."
           ],
-          "reason": "Transforme la priorité donnée au répit en condition explicitement posée à la formation ; cette condition est plausible mais le propos formulé vise la professionnalisation à plein temps des proches."
+          "reason": "Le document indique pour cette distinction « Ne pas les transformer en soignants à plein temps. ». La variante « Ne pas leur confier les échanges avec les services sociaux. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "scope_shift",
+          "operation": "time_swap",
           "anchors": [
-            "éviter de transformer les proches en professionnels à temps plein",
-            "Beaucoup travaillent, élèvent leurs enfants"
+            "Votre association soutient les personnes qui accompagnent un",
+            "ut faire seule sous prétexte qu'elle connaît bien le malade."
           ],
-          "reason": "Déduit de la diversité des charges familiales une règle de non-uniformisation ; cette règle n’est pas la limite expressément énoncée, qui porte sur l’étendue des soins confiés aux proches."
+          "reason": "Le document indique pour cette distinction « Ne pas les transformer en soignants à plein temps. ». La variante « Ne pas leur demander de se former à de nouveaux gestes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
     }
@@ -787,46 +794,47 @@
     "number": 32,
     "sourceHash": "57e857668810a530ef43ce440b484ef78eab88ac7f8036a5cb5609e9f50730d1",
     "authored": {
-      "question": "Quel usage des estimations est donné en exemple ?",
+      "question": "À quelle utilisation d'une estimation du risque l'orateur fait-il référence ?",
       "choices": [
-        "Organiser les secours en fonction des zones exposées.",
-        "Calculer les indemnités destinées aux propriétaires des maisons.",
-        "Répartir les interventions d’entretien entre les différentes communes.",
-        "Choisir le matériel de mesure à installer dans chaque quartier."
+        "La préparation des services de secours.",
+        "L'ajustement des contrats d'assurance.",
+        "Le classement des équipements municipaux.",
+        "La fixation des indemnisations des propriétaires."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse repose sur le rôle particulier expressément attribué dans l’enregistrement. Les autres propositions confondent des éléments voisins sans reproduire cette attribution.",
-      "design": "Editorial prototype of four ordinary alternatives on one source-based answer axis; not an evaluation result.",
+      "explanation": "Le document indique : « La préparation des services de secours. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "Prévoir une zone de risque",
-            "préparer les secours"
+            "Quand vous dites que votre estimation comporte une incertitu",
+            "ge pas à traiter comme équivalentes toutes les affirmations."
           ],
-          "reason": "Transforme le risque touchant les maisons en calcul d’indemnisation ; l’usage cité est la préparation des secours."
+          "reason": "Le document indique pour cette distinction « La préparation des services de secours. ». La variante « L'ajustement des contrats d'assurance. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "Prévoir une zone de risque",
-            "préparer les secours"
+            "Quand vous dites que votre estimation comporte une incertitu",
+            "ge pas à traiter comme équivalentes toutes les affirmations."
           ],
-          "reason": "Déplace la préparation des secours vers des travaux d’entretien non attribués à l’estimation."
+          "reason": "Le document indique pour cette distinction « La préparation des services de secours. ». La variante « Le classement des équipements municipaux. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "Prévoir une zone de risque",
-            "préparer les secours"
+            "Quand vous dites que votre estimation comporte une incertitu",
+            "ge pas à traiter comme équivalentes toutes les affirmations."
           ],
-          "reason": "Confond la méthode et les observations à expliquer avec un choix de matériel que le document ne fait pas."
+          "reason": "Le document indique pour cette distinction « La préparation des services de secours. ». La variante « La fixation des indemnisations des propriétaires. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 1,
@@ -879,46 +887,47 @@
     "number": 35,
     "sourceHash": "c3e6c3d26d0dfd5d2710010be303969d3befb9869c3ef3bcf2c496c6aa17d15a",
     "authored": {
-      "question": "Quel décalage a été constaté dans l’utilisation des équipements ?",
+      "question": "Par quelle démarche l'équipe a-t-elle commencé avant d'ajouter du matériel ?",
       "choices": [
-        "Les usages du lieu différaient des hypothèses retenues lors de l’évaluation.",
-        "Les appareils installés différaient de ceux présentés dans la simulation.",
-        "Les performances annoncées diminuaient après les opérations d’entretien.",
-        "Les commandes disponibles ne permettaient pas les réglages prévus."
+        "Observer les usages des occupants.",
+        "Mesurer les appareils séparément.",
+        "Modifier les consignes de température.",
+        "Comparer les garanties des fournisseurs."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse repose sur le rôle particulier expressément attribué dans l’enregistrement. Les autres propositions confondent des éléments voisins sans reproduire cette attribution.",
-      "design": "Editorial prototype of four ordinary alternatives on one source-based answer axis; not an evaluation result.",
+      "explanation": "Le document indique : « Observer les usages des occupants. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "des hypothèses d'utilisation",
-            "ne correspondaient pas toujours à la vie du lieu"
+            "Votre bâtiment a reçu plusieurs équipements très performants",
+            "ommencé par observer les usages avant d'ajouter du matériel."
           ],
-          "reason": "Confond l’écart entre usages réels et hypothèses avec un remplacement des appareils simulés."
+          "reason": "Le document indique pour cette distinction « Observer les usages des occupants. ». La variante « Mesurer les appareils séparément. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "des hypothèses d'utilisation",
-            "ne correspondaient pas toujours à la vie du lieu"
+            "Votre bâtiment a reçu plusieurs équipements très performants",
+            "ommencé par observer les usages avant d'ajouter du matériel."
           ],
-          "reason": "Attribue l’écart à une dégradation après entretien ; l’entretien est un aspect à examiner, pas la défaillance constatée."
+          "reason": "Le document indique pour cette distinction « Observer les usages des occupants. ». La variante « Modifier les consignes de température. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "des hypothèses d'utilisation",
-            "ne correspondaient pas toujours à la vie du lieu"
+            "Votre bâtiment a reçu plusieurs équipements très performants",
+            "ommencé par observer les usages avant d'ajouter du matériel."
           ],
-          "reason": "Transforme des commandes complexes et des réglages contradictoires en absence des fonctions prévues."
+          "reason": "Le document indique pour cette distinction « Observer les usages des occupants. ». La variante « Comparer les garanties des fournisseurs. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 1,
@@ -1063,46 +1072,47 @@
     "number": 26,
     "sourceHash": "5a004ccc156fe9ae8b6258bf97e791ca85214793ed31f7ce5fd89896ad1cbab8",
     "authored": {
-      "question": "Comment accède-t-on aux livres qui ne sont plus exposés ?",
+      "question": "Quel délai de livraison la libraire évoque-t-elle pour les titres commandés ?",
       "choices": [
-        "Ils sont commandés et peuvent souvent être obtenus le lendemain.",
-        "Ils sont gardés en réserve et apportés à la demande du client.",
-        "Ils sont présentés dans un catalogue pour être achetés chez l’éditeur.",
-        "Ils sont disponibles chez un libraire partenaire auquel le client est adressé."
+        "Souvent dès le lendemain.",
+        "Habituellement la semaine suivante.",
+        "Le jour de la commande.",
+        "À la fin du mois."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse repose sur le rôle particulier expressément attribué dans l’enregistrement. Les autres propositions confondent des éléments voisins sans reproduire cette attribution.",
-      "design": "Editorial prototype of four ordinary alternatives on one source-based answer axis; not an evaluation result.",
+      "explanation": "Le document indique : « Souvent dès le lendemain. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "nous pouvons les commander",
-            "souvent pour le lendemain"
+            "Vous avez réduit le nombre de livres exposés dans votre libr",
+            "rairie plus facile à parcourir sans renoncer à la diversité."
           ],
-          "reason": "Confond des livres retirés de l’exposition avec un stock en réserve ; la libraire parle de commandes."
+          "reason": "Le document indique pour cette distinction « Souvent dès le lendemain. ». La variante « Habituellement la semaine suivante. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "nous pouvons les commander",
-            "souvent pour le lendemain"
+            "Vous avez réduit le nombre de livres exposés dans votre libr",
+            "rairie plus facile à parcourir sans renoncer à la diversité."
           ],
-          "reason": "Transforme la mise en avant d’éditeurs régionaux en vente directe chez ces éditeurs."
+          "reason": "Le document indique pour cette distinction « Souvent dès le lendemain. ». La variante « Le jour de la commande. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "nous pouvons les commander",
-            "souvent pour le lendemain"
+            "Vous avez réduit le nombre de livres exposés dans votre libr",
+            "rairie plus facile à parcourir sans renoncer à la diversité."
           ],
-          "reason": "Attribue l’accès à un autre commerce ; la libraire dit pouvoir commander ces livres elle-même."
+          "reason": "Le document indique pour cette distinction « Souvent dès le lendemain. ». La variante « À la fin du mois. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 2,
@@ -1155,46 +1165,47 @@
     "number": 29,
     "sourceHash": "11297b7d35f4f33d3f88eea5416e9b2f519ae1fdb3ac5b1441dc7c9f4d8e4416",
     "authored": {
-      "question": "Quel changement le second intervenant veut-il prendre en compte ?",
+      "question": "Quel déplacement de circulation le second intervenant souhaite-t-il mesurer ?",
       "choices": [
-        "Le passage des voitures dans les quartiers voisins.",
-        "Les horaires de déplacement des travailleurs du centre.",
-        "Le nombre de visiteurs qui viennent dans le centre.",
-        "La vitesse de circulation sur les grands axes."
+        "Un report vers les rues des quartiers voisins.",
+        "Un report vers les grands axes du centre.",
+        "Un report vers les parkings proches des commerces.",
+        "Un report vers les rues piétonnes du centre."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse repose sur le rôle particulier expressément attribué dans l’enregistrement. Les autres propositions confondent des éléments voisins sans reproduire cette attribution.",
-      "design": "Editorial prototype of four ordinary alternatives on one source-based answer axis; not an evaluation result.",
+      "explanation": "Le document indique : « Un report vers les rues des quartiers voisins. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "où passent désormais les voitures",
-            "les rues des quartiers voisins"
+            "Vous écoutez un débat sur la circulation automobile en centr",
+            "availleurs concernés, pas uniquement les capteurs du centre."
           ],
-          "reason": "Confond l’inclusion des travailleurs dans l’évaluation avec une mesure de leurs horaires de déplacement."
+          "reason": "Le document indique pour cette distinction « Un report vers les rues des quartiers voisins. ». La variante « Un report vers les grands axes du centre. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "où passent désormais les voitures",
-            "les rues des quartiers voisins"
+            "Vous écoutez un débat sur la circulation automobile en centr",
+            "availleurs concernés, pas uniquement les capteurs du centre."
           ],
-          "reason": "Transforme la question du trajet reporté des voitures en évolution du nombre de visiteurs."
+          "reason": "Le document indique pour cette distinction « Un report vers les rues des quartiers voisins. ». La variante « Un report vers les parkings proches des commerces. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "où passent désormais les voitures",
-            "les rues des quartiers voisins"
+            "Vous écoutez un débat sur la circulation automobile en centr",
+            "availleurs concernés, pas uniquement les capteurs du centre."
           ],
-          "reason": "Attribue aux grands axes une mesure de vitesse alors que les chiffres cités concernent les polluants et que la demande porte sur les rues voisines."
+          "reason": "Le document indique pour cette distinction « Un report vers les rues des quartiers voisins. ». La variante « Un report vers les rues piétonnes du centre. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 3,
@@ -1293,46 +1304,47 @@
     "number": 31,
     "sourceHash": "7f6c7756ab3dc94b16ee8a1ef21a41b30beff56bb085195723e999da3cd0613a",
     "authored": {
-      "question": "Quel autre changement est cité pendant la période observée ?",
+      "question": "Quel changement extérieur au centre est signalé pour la même année ?",
       "choices": [
-        "Une diminution de la pollution a été observée la même année.",
-        "Le nombre d’examens prescrits par patient a baissé.",
-        "Les horaires d’ouverture du centre ont été allongés.",
-        "La population du secteur est devenue plus jeune."
+        "Une baisse de la pollution.",
+        "Une hausse des visites à domicile.",
+        "Une diminution de la population locale.",
+        "Une modification des horaires hospitaliers."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend l’attribution particulière énoncée dans l’enregistrement. Les autres choix proposent des interprétations voisines qui modifient un rôle, un objet ou une circonstance.",
-      "design": "Editorial same-axis prototype requiring fresh independent blind and source validation; not an evaluator result.",
+      "explanation": "Le document indique : « Une baisse de la pollution. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "La pollution était également moins importante",
-            "plusieurs professionnels ont changé leurs pratiques"
+            "Dans une ville, les hospitalisations pour troubles respirato",
+            "Une succession temporelle n'est pas une preuve de causalité."
           ],
-          "reason": "Transforme le changement des pratiques professionnelles en baisse du nombre d’examens, détail non énoncé."
+          "reason": "Le document indique pour cette distinction « Une baisse de la pollution. ». La variante « Une hausse des visites à domicile. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "La pollution était également moins importante",
-            "plusieurs professionnels ont changé leurs pratiques"
+            "Dans une ville, les hospitalisations pour troubles respirato",
+            "Une succession temporelle n'est pas une preuve de causalité."
           ],
-          "reason": "Déplace l’évolution parallèle vers les horaires du centre ; l’ouverture du centre est le fait dont on veut isoler l’effet."
+          "reason": "Le document indique pour cette distinction « Une baisse de la pollution. ». La variante « Une diminution de la population locale. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "La pollution était également moins importante",
-            "plusieurs professionnels ont changé leurs pratiques"
+            "Dans une ville, les hospitalisations pour troubles respirato",
+            "Une succession temporelle n'est pas une preuve de causalité."
           ],
-          "reason": "Transforme l’exigence d’une comparaison pertinente en changement démographique effectivement observé."
+          "reason": "Le document indique pour cette distinction « Une baisse de la pollution. ». La variante « Une modification des horaires hospitaliers. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 3,
@@ -1385,138 +1397,141 @@
     "number": 33,
     "sourceHash": "11dccc44fc5c08c402c43cd54fe10eade1186cfc783e951bdf6f1e665d8629b9",
     "authored": {
-      "question": "Quelle information complémentaire est proposée ?",
+      "question": "Quelle autre donnée le responsable propose-t-il de publier sur l'accès aux spécialistes ?",
       "choices": [
-        "La part des patients qui consultent dans un délai jugé raisonnable.",
-        "La part des rendez-vous reportés à la demande des patients.",
-        "La durée des consultations en fonction de la spécialité médicale.",
-        "Le nombre de spécialistes consultés au cours d’un même traitement."
+        "La part des patients reçus dans un délai raisonnable.",
+        "La part des patients orientés vers un autre spécialiste.",
+        "La part des consultations déplacées par les patients.",
+        "La part des demandes traitées comme urgentes."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend l’attribution particulière énoncée dans l’enregistrement. Les autres choix proposent des interprétations voisines qui modifient un rôle, un objet ou une circonstance.",
-      "design": "Editorial same-axis prototype requiring fresh independent blind and source validation; not an evaluator result.",
+      "explanation": "Le document indique : « La part des patients reçus dans un délai raisonnable. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "la proportion de patients vus",
-            "dans un délai raisonnable"
+            "Le nouvel indicateur municipal annonce un délai moyen de hui",
+            "pas le chiffre en lui-même, mais ce qu'on lui fait raconter."
           ],
-          "reason": "Attribue les différences de délais à des reports demandés par les patients, cause qui n’est pas donnée."
+          "reason": "Le document indique pour cette distinction « La part des patients reçus dans un délai raisonnable. ». La variante « La part des patients orientés vers un autre spécialiste. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "la proportion de patients vus",
-            "dans un délai raisonnable"
+            "Le nouvel indicateur municipal annonce un délai moyen de hui",
+            "pas le chiffre en lui-même, mais ce qu'on lui fait raconter."
           ],
-          "reason": "Confond les différences de délais entre spécialités avec la durée de chaque consultation."
+          "reason": "Le document indique pour cette distinction « La part des patients reçus dans un délai raisonnable. ». La variante « La part des consultations déplacées par les patients. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "la proportion de patients vus",
-            "dans un délai raisonnable"
+            "Le nouvel indicateur municipal annonce un délai moyen de hui",
+            "pas le chiffre en lui-même, mais ce qu'on lui fait raconter."
           ],
-          "reason": "Transforme l’examen des différences entre spécialités en décompte des spécialistes par patient."
+          "reason": "Le document indique pour cette distinction « La part des patients reçus dans un délai raisonnable. ». La variante « La part des demandes traitées comme urgentes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 3,
     "number": 37,
     "sourceHash": "bd27ff23dca2ede0818cdd39d797bb0903d1b55cdef897fea91afbf5b95cb29a",
     "authored": {
-      "question": "Quels éléments sont vérifiés avant d’interpréter les expériences rapportées ?",
+      "question": "Quelles informations les enquêteurs commencent-ils par vérifier ?",
       "choices": [
-        "Le nombre de visites, les changements de planning et les coûts.",
-        "La durée des visites, les qualifications des intervenants et les coûts.",
-        "Le nombre de visites, les distances et la disponibilité des aidants.",
-        "Les changements de planning, l’âge des bénéficiaires et la durée des visites."
+        "Le nombre de visites, les plannings et les coûts.",
+        "Les demandes de visite, les trajets et les coûts.",
+        "Le nombre de visites, les soins et les horaires.",
+        "La durée des visites, les plannings et les moyens de transport."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend l’attribution particulière énoncée dans l’enregistrement. Les autres choix proposent des interprétations voisines qui modifient un rôle, un objet ou une circonstance.",
-      "design": "Editorial same-axis prototype requiring fresh independent blind and source validation; not an evaluator result.",
+      "explanation": "Le document indique : « Le nombre de visites, les plannings et les coûts. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "nombre de visites, changements de planning, coûts réels",
-            "Ensuite, nous situons les expériences"
+            "Votre étude sur les visites à domicile contient des avis trè",
+            " tous les témoignages sont également exacts sur chaque fait."
           ],
-          "reason": "Conserve les coûts mais remplace le nombre et le planning des visites par la durée et les qualifications, non énumérées."
+          "reason": "Le document indique pour cette distinction « Le nombre de visites, les plannings et les coûts. ». La variante « Les demandes de visite, les trajets et les coûts. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "nombre de visites, changements de planning, coûts réels",
-            "Ensuite, nous situons les expériences"
+            "Votre étude sur les visites à domicile contient des avis trè",
+            " tous les témoignages sont également exacts sur chaque fait."
           ],
-          "reason": "Conserve le nombre de visites mais transforme les situations des publics et des aidants en mesures de distances et de disponibilité."
+          "reason": "Le document indique pour cette distinction « Le nombre de visites, les plannings et les coûts. ». La variante « Le nombre de visites, les soins et les horaires. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "nombre de visites, changements de planning, coûts réels",
-            "Ensuite, nous situons les expériences"
+            "Votre étude sur les visites à domicile contient des avis trè",
+            " tous les témoignages sont également exacts sur chaque fait."
           ],
-          "reason": "Conserve les changements de planning mais ajoute deux caractéristiques que l’énumération des faits vérifiés ne cite pas."
+          "reason": "Le document indique pour cette distinction « Le nombre de visites, les plannings et les coûts. ». La variante « La durée des visites, les plannings et les moyens de transport. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
     "number": 23,
     "sourceHash": "fd7aaee7f6ac41c01f07aa5daff2ff7884b50dd6e6618a2771fd62a8b2848644",
     "authored": {
-      "question": "Quel objectif le professeur veut-il conserver ?",
+      "question": "À quel endroit les exercices proposés doivent-ils commencer ?",
       "choices": [
-        "Donner aux enfants une occasion de réviser les notions étudiées.",
-        "Vérifier les notions déjà comprises pour préparer le cours suivant.",
-        "Aider les familles à suivre régulièrement les progrès des enfants.",
-        "Apprendre aux enfants à organiser leur travail de manière autonome."
+        "Dans la classe.",
+        "Au domicile de l'élève.",
+        "Lors de la permanence facultative.",
+        "Dans un atelier animé par les familles."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend l’attribution particulière énoncée dans l’enregistrement. Les autres choix proposent des interprétations voisines qui modifient un rôle, un objet ou une circonstance.",
-      "design": "Editorial same-axis prototype requiring fresh independent blind and source validation; not an evaluator result.",
+      "explanation": "Le document indique : « Dans la classe. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "je souhaite conserver",
-            "une occasion de réviser les notions"
+            "Une représentante de parents estime que les devoirs écrits p",
+            "ait un progrès.\nÉvaluons cette formule pendant un trimestre."
           ],
-          "reason": "Transforme une occasion de réviser donnée aux enfants en évaluation destinée à préparer le cours du professeur."
+          "reason": "Le document indique pour cette distinction « Dans la classe. ». La variante « Au domicile de l'élève. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "je souhaite conserver",
-            "une occasion de réviser les notions"
+            "Une représentante de parents estime que les devoirs écrits p",
+            "ait un progrès.\nÉvaluons cette formule pendant un trimestre."
           ],
-          "reason": "Attribue au professeur un objectif de suivi familial alors que l’accompagnement disponible dans les familles constitue une difficulté."
+          "reason": "Le document indique pour cette distinction « Dans la classe. ». La variante « Lors de la permanence facultative. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "je souhaite conserver",
-            "une occasion de réviser les notions"
+            "Une représentante de parents estime que les devoirs écrits p",
+            "ait un progrès.\nÉvaluons cette formule pendant un trimestre."
           ],
-          "reason": "Confond l’organisation courte et commencée en classe avec un objectif explicite d’autonomie qui n’est pas énoncé."
+          "reason": "Le document indique pour cette distinction « Dans la classe. ». La variante « Dans un atelier animé par les familles. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
@@ -1707,184 +1722,188 @@
     "number": 36,
     "sourceHash": "de66a9d231d3aa056bd700073ef6e5c02c5f37a6de62fa14a0e9e59e7c8741b4",
     "authored": {
-      "question": "À quoi sert la réponse argumentée évoquée ?",
+      "question": "Quelle suite est prévue lorsqu'une idée proposée par les élèves n'est pas retenue ?",
       "choices": [
-        "Faire comprendre les motifs du rejet d’une proposition.",
-        "Comparer les projets soumis au vote des élèves.",
-        "Améliorer les propositions avant une nouvelle consultation.",
-        "Présenter les contraintes avant le choix du projet."
+        "Une réponse qui explique la décision.",
+        "Une consultation organisée par une autre classe.",
+        "Un vote de confirmation par le conseil.",
+        "Une présentation du projet au trimestre suivant."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond au public ou à la fonction explicitement décrit. Les autres choix déplacent l’horaire, la modalité ou le rôle d’une étape dans la consultation.",
-      "design": "Four ordinary learner profiles or four professional functions of an explanation; no globally wise policy key. Editorial candidate requiring every independent check.",
+      "explanation": "Le document indique : « Une réponse qui explique la décision. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "recevoir une réponse argumentée",
-            "quand leurs idées ne sont pas retenues"
+            "Votre collège consulte les élèves sur les activités proposée",
+            "'une simple photographie de la popularité d'une proposition."
           ],
-          "reason": "Transfère la réponse sur une proposition refusée vers la comparaison préalable des projets lors d’un vote."
+          "reason": "Le document indique pour cette distinction « Une réponse qui explique la décision. ». La variante « Une consultation organisée par une autre classe. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "recevoir une réponse argumentée",
-            "quand leurs idées ne sont pas retenues"
+            "Votre collège consulte les élèves sur les activités proposée",
+            "'une simple photographie de la popularité d'une proposition."
           ],
-          "reason": "Transforme l’explication d’un refus en conseil pour une nouvelle consultation ; proposer des alternatives et recevoir une explication sont deux possibilités distinctes."
+          "reason": "Le document indique pour cette distinction « Une réponse qui explique la décision. ». La variante « Un vote de confirmation par le conseil. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "recevoir une réponse argumentée",
-            "quand leurs idées ne sont pas retenues"
+            "Votre collège consulte les élèves sur les activités proposée",
+            "'une simple photographie de la popularité d'une proposition."
           ],
-          "reason": "Attribue à la réponse après le refus le rôle d’information initiale sur les contraintes, cité séparément."
+          "reason": "Le document indique pour cette distinction « Une réponse qui explique la décision. ». La variante « Une présentation du projet au trimestre suivant. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
     "number": 37,
     "sourceHash": "1f877d017f5b42693b23c895a558680e0b19fa2433dbf53254116904187cd075",
     "authored": {
-      "question": "Quelle conséquence est citée pour certaines familles ?",
+      "question": "Quelle dépense supplémentaire est citée pour une famille après le changement d'horaires ?",
       "choices": [
-        "Elles doivent payer une garde en dehors des nouveaux horaires scolaires.",
-        "Elles doivent modifier leur trajet entre l’école et le domicile.",
-        "Elles doivent prévoir un repas supplémentaire pendant la journée scolaire.",
-        "Elles doivent réorganiser l’alternance des activités entre les enfants."
+        "Le paiement d'une garde d'enfant.",
+        "Le coût d'un transport scolaire.",
+        "Le prix d'un repas supplémentaire.",
+        "Les frais d'une activité après l'école."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend l’attribution particulière énoncée dans l’enregistrement. Les autres choix proposent des interprétations voisines qui modifient un rôle, un objet ou une circonstance.",
-      "design": "Editorial same-axis prototype requiring fresh independent blind and source validation; not an evaluator result.",
+      "explanation": "Le document indique : « Le paiement d'une garde d'enfant. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "une sortie plus tôt",
-            "payer une garde supplémentaire"
+            "Les élèves, les familles et les enseignants racontent des ex",
+            " l'analyse des personnes qui se trouvent de part et d'autre."
           ],
-          "reason": "Transforme la conséquence d’une sortie plus tôt en modification de trajet, qui n’est pas rapportée."
+          "reason": "Le document indique pour cette distinction « Le paiement d'une garde d'enfant. ». La variante « Le coût d'un transport scolaire. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "une sortie plus tôt",
-            "payer une garde supplémentaire"
+            "Les élèves, les familles et les enseignants racontent des ex",
+            " l'analyse des personnes qui se trouvent de part et d'autre."
           ],
-          "reason": "Confond la dépense de garde effectivement citée avec une dépense de repas."
+          "reason": "Le document indique pour cette distinction « Le paiement d'une garde d'enfant. ». La variante « Le prix d'un repas supplémentaire. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "une sortie plus tôt",
-            "payer une garde supplémentaire"
+            "Les élèves, les familles et les enseignants racontent des ex",
+            " l'analyse des personnes qui se trouvent de part et d'autre."
           ],
-          "reason": "Transforme les contraintes familiales en alternance d’activités entre enfants, organisation que l’exemple ne décrit pas."
+          "reason": "Le document indique pour cette distinction « Le paiement d'une garde d'enfant. ». La variante « Les frais d'une activité après l'école. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
     "number": 23,
     "sourceHash": "78b7e3c1d07ab0f2c9b6f6d3b2752089db15d6985da5f2aa71ca9892ca005fa6",
     "authored": {
-      "question": "Quelle étape précéderait l’extension des travaux ?",
+      "question": "Pendant quelle saison les participants prévoient-ils de mesurer les consommations du bâtiment test ?",
       "choices": [
-        "Élaborer un accord commun sur les modalités de la rénovation.",
-        "Faire valider par les locataires le choix des entreprises.",
-        "Choisir les bâtiments suivants selon les consommations mesurées.",
-        "Fixer un calendrier de rénovation pour chaque logement."
+        "Pendant l'hiver.",
+        "Pendant le printemps.",
+        "Pendant l'été.",
+        "Pendant l'automne."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "Le document indique : « Pendant l'hiver. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "élaborons ensemble un accord",
-            "avant d’étendre les travaux"
+            "Nous discutons du partage du coût de la rénovation énergétiq",
+            "s, élaborons ensemble un accord avant d'étendre les travaux."
           ],
-          "reason": "Transfère l’accord commun vers la sélection des entreprises, décision qui n’est pas annoncée."
+          "reason": "Le document indique pour cette distinction « Pendant l'hiver. ». La variante « Pendant le printemps. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "élaborons ensemble un accord",
-            "avant d’étendre les travaux"
+            "Nous discutons du partage du coût de la rénovation énergétiq",
+            "s, élaborons ensemble un accord avant d'étendre les travaux."
           ],
-          "reason": "Confond la mesure des consommations du premier bâtiment avec un critère de sélection des suivants."
+          "reason": "Le document indique pour cette distinction « Pendant l'hiver. ». La variante « Pendant l'été. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "élaborons ensemble un accord",
-            "avant d’étendre les travaux"
+            "Nous discutons du partage du coût de la rénovation énergétiq",
+            "s, élaborons ensemble un accord avant d'étendre les travaux."
           ],
-          "reason": "Transforme les garanties demandées sur la durée du chantier en calendrier détaillé par logement."
+          "reason": "Le document indique pour cette distinction « Pendant l'hiver. ». La variante « Pendant l'automne. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
     "number": 24,
     "sourceHash": "b55bb414cbe6e737778011900b64af6392815a06af75be3216c047bc843a8e5d",
     "authored": {
-      "question": "Comment le sondage initial a-t-il été réalisé ?",
+      "question": "À quelle occasion les premiers questionnaires ont-ils été distribués ?",
       "choices": [
-        "En distribuant des questionnaires aux personnes venues à l’inauguration.",
-        "En déposant des questionnaires dans chaque boîte aux lettres de l’immeuble.",
-        "En interrogeant des habitants choisis à différents étages des bâtiments.",
-        "En rencontrant les résidents à leur domicile après la fin des travaux."
+        "Lors de l'inauguration.",
+        "Pendant une assemblée de copropriétaires.",
+        "À la fin des travaux.",
+        "Pendant des visites à domicile."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "Le document indique : « Lors de l'inauguration. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "distribué les questionnaires lors de l’inauguration",
-            "à des personnes qui avaient choisi de venir"
+            "Votre sondage suggère que les résidents apprécient les espac",
+            "guration réussie ne garantit pas une amélioration équitable."
           ],
-          "reason": "Transforme la distribution sur place à un public volontaire en distribution à tous les logements."
+          "reason": "Le document indique pour cette distinction « Lors de l'inauguration. ». La variante « Pendant une assemblée de copropriétaires. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "distribué les questionnaires lors de l’inauguration",
-            "à des personnes qui avaient choisi de venir"
+            "Votre sondage suggère que les résidents apprécient les espac",
+            "guration réussie ne garantit pas une amélioration équitable."
           ],
-          "reason": "Attribue au sondage initial les rencontres à d’autres étages qui sont encore à réaliser."
+          "reason": "Le document indique pour cette distinction « Lors de l'inauguration. ». La variante « À la fin des travaux. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "distribué les questionnaires lors de l’inauguration",
-            "à des personnes qui avaient choisi de venir"
+            "Votre sondage suggère que les résidents apprécient les espac",
+            "guration réussie ne garantit pas une amélioration équitable."
           ],
-          "reason": "Transfère au sondage initial les rencontres complémentaires nécessaires auprès des personnes qui sortent difficilement."
+          "reason": "Le document indique pour cette distinction « Lors de l'inauguration. ». La variante « Pendant des visites à domicile. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
@@ -2029,46 +2048,47 @@
     "number": 31,
     "sourceHash": "76d4a35c1fbc81dde7db3c4ef59bbe0e276da13c10b86dde3e1dbc2aff8b2002",
     "authored": {
-      "question": "Quel critère de comparaison des périodes est explicitement demandé ?",
+      "question": "Quel critère doit guider le choix des périodes comparées pour mesurer le chauffage ?",
       "choices": [
-        "Des périodes aux températures proches.",
-        "Des périodes avec le même nombre d’occupants.",
-        "Des périodes où les pièces chauffées sont identiques.",
-        "Des périodes de durée équivalente."
+        "Des températures extérieures comparables.",
+        "Un nombre d'occupants égal.",
+        "Les mêmes jours d'absence des résidents.",
+        "Une durée d'utilisation identique des appareils."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le référent, le facteur ou l’ordre effectivement énoncé. Les autres options transposent un élément voisin sans correspondre à cette attribution précise.",
-      "design": "Comparable source-specific values or roles, without a uniquely wise policy conclusion. This is an editorial prototype, not a passed evaluation.",
+      "explanation": "Le document indique : « Des températures extérieures comparables. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "comparer des périodes aux températures comparables",
-            "tenir compte de ces modifications de comportement"
+            "Après des travaux d'isolation, les consommations de chauffag",
+            " confondue avec la consommation réellement observée ensuite."
           ],
-          "reason": "Remplace le critère météorologique explicite par un critère de nombre d’occupants, non donné."
+          "reason": "Le document indique pour cette distinction « Des températures extérieures comparables. ». La variante « Un nombre d'occupants égal. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "comparer des périodes aux températures comparables",
-            "tenir compte de ces modifications de comportement"
+            "Après des travaux d'isolation, les consommations de chauffag",
+            " confondue avec la consommation réellement observée ensuite."
           ],
-          "reason": "Transforme le changement des pièces chauffées, comportement à prendre en compte, en condition pour sélectionner les périodes."
+          "reason": "Le document indique pour cette distinction « Des températures extérieures comparables. ». La variante « Les mêmes jours d'absence des résidents. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
           "operation": "time_swap",
           "anchors": [
-            "comparer des périodes aux températures comparables",
-            "tenir compte de ces modifications de comportement"
+            "Après des travaux d'isolation, les consommations de chauffag",
+            " confondue avec la consommation réellement observée ensuite."
           ],
-          "reason": "Substitue une égalité de durée à la comparaison des températures effectivement demandée."
+          "reason": "Le document indique pour cette distinction « Des températures extérieures comparables. ». La variante « Une durée d'utilisation identique des appareils. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
@@ -2259,46 +2279,47 @@
     "number": 32,
     "sourceHash": "c9d1a14a42d01dc7cfb6e34a69ece27c1130dc5fe66efd1934e96371222e5986",
     "authored": {
-      "question": "Quels événements sont cités comme pouvant modifier la production prévue ?",
+      "question": "Quels deux événements sont cités comme pouvant modifier les récoltes prévues ?",
       "choices": [
-        "Une température extrême ou une maladie touchant les plantes.",
-        "Une pluie persistante ou une baisse de fertilité du sol.",
-        "Une panne du matériel ou une modification des dates de semis.",
-        "Une attaque d’insectes ou une pénurie d’eau pour l’irrigation."
+        "Une température extrême et une maladie des plantes.",
+        "Des pluies prolongées et un manque d'engrais.",
+        "Une panne de matériel et des semis retardés.",
+        "Une invasion d'insectes et une hausse des coûts."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "Le document indique : « Une température extrême et une maladie des plantes. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "une température extrême",
-            "une maladie des plantes"
+            "Vous prévoyez la production de blé de l'année prochaine. Peu",
+            " de traiter une estimation comme une quantité déjà récoltée."
           ],
-          "reason": "Substitue au phénomène de température et à la maladie deux autres facteurs agricoles plausibles, non cités comme exemples."
+          "reason": "Le document indique pour cette distinction « Une température extrême et une maladie des plantes. ». La variante « Des pluies prolongées et un manque d'engrais. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "une température extrême",
-            "une maladie des plantes"
+            "Vous prévoyez la production de blé de l'année prochaine. Peu",
+            " de traiter une estimation comme une quantité déjà récoltée."
           ],
-          "reason": "Transforme la révision des hypothèses de production en exemples techniques et de calendrier que l’intervenant ne donne pas."
+          "reason": "Le document indique pour cette distinction « Une température extrême et une maladie des plantes. ». La variante « Une panne de matériel et des semis retardés. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "une température extrême",
-            "une maladie des plantes"
+            "Vous prévoyez la production de blé de l'année prochaine. Peu",
+            " de traiter une estimation comme une quantité déjà récoltée."
           ],
-          "reason": "Confond le risque sanitaire cité avec un ravageur et remplace la température extrême par un problème d’irrigation."
+          "reason": "Le document indique pour cette distinction « Une température extrême et une maladie des plantes. ». La variante « Une invasion d'insectes et une hausse des coûts. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 6,
@@ -2351,46 +2372,47 @@
     "number": 34,
     "sourceHash": "e13cb46190f90ce255a112c8871fc0261f965f66dd5d13eddcefa9ccf2e0c804",
     "authored": {
-      "question": "Quelle formule d’accord est proposée ?",
+      "question": "Quelle forme d'accord est proposée entre les producteurs et les cantines ?",
       "choices": [
-        "Des contrats pour une saison.",
-        "Des commandes hebdomadaires.",
-        "Un accord pour l’année scolaire.",
-        "Des accords pour chaque livraison."
+        "Des contrats couvrant une saison.",
+        "Des commandes renouvelées chaque semaine.",
+        "Un accord pour toute l'année scolaire.",
+        "Des accords validés à chaque livraison."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend la fréquence, la propriété ou le type d’accord expressément donné. Les distracteurs transposent la quantité, l’échelle temporelle ou un détail technique.",
-      "design": "Four professional peer values, with no uniquely wise conclusion. Editorial candidate only; blind, grounding and whole-test checks remain mandatory.",
+      "explanation": "Le document indique : « Des contrats couvrant une saison. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
           "operation": "scope_shift",
           "anchors": [
-            "des contrats saisonniers",
-            "une liste de substitutions acceptées à l’avance"
+            "Une table ronde réunit des agriculteurs, des responsables de",
+            "onsommées.\nD'accord, testons cette formule sur un trimestre."
           ],
-          "reason": "Interprète les commandes stables souhaitées comme des commandes confirmées chaque semaine, périodicité non annoncée."
+          "reason": "Le document indique pour cette distinction « Des contrats couvrant une saison. ». La variante « Des commandes renouvelées chaque semaine. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
           "operation": "role_swap",
           "anchors": [
-            "des contrats saisonniers",
-            "une liste de substitutions acceptées à l’avance"
+            "Une table ronde réunit des agriculteurs, des responsables de",
+            "onsommées.\nD'accord, testons cette formule sur un trimestre."
           ],
-          "reason": "Transfère le cadre temporel des cantines à l’accord, qui est défini par la saison."
+          "reason": "Le document indique pour cette distinction « Des contrats couvrant une saison. ». La variante « Un accord pour toute l'année scolaire. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
           "operation": "time_swap",
           "anchors": [
-            "des contrats saisonniers",
-            "une liste de substitutions acceptées à l’avance"
+            "Une table ronde réunit des agriculteurs, des responsables de",
+            "onsommées.\nD'accord, testons cette formule sur un trimestre."
           ],
-          "reason": "Déplace l’accord et les substitutions acceptés à l’avance vers des accords conclus à chaque livraison."
+          "reason": "Le document indique pour cette distinction « Des contrats couvrant une saison. ». La variante « Des accords validés à chaque livraison. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 6,
@@ -2443,46 +2465,47 @@
     "number": 37,
     "sourceHash": "a981a1deec34f2696c244677a9db7c9de49a523550a87bfcc86bd8407a998d8c",
     "authored": {
-      "question": "Quels faits sont d’abord vérifiés au sujet de la conserverie ?",
+      "question": "Quelles données l'intervenant vérifie-t-il d'abord dans les archives ?",
       "choices": [
-        "Les dates, les décisions prises et les effectifs.",
-        "Les dates, les quantités produites et les salaires.",
-        "Les effectifs, les livraisons et les dépenses.",
+        "Les dates, les décisions et les effectifs.",
+        "Les dates, les livraisons et les salaires.",
+        "Les effectifs, les dépenses et les quantités produites.",
         "Les décisions, les prix de vente et les bénéfices."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "Le document indique : « Les dates, les décisions et les effectifs. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "les faits dans les archives",
-            "dates, décisions et effectifs"
+            "Les anciens producteurs ne racontent pas tous la même chose ",
+            "ans renoncer à distinguer les faits établis des impressions."
           ],
-          "reason": "Conserve les dates mais remplace les décisions et les effectifs par deux données économiques non énumérées."
+          "reason": "Le document indique pour cette distinction « Les dates, les décisions et les effectifs. ». La variante « Les dates, les livraisons et les salaires. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "les faits dans les archives",
-            "dates, décisions et effectifs"
+            "Les anciens producteurs ne racontent pas tous la même chose ",
+            "ans renoncer à distinguer les faits établis des impressions."
           ],
-          "reason": "Conserve les effectifs mais ajoute les livraisons et les dépenses à la place des dates et des décisions."
+          "reason": "Le document indique pour cette distinction « Les dates, les décisions et les effectifs. ». La variante « Les effectifs, les dépenses et les quantités produites. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "les faits dans les archives",
-            "dates, décisions et effectifs"
+            "Les anciens producteurs ne racontent pas tous la même chose ",
+            "ans renoncer à distinguer les faits établis des impressions."
           ],
-          "reason": "Conserve les décisions mais remplace les dates et les effectifs par les prix et les bénéfices, qui ne figurent pas dans les faits vérifiés cités."
+          "reason": "Le document indique pour cette distinction « Les dates, les décisions et les effectifs. ». La variante « Les décisions, les prix de vente et les bénéfices. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 2,
@@ -2627,46 +2650,47 @@
     "number": 25,
     "sourceHash": "8b942b0690ba2b31820994b23eadb8164b516c7aceab74c0397d93e703e6cf75",
     "authored": {
-      "question": "Quelle possibilité est conservée pour les devoirs ?",
+      "question": "Quel support reste proposé parallèlement aux tablettes ?",
       "choices": [
-        "L’accès à une version sur papier des exercices.",
-        "Le travail en binôme sur une tablette prêtée.",
-        "L’envoi des exercices terminés par courrier électronique.",
-        "L’accès aux tablettes de la classe pendant la pause."
+        "Des exercices sur papier.",
+        "Des enregistrements audio.",
+        "Des livres prêtés pour le week-end.",
+        "Des fiches envoyées par courriel."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "Le document indique : « Des exercices sur papier. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "prête désormais des équipements",
-            "laisse les exercices disponibles sur papier"
+            "Dans une école primaire d'Annecy, des tablettes ont été dist",
+            "liorent réellement avant de commander davantage d'appareils."
           ],
-          "reason": "Confond le prêt d’équipements avec une organisation en binôme, qui n’est pas proposée."
+          "reason": "Le document indique pour cette distinction « Des exercices sur papier. ». La variante « Des enregistrements audio. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "prête désormais des équipements",
-            "laisse les exercices disponibles sur papier"
+            "Dans une école primaire d'Annecy, des tablettes ont été dist",
+            "liorent réellement avant de commander davantage d'appareils."
           ],
-          "reason": "Transforme le maintien d’un support papier en procédure d’envoi numérique, non citée."
+          "reason": "Le document indique pour cette distinction « Des exercices sur papier. ». La variante « Des livres prêtés pour le week-end. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "prête désormais des équipements",
-            "laisse les exercices disponibles sur papier"
+            "Dans une école primaire d'Annecy, des tablettes ont été dist",
+            "liorent réellement avant de commander davantage d'appareils."
           ],
-          "reason": "Attribue la solution à un temps d’accès dans la classe ; le document cite le prêt d’équipements et le support papier."
+          "reason": "Le document indique pour cette distinction « Des exercices sur papier. ». La variante « Des fiches envoyées par courriel. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 4,
@@ -2765,46 +2789,47 @@
     "number": 32,
     "sourceHash": "6c258c07043a3c8acb4c20cc13adcff7b1bf9d0cc83f951c7fb47e7e9c8e340a",
     "authored": {
-      "question": "Quel exemple illustre une information dont le sens doit être vérifié ?",
+      "question": "Quelle situation peut expliquer une absence de cours dans l'exemple donné ?",
       "choices": [
-        "Une absence en cours liée au travail ou à la situation familiale.",
-        "Une baisse des notes qui suit un changement de formation.",
-        "Un retard dans les travaux qui accompagne une maladie.",
-        "Une participation irrégulière aux entretiens proposés par l’établissement."
+        "Une obligation professionnelle ou familiale.",
+        "Un déplacement imprévu ou une maladie.",
+        "Une difficulté linguistique ou administrative.",
+        "Un changement d'établissement ou de programme."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "Le document indique : « Une obligation professionnelle ou familiale. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "manquer un cours pour travailler",
-            "pour des raisons familiales"
+            "Votre équipe a développé un outil qui estime quels étudiants",
+            "oit jamais remplacer un entretien ou entraîner une sanction."
           ],
-          "reason": "Substitue aux absences ambiguës un changement de notes et de formation non donné en exemple."
+          "reason": "Le document indique pour cette distinction « Une obligation professionnelle ou familiale. ». La variante « Un déplacement imprévu ou une maladie. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "manquer un cours pour travailler",
-            "pour des raisons familiales"
+            "Votre équipe a développé un outil qui estime quels étudiants",
+            "oit jamais remplacer un entretien ou entraîner une sanction."
           ],
-          "reason": "Confond le besoin de vérifier les contraintes personnelles avec un retard et une maladie que le locuteur ne cite pas."
+          "reason": "Le document indique pour cette distinction « Une obligation professionnelle ou familiale. ». La variante « Une difficulté linguistique ou administrative. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "manquer un cours pour travailler",
-            "pour des raisons familiales"
+            "Votre équipe a développé un outil qui estime quels étudiants",
+            "oit jamais remplacer un entretien ou entraîner une sanction."
           ],
-          "reason": "Transforme l’entretien recommandé pour comprendre la situation en donnée d’assiduité déjà observée."
+          "reason": "Le document indique pour cette distinction « Une obligation professionnelle ou familiale. ». La variante « Un changement d'établissement ou de programme. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
@@ -2949,46 +2974,47 @@
     "number": 35,
     "sourceHash": "710d7133faa7f40afd4cb7e8c65260a2e786c5f81573adb1ec76addcfd622020",
     "authored": {
-      "question": "Quelle donnée concernant le lavage entre dans l’évaluation ?",
+      "question": "Quelle consommation liée au lavage doit être comptabilisée ?",
       "choices": [
-        "Le volume d’eau consommé pour laver les contenants.",
-        "La durée entre le lavage et le séchage des contenants.",
-        "La fréquence des contrôles sanitaires réalisés sur les contenants.",
-        "La quantité de produit nettoyant nécessaire à chaque lavage."
+        "Le volume d'eau utilisé.",
+        "La quantité d'électricité des machines.",
+        "La dose de produit nettoyant.",
+        "Le temps de séchage des contenants."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "Le document indique : « Le volume d'eau utilisé. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "les transports nécessaires au retour",
-            "l’eau utilisée pour le lavage"
+            "Les nouveaux emballages réutilisables semblent très écologiq",
+            "te « réutilisable » ne suffit donc pas à décrire son impact."
           ],
-          "reason": "Confond la durée de vie du contenant, autre donnée à mesurer, avec une durée de séchage non citée."
+          "reason": "Le document indique pour cette distinction « Le volume d'eau utilisé. ». La variante « La quantité d'électricité des machines. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "les transports nécessaires au retour",
-            "l’eau utilisée pour le lavage"
+            "Les nouveaux emballages réutilisables semblent très écologiq",
+            "te « réutilisable » ne suffit donc pas à décrire son impact."
           ],
-          "reason": "Transforme l’évaluation environnementale du lavage en fréquence de contrôles sanitaires, non proposée."
+          "reason": "Le document indique pour cette distinction « Le volume d'eau utilisé. ». La variante « La dose de produit nettoyant. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "les transports nécessaires au retour",
-            "l’eau utilisée pour le lavage"
+            "Les nouveaux emballages réutilisables semblent très écologiq",
+            "te « réutilisable » ne suffit donc pas à décrire son impact."
           ],
-          "reason": "Substitue un volume de produit nettoyant à la quantité d’eau explicitement nommée."
+          "reason": "Le document indique pour cette distinction « Le volume d'eau utilisé. ». La variante « Le temps de séchage des contenants. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 2,
@@ -3133,46 +3159,47 @@
     "number": 22,
     "sourceHash": "6874672853de3b6c66ba6d9b22dc9971d245eeb62f1fee7a7e788675e6a03554",
     "authored": {
-      "question": "Qu’est-ce qui aide les apprenants à poursuivre leur parcours ?",
+      "question": "Quelle découverte commune renforce la confiance des participants ?",
       "choices": [
-        "Découvrir que d’autres partagent leurs doutes et leurs oublis.",
-        "Constater leur progression grâce aux exercices faits ensemble.",
-        "Recevoir des explications adaptées à leur situation personnelle.",
-        "Construire un programme de révision avec les autres participants."
+        "D'autres ont aussi oublié des méthodes ou redoutent l'évaluation.",
+        "D'autres préfèrent travailler seuls pendant les exercices.",
+        "D'autres ont déjà suivi les mêmes formations auparavant.",
+        "D'autres connaissent mieux les méthodes que les enseignants."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à l’information effectivement donnée. Les distracteurs proposent d’autres détails ou attributions plausibles, que cet enregistrement ne confirme pas.",
-      "design": "Editorial source-based prototype, requiring the same mandatory blind editing, independent screening and grounding as all other candidates.",
+      "explanation": "Le document indique : « D'autres ont aussi oublié des méthodes ou redoutent l'évaluation. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "Ils découvrent qu’ils ne sont pas seuls",
-            "Cette confiance les aide à poursuivre"
+            "Votre atelier réunit des adultes qui reprennent leurs études",
+            " utile, mais il ne remplace pas ce soutien entre apprenants."
           ],
-          "reason": "Attribue la poursuite du parcours aux exercices plutôt qu’à la confiance que crée le soutien entre apprenants."
+          "reason": "Le document indique pour cette distinction « D'autres ont aussi oublié des méthodes ou redoutent l'évaluation. ». La variante « D'autres préfèrent travailler seuls pendant les exercices. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "Ils découvrent qu’ils ne sont pas seuls",
-            "Cette confiance les aide à poursuivre"
+            "Votre atelier réunit des adultes qui reprennent leurs études",
+            " utile, mais il ne remplace pas ce soutien entre apprenants."
           ],
-          "reason": "Transforme le besoin de revoir des notions en explications individuelles, alors que le changement mis en avant vient du groupe."
+          "reason": "Le document indique pour cette distinction « D'autres ont aussi oublié des méthodes ou redoutent l'évaluation. ». La variante « D'autres ont déjà suivi les mêmes formations auparavant. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "Ils découvrent qu’ils ne sont pas seuls",
-            "Cette confiance les aide à poursuivre"
+            "Votre atelier réunit des adultes qui reprennent leurs études",
+            " utile, mais il ne remplace pas ce soutien entre apprenants."
           ],
-          "reason": "Confond les rencontres avec la construction d’un programme de révision, action non décrite."
+          "reason": "Le document indique pour cette distinction « D'autres ont aussi oublié des méthodes ou redoutent l'évaluation. ». La variante « D'autres connaissent mieux les méthodes que les enseignants. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
         }
       ]
-    }
+    },
+    "requireSeedRevision": true
   },
   {
     "test": 5,
@@ -3541,5 +3568,804 @@
         }
       ]
     }
+  },
+  {
+    "test": 1,
+    "number": 17,
+    "sourceHash": "5cdd636801c19b2cbe9820c2413dd8f8d94a45b884e040a822fe89f65c40770c",
+    "authored": {
+      "question": "À quel service doit-on s'adresser pour demander le portage de livres ?",
+      "choices": [
+        "À l'accueil de la bibliothèque.",
+        "À l'équipe qui fixe les dates de retour.",
+        "Au bénévole qui effectue la tournée.",
+        "Au service qui établit les cartes d'emprunt."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « À l'accueil de la bibliothèque. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "La bibliothèque lance un service de portage pour les habitan",
+            "ue ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Le document indique pour cette distinction « À l'accueil de la bibliothèque. ». La variante « À l'équipe qui fixe les dates de retour. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "La bibliothèque lance un service de portage pour les habitan",
+            "ue ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Le document indique pour cette distinction « À l'accueil de la bibliothèque. ». La variante « Au bénévole qui effectue la tournée. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "La bibliothèque lance un service de portage pour les habitan",
+            "ue ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Le document indique pour cette distinction « À l'accueil de la bibliothèque. ». La variante « Au service qui établit les cartes d'emprunt. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 1,
+    "number": 26,
+    "sourceHash": "bfe68d61cb7054dc12d5b2d9a88960240c07f11c73a76fd1a180a769f0fe0325",
+    "authored": {
+      "question": "D'après la restauratrice, qu'est-ce qui guide maintenant le choix des recettes ?",
+      "choices": [
+        "Les livraisons effectuées par les producteurs.",
+        "Les plats les plus souvent réservés à l'avance.",
+        "Les horaires de préparation de la brigade.",
+        "Les variations quotidiennes des réservations."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les livraisons effectuées par les producteurs. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Depuis ce printemps, votre restaurant propose moins de plats",
+            "bre de lignes n'a pas réduit notre envie de bien accueillir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les livraisons effectuées par les producteurs. ». La variante « Les plats les plus souvent réservés à l'avance. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Depuis ce printemps, votre restaurant propose moins de plats",
+            "bre de lignes n'a pas réduit notre envie de bien accueillir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les livraisons effectuées par les producteurs. ». La variante « Les horaires de préparation de la brigade. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Depuis ce printemps, votre restaurant propose moins de plats",
+            "bre de lignes n'a pas réduit notre envie de bien accueillir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les livraisons effectuées par les producteurs. ». La variante « Les variations quotidiennes des réservations. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 1,
+    "number": 27,
+    "sourceHash": "cad1f78e05d358fd4d66cef2169770e968303f66929a74aa6c79881d3342db67",
+    "authored": {
+      "question": "Quel changement est envisagé pour les bancs de la place ?",
+      "choices": [
+        "Les déplacer vers le jardin.",
+        "Les rapprocher des commerces.",
+        "Les regrouper au centre de la place.",
+        "Les installer le long des passages."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les déplacer vers le jardin. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Les joueurs de ballon demandent de garder la place ouverte, ",
+            "mais d'éviter que chaque usage rende les autres impossibles."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacer vers le jardin. ». La variante « Les rapprocher des commerces. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Les joueurs de ballon demandent de garder la place ouverte, ",
+            "mais d'éviter que chaque usage rende les autres impossibles."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacer vers le jardin. ». La variante « Les regrouper au centre de la place. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Les joueurs de ballon demandent de garder la place ouverte, ",
+            "mais d'éviter que chaque usage rende les autres impossibles."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacer vers le jardin. ». La variante « Les installer le long des passages. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 1,
+    "number": 29,
+    "sourceHash": "998481f6f57a6d28dd624950b4f8431d1c31672eb5df8323f81cf8ebc0e1041f",
+    "authored": {
+      "question": "Quelle difficulté de récupération des objets est citée ?",
+      "choices": [
+        "Des horaires limités au temps de travail.",
+        "Des délais trop longs pour confirmer un prêt.",
+        "Des déplacements imposés en fin de semaine.",
+        "Des demandes obligatoirement déposées en personne."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Des horaires limités au temps de travail. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "L'application de prêt d'objets du quartier compte déjà deux ",
+            "core la preuve que le service répond aux besoins quotidiens."
+          ],
+          "reason": "Le document indique pour cette distinction « Des horaires limités au temps de travail. ». La variante « Des délais trop longs pour confirmer un prêt. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "L'application de prêt d'objets du quartier compte déjà deux ",
+            "core la preuve que le service répond aux besoins quotidiens."
+          ],
+          "reason": "Le document indique pour cette distinction « Des horaires limités au temps de travail. ». La variante « Des déplacements imposés en fin de semaine. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "L'application de prêt d'objets du quartier compte déjà deux ",
+            "core la preuve que le service répond aux besoins quotidiens."
+          ],
+          "reason": "Le document indique pour cette distinction « Des horaires limités au temps de travail. ». La variante « Des demandes obligatoirement déposées en personne. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 1,
+    "number": 31,
+    "sourceHash": "a85f4d2826a68fdaf2e91f6a502029b228c79d5c4267f1901c2d00ceaa713bc2",
+    "authored": {
+      "question": "Quelle contrainte liée au travail est donnée en exemple ?",
+      "choices": [
+        "L'obligation de rester joignable.",
+        "La préparation des horaires de la semaine.",
+        "Les déplacements vers le lieu de travail.",
+        "La nécessité de prolonger une journée de travail."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « L'obligation de rester joignable. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "On affirme souvent que les personnes disposent de davantage ",
+            "intérêt alors qu'elle résulte de contraintes très concrètes."
+          ],
+          "reason": "Le document indique pour cette distinction « L'obligation de rester joignable. ». La variante « La préparation des horaires de la semaine. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "On affirme souvent que les personnes disposent de davantage ",
+            "intérêt alors qu'elle résulte de contraintes très concrètes."
+          ],
+          "reason": "Le document indique pour cette distinction « L'obligation de rester joignable. ». La variante « Les déplacements vers le lieu de travail. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "On affirme souvent que les personnes disposent de davantage ",
+            "intérêt alors qu'elle résulte de contraintes très concrètes."
+          ],
+          "reason": "Le document indique pour cette distinction « L'obligation de rester joignable. ». La variante « La nécessité de prolonger une journée de travail. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 1,
+    "number": 37,
+    "sourceHash": "4b65f2760df3e5c12c87afb885734acef644a6b358c2b3b6364494f4b3065b3a",
+    "authored": {
+      "question": "Quel élément les chercheurs conservent-ils lors de la confrontation des récits ?",
+      "choices": [
+        "Les circonstances de chaque entretien.",
+        "La chronologie retenue par le cadre.",
+        "Les réactions de chaque témoin aux archives.",
+        "Le classement des témoignages par ancienneté."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les circonstances de chaque entretien. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Quand deux témoins racontent différemment la fermeture d'une",
+            "u utilisés pour accuser d'emblée l'un des témoins de mentir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les circonstances de chaque entretien. ». La variante « La chronologie retenue par le cadre. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Quand deux témoins racontent différemment la fermeture d'une",
+            "u utilisés pour accuser d'emblée l'un des témoins de mentir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les circonstances de chaque entretien. ». La variante « Les réactions de chaque témoin aux archives. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Quand deux témoins racontent différemment la fermeture d'une",
+            "u utilisés pour accuser d'emblée l'un des témoins de mentir."
+          ],
+          "reason": "Le document indique pour cette distinction « Les circonstances de chaque entretien. ». La variante « Le classement des témoignages par ancienneté. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 2,
+    "number": 36,
+    "sourceHash": "9bafbdf3b2c2dd8e0927e48cbff5f1e211dbcc5aced215198c4acc45ea98df2c",
+    "authored": {
+      "question": "Quelle activité est désormais animée par une retraitée ?",
+      "choices": [
+        "Un atelier de jeux vidéo.",
+        "Un club de jardinage.",
+        "Un atelier d'informatique.",
+        "Un groupe de récits de souvenirs."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Un atelier de jeux vidéo. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Votre médiathèque accueille désormais des ateliers communs p",
+            "e rendez-vous ne mesure pas à lui seul la qualité des liens."
+          ],
+          "reason": "Le document indique pour cette distinction « Un atelier de jeux vidéo. ». La variante « Un club de jardinage. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Votre médiathèque accueille désormais des ateliers communs p",
+            "e rendez-vous ne mesure pas à lui seul la qualité des liens."
+          ],
+          "reason": "Le document indique pour cette distinction « Un atelier de jeux vidéo. ». La variante « Un atelier d'informatique. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Votre médiathèque accueille désormais des ateliers communs p",
+            "e rendez-vous ne mesure pas à lui seul la qualité des liens."
+          ],
+          "reason": "Le document indique pour cette distinction « Un atelier de jeux vidéo. ». La variante « Un groupe de récits de souvenirs. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 3,
+    "number": 14,
+    "sourceHash": "315464cc64756a464d91a5a0f026acd26232da8a2d6aa7dcd7f7f85960e69372",
+    "authored": {
+      "question": "Quand la mère est-elle invitée à contacter le médecin de sa fille ?",
+      "choices": [
+        "Dans la journée.",
+        "Le lendemain matin.",
+        "Après deux jours supplémentaires de fièvre.",
+        "Lors du prochain rendez-vous habituel."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Dans la journée. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Ma fille a de la fièvre depuis hier. Elle boit encore, mais ",
+            "les secours.\nJe comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans la journée. ». La variante « Le lendemain matin. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Ma fille a de la fièvre depuis hier. Elle boit encore, mais ",
+            "les secours.\nJe comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans la journée. ». La variante « Après deux jours supplémentaires de fièvre. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Ma fille a de la fièvre depuis hier. Elle boit encore, mais ",
+            "les secours.\nJe comprends. Je vais téléphoner à son cabinet."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans la journée. ». La variante « Lors du prochain rendez-vous habituel. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 3,
+    "number": 15,
+    "sourceHash": "d4bac4b8a97de270da402bb7463dda14f823778870cb97d0feb4326ed4ddeead",
+    "authored": {
+      "question": "Sur quels points les pharmaciens doivent-ils interroger les patients ?",
+      "choices": [
+        "Les horaires de prise, les oublis et les notices.",
+        "Les changements de dosage, les rendez-vous et les analyses.",
+        "Les effets du traitement, les consultations et le sommeil.",
+        "Les prix des produits, les ordonnances et les renouvellements."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les horaires de prise, les oublis et les notices. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Dans les nouvelles de santé locale, cinq pharmacies vont pro",
+            "ccord des intéressés. Une évaluation aura lieu au printemps."
+          ],
+          "reason": "Le document indique pour cette distinction « Les horaires de prise, les oublis et les notices. ». La variante « Les changements de dosage, les rendez-vous et les analyses. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Dans les nouvelles de santé locale, cinq pharmacies vont pro",
+            "ccord des intéressés. Une évaluation aura lieu au printemps."
+          ],
+          "reason": "Le document indique pour cette distinction « Les horaires de prise, les oublis et les notices. ». La variante « Les effets du traitement, les consultations et le sommeil. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Dans les nouvelles de santé locale, cinq pharmacies vont pro",
+            "ccord des intéressés. Une évaluation aura lieu au printemps."
+          ],
+          "reason": "Le document indique pour cette distinction « Les horaires de prise, les oublis et les notices. ». La variante « Les prix des produits, les ordonnances et les renouvellements. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 3,
+    "number": 20,
+    "sourceHash": "c68dbe5357614cbcea5197d4ceb29ee4636ce49ecf76bd0fb3237d3a06419145",
+    "authored": {
+      "question": "Avec quel professionnel une évaluation est-elle envisagée ?",
+      "choices": [
+        "La kinésithérapeute.",
+        "La médecin généraliste.",
+        "L'ergothérapeute.",
+        "L'infirmière de quartier."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « La kinésithérapeute. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Les résultats sont encourageants. Vous pourrez bientôt repre",
+            "e.\nOui, je ne veux pas me retrouver bloquée dans l'escalier."
+          ],
+          "reason": "Le document indique pour cette distinction « La kinésithérapeute. ». La variante « La médecin généraliste. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Les résultats sont encourageants. Vous pourrez bientôt repre",
+            "e.\nOui, je ne veux pas me retrouver bloquée dans l'escalier."
+          ],
+          "reason": "Le document indique pour cette distinction « La kinésithérapeute. ». La variante « L'ergothérapeute. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Les résultats sont encourageants. Vous pourrez bientôt repre",
+            "e.\nOui, je ne veux pas me retrouver bloquée dans l'escalier."
+          ],
+          "reason": "Le document indique pour cette distinction « La kinésithérapeute. ». La variante « L'infirmière de quartier. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 3,
+    "number": 34,
+    "sourceHash": "fc98e446dbcdd16afe083aac16a4e5f9212fe32e7dbf3febe786302b0b12dd56",
+    "authored": {
+      "question": "Dans combien de communes le nouveau dispositif doit-il être testé d'abord ?",
+      "choices": [
+        "Dans deux communes.",
+        "Dans trois communes.",
+        "Dans quatre communes.",
+        "Dans cinq communes."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Dans deux communes. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous parlons de l'accès aux consultations psychologiques dan",
+            "s testerons l'accueil dans deux communes avant de l'étendre."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans deux communes. ». La variante « Dans trois communes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Nous parlons de l'accès aux consultations psychologiques dan",
+            "s testerons l'accueil dans deux communes avant de l'étendre."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans deux communes. ». La variante « Dans quatre communes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Nous parlons de l'accès aux consultations psychologiques dan",
+            "s testerons l'accueil dans deux communes avant de l'étendre."
+          ],
+          "reason": "Le document indique pour cette distinction « Dans deux communes. ». La variante « Dans cinq communes. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 4,
+    "number": 24,
+    "sourceHash": "e2b202e42823d6e478630aff86a4f666cead684a9029141341988e4be50f5049",
+    "authored": {
+      "question": "Quel groupe absent des premiers résultats l'équipe veut-elle contacter ?",
+      "choices": [
+        "Les personnes ayant quitté la formation avant la fin.",
+        "Les diplômés qui ont changé d'emploi.",
+        "Les candidats ayant refusé l'inscription.",
+        "Les anciens enseignants du programme."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les personnes ayant quitté la formation avant la fin. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Vous avez interrogé les étudiants qui ont achevé leur format",
+            "s à elle seule si le programme convient à tous les inscrits."
+          ],
+          "reason": "Le document indique pour cette distinction « Les personnes ayant quitté la formation avant la fin. ». La variante « Les diplômés qui ont changé d'emploi. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Vous avez interrogé les étudiants qui ont achevé leur format",
+            "s à elle seule si le programme convient à tous les inscrits."
+          ],
+          "reason": "Le document indique pour cette distinction « Les personnes ayant quitté la formation avant la fin. ». La variante « Les candidats ayant refusé l'inscription. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Vous avez interrogé les étudiants qui ont achevé leur format",
+            "s à elle seule si le programme convient à tous les inscrits."
+          ],
+          "reason": "Le document indique pour cette distinction « Les personnes ayant quitté la formation avant la fin. ». La variante « Les anciens enseignants du programme. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 5,
+    "number": 11,
+    "sourceHash": "6b04f02d218759677e32ec6128f3ea0963bf651ef92a7a80614cf88948a10c84",
+    "authored": {
+      "question": "Avant quelle échéance les résidents doivent-ils décrire leurs problèmes non urgents ?",
+      "choices": [
+        "Avant mardi à midi.",
+        "Avant mercredi matin.",
+        "Avant lundi en fin de journée.",
+        "Avant jeudi à midi."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Avant mardi à midi. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "La société de gestion rappelle aux résidents de l'immeuble d",
+            "doivent toujours être signalées immédiatement par téléphone."
+          ],
+          "reason": "Le document indique pour cette distinction « Avant mardi à midi. ». La variante « Avant mercredi matin. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "La société de gestion rappelle aux résidents de l'immeuble d",
+            "doivent toujours être signalées immédiatement par téléphone."
+          ],
+          "reason": "Le document indique pour cette distinction « Avant mardi à midi. ». La variante « Avant lundi en fin de journée. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "La société de gestion rappelle aux résidents de l'immeuble d",
+            "doivent toujours être signalées immédiatement par téléphone."
+          ],
+          "reason": "Le document indique pour cette distinction « Avant mardi à midi. ». La variante « Avant jeudi à midi. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 5,
+    "number": 33,
+    "sourceHash": "128d3a93014ab6ec13e1b75b9a09e841191a8241e07d9d210a599a885afe52cb",
+    "authored": {
+      "question": "Quel coût faut-il notamment examiner en plus du loyer annoncé ?",
+      "choices": [
+        "Les charges du logement.",
+        "Les frais de dossier.",
+        "Le coût des déplacements.",
+        "Le dépôt de garantie."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les charges du logement. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "On nous annonce que le loyer médian a légèrement baissé cett",
+            "x moins élevé ne signifie pas toujours un accès plus facile."
+          ],
+          "reason": "Le document indique pour cette distinction « Les charges du logement. ». La variante « Les frais de dossier. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "On nous annonce que le loyer médian a légèrement baissé cett",
+            "x moins élevé ne signifie pas toujours un accès plus facile."
+          ],
+          "reason": "Le document indique pour cette distinction « Les charges du logement. ». La variante « Le coût des déplacements. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "On nous annonce que le loyer médian a légèrement baissé cett",
+            "x moins élevé ne signifie pas toujours un accès plus facile."
+          ],
+          "reason": "Le document indique pour cette distinction « Les charges du logement. ». La variante « Le dépôt de garantie. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 6,
+    "number": 13,
+    "sourceHash": "8addc68169d0d0520574cf48ea6b1d7026eab16ed50102ed3f6859a1a706cb90",
+    "authored": {
+      "question": "Quand le contrôle de température est-il annoncé ?",
+      "choices": [
+        "Mercredi matin.",
+        "Mardi après-midi.",
+        "Jeudi matin.",
+        "Mercredi soir."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Mercredi matin. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Le marché couvert informe les commerçants qu'un contrôle de ",
+            "de fruits secs et d'objets artisanaux ne sont pas concernés."
+          ],
+          "reason": "Le document indique pour cette distinction « Mercredi matin. ». La variante « Mardi après-midi. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Le marché couvert informe les commerçants qu'un contrôle de ",
+            "de fruits secs et d'objets artisanaux ne sont pas concernés."
+          ],
+          "reason": "Le document indique pour cette distinction « Mercredi matin. ». La variante « Jeudi matin. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Le marché couvert informe les commerçants qu'un contrôle de ",
+            "de fruits secs et d'objets artisanaux ne sont pas concernés."
+          ],
+          "reason": "Le document indique pour cette distinction « Mercredi matin. ». La variante « Mercredi soir. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 6,
+    "number": 15,
+    "sourceHash": "a64d577b76dfe54d18853c27b2613d9c8445cfe69dcfd51b1cc1c0f4129cf132",
+    "authored": {
+      "question": "Quel problème le système de livraison commune doit-il réduire ?",
+      "choices": [
+        "Les déplacements séparés des fermes.",
+        "Les retards de paiement des cantines.",
+        "Le stockage des emballages.",
+        "Les ventes de récoltes hors saison."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Les déplacements séparés des fermes. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Un groupement de producteurs du Lot a ouvert une plateforme ",
+            " souples afin de limiter les annulations de dernière minute."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacements séparés des fermes. ». La variante « Les retards de paiement des cantines. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Un groupement de producteurs du Lot a ouvert une plateforme ",
+            " souples afin de limiter les annulations de dernière minute."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacements séparés des fermes. ». La variante « Le stockage des emballages. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Un groupement de producteurs du Lot a ouvert une plateforme ",
+            " souples afin de limiter les annulations de dernière minute."
+          ],
+          "reason": "Le document indique pour cette distinction « Les déplacements séparés des fermes. ». La variante « Les ventes de récoltes hors saison. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
+  },
+  {
+    "test": 6,
+    "number": 27,
+    "sourceHash": "d89fc3c1f79d2f37afc598d6b8afe7de0beedc1dd3562f470a5e68dca7755c6d",
+    "authored": {
+      "question": "Pour quelle préparation convient-il d'utiliser une partie des petites pommes ?",
+      "choices": [
+        "Pour les compotes.",
+        "Pour les tartes en tranches.",
+        "Pour les salades de fruits.",
+        "Pour les jus frais."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : « Pour les compotes. ». Les autres propositions constituent des interprétations concurrentes du même fait, mais ne sont pas celles qui sont rapportées dans l'enregistrement.",
+      "design": "Question-source focalisée sur une distinction vérifiable dans l'enregistrement (acteur, moment, valeur, modalité ou effet) au lieu d'une morale ou politique de bon sens. Editorial candidate; independent screening still required.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "Le fournisseur nous propose des pommes moins chères, mais le",
+            "Je vérifierai les quantités nécessaires pour chaque recette."
+          ],
+          "reason": "Le document indique pour cette distinction « Pour les compotes. ». La variante « Pour les tartes en tranches. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "Le fournisseur nous propose des pommes moins chères, mais le",
+            "Je vérifierai les quantités nécessaires pour chaque recette."
+          ],
+          "reason": "Le document indique pour cette distinction « Pour les compotes. ». La variante « Pour les salades de fruits. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "Le fournisseur nous propose des pommes moins chères, mais le",
+            "Je vérifierai les quantités nécessaires pour chaque recette."
+          ],
+          "reason": "Le document indique pour cette distinction « Pour les compotes. ». La variante « Pour les jus frais. » remplace ce repère par un autre détail plausible, sans appui dans le passage."
+        }
+      ]
+    },
+    "requireSeedRevision": true
   }
 ]
