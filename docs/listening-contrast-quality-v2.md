@@ -132,7 +132,7 @@ not claim a passed held-out result, new live banks, or an applied database
 migration. Record actual final measurements and deployment checks here before
 calling the issue resolved.
 
-Drafting now uses exact-schema responses, independently verified exemplars, and a single source-based answer axis. Drafting remains separate from all acceptance reviewers. The task ledger retains all earlier calls and reserved failed-call costs; its overall offline authoring ceiling is USD100. Student budgets and credits are unchanged.
+Drafting now uses exact-schema responses, independently verified exemplars, and a single source-based answer axis. Drafting remains separate from all acceptance reviewers. The task ledger retains all earlier calls and reserved failed-call costs; its overall offline authoring ceiling is USD120. Student budgets and credits are unchanged. Author reasoning now uses medium effort to process complex relationships; both frozen blind reviewers retain their previous settings.
 
 A key-blind drafting editor receives only the stem and actual four alternatives, with no transcript, image, key, explanation or prior review. This edit is mandatory for every written-choice candidate, including an initially plausible one; the exact final wording must match an actual editor receipt. It removes stem clues and unequal phrasing before fresh independent admission reviews. Admission models, prompts and thresholds are unchanged, and every edited candidate needs new exact-input receipts. Identical wording and whitespace-only edits cannot trigger a fresh draw of a rejected candidate.
 
@@ -182,3 +182,11 @@ admin authentication remain enabled. Live health checks rejected an unknown
 token (401) and accepted the scoped token (200), without paid inference.
 Automatic code-push authoring is disabled to prevent concurrent replacement of
 this private deployment; explicit authoring and all deterministic CI remain.
+
+The reconnected review reached221/234 individual passes under mandatory editing
+and shuffled-preference checks. Thirteen candidates still needed work; the
+frozen benchmark was not reached. Local continuation uses an exclusive process
+lock and reconciles spending upward against unique real response receipts,
+while retaining every unknown-cost reservation. An additional bounded authoring
+allowance completes the remaining repairs and final experiments; no student
+wallet, allowance, access or price is changed.

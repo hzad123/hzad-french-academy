@@ -34,7 +34,7 @@ jobs:
       - name: Fresh baseline, strict pilot, full repair and frozen blind experiment
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --script scripts/run-listening-six-contrast-qc.mjs --out work/listening-six-contrast-v2 --workers 12 --max-usd 100 --finish-batch
+        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --script scripts/run-listening-six-contrast-qc.mjs --out work/listening-six-contrast-v2 --workers 12 --max-usd 120 --finish-batch
       - uses: actions/cache/save@v4
         if: always()
         with:
