@@ -2,16 +2,16 @@
   "question": {
     "number": 16,
     "kind": "dialogue",
-    "question": "Comment la responsable réorganise-t-elle les permanences ?",
+    "question": "Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ?",
     "options": [
-      "Elle assure l'accueil du matin et Karim la fin de journée.",
-      "Elle avance l'ouverture et confie tout l'après-midi à Karim.",
-      "Karim garde l'accueil du matin et elle prend la fermeture.",
-      "Ils décalent tous les deux leurs horaires et réduisent l'ouverture."
+      "Le créneau de fin de journée",
+      "Le créneau d’accueil du matin",
+      "Les créneaux d’accueil du matin et de fin de journée",
+      "Aucun créneau précis, il garde ses horaires habituels"
     ],
     "correct": "A",
-    "transcript": "Question 16.\nKarim, tu m'as dit que les horaires de la crèche allaient changer ?\nOui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente.\nAlors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée. Comme cela, nous conserverons les mêmes heures d'ouverture.\nMerci, cette organisation me convient.\nComment la responsable réorganise-t-elle les permanences ?",
-    "explanation": "Réponse A : La responsable dit clairement « je prendrai l'accueil du matin » et précise à Karim « tu assureras ma permanence de fin de journée ». Cela correspond exactement à l’énoncé : elle prend l’accueil du matin et Karim la fin de journée. B : On pourrait mal comprendre et croire qu’elle « avance l’ouverture » parce qu’ils parlent de changement d’horaires, et assimiler la « permanence de fin de journée » à « tout l’après‑midi ». Mais elle précise au contraire qu’ils « conserverons les mêmes heures d'ouverture », donc elle ne les avance pas et ne dit jamais qu’elle confie tout l’après‑midi à Karim, seulement sa permanence de fin de journée. C : Un auditeur inattentif peut penser que, puisque Karim arrive plus tard, il continue l’accueil du matin et que la responsable « prend la fermeture ». Or c’est l’inverse qui est dit explicitement : c’est elle qui prend l’accueil du matin et Karim qui assure la permanence de fin de journée ; Karim ne « garde » donc pas l’accueil du matin. D : On pourrait croire que, comme Karim arrive plus tard, ils « décalent tous les deux leurs horaires » et réduisent l’ouverture. Mais la responsable dit expressément « nous conserverons les mêmes heures d'ouverture », ce qui exclut toute réduction de la plage d’ouverture et ne mentionne aucun décalage pour elle, seulement une réorganisation interne des permanences.",
+    "transcript": "Question 16.\nKarim, tu m'as dit que les horaires de la crèche allaient changer ?\nOui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente.\nAlors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée. Comme cela, nous conserverons les mêmes heures d'ouverture.\nMerci, cette organisation me convient.\nSelon la nouvelle organisation, sur quel créneau Karim doit-il être présent ?",
+    "explanation": "Réponse A : Le collègue dit clairement à Karim « tu assureras ma permanence de fin de journée ». Le « tu » désigne Karim, donc le créneau qui lui est attribué dans la nouvelle organisation est bien celui de fin de journée. B : On pourrait se tromper en entendant surtout « l'accueil du matin » et en pensant que c’est le nouveau créneau de Karim. Mais la phrase précise « je prendrai l'accueil du matin » : le pronom « je » renvoie au collègue, pas à Karim. Pour Karim, la partie qui le concerne est « tu assureras ma permanence de fin de journée », ce qui exclut l’accueil du matin. C : Quelqu’un pourrait croire que, pour maintenir les mêmes heures d’ouverture, Karim doit être présent à la fois le matin et en fin de journée. Cependant, la répartition est explicite : « je prendrai l'accueil du matin » (le collègue) et « tu assureras ma permanence de fin de journée » (Karim). Karim n’a donc que le créneau de fin de journée, pas les deux. D : On pourrait penser qu’il garde globalement ses horaires, puisqu’il dit seulement qu’il ne pourra plus être là avant 9h30. Mais cette contrainte entraîne justement une nouvelle organisation : le collègue prend le matin et Karim la fin de journée. Dire qu’il n’a « aucun créneau précis » et garde ses horaires habituels contredit le fait qu’on lui assigne clairement la permanence de fin de journée.",
     "segments": [
       {
         "voice": "female",
@@ -35,159 +35,324 @@
       },
       {
         "voice": "female",
-        "text": "Comment la responsable réorganise-t-elle les permanences ?"
+        "text": "Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ?"
       }
     ],
     "audio": "q-16.mp3",
-    "audioSeconds": 27.429,
+    "audioSeconds": null,
     "slotSeconds": 48
   },
   "sourceHash": "0b5f75cc9316bf91a3c3d9ffc39341262f50a24c57d5e63baae15d1e3bf82bc0",
-  "contentHash": "a9c5195b625a30d73b9b8499ebd242842c6bb3e06795d0f186919efcd54fb36a",
+  "contentHash": "551fc97d1cc55cb637a09e2c65e19702e8eb294d6d523abc36755e0f683f22db",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 0,
+  "rounds": 1,
   "pass": true,
-  "author": null,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0wuBgG2v9DolsaE55LlyP0cwLV6",
+    "result": {
+      "question": "Dans l’organisation proposée, quelle plage Karim doit-il assurer ?",
+      "choices": [
+        "La permanence de fin de journée",
+        "L’accueil du matin",
+        "L’accueil du matin et la fin de journée",
+        "Aucune plage précise, il garde ses horaires actuels"
+      ],
+      "correctIndex": 0,
+      "explanation": "Karim doit assurer la permanence de fin de journée : la collègue dit explicitement je prendrai l’accueil du matin et tu assureras ma permanence de fin de journée. Il ne prend donc pas le matin, ni les deux plages, et il ne garde pas ses horaires initiaux puisque ses disponibilités changent à partir de lundi.",
+      "design": "Axe précis : la plage horaire confiée à Karim dans la réorganisation. Toutes les options décrivent des répartitions crédibles des permanences (soir seulement, matin seulement, matin+soir, pas de plage fixe malgré le changement). Sans le document, chacune est plausible dans un contexte de crèche qui adapte ses horaires ; seule l’écoute permet de savoir qu’on lui confie spécifiquement la fin de journée.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse les rôles attribués : dans le document, c’est la collègue qui dit qu’elle prendra l’accueil du matin, pas Karim. On peut se tromper en ne retenant que l’idée d’un problème de présence le matin et en supposant que Karim garde ce créneau, alors qu’il récupère la fin de journée.",
+          "operation": "role_swap",
+          "anchors": [
+            "je prendrai l'accueil du matin",
+            "tu assureras ma permanence de fin de journée"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse élargit à tort la mission de Karim aux deux plages, alors que le dialogue partage précisément les rôles : le matin pour la collègue et la fin de journée pour Karim. On peut généraliser trop vite en entendant que Karim ne peut plus être là tôt et en imaginant qu’il compense en assurant aussi le matin plus tard, mais le texte ne lui confie que la permanence de fin de journée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "je prendrai l'accueil du matin",
+            "tu assureras ma permanence de fin de journée"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option suppose l’absence de changement pour Karim, alors que le document insiste sur la modification de ses disponibilités et l’ajustement des permanences. On peut mal interpréter la volonté de conserver les mêmes heures d’ouverture comme le maintien des horaires individuels, alors que c’est justement parce que ses horaires changent qu’ils réorganisent les permanences.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "à partir de lundi, je ne pourrai plus être ici avant neuf heures trente",
+            "Comme cela, nous conserverons les mêmes heures d'ouverture"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4484,
+      "completion_tokens": 1719,
+      "total_tokens": 6203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1142,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.022795,
+    "inputHash": "cd7fa5f895672aecb10b2585a4b313e7e35265ff0e85969996458259541f948b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans l’organisation proposée, quelle plage Karim doit-il assurer ?",
+      "choices": [
+        "La permanence de fin de journée",
+        "L’accueil du matin",
+        "L’accueil du matin et la fin de journée",
+        "Aucune plage précise, il garde ses horaires actuels"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em0xBdruV1RxhK5RIiGLD80ou7DuF",
+      "result": {
+        "question": "Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ?",
+        "choices": [
+          "Le créneau de fin de journée",
+          "Le créneau d’accueil du matin",
+          "Les créneaux d’accueil du matin et de fin de journée",
+          "Aucun créneau précis, il garde ses horaires habituels"
+        ],
+        "notes": "Uniformisation du vocabulaire autour des créneaux/horaires et neutralisation d’un éventuel biais entre une option de statu quo et des options de changement, tout en conservant les distinctions factuelles entre matin, fin de journée, les deux, ou aucun créneau imposé."
+      },
+      "usage": {
+        "prompt_tokens": 636,
+        "completion_tokens": 410,
+        "total_tokens": 1046,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 269,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.004895,
+      "inputHash": "190883a3968698fe3188729963e893e1addb0c2f4015de49d53304efeeec135b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "743af7add6ba6bf7bd8a9fde287547d0c6e87e661fe6420014e617e88388a74b",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre options proposent une répartition plausible des permanences. L’option 2 se distingue légèrement par une formulation plus globale et collaborative qui semble mieux répondre à « comment elle prévoit de répartir les permanences », en évoquant un ajustement mutuel des horaires et des plages d’ouverture plutôt qu’un simple découpage matin/soir. Cela reste toutefois incertain.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus générale et nuancée (« ils décalent tous les deux leurs horaires et ajustent les plages d'ouverture ») qui décrit une vraie réorganisation conjointe plutôt qu’un simple partage fixe matin/fin de journée, ce qui correspond bien à l’idée d’« envisager » une répartition dans un échange de travail."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une petite structure avec un comptoir d’accueil, la responsable et Karim doivent assurer des permanences sur la journée. La responsable explique à Karim : « Comme tu es plus à l’aise en fin de journée avec les dossiers urgents, je vais prendre l’accueil du matin, et je te laisserai la fin de journée. » Cette répartition répond directement à la question sur la façon dont elle prévoit de répartir les permanences."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un service municipal, Karim a l’habitude d’ouvrir le guichet le matin. La responsable lui dit lors d’une réunion : « Tu gardes l’accueil du matin, tu connais bien le flux à cette heure-là, et moi je m’occuperai de la fermeture. » Elle décrit ainsi précisément comment ils se partagent les permanences."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un centre associatif qui souhaite mieux s’adapter au public, la responsable discute avec Karim : « Ce qu’on peut faire, c’est décaler un peu tous les deux nos horaires, comme ça on ajuste aussi les plages d’ouverture. » Elle propose une réorganisation conjointe des emplois du temps pour répartir les permanences et modifier les heures d’ouverture."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une petite boutique, la responsable veut étendre légèrement la présence le matin et confier l’après-midi à son collègue. Elle annonce : « Je vais avancer un peu l’ouverture, comme ça je gère tout le début de journée, et ensuite je te laisse tout l’après-midi. » Cette solution décrit explicitement la façon de répartir les permanences entre eux."
+          }
+        ]
+      }
+    }
+  ],
   "blind": [
     {
       "order": [
-        3,
-        0,
-        1,
-        2
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky6nGz6s6uq9Ut9TAWXxzAuS0a5x",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "En réunion, la responsable explique à Karim qu’ils vont tous les deux modifier leurs horaires habituels, ce qui aura pour effet de réduire la plage d’ouverture au public. Un collègue demande : « Comment la responsable réorganise-t-elle les permanences ? » et on résume : « Ils décalent tous les deux leurs horaires et réduisent l'ouverture. »"
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Dans un petit service, la responsable annonce à Karim qu’elle prendra désormais toutes les permanences du matin à l’accueil, et qu’il assurera la fin de journée. Un narrateur ou un collègue récapitule ensuite : « Comment la responsable réorganise-t-elle les permanences ? » — « Elle assure l'accueil du matin et Karim la fin de journée. »"
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "La responsable décide d’ouvrir le service plus tôt pour mieux répartir l’affluence et de confier toutes les permanences de l’après-midi à Karim. À la fin d’une discussion de planning, on lui demande : « Comment la responsable réorganise-t-elle les permanences ? » et quelqu’un répond : « Elle avance l'ouverture et confie tout l'après-midi à Karim. »"
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Karim faisait déjà les permanences du matin. La responsable décide qu’il continuera à garder ce créneau tandis qu’elle-même prendra désormais la fermeture chaque jour. Au moment de résumer la nouvelle organisation, on pose la question : « Comment la responsable réorganise-t-elle les permanences ? » et l’on répond : « Karim garde l'accueil du matin et elle prend la fermeture. »"
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
-          ],
-          "guess": 1,
-          "reason": "Les quatre propositions peuvent décrire de façon naturelle une réorganisation des permanences par la responsable, sans indice clair dans la seule formulation de la question ni différence évidente de style ou de pertinence. Aucune option ne se détache nettement, donc le choix de la réponse reste très incertain et la sélection de l’option 1 n’est qu’un meilleur effort arbitraire parmi des possibilités équivalentes."
-        },
-        "usage": {
-          "prompt_tokens": 622,
-          "completion_tokens": 916,
-          "total_tokens": 1538,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 423,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.0099375,
-        "inputHash": "b7db376032a4321c4fbf800ccddf3e8282010ed4daebd3a27ede05a35af9bb56",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:initial:screen:0:0"
-      }
-    },
-    {
-      "order": [
-        0,
         2,
         1,
-        3
+        3,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky71Ii21dd0xqP1MDy2p5j0qFW5i",
+        "responseId": "chatcmpl-Em0xIqBVo807iXKHW92Eve5xoZR4a",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans une petite structure avec un accueil téléphonique et physique, la responsable explique à un collègue qu’ils ont revu la répartition des permanences : désormais, elle sera présente chaque matin à l’accueil et Karim prendra le relais pour les permanences de fin de journée."
+              "context": "Dans une réunion d’équipe sur une nouvelle organisation de l’accueil, le responsable récapitule : « Karim, avec la nouvelle organisation, tu dois couvrir les créneaux d’accueil du matin et de fin de journée. » À la question « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », cette réponse mentionnant explicitement les deux créneaux répond directement."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’une réunion d’équipe, la responsable annonce qu’après réorganisation, Karim garde la permanence à l’accueil le matin comme auparavant, mais que c’est désormais elle qui assurera la fermeture, c’est-à-dire les permanences de fin de journée."
+              "context": "Lors d’un briefing, la responsable explique : « Dorénavant, Karim, tu seras présent uniquement sur le créneau d’accueil du matin. L’après-midi, ce sera quelqu’un d’autre. » Interrogés ensuite, les stagiaires entendent : « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », et répondre « Le créneau d’accueil du matin » correspond exactement aux consignes données."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un message vocal interne, la responsable précise qu’elle a modifié les permanences : elle avancera l’heure d’ouverture des locaux le matin et elle confie ensuite l’ensemble des permanences de l’après-midi à Karim."
+              "context": "Dans une présentation de réorganisation, le responsable précise : « Pour certains d’entre vous, rien ne change. Karim, par exemple, tu gardes tes horaires habituels, tu n’es pas affecté à un créneau d’accueil précis. » Si l’exercice demande ensuite : « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », répondre qu’il n’a aucun créneau précis et conserve ses horaires habituels répond bien à la question."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Au cours d’un enregistrement d’information au personnel, la responsable explique une réorganisation plus globale des permanences : elle et Karim décalent leurs horaires de travail et, pour faire face à une baisse de fréquentation, ils décident de réduire l’amplitude d’ouverture au public."
+              "context": "Lors d’une réunion, le chef de service annonce : « À partir de la semaine prochaine, Karim sera exclusivement sur le créneau de fin de journée pour l’accueil, le matin ce sera une autre personne. » Ensuite, à la question « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », l’option indiquant le créneau de fin de journée reprend exactement cette information."
             }
           ],
           "cues": [
             {
+              "option": 1,
+              "severity": "weak",
+              "cue": "La question emploie le singulier (« sur quel créneau Karim doit-il être présent ? »), ce qui s’accorde naturellement avec une réponse mentionnant un seul créneau spécifique plutôt que plusieurs ou aucun, ce qui donne un léger avantage aux réponses 1 et 3 sur 0 et 2."
+            },
+            {
               "option": 3,
               "severity": "weak",
-              "cue": "La réponse décrit une réorganisation plus structurelle (décalage des horaires des deux personnes et réduction de l’ouverture), ce qui correspond légèrement mieux à l’idée de « réorganiser les permanences » comme un changement de fonctionnement global plutôt qu’un simple échange de créneaux."
+              "cue": "Même avantage que pour l’option 1 : la forme au singulier dans la question suggère plutôt l’affectation à un créneau unique, ce qui cadre mieux avec cette réponse qu’avec une réponse citant plusieurs créneaux ou l’absence totale de créneau précis."
             }
           ],
           "standsOut": false,
           "probabilities": [
-            0.22,
-            0.22,
-            0.22,
-            0.34
+            0.15,
+            0.35,
+            0.15,
+            0.35
           ],
-          "guess": 3,
-          "reason": "Les quatre choix peuvent répondre naturellement à la question, sans incohérence contextuelle. La formulation de l’option 3 suggère toutefois une réorganisation plus large du dispositif de permanences (horaires des deux personnes et amplitude d’ouverture), ce qui s’accorde légèrement mieux avec l’idée de réorganisation globale évoquée dans la question, d’où une probabilité un peu plus élevée mais avec une incertitude importante."
+          "guess": 1,
+          "reason": "Tous les choix peuvent s’intégrer à un contexte oral réaliste. Cependant, le singulier « quel créneau » rend légèrement moins naturels le choix 0 (plusieurs créneaux) et le choix 2 (aucun créneau), ce qui favorise des réponses avec un créneau unique (1 ou 3). Entre matin et fin de journée, aucun indice textuel ne permet de trancher, d’où une probabilité répartie entre 1 et 3, avec un léger arbitrage en faveur de 1 comme meilleure hypothèse de clé."
         },
         "usage": {
-          "prompt_tokens": 622,
-          "completion_tokens": 781,
-          "total_tokens": 1403,
+          "prompt_tokens": 612,
+          "completion_tokens": 1037,
+          "total_tokens": 1649,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 320,
+            "reasoning_tokens": 338,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0085875,
-        "inputHash": "1f608602a85e7c22c4c867165ab769096eb62a2c1e4fc86d03693b7782111479",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:initial:screen:0:1"
+        "costUsd": 0.011135,
+        "inputHash": "7b6c93ebb0edc04c9fb24c2148490f8e2c94a722cfd28e024d5b34c1c04720d0",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0xVWM1kjnie7sl4BJRmCmIcxrKw",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion d’équipe sur une nouvelle organisation : après avoir expliqué plusieurs changements pour certains collègues, le responsable précise que, pour Karim, rien ne change et qu’il conserve son amplitude horaire habituelle sans créneau imposé. À la question « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », un collègue résume : « Aucun créneau précis, il garde ses horaires habituels. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un service qui réorganise l’accueil du public, le manager annonce que certains salariés doivent être présents sur des plages d’accueil spécifiques. On explique que Karim devra assurer l’accueil le matin et en fin de journée pour couvrir les moments les plus fréquentés. Interrogé ensuite, un collègue répond à la question en reprenant : « Les créneaux d’accueil du matin et de fin de journée. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion, le responsable détaille la nouvelle répartition des horaires : Karim ne sera plus là toute la journée mais uniquement sur le créneau de forte affluence du soir, par exemple de 16h30 à la fermeture. Quand on lui demande : « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », on répond : « Le créneau de fin de journée. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une structure qui met en place une nouvelle organisation de l’accueil, le manager précise que Karim sera désormais affecté uniquement au premier créneau d’accueil, le matin, pour gérer l’arrivée des usagers. À la question posée ensuite sur le planning : « Selon la nouvelle organisation, sur quel créneau Karim doit-il être présent ? », la réponse donnée est : « Le créneau d’accueil du matin. »"
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "La question mentionne « la nouvelle organisation », ce qui suggère un changement ; dire qu’il « garde ses horaires habituels » va légèrement à contre-courant de cette idée de modification ciblée des créneaux."
+            },
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "La question est formulée au singulier (« sur quel créneau »), alors que cette option parle de deux créneaux distincts (« les créneaux d’accueil du matin et de fin de journée »), ce qui crée un léger décalage de nombre par rapport à l’énoncé."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.1,
+            0.35,
+            0.35
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses peuvent s’inscrire dans un contexte d’annonce d’horaires, mais l’idée de « nouvelle organisation » rend une modification ciblée plus naturelle qu’un statu quo (option 0), et le singulier « quel créneau » s’accorde mieux avec une seule plage horaire (options 2 ou 3) qu’avec deux (option 1). Entre fin de journée et matin, aucun indice textuel ne tranche nettement ; je privilégie légèrement le créneau de fin de journée comme affectation typique dans une réorganisation, d’où un choix de l’option 2 avec une probabilité modérée et une incertitude importante."
+        },
+        "usage": {
+          "prompt_tokens": 612,
+          "completion_tokens": 943,
+          "total_tokens": 1555,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 245,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.010195,
+        "inputHash": "de3e5c5a8643b62fb5d9650d027e0e22335253730d2a22b2b62121efac44f378",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:6103f288fb85e78951f8f219:screen:1:1"
       }
     }
   ],
@@ -196,24 +361,23 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Eky7Bj6JgRDbvjeRzckVev9b3PY1I",
+    "responseId": "chatcmpl-Em0xheXMSx2jx0z42rTsjJLxeukQs",
     "result": {
       "supportedIndices": [
         0
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "La responsable décide de prendre l’accueil du matin et de confier à Karim la permanence de fin de journée pour garder les mêmes heures d’ouverture.",
+      "summary": "Karim doit désormais être présent sur le créneau de fin de journée, car son collègue prend en charge l’accueil du matin.",
       "options": [
         {
           "index": 0,
           "supported": true,
           "plausibleMisunderstanding": false,
           "evidence": [
-            "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée.",
-            "Comme cela, nous conserverons les mêmes heures d'ouverture."
+            "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée."
           ],
-          "reason": "La responsable dit clairement « je prendrai l'accueil du matin » et précise à Karim « tu assureras ma permanence de fin de journée ». Cela correspond exactement à l’énoncé : elle prend l’accueil du matin et Karim la fin de journée.",
+          "reason": "Le collègue dit clairement à Karim « tu assureras ma permanence de fin de journée ». Le « tu » désigne Karim, donc le créneau qui lui est attribué dans la nouvelle organisation est bien celui de fin de journée.",
           "misunderstanding": null
         },
         {
@@ -221,22 +385,20 @@
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée.",
-            "Comme cela, nous conserverons les mêmes heures d'ouverture."
+            "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée."
           ],
-          "reason": "On pourrait mal comprendre et croire qu’elle « avance l’ouverture » parce qu’ils parlent de changement d’horaires, et assimiler la « permanence de fin de journée » à « tout l’après‑midi ». Mais elle précise au contraire qu’ils « conserverons les mêmes heures d'ouverture », donc elle ne les avance pas et ne dit jamais qu’elle confie tout l’après‑midi à Karim, seulement sa permanence de fin de journée.",
-          "misunderstanding": "scope_exaggeration"
+          "reason": "On pourrait se tromper en entendant surtout « l'accueil du matin » et en pensant que c’est le nouveau créneau de Karim. Mais la phrase précise « je prendrai l'accueil du matin » : le pronom « je » renvoie au collègue, pas à Karim. Pour Karim, la partie qui le concerne est « tu assureras ma permanence de fin de journée », ce qui exclut l’accueil du matin.",
+          "misunderstanding": "referent_confusion"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Oui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente.",
             "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée."
           ],
-          "reason": "Un auditeur inattentif peut penser que, puisque Karim arrive plus tard, il continue l’accueil du matin et que la responsable « prend la fermeture ». Or c’est l’inverse qui est dit explicitement : c’est elle qui prend l’accueil du matin et Karim qui assure la permanence de fin de journée ; Karim ne « garde » donc pas l’accueil du matin.",
-          "misunderstanding": "role_inversion"
+          "reason": "Quelqu’un pourrait croire que, pour maintenir les mêmes heures d’ouverture, Karim doit être présent à la fois le matin et en fin de journée. Cependant, la répartition est explicite : « je prendrai l'accueil du matin » (le collègue) et « tu assureras ma permanence de fin de journée » (Karim). Karim n’a donc que le créneau de fin de journée, pas les deux.",
+          "misunderstanding": "scope_confusion"
         },
         {
           "index": 3,
@@ -244,31 +406,31 @@
           "plausibleMisunderstanding": true,
           "evidence": [
             "Oui, à partir de lundi, je ne pourrai plus être ici avant neuf heures trente.",
-            "Comme cela, nous conserverons les mêmes heures d'ouverture."
+            "Alors, je prendrai l'accueil du matin et tu assureras ma permanence de fin de journée."
           ],
-          "reason": "On pourrait croire que, comme Karim arrive plus tard, ils « décalent tous les deux leurs horaires » et réduisent l’ouverture. Mais la responsable dit expressément « nous conserverons les mêmes heures d'ouverture », ce qui exclut toute réduction de la plage d’ouverture et ne mentionne aucun décalage pour elle, seulement une réorganisation interne des permanences.",
-          "misunderstanding": "inference_not_in_recording"
+          "reason": "On pourrait penser qu’il garde globalement ses horaires, puisqu’il dit seulement qu’il ne pourra plus être là avant 9h30. Mais cette contrainte entraîne justement une nouvelle organisation : le collègue prend le matin et Karim la fin de journée. Dire qu’il n’a « aucun créneau précis » et garde ses horaires habituels contredit le fait qu’on lui assigne clairement la permanence de fin de journée.",
+          "misunderstanding": "condition_ignored"
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 740,
-      "completion_tokens": 1100,
-      "total_tokens": 1840,
+      "prompt_tokens": 731,
+      "completion_tokens": 1226,
+      "total_tokens": 1957,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 484,
+        "reasoning_tokens": 635,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.011925,
-    "inputHash": "eb5496bbe6a9b669e393d462264e5cd0a0a421b5e2149ef4005030752a90c69d",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:initial:ground:0"
+    "costUsd": 0.01317375,
+    "inputHash": "938df81a6f0c0b8726fc7cfe208d7039eb130aae8661a57b0a399ca037968866",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:15:6103f288fb85e78951f8f219:ground:1"
   },
   "feedback": null
 }

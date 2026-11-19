@@ -2,7 +2,7 @@
   "question": {
     "number": 12,
     "kind": "dialogue",
-    "question": "Dans quelles conditions la tutrice accepte-t-elle de poursuivre le tutorat ?",
+    "question": "Quand et où le prochain tutorat est-il finalement fixé ?",
     "options": [
       "Le vendredi après-midi dans la salle habituelle.",
       "Le vendredi après-midi dans la petite salle près du secrétariat.",
@@ -10,8 +10,8 @@
       "Le jeudi après-midi dans la petite salle près du secrétariat."
     ],
     "correct": "B",
-    "explanation": "Réponse B : La tutrice accepte précisément « le vendredi après-midi » à condition d’utiliser « la petite salle près du secrétariat ». Cette option reprend exactement ces deux éléments (jour/heure et lieu), c’est donc la seule entièrement conforme aux paroles enregistrées. A : Cette option reprend bien le moment (« le vendredi après-midi ») mais se trompe sur le lieu : la tutrice pose comme condition d’utiliser « la petite salle près du secrétariat », et non la salle habituelle. Quelqu’un qui écoute trop vite peut ne retenir que le changement de jour et croire que le lieu reste le même. C : Le lieu est correct (« la petite salle près du secrétariat »), mais l’option parle du « vendredi matin » alors que la tutrice dit clairement « le vendredi après-midi ». On peut se tromper en retenant seulement le vendredi et le changement de salle, sans faire attention au moment de la journée. D : Cette option propose le jeudi après-midi, alors que la tutrice annonce qu’elle « ne sera plus disponible le jeudi » et accepte finalement le « vendredi après-midi ». Un auditeur distrait pourrait confondre jeudi et vendredi ou ne pas intégrer l’indisponibilité du jeudi, mais le jour indiqué dans l’option est en contradiction directe avec l’enregistrement.",
-    "transcript": "Question 12.\nJe peux encore vous accompagner en mathématiques le mardi, mais je ne serai plus disponible le jeudi.\nJ'ai déjà un cours de musique le mardi. Est-ce possible de se voir le vendredi ?\nLe vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat.\nParfait. Je vais prévenir la personne qui coordonne les séances.\nDans quelles conditions la tutrice accepte-t-elle de poursuivre le tutorat ?",
+    "explanation": "Réponse B : Le tuteur accepte la proposition de se voir le vendredi en précisant : « Le vendredi après-midi » et ajoute la condition de lieu : « si nous utilisons la petite salle près du secrétariat ». C’est exactement le contenu de la réponse 1. A : La réponse 0 reprend bien le moment (« le vendredi après-midi ») mais se trompe sur le lieu : le tuteur précise qu’il faut utiliser « la petite salle près du secrétariat », et non « la salle habituelle ». Quelqu’un qui entend surtout le changement de jour et d’horaire peut retenir seulement « le vendredi après-midi » et supposer à tort que le lieu ne change pas. C : Le jour et le lieu correspondent presque : on parle bien du vendredi et de « la petite salle près du secrétariat ». Mais le tuteur précise « l’après-midi », alors que la réponse 2 parle du vendredi matin. Un auditeur distrait peut retenir « vendredi » et « petite salle » en oubliant ou en inversant « l’après-midi ». D : Le tuteur dit clairement qu’il « ne sera plus disponible le jeudi », ce qui exclut cette journée, puis il accepte « le vendredi après-midi ». La réponse 3 reprend le bon lieu (« la petite salle près du secrétariat ») mais garde le mauvais jour, le jeudi. Un auditeur qui comprend mal la négation sur le jeudi peut croire que c’est le jour choisi au lieu d’être le jour refusé.",
+    "transcript": "Question 12.\nJe peux encore vous accompagner en mathématiques le mardi, mais je ne serai plus disponible le jeudi.\nJ'ai déjà un cours de musique le mardi. Est-ce possible de se voir le vendredi ?\nLe vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat.\nParfait. Je vais prévenir la personne qui coordonne les séances.\nQuand et où le prochain tutorat est-il finalement fixé ?",
     "segments": [
       {
         "voice": "female",
@@ -35,122 +35,102 @@
       },
       {
         "voice": "female",
-        "text": "Dans quelles conditions la tutrice accepte-t-elle de poursuivre le tutorat ?"
+        "text": "Quand et où le prochain tutorat est-il finalement fixé ?"
       }
     ],
     "audio": "q-12.mp3",
-    "audioSeconds": 27.611,
+    "audioSeconds": null,
     "slotSeconds": 43
   },
   "sourceHash": "d2551aff172b03c8a26bcaae14707cd86861c6e1e47e31dc8ed9a03c96aa8666",
-  "contentHash": "4a042c69cd9b5ea07cd0ef826f27cf44b3cd55334ecc6d479ceaf534a6610493",
+  "contentHash": "098c5daf1f476e76c3702464626afeac2083f1c8e836d5d0c91ed6b565c98c10",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 0,
   "pass": true,
   "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Dans quelles conditions la tutrice accepte-t-elle de poursuivre le tutorat ?",
+      "choices": [
+        "Le vendredi après-midi dans la salle habituelle.",
+        "Le vendredi après-midi dans la petite salle près du secrétariat.",
+        "Le vendredi matin dans la petite salle près du secrétariat.",
+        "Le jeudi après-midi dans la petite salle près du secrétariat."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1AEisOagXvdmWAUluulX0N7nCkm",
+      "result": {
+        "question": "Quand et où le prochain tutorat est-il finalement fixé ?",
+        "choices": [
+          "Le vendredi après-midi dans la salle habituelle.",
+          "Le vendredi après-midi dans la petite salle près du secrétariat.",
+          "Le vendredi matin dans la petite salle près du secrétariat.",
+          "Le jeudi après-midi dans la petite salle près du secrétariat."
+        ],
+        "notes": "La question a été reformulée pour viser simplement le moment et le lieu fixés pour le tutorat, sans suggérer de négociation ou de condition particulière. Les quatre choix restent parallèles (jour, moment de la journée, lieu) et distincts par la combinaison jour/heure/salle, sans indice contextuel sur la bonne réponse."
+      },
+      "usage": {
+        "prompt_tokens": 657,
+        "completion_tokens": 396,
+        "total_tokens": 1053,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 238,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00478125,
+      "inputHash": "e3fe798d36ef4a5012b5c2ad82f7f0e7bb062e322e5e9cee7515878dea7bb836",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [],
   "blind": [
     {
       "order": [
-        0,
-        2,
+        3,
         1,
-        3
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyPEerAdmik1n6dmwoeUx9K62yKO",
+        "responseId": "chatcmpl-Em1AJpunhnR31nBi5VA4XoTFhG8ne",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Lors d’un échange avec l’étudiante, la tutrice explique qu’elle veut bien continuer le tutorat, mais uniquement si les séances restent le vendredi après-midi et dans la salle habituelle, car cela s’intègre bien à son emploi du temps et elle y a tout son matériel."
+              "context": "Un enregistrement relate plusieurs changements de planning de séances de tutorat à l’université. Après hésitation entre plusieurs créneaux, l’organisateur conclut finalement : « Bon, on cale ça le jeudi après-midi, dans la petite salle près du secrétariat. » À la fin, on pose la question : « Quand et où le prochain tutorat est-il finalement fixé ? » et cette réponse reprend exactement l’information donnée."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "La tutrice et l’étudiante discutent d’un changement d’horaires ; la tutrice dit qu’elle ne peut plus le vendredi après-midi, mais qu’elle accepte de poursuivre le tutorat si on le met le vendredi matin dans la petite salle près du secrétariat, qui est alors disponible."
+              "context": "Un responsable de tutorat explique qu’ils ont d’abord envisagé le jeudi, puis le vendredi matin, mais que, pour convenir au plus grand nombre, la séance sera finalement déplacée au vendredi après-midi dans la petite salle proche du secrétariat. L’animateur résume : « Donc, c’est finalement vendredi après-midi, dans la petite salle près du secrétariat. » La question porte alors sur ce créneau et ce lieu précis."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Un responsable pédagogique cherche une solution après des problèmes de disponibilité de salles ; la tutrice indique qu’elle est d’accord pour continuer le tutorat le vendredi après-midi, mais à condition de le déplacer dans la petite salle près du secrétariat où elle a accès à certains documents."
+              "context": "Dans une annonce audio adressée aux étudiants, la tutrice détaille différents horaires possibles. Elle indique qu’après un sondage, le créneau retenu est « vendredi matin, dans la petite salle près du secrétariat ». La question demande ensuite quand et où le tutorat est finalement fixé, et cette option reprend mot pour mot ce qui a été annoncé."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Après des conflits d’agenda, la tutrice précise qu’elle poursuivra le tutorat seulement si les séances sont déplacées au jeudi après-midi dans la petite salle près du secrétariat, unique créneau où elle est libre et où une salle est disponible."
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
-          ],
-          "guess": 2,
-          "reason": "Les quatre options décrivent simplement un créneau horaire et un lieu possibles, sans indice textuel net permettant de privilégier l’une d’elles. Aucune formulation n’offre un avantage grammatical, de précision ou de pertinence suffisamment clair, donc le choix repose sur une incertitude réelle malgré un guess obligatoire."
-        },
-        "usage": {
-          "prompt_tokens": 621,
-          "completion_tokens": 665,
-          "total_tokens": 1286,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 277,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00742625,
-        "inputHash": "637b71420a638f956feef7de8a806fa57154ead8b930073749a42de4db4066ae",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:initial:screen:0:0"
-      }
-    },
-    {
-      "order": [
-        1,
-        2,
-        0,
-        3
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyPP4oPDKpd3Nt1edRsAco6o2KXP",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Lors d’un entretien avec l’étudiante, la tutrice dit qu’elle est d’accord pour continuer le tutorat à condition de changer légèrement l’organisation : « Je peux poursuivre, mais seulement le vendredi après-midi dans la petite salle près du secrétariat, ça me convient mieux. »"
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Dans une réunion de rentrée, la tutrice explique qu’elle ne pourra continuer le tutorat que si les horaires passent au vendredi matin et que l’on réserve la petite salle près du secrétariat : « Je continue, mais uniquement le vendredi matin dans la petite salle près du secrétariat. »"
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Au téléphone avec la coordinatrice, la tutrice précise qu’elle accepte de poursuivre le tutorat si on garde l’organisation actuelle sauf un décalage d’horaire : « Je veux bien continuer, mais uniquement le vendredi après-midi dans la salle habituelle, comme on a déjà nos repères. »"
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Dans un échange par mail, la tutrice indique qu’elle prolongera le tutorat si on modifie le jour et la salle : « Je poursuis à condition que ce soit le jeudi après-midi dans la petite salle près du secrétariat, c’est le seul créneau où je suis disponible. »"
+              "context": "Un enseignant rappelle que le tutorat a été longtemps maintenu à la « salle habituelle » et qu’on hésitait seulement à changer le jour. Il annonce dans l’enregistrement : « Finalement, on garde la salle habituelle, mais on décale au vendredi après-midi. » La question porte sur la décision finale, et cette option correspond à ce résumé : jour modifié, lieu inchangé."
             }
           ],
           "cues": [],
@@ -162,26 +142,93 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre réponses décrivent de manière tout à fait plausible des conditions de poursuite du tutorat (combinaison jour/heure/salle), sans indice textuel clair permettant d’en privilégier une. Aucune option ne se distingue nettement par la formulation ou la pertinence, d’où une forte incertitude et une probabilité répartie uniformément malgré le choix arbitraire de 0 comme réponse supposée."
+          "reason": "Les quatre choix sont grammaticalement corrects, crédibles et répondent directement à la question en combinant un créneau et un lieu plausibles pour un tutorat. Aucun indice textuel clair (longueur, précision, formulation privilégiée, nuance particulière) ne distingue une option comme plus probable que les autres. Faute de cue objectif, la probabilité est répartie uniformément et le choix 0 est retenu par convention, avec forte incertitude."
         },
         "usage": {
-          "prompt_tokens": 621,
-          "completion_tokens": 501,
-          "total_tokens": 1122,
+          "prompt_tokens": 618,
+          "completion_tokens": 582,
+          "total_tokens": 1200,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 66,
+            "reasoning_tokens": 55,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00578625,
-        "inputHash": "2fc20e86a47e83d69b61dcf29ba1f3276c9cc149cf0e60217f648b586c45d402",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:initial:screen:0:1"
+        "costUsd": 0.0065925,
+        "inputHash": "444ee6b4c5e0dc43ed8a979bcaf6aec287e1ed0875623fa3c22ae1e37991ad94",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:6103f288fb85e78951f8f219:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1ARmQPDVOuq9dmRBxKt7K1hxsQd",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux étudiants de licence discutent d’un cours de soutien qui a été plusieurs fois déplacé. L’un demande : « Quand et où le prochain tutorat est-il finalement fixé ? » L’autre répond : « Le vendredi après-midi dans la salle habituelle. » Le groupe a un lieu attitré, déjà connu de tous, donc cette réponse précise suffisamment le moment et le lieu."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une coordinatrice pédagogique confirme par téléphone les détails d’un tutorat qui a changé plusieurs fois de salle. L’étudiant demande : « Quand et où le prochain tutorat est-il finalement fixé ? » Elle répond : « Le vendredi après-midi dans la petite salle près du secrétariat. » La précision aide un étudiant qui ne connaît pas encore bien les locaux."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un tuteur envoie un message vocal à son groupe après un nouveau changement d’horaire. Un étudiant réécoute et se demande : « Quand et où le prochain tutorat est-il finalement fixé ? » Le message dit : « Le vendredi matin dans la petite salle près du secrétariat. » Le changement porte ici sur le passage à la matinée, et le lieu est précisé de façon détaillée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une annonce à la fin d’un cours, l’enseignant répond aux questions sur le prochain tutorat : « Quand et où le prochain tutorat est-il finalement fixé ? » Il répond : « Le jeudi après-midi dans la petite salle près du secrétariat. » Le tutorat a été avancé au jeudi pour éviter un conflit d’emploi du temps et déplacé dans une salle plus petite."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options donnent chacune un moment précis (jour + matin/après‑midi) et un lieu qui répond correctement à la question posée, sans faute de langue ni indice interne clair permettant d’en privilégier une. Sans accès à l’enregistrement source ni autre signal objectif dans la formulation, aucune option ne se démarque de façon défendable, d’où une incertitude élevée et une répartition uniforme des probabilités malgré le choix obligatoire d’un index de réponse."
+        },
+        "usage": {
+          "prompt_tokens": 618,
+          "completion_tokens": 746,
+          "total_tokens": 1364,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 235,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0082325,
+        "inputHash": "11c62329c9a27957a12f25522408f4c5bd6aa03bffcef5f5baed1ed6188c33be",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:6103f288fb85e78951f8f219:screen:0:1"
       }
     }
   ],
@@ -190,14 +237,14 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyPVfkCQxFlVYB9PGuA2Cr98foJf",
+    "responseId": "chatcmpl-Em1AboJjPGIGzMitE1nh1EFm7Qcp0",
     "result": {
       "supportedIndices": [
         1
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "La tutrice accepte de poursuivre le tutorat le vendredi après-midi, à condition d’utiliser la petite salle près du secrétariat.",
+      "summary": "Le prochain tutorat est fixé au vendredi après-midi, dans la petite salle près du secrétariat.",
       "options": [
         {
           "index": 0,
@@ -206,8 +253,8 @@
           "evidence": [
             "Le vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat."
           ],
-          "reason": "Cette option reprend bien le moment (« le vendredi après-midi ») mais se trompe sur le lieu : la tutrice pose comme condition d’utiliser « la petite salle près du secrétariat », et non la salle habituelle. Quelqu’un qui écoute trop vite peut ne retenir que le changement de jour et croire que le lieu reste le même.",
-          "misunderstanding": "condition_change_ignored"
+          "reason": "La réponse 0 reprend bien le moment (« le vendredi après-midi ») mais se trompe sur le lieu : le tuteur précise qu’il faut utiliser « la petite salle près du secrétariat », et non « la salle habituelle ». Quelqu’un qui entend surtout le changement de jour et d’horaire peut retenir seulement « le vendredi après-midi » et supposer à tort que le lieu ne change pas.",
+          "misunderstanding": "location_confusion"
         },
         {
           "index": 1,
@@ -216,7 +263,7 @@
           "evidence": [
             "Le vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat."
           ],
-          "reason": "La tutrice accepte précisément « le vendredi après-midi » à condition d’utiliser « la petite salle près du secrétariat ». Cette option reprend exactement ces deux éléments (jour/heure et lieu), c’est donc la seule entièrement conforme aux paroles enregistrées.",
+          "reason": "Le tuteur accepte la proposition de se voir le vendredi en précisant : « Le vendredi après-midi » et ajoute la condition de lieu : « si nous utilisons la petite salle près du secrétariat ». C’est exactement le contenu de la réponse 1.",
           "misunderstanding": null
         },
         {
@@ -226,7 +273,7 @@
           "evidence": [
             "Le vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat."
           ],
-          "reason": "Le lieu est correct (« la petite salle près du secrétariat »), mais l’option parle du « vendredi matin » alors que la tutrice dit clairement « le vendredi après-midi ». On peut se tromper en retenant seulement le vendredi et le changement de salle, sans faire attention au moment de la journée.",
+          "reason": "Le jour et le lieu correspondent presque : on parle bien du vendredi et de « la petite salle près du secrétariat ». Mais le tuteur précise « l’après-midi », alors que la réponse 2 parle du vendredi matin. Un auditeur distrait peut retenir « vendredi » et « petite salle » en oubliant ou en inversant « l’après-midi ».",
           "misunderstanding": "time_confusion"
         },
         {
@@ -237,29 +284,29 @@
             "Je peux encore vous accompagner en mathématiques le mardi, mais je ne serai plus disponible le jeudi.",
             "Le vendredi après-midi, oui, si nous utilisons la petite salle près du secrétariat."
           ],
-          "reason": "Cette option propose le jeudi après-midi, alors que la tutrice annonce qu’elle « ne sera plus disponible le jeudi » et accepte finalement le « vendredi après-midi ». Un auditeur distrait pourrait confondre jeudi et vendredi ou ne pas intégrer l’indisponibilité du jeudi, mais le jour indiqué dans l’option est en contradiction directe avec l’enregistrement.",
-          "misunderstanding": "day_confusion"
+          "reason": "Le tuteur dit clairement qu’il « ne sera plus disponible le jeudi », ce qui exclut cette journée, puis il accepte « le vendredi après-midi ». La réponse 3 reprend le bon lieu (« la petite salle près du secrétariat ») mais garde le mauvais jour, le jeudi. Un auditeur qui comprend mal la négation sur le jeudi peut croire que c’est le jour choisi au lieu d’être le jour refusé.",
+          "misunderstanding": "negation_confusion"
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 736,
-      "completion_tokens": 845,
-      "total_tokens": 1581,
+      "prompt_tokens": 733,
+      "completion_tokens": 1041,
+      "total_tokens": 1774,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 300,
+        "reasoning_tokens": 461,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.00937,
-    "inputHash": "2c59da6007a749f449571e125e2ea1ce16b4d1c554b4056a66b88077a55bd8c4",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:initial:ground:0"
+    "costUsd": 0.01132625,
+    "inputHash": "bbf12e2f7208178b38e78937fd50891e3dd6aa24b76234ab2ae6d0362c31f70d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:11:6103f288fb85e78951f8f219:ground:0"
   },
   "feedback": null
 }

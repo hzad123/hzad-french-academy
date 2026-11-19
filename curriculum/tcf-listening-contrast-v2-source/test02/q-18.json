@@ -2,7 +2,7 @@
   "question": {
     "number": 18,
     "kind": "telephone",
-    "question": "Que précise la cliente à propos du point relais proposé ?",
+    "question": "Que dit la cliente au sujet de l’emplacement du point relais proposé ?",
     "options": [
       "Il est dans la même rue que son entreprise mais un peu plus loin.",
       "Il est situé juste à côté de chez elle.",
@@ -10,8 +10,8 @@
       "Il se trouve à quelques minutes de son bureau."
     ],
     "correct": "D",
-    "explanation": "Réponse D : La cliente précise explicitement que le point relais «est à cinq minutes de [son] bureau», ce qui correspond à l’idée qu’il se trouve à quelques minutes de son bureau. A : La cliente indique seulement la distance temporelle par rapport à son bureau («à cinq minutes»), sans dire que le point relais est dans la même rue ni qu’il est «un peu plus loin». Quelqu’un qui comprend vaguement pourrait associer «cinq minutes» à «un peu plus loin dans la même rue», mais l’enregistrement ne mentionne jamais la même rue ; on ne peut donc pas affirmer ce détail. B : L’échange oppose la livraison à domicile («je travaille toute la journée») à un point relais plus pratique. Un auditeur inattentif pourrait en déduire à tort que ce point relais est «juste à côté de chez elle», en confondant la solution pratique avec une proximité au domicile. Or la seule précision donnée est la proximité du bureau, pas du domicile. C : On pourrait mal interpréter le fait que le point relais soit proche du bureau comme s’il était «sur le chemin entre son domicile et son travail», en raisonnant que tout ce qui est proche du travail est forcément sur ce trajet. Cependant, l’enregistrement ne parle jamais du trajet ni de la position par rapport au domicile, seulement de la distance au bureau.",
-    "transcript": "Question 18.\nBonjour, je vous appelle pour mon colis. On me propose une livraison demain entre neuf heures et dix-huit heures, mais je travaille toute la journée.\nNous pouvons le déposer dans un point relais qui ferme à vingt heures. Cela vous conviendrait ?\nOui, c'est plus simple. Il est à cinq minutes de mon bureau.\nJe confirme le changement, vous recevrez un message.\nQue précise la cliente à propos du point relais proposé ?",
+    "explanation": "Réponse D : La phrase « Il est à cinq minutes de mon bureau » signifie clairement que le point relais se trouve à quelques minutes de son bureau, ce qui correspond exactement à l’option proposée. A : La cliente dit uniquement que le point relais est « à cinq minutes de [son] bureau », ce qui indique une proximité temporelle, pas une localisation exacte dans la même rue. L’option parle d’« dans la même rue que son entreprise mais un peu plus loin », détail qui n’est jamais mentionné. Un auditeur partiellement attentif pourrait assimiler « cinq minutes de mon bureau » à « même rue » par généralisation abusive de la proximité. B : La cliente se réfère explicitement à son bureau et non à son domicile : « Il est à cinq minutes de mon bureau. » Rien n’indique que le point relais soit « juste à côté de chez elle ». Quelqu’un qui retient seulement qu’on cherche une solution parce qu’elle travaille toute la journée pourrait imaginer à tort qu’on l’a rapproché de son domicile, d’où cette confusion. C : On apprend qu’elle travaille toute la journée et que le point relais est proche de son bureau (« à cinq minutes de mon bureau »), mais jamais qu’il se trouve « sur le chemin entre son domicile et son travail ». Cette idée de trajet domicile–travail n’est pas évoquée. Un auditeur peut extrapoler à partir du fait qu’elle parle de son travail et d’un point relais pratique, en imaginant à tort qu’il est sur son trajet.",
+    "transcript": "Question 18.\nBonjour, je vous appelle pour mon colis. On me propose une livraison demain entre neuf heures et dix-huit heures, mais je travaille toute la journée.\nNous pouvons le déposer dans un point relais qui ferme à vingt heures. Cela vous conviendrait ?\nOui, c'est plus simple. Il est à cinq minutes de mon bureau.\nJe confirme le changement, vous recevrez un message.\nQue dit la cliente au sujet de l’emplacement du point relais proposé ?",
     "segments": [
       {
         "voice": "female",
@@ -35,7 +35,7 @@
       },
       {
         "voice": "female",
-        "text": "Que précise la cliente à propos du point relais proposé ?"
+        "text": "Que dit la cliente au sujet de l’emplacement du point relais proposé ?"
       }
     ],
     "audio": "q-18.mp3",
@@ -43,112 +43,94 @@
     "slotSeconds": 52
   },
   "sourceHash": "f51450eeec8afa0d3541fe9568108e0c4f4b8d632d54ade94d39c97c98fcb4f9",
-  "contentHash": "d410c02593e6857bb127fae6e038dfbd6e578736f8c2406bb82246c8bbb1914b",
+  "contentHash": "1b27a6690b844d7ceec6aed513037aef9aab10d8d2b05ff1e64b4fa74292e367",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 1,
+  "rounds": 0,
   "pass": true,
-  "author": {
-    "stage": "author",
-    "policy": "listening-comprehension-qc-v2",
-    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-    "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyDNH9Tfr3ZeFiGYarMox9CBASyA",
-    "result": {
+  "author": null,
+  "blindEdit": {
+    "input": {
       "question": "Que précise la cliente à propos du point relais proposé ?",
       "choices": [
-        "Il se trouve à quelques minutes de son bureau.",
+        "Il est dans la même rue que son entreprise mais un peu plus loin.",
         "Il est situé juste à côté de chez elle.",
         "Il se trouve sur le chemin entre son domicile et son travail.",
-        "Il est dans la même rue que son entreprise mais un peu plus loin."
-      ],
-      "correctIndex": 0,
-      "explanation": "La cliente accepte le point relais en ajoutant : Il est à cinq minutes de mon bureau. Elle insiste donc sur sa proximité avec son lieu de travail, pas avec son domicile ni sur un trajet particulier.",
-      "design": "On teste ici une précision localisante donnée par la cliente à propos du point relais : la nature de sa position géographique par rapport à ses lieux de vie/travail. Les quatre choix décrivent tous un type de localisation plausible (près du bureau, près du domicile, sur le trajet domicile-travail, dans la même rue que l’entreprise). Sans l’enregistrement, les quatre interprétations sont également crédibles et répondent directement à la question. Le document permet de trancher car la cliente dit explicitement que le point relais est à cinq minutes de son bureau, ce qui fait de la proximité avec le bureau la seule réponse exacte.",
-      "distractorReasons": [
-        {
-          "index": 1,
-          "reason": "Cette option transpose la proximité mentionnée vers le domicile alors que la cliente parle de son bureau. Elle peut tenter car, dans beaucoup de situations, un point relais pratique est décrit comme étant près de chez soi, et l’appel commence par un problème d’horaire de livraison à domicile, ce qui fait penser à la maison.",
-          "operation": "scope_shift",
-          "anchors": [
-            "Il est à cinq minutes de mon bureau",
-            "je travaille toute la journée"
-          ]
-        },
-        {
-          "index": 2,
-          "reason": "Cette option transforme la simple proximité avec le bureau en localisation « sur le chemin » entre domicile et travail. C’est tentant car la cliente évoque explicitement sa journée de travail, ce qui peut faire imaginer un compromis lié au trajet quotidien, mais elle ne parle jamais du trajet ni de son domicile.",
-          "operation": "scope_shift",
-          "anchors": [
-            "mais je travaille toute la journée",
-            "Il est à cinq minutes de mon bureau"
-          ]
-        },
-        {
-          "index": 3,
-          "reason": "Cette option réinterprète la proximité comme une précision plus fine dans la même rue. C’est plausible dans la vie courante, où l’on décrit souvent un commerce par la rue de son entreprise, mais l’enregistrement ne mentionne ni la rue ni un « un peu plus loin », seulement une durée à pied par rapport au bureau.",
-          "operation": "scope_shift",
-          "anchors": [
-            "Il est à cinq minutes de mon bureau",
-            "Cela vous conviendrait ?"
-          ]
-        }
+        "Il se trouve à quelques minutes de son bureau."
       ]
     },
-    "usage": {
-      "prompt_tokens": 4489,
-      "completion_tokens": 1126,
-      "total_tokens": 5615,
-      "prompt_tokens_details": {
-        "cached_tokens": 1280,
-        "audio_tokens": 0
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em11rEJRaN5YVwmp7Y2P6ONXX5EiQ",
+      "result": {
+        "question": "Que dit la cliente au sujet de l’emplacement du point relais proposé ?",
+        "choices": [
+          "Il est dans la même rue que son entreprise mais un peu plus loin.",
+          "Il est situé juste à côté de chez elle.",
+          "Il se trouve sur le chemin entre son domicile et son travail.",
+          "Il se trouve à quelques minutes de son bureau."
+        ],
+        "notes": "Formulation de la question légèrement généralisée pour viser l’emplacement sans induire de préférence. Les quatre choix décrivent chacun une localisation différente par rapport au domicile ou au travail, avec un niveau de détail et de plausibilité comparable, sans qu’aucun ne paraisse naturellement plus avisé ou plus probable qu’un autre."
       },
-      "completion_tokens_details": {
-        "reasoning_tokens": 570,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
-      }
-    },
-    "costUsd": 0.01687125,
-    "inputHash": "f45893ee0609a3444431892a331948164b13fecbe0e2638e3ab794a60baefa7f",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:initial:author:0:0"
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 328,
+        "total_tokens": 978,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 173,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0040925,
+      "inputHash": "73221e8171951c512c0a0f2740e864fc130575b4d1d2c817e5d503e9b22a0e86",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
   },
+  "rejections": [],
   "blind": [
     {
       "order": [
-        2,
-        1,
         3,
-        0
+        2,
+        0,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyDa3kTAiJS7I6IdSXw5s1zqklCp",
+        "responseId": "chatcmpl-Em11vWQ2NjUCimYL66xQWdcKOMIUp",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une cliente appelle le service client d’un site de vente en ligne. L’agent lui propose un point relais pour la livraison. En regardant l’adresse, elle répond : \"Ah oui, ce point relais se trouve sur le chemin entre mon domicile et mon travail\", pour indiquer que l’emplacement est pratique pour elle."
+              "context": "Au téléphone avec le service client, on lui propose un point relais. Elle répond : « Ah oui, je vois, il se trouve à quelques minutes de mon bureau, ça va. » Cela répond directement à la question sur ce qu’elle dit de l’emplacement."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’un appel avec un service de livraison, on propose à la cliente un point relais. En vérifiant sur une carte, elle dit : \"Ce point relais est situé juste à côté de chez moi\", pour souligner qu’il est très proche de son domicile."
+              "context": "En choisissant un lieu de retrait pour un colis, la conseillère propose un point relais, et la cliente dit : « C’est parfait, il se trouve sur le chemin entre mon domicile et mon travail. » Elle décrit précisément la situation géographique du point relais."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Au téléphone avec le service client, la cliente se voit proposer un point relais près de son lieu de travail. Elle précise alors : \"Il se trouve à quelques minutes de mon bureau\", pour expliquer qu’elle pourra facilement s’y rendre pendant sa pause."
+              "context": "Lors d’un échange avec un conseiller, on lui suggère un point relais. Elle précise : « Oui, je connais, il est dans la même rue que mon entreprise mais un peu plus loin. » Elle caractérise l’emplacement par rapport à son entreprise."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Une cliente discute avec un conseiller pour modifier le lieu de livraison d’un colis. Celui-ci propose un point relais. Après avoir vérifié l’adresse, elle précise : \"Il est dans la même rue que mon entreprise mais un peu plus loin\", afin de décrire plus précisément la localisation par rapport à son travail."
+              "context": "En appelant le service de livraison, on lui indique un point relais. Elle réagit : « Ah, parfait, il est situé juste à côté de chez moi. » Cela décrit l’emplacement du point relais par rapport à son domicile."
             }
           ],
           "cues": [],
@@ -160,62 +142,62 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Toutes les réponses décrivent de façon naturelle la localisation d’un point relais par rapport au domicile ou au travail de la cliente et pourraient aisément être entendues dans un enregistrement correspondant. Aucune formulation ne présente d’avantage wording évident, de nuance particulière ou de portée clairement privilégiée par rapport aux autres, ce qui laisse une forte incertitude. Faute d’indice concret dans l’énoncé, la clé ne peut être déduite de manière fiable et le choix de la réponse 0 reste arbitraire malgré des probabilités réparties uniformément."
+          "reason": "Toutes les réponses décrivent de manière naturelle et grammaticale l’emplacement d’un point relais du point de vue de la cliente, sans indice textuel clair permettant de dégager une option comme intentionnelle. Faute de tout contexte audio, l’incertitude reste totale et la probabilité est répartie uniformément."
         },
         "usage": {
-          "prompt_tokens": 614,
-          "completion_tokens": 612,
-          "total_tokens": 1226,
+          "prompt_tokens": 618,
+          "completion_tokens": 451,
+          "total_tokens": 1069,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 168,
+            "reasoning_tokens": 70,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0068875,
-        "inputHash": "97f92cde19699dd4505552010052a57d40a1a3f78b2c31301f314d6074e8405d",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:initial:screen:1:0"
+        "costUsd": 0.0052825,
+        "inputHash": "e91ae5f2695fae2144371609566cd44450762b12f35357e1a3c92f8fdbe31214",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:6103f288fb85e78951f8f219:screen:0:0"
       }
     },
     {
       "order": [
+        0,
         3,
         1,
-        2,
-        0
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyDhc7GnFLZNBkVJS0uOtPLUZU0O",
+        "responseId": "chatcmpl-Em121NNPpvMtyIEkh5oo1qf8RGcAu",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Au téléphone avec le service client d’un site de vente en ligne, la conseillère propose un point relais pour la livraison. La cliente vérifie l’adresse sur une carte et répond : « Ah oui, ce point relais se trouve à quelques minutes de mon bureau, c’est pratique. »"
+              "context": "Au téléphone avec le service client d’un site de vente en ligne, la cliente signale que le point relais proposé n’est pas trop gênant car il est dans la même rue que son entreprise, mais un peu plus loin, ce qui décrit précisément l’emplacement par rapport à son lieu de travail."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "En choisissant un mode de livraison avec un conseiller, la cliente s’aperçoit que le point relais suggéré est très proche de chez elle et dit : « Celui-là est situé juste à côté de chez moi, ce serait l’idéal. »"
+              "context": "La cliente discute avec un conseiller pour choisir un point relais et précise que celui proposé est pratique car il se trouve à quelques minutes de son bureau, en soulignant le faible temps de trajet depuis son lieu de travail."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Lors d’un appel au service client, la cliente explique ses contraintes de déplacement. Quand l’agent lui propose un point relais, elle répond : « Oui, ce point relais se trouve sur le chemin entre mon domicile et mon travail, ce sera facile d’y passer. »"
+              "context": "En appelant le service client pour modifier un lieu de livraison, la cliente indique que le point relais suggéré lui convient très bien puisqu’il est situé juste à côté de chez elle, insistant sur la proximité immédiate avec son domicile."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "La cliente et le conseiller regardent ensemble les points relais disponibles sur une carte. En voyant la proposition, la cliente dit : « Il est dans la même rue que mon entreprise mais un peu plus loin, donc je peux y aller après le travail. »"
+              "context": "La cliente échange avec un opérateur à propos de la livraison de son colis et explique que le point relais proposé est pratique parce qu’il se trouve sur le chemin entre son domicile et son travail, ce qui lui permet d’y passer facilement en allant ou en revenant du bureau."
             }
           ],
           "cues": [],
@@ -227,26 +209,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Toutes les options décrivent de manière naturelle la localisation d’un point relais par rapport au domicile ou au travail de la cliente et pourraient chacune être la précision donnée dans un enregistrement ordinaire. Aucune différence nette de formulation ou de portée ne favorise clairement une réponse plutôt qu’une autre, donc la clé reste très incertaine et le choix du numéro 0 est arbitraire."
+          "reason": "Les quatre réponses décrivent de façon plausible et ordinaire l’emplacement d’un point relais par rapport au domicile ou au travail de la cliente, sans qu’aucune ne bénéficie d’un avantage rédactionnel, grammatical ou de portée nettement supérieur ; en l’absence de tout indice supplémentaire provenant de l’enregistrement, il est impossible de distinguer de manière fiable l’option visée."
         },
         "usage": {
-          "prompt_tokens": 614,
-          "completion_tokens": 483,
-          "total_tokens": 1097,
+          "prompt_tokens": 618,
+          "completion_tokens": 471,
+          "total_tokens": 1089,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 91,
+            "reasoning_tokens": 89,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0055975,
-        "inputHash": "7537805229ad00fbb89f3dc8fb07c6b96a415311c30d9f8bb41d668930643879",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:initial:screen:1:1"
+        "costUsd": 0.0054825,
+        "inputHash": "19effde343e77f900ba177185ea9ce9ff5bc66db32bad5cb3751a2508b709045",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:6103f288fb85e78951f8f219:screen:0:1"
       }
     }
   ],
@@ -255,14 +237,14 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyDmVth7zfG0IKrMiQ0f55SAzoJv",
+    "responseId": "chatcmpl-Em128S8fNfqsTUncLKfw5Bn3oDYEp",
     "result": {
       "supportedIndices": [
         3
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "La cliente précise que le point relais est à quelques minutes de son bureau.",
+      "summary": "La cliente précise que le point relais est situé à quelques minutes de son bureau, sans mentionner son domicile ni un trajet particulier.",
       "options": [
         {
           "index": 0,
@@ -271,29 +253,29 @@
           "evidence": [
             "Il est à cinq minutes de mon bureau."
           ],
-          "reason": "La cliente indique seulement la distance temporelle par rapport à son bureau («à cinq minutes»), sans dire que le point relais est dans la même rue ni qu’il est «un peu plus loin». Quelqu’un qui comprend vaguement pourrait associer «cinq minutes» à «un peu plus loin dans la même rue», mais l’enregistrement ne mentionne jamais la même rue ; on ne peut donc pas affirmer ce détail.",
-          "misunderstanding": "location_inference"
+          "reason": "La cliente dit uniquement que le point relais est « à cinq minutes de [son] bureau », ce qui indique une proximité temporelle, pas une localisation exacte dans la même rue. L’option parle d’« dans la même rue que son entreprise mais un peu plus loin », détail qui n’est jamais mentionné. Un auditeur partiellement attentif pourrait assimiler « cinq minutes de mon bureau » à « même rue » par généralisation abusive de la proximité.",
+          "misunderstanding": "overgeneralization"
         },
         {
           "index": 1,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "On me propose une livraison demain entre neuf heures et dix-huit heures, mais je travaille toute la journée.\nNous pouvons le déposer dans un point relais",
             "Il est à cinq minutes de mon bureau."
           ],
-          "reason": "L’échange oppose la livraison à domicile («je travaille toute la journée») à un point relais plus pratique. Un auditeur inattentif pourrait en déduire à tort que ce point relais est «juste à côté de chez elle», en confondant la solution pratique avec une proximité au domicile. Or la seule précision donnée est la proximité du bureau, pas du domicile.",
-          "misunderstanding": "confusion_domicile_travail"
+          "reason": "La cliente se réfère explicitement à son bureau et non à son domicile : « Il est à cinq minutes de mon bureau. » Rien n’indique que le point relais soit « juste à côté de chez elle ». Quelqu’un qui retient seulement qu’on cherche une solution parce qu’elle travaille toute la journée pourrait imaginer à tort qu’on l’a rapproché de son domicile, d’où cette confusion.",
+          "misunderstanding": "world_knowledge_assumption"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
+            "Je travaille toute la journée.",
             "Il est à cinq minutes de mon bureau."
           ],
-          "reason": "On pourrait mal interpréter le fait que le point relais soit proche du bureau comme s’il était «sur le chemin entre son domicile et son travail», en raisonnant que tout ce qui est proche du travail est forcément sur ce trajet. Cependant, l’enregistrement ne parle jamais du trajet ni de la position par rapport au domicile, seulement de la distance au bureau.",
-          "misunderstanding": "overgeneralization_travel_route"
+          "reason": "On apprend qu’elle travaille toute la journée et que le point relais est proche de son bureau (« à cinq minutes de mon bureau »), mais jamais qu’il se trouve « sur le chemin entre son domicile et son travail ». Cette idée de trajet domicile–travail n’est pas évoquée. Un auditeur peut extrapoler à partir du fait qu’elle parle de son travail et d’un point relais pratique, en imaginant à tort qu’il est sur son trajet.",
+          "misunderstanding": "inference_beyond_recording"
         },
         {
           "index": 3,
@@ -302,29 +284,29 @@
           "evidence": [
             "Il est à cinq minutes de mon bureau."
           ],
-          "reason": "La cliente précise explicitement que le point relais «est à cinq minutes de [son] bureau», ce qui correspond à l’idée qu’il se trouve à quelques minutes de son bureau.",
+          "reason": "La phrase « Il est à cinq minutes de mon bureau » signifie clairement que le point relais se trouve à quelques minutes de son bureau, ce qui correspond exactement à l’option proposée.",
           "misunderstanding": null
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 734,
-      "completion_tokens": 753,
-      "total_tokens": 1487,
+      "prompt_tokens": 738,
+      "completion_tokens": 864,
+      "total_tokens": 1602,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 230,
+        "reasoning_tokens": 325,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.0084475,
-    "inputHash": "9e6bee7b6011463367c774b6bd0f9f6973948c086ca9af1ebeee24acc2e0db1a",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:initial:ground:1"
+    "costUsd": 0.0095625,
+    "inputHash": "f7dcadab537a3d70e2bbe40c65afc7938e694f75c4e6cf660285dca628665038",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:17:6103f288fb85e78951f8f219:ground:0"
   },
   "feedback": null,
   "imageHash": null,

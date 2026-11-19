@@ -2,7 +2,7 @@
   "question": {
     "number": 14,
     "kind": "dialogue",
-    "question": "Que propose Paul de préparer avec ce qu’ils ont à la maison ?",
+    "question": "Quel plat Paul propose-t-il de préparer avec ce qu’ils ont déjà à la maison ?",
     "options": [
       "Une soupe.",
       "Une salade.",
@@ -10,8 +10,8 @@
       "Des pâtes."
     ],
     "correct": "A",
-    "transcript": "Question 14.\nPaul, je n'ai pas eu le temps de faire les courses. Il n'y a plus de pain.\nCe n'est pas grave. On a des légumes et des pommes de terre. Je peux préparer une soupe.\nBonne idée, je vais mettre la table.\nQue propose Paul de préparer avec ce qu’ils ont à la maison ?",
-    "explanation": "Réponse A : Paul dit explicitement « Je peux préparer une soupe. » juste après avoir listé ce qu’ils ont à la maison (légumes et pommes de terre). C’est la seule préparation qu’il propose. B : Un auditeur qui entend « On a des légumes » peut associer spontanément les légumes à une salade. Cependant Paul précise immédiatement le plat qu’il va faire : « Je peux préparer une soupe. » Il ne parle jamais de salade, donc cette interprétation ne correspond pas à la proposition réelle. C : Comme la femme annonce « Il n'y a plus de pain », on peut penser au type de plat qui demande du pain, par exemple un sandwich. Mais précisément, l’absence de pain rend le sandwich impossible, et Paul propose autre chose : « Je peux préparer une soupe. » Il ne suggère jamais de sandwich. D : Quelqu’un pourrait se dire que, puisqu’on parle d’un repas rapide à faire à la maison, des pâtes seraient logiques. Mais Paul ne mentionne pas de pâtes ; il cite seulement « des légumes et des pommes de terre » et conclut : « Je peux préparer une soupe. » Les pâtes ne font pas partie des ingrédients mentionnés ni de la proposition de Paul.",
+    "transcript": "Question 14.\nPaul, je n'ai pas eu le temps de faire les courses. Il n'y a plus de pain.\nCe n'est pas grave. On a des légumes et des pommes de terre. Je peux préparer une soupe.\nBonne idée, je vais mettre la table.\nQuel plat Paul propose-t-il de préparer avec ce qu’ils ont déjà à la maison ?",
+    "explanation": "Réponse A : Paul dit explicitement « Je peux préparer une soupe. » en réponse au manque de pain et en tenant compte de ce qu’ils ont déjà (« des légumes et des pommes de terre »). C’est exactement le plat qu’il propose de préparer. B : Quelqu’un qui entend « On a des légumes » pourrait penser à une salade, car les légumes sont souvent utilisés pour ça. Cependant, Paul précise ensuite le plat qu’il propose : « Je peux préparer une soupe. » Il ne parle jamais de salade, donc cette réponse ne correspond pas à sa proposition réelle. C : L’absence de pain peut faire penser à des sandwichs, donc un auditeur distrait pourrait associer le problème (« Il n’y a plus de pain. ») à l’idée de sandwich. Mais justement, parce qu’il n’y a plus de pain, Paul ne peut pas proposer un sandwich et il dit clairement : « Je peux préparer une soupe. » Il ne suggère jamais de sandwich. D : On pourrait imaginer qu’avec ce qu’ils ont à la maison, ils fassent des pâtes, car c’est un plat courant qu’on improvise sans courses. Un auditeur peu attentif pourrait raisonner ainsi sans écouter précisément la suite. Mais Paul énumère seulement « des légumes et des pommes de terre » et conclut : « Je peux préparer une soupe. » Il ne mentionne ni pâtes ni ingrédients associés (pâtes, sauce, etc.), donc cette réponse ne reflète pas ce qu’il propose.",
     "segments": [
       {
         "voice": "female",
@@ -31,21 +31,135 @@
       },
       {
         "voice": "female",
-        "text": "Que propose Paul de préparer avec ce qu’ils ont à la maison ?"
+        "text": "Quel plat Paul propose-t-il de préparer avec ce qu’ils ont déjà à la maison ?"
       }
     ],
     "audio": "q-14.mp3",
-    "audioSeconds": 18.939,
+    "audioSeconds": null,
     "slotSeconds": 39
   },
   "sourceHash": "233a4f0e51eb3e6d97724e21cce14da0f013c88c855660625185b148c44b6911",
-  "contentHash": "ffa7526ad8ab631290c0590722ff36fa53e3bf549fb7c935c87da881f97b10ee",
+  "contentHash": "4b9c09cd67b029e1478cb18430badca64e6e1d5de612fdb8332afbaf5bcb94b2",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 0,
   "pass": true,
   "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Que propose Paul de préparer avec ce qu’ils ont à la maison ?",
+      "choices": [
+        "Une soupe.",
+        "Une salade.",
+        "Un sandwich.",
+        "Des pâtes."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em0wbjy6oN0b5FfyGnZVHu8rcGmXq",
+      "result": {
+        "question": "Quel plat Paul propose-t-il de préparer avec ce qu’ils ont déjà à la maison ?",
+        "choices": [
+          "Une soupe.",
+          "Une salade.",
+          "Un sandwich.",
+          "Des pâtes."
+        ],
+        "notes": "Formulation harmonisée, tous les choix restent des plats simples faisables avec ce qu’on a chez soi, sans avantage évident pour l’un d’eux."
+      },
+      "usage": {
+        "prompt_tokens": 618,
+        "completion_tokens": 156,
+        "total_tokens": 774,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 68,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0023325,
+      "inputHash": "23f040f6564996a3a064b03d74dce92e432d3c144230850714b6e63f5ca91e9e",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [],
   "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0weuQNUTHYKec1EkYhrUlCygZyd",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux colocataires regardent ce qu’ils ont dans le frigo : quelques légumes, un bouillon en cube et des restes de poulet. Paul regarde et dit : « Avec ce qu’on a déjà à la maison, on peut faire une soupe. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un couple ouvre les placards : ils ont des pâtes, un peu de sauce tomate en bocal et du fromage râpé. Paul conclut : « On n’a pas besoin d’aller faire des courses, on peut préparer des pâtes avec ce qu’on a déjà à la maison. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Deux amis font l’inventaire du réfrigérateur : tomates, concombre, salade verte, un peu de maïs en boîte. Paul propose : « On a largement de quoi faire une salade avec ce qu’on a déjà à la maison. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Quelqu’un dit qu’il a du pain, du jambon, du fromage et un peu de salade au frigo. Paul répond : « Mais oui, on peut faire un sandwich avec ce qu’on a déjà à la maison. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions sont des plats simples et plausibles à préparer avec des ingrédients variés déjà présents à la maison, sans indice lexical ou structurel clair dans l’énoncé qui favorise une option particulière. Aucune différence de longueur, de registre ou de précision ne se détache, donc l’incertitude demeure élevée et les probabilités restent réparties de manière uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 586,
+          "completion_tokens": 432,
+          "total_tokens": 1018,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 49,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0050525,
+        "inputHash": "14d2c7d7fabe9a5445d1f9419066de8bf8deb3b12120e105494c01a2fed05add",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:6103f288fb85e78951f8f219:screen:0:0"
+      }
+    },
     {
       "order": [
         1,
@@ -58,95 +172,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky6YCVXIjaQDfxu6Qwo9DsjF6CGR",
+        "responseId": "chatcmpl-Em0wk3r43qK98aSvnOSDjhCyIAYzq",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Deux colocataires regardent ce qu’ils ont dans le frigo et les placards : quelques tomates, du concombre, un peu de fromage, de l’huile et du vinaigre. Paul dit alors : « On n’a pas grand-chose mais avec ce qu’on a à la maison, je peux préparer une salade. »"
+              "context": "Deux colocataires regardent ce qu’ils ont dans le frigo et les placards (quelques légumes, un peu de fromage, une vinaigrette). Paul dit : « On pourrait faire une salade avec ce qu’on a déjà à la maison. » La question porte alors sur le plat qu’il propose de préparer."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un couple a très faim mais ne veut pas sortir faire des courses. Ils regardent rapidement le pain, le jambon, le fromage et quelques crudités dans la cuisine. Paul conclut : « Bon, avec ce qu’on a à la maison, je peux préparer un sandwich. »"
+              "context": "Un couple rentre tard, ouvre le frigo et voit qu’il reste du pain, du jambon et du fromage. Paul conclut : « On n’a pas grand-chose, mais on peut toujours se faire un sandwich avec ce qu’on a déjà à la maison. » La question demande quel plat il propose."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "En rentrant du travail, deux amis ouvrent leurs placards : ils trouvent des pâtes, un peu de sauce tomate et du fromage râpé. Paul dit : « C’est pas la peine d’aller au resto, avec ce qu’on a à la maison, je peux préparer des pâtes. »"
+              "context": "Des amis discutent au téléphone de ce qu’ils vont manger sans aller faire de courses. En regardant dans le placard, Paul remarque qu’il reste des pâtes et de la sauce tomate et dit : « C’est bon, on a de quoi faire des pâtes avec ce qu’on a déjà à la maison. » La question demande quel plat il suggère."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Il fait froid dehors et le groupe ne veut pas ressortir faire des courses. Ils ont des légumes, un bouillon cube et quelques épices. Paul propose : « Avec ce qu’on a à la maison, je peux préparer une soupe. »"
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
-          ],
-          "guess": 2,
-          "reason": "Les quatre préparations sont également compatibles avec l’idée de cuisiner avec les ingrédients déjà disponibles à la maison, sans indice grammatical ou stylistique clair pour favoriser une option, donc choix fait sous forte incertitude avec probabilité uniforme."
-        },
-        "usage": {
-          "prompt_tokens": 582,
-          "completion_tokens": 485,
-          "total_tokens": 1067,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 106,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.0055775,
-        "inputHash": "6e7cdc17673c98a9862ae9a0e73fc3d0abe6456c605c0466595284b848dbd908",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:initial:screen:0:0"
-      }
-    },
-    {
-      "order": [
-        1,
-        2,
-        0,
-        3
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky6eFwbSyxnTOOCIBMTIaO3zpKg7",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Deux amis ont peu d’ingrédients chez eux (quelques légumes, un peu de fromage, de l’huile). L’un dit qu’ils n’ont pas grand-chose; Paul répond qu’avec ce qu’ils ont à la maison, il peut préparer une salade."
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Un couple a seulement du pain, du fromage et du jambon au frigo. Ils parlent de ce qu’ils peuvent faire sans aller au supermarché, et Paul propose de préparer un sandwich avec ce qu’ils ont à la maison."
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Des colocataires rentrent tard, il fait froid dehors et ils discutent de ce qu’ils peuvent cuisiner avec les restes : quelques légumes, un bouillon en cube. Paul propose de préparer une soupe avec ce qu’ils ont à la maison."
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Une famille regarde dans les placards et trouve des pâtes et un peu de sauce tomate. Ils n’ont pas envie de sortir faire des courses, et Paul propose de préparer des pâtes avec ce qu’ils ont à la maison."
+              "context": "Une famille veut utiliser des légumes qui commencent à faner. Paul regarde les carottes, les pommes de terre et les oignons et propose : « On pourrait faire une soupe avec ce qu’on a déjà à la maison. » La question interroge sur ce plat proposé."
             }
           ],
           "cues": [],
@@ -158,26 +205,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre plats sont des réponses naturelles et directes à la question, sans indice textuel permettant de privilégier l’un d’eux. En l’absence de tout enregistrement ou contexte supplémentaire, il n’y a pas de signe objectif qu’une option soit favorisée; la clé supposée est donc hautement incertaine et le choix 0 n’est qu’un pari arbitraire."
+          "reason": "Les quatre plats sont simples, typiques de ce qu’on peut improviser avec des ingrédients courants déjà à la maison, et la question ne donne aucun indice lexical ou contextuel pour en privilégier un. Aucune option ne présente d’avantage rédactionnel ou de portée évidente, d’où une incertitude élevée et une répartition uniforme malgré l’obligation de choisir un index de réponse."
         },
         "usage": {
-          "prompt_tokens": 582,
-          "completion_tokens": 447,
-          "total_tokens": 1029,
+          "prompt_tokens": 586,
+          "completion_tokens": 511,
+          "total_tokens": 1097,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 72,
+            "reasoning_tokens": 74,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0051975,
-        "inputHash": "24cd519ad1d521e710e1d09400a52e379aa0dfd4adba5ff063bb3b2c2ba9947f",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:initial:screen:0:1"
+        "costUsd": 0.0058425,
+        "inputHash": "3b587e965465d60d553f2a35fd66c302d3a227b6513a9a7a782812a5e9c1f937",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:6103f288fb85e78951f8f219:screen:0:1"
       }
     }
   ],
@@ -186,14 +233,14 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Eky6jJ60UbdxzY1jVROAzs5GLJgxd",
+    "responseId": "chatcmpl-Em0wr867Wd0nSpsvbN3so6xiPbrj6",
     "result": {
       "supportedIndices": [
         0
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "Paul propose clairement de préparer une soupe avec ce qu’ils ont à la maison.",
+      "summary": "Paul propose clairement de préparer une soupe avec les légumes et les pommes de terre qu’ils ont à la maison.",
       "options": [
         {
           "index": 0,
@@ -202,7 +249,7 @@
           "evidence": [
             "On a des légumes et des pommes de terre. Je peux préparer une soupe."
           ],
-          "reason": "Paul dit explicitement « Je peux préparer une soupe. » juste après avoir listé ce qu’ils ont à la maison (légumes et pommes de terre). C’est la seule préparation qu’il propose.",
+          "reason": "Paul dit explicitement « Je peux préparer une soupe. » en réponse au manque de pain et en tenant compte de ce qu’ils ont déjà (« des légumes et des pommes de terre »). C’est exactement le plat qu’il propose de préparer.",
           "misunderstanding": null
         },
         {
@@ -210,51 +257,52 @@
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "On a des légumes et des pommes de terre. Je peux préparer une soupe."
+            "On a des légumes et des pommes de terre."
           ],
-          "reason": "Un auditeur qui entend « On a des légumes » peut associer spontanément les légumes à une salade. Cependant Paul précise immédiatement le plat qu’il va faire : « Je peux préparer une soupe. » Il ne parle jamais de salade, donc cette interprétation ne correspond pas à la proposition réelle.",
-          "misunderstanding": "association_lexicale_legumes_salade"
+          "reason": "Quelqu’un qui entend « On a des légumes » pourrait penser à une salade, car les légumes sont souvent utilisés pour ça. Cependant, Paul précise ensuite le plat qu’il propose : « Je peux préparer une soupe. » Il ne parle jamais de salade, donc cette réponse ne correspond pas à sa proposition réelle.",
+          "misunderstanding": "association_stereotype"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Il n'y a plus de pain.\nCe n'est pas grave. On a des légumes et des pommes de terre. Je peux préparer une soupe."
+            "Il n'y a plus de pain.\nCe n'est pas grave."
           ],
-          "reason": "Comme la femme annonce « Il n'y a plus de pain », on peut penser au type de plat qui demande du pain, par exemple un sandwich. Mais précisément, l’absence de pain rend le sandwich impossible, et Paul propose autre chose : « Je peux préparer une soupe. » Il ne suggère jamais de sandwich.",
-          "misunderstanding": "focalisation_sur_le_manque_de_pain"
+          "reason": "L’absence de pain peut faire penser à des sandwichs, donc un auditeur distrait pourrait associer le problème (« Il n’y a plus de pain. ») à l’idée de sandwich. Mais justement, parce qu’il n’y a plus de pain, Paul ne peut pas proposer un sandwich et il dit clairement : « Je peux préparer une soupe. » Il ne suggère jamais de sandwich.",
+          "misunderstanding": "ignoring_constraining_detail"
         },
         {
           "index": 3,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "On a des légumes et des pommes de terre. Je peux préparer une soupe."
+            "Je n'ai pas eu le temps de faire les courses.",
+            "On a des légumes et des pommes de terre."
           ],
-          "reason": "Quelqu’un pourrait se dire que, puisqu’on parle d’un repas rapide à faire à la maison, des pâtes seraient logiques. Mais Paul ne mentionne pas de pâtes ; il cite seulement « des légumes et des pommes de terre » et conclut : « Je peux préparer une soupe. » Les pâtes ne font pas partie des ingrédients mentionnés ni de la proposition de Paul.",
-          "misunderstanding": "inference_habitude_repas_rapide"
+          "reason": "On pourrait imaginer qu’avec ce qu’ils ont à la maison, ils fassent des pâtes, car c’est un plat courant qu’on improvise sans courses. Un auditeur peu attentif pourrait raisonner ainsi sans écouter précisément la suite. Mais Paul énumère seulement « des légumes et des pommes de terre » et conclut : « Je peux préparer une soupe. » Il ne mentionne ni pâtes ni ingrédients associés (pâtes, sauce, etc.), donc cette réponse ne reflète pas ce qu’il propose.",
+          "misunderstanding": "inference_beyond_text"
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 675,
-      "completion_tokens": 825,
-      "total_tokens": 1500,
+      "prompt_tokens": 679,
+      "completion_tokens": 628,
+      "total_tokens": 1307,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 307,
+        "reasoning_tokens": 76,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.00909375,
-    "inputHash": "41cdc80c2046d55a658f5e303e1143a5640626912b21fdd6b862a78c3648b0ee",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:initial:ground:0"
+    "costUsd": 0.00712875,
+    "inputHash": "5849afa76cea51f8d56d103bcf696b17cf3bcf08f33d147be0e0fc1e1dd0af9b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:13:6103f288fb85e78951f8f219:ground:0"
   },
   "feedback": null
 }

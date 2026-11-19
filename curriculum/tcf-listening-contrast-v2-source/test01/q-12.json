@@ -2,16 +2,16 @@
   "question": {
     "number": 12,
     "kind": "dialogue",
-    "question": "Que dit la cliente à propos du paiement de la lampe ?",
+    "question": "À quoi correspond le numéro que communique la cliente ?",
     "options": [
-      "Qu’elle compte utiliser un bon d’achat pour la payer.",
-      "Qu’elle doit encore payer la lampe en magasin.",
-      "Qu’elle n’a versé qu’un acompte sur internet.",
-      "Qu’elle a déjà réglé la lampe en ligne."
+      "À la livraison prévue.",
+      "À sa facture précédente.",
+      "À sa carte de fidélité.",
+      "À la commande de la lampe."
     ],
     "correct": "D",
-    "transcript": "Question 12.\nBonjour, j'ai reçu votre message pour ma lampe.\nVous venez la chercher ? Elle est prête, au comptoir du fond.\nParfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande.\nQue dit la cliente à propos du paiement de la lampe ?",
-    "explanation": "Réponse D : La cliente dit explicitement qu’elle a déjà réglé la lampe sur internet : « Je l’ai déjà payée en ligne. ». Cela correspond exactement à l’option indiquant qu’elle a déjà payé la lampe en ligne. A : La cliente indique qu’elle a déjà payé la lampe en ligne, sans aucune mention de bon d’achat ou de réduction spécifique. Un bon d’achat serait un moyen de paiement particulier, mais rien dans l’enregistrement ne renvoie à cela. B : Dire qu’elle doit encore payer en magasin contredit directement « Je l’ai déjà payée en ligne. ». Quelqu’un qui comprend seulement qu’elle vient « la chercher » pourrait croire qu’il reste un paiement à faire sur place, mais la phrase sur le paiement en ligne indique le contraire. C : Un acompte impliquerait qu’une partie du prix reste à régler, or elle affirme qu’elle a « déjà payée » la lampe, ce qui suggère la totalité du paiement. Une personne peu sûre du vocabulaire pourrait confondre un paiement en ligne avec une réservation ou un acompte, mais rien n’indique qu’il ne s’agit que d’une partie du montant.",
+    "transcript": "Question 12.\nBonjour, j'ai reçu votre message pour ma lampe.\nVous venez la chercher ? Elle est prête, au comptoir du fond.\nParfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande.\nÀ quoi correspond le numéro que communique la cliente ?",
+    "explanation": "Réponse D : La cliente précise sans ambiguïté la nature du numéro : « Voici le numéro de ma commande. » Ce numéro se rapporte donc directement à la commande de la lampe, et non à une livraison, une facture ou une carte de fidélité. A : On parle bien de venir chercher la lampe et du fait qu’elle est prête, ce qui pourrait faire penser à un suivi de livraison ou de mise à disposition. Cependant, la cliente précise ensuite explicitement : « Voici le numéro de ma commande. » Elle ne parle jamais de « livraison prévue » ni de date ou créneau de livraison, donc le numéro ne peut pas correspondre à une livraison prévue. B : Comme la cliente dit qu’elle a « déjà payée en ligne », un auditeur distrait peut associer immédiatement cela à une facture et imaginer qu’elle donne un numéro de facture. Pourtant, elle précise clairement : « Voici le numéro de ma commande. » Le lien est avec la commande, pas avec une facture antérieure ou « précédente ». Aucun terme de « facture » n’est prononcé. C : Dans les magasins, on demande parfois une carte de fidélité, ce qui peut amener un auditeur à projeter ce schéma habituel et croire que le numéro est celui de la carte de fidélité. Mais ici, la seule désignation explicite est : « Voici le numéro de ma commande. » Rien n’évoque une carte, une fidélité ou des points, donc cette interprétation ne correspond pas à ce qui est dit.",
     "segments": [
       {
         "voice": "female",
@@ -31,7 +31,7 @@
       },
       {
         "voice": "female",
-        "text": "Que dit la cliente à propos du paiement de la lampe ?"
+        "text": "À quoi correspond le numéro que communique la cliente ?"
       }
     ],
     "audio": "q-12.mp3",
@@ -39,7 +39,7 @@
     "slotSeconds": 38
   },
   "sourceHash": "f9026957aecfdc53680e5aba28aa6ed40fe6ed907836864972b93b4eef6a2d49",
-  "contentHash": "d3bc19c31d3b65ff09c975f5a596141d5144974d4bac6120cb8c98db4c267e4c",
+  "contentHash": "4ade0e906c68faa9187d6427bc4b3eb522391938f6b3ac94e0305ce982bf5237",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 1,
@@ -49,73 +49,180 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Eky6fHhN6ZoJF4Bxj1bkFwyt1tfvc",
+    "responseId": "chatcmpl-Em0xDoZf7l9IhzTfnHEpyn4tcoh6o",
     "result": {
-      "question": "Que dit la cliente à propos du paiement de la lampe ?",
+      "question": "À quoi correspond le numéro que donne la cliente ?",
       "choices": [
-        "Qu’elle a déjà réglé la lampe en ligne.",
-        "Qu’elle doit encore payer la lampe en magasin.",
-        "Qu’elle n’a versé qu’un acompte sur internet.",
-        "Qu’elle compte utiliser un bon d’achat pour la payer."
+        "À la commande de la lampe.",
+        "À sa carte de fidélité.",
+        "À la livraison prévue.",
+        "À sa facture précédente."
       ],
       "correctIndex": 0,
-      "explanation": "La cliente dit explicitement : Je l'ai déjà payée en ligne. Elle indique donc que la lampe est entièrement réglée par paiement en ligne, et ne mentionne ni paiement restant en magasin, ni acompte, ni bon d’achat.",
-      "design": "Axis choisi : le statut/modalité précise du paiement de la lampe (entièrement payé en ligne, à payer en magasin, acompte en ligne, autre moyen comme bon d’achat). Les quatre options sont toutes des modalités réalistes de paiement dans ce type de situation (commande en ligne, retrait en magasin). Sans l’enregistrement, chacune répond directement à la question sur « ce qu’elle dit » du paiement et semble plausible. Seule l’écoute permet d’identifier que la cliente affirme avoir déjà tout payé en ligne, et non devoir payer en magasin, avoir versé un simple acompte, ou vouloir utiliser un bon d’achat.",
+      "explanation": "La cliente dit clairement Voici le numéro de ma commande, ce numéro identifie donc la commande de la lampe qu’elle vient chercher, déjà payée en ligne.",
+      "design": "On teste le référent précis du numéro donné par la cliente. Les quatre réponses proposent des types de numéros courants en magasin (commande, carte de fidélité, livraison, facture), tous plausibles sans le document. Seule l’écoute permet de lier explicitement ce numéro à la commande de la lampe, et non à un autre identifiant.",
       "distractorReasons": [
         {
           "index": 1,
-          "reason": "Cette option inverse le statut du paiement : au lieu d’être déjà effectué, il serait encore à faire en magasin. Elle est tentante car la cliente vient physiquement chercher la lampe au comptoir du fond, ce qui pourrait laisser croire qu’elle doit payer sur place, mais elle affirme au contraire que le paiement est déjà fait en ligne.",
-          "operation": "condition_transfer",
+          "reason": "Cette option attribue le numéro à un mauvais référent : une carte de fidélité. Dans un contexte de retrait de marchandise, un élève peut croire qu’on donne son numéro de client. Mais la cliente précise qu’il s’agit du numéro de sa commande, en lien direct avec la lampe à venir chercher.",
+          "operation": "role_swap",
           "anchors": [
-            "Vous venez la chercher ?",
-            "Je l'ai déjà payée en ligne."
+            "Bonjour, j'ai reçu votre message pour ma lampe.",
+            "Voici le numéro de ma commande."
           ]
         },
         {
           "index": 2,
-          "reason": "Cette option restreint abusivement la portée de l’affirmation de paiement en la comprenant comme un simple acompte. Elle est tentante parce que le contexte commande en ligne / retrait en magasin évoque souvent des paiements en deux temps, mais la cliente ne parle pas de reste à payer : elle dit qu’elle l’a déjà payée en ligne, sans limite ou fraction.",
-          "operation": "scope_shift",
+          "reason": "On pourrait croire qu’il s’agit d’un numéro de livraison, car une lampe achetée en ligne peut aussi être livrée. Pourtant, le vendeur parle de retrait sur place et situe l’objet dans le magasin, ce qui montre que le numéro sert à retrouver la commande à retirer, non une livraison future.",
+          "operation": "role_swap",
           "anchors": [
-            "Je l'ai déjà payée en ligne.",
-            "Vous venez la chercher ?"
+            "Vous venez la chercher ? Elle est prête, au comptoir du fond.",
+            "Voici le numéro de ma commande."
           ]
         },
         {
           "index": 3,
-          "reason": "Cette option attribue à tort un moyen de paiement particulier (bon d’achat) que la cliente ne mentionne jamais. Elle peut sembler plausible car dans un magasin, présenter un numéro de commande pourrait s’accompagner d’un bon d’achat, mais ici la seule information fournie est qu’elle a déjà payé en ligne et qu’elle donne le numéro de commande, pas qu’elle utilisera un bon d’achat.",
-          "operation": "proposal_attribution",
+          "reason": "Un élève peut confondre commande payée en ligne et facture, et penser que le numéro renvoie à une facture déjà émise. Mais la cliente enchaîne immédiatement le paiement en ligne et le numéro de commande, ce qui indique qu’il s’agit de l’identifiant de la commande en cours, pas d’une facture précédente.",
+          "operation": "role_swap",
           "anchors": [
-            "Je l'ai déjà payée en ligne.",
+            "Parfait. Je l'ai déjà payée en ligne.",
             "Voici le numéro de ma commande."
           ]
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 4272,
-      "completion_tokens": 833,
-      "total_tokens": 5105,
+      "prompt_tokens": 4336,
+      "completion_tokens": 1981,
+      "total_tokens": 6317,
       "prompt_tokens_details": {
         "cached_tokens": 1280,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 239,
+        "reasoning_tokens": 1505,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.01367,
-    "inputHash": "4d05a3020ac53ef7556f3f7d1ae03019fbac305b7f2dbfd1b43fb79eeead0a4c",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:author:0:0"
+    "costUsd": 0.02523,
+    "inputHash": "a1d9c2202fe36ae6076977c11248eac6d9cec48f7aaf63e3e00fb6b07b318bbb",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:6103f288fb85e78951f8f219:author:0:0"
   },
+  "blindEdit": {
+    "input": {
+      "question": "À quoi correspond le numéro que donne la cliente ?",
+      "choices": [
+        "À la livraison prévue.",
+        "À sa facture précédente.",
+        "À sa carte de fidélité.",
+        "À la commande de la lampe."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em0xkWVCqRyiOVEuQVX7jqwEYHJMP",
+      "result": {
+        "question": "À quoi correspond le numéro que communique la cliente ?",
+        "choices": [
+          "À la livraison prévue.",
+          "À sa facture précédente.",
+          "À sa carte de fidélité.",
+          "À la commande de la lampe."
+        ],
+        "notes": "Tous les choix désignent un type de référence chiffrée (livraison, facture, carte de fidélité, commande), répondant directement à la question sans indiquer lequel est plus vraisemblable avant écoute."
+      },
+      "usage": {
+        "prompt_tokens": 625,
+        "completion_tokens": 324,
+        "total_tokens": 949,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 219,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00402125,
+      "inputHash": "60a783c9ca0ac4d3dcbaa1fe3a1c947b657892e57e896c816816a4e86068bebf",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "d31885bb9c1bdb7edafe6faac4459f64240ea48ae599e13bb3f0600d66e9d956",
+      "feedback": {
+        "stage": "ground",
+        "assessment": {
+          "supportedIndices": [
+            3
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "summary": "La cliente précise qu’elle a déjà payé entièrement la lampe sur internet.",
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Je l'ai déjà payée en ligne."
+              ],
+              "reason": "La cliente parle seulement d’un paiement effectué en ligne, sans aucune mention de bon d’achat ou de réduction. Affirmer qu’elle souhaite payer avec un bon d’achat ajoute un moyen de paiement qui n’apparaît pas dans l’enregistrement.",
+              "misunderstanding": null
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je l'ai déjà payée en ligne."
+              ],
+              "reason": "Dire qu’elle devra régler la lampe en magasin contredit le fait qu’elle précise l’avoir « déjà payée en ligne ». Un auditeur qui n’entendrait que « commande » et la scène au comptoir pourrait supposer un paiement sur place, mais l’énoncé sur le paiement déjà effectué rend cette option incorrecte.",
+              "misunderstanding": "opposition_oubliee"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je l'ai déjà payée en ligne."
+              ],
+              "reason": "Elle indique que la lampe est déjà payée, ce qui suggère un paiement complet, et non « qu’un acompte ». Quelqu’un qui comprend seulement l’idée d’un paiement préalable pourrait imaginer qu’il ne s’agit que d’un acompte, mais rien dans l’enregistrement ne limite le paiement à une partie du prix.",
+              "misunderstanding": "quantite_mal_inferree"
+            },
+            {
+              "index": 3,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Je l'ai déjà payée en ligne."
+              ],
+              "reason": "En disant « Je l’ai déjà payée en ligne », la cliente précise qu’elle a déjà réglé la totalité de la lampe sur internet avant de venir la chercher. C’est exactement ce que décrit cette option.",
+              "misunderstanding": null
+            }
+          ]
+        },
+        "errors": [
+          "Distractor lacks a specific plausible misunderstanding at 0"
+        ]
+      }
+    }
+  ],
   "blind": [
     {
       "order": [
-        2,
         0,
         3,
+        2,
         1
       ],
       "receipt": {
@@ -123,28 +230,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky6v7fwm8ODKl0naC8abYFIDkF4D",
+        "responseId": "chatcmpl-Em0xpLZ2lKAYcMiN9NwiLYwWT6nNh",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un magasin de décoration, une cliente venue récupérer une lampe commandée en ligne explique à la caissière : « J’ai seulement versé un acompte sur internet, je dois payer le reste ici. » Elle répond ainsi à une question du type : « Que dit la cliente à propos du paiement de la lampe ? »"
+              "context": "Une cliente appelle un service de livraison d’un magasin de meubles pour savoir où en est son colis. L’employé lui demande le numéro indiqué sur le bon d’envoi afin de vérifier le suivi. Le numéro qu’elle donne correspond alors à la livraison prévue."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Une cliente discute avec un vendeur d’un achat de lampe et précise : « Je compte utiliser un bon d’achat pour la payer, je l’ai reçu suite à un retour. » Elle répond à la question portant sur ce qu’elle dit à propos du paiement."
+              "context": "Une cliente téléphone à un magasin de décoration au sujet d’une lampe qu’elle a achetée en ligne. Le vendeur lui demande le numéro de commande inscrit sur le mail de confirmation pour retrouver le dossier. Le numéro qu’elle communique correspond à la commande de la lampe."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un retrait de colis en magasin, la cliente explique au personnel : « Ne vous inquiétez pas, j’ai déjà réglé la lampe en ligne, c’était un paiement anticipé. » Cela répond directement à une demande sur ce qu’elle dit concernant le paiement."
+              "context": "Une cliente appelle le service client d’une grande enseigne pour cumuler des points ou vérifier un avantage. L’agent lui demande le numéro figurant sur sa carte de fidélité, qu’elle lit au téléphone. Le numéro correspond à sa carte de fidélité."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Une cliente regarde une lampe réservée en ligne mais non payée et dit au vendeur : « Je dois encore payer la lampe en magasin, je n’ai rien payé sur internet. » Cette réponse correspond à une question sur ce qu’elle dit à propos du paiement."
+              "context": "Une cliente contacte le service de facturation d’un fournisseur d’énergie pour une réclamation portant sur une somme déjà payée. On lui demande de communiquer le numéro indiqué en haut de sa dernière facture pour retrouver le dossier. Le numéro correspond à sa facture précédente."
             }
           ],
           "cues": [],
@@ -155,34 +262,34 @@
             0.25,
             0.25
           ],
-          "guess": 2,
-          "reason": "Les quatre réponses sont grammaticales, plausibles et répondent directement à la question sur le paiement, sans avantage formel net pour l’une d’elles. Sans accès à l’audio, il reste une forte incertitude ; le choix 2 est une simple meilleure hypothèse par défaut, sans indice décisif dans l’énoncé écrit."
+          "guess": 1,
+          "reason": "Les quatre options sont naturelles dans un échange téléphonique avec une cliente qui donne un numéro. Aucune différence nette de style, de longueur ou de formulation ne favorise clairement une réponse. On peut légèrement pencher vers la commande spécifique (« de la lampe ») comme scénario typique d’un appel en magasin, mais cette préférence reste très incertaine et ne repose pas sur un indice textuel fort."
         },
         "usage": {
-          "prompt_tokens": 613,
-          "completion_tokens": 504,
-          "total_tokens": 1117,
+          "prompt_tokens": 590,
+          "completion_tokens": 562,
+          "total_tokens": 1152,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 111,
+            "reasoning_tokens": 173,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00580625,
-        "inputHash": "a9e32333ac71f33455c4c1d373a9f528179d0a0a93c71a077d67150e9072aec8",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:screen:1:0"
+        "costUsd": 0.0063575,
+        "inputHash": "20adeb5bfbbf6024a3c29853f42f70bfd9987d378db2d3de2a1a5957f298e538",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:6103f288fb85e78951f8f219:screen:1:0"
       }
     },
     {
       "order": [
+        2,
         3,
         1,
-        2,
         0
       ],
       "receipt": {
@@ -190,28 +297,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Eky72E5ZIkPVxOwcd3tUdiqXOeqZ4",
+        "responseId": "chatcmpl-Em0xyvQ2bPvd3vb1ntXpQxDKBs8K3",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un magasin de décoration, la cliente vient récupérer une lampe qu’elle a commandée sur le site. Le vendeur lui demande comment elle souhaite régler et elle répond qu’elle a déjà réglé la lampe en ligne au moment de la commande."
+              "context": "Une cliente appelle un service client d’un magasin et on lui demande de donner son numéro de carte de fidélité pour retrouver son dossier ou appliquer une réduction. L’opératrice lui demande ensuite : « À quoi correspond le numéro que vous me communiquez ? » et la cliente précise que c’est son numéro de carte de fidélité."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "La cliente a réservé une lampe sur internet avec paiement en magasin. En la retirant, le vendeur lui demande si le paiement a déjà été fait et elle précise qu’elle doit encore payer la lampe en magasin."
+              "context": "Une cliente téléphone à un magasin de luminaires au sujet d’un problème avec une lampe commandée en ligne. Le conseiller lui demande un numéro pour retrouver le dossier, et elle donne un numéro. Pour être sûr, il demande : « À quoi correspond le numéro que vous me communiquez ? », et la cliente répond que c’est le numéro de la commande de la lampe."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Lors d’une commande en ligne avec acompte, la cliente a payé seulement une partie du prix de la lampe pour la réserver. En magasin, au moment de la livraison, elle explique au vendeur qu’elle n’a versé qu’un acompte sur internet et doit compléter le paiement."
+              "context": "Une cliente contacte un service de facturation pour discuter d’un trop-perçu ou d’un avoir. On lui demande de fournir un numéro, et elle lit le numéro qui figure sur un document. Le conseiller vérifie : « À quoi correspond le numéro que vous me communiquez ? », et elle explique que c’est le numéro de sa facture précédente."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "La cliente possède un bon d’achat offert précédemment par le magasin. En venant acheter une lampe, le vendeur lui demande comment elle souhaite régler et elle répond qu’elle compte utiliser un bon d’achat pour la payer."
+              "context": "Une cliente téléphone à un transporteur ou à un magasin pour suivre un colis. Elle mentionne un numéro que lui a été donné pour le suivi. L’agent de livraison lui demande : « À quoi correspond le numéro que vous me communiquez ? », et elle précise que c’est le numéro de la livraison prévue."
             }
           ],
           "cues": [],
@@ -223,26 +330,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Aucune option ne présente d’avantage rédactionnel, de précision ou de plausibilité contextuelle clairement supérieur aux autres ; sans accès à l’audio, l’incertitude reste élevée et la clé ne peut être inférée de façon fiable."
+          "reason": "Les quatre options répondent naturellement à la question sans problème de sens ni de grammaire, et rien dans le seul libellé de l’item ne favorise clairement l’une plutôt qu’une autre. Faute d’indice concret, le choix de la réponse reste très incertain et quasi arbitraire malgré une probabilité uniforme."
         },
         "usage": {
-          "prompt_tokens": 613,
-          "completion_tokens": 393,
-          "total_tokens": 1006,
+          "prompt_tokens": 590,
+          "completion_tokens": 631,
+          "total_tokens": 1221,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 59,
+            "reasoning_tokens": 187,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00469625,
-        "inputHash": "1c851cd7e15a4c67e34738bc20f7ffa91fa5f1f97b2254aa5af2325ceae619d3",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:screen:1:1"
+        "costUsd": 0.0070475,
+        "inputHash": "2ce5cb515598b8d7ff59ac9f8a093ec487920a75fd7e0756ef1db334ac5cb528",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:6103f288fb85e78951f8f219:screen:1:1"
       }
     }
   ],
@@ -251,75 +358,78 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Eky77HAvh1x0E7COqgUM85DgWFmmV",
+    "responseId": "chatcmpl-Em0y7s2D00OZkf5m6neqASivxmG8v",
     "result": {
       "supportedIndices": [
         3
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "La cliente précise clairement qu’elle a déjà réglé la lampe sur internet, donc elle ne doit plus la payer en magasin ni avec un bon ni par acompte.",
+      "summary": "Le numéro communiqué par la cliente correspond clairement au numéro de sa commande, qu’elle énonce explicitement.",
       "options": [
         {
           "index": 0,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je l'ai déjà payée en ligne."
+            "Vous venez la chercher ?",
+            "Elle est prête, au comptoir du fond."
           ],
-          "reason": "La cliente indique qu’elle a déjà payé la lampe en ligne, sans aucune mention de bon d’achat ou de réduction spécifique. Un bon d’achat serait un moyen de paiement particulier, mais rien dans l’enregistrement ne renvoie à cela.",
-          "misunderstanding": "inference_overreach"
+          "reason": "On parle bien de venir chercher la lampe et du fait qu’elle est prête, ce qui pourrait faire penser à un suivi de livraison ou de mise à disposition. Cependant, la cliente précise ensuite explicitement : « Voici le numéro de ma commande. » Elle ne parle jamais de « livraison prévue » ni de date ou créneau de livraison, donc le numéro ne peut pas correspondre à une livraison prévue.",
+          "misunderstanding": "referent_confusion"
         },
         {
           "index": 1,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je l'ai déjà payée en ligne."
+            "Je l'ai déjà payée en ligne.",
+            "Voici le numéro de ma commande."
           ],
-          "reason": "Dire qu’elle doit encore payer en magasin contredit directement « Je l’ai déjà payée en ligne. ». Quelqu’un qui comprend seulement qu’elle vient « la chercher » pourrait croire qu’il reste un paiement à faire sur place, mais la phrase sur le paiement en ligne indique le contraire.",
-          "misunderstanding": "partial_sentence_attention"
+          "reason": "Comme la cliente dit qu’elle a « déjà payée en ligne », un auditeur distrait peut associer immédiatement cela à une facture et imaginer qu’elle donne un numéro de facture. Pourtant, elle précise clairement : « Voici le numéro de ma commande. » Le lien est avec la commande, pas avec une facture antérieure ou « précédente ». Aucun terme de « facture » n’est prononcé.",
+          "misunderstanding": "lexical_confusion"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je l'ai déjà payée en ligne."
+            "Bonjour, j'ai reçu votre message pour ma lampe.",
+            "Voici le numéro de ma commande."
           ],
-          "reason": "Un acompte impliquerait qu’une partie du prix reste à régler, or elle affirme qu’elle a « déjà payée » la lampe, ce qui suggère la totalité du paiement. Une personne peu sûre du vocabulaire pourrait confondre un paiement en ligne avec une réservation ou un acompte, mais rien n’indique qu’il ne s’agit que d’une partie du montant.",
-          "misunderstanding": "concept_confusion"
+          "reason": "Dans les magasins, on demande parfois une carte de fidélité, ce qui peut amener un auditeur à projeter ce schéma habituel et croire que le numéro est celui de la carte de fidélité. Mais ici, la seule désignation explicite est : « Voici le numéro de ma commande. » Rien n’évoque une carte, une fidélité ou des points, donc cette interprétation ne correspond pas à ce qui est dit.",
+          "misunderstanding": "schema_projection"
         },
         {
           "index": 3,
           "supported": true,
           "plausibleMisunderstanding": false,
           "evidence": [
-            "Je l'ai déjà payée en ligne."
+            "Parfait. Je l'ai déjà payée en ligne. Voici le numéro de ma commande."
           ],
-          "reason": "La cliente dit explicitement qu’elle a déjà réglé la lampe sur internet : « Je l’ai déjà payée en ligne. ». Cela correspond exactement à l’option indiquant qu’elle a déjà payé la lampe en ligne.",
+          "reason": "La cliente précise sans ambiguïté la nature du numéro : « Voici le numéro de ma commande. » Ce numéro se rapporte donc directement à la commande de la lampe, et non à une livraison, une facture ou une carte de fidélité.",
           "misunderstanding": null
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 698,
-      "completion_tokens": 724,
-      "total_tokens": 1422,
+      "prompt_tokens": 675,
+      "completion_tokens": 718,
+      "total_tokens": 1393,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 265,
+        "reasoning_tokens": 167,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.0081125,
-    "inputHash": "a442545c8f42888b335be6cc7bc1ac4465cb8d04521d7fc13f968a50d306772c",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:initial:ground:1"
+    "costUsd": 0.00802375,
+    "inputHash": "d95087b78de5c90cfd1f4be5be820beb468b63559fb03be18fad99aa4896cd71",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:11:6103f288fb85e78951f8f219:ground:1"
   },
   "feedback": null,
   "imageHash": null,

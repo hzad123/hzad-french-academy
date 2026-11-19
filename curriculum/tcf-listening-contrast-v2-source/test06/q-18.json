@@ -2,16 +2,16 @@
   "question": {
     "number": 18,
     "kind": "telephone",
-    "question": "Quand le client souhaite-t-il être recontacté au sujet de son panier ?",
+    "question": "Selon le document, à quel moment la cliente demande-t-elle qu’on la rappelle ?",
     "options": [
-      "Après la vérification avec l’équipe de préparation",
-      "Avant la prochaine livraison",
-      "Dès réception du colis de remplacement",
-      "Uniquement s’il y a une nouvelle erreur"
+      "En cas de nouvelle erreur sur sa commande.",
+      "Avant l’envoi de la prochaine livraison.",
+      "Une fois que l’équipe de préparation a été informée.",
+      "Une fois que le colis de remplacement aura été contrôlé."
     ],
     "correct": "B",
-    "explanation": "Réponse B : Le client formule directement sa demande : il souhaite être rappelé « avant la prochaine livraison ». C’est le seul moment explicitement demandé pour le recontacter au sujet de son panier. A : L’agent parle effectivement de « prévenir l'équipe de préparation et vérifier le colis de remplacement », ce qui peut faire croire que le rappel aura lieu après cette vérification. Mais la demande du client est claire : il veut être rappelé « avant la prochaine livraison », et non après la vérification avec l’équipe de préparation. C : L’expression « vérifier le colis de remplacement » peut faire penser à la réception d’un nouveau colis, et certains peuvent en déduire à tort que le rappel doit avoir lieu dès cette réception. Toutefois, le client précise bien le moment souhaité : « avant la prochaine livraison », sans mention de l’arrivée ou de la réception du colis de remplacement. D : La phrase « Je veux m'assurer que l'erreur ne se reproduira pas » pourrait laisser croire que le client ne veut être rappelé que s’il y a une nouvelle erreur. En réalité, il demande explicitement un rappel « avant la prochaine livraison » pour prévenir toute nouvelle erreur, et non uniquement en cas de nouvelle erreur constatée.",
-    "transcript": "Question 18.\nBonjour, j'ai reçu un panier qui contenait des produits laitiers, alors que mon abonnement indique une formule sans lait.\nJe vois bien votre choix dans le dossier. Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.\nPouvez-vous me rappeler avant la prochaine livraison ? Je veux m'assurer que l'erreur ne se reproduira pas.\nBien sûr, notre responsable vous contactera aujourd'hui.\nQuand le client souhaite-t-il être recontacté au sujet de son panier ?",
+    "explanation": "Réponse B : La cliente formule clairement : « Pouvez-vous me rappeler avant la prochaine livraison ? ». Cela correspond exactement au fait de demander un rappel avant l’envoi de la prochaine livraison. A : Cette réponse suggère un rappel uniquement « en cas de nouvelle erreur », c’est‑à‑dire si un nouveau problème survient. Or la cliente formule une demande temporelle précise : elle veut être rappelée « avant la prochaine livraison », pour prévenir la répétition de l’erreur, pas seulement si une nouvelle erreur se produit. Le rappel n’est donc pas conditionnel à une nouvelle erreur, mais programmé avant l’envoi suivant. C : On pourrait croire que le rappel doit avoir lieu « une fois que l’équipe de préparation a été informée » parce que l’agent dit qu’il va prévenir cette équipe. Cependant, la cliente ne relie pas sa demande de rappel à cette information ; elle précise seulement un moment : « avant la prochaine livraison ». Le rappel n’est pas défini comme postérieur à l’information de l’équipe, mais par rapport à la prochaine livraison. D : L’agent annonce qu’il va « vérifier le colis de remplacement », ce qui peut amener quelqu’un à penser que le rappel sera fait après ce contrôle. Toutefois, la cliente demande explicitement le rappel « avant la prochaine livraison », sans mentionner le contrôle du colis comme condition ou repère temporel. Le moment du rappel est donc lié à la prochaine livraison, pas à la fin de la vérification du colis de remplacement.",
+    "transcript": "Question 18.\nBonjour, j'ai reçu un panier qui contenait des produits laitiers, alors que mon abonnement indique une formule sans lait.\nJe vois bien votre choix dans le dossier. Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.\nPouvez-vous me rappeler avant la prochaine livraison ? Je veux m'assurer que l'erreur ne se reproduira pas.\nBien sûr, notre responsable vous contactera aujourd'hui.\nSelon le document, à quel moment la cliente demande-t-elle qu’on la rappelle ?",
     "segments": [
       {
         "voice": "female",
@@ -35,26 +35,318 @@
       },
       {
         "voice": "female",
-        "text": "Quand le client souhaite-t-il être recontacté au sujet de son panier ?"
+        "text": "Selon le document, à quel moment la cliente demande-t-elle qu’on la rappelle ?"
       }
     ],
     "audio": "q-18.mp3",
-    "audioSeconds": 30.746,
+    "audioSeconds": null,
     "slotSeconds": 46
   },
   "sourceHash": "cee5c2c8f9fb60e0eeacaae9b8058116ef13902c3430a54e30f01762b523950d",
-  "contentHash": "fa192fc62e38652f343e23b7b890a23793ffd376afc85fe6e3de49a56243418d",
+  "contentHash": "8e9fcd964ad371e17544d228f606e283c41c1595de19681dde9cb581c21abbf8",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 0,
+  "rounds": 2,
   "pass": true,
-  "author": null,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1LjAwvT9uvQW6oV8wzqbVV53nNf",
+    "result": {
+      "question": "Selon le document, à quel moment la cliente souhaite-t-elle être rappelée ?",
+      "choices": [
+        "Avant la prochaine livraison.",
+        "Dès que le colis de remplacement est vérifié.",
+        "Après que l'équipe de préparation a été prévenue.",
+        "Uniquement si une nouvelle erreur se produit."
+      ],
+      "correctIndex": 0,
+      "explanation": "La cliente précise clairement le moment souhaité pour le rappel : Pouvez-vous me rappeler avant la prochaine livraison ?. Les autres moments évoqués (prévenir l'équipe, vérifier le colis, éviter qu'une erreur se reproduise) ne sont jamais donnés comme condition ou timing du rappel.",
+      "design": "Axe précis : le moment demandé pour le rappel téléphonique. Les quatre choix sont des timings crédibles dans un échange de service après-vente : avant une prochaine étape logistique, après vérification d’un colis, après information d’une équipe, ou seulement en cas de problème récurrent. Sans le document audio, chaque option semble répondre directement à la question. Seule l’écoute permet d’identifier que la cliente demande explicitement un rappel avant la prochaine livraison, et non lié aux autres actions mentionnées.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme la vérification du colis en condition directe du rappel, alors que le texte distingue bien les deux : l’agent annonce qu’il va vérifier le colis de remplacement, puis, plus tard, la demande de rappel est formulée avec un autre repère temporel, avant la prochaine livraison.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.",
+            "Pouvez-vous me rappeler avant la prochaine livraison ?"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, le rappel est placé après le fait de prévenir l’équipe, comme si cette étape déterminait le moment de l’appel. Dans le document, prévenir l'équipe de préparation est une action interne distincte, alors que la cliente fixe le rappel par rapport à la prochaine livraison, non par rapport à l’information de l’équipe.",
+          "operation": "time_swap",
+          "anchors": [
+            "Je vais prévenir l'équipe de préparation",
+            "Pouvez-vous me rappeler avant la prochaine livraison ?"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse fait de la répétition de l’erreur une condition du rappel, en s’appuyant à tort sur la phrase où la cliente dit vouloir s'assurer que l'erreur ne se reproduira pas. Le texte montre au contraire qu’elle demande un rappel en amont, pour éviter justement une nouvelle erreur, pas seulement si elle se produit à nouveau.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Je veux m'assurer que l'erreur ne se reproduira pas.",
+            "Pouvez-vous me rappeler avant la prochaine livraison ?"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4498,
+      "completion_tokens": 1925,
+      "total_tokens": 6423,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1364,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0248725,
+    "inputHash": "8ccae3578912e92b0c8f576ce7264a49fae933da50418db1971a48632960c5cc",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:6103f288fb85e78951f8f219:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, à quel moment la cliente souhaite-t-elle être rappelée ?",
+      "choices": [
+        "Uniquement si une nouvelle erreur se produit.",
+        "Avant la prochaine livraison.",
+        "Après que l'équipe de préparation a été prévenue.",
+        "Dès que le colis de remplacement est vérifié."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1M5V2OuGcsPOKhwzY76f2cA2BsW",
+      "result": {
+        "question": "Selon le document, à quel moment la cliente demande-t-elle qu’on la rappelle ?",
+        "choices": [
+          "En cas de nouvelle erreur sur sa commande.",
+          "Avant l’envoi de la prochaine livraison.",
+          "Une fois que l’équipe de préparation a été informée.",
+          "Une fois que le colis de remplacement aura été contrôlé."
+        ],
+        "notes": "All choices now indiquent simplement un moment ou une condition pour le rappel, sans exclusivité marquée ni formulation plus raisonnable qu’une autre. La question reste centrée sur le timing du rappel demandé par la cliente, et chaque option propose un repère temporel/procédural distinct mais de niveau équivalent."
+      },
+      "usage": {
+        "prompt_tokens": 643,
+        "completion_tokens": 368,
+        "total_tokens": 1011,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 220,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00448375,
+      "inputHash": "f88b73d100f19599eb343ea7b10ceaa9c87a2f397328bb83f2870c3646883996",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:6103f288fb85e78951f8f219:blind-edit:before:2"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "2a87d2a27ba84a2d70e50e56abb4da6ecf9a0ff00a1427804e37cfcd9d15577f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent avoir un contexte crédible, mais la question parle d’un rappel spécifiquement « au sujet de son problème de panier ». L’option 3 décrit exactement un suivi après vérification de ce problème, ce qui est la pratique standard d’un service client. Les options 0, 1 et 2 déplacent le rappel vers une condition future (nouvelle erreur), un événement logistique plus large (prochaine livraison) ou un moment moins maîtrisé (réception du colis), donc elles répondent moins directement au libellé. Cela donne à l’option 3 un avantage net malgré l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Évoque une condition future (« nouvelle erreur ») plutôt qu’un suivi direct du problème actuel de panier, donc moins directement lié à « ce sujet » que les autres formulations temporelles."
+          },
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Focalisé sur la prochaine livraison, ce qui élargit le cadre au-delà du seul problème actuel de panier ; le lien avec « au sujet de son problème de panier » est plus indirect."
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "L’ancrage temporel « au moment où il recevra le colis » est un peu moins naturel pour un rappel de suivi (l’entreprise ne maîtrise pas exactement ce moment), même si le lien avec le problème reste compréhensible."
+          },
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation précisément alignée avec un suivi normal de dossier SAV : être recontacté une fois la vérification terminée correspond directement à un rappel « au sujet de son problème de panier », sans condition future ni changement de focus."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un appel au service client, le client dit qu’il ne veut pas être dérangé tant que son problème actuel de panier est réglé, et précise : « Recontactez-moi seulement s’il y a une nouvelle erreur sur ma commande à l’avenir. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un client qui a eu un problème de panier discute avec un conseiller d’un abonnement de livraisons régulières et demande : « Tenez-moi au courant juste avant l’envoi de la prochaine livraison pour confirmer que tout est bien dans mon panier. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Après un souci de panier, le service client propose un colis de remplacement. Le client répond : « Recontactez-moi au moment où je recevrai le colis de remplacement, pour vérifier ensemble que le contenu est correct. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Le service client explique qu’il doit vérifier le problème de panier avec l’équipe de préparation en entrepôt. Le client conclut : « D’accord, recontactez-moi une fois la vérification terminée avec l’équipe de préparation. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "38c7febd411b8f80a8ae35340eef85f83e42d3ccc57297dbf7c42bb2802a6123",
+      "feedback": {
+        "stage": "ground",
+        "assessment": {
+          "supportedIndices": [
+            1
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "summary": "C’est le responsable (le responsable de service) qui est censé rappeler la cliente aujourd’hui.",
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.\nBien sûr, notre responsable vous contactera aujourd'hui."
+              ],
+              "reason": "Aucun moment le message ne mentionne un « service de facturation ». La seule personne clairement désignée pour rappeler est « notre responsable ». On pourrait confondre en pensant que le problème d’abonnement relève de la facturation, mais le message ne parle que de l’équipe de préparation et du responsable, jamais de facturation.",
+              "misunderstanding": "role_confusion"
+            },
+            {
+              "index": 1,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Bien sûr, notre responsable vous contactera aujourd'hui."
+              ],
+              "reason": "Le texte indique explicitement que c’est « notre responsable » qui contactera la cliente aujourd’hui. Parmi les choix, cela correspond au « responsable de service », les autres rôles n’ayant pas été mentionnés comme devant rappeler.",
+              "misunderstanding": null
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Pouvez-vous me rappeler avant la prochaine livraison ?",
+                "Bien sûr, notre responsable vous contactera aujourd'hui."
+              ],
+              "reason": "La cliente s’adresse effectivement au conseiller téléphonique (« Pouvez-vous me rappeler… »), ce qui peut faire croire que ce sera lui qui rappellera. Mais la réponse précise que ce n’est pas le conseiller lui-même, c’est « notre responsable » qui appellera aujourd’hui, donc le conseiller téléphonique n’est pas la bonne réponse.",
+              "misunderstanding": "speaker_addressee_confusion"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.\nBien sûr, notre responsable vous contactera aujourd'hui."
+              ],
+              "reason": "L’agent dit qu’il va « prévenir l'équipe de préparation », ce qui peut faire penser qu’un membre de cette équipe prendra ensuite contact. Pourtant, la phrase suivante précise qui appellera réellement : « notre responsable vous contactera aujourd'hui ». L’équipe de préparation est seulement informée, elle n’est pas chargée de rappeler la cliente.",
+              "misunderstanding": "referent_confusion"
+            }
+          ]
+        },
+        "errors": [
+          "Missing/fabricated verbatim evidence at 0",
+          "Missing/fabricated verbatim evidence at 3"
+        ]
+      }
+    }
+  ],
   "blind": [
     {
       "order": [
+        3,
         0,
         2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1MJvqBc1Qa9UG5o391i4Zgn5MhC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un appel au service après-vente : la cliente a reçu un article défectueux ou incorrect, on lui propose un colis de remplacement, et elle dit qu’elle souhaite être rappelée « une fois que le colis de remplacement aura été contrôlé » pour être sûre que tout est en ordre avant l’expédition."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une cliente s’est déjà trompée ou a déjà subi une erreur sur une commande précédente ; elle indique au service clientèle : « Rappelez-moi en cas de nouvelle erreur sur ma commande » afin d’être informée immédiatement si un nouveau problème surgit."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un appel avec un entrepôt ou un site e‑commerce, l’agent explique qu’il doit prévenir l’équipe de préparation de commande ; la cliente répond qu’elle souhaite être rappelée « une fois que l’équipe de préparation a été informée » pour savoir quelles mesures concrètes seront prises."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une discussion sur une commande récurrente ou une prochaine livraison programmée, la cliente demande au service clientèle : « Pouvez-vous me rappeler avant l’envoi de la prochaine livraison ? » pour vérifier l’adresse, le contenu ou une modification souhaitée avant que le colis ne parte."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Chaque option fournit une condition temporelle naturelle répondant directement à « à quel moment la cliente demande-t-elle qu’on la rappelle ? ». Sans accès à l’enregistrement ni indices formels évidents (longueur, registre, formulation nettement privilégiée), aucune ne se distingue nettement des autres, d’où une forte incertitude et un choix de meilleure réponse purement conjectural."
+        },
+        "usage": {
+          "prompt_tokens": 614,
+          "completion_tokens": 531,
+          "total_tokens": 1145,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 123,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0060775,
+        "inputHash": "b24fb7b83da6ccb07a1c9c67e01c630c008ebc5e65601170a5be74b9a5fc0352",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:6103f288fb85e78951f8f219:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
         1,
+        2,
         3
       ],
       "receipt": {
@@ -62,138 +354,59 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkybD8Hxw9C5Is37yPb4pjqZxJc2u",
+        "responseId": "chatcmpl-Em1MPgIovLSp6wmvOQRYwp7hF3adv",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Appel au service client d’un supermarché en ligne : le client a un problème avec les articles dans son panier (commande en cours). L’agent dit qu’il doit d’abord vérifier avec l’équipe de préparation de commandes, et le client répond qu’il souhaite être recontacté une fois que cette vérification avec l’équipe de préparation aura été faite."
+              "context": "Conversation téléphonique avec le service client d’un site de e‑commerce : la cliente a déjà eu plusieurs erreurs de commande et conclut l’appel en disant qu’on peut la rappeler seulement s’il y a une nouvelle erreur sur sa commande, pour ne pas être dérangée inutilement."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Service client d’un site e‑commerce : certains articles du panier reçu sont défectueux, le client va recevoir un colis de remplacement. Il précise qu’il souhaite être recontacté concernant son panier (ex. pour un geste commercial ou la facturation) dès qu’il aura bien reçu le colis de remplacement."
+              "context": "Appel avec un service de livraison récurrente (abonnement) : la cliente explique ses problèmes actuels mais précise qu’elle souhaite surtout qu’on la rappelle juste avant l’envoi de la prochaine livraison pour vérifier ensemble les articles et éviter un nouveau problème."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Client d’une livraison de courses à domicile : il y a un problème sur son panier actuel. L’agent propose différentes possibilités de suivi, et le client dit préférer qu’on le recontacte avant la prochaine livraison pour faire le point sur son panier et d’éventuelles corrections."
+              "context": "Échange avec le service préparation/entrepôt : la cliente signale une erreur, le conseiller promet d’en parler à l’équipe de préparation et elle répond qu’elle veut être rappelée une fois que l’équipe de préparation a bien été informée et que les consignes sont passées."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Conversation avec le support d’un site marchand : le client a déjà subi une erreur sur le contenu de son panier/livraison et ne veut pas être dérangé inutilement. Il précise qu’il souhaite qu’on le recontacte au sujet de son panier uniquement s’il y a une nouvelle erreur, sinon qu’on ne le rappelle pas."
+              "context": "Appel au service après‑vente pour un colis erroné : un colis de remplacement est prévu et la cliente demande expressément qu’on la rappelle une fois que le colis de remplacement aura été contrôlé, pour être sûre qu’il ne comporte plus d’erreur avant son envoi."
             }
           ],
-          "cues": [
-            {
-              "option": 2,
-              "severity": "weak",
-              "cue": "Réponse directement temporelle, générale et sans condition ('Avant la prochaine livraison'), qui correspond littéralement au 'quand' demandé, là où d’autres réponses ajoutent des conditions spécifiques (nouvelle erreur, colis de remplacement, vérification interne) non mentionnées dans la question."
-            }
-          ],
+          "cues": [],
           "standsOut": false,
           "probabilities": [
-            0.23,
-            0.22,
-            0.35,
-            0.2
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
           "guess": 2,
-          "reason": "Tous les choix sont plausibles dans des contextes ordinaires, mais l’option 2 répond de façon plus neutre et directement temporelle à la question sans introduire de conditions additionnelles non évoquées, ce qui constitue un léger avantage sans pour autant lever l’incertitude."
+          "reason": "Tous les choix correspondent naturellement à un moment où la cliente pourrait demander à être rappelée, sans indice textuel net pour en privilégier un. Faute de repère objectif dans l’énoncé seul, le choix de la réponse reste très incertain et la probabilité est répartie uniformément malgré l’obligation de désigner une option comme meilleure hypothèse."
         },
         "usage": {
-          "prompt_tokens": 603,
-          "completion_tokens": 692,
-          "total_tokens": 1295,
+          "prompt_tokens": 614,
+          "completion_tokens": 614,
+          "total_tokens": 1228,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 208,
+            "reasoning_tokens": 218,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00767375,
-        "inputHash": "93e83a6048fff4cd28277261e10c426aa8e7bac2f730d01e335eefea8e87618f",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:initial:screen:0:0"
-      }
-    },
-    {
-      "order": [
-        0,
-        1,
-        3,
-        2
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkybLcoTcxiAEdgnqUHLgPXaw2c9g",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Un client appelle un service de courses en ligne car il y a une incertitude sur le contenu de son panier. L’agent lui dit qu’il doit d’abord vérifier avec l’équipe de préparation. Le client répond : « D’accord, recontactez-moi après la vérification avec l’équipe de préparation. »"
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Un client discute avec un livreur ou le service client au sujet de son panier d’articles récurrents. Il veut être informé de toute modification avant que la prochaine tournée ne parte, et dit : « Je souhaite être recontacté avant la prochaine livraison au sujet de mon panier. »"
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Un client a déjà subi une erreur sur le contenu de son panier et ne veut pas être dérangé inutilement. Il précise au service client : « Recontactez-moi uniquement s’il y a une nouvelle erreur concernant mon panier. »"
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Un client s’est plaint d’erreurs dans son panier, et un colis de remplacement a été envoyé. Il dit au service client : « Tenez-moi au courant dès réception du colis de remplacement pour reparler de mon panier. »"
-            }
-          ],
-          "cues": [
-            {
-              "option": 0,
-              "severity": "weak",
-              "cue": "Mention explicite d’une étape opérationnelle directement liée au panier (« vérification avec l’équipe de préparation »), cohérente avec un scénario standard de service client e‑commerce, sans introduire de condition ou de décalage thématique (erreur, prochaine livraison, colis de remplacement) qui s’éloigne davantage du mot-clé « panier »."
-            }
-          ],
-          "standsOut": false,
-          "probabilities": [
-            0.4,
-            0.3,
-            0.15,
-            0.15
-          ],
-          "guess": 0,
-          "reason": "Toutes les options peuvent répondre à la question dans un contexte ordinaire, mais l’option 0 correspond le plus directement à une demande de rappel liée au traitement du panier lui-même, sans condition supplémentaire ni changement de focalisation vers la livraison ou un colis distinct, ce qui lui donne un léger avantage malgré une incertitude réelle."
-        },
-        "usage": {
-          "prompt_tokens": 603,
-          "completion_tokens": 700,
-          "total_tokens": 1303,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 234,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00775375,
-        "inputHash": "5ef40275dbc86c7cf894c76f9fe3b1e1e9c80289f4848e3bb398fd31e20dd1f5",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:initial:screen:0:1"
+        "costUsd": 0.0069075,
+        "inputHash": "848ae1093eb85a8e0db29f9227862406de866ea57cd97ae71cc6cb48c897555c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:6103f288fb85e78951f8f219:screen:2:1"
       }
     }
   ],
@@ -202,25 +415,24 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkybShowvkyAYfHWBViW2IlYHmBEV",
+    "responseId": "chatcmpl-Em1MZWQ15YxGpRtuAulnOe1hfqmGF",
     "result": {
       "supportedIndices": [
         1
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "Le client demande explicitement à être recontacté avant la prochaine livraison, sans condition liée à une vérification ou à une nouvelle erreur.",
+      "summary": "La cliente demande explicitement à être rappelée « avant la prochaine livraison », ce qui correspond à la réponse 1.",
       "options": [
         {
           "index": 0,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.",
-            "Pouvez-vous me rappeler avant la prochaine livraison ?"
+            "Pouvez-vous me rappeler avant la prochaine livraison ? Je veux m'assurer que l'erreur ne se reproduira pas."
           ],
-          "reason": "L’agent parle effectivement de « prévenir l'équipe de préparation et vérifier le colis de remplacement », ce qui peut faire croire que le rappel aura lieu après cette vérification. Mais la demande du client est claire : il veut être rappelé « avant la prochaine livraison », et non après la vérification avec l’équipe de préparation.",
-          "misunderstanding": "timing_confusion"
+          "reason": "Cette réponse suggère un rappel uniquement « en cas de nouvelle erreur », c’est‑à‑dire si un nouveau problème survient. Or la cliente formule une demande temporelle précise : elle veut être rappelée « avant la prochaine livraison », pour prévenir la répétition de l’erreur, pas seulement si une nouvelle erreur se produit. Le rappel n’est donc pas conditionnel à une nouvelle erreur, mais programmé avant l’envoi suivant.",
+          "misunderstanding": "condition_inferred"
         },
         {
           "index": 1,
@@ -229,7 +441,7 @@
           "evidence": [
             "Pouvez-vous me rappeler avant la prochaine livraison ?"
           ],
-          "reason": "Le client formule directement sa demande : il souhaite être rappelé « avant la prochaine livraison ». C’est le seul moment explicitement demandé pour le recontacter au sujet de son panier.",
+          "reason": "La cliente formule clairement : « Pouvez-vous me rappeler avant la prochaine livraison ? ». Cela correspond exactement au fait de demander un rappel avant l’envoi de la prochaine livraison.",
           "misunderstanding": null
         },
         {
@@ -237,43 +449,43 @@
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je vais prévenir l'équipe de préparation et vérifier le colis de remplacement.",
+            "Je vais prévenir l'équipe de préparation",
             "Pouvez-vous me rappeler avant la prochaine livraison ?"
           ],
-          "reason": "L’expression « vérifier le colis de remplacement » peut faire penser à la réception d’un nouveau colis, et certains peuvent en déduire à tort que le rappel doit avoir lieu dès cette réception. Toutefois, le client précise bien le moment souhaité : « avant la prochaine livraison », sans mention de l’arrivée ou de la réception du colis de remplacement.",
-          "misunderstanding": "concept_substitution"
+          "reason": "On pourrait croire que le rappel doit avoir lieu « une fois que l’équipe de préparation a été informée » parce que l’agent dit qu’il va prévenir cette équipe. Cependant, la cliente ne relie pas sa demande de rappel à cette information ; elle précise seulement un moment : « avant la prochaine livraison ». Le rappel n’est pas défini comme postérieur à l’information de l’équipe, mais par rapport à la prochaine livraison.",
+          "misunderstanding": "temporal_shift"
         },
         {
           "index": 3,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je veux m'assurer que l'erreur ne se reproduira pas.",
+            "et vérifier le colis de remplacement.",
             "Pouvez-vous me rappeler avant la prochaine livraison ?"
           ],
-          "reason": "La phrase « Je veux m'assurer que l'erreur ne se reproduira pas » pourrait laisser croire que le client ne veut être rappelé que s’il y a une nouvelle erreur. En réalité, il demande explicitement un rappel « avant la prochaine livraison » pour prévenir toute nouvelle erreur, et non uniquement en cas de nouvelle erreur constatée.",
-          "misunderstanding": "condition_inversion"
+          "reason": "L’agent annonce qu’il va « vérifier le colis de remplacement », ce qui peut amener quelqu’un à penser que le rappel sera fait après ce contrôle. Toutefois, la cliente demande explicitement le rappel « avant la prochaine livraison », sans mentionner le contrôle du colis comme condition ou repère temporel. Le moment du rappel est donc lié à la prochaine livraison, pas à la fin de la vérification du colis de remplacement.",
+          "misunderstanding": "temporal_shift"
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 728,
-      "completion_tokens": 931,
-      "total_tokens": 1659,
+      "prompt_tokens": 738,
+      "completion_tokens": 979,
+      "total_tokens": 1717,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 417,
+        "reasoning_tokens": 426,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.01022,
-    "inputHash": "3b2f3593ae8b7ea287222869f48cf3142b2215547ebb8ca191f918d8558fe1fd",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:initial:ground:0"
+    "costUsd": 0.0107125,
+    "inputHash": "e3bd8f9ed715b7a0b57944583aa3f8df479b301f6703c601ef200ae20d7c49c3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:17:6103f288fb85e78951f8f219:ground:2"
   },
   "feedback": null,
   "imageHash": null,

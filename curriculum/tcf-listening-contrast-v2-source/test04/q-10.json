@@ -2,16 +2,16 @@
   "question": {
     "number": 10,
     "kind": "dialogue",
-    "question": "Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?",
+    "question": "Selon l’agent, quel document n’a pas encore été transmis ?",
     "options": [
-      "Jusqu'à vendredi",
-      "Jusqu'à jeudi",
-      "Jusqu'à mercredi",
-      "Jusqu'à la fin du mois"
+      "L’autorisation signée par son établissement.",
+      "Son dossier d’inscription complet.",
+      "Le programme détaillé de sciences.",
+      "La liste définitive des participants."
     ],
     "correct": "A",
-    "explanation": "Réponse A : L'administration répond explicitement qu'elle gardera la place de l'étudiant « jusqu'à vendredi ». C'est la seule formulation temporelle donnée comme limite de garantie, ce qui correspond exactement à la réponse « Jusqu'à vendredi ». B : Un étudiant pouvant confondre les jours pourrait entendre « demain » et croire que la limite est le lendemain (par exemple jeudi s'il imagine que la scène se passe un mercredi). Cependant, la phrase clé est « nous garderons votre place jusqu'à vendredi », qui exclut « Jusqu'à jeudi » : le jour explicitement nommé est vendredi, pas jeudi. C : Quelqu'un qui suit mal la chronologie peut se focaliser sur « Je peux vous l'apporter demain » et supposer à tort que la place n'est garantie que très peu de temps, par exemple jusqu'au mercredi dans son propre schéma mental. Mais la réponse précise clairement la limite réelle : « jusqu'à vendredi », ce qui rend « Jusqu'à mercredi » incorrect. D : On pourrait mal interpréter « Ensuite, nous confirmerons l'inscription » comme une garantie prolongée jusqu'à une date plus vague, par exemple « la fin du mois ». Mais l'administration fixe une limite précise : « jusqu'à vendredi ». Après ce jour, il s'agit de confirmer l'inscription, non de continuer à « garder la place ». Il n'est jamais question de « la fin du mois », donc cette option ne correspond pas aux propos tenus.",
-    "transcript": "Question 10.\nJ'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants.\nVotre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise.\nJe peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription.\nJusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?",
+    "explanation": "Réponse A : L’agent dit clairement que le dossier est complet mais que « l'autorisation de votre établissement n'a pas encore été transmise ». Le document manquant est donc l’autorisation de l’établissement, ce qui correspond exactement à « L’autorisation signée par son établissement. ». B : L’agent précise que « Votre dossier est complet », ce qui implique que le dossier d’inscription a bien été transmis. Seule l’autorisation manque. Quelqu’un pouvant confondre « dossier complet » avec « inscription pas encore confirmée » (à cause de « Ensuite, nous confirmerons l'inscription. ») pourrait croire que le dossier n’est pas encore transmis, mais c’est bien l’autorisation qui manque, pas le dossier complet. C : Le locuteur dit « J'ai reçu le programme de sciences », ce qui montre que le programme a déjà été transmis et reçu. L’agent, lui, ne signale aucun problème avec le programme, seulement avec l’autorisation. Un auditeur distrait pourrait retenir seulement que d’autres éléments posent problème (nom absent de la liste) et projeter ce problème sur le programme, mais le texte affirme explicitement que le programme a été reçu. D : On apprend que le nom du candidat n’apparaît pas sur la liste des participants, mais l’agent ne dit jamais que la liste définitive n’a pas été transmise. Il explique seulement qu’ils confirmeront l’inscription plus tard, ce qui pourra ensuite modifier la liste. Un auditeur peut en déduire que la liste actuelle n’est pas définitive et croire que c’est elle qui « manque », mais la question porte sur le document non transmis, et l’agent ne mentionne comme non transmis que l’autorisation de l’établissement.",
+    "transcript": "Question 10.\nJ'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants.\nVotre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise.\nJe peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription.\nSelon l’agent, quel document n’a pas encore été transmis ?",
     "segments": [
       {
         "voice": "female",
@@ -35,55 +35,204 @@
       },
       {
         "voice": "female",
-        "text": "Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ?"
+        "text": "Selon l’agent, quel document n’a pas encore été transmis ?"
       }
     ],
     "audio": "q-10.mp3",
-    "audioSeconds": 25.731,
+    "audioSeconds": null,
     "slotSeconds": 42
   },
   "sourceHash": "1ef946cc973b812289ec0920f0f239f57244f80cdf817308ab6589c43dc0cca4",
-  "contentHash": "3c9dc267f14466790e70d2e22d367c3ecb16179e3a8372ee1952c27aaafad11f",
+  "contentHash": "2661ec968e53ef85cbece1406a9fea7357a1975f92686f626191064baaf0410d",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 0,
+  "rounds": 1,
   "pass": true,
-  "author": null,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1A1pvCDZSUSi3XOSbEeQ6A6BL11",
+    "result": {
+      "question": "Selon l’agent, quel élément n’a pas encore été transmis ?",
+      "choices": [
+        "L’autorisation de son établissement.",
+        "Le programme de sciences.",
+        "Son dossier d’inscription complet.",
+        "La liste des participants définitive."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’agent précise que « l'autorisation de votre établissement n'a pas encore été transmise », alors qu’il indique que le dossier est déjà complet et que la participante a reçu le programme et vu la liste.",
+      "design": "Axe précis : identifier quel élément administratif est encore manquant, c’est‑à‑dire celui qui « n’a pas encore été transmis ». Les quatre choix sont des éléments réels du document (programme, dossier, autorisation, liste) et tous peuvent, en situation d’inscription, être des pièces à transmettre. Sans écouter, chacune pourrait sembler être l’élément manquant ; seule l’écoute permet de repérer que seule l’autorisation est explicitement dite « non transmise ».",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "On peut croire que c’est le programme qui manque, car il s’agit d’un document typiquement envoyé aux participants. Mais la participante dit au contraire qu’elle l’a déjà reçu, ce n’est donc pas l’élément « non transmis » signalé par l’agent.",
+          "operation": "role_swap",
+          "anchors": [
+            "J'ai reçu le programme de sciences",
+            "l'autorisation de votre établissement n'a pas encore été transmise"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le dossier est un autre document administratif central, ce qui le rend plausible comme pièce manquante. Toutefois l’agent affirme précisément qu’il est déjà complet, et distingue ensuite, dans une autre proposition, l’élément qui n’a pas encore été transmis.",
+          "operation": "role_swap",
+          "anchors": [
+            "Votre dossier est complet",
+            "n'a pas encore été transmise"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Le fait que le nom n’apparaisse pas sur la liste peut faire penser que la liste n’est pas encore définitive ou transmise, ce qui est tentant comme interprétation. Cependant, l’agent ne présente jamais la liste comme incomplète ; le seul élément explicitement identifié comme « pas encore transmis » est l’autorisation de l’établissement.",
+          "operation": "role_swap",
+          "anchors": [
+            "mon nom n'apparaît pas sur la liste des participants",
+            "l'autorisation de votre établissement n'a pas encore été transmise"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4342,
+      "completion_tokens": 3166,
+      "total_tokens": 7508,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2658,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0370875,
+    "inputHash": "ff2ff9eca3f5bfefad9465dc0c6ab9be513beaa7995f772b67d5df484b338eeb",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon l’agent, quel élément n’a pas encore été transmis ?",
+      "choices": [
+        "L’autorisation de son établissement.",
+        "Son dossier d’inscription complet.",
+        "Le programme de sciences.",
+        "La liste des participants définitive."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1AduK8TkHGw2RqZUCW5LpNHXBcK",
+      "result": {
+        "question": "Selon l’agent, quel document n’a pas encore été transmis ?",
+        "choices": [
+          "L’autorisation signée par son établissement.",
+          "Son dossier d’inscription complet.",
+          "Le programme détaillé de sciences.",
+          "La liste définitive des participants."
+        ],
+        "notes": "Tous les choix désignent un type de document administratif ou d’information qui pourrait être « non encore transmis », sans que l’un paraisse naturellement plus logique ou prudent que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 240,
+        "total_tokens": 871,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 135,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00318875,
+      "inputHash": "114b1169c36c66e3a7858129c3239eca065d9783aa6baa2d395c011aacc9f812",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "a7612c0ffbe0fe3d16cb9aa1d3f396cde1cadbf89820035c36bea48ddc872dc2",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses sont plausibles dans un contexte ordinaire, mais « Jusqu’à la fin du mois » se distingue par son style administratif et son caractère d’échéance formelle, ce qui offre un léger avantage comme clé probable malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Formulation plus longue et administrative (« Jusqu’à la fin du mois ») qui ressemble à une échéance officielle typique de l’administration, par contraste avec de simples jours de la semaine qui paraissent plus circonstanciels."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "À l’accueil d’une résidence universitaire, un employé explique à un étudiant étranger venu sans réservation longue durée : « Pour l’instant, votre place est assurée par l’administration. » L’étudiant demande jusqu’à quand sa place est garantie et on lui répond que c’est seulement jusqu’à jeudi, après quoi elle pourra être attribuée à quelqu’un d’autre."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans le bureau de la scolarité, un étudiant en retard pour s’inscrire à un cours demande s’il risque de perdre sa place. L’agent répond que l’administration assure sa place jusqu’à vendredi, date limite d’inscription, et qu’après cette échéance, la place sera libérée."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion d’information, un responsable administratif explique qu’en cas de non-confirmation de la réinscription, la place de l’étudiant n’est assurée par l’administration que jusqu’à mercredi, puis elle pourra être proposée à un autre candidat sur liste d’attente."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au service des inscriptions, un agent précise à un étudiant admis sous réserve de fournir des pièces manquantes que, même sans ces documents pour l’instant, sa place reste assurée par l’administration jusqu’à la fin du mois, après quoi, sans régularisation, elle ne pourra plus être garantie."
+          }
+        ]
+      }
+    }
+  ],
   "blind": [
     {
       "order": [
         0,
         2,
-        1,
-        3
+        3,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyP6aw4XzfDZ8K7wGCm3mp8gE1NL",
+        "responseId": "chatcmpl-Em1AimFo0b5lfyED9y7SlGZAD9KjK",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un enregistrement d’une réunion d’information universitaire, une secrétaire explique aux nouveaux inscrits : « Nous gardons votre place pendant une semaine. Donc, jusqu’à vendredi, votre inscription est garantie. Après, elle sera proposée à quelqu’un sur liste d’attente. »"
+              "context": "Une professeure prépare une sortie scolaire ou un stage pour ses élèves. Elle appelle un agent administratif du rectorat ou d’un organisme d’accueil. L’agent lui dit qu’ils ont bien reçu le dossier, le programme et la liste provisoire, mais qu’il manque encore « l’autorisation signée par son établissement », indispensable pour valider la sortie."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Lors d’un message vocal d’un service de scolarité, l’employée précise : « Vous avez confirmé votre inscription, donc nous garantissons votre place jusqu’à mercredi. Au-delà, elle ne sera plus réservée automatiquement. »"
+              "context": "Un enseignant organise un projet ou un voyage autour des sciences avec un centre scientifique. Au téléphone, l’agent chargé des inscriptions explique qu’ils ont déjà l’autorisation et la liste des participants, mais qu’ils attendent toujours « le programme détaillé de sciences » pour pouvoir confirmer les réservations d’ateliers."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Pendant une réunion d’accueil, un responsable administratif dit : « L’administration garantit votre place jusqu’à jeudi. Si, d’ici jeudi, vous n’avez pas finalisé vos démarches, nous devrons la libérer. »"
+              "context": "Une responsable de classe appelle l’office municipal des sports pour finaliser l’inscription de ses élèves à une rencontre inter-écoles. L’agent lui précise qu’ils ont l’autorisation de l’établissement et le programme de la journée, mais qu’ils n’ont pas encore reçu « la liste définitive des participants » nécessaire pour bloquer les places."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une vidéo explicative sur les procédures d’inscription, la responsable annonce : « L’administration garantit la place de l’étudiant jusqu’à la fin du mois. Passé cette date, les dossiers non finalisés seront annulés. »"
+              "context": "Une personne téléphone au service administratif d’une université ou d’un organisme de formation. L’agent consulte son dossier et explique qu’il manque encore certaines pièces justificatives ; il précise que « son dossier d’inscription complet » n’a pas encore été transmis et que, tant qu’il est incomplet, l’inscription ne peut pas être validée."
             }
           ],
           "cues": [],
@@ -94,27 +243,27 @@
             0.25,
             0.25
           ],
-          "guess": 0,
-          "reason": "Toutes les options répondent directement et grammaticalement à la question, avec des contextes ordinaires plausibles. Aucun indice textuel clair ne privilégie un jour plutôt qu’un autre ou la formule « jusqu’à la fin du mois », donc aucune option ne se démarque nettement et l’incertitude reste élevée."
+          "guess": 2,
+          "reason": "Les quatre documents sont des réponses naturelles et cohérentes à la question, sans avantage rédactionnel évident ni indice de formulation qui en privilégie un seul. Aucune option ne se distingue clairement par le style, la précision ou la portée ; il reste donc une forte incertitude et les probabilités sont réparties de façon égale. Le choix de l’option 2 comme réponse proposée est arbitraire dans ce contexte d’égalité perçue."
         },
         "usage": {
-          "prompt_tokens": 598,
-          "completion_tokens": 406,
-          "total_tokens": 1004,
+          "prompt_tokens": 599,
+          "completion_tokens": 869,
+          "total_tokens": 1468,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 52,
+            "reasoning_tokens": 402,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0048075,
-        "inputHash": "d81b5f1e23237c3dec327320599383aa202a6a8ac98f523e96bc4951e88ec720",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:screen:0:0"
+        "costUsd": 0.00943875,
+        "inputHash": "fd663189cdd39a7fcc97400f8112e2c292eea2ed75655e2f83f02455da8c87e3",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:6103f288fb85e78951f8f219:screen:1:0"
       }
     },
     {
@@ -129,28 +278,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyPAOkWIDzwSaqLPY5Gm0mHgU1gL",
+        "responseId": "chatcmpl-Em1Au38A650hRWoJLLiGxnSIxJcFa",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Lors d’une réunion d’information à l’université, une secrétaire explique aux nouveaux inscrits : « Vous avez jusqu’à jeudi pour confirmer votre inscription. Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? – Jusqu'à jeudi. »"
+              "context": "Une secrétaire d’université appelle un étudiant pour finaliser son inscription à un stage : après avoir vérifié les pièces reçues, l’agent lui explique qu’il manque encore son dossier d’inscription complet, qui n’a pas encore été transmis par l’étudiant."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Au téléphone, un employé du service des admissions précise à un candidat admis sur liste principale : « Ne vous inquiétez pas, nous vous gardons la place jusqu'à vendredi. Après, elle sera proposée à quelqu’un d’autre. » À la question « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? », on répond : « Jusqu'à vendredi. »"
+              "context": "Un agent administratif d’un organisme de formation parle avec un professeur qui souhaite inscrire sa classe à une sortie pédagogique : l’agent lui dit qu’ils ont bien reçu la préinscription et le formulaire, mais que l’autorisation signée par son établissement n’a pas encore été transmise."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Sur un message vocal automatique de l’université, on entend : « Une fois votre admission prononcée, l’administration garantit votre place jusqu'à la fin du mois. Passé ce délai, elle pourra être attribuée à un autre étudiant. » La question « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? » reçoit alors la réponse : « Jusqu'à la fin du mois. »"
+              "context": "Un agent d’une agence de voyages scolaires discute avec un enseignant : il confirme avoir reçu le devis signé et les premiers formulaires, mais précise que la liste définitive des participants n’a pas encore été transmise par l’établissement."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Lors d’une réunion de rentrée, un responsable administratif dit : « Nous vous gardons votre place jusqu'à mercredi. Après mercredi, si vous ne vous êtes pas présentés, nous considérerons que vous renoncez. » Interrogé ensuite, un étudiant répond à « Jusqu'à quel jour l'administration garantit-elle la place de l'étudiant ? » par « Jusqu'à mercredi. »"
+              "context": "Un agent d’un centre de loisirs scientifiques échange avec un coordinateur d’école : il indique qu’ils ont reçu la demande de participation et les autorisations parentales, mais que le programme détaillé de sciences que l’enseignant devait envoyer n’a pas encore été transmis."
             }
           ],
           "cues": [],
@@ -161,27 +310,27 @@
             0.25,
             0.25
           ],
-          "guess": 1,
-          "reason": "Les quatre réponses sont structurellement et pragmatiquement plausibles, de forme très proche, sans indice grammatical ou stylistique distinctif. Aucune ne se détache nettement, mais dans les exercices administratifs de ce type, « jusqu’à vendredi » est légèrement plus fréquent comme date butoir arbitraire que les deux autres jours précis, d’où un mince avantage intuitif sans certitude."
+          "guess": 0,
+          "reason": "Aucun indice textuel net ne favorise un choix : les quatre documents sont des pièces administratives plausibles qu’un agent pourrait signaler comme manquantes, sans avantage clair de style, de portée ou de formulation. Incertitude élevée, répartition uniforme."
         },
         "usage": {
-          "prompt_tokens": 598,
-          "completion_tokens": 511,
-          "total_tokens": 1109,
+          "prompt_tokens": 599,
+          "completion_tokens": 594,
+          "total_tokens": 1193,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 44,
+            "reasoning_tokens": 230,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0058575,
-        "inputHash": "5f02acbb0b917695cb2286f4e59cf6fae8877be048e3928ee1d435885b4a9a49",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:screen:0:1"
+        "costUsd": 0.00668875,
+        "inputHash": "d5f1425276d6cd95bd742ec667ef891cfe049b13a59c90018849ef806c413e40",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:6103f288fb85e78951f8f219:screen:1:1"
       }
     }
   ],
@@ -190,23 +339,23 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyPGee65ezpnjSFLuTdNJSGfV4ZT",
+    "responseId": "chatcmpl-Em1B2N56IDl1Fse0wSFnFj3TfSlFP",
     "result": {
       "supportedIndices": [
         0
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "L'administration précise clairement qu'elle gardera la place de l'étudiant « jusqu'à vendredi », ce qui correspond à la première option uniquement.",
+      "summary": "D’après l’agent, le seul document qui n’a pas encore été transmis est l’autorisation de l’établissement.",
       "options": [
         {
           "index": 0,
           "supported": true,
           "plausibleMisunderstanding": false,
           "evidence": [
-            "Oui, nous garderons votre place jusqu'à vendredi."
+            "Votre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise."
           ],
-          "reason": "L'administration répond explicitement qu'elle gardera la place de l'étudiant « jusqu'à vendredi ». C'est la seule formulation temporelle donnée comme limite de garantie, ce qui correspond exactement à la réponse « Jusqu'à vendredi ».",
+          "reason": "L’agent dit clairement que le dossier est complet mais que « l'autorisation de votre établissement n'a pas encore été transmise ». Le document manquant est donc l’autorisation de l’établissement, ce qui correspond exactement à « L’autorisation signée par son établissement. ».",
           "misunderstanding": null
         },
         {
@@ -214,51 +363,53 @@
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi."
+            "Votre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise."
           ],
-          "reason": "Un étudiant pouvant confondre les jours pourrait entendre « demain » et croire que la limite est le lendemain (par exemple jeudi s'il imagine que la scène se passe un mercredi). Cependant, la phrase clé est « nous garderons votre place jusqu'à vendredi », qui exclut « Jusqu'à jeudi » : le jour explicitement nommé est vendredi, pas jeudi.",
-          "misunderstanding": "confusion_temporelle"
+          "reason": "L’agent précise que « Votre dossier est complet », ce qui implique que le dossier d’inscription a bien été transmis. Seule l’autorisation manque. Quelqu’un pouvant confondre « dossier complet » avec « inscription pas encore confirmée » (à cause de « Ensuite, nous confirmerons l'inscription. ») pourrait croire que le dossier n’est pas encore transmis, mais c’est bien l’autorisation qui manque, pas le dossier complet.",
+          "misunderstanding": "negation_ignored"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "Je peux vous l'apporter demain.\nOui, nous garderons votre place jusqu'à vendredi."
+            "J'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants.",
+            "Votre dossier est complet, mais l'autorisation de votre établissement n'a pas encore été transmise."
           ],
-          "reason": "Quelqu'un qui suit mal la chronologie peut se focaliser sur « Je peux vous l'apporter demain » et supposer à tort que la place n'est garantie que très peu de temps, par exemple jusqu'au mercredi dans son propre schéma mental. Mais la réponse précise clairement la limite réelle : « jusqu'à vendredi », ce qui rend « Jusqu'à mercredi » incorrect.",
-          "misunderstanding": "approximation_du_jour"
+          "reason": "Le locuteur dit « J'ai reçu le programme de sciences », ce qui montre que le programme a déjà été transmis et reçu. L’agent, lui, ne signale aucun problème avec le programme, seulement avec l’autorisation. Un auditeur distrait pourrait retenir seulement que d’autres éléments posent problème (nom absent de la liste) et projeter ce problème sur le programme, mais le texte affirme explicitement que le programme a été reçu.",
+          "misunderstanding": "referent_shift"
         },
         {
           "index": 3,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
+            "J'ai reçu le programme de sciences, mais mon nom n'apparaît pas sur la liste des participants.",
             "Oui, nous garderons votre place jusqu'à vendredi. Ensuite, nous confirmerons l'inscription."
           ],
-          "reason": "On pourrait mal interpréter « Ensuite, nous confirmerons l'inscription » comme une garantie prolongée jusqu'à une date plus vague, par exemple « la fin du mois ». Mais l'administration fixe une limite précise : « jusqu'à vendredi ». Après ce jour, il s'agit de confirmer l'inscription, non de continuer à « garder la place ». Il n'est jamais question de « la fin du mois », donc cette option ne correspond pas aux propos tenus.",
-          "misunderstanding": "généralisation_excessive"
+          "reason": "On apprend que le nom du candidat n’apparaît pas sur la liste des participants, mais l’agent ne dit jamais que la liste définitive n’a pas été transmise. Il explique seulement qu’ils confirmeront l’inscription plus tard, ce qui pourra ensuite modifier la liste. Un auditeur peut en déduire que la liste actuelle n’est pas définitive et croire que c’est elle qui « manque », mais la question porte sur le document non transmis, et l’agent ne mentionne comme non transmis que l’autorisation de l’établissement.",
+          "misunderstanding": "inference_beyond_recording"
         }
       ]
     },
     "usage": {
       "prompt_tokens": 709,
-      "completion_tokens": 680,
-      "total_tokens": 1389,
+      "completion_tokens": 1085,
+      "total_tokens": 1794,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 131,
+        "reasoning_tokens": 423,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.00768625,
-    "inputHash": "d1411000683fad81b6d9d8601b460b96bf1cb1f60ce504628af5d05d6c50a60f",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:initial:ground:0"
+    "costUsd": 0.01173625,
+    "inputHash": "98c1be7fd6b48f6dc532b85d8bfae9c5882e86fb54260728b2567edb307b9e58",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:9:6103f288fb85e78951f8f219:ground:1"
   },
   "feedback": null,
   "imageHash": null,

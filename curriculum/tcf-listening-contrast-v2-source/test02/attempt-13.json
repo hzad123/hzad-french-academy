@@ -2,16 +2,16 @@
   "question": {
     "number": 13,
     "kind": "announcement",
-    "question": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+    "question": "Que dit l’annonce à propos de la projection du documentaire initialement prévue à dix-neuf heures ?",
     "options": [
-      "Elle commencera à vingt heures.",
+      "Elle est reportée à vingt heures.",
       "Elle est annulée pour ce soir.",
-      "Elle reste finalement à dix-neuf heures.",
+      "Elle est maintenue à dix-neuf heures.",
       "Elle est avancée à dix-huit heures."
     ],
     "correct": "A",
-    "explanation": "Réponse A : L’annonce précise explicitement que la projection qui était prévue à 19 h « commencera à vingt heures ». L’option reprend exactement cette information. B : On pourrait entendre « problème technique » et penser à une annulation, mais l’annonce dit clairement qu’elle « commencera à vingt heures », donc elle est seulement retardée, pas annulée. C : Quelqu’un qui retient seulement « prévue à dix-neuf heures » sans écouter la fin peut croire que l’horaire ne change pas. Or la phrase complète précise un décalage à 20 h, donc elle ne reste pas à 19 h. D : On peut confondre les horaires et croire à un avancement au lieu d’un report, en ne retenant que l’idée de changement. Cependant, l’annonce dit explicitement que la séance prévue à 19 h commencera à 20 h, ce qui est un retard et non une avance.",
-    "transcript": "Question 13.\nInformation aux visiteurs du centre culturel : en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures. L'exposition et la rencontre avec les bénévoles auront lieu aux horaires habituels. Merci de votre compréhension.\nQue précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+    "explanation": "Réponse A : L’annonce précise que la projection qui était prévue à 19h commencera finalement à 20h. Cela correspond exactement à l’idée d’un report à vingt heures, et répond directement à la question posée. B : On pourrait croire que « en raison d'un problème technique » signifie annulation, mais l’annonce dit explicitement qu’elle « commencera à vingt heures ». Il ne s’agit donc pas d’une annulation mais d’un simple décalage horaire. C : Un auditeur inattentif peut retenir seulement « prévue à dix-neuf heures » et croire que l’horaire est maintenu. Pourtant la suite précise clairement qu’elle « commencera à vingt heures », ce qui montre que l’horaire de 19h n’est pas maintenu mais modifié. D : Quelqu’un qui confond les horaires ou qui croit entendre un autre chiffre pourrait penser que la séance est avancée, mais le texte indique qu’elle « commencera à vingt heures », donc plus tard que 19h et non pas à 18h. Il s’agit d’un report, pas d’une avance.",
+    "transcript": "Question 13.\nInformation aux visiteurs du centre culturel : en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures. L'exposition et la rencontre avec les bénévoles auront lieu aux horaires habituels. Merci de votre compréhension.\nQue dit l’annonce à propos de la projection du documentaire initialement prévue à dix-neuf heures ?",
     "segments": [
       {
         "voice": "female",
@@ -23,55 +23,102 @@
       },
       {
         "voice": "female",
-        "text": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?"
+        "text": "Que dit l’annonce à propos de la projection du documentaire initialement prévue à dix-neuf heures ?"
       }
     ],
     "audio": "q-13.mp3",
-    "audioSeconds": 24.555,
+    "audioSeconds": null,
     "slotSeconds": 40
   },
   "sourceHash": "28ec2c54d28c95d8a3569ed6a72b9de5d69df2759934e073dcf34e2eb8b5c874",
-  "contentHash": "60588804e511c2e35345b88a19a54322425f6bce0b9eb2cab1f6a7d71b757826",
+  "contentHash": "984271b6abd91e2156828e423c50d21ce47433bfcededcc516632eeb65bef04f",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
   "rounds": 0,
   "pass": true,
   "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Que précise l’annonce au sujet de la projection du documentaire prévue à dix-neuf heures ?",
+      "choices": [
+        "Elle commencera à vingt heures.",
+        "Elle est annulée pour ce soir.",
+        "Elle reste finalement à dix-neuf heures.",
+        "Elle est avancée à dix-huit heures."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em10BoTg7CKnkTtdTggQZTFfE6grs",
+      "result": {
+        "question": "Que dit l’annonce à propos de la projection du documentaire initialement prévue à dix-neuf heures ?",
+        "choices": [
+          "Elle est reportée à vingt heures.",
+          "Elle est annulée pour ce soir.",
+          "Elle est maintenue à dix-neuf heures.",
+          "Elle est avancée à dix-huit heures."
+        ],
+        "notes": "Formulations harmonisées autour du statut/horaires de la même projection, avec le même niveau de précision temporelle pour chaque option, sans indice implicite sur la bonne réponse."
+      },
+      "usage": {
+        "prompt_tokens": 643,
+        "completion_tokens": 348,
+        "total_tokens": 991,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 231,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00428375,
+      "inputHash": "926795986c76b4ac9e26dd8c91699aa7c14a944a883a45d93a1787efd944e895",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [],
   "blind": [
     {
       "order": [
-        0,
-        1,
         3,
-        2
+        0,
+        2,
+        1
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyClZekm7jC5t8iFNrNgF2Wq2Txf",
+        "responseId": "chatcmpl-Em10G3Cv2HkjPUzUN76gDEyBSNV8g",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un cinéma, une voix annonce : \"Attention, la projection du documentaire prévue initialement à dix-neuf heures commencera finalement à vingt heures en raison d’un léger retard.\""
+              "context": "Dans un cinéma ou un centre culturel, une annonce sonore informe le public : « Attention, la projection du documentaire initialement prévue à dix-neuf heures est avancée à dix-huit heures. » On prévient ainsi les spectateurs du changement d’horaire vers un créneau plus tôt."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une médiathèque, l’animateur fait une annonce : \"Nous vous informons que la projection du documentaire prévue à dix-neuf heures est annulée pour ce soir en raison d’un problème technique.\""
+              "context": "Dans un festival de films, une voix au micro dit : « La projection du documentaire initialement prévue à dix-neuf heures est reportée à vingt heures, en raison d’un léger retard sur la séance précédente. » L’annonce décale la séance plus tard dans la soirée."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une salle municipale, un organisateur informe le public : \"La projection du documentaire, initialement prévue à dix-neuf heures, est avancée à dix-huit heures afin de laisser place à une autre manifestation ensuite.\""
+              "context": "Dans un ciné-club, un organisateur précise au public : « La projection du documentaire, initialement prévue à dix-neuf heures, est bien maintenue à dix-neuf heures. » Il rassure ainsi les personnes qui ont entendu parler de possibles changements d’horaire."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un festival, le programmateur rassure le public : \"Nous confirmons que la projection du documentaire, prévue à dix-neuf heures, reste finalement à dix-neuf heures malgré les rumeurs de changement d’horaire.\""
+              "context": "Dans une médiathèque, une annonce indique : « La projection du documentaire, initialement prévue à dix-neuf heures, est annulée pour ce soir, en raison d’un problème technique. » On informe les participants qu’elle n’aura finalement pas lieu."
             }
           ],
           "cues": [],
@@ -83,26 +130,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre propositions peuvent toutes constituer une précision naturelle à propos d’une projection prévue à dix-neuf heures (report, annulation, avance, confirmation), sans avantage rédactionnel ou contextuel évident, ce qui laisse une forte incertitude et conduit à une probabilité répartie uniformément."
+          "reason": "Les quatre options répondent directement et naturellement à la question sans incohérence et sans indice de formulation privilégiant clairement l’une d’elles. Sans accès à l’enregistrement, aucune ne se démarque par un avantage de rédaction ou de pertinence ; la clé reste donc très incertaine et la probabilité est répartie uniformément, avec un choix de réponse 0 purement arbitraire."
         },
         "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 405,
-          "total_tokens": 1012,
+          "prompt_tokens": 611,
+          "completion_tokens": 531,
+          "total_tokens": 1142,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 79,
+            "reasoning_tokens": 128,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00480875,
-        "inputHash": "0b1b28a6811500d621927b50d2545a451c30a9510a9aa8f58939f08f635065e2",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:initial:screen:0:0"
+        "costUsd": 0.00607375,
+        "inputHash": "2bebeb6c3129cfa1776b15927d8eeb4571138c4575850062910a38a408f203e9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:6103f288fb85e78951f8f219:screen:0:0"
       }
     },
     {
@@ -117,28 +164,28 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyCpiR4tirMT6nx3HBOLlaR5rCTf",
+        "responseId": "chatcmpl-Em10NQrZrNqyqyvH9OkJEDmHguzgH",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un cinéma ou centre culturel, une annonce informe le public : « La projection du documentaire initialement prévue à dix-neuf heures est finalement avancée à dix-huit heures. » Le message répond directement à la question en précisant le nouveau créneau horaire."
+              "context": "Dans un cinéma ou un centre culturel, une annonce informe le public : « La projection du documentaire initialement prévue à dix-neuf heures est avancée à dix-huit heures. » On explique que c’est pour permettre un débat plus long ou pour éviter un chevauchement avec une autre séance."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans un festival, une rumeur de changement d’horaire circule. Une annonce est diffusée : « Nous vous confirmons que la projection du documentaire prévue à dix-neuf heures reste finalement à dix-neuf heures. » L’annonce précise qu’il n’y a pas de modification."
+              "context": "Un responsable de salle annonce par haut-parleur : « Nous confirmons que la projection du documentaire, initialement prévue à dix-neuf heures, est maintenue à dix-neuf heures. » Il rassure le public après une rumeur de changement d’horaire."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans une médiathèque, un message est diffusé : « La projection du documentaire prévue à dix-neuf heures est reportée et commencera finalement à vingt heures. » L’annonce indique clairement le nouvel horaire, en lien direct avec la question."
+              "context": "Dans une médiathèque, une personne fait une annonce : « La projection du documentaire, initialement prévue à dix-neuf heures, est reportée à vingt heures. » Elle précise que c’est à cause d’un léger retard technique ou de l’arrivée tardive d’un intervenant."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans une salle municipale, un responsable fait une annonce : « La projection du documentaire prévue à dix-neuf heures est annulée pour ce soir en raison d’un problème technique. » L’annonce précise le sort de la séance programmée à dix-neuf heures."
+              "context": "Dans un festival, une voix annonce : « La projection du documentaire, initialement prévue à dix-neuf heures, est annulée pour ce soir. » Elle ajoute éventuellement qu’une nouvelle date sera communiquée ou qu’un problème technique empêche la projection."
             }
           ],
           "cues": [],
@@ -150,26 +197,26 @@
             0.25
           ],
           "guess": 0,
-          "reason": "Les quatre propositions correspondent toutes de manière naturelle à ce qu’une annonce pourrait préciser à propos d’une projection prévue à dix-neuf heures (avancée, maintenue, retardée ou annulée). La formulation de la question ne favorise clairement aucune option sur le plan grammatical, stylistique ou informatif. Faute d’indice objectif, les probabilités restent réparties uniformément et le choix final est donc très incertain."
+          "reason": "Les quatre options correspondent toutes de façon naturelle à une annonce sur un changement (ou non) d’horaire d’une projection. Aucune formulation n’a d’avantage rédactionnel clair ou de nuance particulière qui la favorise ; sans accès à l’audio, il n’y a pas d’indice objectif permettant de départager les réponses, d’où une forte incertitude et une probabilité répartie uniformément."
         },
         "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 500,
-          "total_tokens": 1107,
+          "prompt_tokens": 611,
+          "completion_tokens": 436,
+          "total_tokens": 1047,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 102,
+            "reasoning_tokens": 31,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00575875,
-        "inputHash": "899cd42d6f908d70349e85140e6ed22ee60ee60f2ffff222d7052465072badf4",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:initial:screen:0:1"
+        "costUsd": 0.00512375,
+        "inputHash": "000a275c3acbe106e4d01152f5715dc399a4aae8c9deada83868a86a6cd0755b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:6103f288fb85e78951f8f219:screen:0:1"
       }
     }
   ],
@@ -178,23 +225,23 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyCvUC0YzaKJAYtKhtp8cOHuAJ0t",
+    "responseId": "chatcmpl-Em10aETiPkOZCekjrLqYsFinzr5Cy",
     "result": {
       "supportedIndices": [
         0
       ],
       "ambiguous": false,
       "questionSupported": true,
-      "summary": "L’annonce indique clairement que la projection initialement prévue à 19 h commencera finalement à 20 h.",
+      "summary": "L’annonce indique clairement que la projection initialement prévue à 19h commencera finalement à 20h : elle est donc reportée à 20 heures.",
       "options": [
         {
           "index": 0,
           "supported": true,
           "plausibleMisunderstanding": false,
           "evidence": [
-            "la projection du documentaire prévue à dix-neuf heures commencera à vingt heures."
+            "la projection du documentaire prévue à dix-neuf heures commencera à vingt heures"
           ],
-          "reason": "L’annonce précise explicitement que la projection qui était prévue à 19 h « commencera à vingt heures ». L’option reprend exactement cette information.",
+          "reason": "L’annonce précise que la projection qui était prévue à 19h commencera finalement à 20h. Cela correspond exactement à l’idée d’un report à vingt heures, et répond directement à la question posée.",
           "misunderstanding": null
         },
         {
@@ -202,51 +249,52 @@
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures."
+            "en raison d'un problème technique, la projection du documentaire prévue à dix-neuf heures commencera à vingt heures"
           ],
-          "reason": "On pourrait entendre « problème technique » et penser à une annulation, mais l’annonce dit clairement qu’elle « commencera à vingt heures », donc elle est seulement retardée, pas annulée.",
-          "misunderstanding": "supposition_annulation"
+          "reason": "On pourrait croire que « en raison d'un problème technique » signifie annulation, mais l’annonce dit explicitement qu’elle « commencera à vingt heures ». Il ne s’agit donc pas d’une annulation mais d’un simple décalage horaire.",
+          "misunderstanding": "inférer_annulation_depuis_problème_technique"
         },
         {
           "index": 2,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "prévue à dix-neuf heures commencera à vingt heures."
+            "prévue à dix-neuf heures",
+            "commencera à vingt heures"
           ],
-          "reason": "Quelqu’un qui retient seulement « prévue à dix-neuf heures » sans écouter la fin peut croire que l’horaire ne change pas. Or la phrase complète précise un décalage à 20 h, donc elle ne reste pas à 19 h.",
-          "misunderstanding": "écoute_incomplète"
+          "reason": "Un auditeur inattentif peut retenir seulement « prévue à dix-neuf heures » et croire que l’horaire est maintenu. Pourtant la suite précise clairement qu’elle « commencera à vingt heures », ce qui montre que l’horaire de 19h n’est pas maintenu mais modifié.",
+          "misunderstanding": "attention_partielle_à_la_phrase"
         },
         {
           "index": 3,
           "supported": false,
           "plausibleMisunderstanding": true,
           "evidence": [
-            "prévue à dix-neuf heures commencera à vingt heures."
+            "commencera à vingt heures"
           ],
-          "reason": "On peut confondre les horaires et croire à un avancement au lieu d’un report, en ne retenant que l’idée de changement. Cependant, l’annonce dit explicitement que la séance prévue à 19 h commencera à 20 h, ce qui est un retard et non une avance.",
-          "misunderstanding": "inversion_du_sens_du_changement"
+          "reason": "Quelqu’un qui confond les horaires ou qui croit entendre un autre chiffre pourrait penser que la séance est avancée, mais le texte indique qu’elle « commencera à vingt heures », donc plus tard que 19h et non pas à 18h. Il s’agit d’un report, pas d’une avance.",
+          "misunderstanding": "confusion_des_heures"
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 697,
-      "completion_tokens": 611,
-      "total_tokens": 1308,
+      "prompt_tokens": 701,
+      "completion_tokens": 684,
+      "total_tokens": 1385,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 174,
+        "reasoning_tokens": 197,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.00698125,
-    "inputHash": "88221d7875f75d9f67b423d29d0eae525f5b68e7df5a32c1169ed9ba1f401522",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:initial:ground:0"
+    "costUsd": 0.00771625,
+    "inputHash": "dda8029f6ded4db5ac3a4ae7805a2aa98f0f1dc3389f0018876657a91ae98d7e",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:12:6103f288fb85e78951f8f219:ground:0"
   },
   "feedback": null
 }

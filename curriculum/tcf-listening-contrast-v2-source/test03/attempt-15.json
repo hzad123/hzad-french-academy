@@ -2,16 +2,16 @@
   "question": {
     "number": 15,
     "kind": "radio-news",
-    "question": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+    "question": "Quelle restriction est évoquée concernant le rôle des pharmaciens dans ce suivi ?",
     "options": [
-      "Au médecin traitant des patients concernés",
-      "Aux services de santé publique de la ville",
-      "À l’équipe chargée de l’évaluation de printemps",
-      "À la direction de chaque pharmacie participante"
+      "Ils ne modifieront pas eux-mêmes les prescriptions.",
+      "Ils ne rencontreront pas en personne les patients concernés.",
+      "Ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices.",
+      "Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant."
     ],
     "correct": "A",
-    "explanation": "Réponse A : Le document dit explicitement que les pharmaciens transmettront leurs observations « au médecin traitant ». C’est exactement ce que décrit la proposition 0 : « Au médecin traitant des patients concernés ». Il n’est fait mention d’aucun autre destinataire. B : On pourrait se laisser influencer par le contexte de « nouvelles de santé locale » et penser à des « services de santé publique de la ville ». Cependant, le texte précise clairement que les observations sont transmises « au médecin traitant » et ne parle jamais de services de santé publique municipaux. Le lien avec la ville n’est qu’un cadre d’actualité locale, pas le destinataire effectif des observations. C : L’énoncé mentionne bien « Une évaluation aura lieu au printemps », ce qui peut inciter à imaginer une « équipe chargée de l’évaluation de printemps » comme destinataire. Mais le texte précise juste après la description du suivi que les observations sont transmises « au médecin traitant » et ne dit jamais qu’elles seront envoyées à l’équipe qui fera l’évaluation. L’évaluation est un événement ultérieur, pas le récepteur direct des observations. D : Le fait que « cinq pharmacies vont proposer un suivi régulier » peut faire croire que chaque pharmacie remontera l’information à sa propre direction. Cependant, le texte précise explicitement le seul destinataire des observations : « au médecin traitant ». Il n’est jamais question de la direction des pharmacies comme récepteur, donc cette interprétation ajoute un maillon hiérarchique non mentionné.",
-    "transcript": "Question 15.\nDans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps.\nSelon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+    "explanation": "Le document indique clairement que «les pharmaciens ne modifieront pas les prescriptions». En revanche, il précise qu’ils «vérifieront avec les patients» et «transmettront leurs observations au médecin traitant», en portant notamment sur les «difficultés à comprendre les notices» : ces trois éléments ne sont donc pas des limites, mais bien des actions prévues.",
+    "transcript": "Question 15.\nDans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps.\nQuelle restriction est évoquée concernant le rôle des pharmaciens dans ce suivi ?",
     "segments": [
       {
         "voice": "female",
@@ -23,297 +23,492 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?"
+        "text": "Quelle restriction est évoquée concernant le rôle des pharmaciens dans ce suivi ?"
       }
     ],
     "audio": "q-15.mp3",
     "audioSeconds": null,
     "slotSeconds": 48
   },
-  "sourceHash": "d4bac4b8a97de270da402bb7463dda14f823778870cb97d0feb4326ed4ddeead",
-  "contentHash": "662c1f1b1dee63be78f1251176da68df5ca93c575d8710be343a1da8dbb04bd6",
-  "policy": "listening-comprehension-qc-v2",
-  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 2,
-  "pass": true,
+  "rounds": 6,
+  "pass": false,
   "author": {
     "stage": "author",
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyJu8xNGxG7HYNyE0zZYb1FHSjNG",
+    "responseId": "chatcmpl-Em1APMMZxx2lWNK2IMaGH6Gviw73S",
     "result": {
-      "question": "Selon le document, à qui les pharmaciens transmettront-ils leurs observations ?",
+      "question": "Quelle limite précise est annoncée pour le rôle des pharmaciens dans ce suivi ?",
       "choices": [
-        "Au médecin traitant des patients concernés",
-        "Aux services de santé publique de la ville",
-        "À l’équipe chargée de l’évaluation de printemps",
-        "À la direction de chaque pharmacie participante"
+        "Ils ne modifieront pas eux-mêmes les prescriptions.",
+        "Ils ne rencontreront pas directement les patients suivis.",
+        "Ils ne transmettront aucun compte rendu au médecin traitant.",
+        "Ils ne prendront pas en compte les difficultés à comprendre les notices."
       ],
       "correctIndex": 0,
-      "explanation": "Le document précise que les pharmaciens « transmettront leurs observations au médecin traitant avec l'accord des intéressés ». Les autres destinataires proposés ne sont jamais mentionnés : l’évaluation au printemps est un moment, pas un service destinataire ; rien n’indique un envoi aux services de santé publique ni à la direction des pharmacies.",
-      "design": "Axe choisi : le destinataire des observations recueillies par les pharmaciens. Les quatre choix sont tous des destinataires plausibles dans un dispositif de suivi de traitements : médecin, services de santé publique, équipe d’évaluation, direction de pharmacie. Sans le document, chacun pourrait raisonnablement paraître être le récepteur de ce type d’informations. Seule l’écoute permet de repérer que le texte attribue explicitement ce rôle au médecin traitant, tandis que l’évaluation de printemps, le cadre local de santé et la structure de la pharmacie ont d’autres fonctions implicites ou ne sont pas mentionnés comme destinataires.",
+      "explanation": "Le document indique clairement que «les pharmaciens ne modifieront pas les prescriptions». En revanche, il précise qu’ils «vérifieront avec les patients» et «transmettront leurs observations au médecin traitant», en portant notamment sur les «difficultés à comprendre les notices» : ces trois éléments ne sont donc pas des limites, mais bien des actions prévues.",
+      "design": "Cible : la limite explicite fixée au rôle des pharmaciens (ne pas modifier les prescriptions). Les trois autres propositions reprennent des éléments réellement mentionnés (rencontre avec les patients, transmission au médecin traitant, prise en compte des difficultés de compréhension) mais les présentent à tort comme des interdictions. Sans l’enregistrement, ces quatre types de limites paraissent également plausibles dans un dispositif de suivi pharmaceutique.",
       "distractorReasons": [
         {
           "index": 1,
-          "reason": "On peut croire que les observations sont envoyées à un service de santé publique car le document s’ouvre sur « les nouvelles de santé locale », ce qui évoque une action coordonnée par la ville. Cependant, le texte dit explicitement que les pharmaciens « transmettront leurs observations au médecin traitant », sans mention de services municipaux ou d’un organisme de santé publique comme destinataire.",
+          "reason": "Cette réponse transforme en interdiction ce qui est décrit comme une action centrale : le texte dit que les pharmaciens «proposeront un suivi régulier» et «vérifieront avec les patients», ce qui implique bien une rencontre directe. On peut se tromper en se focalisant sur la limite posée et en généralisant l’idée de restriction à la relation avec les patients.",
           "operation": "role_swap",
           "anchors": [
-            "Dans les nouvelles de santé locale",
-            "transmettront leurs observations au médecin traitant"
+            "proposer un suivi régulier",
+            "Ils vérifieront avec les patients"
           ]
         },
         {
           "index": 2,
-          "reason": "La mention qu’« une évaluation aura lieu au printemps » peut faire penser que les observations sont destinées à une équipe d’évaluation. Mais le document distingue bien ces deux éléments : les observations sont adressées « au médecin traitant », et l’évaluation de printemps est simplement un moment où l’ensemble du dispositif sera examiné, sans être nommée comme destinataire direct des comptes rendus des pharmaciens.",
+          "reason": "Le document prévoit au contraire que les pharmaciens «transmettront leurs observations au médecin traitant». L’option devient tentante si l’on associe l’idée de limite du rôle à une absence d’échanges formels avec le médecin, mais ici la coordination avec lui fait explicitement partie du dispositif.",
           "operation": "role_swap",
           "anchors": [
-            "transmettront leurs observations au médecin traitant",
-            "Une évaluation aura lieu au printemps"
+            "transmettront leurs observations",
+            "au médecin traitant"
           ]
         },
         {
           "index": 3,
-          "reason": "Parce qu’il est question de « cinq pharmacies », un auditeur peut imaginer un protocole interne où les observations montent à « la direction de chaque pharmacie ». En réalité, le texte ne parle jamais de direction ou de hiérarchie interne : il indique seulement que les pharmaciens réalisent le suivi et envoient ensuite leurs observations « au médecin traitant », ce qui exclut la direction comme destinataire principal.",
+          "reason": "Les «éventuelles difficultés à comprendre les notices» figurent parmi les points que les pharmaciens «vérifieront avec les patients». La réponse inverse leur statut en les présentant comme un aspect exclu du suivi. L’erreur vient d’une généralisation abusive : comme une limite est annoncée, on peut croire que certains types de difficultés ne seront pas pris en compte, alors qu’elles sont justement ciblées.",
           "operation": "role_swap",
           "anchors": [
-            "cinq pharmacies vont proposer un suivi régulier",
-            "transmettront leurs observations au médecin traitant"
+            "les éventuelles difficultés à comprendre les notices",
+            "Ils vérifieront avec les patients"
           ]
         }
       ]
     },
     "usage": {
-      "prompt_tokens": 4223,
-      "completion_tokens": 1008,
-      "total_tokens": 5231,
+      "prompt_tokens": 4306,
+      "completion_tokens": 3569,
+      "total_tokens": 7875,
       "prompt_tokens_details": {
-        "cached_tokens": 1280,
+        "cached_tokens": 1408,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 370,
+        "reasoning_tokens": 2990,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.01535875,
-    "inputHash": "aa2a6c551b664406a848b7daffb9c6749943a5e9bdf6d7d0ef16e077aaaa8330",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:author:1:0"
+    "costUsd": 0.0410725,
+    "inputHash": "cd16f430c3a25d7ff7e5d52f04bbc80aa994de60f5cfab328dd8e347266b3093",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:6103f288fb85e78951f8f219:author:5:0"
   },
+  "blindEdit": {
+    "input": {
+      "question": "Quelle limite précise est annoncée pour le rôle des pharmaciens dans ce suivi ?",
+      "choices": [
+        "Ils ne modifieront pas eux-mêmes les prescriptions.",
+        "Ils ne rencontreront pas directement les patients suivis.",
+        "Ils ne prendront pas en compte les difficultés à comprendre les notices.",
+        "Ils ne transmettront aucun compte rendu au médecin traitant."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1B6UWR5skehoE2YVVOXjTYi4L9A",
+      "result": {
+        "question": "Quelle restriction est évoquée concernant le rôle des pharmaciens dans ce suivi ?",
+        "choices": [
+          "Ils ne modifieront pas eux-mêmes les prescriptions.",
+          "Ils ne rencontreront pas en personne les patients concernés.",
+          "Ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices.",
+          "Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant."
+        ],
+        "notes": "La question reste centrée sur une limite du rôle des pharmaciens dans un dispositif de suivi, sans suggérer quelle option est la plus raisonnable. Les quatre propositions décrivent des restrictions professionnelles distinctes mais plausibles, sans formulation absolue ou manifestement absurde. Aucune n’est mise en valeur par un registre ou une justification particulière."
+      },
+      "usage": {
+        "prompt_tokens": 655,
+        "completion_tokens": 427,
+        "total_tokens": 1082,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 260,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00508875,
+      "inputHash": "a5e1023d31c34c823531033f10679fce1f3bf7bc7bab98ecc8764c4626e11b46",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:6103f288fb85e78951f8f219:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "1fb810f641a9b44daa270d6ccfbfb06de5e0a8b932b3778629ff595983f2f372",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre naturellement à la question, mais la mention spécifique d’une « équipe chargée de l’évaluation de printemps » ressemble davantage à une formulation tirée d’un document officiel décrivant une campagne ou étude datée, ce qui lui donne un léger avantage malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus précise et institutionnelle (« l’équipe chargée de l’évaluation de printemps ») qui ressemble à la désignation d’un destinataire officiel dans un document; les autres restent plus génériques ou internes."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une campagne de suivi médicamenteux est organisée : les pharmaciens doivent observer les effets secondaires ou problèmes d’adhésion au traitement et transmettre leurs observations directement au médecin traitant des patients pour adapter les prescriptions si nécessaire."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "La ville lance un programme de surveillance de l’usage de certains médicaments (antibiotiques, antidouleurs, etc.). Les pharmaciens recueillent des données et remarques sur les usages et les envoient aux services municipaux de santé publique qui centralisent et analysent ces informations."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une étude ou un audit saisonnier est mis en place, intitulé par exemple « évaluation de printemps » d’une nouvelle campagne de prévention. Le document précise que les pharmaciens devront transmettre toutes les observations recueillies à l’équipe chargée de cette évaluation spécifique pour en faire le bilan au printemps."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un réseau de pharmacies met en place un dispositif interne d’observation (sur la qualité de service, la gestion d’une promotion ou la mise en place d’un nouveau protocole). Chaque pharmacien participant doit faire remonter ses observations à la direction de sa propre pharmacie pour un suivi en interne."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6a3d70d81bbb9adc780a6d9dbbf7ba6964f8b066a7e39de4ec6ae6e65daf4594",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le syntagme \"médecin référent associé au dispositif\" correspond très bien au vocabulaire courant des dispositifs coordonnés en santé (suivi thérapeutique, pharmacovigilance), où un référent identifié reçoit les observations des pharmaciens. Les autres options restent plausibles mais paraissent soit trop circonstancielles (évaluation de printemps), soit centrées sur la gestion interne, soit plus vagues administrativement, ce qui donne à l’option 0 un avantage net sans supprimer toute incertitude en l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation institutionnelle standard pour un dispositif de santé (\"médecin référent associé au dispositif\") qui désigne clairement un destinataire désigné et individualisé, alors que l’\"équipe chargée de l’évaluation de printemps\" est très circonstancielle, la \"direction de leur officine\" est interne et moins en phase avec l’idée d’un dispositif externe, et les \"services municipaux de santé publique\" sont plus génériques et administratifs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un enregistrement présente un dispositif de suivi de patients chroniques mis en place entre des pharmacies et un médecin coordinateur. Les pharmaciens doivent noter les effets indésirables ou difficultés d’observance puis transmettre ces observations au médecin référent associé au dispositif pour qu’il adapte les traitements."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une formation décrit un projet temporaire d’évaluation d’un dispositif de prévention mené au printemps. Les pharmaciens recueillent des observations auprès des patients durant cette période et doivent les transmettre à l’équipe chargée de l’évaluation de printemps du dispositif, qui analysera les données saisonnières."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un dispositif interne de suivi de la qualité de service dans une chaîne d’officines est expliqué. Les pharmaciens doivent collecter les remarques des patients sur l’accueil, les conseils reçus et l’attente, puis transmettre ces observations à la direction de leur officine pour améliorer l’organisation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une municipalité lance un dispositif de surveillance sanitaire locale via les pharmacies (par exemple sur des symptômes grippaux). Les pharmaciens doivent transmettre les observations recueillies sur les cas repérés aux services municipaux de santé publique, qui coordonnent la réponse."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "403f0d165cb9456d875c041567868b70adbbdefd2bf0f0297b78de11aa549a63",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Sans accès au document audio, plusieurs réponses restent plausibles. Toutefois, dans un contexte de santé publique ou de pharmacie, un « suivi régulier » est fréquemment associé à la prise concomitante de plusieurs traitements (polymédication), décrite ici de façon neutre et objective à la réponse 2, alors que la réponse 0 est excessivement large et 1 et 3 ciblent des difficultés spécifiques. Cela donne un léger avantage rédactionnel à l’option 2, mais avec une incertitude importante.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Les choix 1 et 3 ciblent des difficultés particulières (oublis fréquents, compréhension des notices), alors que le suivi régulier peut être présenté dans un document institutionnel comme un dispositif standard, plus neutre, pour les personnes sous plusieurs traitements en même temps. L’option 0 est très générale (« à l’ensemble des patients ») et moins vraisemblable dans un document décrivant un programme spécifique. L’option 2 formule un critère objectif courant (« plusieurs traitements médicamenteux en même temps ») qui ressemble à un libellé typique de cible dans un texte de santé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un médecin généraliste présente à ses patients un nouveau dispositif de suivi régulier proposé par le cabinet, en expliquant qu’il s’adresse à l’ensemble des patients suivis par leur médecin traitant, qu’ils aient ou non des traitements complexes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une infirmière en éducation thérapeutique explique un programme de suivi téléphonique destiné spécifiquement aux personnes qui oublient souvent de prendre leurs traitements, en précisant que ce suivi régulier leur sera proposé en priorité."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un pharmacien détaille un dispositif de suivi régulier mis en place pour les personnes polymédiquées, en disant que ce suivi sera proposé aux personnes qui prennent plusieurs traitements médicamenteux en même temps."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une animatrice d’atelier santé explique qu’un suivi régulier personnalisé sera proposé aux personnes qui ont des difficultés à comprendre les notices de leurs médicaments, afin de les aider à mieux les utiliser."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6f2c2e8f2bd4c963508d10560780c7aa5ffcebaedae12dbc9e45776bd93faeb5",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles, mais la mention spécifique d’« évaluation prévue au printemps » ressemble à une reprise quasi textuelle d’un détail du document et cadre bien avec l’idée de destination principale des observations pour une analyse ultérieure; cela donne à la réponse 1 un avantage de formulation par rapport aux autres options.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « lors de l’évaluation prévue au printemps » suggère fortement un écho littéral à une information temporelle déjà donnée dans le document audio; elle répond précisément à la notion de « destination principale » (analyse ultérieure globale) plutôt qu’à un simple stockage ou à une action immédiate, ce qui s’aligne mieux avec un protocole structuré de suivi décrit en amont."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement, une pharmacienne explique à un patient qu’un nouveau dispositif de suivi en pharmacie est mis en place : les observations recueillies (effets secondaires, observance, tension, etc.) seront principalement transmises au médecin traitant pour compléter son suivi médical global."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de présentation d’un projet de suivi pharmaceutique, l’intervenant précise que toutes les observations collectées en officine seront surtout utilisées pour une grande évaluation du dispositif prévue au printemps, au cours de laquelle les données seront analysées de manière globale."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un responsable d’officine présente un protocole interne de suivi de certains traitements : il insiste sur le fait que les observations faites à la pharmacie seront simplement enregistrées et conservées dans les dossiers internes, sans transmission systématique à l’extérieur, afin de suivre la qualité des conseils fournis par l’équipe."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une formation destinée aux pharmaciens, l’animateur explique que les observations recueillies pendant le suivi serviront directement à proposer des adaptations de traitement à l’officine, par exemple en suggérant au patient des ajustements de posologie ou des changements de spécialité lorsque c’est autorisé et approprié."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6f706287d5377fca8601be79486fa7a81868f5e9929d1d457d41819834285489",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les actions sont plausibles dans un suivi par les pharmaciens, mais la vérification des horaires et du rythme de prise est une formulation plus standard et centrale pour décrire l’accompagnement pharmaceutique, ce qui lui donne un léger avantage comme réponse attendue.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus générale et directement centrée sur un élément classique du suivi pharmaceutique (“horaires et rythme de prise”), moins spécifique ou conditionnel que les autres propositions, ce qui la rend légèrement plus vraisemblable comme item retenu dans un document de présentation du suivi."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur le rôle des pharmaciens dans l’observance des traitements, une pharmacienne explique qu’elle propose un suivi en demandant régulièrement aux patients s’ils oublient souvent de prendre leurs médicaments, et en en discutant avec eux pour chercher des solutions."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission sur la coopération médecin–pharmacien, un pharmacien décrit son suivi des patients chroniques : il dit qu’en cas de problème il contacte le médecin pour faire ajuster, si nécessaire, les prescriptions des patients."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une capsule d’information sur le suivi pharmaceutique, le narrateur explique que les pharmaciens proposent un accompagnement en vérifiant avec les patients les horaires et le rythme de prise de leurs médicaments afin d’assurer une bonne observance."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un document audio sur l’éducation thérapeutique, une pharmacienne précise que le suivi consiste aussi à repérer les difficultés des patients à comprendre les notices afin de pouvoir les réexpliquer plus clairement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "7e7180bc34c02da8bffac2d919509d93cf0183ffa94484c5da186d1cb2e980dc",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre usages sont plausibles dans l’absolu, mais la mention précise d’un «compte rendu structuré» envoyé au «médecin traitant» correspond bien au type de formulations normatives et coordonnées que l’on trouve dans des documents décrivant le suivi pharmaceutique. L’option 2 paraît un peu moins conforme au positionnement habituel du pharmacien, ce qui renforce légèrement la probabilité de l’option 0 sans pour autant supprimer toute incertitude.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation technique et institutionnelle («compte rendu structuré», «médecin traitant») qui ressemble à la description d’un dispositif officiel de coordination des soins plutôt qu’à une simple pratique interne."
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation potentiellement moins conforme au rôle habituel décrit dans des documents officiels («formuler eux-mêmes des propositions d’ajustement du traitement»), pouvant paraître moins responsable ou trop autonome pour un item-corrigé standard."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une formation explique un dispositif de suivi pharmaceutique de patients chroniques. Le formateur décrit que, après chaque entretien de suivi, le pharmacien synthétise ses observations (adhésion, effets indésirables, difficultés pratiques) et les envoie au médecin traitant sous forme de compte rendu structuré intégré au dossier médical."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un document interne d’officine décrit la procédure de suivi: les observations recueillies lors des entretiens sont consignées dans un dossier patient conservé à l’officine, afin de pouvoir être exploitées lors d’un bilan de médication ou d’une évaluation annuelle de la prise en charge."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un protocole de coopération local entre médecins et pharmaciens, un document prévoit que les pharmaciens, à partir des observations de suivi (tension, glycémie, observance), formulent eux-mêmes des propositions d’ajustement de posologie ou de changement de molécule, propositions ensuite soumises à validation médicale."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une brochure sur les entretiens pharmaceutiques décrit un suivi en plusieurs étapes : les observations collectées lors d’un premier suivi servent de base à un second entretien dédié, au cours duquel le pharmacien revient avec le patient sur les points relevés pour adapter les conseils et vérifier les progrès."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1f326580815894a609cdf8eb28def1bc0077aacc2e3d83da0fedddb25e11e4b7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent correspondre à une restriction du rôle dans un suivi, mais l’énoncé sur l’impossibilité pour les pharmaciens de modifier eux-mêmes les prescriptions ressemble fortement à une limite professionnelle centrale et juridiquement encadrée, plus directement liée à la notion de « restriction » du rôle que les autres, qui concernent davantage des modalités pratiques. Cette différence fournit un léger avantage mais l’incertitude demeure importante faute d’accès à l’audio.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation typique d’une borne légale claire sur le rôle professionnel (« ils ne modifieront pas eux-mêmes les prescriptions »), directement reliée au cœur de l’acte de soin, alors que les autres portent sur des modalités (présentiel/distanciel, transmission, explication de notices) qui paraissent plus contingentes par rapport à la notion générale de restriction de rôle dans un suivi."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur une expérimentation de suivi pharmaceutique pour des patients chroniques, un journaliste interroge un représentant de l’Ordre des pharmaciens. Celui-ci explique que les pharmaciens vont participer activement au suivi, par exemple en détectant des effets indésirables ou des problèmes d’observance, mais précise bien la limite légale : « Ils ne modifieront pas eux-mêmes les prescriptions » ; toute modification devra passer par le médecin prescripteur."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une présentation d’un nouveau service de suivi médicamenteux par les pharmaciens, le responsable d’un groupement précise que le suivi se fera uniquement par téléphone ou visio pour des raisons d’organisation et de temps : « Pour ce programme, les pharmaciens ne rencontreront pas en personne les patients concernés, tout se fera à distance. » Il répond ainsi à une question sur les restrictions de leur rôle dans ce suivi."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion d’information sur un dispositif de suivi partagé entre médecins généralistes et pharmacies, un coordinateur explique la répartition des tâches : les pharmaciens feront des entretiens et consigneront leurs observations dans le dossier informatisé, mais il ajoute : « Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant, ce sera automatisé via le logiciel ou pris en charge par le secrétariat médical. » Il décrit cette limite comme une restriction de leur rôle dans le suivi."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un podcast sur un programme de suivi des traitements mené en pharmacie, l’animateur demande si les pharmaciens vont aussi assurer une éducation détaillée sur les documents fournis. L’intervenant précise : « Dans ce dispositif précis, ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices, l’objectif est plutôt de surveiller l’observance et les interactions. » Il présente cela comme une restriction du rôle des pharmaciens dans ce suivi."
+          }
+        ]
+      }
+    }
+  ],
   "blind": [
     {
       "order": [
         0,
-        2,
         1,
-        3
-      ],
-      "receipt": {
-        "stage": "blind",
-        "policy": "listening-comprehension-qc-v2",
-        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-        "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyK5RDlRzVtXg6EVyjBA26OuzwO3",
-        "result": {
-          "plausibility": [
-            {
-              "index": 0,
-              "credible": true,
-              "context": "Dans une étude de suivi de patients polymédiqués, un document d’information explique que les pharmaciens devront noter certaines observations (effets indésirables, problèmes d’adhésion au traitement) et les transmettre au médecin traitant des patients concernés pour ajuster les prescriptions si nécessaire."
-            },
-            {
-              "index": 1,
-              "credible": true,
-              "context": "Une campagne temporaire de dépistage des allergies saisonnières est organisée ; le document de consignes précise qu’à la fin de la période, les pharmaciens devront transmettre leurs observations (nombre de cas, symptômes observés, efficacité perçue des traitements conseillés) à l’équipe chargée de l’évaluation de printemps qui analysera les résultats."
-            },
-            {
-              "index": 2,
-              "credible": true,
-              "context": "Dans le cadre d’un programme municipal de surveillance de la grippe, un document envoyé aux pharmacies explique que les pharmaciens doivent consigner leurs observations (fréquence des symptômes grippaux, pénuries de certains médicaments) et les transmettre aux services de santé publique de la ville, qui coordonnent la réponse sanitaire."
-            },
-            {
-              "index": 3,
-              "credible": true,
-              "context": "Une chaîne de pharmacies lance un projet interne d’amélioration de l’accueil ; le document interne précise que les pharmaciens devront observer certaines situations (temps d’attente, réclamations, demandes fréquentes) et transmettre leurs observations à la direction de chaque pharmacie participante pour adapter l’organisation locale."
-            }
-          ],
-          "cues": [],
-          "standsOut": false,
-          "probabilities": [
-            0.22,
-            0.2,
-            0.35,
-            0.23
-          ],
-          "guess": 2,
-          "reason": "Les quatre réponses peuvent correspondre à un document décrivant un protocole d’observation impliquant des pharmaciens, sans contradiction évidente. Aucune formulation ne présente un avantage grammatical ou logique décisif. Une légère préférence va à « Aux services de santé publique de la ville », fréquemment destinataires d’observations de terrain dans des dispositifs de surveillance sanitaire, mais cette préférence reste peu assurée, d’où une probabilité seulement modérément supérieure aux autres options."
-        },
-        "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 695,
-          "total_tokens": 1302,
-          "prompt_tokens_details": {
-            "cached_tokens": 0,
-            "audio_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 245,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
-          }
-        },
-        "costUsd": 0.00770875,
-        "inputHash": "2e790bbabc69168460f26bcd91c87d047b4bd658d77d25bd6957f3b6d55b47b8",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:screen:2:0"
-      }
-    },
-    {
-      "order": [
-        0,
         3,
-        2,
-        1
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-EkyKDrDKhRJDpiXC4l0rAU6VEGcFg",
+        "responseId": "chatcmpl-Em1BAdnoIPP7M8nOiQ8ooaRuVZSoF",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Une campagne d’observation sur les effets secondaires d’un nouveau traitement est organisée. Le document envoyé aux pharmacies précise que les pharmaciens doivent consigner les observations faites sur les patients et les transmettre au médecin traitant de chaque patient concerné, afin d’assurer un suivi médical personnalisé."
+              "context": "Dans un reportage sur une expérimentation de suivi pharmaceutique pour des patients chroniques, un journaliste interroge un représentant de l’Ordre des pharmaciens. Celui-ci explique que les pharmaciens vont participer activement au suivi, par exemple en détectant des effets indésirables ou des problèmes d’observance, mais précise bien la limite légale : « Ils ne modifieront pas eux-mêmes les prescriptions » ; toute modification devra passer par le médecin prescripteur."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Un groupe de pharmacies participe à un projet interne d’amélioration de la prise en charge des clients. Le document de consignes indique que les pharmaciens doivent noter leurs observations (par exemple sur l’affluence, les demandes fréquentes, les erreurs constatées) et les transmettre à la direction de chaque pharmacie participante pour analyse et décisions de gestion."
+              "context": "Dans une présentation d’un nouveau service de suivi médicamenteux par les pharmaciens, le responsable d’un groupement précise que le suivi se fera uniquement par téléphone ou visio pour des raisons d’organisation et de temps : « Pour ce programme, les pharmaciens ne rencontreront pas en personne les patients concernés, tout se fera à distance. » Il répond ainsi à une question sur les restrictions de leur rôle dans ce suivi."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Une expérimentation est menée durant le printemps pour évaluer l’impact d’une nouvelle organisation des conseils en officine. Le document de présentation prévoit qu’à la fin de la période, les pharmaciens transmettront leurs observations à l’équipe chargée de l’évaluation de printemps, qui centralise les retours et rédigera un rapport."
+              "context": "Lors d’une réunion d’information sur un dispositif de suivi partagé entre médecins généralistes et pharmacies, un coordinateur explique la répartition des tâches : les pharmaciens feront des entretiens et consigneront leurs observations dans le dossier informatisé, mais il ajoute : « Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant, ce sera automatisé via le logiciel ou pris en charge par le secrétariat médical. » Il décrit cette limite comme une restriction de leur rôle dans le suivi."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Une campagne municipale de prévention sanitaire (par exemple sur la vaccination ou le tabac) implique les pharmacies comme relais d’information. Le document officiel de la mairie précise que les pharmaciens devront transmettre leurs observations (nombre de personnes informées, réactions fréquentes, problèmes rencontrés) aux services de santé publique de la ville pour un bilan global."
+              "context": "Dans un podcast sur un programme de suivi des traitements mené en pharmacie, l’animateur demande si les pharmaciens vont aussi assurer une éducation détaillée sur les documents fournis. L’intervenant précise : « Dans ce dispositif précis, ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices, l’objectif est plutôt de surveiller l’observance et les interactions. » Il présente cela comme une restriction du rôle des pharmaciens dans ce suivi."
             }
           ],
-          "cues": [],
-          "standsOut": false,
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "Formulation typique d’une borne légale claire sur le rôle professionnel (« ils ne modifieront pas eux-mêmes les prescriptions »), directement reliée au cœur de l’acte de soin, alors que les autres portent sur des modalités (présentiel/distanciel, transmission, explication de notices) qui paraissent plus contingentes par rapport à la notion générale de restriction de rôle dans un suivi."
+            }
+          ],
+          "standsOut": true,
           "probabilities": [
-            0.25,
-            0.25,
-            0.25,
-            0.25
+            0.4,
+            0.2,
+            0.2,
+            0.2
           ],
           "guess": 0,
-          "reason": "Les quatre réponses peuvent facilement correspondre à des consignes réalistes données dans un document destiné à des pharmaciens, sans indice textuel clair permettant de privilégier l’une plutôt qu’une autre. Aucune option ne présente d’avantage évident de formulation, de portée ou de pertinence directement déductible de l’énoncé seul, d’où une forte incertitude et des probabilités réparties de manière égale."
+          "reason": "Toutes les options peuvent correspondre à une restriction du rôle dans un suivi, mais l’énoncé sur l’impossibilité pour les pharmaciens de modifier eux-mêmes les prescriptions ressemble fortement à une limite professionnelle centrale et juridiquement encadrée, plus directement liée à la notion de « restriction » du rôle que les autres, qui concernent davantage des modalités pratiques. Cette différence fournit un léger avantage mais l’incertitude demeure importante faute d’accès à l’audio."
         },
         "usage": {
-          "prompt_tokens": 607,
-          "completion_tokens": 748,
-          "total_tokens": 1355,
+          "prompt_tokens": 627,
+          "completion_tokens": 1012,
+          "total_tokens": 1639,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 299,
+            "reasoning_tokens": 324,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00823875,
-        "inputHash": "156fb0395fcd43ffb66f2ec01d6762c98d23e813f59d0261322154fbb316f8ad",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:screen:2:1"
+        "costUsd": 0.01090375,
+        "inputHash": "4216deef00043f0e02b2f42ec2e9ae3f1c67350710ef7d9575bcc774303207a5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:6103f288fb85e78951f8f219:screen:6:0"
       }
     }
   ],
-  "grounded": {
-    "stage": "ground",
-    "policy": "listening-comprehension-qc-v2",
-    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-    "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-EkyKLO3CqOW8MPPtBY7fdkGl23TZd",
-    "result": {
-      "supportedIndices": [
-        0
-      ],
-      "ambiguous": false,
-      "questionSupported": true,
-      "summary": "Les pharmaciens enverront leurs observations au médecin traitant des patients concernés.",
-      "options": [
-        {
-          "index": 0,
-          "supported": true,
-          "plausibleMisunderstanding": false,
-          "evidence": [
-            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés"
-          ],
-          "reason": "Le document dit explicitement que les pharmaciens transmettront leurs observations « au médecin traitant ». C’est exactement ce que décrit la proposition 0 : « Au médecin traitant des patients concernés ». Il n’est fait mention d’aucun autre destinataire.",
-          "misunderstanding": null
-        },
-        {
-          "index": 1,
-          "supported": false,
-          "plausibleMisunderstanding": true,
-          "evidence": [
-            "Dans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements."
-          ],
-          "reason": "On pourrait se laisser influencer par le contexte de « nouvelles de santé locale » et penser à des « services de santé publique de la ville ». Cependant, le texte précise clairement que les observations sont transmises « au médecin traitant » et ne parle jamais de services de santé publique municipaux. Le lien avec la ville n’est qu’un cadre d’actualité locale, pas le destinataire effectif des observations.",
-          "misunderstanding": "referent_confusion"
-        },
-        {
-          "index": 2,
-          "supported": false,
-          "plausibleMisunderstanding": true,
-          "evidence": [
-            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés.",
-            "Une évaluation aura lieu au printemps."
-          ],
-          "reason": "L’énoncé mentionne bien « Une évaluation aura lieu au printemps », ce qui peut inciter à imaginer une « équipe chargée de l’évaluation de printemps » comme destinataire. Mais le texte précise juste après la description du suivi que les observations sont transmises « au médecin traitant » et ne dit jamais qu’elles seront envoyées à l’équipe qui fera l’évaluation. L’évaluation est un événement ultérieur, pas le récepteur direct des observations.",
-          "misunderstanding": "temporal_inference"
-        },
-        {
-          "index": 3,
-          "supported": false,
-          "plausibleMisunderstanding": true,
-          "evidence": [
-            "cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements.",
-            "puis transmettront leurs observations au médecin traitant avec l'accord des intéressés."
-          ],
-          "reason": "Le fait que « cinq pharmacies vont proposer un suivi régulier » peut faire croire que chaque pharmacie remontera l’information à sa propre direction. Cependant, le texte précise explicitement le seul destinataire des observations : « au médecin traitant ». Il n’est jamais question de la direction des pharmacies comme récepteur, donc cette interprétation ajoute un maillon hiérarchique non mentionné.",
-          "misunderstanding": "added_institutional_layer"
-        }
-      ]
-    },
-    "usage": {
-      "prompt_tokens": 728,
-      "completion_tokens": 786,
-      "total_tokens": 1514,
-      "prompt_tokens_details": {
-        "cached_tokens": 0,
-        "audio_tokens": 0
-      },
-      "completion_tokens_details": {
-        "reasoning_tokens": 201,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
+  "feedback": {
+    "stage": "blind",
+    "reason": "Toutes les options peuvent correspondre à une restriction du rôle dans un suivi, mais l’énoncé sur l’impossibilité pour les pharmaciens de modifier eux-mêmes les prescriptions ressemble fortement à une limite professionnelle centrale et juridiquement encadrée, plus directement liée à la notion de « restriction » du rôle que les autres, qui concernent davantage des modalités pratiques. Cette différence fournit un léger avantage mais l’incertitude demeure importante faute d’accès à l’audio.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "weak",
+        "cue": "Formulation typique d’une borne légale claire sur le rôle professionnel (« ils ne modifieront pas eux-mêmes les prescriptions »), directement reliée au cœur de l’acte de soin, alors que les autres portent sur des modalités (présentiel/distanciel, transmission, explication de notices) qui paraissent plus contingentes par rapport à la notion générale de restriction de rôle dans un suivi."
       }
-    },
-    "costUsd": 0.00877,
-    "inputHash": "c9e11cba5da231958333dfc01f94bed39b1c2d7d1f22839bc6a7211f399e6f84",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:initial:ground:2"
-  },
-  "feedback": null
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un reportage sur une expérimentation de suivi pharmaceutique pour des patients chroniques, un journaliste interroge un représentant de l’Ordre des pharmaciens. Celui-ci explique que les pharmaciens vont participer activement au suivi, par exemple en détectant des effets indésirables ou des problèmes d’observance, mais précise bien la limite légale : « Ils ne modifieront pas eux-mêmes les prescriptions » ; toute modification devra passer par le médecin prescripteur."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une présentation d’un nouveau service de suivi médicamenteux par les pharmaciens, le responsable d’un groupement précise que le suivi se fera uniquement par téléphone ou visio pour des raisons d’organisation et de temps : « Pour ce programme, les pharmaciens ne rencontreront pas en personne les patients concernés, tout se fera à distance. » Il répond ainsi à une question sur les restrictions de leur rôle dans ce suivi."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une réunion d’information sur un dispositif de suivi partagé entre médecins généralistes et pharmacies, un coordinateur explique la répartition des tâches : les pharmaciens feront des entretiens et consigneront leurs observations dans le dossier informatisé, mais il ajoute : « Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant, ce sera automatisé via le logiciel ou pris en charge par le secrétariat médical. » Il décrit cette limite comme une restriction de leur rôle dans le suivi."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Dans un podcast sur un programme de suivi des traitements mené en pharmacie, l’animateur demande si les pharmaciens vont aussi assurer une éducation détaillée sur les documents fournis. L’intervenant précise : « Dans ce dispositif précis, ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices, l’objectif est plutôt de surveiller l’observance et les interactions. » Il présente cela comme une restriction du rôle des pharmaciens dans ce suivi."
+      }
+    ]
+  }
 }
