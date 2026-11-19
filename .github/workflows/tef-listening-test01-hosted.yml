@@ -1,0 +1,32 @@
+name: Verify hosted TEF Listening Test01 before activation
+on:
+  push:
+    branches: [development]
+    paths:
+      - .github/workflows/tef-listening-test01-hosted.yml
+      - scripts/release/check-tef-listening-test01-hosted.py
+      - supabase/exams/tef-listening-test01.json
+      - assets/tef-listening/tef-listening-2026-11-test01-v1/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - name: Validate all 40 original recorded sources and four image panels
+        run: node scripts/check-tef-listening-test01.mjs
+      - name: Verify the deployed Pages commit and each of its 47 required media files
+        run: python scripts/release/check-tef-listening-test01-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-test01-hosted-proof
+          path: work/tef-listening-test01/hosted-verified.json
+          retention-days: 30
