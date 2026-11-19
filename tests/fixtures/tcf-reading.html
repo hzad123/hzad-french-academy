@@ -12,6 +12,9 @@ for(const file of ['20261029_academy_learning.sql','20261105001000_ai_learning.s
 if(new URLSearchParams(location.search).get('bank')==='v6'){
  for(const file of await (await fetch('/tests/fixtures/tcf-reading-v6-migrations.json')).json())await f.db.exec(await (await fetch('/supabase/migrations/'+file)).text());
 }
+if(new URLSearchParams(location.search).get('bank')==='v4'){
+ await f.db.exec(await (await fetch('/supabase/migrations/20261119180000_tcf_reading_07_20_close_reading_v4.sql')).text());
+}
 const command=async args=>{
  await f.db.query("select set_config('request.jwt.claim.sub',$1,false)",[f.user||'']);
  return (await f.db.query('select public.academy_tcf_reading_command($1,$2,$3) v',[args.p_action,args.p_id,args.p_payload])).rows[0].v;
