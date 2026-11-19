@@ -116,6 +116,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    ];
    for(const [title,detail] of steps){
     const item=el('div',undefined,'hz-tcf-speaking-timing-item');
+    if(title==='Task 2 · Preparation')item.classList.add('is-preparation');
     item.append(el('strong',title),el('span',detail));schedule.append(item);
    }
    intro.append(schedule);
@@ -148,10 +149,15 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
     tab.setAttribute('role','tab');
     tab.setAttribute('aria-selected',String(catalogTab===name));
     tab.setAttribute('aria-controls','hz-tcf-speaking-panel-'+name);
-    tab.tabIndex=catalogTab===name?0:-1;
+    tab.tabIndex=0;
     return tab;
    };
    tabs.append(makeTab('tests','Choose a test'),makeTab('history','My test history ('+(catalog.history?.length||0)+')'));
+   tabs.addEventListener('keydown',event=>{
+    if(!['ArrowLeft','ArrowRight'].includes(event.key))return;
+    event.preventDefault();catalogTab=catalogTab==='tests'?'history':'tests';render();
+    area.querySelector('#hz-tcf-speaking-tab-'+catalogTab)?.focus();
+   });
    area.append(tabs);
    const panel=el('section',undefined,'hz-tcf-speaking-panel');
    panel.id='hz-tcf-speaking-panel-'+catalogTab;
