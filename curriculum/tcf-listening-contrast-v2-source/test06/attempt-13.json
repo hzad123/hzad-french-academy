@@ -2,16 +2,16 @@
   "question": {
     "number": 13,
     "kind": "announcement",
-    "question": "Selon le document, sur quels produits s’applique la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?",
+    "question": "À quel moment le contrôle de température est-il prévu ?",
     "options": [
-      "Sur les seuls objets artisanaux",
-      "Sur les seuls fruits secs",
-      "Sur les seuls produits sensibles",
-      "Sur l’ensemble des produits du marché"
+      "Mardi après-midi.",
+      "Jeudi matin.",
+      "Mercredi matin.",
+      "Mercredi soir."
     ],
     "correct": "C",
-    "explanation": "Le document précise : « Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. » La consigne de maintien dans l’équipement habituel vise donc uniquement les produits sensibles. Juste après, il est indiqué que « Les étals de fruits secs et d'objets artisanaux ne sont pas concernés », ce qui exclut explicitement ces catégories, et montre que la règle ne s’applique pas à l’ensemble des produits du marché.",
-    "transcript": "Question 13.\nLe marché couvert informe les commerçants qu'un contrôle de température sera réalisé mercredi matin sur les installations de réfrigération. Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. Les étals de fruits secs et d'objets artisanaux ne sont pas concernés.\nSelon le document, sur quels produits s’applique la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?",
+    "explanation": "Réponse C : La question porte sur le moment prévu pour le contrôle de température. Le texte répond directement : il « sera réalisé mercredi matin », ce qui correspond exactement à « Mercredi matin. ». A : Le texte indique explicitement que le contrôle sera réalisé « mercredi matin », pas mardi après-midi. Quelqu’un qui lit trop vite peut ne retenir que l’idée d’un jour de semaine sans fixer le bon jour, et confondre mardi et mercredi, mais aucun passage ne mentionne le mardi. B : La formulation « mercredi matin » pourrait être mal retenue comme un simple milieu de semaine, entraînant une confusion avec « jeudi matin ». Toutefois, le texte parle précisément de « mercredi matin » et ne mentionne jamais le jeudi. D : Un lecteur inattentif peut ne retenir que le mot « mercredi » et ignorer « matin », ce qui pourrait le conduire à choisir « Mercredi soir ». Cependant, le texte précise clairement « mercredi matin » et ne fait aucune allusion au soir.",
+    "transcript": "Question 13.\nLe marché couvert informe les commerçants qu'un contrôle de température sera réalisé mercredi matin sur les installations de réfrigération. Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. Les étals de fruits secs et d'objets artisanaux ne sont pas concernés.\nÀ quel moment le contrôle de température est-il prévu ?",
     "segments": [
       {
         "voice": "female",
@@ -23,89 +23,28 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, sur quels produits s’applique la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?"
+        "text": "À quel moment le contrôle de température est-il prévu ?"
       }
     ],
     "audio": "q-13.mp3",
     "audioSeconds": null,
     "slotSeconds": 39
   },
-  "rounds": 2,
-  "pass": false,
-  "author": {
-    "stage": "author",
-    "policy": "listening-comprehension-qc-v2",
-    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-    "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Em1LCQCVm100aNqbjkkzZMNZ5OdmC",
-    "result": {
-      "question": "Selon le document, sur quels produits porte précisément la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?",
-      "choices": [
-        "Sur les produits sensibles",
-        "Sur les fruits secs",
-        "Sur les objets artisanaux",
-        "Sur l’ensemble des produits du marché"
-      ],
-      "correctIndex": 0,
-      "explanation": "Le document précise : « Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent. » La consigne de maintien dans l’équipement habituel vise donc uniquement les produits sensibles. Juste après, il est indiqué que « Les étals de fruits secs et d'objets artisanaux ne sont pas concernés », ce qui exclut explicitement ces catégories, et montre que la règle ne s’applique pas à l’ensemble des produits du marché.",
-      "design": "Axe choisi : la catégorie de produits à laquelle s’applique la consigne de rester dans l’équipement habituel. Les quatre réponses proposent chacune une catégorie de produits plausible pour une telle règle dans un marché (produits sensibles, fruits secs, objets artisanaux, tous les produits). Sans le document, on pourrait raisonnablement penser que la consigne concerne aussi des denrées sèches ou, par prudence, l’ensemble des produits. Seule l’écoute permet d’identifier que l’obligation est réservée aux « produits sensibles », tandis que les étals de fruits secs et d’objets artisanaux sont explicitement exclus, ce qui rend les trois autres interprétations erronées mais crédibles.",
-      "distractorReasons": [
-        {
-          "index": 1,
-          "reason": "Cette réponse inverse le statut des fruits secs, en les prenant pour la cible de la consigne alors que le document indique qu’ils sont exclus. L’erreur est tentante parce qu’un contrôle de température pourrait logiquement concerner des denrées alimentaires, et un auditeur distrait peut associer « fruits secs » à la règle sans remarquer la précision qu’ils ne sont « pas concernés ».",
-          "operation": "role_swap",
-          "anchors": [
-            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent",
-            "Les étals de fruits secs et d'objets artisanaux ne sont pas concernés"
-          ]
-        },
-        {
-          "index": 2,
-          "reason": "Cette option attribue à tort la consigne aux objets artisanaux, en confondant leur mention avec celle des produits effectivement visés. Comme ils sont nommés juste après les fruits secs, un auditeur peut retenir qu’ils font partie du dispositif de contrôle, alors que le texte les situe dans le groupe explicitement non concerné.",
-          "operation": "role_swap",
-          "anchors": [
-            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent",
-            "Les étals de fruits secs et d'objets artisanaux ne sont pas concernés"
-          ]
-        },
-        {
-          "index": 3,
-          "reason": "Cette réponse généralise abusivement la consigne en l’étendant à tous les produits du marché. L’erreur vient d’un glissement d’échelle : on part des « produits sensibles » pour supposer que, par sécurité, la règle vaut pour tous, alors que le document distingue au contraire une catégorie ciblée et des étals exclus du dispositif.",
-          "operation": "scope_shift",
-          "anchors": [
-            "Les produits sensibles doivent rester dans leur équipement habituel jusqu'au passage de l'agent",
-            "Les étals de fruits secs et d'objets artisanaux ne sont pas concernés"
-          ]
-        }
-      ]
-    },
-    "usage": {
-      "prompt_tokens": 4283,
-      "completion_tokens": 2268,
-      "total_tokens": 6551,
-      "prompt_tokens_details": {
-        "cached_tokens": 1280,
-        "audio_tokens": 0
-      },
-      "completion_tokens_details": {
-        "reasoning_tokens": 1563,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
-      }
-    },
-    "costUsd": 0.02803375,
-    "inputHash": "2d9afaebd30f8cc53a88ec5e713d6ab0f9012c171396c928b430613d70f60c0f",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:6103f288fb85e78951f8f219:author:1:0"
-  },
+  "sourceHash": "8addc68169d0d0520574cf48ea6b1d7026eab16ed50102ed3f6859a1a706cb90",
+  "contentHash": "c4a03c0eaf966df1859b6efec35ca31aaac3b524c609a00f9483fb07e1fae72f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
   "blindEdit": {
     "input": {
-      "question": "Selon le document, sur quels produits porte précisément la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?",
+      "question": "Quand le contrôle de température est-il annoncé ?",
       "choices": [
-        "Sur les objets artisanaux",
-        "Sur les fruits secs",
-        "Sur les produits sensibles",
-        "Sur l’ensemble des produits du marché"
+        "Mardi après-midi.",
+        "Jeudi matin.",
+        "Mercredi matin.",
+        "Mercredi soir."
       ]
     },
     "receipt": {
@@ -113,253 +52,248 @@
       "policy": "listening-comprehension-qc-v2",
       "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Em1LgejVGft6ZxmWkKFyc7WrGUqeh",
+      "responseId": "chatcmpl-Em3MWqOdRgHlhS1p55jADvEV9Paxc",
       "result": {
-        "question": "Selon le document, sur quels produits s’applique la consigne de les laisser dans leur équipement habituel jusqu’au passage de l’agent ?",
+        "question": "À quel moment le contrôle de température est-il prévu ?",
         "choices": [
-          "Sur les seuls objets artisanaux",
-          "Sur les seuls fruits secs",
-          "Sur les seuls produits sensibles",
-          "Sur l’ensemble des produits du marché"
+          "Mardi après-midi.",
+          "Jeudi matin.",
+          "Mercredi matin.",
+          "Mercredi soir."
         ],
-        "notes": "L’adverbe « précisément » a été retiré pour ne pas suggérer qu’il s’agit forcément d’un sous-ensemble, afin de ne pas défavoriser l’option « l’ensemble des produits du marché ». Les quatre choix sont reformulés comme des catégories exclusives de produits, avec la même structure syntaxique, pour garder un niveau comparable de précision et de professionnalisme sans en avantager un."
+        "notes": "Question légèrement reformulée pour rester neutre et naturelle, sans avantager un des créneaux proposés, qui restent quatre moments distincts et comparables."
       },
       "usage": {
-        "prompt_tokens": 642,
-        "completion_tokens": 625,
-        "total_tokens": 1267,
+        "prompt_tokens": 617,
+        "completion_tokens": 260,
+        "total_tokens": 877,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 459,
+          "reasoning_tokens": 175,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.0070525,
-      "inputHash": "41d3585a844c0daab23616281540f80fb4d22d75d70903a9cff32d6d20a1bd98",
-      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:6103f288fb85e78951f8f219:blind-edit:before:2"
+      "costUsd": 0.00337125,
+      "inputHash": "a583d3e12b5169b9b5023f66a51e5c05c8568b718800da33dd952ab12f5063dc",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:85aecef166340640b146977e:blind-edit:before:0"
     }
   },
-  "rejections": [
-    {
-      "signature": "ddb04f8cd856a9561325cf5132d780eb7c72f0c614d71f6ab80c36344fa09a17",
-      "feedback": {
-        "stage": "blind",
-        "reason": "Toutes les propositions pourraient correspondre à des consignes d’un document de contrôle, mais la réponse 0 colle le plus naturellement à une formulation administrative standard sans introduire de jour arbitraire ; avantage réel mais modéré, d’où une probabilité renforcée mais une incertitude maintenue.",
-        "cues": [
-          {
-            "option": 0,
-            "severity": "weak",
-            "cue": "Formulation générale et directement liée à l’acte de contrôle (« jusqu’au moment où l’agent effectue le contrôle »), qui ressemble à une consigne type d’un document réglementaire, alors que les autres réponses ajoutent des jours précis non suggérés dans l’énoncé."
-          }
-        ],
-        "plausibility": [
-          {
-            "index": 0,
-            "credible": true,
-            "context": "Consignes données avant un contrôle sanitaire : un responsable lit un document officiel qui précise que les « produits sensibles » doivent rester dans leur équipement habituel (frigo dédié, vitrine froide, etc.) jusqu’au moment précis où l’agent vient effectuer le contrôle, pour éviter toute manipulation préalable."
-          },
-          {
-            "index": 1,
-            "credible": true,
-            "context": "Dans une note de service décrivant l’organisation d’une semaine de contrôle, il est indiqué que, pour cette opération particulière, les produits sensibles doivent rester dans leur équipement habituel jusqu’au vendredi soir de la semaine choisie, car les relevés de température ou de conformité se termineront ce jour-là."
-          },
-          {
-            "index": 2,
-            "credible": true,
-            "context": "Un document d’organisation d’un contrôle de mi-semaine précise que les produits sensibles doivent être maintenus dans leur équipement habituel jusqu’à l’ouverture au public le mercredi matin, moment à partir duquel l’agent effectuera les premières vérifications en conditions réelles."
-          },
-          {
-            "index": 3,
-            "credible": true,
-            "context": "Un planning de contrôle indique que l’opération commence officiellement le mercredi ; le document précise donc que les produits sensibles doivent rester dans leur équipement habituel jusqu’au mardi soir, veille du début du contrôle, pour permettre de vérifier ensuite toute modification de stockage effectuée à partir du démarrage officiel."
-          }
-        ]
-      }
-    },
-    {
-      "signature": "81a3b37e90e61856d3c93579476115b8187ebcbd3350cffdb6bf4b0bc96b1540",
-      "feedback": {
-        "stage": "blind",
-        "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires. Les choix 1 et 4 décrivent des bornes temporelles plus extrêmes (toute la journée ou jusqu’à la fin de tous les contrôles) qui semblent moins typiques pour une consigne de procédure standard. Entre 2 et 3, la réponse 2 emploie une tournure plus générale et administrative (« début officiel des opérations de contrôle ») qui correspond bien à l’idée d’une consigne écrite ou formelle pour l’ensemble du marché, alors que 3 dépend d’un moment variable propre à chaque stand. Cette nuance donne un léger avantage à l’option 1 (index 1) comme clé probable, tout en laissant une incertitude notable avec l’option 2 (index 2).",
-        "cues": [
-          {
-            "option": 1,
-            "severity": "weak",
-            "cue": "Formulation administrative et générale (« début officiel des opérations de contrôle ») qui ressemble à une consigne écrite adressée à tous les commerçants du marché, sans dépendre de l’interaction individuelle avec un stand, ce qui cadre bien avec « selon la consigne »."
-          }
-        ],
-        "plausibility": [
-          {
-            "index": 0,
-            "credible": true,
-            "context": "Un enregistrement d’information pour les commerçants d’un marché couvert explique l’organisation d’un contrôle sanitaire annoncé pour un certain jour : « Les produits sensibles doivent rester dans leur installation habituelle jusqu’à la fermeture du marché le jour du contrôle, afin que nous puissions vérifier les conditions normales de conservation sur toute la journée. »"
-          },
-          {
-            "index": 1,
-            "credible": true,
-            "context": "Une réunion avec les responsables de stands d’un marché précise la procédure lors de contrôles officiels : « Selon la consigne, les produits sensibles doivent rester dans leur installation habituelle jusqu’au début officiel des opérations de contrôle, pour que la situation observée corresponde à vos conditions d’exploitation normales. »"
-          },
-          {
-            "index": 2,
-            "credible": true,
-            "context": "Un agent de contrôle sanitaire laisse un message vocal aux commerçants : « Le jour J, ne modifiez pas vos installations : les produits sensibles doivent rester dans leur installation habituelle jusqu’au moment où l’agent de contrôle intervient sur votre stand. »"
-          },
-          {
-            "index": 3,
-            "credible": true,
-            "context": "Une formation à la sécurité alimentaire décrit une procédure exceptionnelle en cas de suspicion généralisée : « Les produits sensibles doivent rester dans leur installation habituelle jusqu’à la fin de l’ensemble des opérations de contrôle sur le marché, afin de pouvoir procéder à des vérifications complémentaires si nécessaire. »"
-          }
-        ]
-      }
-    },
-    {
-      "signature": "58812383de1bf921ef4fd5082956ace11b33c399baf05e86074223e58fe3149c",
-      "feedback": {
-        "stage": "blind",
-        "reason": "La question emploie une formulation générale (« sur quels produits s’applique la consigne ») qui correspond naturellement à une règle globale plutôt qu’à une exception étroite ; parmi les choix, « Sur l’ensemble des produits du marché » reflète précisément cette généralité et utilise une tournure réglementaire typique, ce qui lui donne un avantage net malgré l’absence d’accès au document sonore.",
-        "cues": [
-          {
-            "option": 2,
-            "severity": "clear",
-            "cue": "La formulation « Sur l’ensemble des produits du marché » reprend une tournure typique de règlementation générale (« la consigne s’applique à l’ensemble des produits… ») et ajoute une précision contextuelle (« du marché ») qui donne une portée globale et cohérente avec une règle standard, tandis que les trois autres réponses introduisent des restrictions arbitraires (« seuls… ») à des sous‑catégories sans justification textuelle visible."
-          }
-        ],
-        "plausibility": [
-          {
-            "index": 0,
-            "credible": true,
-            "context": "Consignes d’un règlement pour un marché artisanal : le document précise que seuls les objets artisanaux doivent rester dans leur dispositif d’exposition habituel (vitrine, présentoir sécurisé, socle, etc.) jusqu’au passage de l’agent de contrôle pour éviter les manipulations inutiles."
-          },
-          {
-            "index": 1,
-            "credible": true,
-            "context": "Notice sanitaire pour un marché alimentaire : le document indique que seuls les produits sensibles (par exemple viandes, poissons, produits laitiers) doivent rester dans leur équipement habituel de conservation (réfrigérateur, vitrine réfrigérée, chambre froide mobile) jusqu’au passage de l’agent de contrôle d’hygiène."
-          },
-          {
-            "index": 2,
-            "credible": true,
-            "context": "Règlement général d’un marché hebdomadaire : le document stipule que l’ensemble des produits du marché, quelle que soit leur catégorie, doivent être laissés dans leur équipement habituel (étals, vitrines, frigos, présentoirs) sans être déplacés ni rangés avant le passage de l’agent municipal chargé de la vérification."
-          },
-          {
-            "index": 3,
-            "credible": true,
-            "context": "Consignes spécifiques pour un stand de fruits secs : le document précise que seuls les fruits secs doivent être laissés dans leur équipement habituel (bacs, silos, distributeurs) jusqu’au passage de l’agent de contrôle, les autres catégories pouvant être rangées plus tôt."
-          }
-        ]
-      }
-    }
-  ],
+  "rejections": [],
   "blind": [
     {
       "order": [
-        0,
-        2,
         3,
-        1
+        1,
+        2,
+        0
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Em1LtcIrEUbQcRmuwnLOQVdFoH0Kn",
+        "responseId": "chatcmpl-Em3MZ8RcUOgjGk99pi5lUviGMN6y1",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Consignes d’un règlement pour un marché artisanal : le document précise que seuls les objets artisanaux doivent rester dans leur dispositif d’exposition habituel (vitrine, présentoir sécurisé, socle, etc.) jusqu’au passage de l’agent de contrôle pour éviter les manipulations inutiles."
+              "context": "Dans une usine agroalimentaire, le responsable qualité rappelle le planning hebdomadaire : \"Pour les cuves de fermentation, à quel moment le contrôle de température est-il prévu ?\" – \"Mercredi soir.\""
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Notice sanitaire pour un marché alimentaire : le document indique que seuls les produits sensibles (par exemple viandes, poissons, produits laitiers) doivent rester dans leur équipement habituel de conservation (réfrigérateur, vitrine réfrigérée, chambre froide mobile) jusqu’au passage de l’agent de contrôle d’hygiène."
+              "context": "Dans un cabinet médical qui organise une visite de contrôle pour un patient fébrile, l’assistante vérifie : \"À quel moment le contrôle de température est-il prévu ?\" – \"Jeudi matin.\""
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Règlement général d’un marché hebdomadaire : le document stipule que l’ensemble des produits du marché, quelle que soit leur catégorie, doivent être laissés dans leur équipement habituel (étals, vitrines, frigos, présentoirs) sans être déplacés ni rangés avant le passage de l’agent municipal chargé de la vérification."
+              "context": "Dans un entrepôt frigorifique, le chef d’équipe relit la fiche de maintenance : \"À quel moment le contrôle de température est-il prévu ?\" – \"Mercredi matin.\""
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Consignes spécifiques pour un stand de fruits secs : le document précise que seuls les fruits secs doivent être laissés dans leur équipement habituel (bacs, silos, distributeurs) jusqu’au passage de l’agent de contrôle, les autres catégories pouvant être rangées plus tôt."
+              "context": "Dans une école, le directeur parle d’un contrôle de température du système de chauffage : \"À quel moment le contrôle de température est-il prévu ?\" – \"Mardi après-midi.\""
             }
           ],
-          "cues": [
-            {
-              "option": 2,
-              "severity": "clear",
-              "cue": "La formulation « Sur l’ensemble des produits du marché » reprend une tournure typique de règlementation générale (« la consigne s’applique à l’ensemble des produits… ») et ajoute une précision contextuelle (« du marché ») qui donne une portée globale et cohérente avec une règle standard, tandis que les trois autres réponses introduisent des restrictions arbitraires (« seuls… ») à des sous‑catégories sans justification textuelle visible."
-            }
-          ],
-          "standsOut": true,
+          "cues": [],
+          "standsOut": false,
           "probabilities": [
-            0.15,
             0.25,
-            0.45,
-            0.15
+            0.25,
+            0.25,
+            0.25
           ],
-          "guess": 2,
-          "reason": "La question emploie une formulation générale (« sur quels produits s’applique la consigne ») qui correspond naturellement à une règle globale plutôt qu’à une exception étroite ; parmi les choix, « Sur l’ensemble des produits du marché » reflète précisément cette généralité et utilise une tournure réglementaire typique, ce qui lui donne un avantage net malgré l’absence d’accès au document sonore."
+          "guess": 0,
+          "reason": "Toutes les réponses sont grammaticalement correctes, de même nature (moment précis dans la semaine) et correspondent directement à la question sans indice contextuel supplémentaire. Aucune option ne présente d’avantage rédactionnel clair, donc le choix reste hautement incertain et la sélection de l’option 0 est essentiellement arbitraire."
         },
         "usage": {
-          "prompt_tokens": 610,
-          "completion_tokens": 850,
-          "total_tokens": 1460,
+          "prompt_tokens": 583,
+          "completion_tokens": 373,
+          "total_tokens": 956,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 316,
+            "reasoning_tokens": 51,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.0092625,
-        "inputHash": "8094b307050746581851bf9fa629b085b029859dd302a3bd92cad9a6ed09282e",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:6103f288fb85e78951f8f219:screen:2:0"
+        "costUsd": 0.00445875,
+        "inputHash": "b01e54200a1a19e9bf512fd80477836d606ed6adda71562f556bcd66d98f6077",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:85aecef166340640b146977e:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3MePhuDIHdgqq4SYFodgMQVdtbc",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion de service d’un laboratoire ou d’une usine, le responsable explique le planning des contrôles : « On a déjà fait celui d’aujourd’hui. À quel moment le contrôle de température est-il prévu ? » Un collègue qui connaît le planning répond simplement : « Jeudi matin. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un hôpital, une infirmière nouvelle demande à une collègue : « À quel moment le contrôle de température est-il prévu ? » en parlant d’une visite de maintenance des réfrigérateurs à médicaments. La collègue répond : « Mardi après-midi. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un restaurant, le gérant discute avec le technicien de la chambre froide. Il demande : « À quel moment le contrôle de température est-il prévu ? » Le technicien répond : « Mercredi soir. » parce que l’intervention se fait après le service du soir."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une usine agroalimentaire, pendant une réunion qualité, le responsable demande : « À quel moment le contrôle de température est-il prévu ? » en parlant d’un audit des installations. L’assistante répond : « Mercredi matin. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont grammaticalement correctes, directement pertinentes à la question et tout aussi plausibles dans un contexte de planning ou de maintenance. Aucune différence de formulation, de style ou de portée ne favorise clairement un choix plutôt qu’un autre, donc il reste une incertitude totale sans accès à l’enregistrement."
+        },
+        "usage": {
+          "prompt_tokens": 583,
+          "completion_tokens": 421,
+          "total_tokens": 1004,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 40,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00493875,
+        "inputHash": "65976bff026e366814017b641bdb89c7009da19ac20eea4976cb40e359674975",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:85aecef166340640b146977e:screen:0:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "La question emploie une formulation générale (« sur quels produits s’applique la consigne ») qui correspond naturellement à une règle globale plutôt qu’à une exception étroite ; parmi les choix, « Sur l’ensemble des produits du marché » reflète précisément cette généralité et utilise une tournure réglementaire typique, ce qui lui donne un avantage net malgré l’absence d’accès au document sonore.",
-    "cues": [
-      {
-        "option": 2,
-        "severity": "clear",
-        "cue": "La formulation « Sur l’ensemble des produits du marché » reprend une tournure typique de règlementation générale (« la consigne s’applique à l’ensemble des produits… ») et ajoute une précision contextuelle (« du marché ») qui donne une portée globale et cohérente avec une règle standard, tandis que les trois autres réponses introduisent des restrictions arbitraires (« seuls… ») à des sous‑catégories sans justification textuelle visible."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3MiazybVcxkWymQf3A7uRkUoe6k",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le texte précise clairement que le contrôle de température aura lieu « mercredi matin », ce qui correspond à la réponse « Mercredi matin. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "un contrôle de température sera réalisé mercredi matin"
+          ],
+          "reason": "Le texte indique explicitement que le contrôle sera réalisé « mercredi matin », pas mardi après-midi. Quelqu’un qui lit trop vite peut ne retenir que l’idée d’un jour de semaine sans fixer le bon jour, et confondre mardi et mercredi, mais aucun passage ne mentionne le mardi.",
+          "misunderstanding": "temporal_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "un contrôle de température sera réalisé mercredi matin"
+          ],
+          "reason": "La formulation « mercredi matin » pourrait être mal retenue comme un simple milieu de semaine, entraînant une confusion avec « jeudi matin ». Toutefois, le texte parle précisément de « mercredi matin » et ne mentionne jamais le jeudi.",
+          "misunderstanding": "temporal_confusion"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "un contrôle de température sera réalisé mercredi matin"
+          ],
+          "reason": "La question porte sur le moment prévu pour le contrôle de température. Le texte répond directement : il « sera réalisé mercredi matin », ce qui correspond exactement à « Mercredi matin. ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "un contrôle de température sera réalisé mercredi matin"
+          ],
+          "reason": "Un lecteur inattentif peut ne retenir que le mot « mercredi » et ignorer « matin », ce qui pourrait le conduire à choisir « Mercredi soir ». Cependant, le texte précise clairement « mercredi matin » et ne fait aucune allusion au soir.",
+          "misunderstanding": "temporal_detail_ignored"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 682,
+      "completion_tokens": 458,
+      "total_tokens": 1140,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 38,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Consignes d’un règlement pour un marché artisanal : le document précise que seuls les objets artisanaux doivent rester dans leur dispositif d’exposition habituel (vitrine, présentoir sécurisé, socle, etc.) jusqu’au passage de l’agent de contrôle pour éviter les manipulations inutiles."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Notice sanitaire pour un marché alimentaire : le document indique que seuls les produits sensibles (par exemple viandes, poissons, produits laitiers) doivent rester dans leur équipement habituel de conservation (réfrigérateur, vitrine réfrigérée, chambre froide mobile) jusqu’au passage de l’agent de contrôle d’hygiène."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Règlement général d’un marché hebdomadaire : le document stipule que l’ensemble des produits du marché, quelle que soit leur catégorie, doivent être laissés dans leur équipement habituel (étals, vitrines, frigos, présentoirs) sans être déplacés ni rangés avant le passage de l’agent municipal chargé de la vérification."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Consignes spécifiques pour un stand de fruits secs : le document précise que seuls les fruits secs doivent être laissés dans leur équipement habituel (bacs, silos, distributeurs) jusqu’au passage de l’agent de contrôle, les autres catégories pouvant être rangées plus tôt."
-      }
-    ]
-  }
+    },
+    "costUsd": 0.0054325,
+    "inputHash": "b6cf713b4da47bf56072c2325a1da27b62e955857137ebf7ec09743a27bd118f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:12:85aecef166340640b146977e:ground:0"
+  },
+  "feedback": null
 }

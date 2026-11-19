@@ -2,16 +2,16 @@
   "question": {
     "number": 27,
     "kind": "dialogue",
-    "question": "Selon le document, comment les pommes moins chères doivent-elles finalement être utilisées ?",
+    "question": "Quelle décision est finalement prise concernant l’utilisation des pommes du nouveau fournisseur ?",
     "options": [
-      "Elles sont réservées uniquement aux desserts.",
-      "Elles sont utilisées pour toutes les préparations à base de pommes.",
-      "Elles servent pour toutes les recettes qui demandent de grandes tranches.",
-      "Elles sont gardées uniquement pour préparer des compotes."
+      "Elles sont utilisées pour les compotes et les desserts.",
+      "Elles remplacent les pommes du fournisseur habituel dans tous les produits.",
+      "Elles sont utilisées pour les desserts uniquement.",
+      "Elles sont utilisées pour les compotes uniquement."
     ],
     "correct": "D",
-    "explanation": "Les pommes moins chères, de plus petit calibre, sont dites convenir aux compotes mais pas aux desserts. La décision est de commander une partie du lot pour les compotes et de garder le fournisseur habituel pour le reste, ce qui correspond à un usage réservé aux compotes.",
-    "transcript": "Question 27.\nLe fournisseur nous propose des pommes moins chères, mais leur calibre est plus petit que d'habitude.\nCela peut convenir aux compotes, mais pas aux desserts qui exigent de grandes tranches.\nAlors commandons une partie du lot pour les compotes et gardons notre fournisseur habituel pour le reste.\nJe vérifierai les quantités nécessaires pour chaque recette.\nSelon le document, comment les pommes moins chères doivent-elles finalement être utilisées ?",
+    "explanation": "Les pommes du nouveau fournisseur sont réservées aux compotes : le document précise d’abord que cela peut convenir aux compotes, mais pas aux desserts, puis conclut en disant commandons une partie du lot pour les compotes et gardons notre fournisseur habituel pour le reste. Elles ne sont donc ni utilisées pour les desserts, ni pour l’ensemble des besoins.",
+    "transcript": "Question 27.\nLe fournisseur nous propose des pommes moins chères, mais leur calibre est plus petit que d'habitude.\nCela peut convenir aux compotes, mais pas aux desserts qui exigent de grandes tranches.\nAlors commandons une partie du lot pour les compotes et gardons notre fournisseur habituel pour le reste.\nJe vérifierai les quantités nécessaires pour chaque recette.\nQuelle décision est finalement prise concernant l’utilisation des pommes du nouveau fournisseur ?",
     "segments": [
       {
         "voice": "female",
@@ -35,7 +35,7 @@
       },
       {
         "voice": "female",
-        "text": "Selon le document, comment les pommes moins chères doivent-elles finalement être utilisées ?"
+        "text": "Quelle décision est finalement prise concernant l’utilisation des pommes du nouveau fournisseur ?"
       }
     ],
     "audio": "q-27.mp3",
@@ -49,40 +49,40 @@
     "policy": "listening-comprehension-qc-v2",
     "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
     "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Em1RKLCniUrivqvRhe6SNAPf211wv",
+    "responseId": "chatcmpl-Em3QLIZEcFF1axN0Mh0AIK5w5mI0f",
     "result": {
-      "question": "Dans le document, pour quel usage est-il finalement prévu d’utiliser les pommes moins chères ?",
+      "question": "Selon la décision prise, pour quel usage les pommes du nouveau fournisseur sont-elles finalement retenues ?",
       "choices": [
-        "Pour les compotes uniquement.",
-        "Pour les desserts uniquement.",
-        "Pour toutes les recettes qui exigent de grandes tranches.",
-        "Pour l’ensemble des recettes à base de pommes."
+        "Pour les compotes uniquement",
+        "Pour les desserts uniquement",
+        "Pour les compotes et les desserts",
+        "Pour remplacer entièrement le fournisseur habituel"
       ],
       "correctIndex": 0,
-      "explanation": "Les pommes moins chères, de plus petit calibre, sont dites convenir aux compotes mais pas aux desserts. La décision est de commander une partie du lot pour les compotes et de garder le fournisseur habituel pour le reste, ce qui correspond à un usage réservé aux compotes.",
-      "design": "Axe choisi : l’usage culinaire spécifiquement attribué aux pommes moins chères dans la décision finale. Les quatre réponses indiquent chacune une répartition plausible d’un lot de pommes dans une cuisine professionnelle : uniquement pour les compotes, uniquement pour les desserts, pour les recettes nécessitant de grandes tranches, ou pour toutes les recettes à base de pommes. Sans le document, ces répartitions sont également crédibles. Seul l’enregistrement permet de savoir que le petit calibre convient aux compotes mais pas aux desserts, et qu’on ne garde ces pommes que pour cet usage, en complétant le reste avec le fournisseur habituel.",
+      "explanation": "Les pommes du nouveau fournisseur sont réservées aux compotes : le document précise d’abord que cela peut convenir aux compotes, mais pas aux desserts, puis conclut en disant commandons une partie du lot pour les compotes et gardons notre fournisseur habituel pour le reste. Elles ne sont donc ni utilisées pour les desserts, ni pour l’ensemble des besoins.",
+      "design": "Axe précis : l’affectation décidée des pommes du nouveau fournisseur entre différents usages culinaires. Les quatre choix proposent chacun une répartition plausible dans un contexte de cuisine professionnelle (compotes seules, desserts seuls, les deux, ou remplacement total du fournisseur habituel). Sans le document, toutes paraissent raisonnables pour exploiter une offre moins chère ; seul l’enregistrement permet de savoir que les pommes moins chères, de plus petit calibre, sont réservées aux compotes tandis que le fournisseur habituel est conservé pour le reste.",
       "distractorReasons": [
         {
           "index": 1,
-          "reason": "Cette option inverse le rôle attribué aux compotes et aux desserts : le document précise que les pommes moins chères conviennent aux compotes mais pas aux desserts. Elle est tentante car les desserts sont explicitement mentionnés comme un usage possible de pommes et pourraient sembler le débouché principal.",
+          "reason": "Cette option inverse le rôle attribué aux desserts : le document indique que les pommes plus petites ne conviennent pas aux desserts exigeant de grandes tranches et qu’on ne les commande qu pour les compotes. On peut être tenté de retenir les desserts en se focalisant sur le prix moins cher et en oubliant la contrainte de calibre.",
           "operation": "role_swap",
           "anchors": [
-            "Cela peut convenir aux compotes, mais pas aux desserts",
-            "desserts qui exigent de grandes tranches"
+            "leur calibre est plus petit que d'habitude",
+            "mais pas aux desserts qui exigent de grandes tranches"
           ]
         },
         {
           "index": 2,
-          "reason": "Cette option transfère la condition « grandes tranches » aux pommes moins chères, alors que le texte établit l’incompatibilité entre leur petit calibre et les desserts qui réclament de grandes tranches. Elle est plausible car on peut associer spontanément une économie à l’achat aux recettes les plus exigeantes visuellement.",
-          "operation": "condition_transfer",
+          "reason": "Cette réponse élargit indûment l’usage des pommes moins chères à toutes les recettes alors que le texte les limite explicitement aux compotes. La confusion vient d’une généralisation possible à partir du prix avantageux, sans tenir compte de la précision finale sur la commande partielle et la conservation du fournisseur habituel pour le reste.",
+          "operation": "scope_shift",
           "anchors": [
-            "leur calibre est plus petit que d'habitude",
-            "desserts qui exigent de grandes tranches"
+            "Cela peut convenir aux compotes, mais pas aux desserts",
+            "commandons une partie du lot pour les compotes"
           ]
         },
         {
           "index": 3,
-          "reason": "Cette option élargit à tort l’usage des pommes moins chères à toutes les recettes, en généralisant la mention des recettes et des quantités. Le document indique au contraire qu’une partie seulement du lot sera prise pour les compotes et que le reste restera au fournisseur habituel, ce qui limite l’usage réel de ces pommes.",
+          "reason": "Ici, on transforme une répartition partielle en remplacement total du fournisseur habituel. Le document prévoit au contraire de ne commander qu une partie du lot au nouveau fournisseur et de garder le fournisseur habituel pour le reste, ce qui exclut tout remplacement complet.",
           "operation": "scope_shift",
           "anchors": [
             "commandons une partie du lot pour les compotes",
@@ -92,32 +92,32 @@
       ]
     },
     "usage": {
-      "prompt_tokens": 4436,
-      "completion_tokens": 2060,
-      "total_tokens": 6496,
+      "prompt_tokens": 3997,
+      "completion_tokens": 1843,
+      "total_tokens": 5840,
       "prompt_tokens_details": {
-        "cached_tokens": 1408,
+        "cached_tokens": 1280,
         "audio_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 1482,
+        "reasoning_tokens": 1276,
         "audio_tokens": 0,
         "accepted_prediction_tokens": 0,
         "rejected_prediction_tokens": 0
       }
     },
-    "costUsd": 0.026145,
-    "inputHash": "687f49f645f38f472062c61defa847f74fc90a8d6c6d4bf6def407f067199a6e",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:6103f288fb85e78951f8f219:author:5:0"
+    "costUsd": 0.02342625,
+    "inputHash": "99ae880b9fc16aecbf194ee3f4918a8752b21a1f465de4b41e2a955cb75fca27",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:85aecef166340640b146977e:author:5:0"
   },
   "blindEdit": {
     "input": {
-      "question": "Dans le document, pour quel usage est-il finalement prévu d’utiliser les pommes moins chères ?",
+      "question": "Selon la décision prise, pour quel usage les pommes du nouveau fournisseur sont-elles finalement retenues ?",
       "choices": [
-        "Pour les desserts uniquement.",
-        "Pour l’ensemble des recettes à base de pommes.",
-        "Pour toutes les recettes qui exigent de grandes tranches.",
-        "Pour les compotes uniquement."
+        "Pour les compotes et les desserts",
+        "Pour remplacer entièrement le fournisseur habituel",
+        "Pour les desserts uniquement",
+        "Pour les compotes uniquement"
       ]
     },
     "receipt": {
@@ -125,35 +125,35 @@
       "policy": "listening-comprehension-qc-v2",
       "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Em1RiYQ5KnjTEWvJpNvfU3uJ0fldM",
+      "responseId": "chatcmpl-Em3QfXPAnCw3juD4L9pgictE5EtE4",
       "result": {
-        "question": "Selon le document, comment les pommes moins chères doivent-elles finalement être utilisées ?",
+        "question": "Quelle décision est finalement prise concernant l’utilisation des pommes du nouveau fournisseur ?",
         "choices": [
-          "Elles sont réservées uniquement aux desserts.",
-          "Elles sont utilisées pour toutes les préparations à base de pommes.",
-          "Elles servent pour toutes les recettes qui demandent de grandes tranches.",
-          "Elles sont gardées uniquement pour préparer des compotes."
+          "Elles sont utilisées pour les compotes et les desserts.",
+          "Elles remplacent les pommes du fournisseur habituel dans tous les produits.",
+          "Elles sont utilisées pour les desserts uniquement.",
+          "Elles sont utilisées pour les compotes uniquement."
         ],
-        "notes": "L’énoncé a été légèrement reformulé pour rester neutre. Les quatre options restent distinctes (desserts, toutes préparations, recettes avec grandes tranches, compotes) mais sont désormais toutes formulées de façon professionnelle et également plausible, sans suggérer qu’une d’elles est préférable aux autres."
+        "notes": "La question a été légèrement généralisée pour englober aussi bien un usage partiel qu’un remplacement global. L’option 1 a été reformulée pour rester une décision d’utilisation (remplacement dans tous les produits) tout en conservant l’idée d’un remplacement complet du fournisseur habituel. Les quatre choix décrivent désormais des usages professionnels distincts mais comparables (tous sont des décisions d’affectation des pommes), sans qu’un choix paraisse à lui seul plus prudent, responsable ou cohérent."
       },
       "usage": {
-        "prompt_tokens": 643,
-        "completion_tokens": 393,
-        "total_tokens": 1036,
+        "prompt_tokens": 636,
+        "completion_tokens": 542,
+        "total_tokens": 1178,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 240,
+          "reasoning_tokens": 352,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00473375,
-      "inputHash": "00047f227ccf763493e4f8db088fb0ac067a34301b9899b2336fb22602de8b73",
-      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:6103f288fb85e78951f8f219:blind-edit:before:6"
+      "costUsd": 0.006215,
+      "inputHash": "92fd2e2796b5b507997bbd5d1c79ddb6f27a333127d3976b8a2bfceb831d11e9",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:85aecef166340640b146977e:blind-edit:before:6"
     }
   },
   "rejections": [
@@ -432,13 +432,305 @@
           }
         ]
       }
+    },
+    {
+      "signature": "254a12a0230ed8e950a71c4ee518a2235892cfe2bf2be68afc02f0f9673e3cb7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent répondre naturellement à la question dans un contexte ordinaire de cuisine ; la seule légère faveur va à la compote, préparation classique pour utiliser de petites pommes, mais cette indication reste incertaine en l’absence de l’enregistrement.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Les petites pommes, potentiellement moins jolies ou régulières, sont typiquement recommandées pour des préparations où l’aspect compte peu, comme une compote, ce qui correspond bien à l’idée d’« utiliser une partie des petites pommes » sans exigence de belle présentation."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une personne explique comment utiliser la récolte de petites pommes du jardin : elle recommande de garder les plus belles pour les manger telles quelles ou pour une tarte, et d’utiliser une partie des petites pommes abîmées ou irrégulières pour préparer une compote de pommes maison."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission culinaire, le chef décrit comment utiliser différentes tailles de pommes : il conseille de réserver une partie des petites pommes pour cuire des tartes aux pommes individuelles, en expliquant qu’elles conviennent bien pour garnir de petites tartelettes."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un producteur de pommes présente différentes façons de consommer sa production et suggère de garder une partie des petites pommes pour en faire du jus frais, en indiquant qu’elles sont parfaites pour le pressage même si elles sont trop petites pour la vente au détail."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une diététicienne donne des idées pour ne pas gaspiller des fruits : elle recommande d’utiliser une partie des petites pommes pour préparer une salade de fruits, en les coupant en dés avec d’autres fruits de saison."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1caca1be75eb9f7446bb792cdeb1d46db521105a117edcc6fee391aa21089305",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre usages sont ordinaires et pourraient être recommandés dans un document présentant une variété de pommes. Aucun indice décisif ne départage les options, mais l’expression « particulièrement indiquées » correspond assez bien au registre habituel de présentation de « pommes à cuire » destinées à la compote, un emploi très typique et souvent mis en avant. Cela donne un léger avantage à l’option 2, tout en conservant une forte incertitude.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "La formulation « particulièrement indiquées » renvoie fréquemment, dans les descriptions de variétés de pommes, à un usage de cuisson simple et courant comme la compote, qui est un emploi très typique des « pommes à cuire ». Les recettes de compote sont aussi souvent le cas d’usage mis en avant dans des documents informatifs sur les variétés, plus que la salade de fruits ou le jus, et un peu plus générique que les tartelettes, ce qui peut correspondre à un document de présentation générale."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une vendeuse sur un marché présente différentes variétés de pommes et explique que certaines, plus croquantes et juteuses, sont particulièrement indiquées pour préparer une salade de fruits car elles gardent bien leur tenue et s’oxydent moins vite."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un producteur décrit une variété de pommes à chair ferme, légèrement acidulée, en expliquant qu’elles sont particulièrement indiquées pour faire des tartelettes aux pommes car elles se tiennent bien à la cuisson et caramélisent facilement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission culinaire, un spécialiste explique qu’une variété de pommes farineuses et très sucrées est particulièrement indiquée pour préparer des compotes parce qu’elles fondent rapidement et ne nécessitent presque pas de sucre ajouté."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un diététicien dans une capsule radio présente des variétés de pommes et précise que certaines, très juteuses, sont particulièrement indiquées pour faire du jus de pommes maison en donnant un meilleur rendement et une saveur plus équilibrée."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0e6ff9692037bc856fbc576b938b479371d62a184ecfb9ec60caff1163ca476b",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs réponses restent plausibles sans le document audio. L’option 1 et l’option 3 sont des utilisations spécifiques cohérentes, l’option 4 est une utilisation générale logique pour un lot. L’option 2 est nettement moins cohérente. Sans autre indice, léger avantage aux formulations 1 et 4, avec une préférence marginale pour l’idée fréquente d’un lot réservé «uniquement» à la compote en cas de défaut d’aspect.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "«Pour l’ensemble des desserts du menu» suggère utiliser ces pommes même pour des desserts sans pomme, ce qui est logiquement bancal sans hypothèse spéciale sur la composition du menu, alors que les autres choix restent cohérents sans supposer de situation inhabituelle."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans la cuisine d’un restaurant, le chef lit une note expliquant que ce lot de pommes est abîmé ou peu présentable mais encore bon au goût, et que l’on décide donc de l’utiliser uniquement pour la préparation de compotes, où l’aspect visuel importe moins."
+          },
+          {
+            "index": 1,
+            "credible": false,
+            "context": "Le document dirait que ce lot de pommes sera utilisé pour l’ensemble des desserts du menu, y compris ceux qui ne contiennent normalement pas de pommes (comme une mousse au chocolat ou une crème brûlée). Sans supposer un menu composé exclusivement de desserts à la pomme, ce qui serait très inhabituel, cette formulation ne répond pas naturellement à la question et paraît incohérente."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un pâtissier lit un compte rendu de réception de marchandise indiquant que ces pommes sont de belle taille et tiennent bien à la découpe, et qu’on décide de les réserver aux desserts où les pommes sont servies en grandes tranches visibles (tarte fine aux grosses lamelles, pommes rôties, etc.)."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans la fiche de production d’une cantine, il est précisé que ce lot de pommes présente des caractéristiques adaptées à toutes les préparations (goût, tenue à la cuisson), et qu’on décide de l’utiliser pour l’ensemble des recettes à base de pommes, quelle que soit la forme du dessert (tarte, compote, crumble, salade de fruits, etc.)."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "233211e26fe1b7889537019a1d1f44e3a5138d096828a42a69bf292790414b80",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question insiste sur l’utilisation finale des pommes de plus petit calibre. L’option 3 propose une solution de compromis et d’ajustement des quantités, ce qui correspond bien à l’idée d’une décision finale après discussion. Elle reste centrée sur la répartition d’usage, sans surcharger la réponse par des détails de fournisseurs (0 et 1) ni adopter une solution trop absolue (2). D’où une probabilité plus élevée pour 3, même si les autres réponses restent plausibles en l’absence du document audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus nuancée et adaptable (« les répartir entre compotes et autres desserts, en ajustant la part de chacune selon les quantités à compléter ») qui ressemble à une solution finale et équilibrée à un problème de stock. Elle répond exactement à « comment… seront-elles finalement utilisées » sans introduire d’éléments supplémentaires sur les fournisseurs, contrairement aux options 0 et 1, et sans radicalité totale comme l’option 2."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion entre un chef de cuisine et un fournisseur, ils décident que les petites pommes seront utilisées pour des desserts où les pommes sont servies en grosses tranches (tartes, pommes rôties), tout en continuant à acheter des pommes d’un autre fournisseur, mieux adaptées, pour les compotes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un point logistique dans une pâtisserie, le responsable explique que les petites pommes conviendront mieux pour les compotes, où la taille importe peu, et qu’on continuera à travailler avec l’autre fournisseur pour les desserts nécessitant des morceaux entiers ou réguliers."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une cantine scolaire, après avoir reçu un lot de pommes plus petites, la diététicienne tranche en disant qu’on les utilisera pour tous les desserts déjà prévus au menu, même ceux où les pommes sont servies en grosses tranches, afin d’éviter le gaspillage et simplifier la gestion des stocks."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans la cuisine centrale d’un groupe de restaurants, le responsable décrit un plan d’utilisation : une partie des petites pommes ira en compote, le reste dans des desserts variés (tartes, crumbles), et la répartition sera ajustée selon les quantités manquantes dans chaque catégorie de dessert."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1caafded02b4850b554cc9bc13ac850ef6111c1973d5eda2cadb054584017a09",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des actions que le locuteur pourrait raisonnablement dire qu’il fera lui-même, mais l’option 1 présente une formulation particulièrement adaptée à une fin de document audio : elle combine auto-implication claire (« je vais tester moi-même ») et étape concrète avant une décision (confirmer la commande), ce qui lui donne un léger avantage sur les autres.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Formulation plus précise et nuancée (« tester… avant de confirmer la commande ») qui décrit une action personnelle concrète, limitée et conditionnelle, typique d’une conclusion de message où le locuteur s’engage sur une étape de vérification avant décision finale, alors que les autres options sont soit plus techniques (négociation de prix), soit plus globales ou définitives (annuler la commande, contrôler toutes les quantités)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de cuisine d’un restaurant, le chef parle à son équipe de la préparation de la nouvelle carte. À la fin, il conclut : il vérifiera lui-même les quantités de pommes nécessaires pour chaque recette afin de finaliser la commande avec le fournisseur."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un appel entre le chef d’un restaurant et un fournisseur, ils discutent d’une nouvelle variété de petites pommes. En fin d’échange, le chef dit qu’il va lui-même tester ces petites pommes dans un dessert avant de confirmer définitivement la commande."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion de gestion des achats, un responsable explique les problèmes rencontrés avec les prix des pommes. À la fin du message, il annonce qu’il reprendra lui-même la négociation du prix des pommes avec le nouveau fournisseur pour obtenir de meilleures conditions."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un message vocal interne, un responsable de magasin explique des soucis de qualité ou de taille avec des petites pommes récemment livrées. En conclusion, il précise qu’il va lui-même annuler la commande de petites pommes pour les prochaines livraisons afin d’éviter de nouveaux problèmes."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "9279b5d437e916749b01fdbc09c6a00ab9ce6719e1ed1463f09764e7a7d162e1",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 3,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "48285dee56c522fc101161d9f16883c364027259da6cdefeea7ea405f7125d59",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options sont plausibles, mais la dernière réponse est la plus complète et correspond bien à une décision finale de répartition des usages (« compotes et desserts »), ce qui lui donne un léger avantage comme clé probable.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus englobante et nuancée (« compotes et les desserts ») qui ressemble à une conclusion de compromis après discussion des différents usages possibles, par rapport aux options qui ne mentionnent qu’une seule catégorie ou un remplacement total."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de cuisine d’un restaurant ou d’une cantine, l’équipe constate que les pommes du nouveau fournisseur sont bonnes en cuisson mais un peu trop irrégulières pour les compotes standardisées. Ils décident alors de les réserver uniquement aux desserts (tartes, crumbles, pommes au four), et de garder l’ancien fournisseur pour les autres préparations."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une boulangerie‑pâtisserie, après plusieurs tests sur différentes recettes (tartes, viennoiseries, compotes, salades de fruits), le responsable estime que les pommes du nouveau fournisseur sont satisfaisantes pour tous les usages. Lors d’une réunion, il annonce qu’elles vont désormais remplacer complètement les pommes du fournisseur habituel dans tous les produits."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une usine agroalimentaire qui fabrique plusieurs gammes (compotes, desserts pâtissiers, produits frais), le service qualité teste les nouvelles pommes et juge qu’elles donnent une excellente texture de compote mais ne conviennent pas pour les autres desserts (problèmes de tenue ou de goût après cuisson). Ils décident donc de les utiliser uniquement pour les compotes."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une cuisine centrale, après des tests comparatifs, l’équipe constate que les pommes du nouveau fournisseur conviennent bien pour les préparations cuites (compotes et desserts) mais pas pour la consommation crue ou d’autres usages. En fin de réunion, il est décidé qu’elles seront utilisées à la fois pour les compotes et pour les desserts, tandis que l’ancien fournisseur est conservé pour les autres besoins éventuels."
+          }
+        ]
+      }
     }
   ],
   "blind": [
     {
       "order": [
-        1,
         2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3QlW2cnCe4svzX1Zus73UUtYOS4",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion d’équipe d’un restaurant scolaire, le chef explique qu’après avoir testé les pommes du nouveau fournisseur, ils ont décidé de les réserver uniquement à la préparation des desserts (tartes, crumbles), tout en gardant l’ancien fournisseur pour les autres usages comme les salades de fruits ou les jus."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un atelier de cuisine pour une maison de retraite, la responsable explique qu’après comparaison, les pommes du nouveau fournisseur sont plus adaptées aux préparations longues ; l’équipe décide donc de les utiliser uniquement pour les compotes, en conservant l’ancien fournisseur pour les pommes servies crues ou en tarte."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion d’achats dans une usine de pâtisserie industrielle, le responsable qualité annonce qu’après plusieurs essais concluants, l’entreprise a décidé de remplacer totalement les pommes de l’ancien fournisseur par celles du nouveau dans tous les produits à base de pommes."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une petite boulangerie, le patron raconte à son équipe qu’ils ont testé les pommes du nouveau fournisseur dans différents usages et qu’ils ont finalement décidé de les utiliser à la fois pour les compotes et pour les desserts, tout en gardant l’ancien fournisseur pour les ventes de pommes entières aux clients."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre propositions répondent directement et de façon naturelle à la question, sans avantage rédactionnel net ; en l’absence de tout indice textuel discriminant, les probabilités sont équilibrées et le choix de l’option 3 comme réponse supposée est un simple départage arbitraire parmi des options également plausibles."
+        },
+        "usage": {
+          "prompt_tokens": 615,
+          "completion_tokens": 691,
+          "total_tokens": 1306,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 289,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00767875,
+        "inputHash": "6427a29d545eac63d9422fa40eedd95d60f5e0987d4992778fdd4f8b875146bf",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:85aecef166340640b146977e:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
         3,
         0
       ],
@@ -447,98 +739,98 @@
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Em1RmhUObgLlqCzt90v7h4C7nR8k1",
+        "responseId": "chatcmpl-Em3QsqTBoc9RZ646VEpMCluEL914H",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Dans un enregistrement sur l’organisation d’une cuisine de collectivité, un responsable explique que les pommes moins chères conviennent suffisamment bien à toutes les préparations à base de pommes (tartes, salades de fruits, compotes, etc.) et qu’on décide donc de les utiliser systématiquement pour tout ce qui contient des pommes."
+              "context": "Dans une réunion de cuisine d’un restaurant ou d’une cantine, l’équipe constate que les pommes du nouveau fournisseur sont bonnes en cuisson mais un peu trop irrégulières pour les compotes standardisées. Ils décident alors de les réserver uniquement aux desserts (tartes, crumbles, pommes au four), et de garder l’ancien fournisseur pour les autres préparations."
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Dans une pâtisserie, le chef explique à son équipe que les pommes moins chères tiennent mieux à la cuisson en grosses tranches, et qu’on les emploiera désormais pour toutes les recettes demandant de grandes tranches (grands quartiers pour tartes rustiques, pommes rôties, etc.)."
+              "context": "Dans une boulangerie‑pâtisserie, après plusieurs tests sur différentes recettes (tartes, viennoiseries, compotes, salades de fruits), le responsable estime que les pommes du nouveau fournisseur sont satisfaisantes pour tous les usages. Lors d’une réunion, il annonce qu’elles vont désormais remplacer complètement les pommes du fournisseur habituel dans tous les produits."
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Dans un atelier de transformation de fruits, un responsable décrit le tri des pommes en fonction de leur qualité et de leur prix, et précise qu’après réflexion on a décidé de garder les pommes moins chères uniquement pour préparer des compotes, car leur aspect importe peu une fois cuites et mixées."
+              "context": "Dans une usine agroalimentaire qui fabrique plusieurs gammes (compotes, desserts pâtissiers, produits frais), le service qualité teste les nouvelles pommes et juge qu’elles donnent une excellente texture de compote mais ne conviennent pas pour les autres desserts (problèmes de tenue ou de goût après cuisson). Ils décident donc de les utiliser uniquement pour les compotes."
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Dans un restaurant, le chef discute de la gestion des coûts et annonce que les pommes moins chères seront désormais réservées uniquement aux desserts (tartes, crumbles, salades de fruits en fin de repas) pour limiter les dépenses sur cette partie du menu."
+              "context": "Dans une cuisine centrale, après des tests comparatifs, l’équipe constate que les pommes du nouveau fournisseur conviennent bien pour les préparations cuites (compotes et desserts) mais pas pour la consommation crue ou d’autres usages. En fin de réunion, il est décidé qu’elles seront utilisées à la fois pour les compotes et pour les desserts, tandis que l’ancien fournisseur est conservé pour les autres besoins éventuels."
             }
           ],
           "cues": [
             {
-              "option": 2,
-              "severity": "weak",
-              "cue": "L’idée d’employer des pommes moins chères spécifiquement pour la compote est un usage très courant (aspect moins important), et la formulation « gardées uniquement pour préparer des compotes » évoque une affectation claire et finale qui correspond bien à « doivent-elles finalement être utilisées ». Les autres options généralisent beaucoup (« toutes les préparations », « tous les desserts ») ou sont plus techniques (« grandes tranches ») sans être clairement favorisées par l’énoncé."
+              "option": 3,
+              "severity": "clear",
+              "cue": "Formulation plus englobante et nuancée (« compotes et les desserts ») qui ressemble à une conclusion de compromis après discussion des différents usages possibles, par rapport aux options qui ne mentionnent qu’une seule catégorie ou un remplacement total."
             }
           ],
           "standsOut": true,
           "probabilities": [
-            0.15,
-            0.15,
-            0.5,
-            0.2
+            0.18,
+            0.22,
+            0.18,
+            0.42
           ],
-          "guess": 2,
-          "reason": "Les quatre propositions sont plausibles, mais la répartition habituelle des pommes en fonction de la qualité et du prix favorise leur usage en compote pour les moins chères. La tournure « gardées uniquement pour préparer des compotes » correspond bien à une décision finale d’affectation, ce qui donne à l’option 2 un net avantage, tout en conservant une part d’incertitude faute d’accès au document sonore."
+          "guess": 3,
+          "reason": "Plusieurs options sont plausibles, mais la dernière réponse est la plus complète et correspond bien à une décision finale de répartition des usages (« compotes et desserts »), ce qui lui donne un léger avantage comme clé probable."
         },
         "usage": {
-          "prompt_tokens": 621,
-          "completion_tokens": 818,
-          "total_tokens": 1439,
+          "prompt_tokens": 615,
+          "completion_tokens": 562,
+          "total_tokens": 1177,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 276,
+            "reasoning_tokens": 48,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.00895625,
-        "inputHash": "3fca6377b70e975a6ca7d861270a505a999f4e4161b6b7363204c95d90e0028f",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:6103f288fb85e78951f8f219:screen:6:0"
+        "costUsd": 0.00638875,
+        "inputHash": "db30f67565abf7a486f4dbcf0583ca7525e246a29d76e277984d757cdb8197da",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:26:85aecef166340640b146977e:screen:6:1"
       }
     }
   ],
   "feedback": {
     "stage": "blind",
-    "reason": "Les quatre propositions sont plausibles, mais la répartition habituelle des pommes en fonction de la qualité et du prix favorise leur usage en compote pour les moins chères. La tournure « gardées uniquement pour préparer des compotes » correspond bien à une décision finale d’affectation, ce qui donne à l’option 2 un net avantage, tout en conservant une part d’incertitude faute d’accès au document sonore.",
+    "reason": "Plusieurs options sont plausibles, mais la dernière réponse est la plus complète et correspond bien à une décision finale de répartition des usages (« compotes et desserts »), ce qui lui donne un léger avantage comme clé probable.",
     "cues": [
       {
-        "option": 2,
-        "severity": "weak",
-        "cue": "L’idée d’employer des pommes moins chères spécifiquement pour la compote est un usage très courant (aspect moins important), et la formulation « gardées uniquement pour préparer des compotes » évoque une affectation claire et finale qui correspond bien à « doivent-elles finalement être utilisées ». Les autres options généralisent beaucoup (« toutes les préparations », « tous les desserts ») ou sont plus techniques (« grandes tranches ») sans être clairement favorisées par l’énoncé."
+        "option": 3,
+        "severity": "clear",
+        "cue": "Formulation plus englobante et nuancée (« compotes et les desserts ») qui ressemble à une conclusion de compromis après discussion des différents usages possibles, par rapport aux options qui ne mentionnent qu’une seule catégorie ou un remplacement total."
       }
     ],
     "plausibility": [
       {
         "index": 0,
         "credible": true,
-        "context": "Dans un enregistrement sur l’organisation d’une cuisine de collectivité, un responsable explique que les pommes moins chères conviennent suffisamment bien à toutes les préparations à base de pommes (tartes, salades de fruits, compotes, etc.) et qu’on décide donc de les utiliser systématiquement pour tout ce qui contient des pommes."
+        "context": "Dans une réunion de cuisine d’un restaurant ou d’une cantine, l’équipe constate que les pommes du nouveau fournisseur sont bonnes en cuisson mais un peu trop irrégulières pour les compotes standardisées. Ils décident alors de les réserver uniquement aux desserts (tartes, crumbles, pommes au four), et de garder l’ancien fournisseur pour les autres préparations."
       },
       {
         "index": 1,
         "credible": true,
-        "context": "Dans une pâtisserie, le chef explique à son équipe que les pommes moins chères tiennent mieux à la cuisson en grosses tranches, et qu’on les emploiera désormais pour toutes les recettes demandant de grandes tranches (grands quartiers pour tartes rustiques, pommes rôties, etc.)."
+        "context": "Dans une boulangerie‑pâtisserie, après plusieurs tests sur différentes recettes (tartes, viennoiseries, compotes, salades de fruits), le responsable estime que les pommes du nouveau fournisseur sont satisfaisantes pour tous les usages. Lors d’une réunion, il annonce qu’elles vont désormais remplacer complètement les pommes du fournisseur habituel dans tous les produits."
       },
       {
         "index": 2,
         "credible": true,
-        "context": "Dans un atelier de transformation de fruits, un responsable décrit le tri des pommes en fonction de leur qualité et de leur prix, et précise qu’après réflexion on a décidé de garder les pommes moins chères uniquement pour préparer des compotes, car leur aspect importe peu une fois cuites et mixées."
+        "context": "Dans une usine agroalimentaire qui fabrique plusieurs gammes (compotes, desserts pâtissiers, produits frais), le service qualité teste les nouvelles pommes et juge qu’elles donnent une excellente texture de compote mais ne conviennent pas pour les autres desserts (problèmes de tenue ou de goût après cuisson). Ils décident donc de les utiliser uniquement pour les compotes."
       },
       {
         "index": 3,
         "credible": true,
-        "context": "Dans un restaurant, le chef discute de la gestion des coûts et annonce que les pommes moins chères seront désormais réservées uniquement aux desserts (tartes, crumbles, salades de fruits en fin de repas) pour limiter les dépenses sur cette partie du menu."
+        "context": "Dans une cuisine centrale, après des tests comparatifs, l’équipe constate que les pommes du nouveau fournisseur conviennent bien pour les préparations cuites (compotes et desserts) mais pas pour la consommation crue ou d’autres usages. En fin de réunion, il est décidé qu’elles seront utilisées à la fois pour les compotes et pour les desserts, tandis que l’ancien fournisseur est conservé pour les autres besoins éventuels."
       }
     ]
   }

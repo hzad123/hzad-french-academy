@@ -2,16 +2,16 @@
   "question": {
     "number": 11,
     "kind": "announcement",
-    "question": "Selon l'annonce, à quoi sert la description du problème à envoyer avant mardi midi ?",
+    "question": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
     "options": [
-      "À évaluer si la fuite ou la panne nécessite en plus un signalement immédiat par téléphone.",
-      "À planifier l’intervention des techniciens pour les réparations non urgentes.",
-      "À hiérarchiser les demandes concernant les fuites importantes et les pannes dangereuses.",
-      "À enregistrer les demandes pour toutes les réparations prévues la semaine prochaine, comme alternative à un premier appel téléphonique."
+      "Jusqu’au jeudi à midi.",
+      "Jusqu’au mardi à midi.",
+      "Jusqu’au mercredi matin.",
+      "Jusqu’au lundi en fin de journée."
     ],
     "correct": "B",
-    "explanation": "La description envoyée avant mardi midi sert à planifier l'intervention pour les réparations non urgentes : « les réparations non urgentes seront regroupées la semaine prochaine » puis « Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi ». Elle ne sert ni à décider d'appeler pour les urgences, ni à regrouper ou remplacer les appels pour les fuites importantes et pannes dangereuses, qui doivent au contraire être signalées immédiatement par téléphone.",
-    "transcript": "Question 11.\nLa société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone.\nSelon l'annonce, à quoi sert la description du problème à envoyer avant mardi midi ?",
+    "explanation": "Réponse B : La consigne indique clairement que les résidents doivent envoyer la description du problème « avant mardi midi ». Cela correspond directement à la formulation « Jusqu’au mardi à midi. » qui fixe l’échéance à mardi midi. A : Le message précise que la description du problème doit être transmise « avant mardi midi », pas jusqu’au jeudi à midi. Un auditeur distrait pourrait mal retenir le jour de la semaine et confondre mardi avec jeudi, mais il n’est jamais question de jeudi dans l’annonce. C : Le texte parle précisément de « mardi midi » comme limite, et non du « mercredi matin ». Quelqu’un qui a compris qu’il s’agissait du milieu de la semaine prochaine pourrait décaler d’un jour et penser à mercredi matin, mais l’annonce ne mentionne jamais le mercredi. D : On pourrait croire que, puisque les réparations seront regroupées « la semaine prochaine », on a jusqu’à « lundi en fin de journée » pour signaler les problèmes. Mais l’annonce précise clairement une échéance plus précoce : « avant mardi midi », et ne parle pas de lundi en fin de journée.",
+    "transcript": "Question 11.\nLa société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone.\nJusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
     "segments": [
       {
         "voice": "female",
@@ -23,94 +23,28 @@
       },
       {
         "voice": "female",
-        "text": "Selon l'annonce, à quoi sert la description du problème à envoyer avant mardi midi ?"
+        "text": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?"
       }
     ],
     "audio": "q-11.mp3",
     "audioSeconds": null,
     "slotSeconds": 41
   },
-  "contentHash": "f7f491c9771fbc9b5d3014da87faf354d901503e41089118f3087bbe79a1051d",
   "sourceHash": "6b04f02d218759677e32ec6128f3ea0963bf651ef92a7a80614cf88948a10c84",
+  "contentHash": "fa97cf3052515e2a82b325fcc4bbaf6ac10d0b19012e3c07cb6df98b33a58f53",
   "policy": "listening-comprehension-qc-v2",
   "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-  "rounds": 6,
-  "pass": false,
-  "blocked": true,
-  "author": {
-    "stage": "author",
-    "policy": "listening-comprehension-qc-v2",
-    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
-    "model": "gpt-5.1-2025-11-13",
-    "responseId": "chatcmpl-Em1J2EaG7d33fNFB2ytnM00y1NJJ9",
-    "result": {
-      "question": "Selon l'annonce, à quoi doit servir la description du problème envoyée avant mardi midi ?",
-      "choices": [
-        "À organiser l'intervention prévue pour les réparations non urgentes.",
-        "À décider si la fuite ou la panne doit être signalée plutôt immédiatement par téléphone.",
-        "À regrouper les demandes concernant les fuites importantes et les pannes dangereuses.",
-        "À remplacer l'appel téléphonique pour toutes les réparations prévues la semaine prochaine."
-      ],
-      "correctIndex": 0,
-      "explanation": "La description envoyée avant mardi midi sert à planifier l'intervention pour les réparations non urgentes : « les réparations non urgentes seront regroupées la semaine prochaine » puis « Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi ». Elle ne sert ni à décider d'appeler pour les urgences, ni à regrouper ou remplacer les appels pour les fuites importantes et pannes dangereuses, qui doivent au contraire être signalées immédiatement par téléphone.",
-      "design": "Axe précis : la fonction de la description du problème demandée avant mardi midi. Toutes les options proposent un but possible pour cette description dans un avis de résidence (organiser une intervention, trier les urgences, regrouper certains types de pannes, éviter les appels). Seul l’enregistrement établit explicitement que cette description sert à planifier l’intervention pour les réparations non urgentes, alors que les autres rôles concernent en réalité soit les urgences, soit une généralisation abusive du regroupement ou du téléphone.",
-      "distractorReasons": [
-        {
-          "index": 1,
-          "reason": "Cette option échange les rôles respectifs de la description écrite et de l'appel téléphonique : le message demande d'appeler immédiatement pour les fuites importantes et pannes dangereuses, sans passer par la description préalable. L’interprétation est tentante car elle rapproche deux éléments voisins (description, téléphone) pour en faire un outil de tri, mais le document les oppose comme deux canaux distincts selon l’urgence.",
-          "operation": "role_swap",
-          "anchors": [
-            "merci de transmettre la description du problème avant mardi midi",
-            "Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone"
-          ]
-        },
-        {
-          "index": 2,
-          "reason": "Cette réponse attribue à la description le but de regrouper les urgences, alors que le regroupement annoncé ne concerne que les réparations non urgentes. Elle étend donc de façon erronée la portée du regroupement aux fuites importantes et pannes dangereuses, qui relèvent d’un autre traitement (signalement immédiat par téléphone).",
-          "operation": "scope_shift",
-          "anchors": [
-            "les réparations non urgentes seront regroupées la semaine prochaine",
-            "Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone"
-          ]
-        },
-        {
-          "index": 3,
-          "reason": "Ici, la description avant mardi est présentée comme un substitut général à l'appel téléphonique, alors que l'enregistrement réserve explicitement le téléphone aux fuites importantes et pannes dangereuses, et la description à la planification des réparations non urgentes. L’erreur vient d’une généralisation de la mention du téléphone et de la semaine prochaine à « toutes les réparations », alors que le texte distingue nettement les deux circuits.",
-          "operation": "scope_shift",
-          "anchors": [
-            "les réparations non urgentes seront regroupées la semaine prochaine",
-            "Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone"
-          ]
-        }
-      ]
-    },
-    "usage": {
-      "prompt_tokens": 4513,
-      "completion_tokens": 2372,
-      "total_tokens": 6885,
-      "prompt_tokens_details": {
-        "cached_tokens": 1280,
-        "audio_tokens": 0
-      },
-      "completion_tokens_details": {
-        "reasoning_tokens": 1651,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
-      }
-    },
-    "costUsd": 0.02936125,
-    "inputHash": "6fbbbdc08896bd6955ed22f170a1213f5b0545dfb965baa4553aa362c0d95410",
-    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:6103f288fb85e78951f8f219:author:5:0"
-  },
+  "rounds": 0,
+  "pass": true,
+  "author": null,
   "blindEdit": {
     "input": {
-      "question": "Selon l'annonce, à quoi doit servir la description du problème envoyée avant mardi midi ?",
+      "question": "Avant quelle échéance les résidents doivent-ils décrire leurs problèmes non urgents ?",
       "choices": [
-        "À décider si la fuite ou la panne doit être signalée plutôt immédiatement par téléphone.",
-        "À organiser l'intervention prévue pour les réparations non urgentes.",
-        "À regrouper les demandes concernant les fuites importantes et les pannes dangereuses.",
-        "À remplacer l'appel téléphonique pour toutes les réparations prévues la semaine prochaine."
+        "Avant jeudi à midi.",
+        "Avant mardi à midi.",
+        "Avant mercredi matin.",
+        "Avant lundi en fin de journée."
       ]
     },
     "receipt": {
@@ -118,35 +52,35 @@
       "policy": "listening-comprehension-qc-v2",
       "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
       "model": "gpt-5.1-2025-11-13",
-      "responseId": "chatcmpl-Em1JU6OQT90pQrV8ZAQNtm8xMUmU5",
+      "responseId": "chatcmpl-Em3LmVcewgoDHm0ztev7Hs713mvVH",
       "result": {
-        "question": "Selon l'annonce, à quoi sert la description du problème à envoyer avant mardi midi ?",
+        "question": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
         "choices": [
-          "À évaluer si la fuite ou la panne nécessite en plus un signalement immédiat par téléphone.",
-          "À planifier l’intervention des techniciens pour les réparations non urgentes.",
-          "À hiérarchiser les demandes concernant les fuites importantes et les pannes dangereuses.",
-          "À enregistrer les demandes pour toutes les réparations prévues la semaine prochaine, comme alternative à un premier appel téléphonique."
+          "Jusqu’au jeudi à midi.",
+          "Jusqu’au mardi à midi.",
+          "Jusqu’au mercredi matin.",
+          "Jusqu’au lundi en fin de journée."
         ],
-        "notes": "La question a été légèrement généralisée pour ne pas suggérer un usage précis. Chaque option reste une utilisation possible de la description, avec un niveau de sérieux comparable : triage entre e-mail et téléphone, planification de réparations non urgentes, priorisation des cas graves, et procédure d’enregistrement remplaçant l’appel initial. Les formulations extrêmes (“plutôt immédiatement”, “remplacer l’appel téléphonique pour toutes”) ont été adoucies pour éviter de rendre une option manifestement moins crédible, tout en conservant les acteurs, objets, temporalités et distinctions (fuite/panne, non urgent, important/dangereux, semaine prochaine)."
+        "notes": "Question reformulée de façon plus neutre sur l’échéance; les quatre propositions restent des jours et moments précis, de même nature et niveau de détail, sans indice évident sur la bonne réponse."
       },
       "usage": {
-        "prompt_tokens": 675,
-        "completion_tokens": 835,
-        "total_tokens": 1510,
+        "prompt_tokens": 629,
+        "completion_tokens": 427,
+        "total_tokens": 1056,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 576,
+          "reasoning_tokens": 310,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
-      "costUsd": 0.00919375,
-      "inputHash": "eeaca4cab3b1e93a3be7d92c6ce347d81a4dc704197ef1b0e94df1384b1fda16",
-      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:6103f288fb85e78951f8f219:blind-edit:before:6"
+      "costUsd": 0.00505625,
+      "inputHash": "1e01ea263927266b34c0f0522836087483c6d63578457601bdea0249edd1090e",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:blind-edit:before:0"
     }
   },
   "rejections": [
@@ -407,110 +341,215 @@
     {
       "order": [
         1,
-        2,
         0,
-        3
+        3,
+        2
       ],
       "receipt": {
         "stage": "blind",
         "policy": "listening-comprehension-qc-v2",
         "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
         "model": "gpt-5.1-2025-11-13",
-        "responseId": "chatcmpl-Em1JebbBFEnHFp96W0djdj4HKxFVO",
+        "responseId": "chatcmpl-Em3LsCaq3Khy0CKvIt5M8nITBpTpA",
         "result": {
           "plausibility": [
             {
               "index": 0,
               "credible": true,
-              "context": "Annonce d’un service de maintenance dans une résidence : on demande aux habitants d’envoyer avant mardi midi une courte description des problèmes (robinet qui goutte, volet qui coince, prise défectueuse) afin d’organiser la tournée des techniciens pour toutes les réparations non urgentes à partir de mercredi."
+              "context": "Dans une résidence étudiante, le gestionnaire explique en réunion : \"Pour les problèmes non urgents (ampoules, petites réparations), vous pouvez les signaler jusqu’au mardi à midi pour qu’on les traite dans la semaine.\""
             },
             {
               "index": 1,
               "credible": true,
-              "context": "Message du syndic d’immeuble avant un épisode de grand froid : les occupants doivent signaler les problèmes de plomberie ou d’électricité avant mardi midi en décrivant la gravité, afin que le gestionnaire puisse classer par priorité les grosses fuites et pannes potentiellement dangereuses et intervenir en premier sur celles‑ci."
+              "context": "Dans un foyer pour seniors, l’intendante précise : \"Les demandes non urgentes doivent être déposées à l’accueil jusqu’au jeudi à midi pour être prises en compte dans le planning du vendredi.\""
             },
             {
               "index": 2,
               "credible": true,
-              "context": "Annonce d’un service technique d’urgence : les résidents doivent toujours téléphoner immédiatement en cas de gros danger, mais on leur demande en plus d’envoyer avant mardi midi une description écrite des problèmes constatés pour permettre au service de confirmer si la fuite ou la panne justifie aussi un appel téléphonique immédiat ou si un simple traitement différé suffit."
+              "context": "Dans un immeuble locatif, le syndic indique lors d’une assemblée : \"Vous pouvez nous signaler vos problèmes non urgents jusqu’au lundi en fin de journée, on organise ensuite l’intervention des prestataires le mardi.\""
             },
             {
               "index": 3,
               "credible": true,
-              "context": "Information d’un bailleur social : pour toutes les réparations prévues la semaine prochaine, les locataires peuvent soit appeler, soit envoyer avant mardi midi un message décrivant le problème ; cette description sert alors à enregistrer officiellement la demande sans avoir à passer par un premier appel téléphonique."
+              "context": "Dans une résidence de vacances, le responsable annonce : \"Les résidents peuvent signaler leurs problèmes non urgents jusqu’au mercredi matin, après c’est trop tard pour organiser les réparations avant le week-end.\""
             }
           ],
-          "cues": [
-            {
-              "option": 0,
-              "severity": "weak",
-              "cue": "Un délai précis (« avant mardi midi ») correspond très naturellement à un besoin de planifier l’intervention des techniciens pour la tournée suivante, formulation générale et directement liée à l’organisation du service, alors que l’option 3 ajoute la notion d’« alternative à un premier appel » non suggérée dans la question, et 1–2 se focalisent sur les seules urgences (fuites/pannes dangereuses) plutôt que sur l’ensemble des descriptions demandées."
-            }
-          ],
+          "cues": [],
           "standsOut": false,
           "probabilities": [
-            0.4,
-            0.2,
-            0.2,
-            0.2
+            0.25,
+            0.25,
+            0.25,
+            0.25
           ],
           "guess": 0,
-          "reason": "Le délai fixe laisse penser à une fonction de planification des interventions plutôt qu’à une simple hiérarchisation d’urgences ou à un dispositif d’« alternative » à l’appel téléphonique ; l’option 0 colle bien à cette idée sans introduire de contraintes supplémentaires, mais les autres usages restent plausibles, d’où une incertitude notable."
+          "reason": "Aucun indice clair dans la seule formulation de la question et des réponses : les quatre limites temporelles sont plausibles et grammaticalement correctes, sans avantage évident de style, précision ou pertinence ; choix purement incertain."
         },
         "usage": {
-          "prompt_tokens": 652,
-          "completion_tokens": 1085,
-          "total_tokens": 1737,
+          "prompt_tokens": 606,
+          "completion_tokens": 423,
+          "total_tokens": 1029,
           "prompt_tokens_details": {
             "cached_tokens": 0,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 546,
+            "reasoning_tokens": 105,
             "audio_tokens": 0,
             "accepted_prediction_tokens": 0,
             "rejected_prediction_tokens": 0
           }
         },
-        "costUsd": 0.011665,
-        "inputHash": "35ccb84461317eb40eef40780840eb1044380839313fb2016b5029dcbed08007",
-        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:6103f288fb85e78951f8f219:screen:6:0"
+        "costUsd": 0.0049875,
+        "inputHash": "ac915d57ea13fbdddfa8e581a0ab488e8a2a26cd8d544934959499ffa34f3f40",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3LyOP9bFwFEDViFMQ00gY9OL4nD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un gardien d’immeuble laisse un message vocal aux résidents : il explique que pour les petits soucis (ampoule à changer, poignée qui coince, etc.), ils doivent les signaler via le formulaire en ligne, et précise : « Pour les problèmes non urgents, vous pouvez les signaler jusqu’au mardi à midi. Après, ce sera traité la semaine suivante. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion de copropriété enregistrée, le syndic explique la nouvelle procédure : les locataires doivent transmettre leurs demandes non urgentes via une plateforme, et il conclut : « Les résidents peuvent nous signaler leurs problèmes non urgents jusqu’au lundi en fin de journée, comme ça on planifie les interventions pour le reste de la semaine. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message audio diffusé sur le site de la résidence étudiante, l’intendante indique le calendrier de maintenance : « Pour tous les problèmes non urgents, vous avez jusqu’au jeudi à midi pour les signaler. Après cette heure, ils seront pris en compte la semaine prochaine. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message automatique sur le répondeur du service technique d’une résidence précise : « Les résidents peuvent signaler leurs problèmes non urgents jusqu’au mercredi matin ; au‑delà, merci de rappeler la semaine suivante, sauf en cas d’urgence. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre limites temporelles proposées sont ordinaires et répondent toutes directement à la question sans indice contextuel supplémentaire ; aucun avantage clair de formulation, de responsabilité ou de pertinence ne distingue une option des autres, d’où une forte incertitude et un choix par défaut avec probabilités uniformes."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 463,
+          "total_tokens": 1069,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 46,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0053875,
+        "inputHash": "d59b4729e4439ccb463e2f38cd17af0abf6c03317679621c527ab5d990adb652",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:screen:0:1"
       }
     }
   ],
-  "feedback": {
-    "stage": "blind",
-    "reason": "Le délai fixe laisse penser à une fonction de planification des interventions plutôt qu’à une simple hiérarchisation d’urgences ou à un dispositif d’« alternative » à l’appel téléphonique ; l’option 0 colle bien à cette idée sans introduire de contraintes supplémentaires, mais les autres usages restent plausibles, d’où une incertitude notable.",
-    "cues": [
-      {
-        "option": 0,
-        "severity": "weak",
-        "cue": "Un délai précis (« avant mardi midi ») correspond très naturellement à un besoin de planifier l’intervention des techniciens pour la tournée suivante, formulation générale et directement liée à l’organisation du service, alors que l’option 3 ajoute la notion d’« alternative à un premier appel » non suggérée dans la question, et 1–2 se focalisent sur les seules urgences (fuites/pannes dangereuses) plutôt que sur l’ensemble des descriptions demandées."
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3M3uuDJBV1KlcGh7FU67Lb06cNL",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les résidents doivent signaler leurs problèmes non urgents au plus tard avant mardi midi, donc la bonne réponse est « Jusqu’au mardi à midi. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "avant mardi midi"
+          ],
+          "reason": "Le message précise que la description du problème doit être transmise « avant mardi midi », pas jusqu’au jeudi à midi. Un auditeur distrait pourrait mal retenir le jour de la semaine et confondre mardi avec jeudi, mais il n’est jamais question de jeudi dans l’annonce.",
+          "misunderstanding": "autre_jour_semblable"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "merci de transmettre la description du problème avant mardi midi"
+          ],
+          "reason": "La consigne indique clairement que les résidents doivent envoyer la description du problème « avant mardi midi ». Cela correspond directement à la formulation « Jusqu’au mardi à midi. » qui fixe l’échéance à mardi midi.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "avant mardi midi"
+          ],
+          "reason": "Le texte parle précisément de « mardi midi » comme limite, et non du « mercredi matin ». Quelqu’un qui a compris qu’il s’agissait du milieu de la semaine prochaine pourrait décaler d’un jour et penser à mercredi matin, mais l’annonce ne mentionne jamais le mercredi.",
+          "misunderstanding": "décalage_temporel"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la semaine prochaine",
+            "avant mardi midi"
+          ],
+          "reason": "On pourrait croire que, puisque les réparations seront regroupées « la semaine prochaine », on a jusqu’à « lundi en fin de journée » pour signaler les problèmes. Mais l’annonce précise clairement une échéance plus précoce : « avant mardi midi », et ne parle pas de lundi en fin de journée.",
+          "misunderstanding": "mauvaise_inférence_sur_la_planification"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 713,
+      "completion_tokens": 493,
+      "total_tokens": 1206,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 41,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
       }
-    ],
-    "plausibility": [
-      {
-        "index": 0,
-        "credible": true,
-        "context": "Annonce d’un service de maintenance dans une résidence : on demande aux habitants d’envoyer avant mardi midi une courte description des problèmes (robinet qui goutte, volet qui coince, prise défectueuse) afin d’organiser la tournée des techniciens pour toutes les réparations non urgentes à partir de mercredi."
-      },
-      {
-        "index": 1,
-        "credible": true,
-        "context": "Message du syndic d’immeuble avant un épisode de grand froid : les occupants doivent signaler les problèmes de plomberie ou d’électricité avant mardi midi en décrivant la gravité, afin que le gestionnaire puisse classer par priorité les grosses fuites et pannes potentiellement dangereuses et intervenir en premier sur celles‑ci."
-      },
-      {
-        "index": 2,
-        "credible": true,
-        "context": "Annonce d’un service technique d’urgence : les résidents doivent toujours téléphoner immédiatement en cas de gros danger, mais on leur demande en plus d’envoyer avant mardi midi une description écrite des problèmes constatés pour permettre au service de confirmer si la fuite ou la panne justifie aussi un appel téléphonique immédiat ou si un simple traitement différé suffit."
-      },
-      {
-        "index": 3,
-        "credible": true,
-        "context": "Information d’un bailleur social : pour toutes les réparations prévues la semaine prochaine, les locataires peuvent soit appeler, soit envoyer avant mardi midi un message décrivant le problème ; cette description sert alors à enregistrer officiellement la demande sans avoir à passer par un premier appel téléphonique."
-      }
-    ]
+    },
+    "costUsd": 0.00582125,
+    "inputHash": "6a23db6e2fe944ddbd76895c770949744309c0ad8935d53c8b2b3e3cf74cb7a6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:ground:0"
   },
+  "feedback": null,
   "imageHash": null,
-  "designSeedHash": null
+  "designSeedHash": "af250454be0ad6579a757a6d41d23c468c02e2b5fd688e6eae652d8b2bf2e4af"
 }
