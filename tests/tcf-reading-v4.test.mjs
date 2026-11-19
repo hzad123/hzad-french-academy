@@ -52,6 +52,8 @@ test('v4 editorial and bank invariants: 210 advanced items, 14 separate reviewed
       const lengths=q.options.map(x=>x.trim().split(/\s+/).length);
       const correctLength=lengths[letters.indexOf(q.correct)];
       assert(!(correctLength===Math.max(...lengths)&&lengths.filter(x=>x===correctLength).length===1),tag+' correct option must not be uniquely longest');
+      assert(!(correctLength===Math.min(...lengths)&&lengths.filter(x=>x===correctLength).length===1),tag+' correct option must not be uniquely shortest');
+
       assert(!max.has(q.passage),tag+' passage reused across papers');
       max.add(q.passage);
       const reviewedItem=reviewed.get(`${String(i+7).padStart(2,'0')}:${j+1}`);
