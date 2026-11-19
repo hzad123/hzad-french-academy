@@ -56,7 +56,7 @@ test('Task 2 shows dedicated preparation before examiner questions/recording and
  assert(ui.includes("if(n===0&&!switching&&!busy&&!attempt.pending)"));
  assert(ui.includes("switching=true;clearInterval(timer);advance()"));
  assert(ui.includes('No examiner questions, audio or microphone recording occur during this preparation.'));
- assert(ui.includes('Read before starting · TCF Speaking'));
+ assert(ui.includes('Read the instructions before you begin'));
  const tests=readFileSync('supabase/functions/academy-tcf-speaking/test.js','utf8');
  assert(tests.includes("name:'Task 2 · Preparation',seconds:120"));
  assert(tests.includes("name:'Task 2 · Information role-play',seconds:210"));
