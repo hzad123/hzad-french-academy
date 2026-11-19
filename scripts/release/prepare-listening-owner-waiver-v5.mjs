@@ -29,6 +29,10 @@ function checkPriorV4(paper,evidence){
  }
 }
 async function selectedItem(old,record,n,label){
+ // Trial synthesis confirmed the revised Test05 Q19 cannot fit the original
+ // 40-second recording + 12-second response window. Reuse the independently
+ // grounded, already published v4 Q19 with its complete matching MP3 instead.
+ if(label==='05' && n===19)return false;
  if(n<=8)return false; // Keep already checked, picture/short-spoken v4 audio unchanged
  if(!record?.pass||record.blocked||!record.grounded)return false;
  if(record.policy!==policyVersion||record.sourceHash!==contentHash(old))return false;
