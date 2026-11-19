@@ -7,7 +7,7 @@ export function examinerVoiceNeedsTap(navigatorInfo=globalThis.navigator){
 // Browser speech synthesis is a low-cost voice option. Voices are selected
 // explicitly when available, with visible text as an accessibility fallback.
 export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Utterance=globalThis.SpeechSynthesisUtterance}={}){
- let cancelCurrent=null,disposed=false;
+ let cancelCurrent=null,disposed=false,primed=false;
  const pickVoice=()=>{
   const voices=synthesis?.getVoices?.()||[];
   return voices.find(v=>/^fr-CA$/i.test(v.lang))||
@@ -18,6 +18,22 @@ export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Ut
   cancelCurrent?.();cancelCurrent=null;
   try{synthesis?.cancel?.()}catch{}
  };
+ // Warm the voice engine synchronously on the existing Start-test gesture.
+ // This makes subsequent spoken prompts eligible for autoplay on mobile WebKit
+ // when the tab remains active; browsers may still reject audio if interrupted.
+ function unlock(){
+  if(disposed||!synthesis||!Utterance)return false;
+  try{
+   synthesis.resume?.();
+   if(!primed){
+    const silent=new Utterance(' ');
+    silent.lang='fr-CA';silent.volume=0;
+    synthesis.speak(silent);
+    primed=true;
+   }
+   return true;
+  }catch{return false}
+ }
  async function speak(text){
   stop();if(disposed||!text?.trim()||!synthesis||!Utterance)return false;
   // Do not await voiceschanged here: any asynchronous wait loses the iOS
@@ -36,5 +52,5 @@ export function createFrenchVoicePlayer({synthesis=globalThis.speechSynthesis,Ut
    try{synthesis.resume?.();synthesis.speak(utterance)}catch{finish(false)}
   });
  }
- return {speak,stop,dispose(){disposed=true;stop()},selectedVoice:()=>pickVoice()?.name||null};
+ return {speak,unlock,stop,dispose(){disposed=true;stop()},selectedVoice:()=>pickVoice()?.name||null};
 }
