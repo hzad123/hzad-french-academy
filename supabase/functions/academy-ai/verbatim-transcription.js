@@ -17,19 +17,32 @@ export async function transcribeFrenchLearnerWav({audio,key,fetcher=fetch,maxCha
  try{binary=atob(audio)}catch{throw new WritingFailure('INVALID_AUDIO')}
  const bytes=new Uint8Array(binary.length);
  for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
- const form=new FormData();
- form.append('file',new Blob([bytes],{type:'audio/wav'}),'student-response.wav');
- form.append('model','gpt-transcribe');
- form.append('languages[]','fr');
- form.append('response_format','json');
- form.append('prompt',FRENCH_VERBATIM_PROMPT);
- // The only audio sent is the student's microphone WAV. No prior dialogue,
- // target sentence or exam topic is allowed to prime/complete its words.
- let response;
- try{response=await fetcher('https://api.openai.com/v1/audio/transcriptions',{
-  method:'POST',headers:{Authorization:'Bearer '+key},body:form,
-  signal:AbortSignal.timeout(65000)
- })}catch{throw new WritingFailure('NETWORK')}
+ // The preferred recognizer supports multilingual hints. Certain accounts
+ // reject this newer model/parameter combination with HTTP 400. Fall back
+ // ONCE to the supported 4o-mini recognizer, using its singular language field.
+ // Never retry an accepted inference, a 429, a 5xx, or a network failure.
+ const makeForm=(legacy=false)=>{
+  const form=new FormData();
+  form.append('file',new Blob([bytes],{type:'audio/wav'}),'student-response.wav');
+  form.append('model',legacy?'gpt-4o-mini-transcribe':'gpt-transcribe');
+  if(legacy)form.append('language','fr');else form.append('languages[]','fr');
+  form.append('response_format','json');
+  form.append('prompt',FRENCH_VERBATIM_PROMPT);
+  return form;
+ };
+ const send=async legacy=>{
+  try{return await fetcher('https://api.openai.com/v1/audio/transcriptions',{
+   method:'POST',headers:{Authorization:'Bearer '+key},body:makeForm(legacy),
+   signal:AbortSignal.timeout(65000)
+  })}catch{throw new WritingFailure('NETWORK')}
+ };
+ let response=await send(false),model='gpt-transcribe';
+ if(response.status===400){
+  // Rejected before transcription; fallback uses the existing paid ASR flow,
+  // no additional student credit charge and no changed exam data.
+  response=await send(true);
+  model='gpt-4o-mini-transcribe';
+ }
  if(!response.ok){
   const error=await response.json().catch(()=>({}));
   throw new WritingFailure('PROVIDER_HTTP',{status:response.status,providerCode:error.error?.code});
@@ -42,5 +55,5 @@ export async function transcribeFrenchLearnerWav({audio,key,fetcher=fetch,maxCha
  // evidence for a French proficiency grade. Reject it instead of guessing.
  if(transcript&&Array.isArray(raw.languages)&&raw.languages.length===0)
   throw new WritingFailure('TRANSCRIPT_UNCERTAIN');
- return {transcript,usage:raw.usage??null};
+ return {transcript,usage:raw.usage??null,model};
 }
