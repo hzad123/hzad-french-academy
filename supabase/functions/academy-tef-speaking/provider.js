@@ -164,10 +164,19 @@ export function createTefSpeakingProvider({key,fetcher=fetch}={}){
    ...(kind==='turn'?{modalities:['text'],tools:[{type:'function',function:turnFunction}],
     tool_choice:{type:'function',function:{name:turnFunction.name}},parallel_tool_calls:false}
     :{response_format:feedbackSchema(ids,kind)})};
-  let response;try{response=await fetcher('https://api.openai.com/v1/chat/completions',{
-   method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},
-   body:JSON.stringify(body),signal:AbortSignal.timeout(kind==='turn'?65000:55000)
-  })}catch{throw new WritingFailure('NETWORK')}
+  let response;try{
+   const endpoint='https://api.openai.com/v1/chat/completions';
+   const send=payload=>fetcher(endpoint,{
+    method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},
+    body:JSON.stringify(payload),signal:AbortSignal.timeout(kind==='turn'?65000:55000)
+   });
+   response=await send(body);
+   // Some accounts or model snapshots reject a text-only GPT-Audio turn.
+   // HTTP 400 means no successful inference; recover with a smaller text
+   // model once, without asking for or modifying another learner recording.
+   if(response.status===400&&settings.model!=='gpt-4o-mini')
+    response=await send({...body,model:'gpt-4o-mini'});
+  }catch{throw new WritingFailure('NETWORK')}
   if(!response.ok){const err=await response.json().catch(()=>({}));throw new WritingFailure('PROVIDER_HTTP',{status:response.status,providerCode:err.error?.code})}
   let raw;try{raw=await response.json()}catch{throw new WritingFailure('INVALID_JSON')}
   if(raw.choices?.[0]?.finish_reason==='length')throw new WritingFailure('TRUNCATED',{usage:raw.usage});
