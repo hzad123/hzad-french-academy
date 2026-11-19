@@ -96,6 +96,7 @@ test('v4 local SQL rollback/commit preserves historical versions and existing st
     }
     assert.deepEqual((await db.query('select content from academy_tcf_reading.papers where version=$1 order by id',[VERSION])).rows.map(x=>x.content),papers);
     await assert.rejects(()=>db.exec(sql),/prior pointers|immutable/i);
+    await db.exec('rollback;'); // Failed guarded transaction must be explicitly cleared before reads.
     const still=await state();assert.deepEqual(still,after,'repeat blocked without any writes');
   }finally{await db.close()}
 });
