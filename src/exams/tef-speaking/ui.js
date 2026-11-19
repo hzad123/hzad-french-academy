@@ -391,7 +391,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    start.dataset.tefStartMic='true';
    micActions.append(send,start);area.append(micActions);
    if(examinerVoiceNeedsTap())area.append(button(
-    '🔊 Écouter l’interlocuteur puis répondre',
+    '🔊 Réécouter l’interlocuteur si la voix est bloquée',
     ()=>{void beginAnswer(true)},!canPay('turn'),true
    ));
   }
