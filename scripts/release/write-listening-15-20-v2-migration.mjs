@@ -1,5 +1,5 @@
 // Generate a guarded, one-way first publication of TCF Listening 15–20 v2.
-// This batch retains all historical v1 recordings, scores and correct letters.
+// This batch retains all historical v1 banks, student scores and correct letters. Six edited Q25 recordings have new immutable source-matched media.
 // No student history, wallet, speaking or reading table is modified.
 import {readFile,writeFile,readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
@@ -111,4 +111,4 @@ end;
 $publish_six$;
 `;
 await writeFile(output,sql);
-console.log('Staged six immutable TCF Listening v2 banks (312 questions). Database remains unchanged until hosted media verification and explicit transaction.');
+console.log('Staged six immutable TCF Listening v2 banks (234 questions). Database remains unchanged until hosted media verification and explicit transaction.');
