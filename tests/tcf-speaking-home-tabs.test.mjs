@@ -40,8 +40,9 @@ test('TCF selected paper opens a Start button, then untimed preflight before att
  assert(home.includes("'Task 2 · Preparation','2 full minutes to prepare your questions · No microphone'"));
  assert(home.includes("Task 2 includes 2 minutes of preparation."));
  assert(home.includes("button('Start TCF Speaking Test '+selected.id.slice(-2)"));
- const selectToPreflight=home.slice(home.indexOf("const startButton="),home.indexOf(" if(catalogTab==='history')"));
- assert(!selectToPreflight.includes("kind:'start'"),'Clicking first Start must not create a timed attempt');
+ const selectionBranch=home.slice(home.indexOf("const startButton="),home.indexOf("   area.append(panel);"));
+ assert(!selectionBranch.includes("kind:'start'"),'Clicking first Start must not create a timed attempt');
+ assert(selectionBranch.includes("preflight=true;render()"),'First Start must display instructions');
  const preflightStart=home.slice(home.indexOf("if(preflight){"),home.indexOf("}else{\n   // History"));
  assert(preflightStart.includes("voice().unlock()"));
  assert(preflightStart.includes("store.send({kind:'start'"));
