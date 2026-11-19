@@ -1,4 +1,4 @@
-import {readdir} from 'node:fs/promises';import {execFileSync} from 'node:child_process';
+import {readdir,access} from 'node:fs/promises';import {execFileSync} from 'node:child_process';
 import {resolve} from 'node:path';import {fileURLToPath} from 'node:url';
 export function selectStrictBanks(files,{requireReplacements=false}={}){
  const selected=Array.from({length:6},(_,i)=>{
@@ -17,6 +17,15 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  if(!banks.length)console.log('No strict replacement banks in this payload; historical v4 blind warnings remain unresolved.');
  for(const bank of banks){
   const version=bank.match(/test(\d+)-v(\d+)\.json$/);
-  execFileSync('node',['scripts/check-listening-contrast-quality.mjs','--bank',bank,'--evidence',`curriculum/tcf-listening-answer-qc/tcf-listening-2026-11-test${version[1]}-v${version[2]}`,'--media'],{stdio:'inherit'});
+  // Owner expressly waived only the model blind-guessing target. Independently
+  // grounded answers and complete verified recordings remain mandatory.
+  const waiverEvidence=`curriculum/tcf-listening-owner-waiver-v5/tcf-listening-2026-11-test${version[1]}-v${version[2]}`;
+  const waiver=version[2]==='5'&&await access(waiverEvidence+'/review-release.json').then(()=>true,()=>false);
+  if(waiver) {
+   execFileSync('node',['scripts/check-listening-owner-waiver-v5.mjs','--bank',bank,'--evidence',waiverEvidence,'--media'],{stdio:'inherit'});
+   console.log('OWNER WAIVER: approved grounding/media; blind benchmark was expressly waived for '+bank);
+  } else {
+   execFileSync('node',['scripts/check-listening-contrast-quality.mjs','--bank',bank,'--evidence',`curriculum/tcf-listening-answer-qc/tcf-listening-2026-11-test${version[1]}-v${version[2]}`,'--media'],{stdio:'inherit'});
+  }
  }
 }
