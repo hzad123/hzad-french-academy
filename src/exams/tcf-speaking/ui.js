@@ -89,7 +89,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    lastVisiblePhase=attempt.phase;
    // The old UI left Task 2 preparation BELOW completed Task 1 on iPhone.
    // New active phases are now immediately visible at the top.
-   area.scrollIntoView?.({block:'start',behavior:'instant'});
+   area.scrollIntoView?.({block:'start',behavior:'auto'});
   }
  const turn=catalog.activities?.['tcf-speaking-turn'],grade=catalog.activities?.['tcf-speaking-feedback'];const ready=catalog.enabled&&turn?.enabled&&grade?.enabled;
  const canPay=cost=>ready&&Number.isSafeInteger(cost)&&catalog.wallet?.available>=cost&&catalog.wallet.budgetAvailable&&Date.parse(catalog.wallet.expiresAt)>Date.now();
@@ -124,7 +124,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    },!canPay(3*(turn?.credits||0)+(grade?.credits||0))));
    area.append(button('Back to test selection',()=>{preflight=false;render()}));
   }
-  for(const row of catalog.history)area.append(button('Saved speaking Test '+(row.test_id||'tcf-speaking-01').slice(-2)+' · '+new Date(row.createdAt).toLocaleDateString(),()=>{voice().unlock();void open(row.id)}));
+  for(const row of catalog.history)area.append(button('Saved speaking Test '+(row.test_id||'tcf-speaking-01').slice(-2)+' · '+new Date(row.createdAt).toLocaleDateString(),()=>{void open(row.id);voice().unlock()}));
  }else if(attempt.phase===1){
   // A dedicated, top-of-page preparation screen. The official 120-second
   // countdown is server-owned and remains correct after a reload.
