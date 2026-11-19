@@ -22,9 +22,9 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   if(capture){const saved=attempt.calls.find(c=>c.id===capture.callId);
    if(saved?.status==='completed'){const advance=capture.advanceAfter;capture=null;if(advance&&attempt.phase<4)accept(await store.send({kind:'advance',id:attempt.id},signal));return true}
    if(saved?.status==='failed'){
-    // A failed provider turn must not hold the exam past the deadline.
-    if(!left())capture=null;
-    else capture.callId=crypto.randomUUID();
+    // Do not silently retry or re-charge the failed AI request. Release the
+    // locked buffer so a new microphone turn can start if time remains.
+    capture=null;bootKey=null;
    }
   }return false;
  }
