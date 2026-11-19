@@ -1,4 +1,4 @@
--- TEF Reading Test 01: 40 original items, 60 minutes, source-private keys, no AI or wallet changes. Adapted from battle-tested TCF Reading RPC but ISOLATED in academy_tef_reading schema.
+-- TEF Reading Test 01: 40 original items, 60 minutes, source-private keys, no AI or wallet changes. Isolated secure TEF Reading schema.
 begin;
 create schema academy_tef_reading;
 revoke all on schema academy_tef_reading from public,anon,authenticated,service_role;
@@ -80,22 +80,7 @@ begin
  if a.status='active' and p_action in ('answer','submit') then
   if p_payload->'revision' is distinct from to_jsonb(a.revision) then raise exception 'Reading answers changed in another tab. Reload saved answers';end if;
   if p_action='answer' then
-   if jsonb_typeof(p_payload->'number') is distinct from 'number' or p_payload->>'number' !~ '^([1-9]|[12][0-9]|3[0-9]|40) or not (p_payload ? 'choice') or (p_payload->'choice'<>'null'::jsonb and (jsonb_typeof(p_payload->'choice')<>'string' or p_payload->>'choice' not in ('A','B','C','D'))) then raise exception 'Invalid reading choice';end if;
-   question_no:=p_payload->>'number';choice:=p_payload->>'choice';
-   update academy_tef_reading.attempts set answers=case when choice is null then answers-question_no else jsonb_set(answers,array[question_no],to_jsonb(choice)) end,revision=revision+1 where id=a.id returning * into a;
-  else
-   update academy_tef_reading.attempts set status='completed',submitted_at=now(),result=academy_tef_reading.grade(paper,answers),revision=revision+1 where id=a.id returning * into a;
-  end if;
- end if;
- return jsonb_build_object('id',a.id,'testId',a.test_id,'version',a.version,'status',a.status,'answers',a.answers,'revision',a.revision,'startedAt',a.started_at,'deadline',a.deadline,'submittedAt',a.submitted_at,'serverNow',now(),
- 'paper',jsonb_build_object('id',a.test_id,'version',a.version,'title',paper->>'title','seconds',paper->'seconds','questions',(select jsonb_agg(q-'correct'-'explanation' order by (q->>'number')::int) from jsonb_array_elements(paper->'questions') q)),
- 'result',a.result);
-end;$$;
-revoke all on function public.academy_tef_reading_command(text,uuid,jsonb) from public,anon,service_role;
-grant execute on function public.academy_tef_reading_command(text,uuid,jsonb) to authenticated;
-notify pgrst,'reload schema';
-commit;
- or not (p_payload ? 'choice') or (p_payload->'choice'<>'null'::jsonb and (jsonb_typeof(p_payload->'choice')<>'string' or p_payload->>'choice' not in ('A','B','C','D'))) then raise exception 'Invalid reading choice';end if;
+   if jsonb_typeof(p_payload->'number') is distinct from 'number' or p_payload->>'number' !~ '^([1-9]|[12][0-9]|3[0-9]|40)$' or not (p_payload ? 'choice') or (p_payload->'choice'<>'null'::jsonb and (jsonb_typeof(p_payload->'choice')<>'string' or p_payload->>'choice' not in ('A','B','C','D'))) then raise exception 'Invalid reading choice';end if;
    question_no:=p_payload->>'number';choice:=p_payload->>'choice';
    update academy_tef_reading.attempts set answers=case when choice is null then answers-question_no else jsonb_set(answers,array[question_no],to_jsonb(choice)) end,revision=revision+1 where id=a.id returning * into a;
   else
