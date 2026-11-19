@@ -1,10 +1,15 @@
 name: Strict blind quality for Listening Tests01–06
 on:
-  # Paid authoring starts explicitly. Code/media CI still runs automatically;
-  # a push must not replace an active project-authorized recovery deployment.
+  # A single scoped review-branch update resumes offline authoring without
+  # allowing a normal result-checkpoint push to schedule paid calls.
+  push:
+    branches: [fix/listening-six-blind-cues-v5]
+    paths:
+      - .github/workflows/listening-answer-qc.yml
   workflow_dispatch:
 permissions:
   contents: write
+  id-token: write
 concurrency:
   group: listening-independent-answer-qc
   cancel-in-progress: false
@@ -28,13 +33,29 @@ jobs:
           path: work/listening-six-contrast-v2
           key: listening-six-contrast-v2-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: listening-six-contrast-v2-
-      - name: Bundle private authoring and independent validators
-        run: >-
-          node --input-type=module -e "import {build} from 'esbuild'; await build({entryPoints:['supabase/functions/academy-listening-qc/index.ts'],bundle:true,platform:'neutral',format:'esm',target:'es2022',outfile:'/tmp/listening-qc.ts'});"
+      - name: Preserve saved review evidence when there is no prior Actions cache
+        run: |
+          python - <<'PYTHON'
+          import shutil
+          from pathlib import Path
+          src=Path('curriculum/tcf-listening-contrast-v2-source')
+          dest=Path('work/listening-six-contrast-v2')
+          if not (dest/'progress.json').exists() and (src/'progress.json').exists():
+            shutil.copytree(src,dest,dirs_exist_ok=True)
+            print('Restored saved review evidence from GitHub. No prior candidate discarded.')
+          else:
+            print('Using existing Actions review cache; no repository snapshot overwrite.')
+          PYTHON
+      - name: Validate private OIDC QC health without paid inference
+        env:
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+        run: |
+          node --input-type=module -e "import {githubOidcFetch} from './scripts/lib/listening-github-oidc.mjs'; const response=await githubOidcFetch()(process.env.LISTENING_QC_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stage:'health'})}); if(!response.ok)throw Error('Private offline evaluator authentication failed: HTTP'+response.status);const health=await response.json();if(!health.ready)throw Error('Private offline evaluator is not ready'); console.log('Scoped OIDC and private evaluator health verified; no AI calls.');"
       - name: Fresh baseline, strict pilot, full repair and frozen blind experiment
         env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-        run: python scripts/release/run-listening-answer-qc.py --bundle /tmp/listening-qc.ts --script scripts/run-listening-six-contrast-qc.mjs --out work/listening-six-contrast-v2 --workers 12 --max-usd 120 --finish-batch
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+          LISTENING_QC_AUTH_MODE: github-oidc
+        run: node scripts/run-listening-six-contrast-qc.mjs --out work/listening-six-contrast-v2 --workers 12 --max-usd 120 --finish-batch
       - uses: actions/cache/save@v4
         if: always()
         with:
