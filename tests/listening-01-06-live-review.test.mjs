@@ -114,8 +114,31 @@ test('review and strict publication roll back, preserve historical results and s
   const strictSql=publicationSQL6(strict,strictProtectedTables,{revision:5});
   for(const table of ['academy_tef_writing.attempts','academy_tef_speaking.attempts','academy_tef_speaking.calls'])assert(strictSql.includes('from '+table+' t)'));
   if(strictPresent.every(Boolean)){
-   const migrations=(await readdir('supabase/migrations')).filter(f=>/_tcf_listening_01_06_strict_v5\.sql$/.test(f));
-   assert.equal(migrations.length,1);assert.equal(await readFile('supabase/migrations/'+migrations[0],'utf8'),strictSql);
+   const files=await readdir('supabase/migrations');
+   const migrations=files.filter(f=>/_tcf_listening_01_06_strict_v5\.sql$/.test(f));
+   const waiverMigrations=files.filter(f=>/_tcf_listening_01_06_owner_waiver_v5\.sql$/.test(f));
+   const waiverProof='curriculum/tcf-listening-owner-waiver-v5/'+strict[0].version+'/review-release.json';
+   const ownerWaiver=await access(waiverProof).then(()=>true,()=>false);
+   if(ownerWaiver){
+    assert.equal(migrations.length,0,'Owner waiver cannot pretend to pass strict blind benchmarks');
+    assert(waiverMigrations.length<=1,'Only one independently checked owner-waiver migration may exist');
+    const proof=await read(waiverProof);
+    assert.equal(proof.ownerWaiver,true);
+    assert.equal(proof.groundedItems,234);
+    assert.equal(proof.reviewAuthorization?.message,'just publish everything. its good enough');
+    // During the media-preparation job the migration is created in the next
+    // stage. Once it exists, demand the exact SQL, including its honest waiver.
+    if(waiverMigrations.length){
+     const strictHeader='-- Strict Listening01–06 v5: independent blind, transcript, paper and late-cohort gates passed.\n-- All234 keys were independently grounded; verified media must be deployed first.\n-- Historical banks, attempts, clocks, scoring and access remain immutable.';
+     const waiverHeader='-- OWNER-APPROVED TCF Listening01-06 v5: blind-guessing threshold expressly waived on 19 November 2026.\n-- Every key retains independent transcript/image grounding; any unapproved edited question falls back to published verified v4.\n-- All 234 source-matched audio clips and original images must be live and verified before activation.\n-- Historical attempts, banks, clocks, scoring, wallet, access and TEF records remain protected by transaction hashes.';
+     assert(strictSql.startsWith(strictHeader),'Owner waiver must not weaken shared transactional guards');
+     assert.equal(await readFile('supabase/migrations/'+waiverMigrations[0],'utf8'),strictSql.replace(strictHeader,waiverHeader));
+    }
+   }else{
+    assert.equal(waiverMigrations.length,0,'Owner waiver migration requires owner-waiver evidence');
+    assert.equal(migrations.length,1);
+    assert.equal(await readFile('supabase/migrations/'+migrations[0],'utf8'),strictSql);
+   }
   }
   await db.exec('begin;'+strictSql);assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v5')));await db.exec('rollback;');
   assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v4')));
