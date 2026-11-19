@@ -1,0 +1,31 @@
+name: Verify TCF Listening 15-20 draft integrity (not publication)
+on:
+  push:
+    branches: [review/tcf-listening-15-20-quality-20261119]
+    paths:
+      - scripts/check-listening-15-20-v2-draft.mjs
+      - supabase/exams/tcf-listening-test1?-v2.json
+      - supabase/exams/tcf-listening-test20-v2.json
+      - assets/tcf-listening/tcf-listening-2026-11-test1?-v2/**
+      - assets/tcf-listening/tcf-listening-2026-11-test20-v2/**
+      - .github/workflows/tcf-listening-15-20-draft-integrity.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-drafts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-package-lock
+      - name: Verify all 234 exact audio source hashes, source keys and 24 pictures
+        run: node scripts/check-listening-15-20-v2-draft.mjs
+      - name: Regression suite and website build
+        run: |
+          npm test
+          npm run build
