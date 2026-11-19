@@ -31,5 +31,7 @@ for(const [i,q] of paper.questions.entries()){
  const stats=choiceStats(q);assert(stats.valid);if(stats.correctLongest)longest++;if(stats.correctShortest)shortest++;
 }
 assert.deepEqual(keyCounts,{A:10,B:10,C:10,D:10});
+assert(longest<=18,'Longest-answer shortcut remains exploitable: '+longest+'/40');
+assert(shortest<=16,'Shortest-answer shortcut remains exploitable: '+shortest+'/40');
 const check=await readFile(base+'/audio/audio-check.mp3');assert(check.length>1000);
 console.log(JSON.stringify({status:'TECHNICAL_PASS_EDITORIAL_LISTENING_STILL_REQUIRED',questions:40,seconds:2400,kindCounts:kinds,mediaShaChecks:40,illustratedPanels:4,correctLongest:longest,correctShortest:shortest,keys:keyCounts},null,2));
