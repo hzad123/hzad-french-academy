@@ -12,6 +12,7 @@ import {wireExams} from './exams/ui.js';
 import {wireTcfSpeaking} from './exams/tcf-speaking/ui.js';
 import {wireTcfListening} from './exams/tcf-listening/ui.js';
 import {wireTcfReading} from './exams/tcf-reading/ui.js';
+import {wireTefReading} from './exams/tef-reading/ui.js';
 import {wireTcfWriting} from './exams/tcf-writing/ui.js';
 import {wireTefWriting} from './exams/tef-writing/ui.js';
 import {wireTefSpeaking} from './exams/tef-speaking/ui.js';
@@ -127,6 +128,7 @@ export function mountAcademy(host,createClient){
   wireTefSpeaking(root,client);
   wireTcfSpeaking(root,client);
   wireTcfReading(root,client);
+  wireTefReading(root,client);
   wireTcfListening(root,client);
   wireExamAudioAdmin(root,client);
   wireRewardInitialization(root,client);
