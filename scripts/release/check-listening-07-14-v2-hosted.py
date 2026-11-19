@@ -18,7 +18,8 @@ def check(commit,attempts):
         raise RuntimeError('Exact deployed development commit required')
     paths=[Path('assets/tcf-listening/v1/audio/audio-check.mp3')]
     for num in range(7,15):
-        label=f'{num:02d}',bank_path=ROOT/f'supabase/exams/tcf-listening-test{label}-v2.json'
+        label=f'{num:02d}'
+        bank_path=ROOT/f'supabase/exams/tcf-listening-test{label}-v2.json'
         bank=json.loads(bank_path.read_text())
         if bank['id']!=f'tcf-listening-{label}' or bank['version']!=f'tcf-listening-2026-11-test{label}-v2' or len(bank['questions'])!=39 or bank['seconds']!=2100:
             raise RuntimeError('Incomplete eight-paper payload: '+label)
