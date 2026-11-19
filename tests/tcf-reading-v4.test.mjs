@@ -14,9 +14,14 @@ const sql=await readFile('supabase/migrations/20261119180000_tcf_reading_07_20_c
 const values=[...sql.matchAll(/\$paper_(\d+)\$([\s\S]*?)\$paper_\1\$/g)].map(([,n,body])=>({n:Number(n),paper:JSON.parse(body)}));
 const existingSix=await Promise.all(Array.from({length:6},(_,i)=>readFile('supabase/exams/tcf-reading-v6/test-'+String(i+1).padStart(2,'0')+'.json','utf8').then(JSON.parse)));
 const max=new Set();
+const review=JSON.parse(await readFile('docs/editorial/tcf-reading-07-20/continuation-answer-record.json','utf8'));
+const reviewed=new Map(review.items.map(item=>[`${item.test}:${item.question}`,item]));
+
 
 test('v4 editorial and bank invariants: 210 advanced items, 14 separate reviewed immutable versions',()=>{
   assert.equal(papers.length,14);
+  assert.equal(review.items.length,210,'Every advanced item has an answer review record');
+  assert.equal(reviewed.size,210,'Review records are unique');
   assert.equal(values.length,14);
   assert.deepEqual(values.map(x=>x.n),Array.from({length:14},(_,i)=>i+7));
   assert.deepEqual(values.map(x=>x.paper),papers,'migration content exactly matches final reviewed fixtures');
@@ -49,7 +54,17 @@ test('v4 editorial and bank invariants: 210 advanced items, 14 separate reviewed
       assert(!(correctLength===Math.max(...lengths)&&lengths.filter(x=>x===correctLength).length===1),tag+' correct option must not be uniquely longest');
       assert(!max.has(q.passage),tag+' passage reused across papers');
       max.add(q.passage);
-      for(const guess of letters)assert.equal(guess===q.correct,guess===q.correct,'four gradeable alternatives');
+      const reviewedItem=reviewed.get(`${String(i+7).padStart(2,'0')}:${j+1}`);
+      assert(reviewedItem,tag+' review record must exist');
+      assert.equal(q.correct,reviewedItem.selected_answer,tag+' reviewed answer letter');
+      assert.equal(q.options[letters.indexOf(q.correct)],reviewedItem.correct_option_text,tag+' reviewed answer meaning');
+      assert.deepEqual(lengths,reviewedItem.option_lengths,tag+' recorded distractor lengths');
+      assert.equal(reviewedItem.unique_longest_correct,false,tag+' correct cannot be uniquely longest');
+      for(const guess of letters){
+        const score=(guess===reviewedItem.selected_answer)?q.points:0;
+        assert.equal(score,guess===q.correct?q.points:0,tag+' alternative '+guess+' against recorded answer');
+        assert.equal(q.options[letters.indexOf(guess)]===reviewedItem.correct_option_text,guess===q.correct,tag+' option meaning '+guess);
+      }
     }
   }
   assert.equal(max.size,210);
