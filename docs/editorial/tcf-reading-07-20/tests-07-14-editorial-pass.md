@@ -18,3 +18,7 @@ Unretained edits: T8 Q25, T8 Q26, T12 Q30, T13 Q25, T14 Q25.
 No keys, early questions Q1–24, durations, points, historical versions, account data or student attempts changed. The guarded v4 migration is synchronized to the fixtures; PR #75 remains DRAFT and the migration is NOT applied to Supabase.
 
 Remaining gates: independent difficulty assessment of remaining weak choices, full validation on final commit, production preservation preflight. Tests 15–20 remain outside this review.
+
+## Final explanation and ambiguity follow-up
+
+All 27 revised items received explanations aligned to their exact updated distractors. **Test 11 Question 32** was re-revised after detecting that two wrong choices also described misleading interpretations of signup counts; B/C are now valid cautious uses, leaving D uniquely misleading. No correct answer letters changed.
