@@ -35,17 +35,45 @@ test('Rate limits and provider 5xx never trigger a second billable transcription
   assert.equal(count,1);
  }
 });
-test('iOS uses explicit tap, desktop retains automatic examiner playback',()=>{
+test('mobile speaking primes voice on Start, attempts auto-play and retains replay only as recovery',()=>{
  assert.equal(examinerVoiceNeedsTap({userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X)',maxTouchPoints:5}),true);
- assert.equal(examinerVoiceNeedsTap({userAgent:'Mozilla/5.0 (iPad; CPU OS 17_4 like Mac OS X)',maxTouchPoints:5}),true);
- assert.equal(examinerVoiceNeedsTap({userAgent:'Mozilla/5.0 (Macintosh; Intel Mac OS X)',maxTouchPoints:5}),true);
  assert.equal(examinerVoiceNeedsTap({userAgent:'Mozilla/5.0 (Macintosh; Intel Mac OS X)',maxTouchPoints:0}),false);
  const tef=readFileSync('src/exams/tef-speaking/ui.js','utf8');
  const tcf=readFileSync('src/exams/tcf-speaking/ui.js','utf8');
- assert(tef.includes('beginAnswer(true)'));assert(tef.includes('examinerVoiceNeedsTap()&&!fromTap'));
- assert(tcf.includes('beginAnswer(true,true)'));assert(tcf.includes('examinerVoiceNeedsTap()&&!fromTap'));
- assert(tef.includes('Écouter l’interlocuteur puis répondre'));
- assert(tcf.includes('Écouter l’interlocuteur puis répondre'));
+ assert(!tef.includes('examinerVoiceNeedsTap()&&!fromTap'),'TEF must not require tap on each turn');
+ assert(!tcf.includes('examinerVoiceNeedsTap()&&!fromTap'),'TCF must not require tap on each turn');
+ assert(tef.includes('voiceInstance().unlock();void startTest()'));
+ assert(tcf.includes('voice().unlock(); // synchronous'));
+ assert(tef.includes('Réécouter l’interlocuteur'));
+ assert(tcf.includes('Réécouter l’interlocuteur'));
+ assert(tcf.includes('played=await speak(question)'));
+});
+test('Task 2 shows dedicated preparation before examiner questions/recording and advances after 120 seconds',()=>{
+ const ui=readFileSync('src/exams/tcf-speaking/ui.js','utf8');
+ assert(ui.includes('else if(attempt.phase===1)'));
+ assert(ui.includes("prep.dataset.tcfPreparation='true'"));
+ assert(ui.includes("progress.max=120"));
+ assert(ui.includes("if(n===0&&!switching&&!busy&&!attempt.pending)"));
+ assert(ui.includes("switching=true;clearInterval(timer);advance()"));
+ assert(ui.includes('No examiner questions, audio or microphone recording occur during this preparation.'));
+ assert(ui.includes('Read before starting · TCF Speaking'));
+ const tests=readFileSync('supabase/functions/academy-tcf-speaking/test.js','utf8');
+ assert(tests.includes("name:'Task 2 · Preparation',seconds:120"));
+ assert(tests.includes("name:'Task 2 · Information role-play',seconds:210"));
+});
+test('One initial tap synchronously unlocks speech synthesis and later spoken turns can play without more taps',async()=>{
+ const calls=[];
+ class FakeUtterance {constructor(v){this.text=v}}
+ const synth={cancel(){},resume(){},getVoices:()=>[],speak(u){calls.push(u.text);queueMicrotask(()=>u.onend?.())}};
+ const player=createFrenchVoicePlayer({synthesis:synth,Utterance:FakeUtterance});
+ assert.equal(player.unlock(),true);
+ assert.equal(calls.length,1,'Silent unlock should run directly in the Start click');
+ const pending=player.speak('Bonjour. Quelles questions avez-vous ?');
+ assert.equal(calls.length,2);
+ assert.equal(await pending,true);
+ assert.equal(player.unlock(),true);
+ assert.equal(calls.length,2,'Do not prime and interrupt on every new turn');
+ player.dispose();
 });
 test('iPhone speaker is invoked synchronously before the first await',async()=>{
  let started=false;
