@@ -11,6 +11,7 @@ import {wireAiLearning} from './ai/ui.js';
 import {wireExams} from './exams/ui.js';
 import {wireTcfSpeaking} from './exams/tcf-speaking/ui.js';
 import {wireTcfListening} from './exams/tcf-listening/ui.js';
+import {wireTefListening} from './exams/tef-listening/ui.js';
 import {wireTcfReading} from './exams/tcf-reading/ui.js';
 import {wireTefReading} from './exams/tef-reading/ui.js';
 import {wireTcfWriting} from './exams/tcf-writing/ui.js';
@@ -130,6 +131,7 @@ export function mountAcademy(host,createClient){
   wireTcfReading(root,client);
   wireTefReading(root,client);
   wireTcfListening(root,client);
+  wireTefListening(root,client);
   wireExamAudioAdmin(root,client);
   wireRewardInitialization(root,client);
   mountVerification($('hz-auth'));
