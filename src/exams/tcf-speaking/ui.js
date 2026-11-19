@@ -49,6 +49,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
     else if(!capture)void beginAnswer();
    }
   }
+ }
  async function open(id){root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;area.classList.remove('hz-hidden');chooser.classList.add('hz-hidden');status('Opening TCF speaking…');await run(async(signal,current)=>{catalog=await store.catalog(signal);if(!current())return;if(id)accept(await store.read(id,signal));else{attempt=null;preflight=false;catalogTab='tests'}pollCount=0;if(current())render()})}
  root.addEventListener('hzad-open-tcf-speaking',()=>{void open()});
  function voice(){if(!voicePlayer)voicePlayer=createFrenchVoicePlayer();return voicePlayer}
