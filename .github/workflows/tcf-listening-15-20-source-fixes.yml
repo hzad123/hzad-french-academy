@@ -1,0 +1,25 @@
+name: Validate targeted Listening 15-20 spoken-source revisions
+on:
+  push:
+    branches: [review/tcf-listening-15-20-quality-20261119]
+    paths:
+      - scripts/release/prepare-listening-15-20-q25-audio-fixes.mjs
+      - .github/workflows/tcf-listening-15-20-source-fixes.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-fixes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify original version hashes, keyed answer, and targeted French edits
+        run: node scripts/release/prepare-listening-15-20-q25-audio-fixes.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tcf-listening-15-20-targeted-audio-edits-unrecorded
+          path: work/tcf-listening-15-20-v2/editorial/q25-audio-corrections.json
+          retention-days: 30
