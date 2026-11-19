@@ -95,11 +95,21 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  // Do not wait for speech detection or examiner inference when time runs out.
  function expireTask(){
   if(!visible||!attempt||attempt.phase>=4||left()>0||expiryInFlight)return;
+  // Capture the final student audio on expiry before moving phases.
+  // Otherwise Task 3's entire 4:30 monologue could be silently discarded
+  // if the browser countdown beats the microphone's own limit callback.
+  if(!capture&&!busy&&recorder?.isRecording()){
+   const finalWav=recorder.stop();
+   if(finalWav){
+    void submit(false,finalWav); // initiates the save without awaiting grading
+    expiryGraceAt=Date.now();
+   }
+  }
   // Give a final WAV a brief opportunity to upload/lock, without waiting for
   // AI transcription. In-flight calls remain in the server's credit ledger.
   if(capture?.audio&&busy){
    if(!expiryGraceAt)expiryGraceAt=Date.now();
-   if(Date.now()-expiryGraceAt<(attempt.phase===3?3500:1500)){
+   if(Date.now()-expiryGraceAt<(attempt.phase===3?7000:2500)){
     status('Time is up. Saving the final recording and moving on…');
     clearTimeout(expiryRetry);expiryRetry=setTimeout(expireTask,200);return;
    }
