@@ -221,16 +221,75 @@ function variants(n,c){
  if(!short||wrong.length!==3||new Set([short,...wrong]).size!==4)throw Error('Invalid editorial alternatives '+n);
  return {short,wrong};
 }
-function balanceOptions(q,numero){
- const original=q.options['ABCD'.indexOf(q.correct)],{short,wrong}=variants(q.number,original);
+function answerForms(n,c,short,q){
+ const one=(re,k)=>from(c,re,k),fix=s=>s.replace(/\\bde une\\b/gu,"d’une").replace(/\\bde un\\b/gu,"d’un").replace(/\\bde le\\b/gu,'du');
+ let medium=short;
+ switch(n){
+ case 9:medium='La nouvelle mesure annoncée est '+lower(c).replace(/\\.$/,'')+'.';break;
+ case 10:medium='Le rendez-vous pour '+one(/plus tard à (.+?) à cause/u,'activité')+' est décalé car une réunion finit plus tard.';break;
+ case 11:medium='Pour '+one(/pour (.+?) avant jeudi/u,'événement')+', le formulaire doit être rempli en ligne avant jeudi.';break;
+ case 12:medium='Montrer à l’accueil le message de confirmation de '+one(/pour (.+?) à l’accueil/u,'activité')+'.';break;
+ case 13:medium='La séance de '+one(/pour (.+?) commence/u,'activité')+' passe de quatorze à quinze heures.';break;
+ case 14:medium='Conserver '+one(/Conserver (.+?) et envoyer/u,'activité')+' et envoyer la démonstration plus tard.';break;
+ case 15:medium='La mesure présentée à '+one(/Dans (.+?), la nouvelle mesure/u,'lieu')+' répond au besoin sans lever toutes les difficultés.';break;
+ case 16:medium='Répartir les permanences de '+one(/accueil pour (.+?) toute la journée/u,'service')+' pour maintenir l’accueil continu.';break;
+ case 17:medium='Les usagers ayant des difficultés à accéder aux services habituels de '+one(/obstacles dans (.+?)\\./u,'lieu')+'.';break;
+ case 18:medium='Elle demande un autre créneau pour '+one(/prévue pour (.+?)\\./u,'événement')+' car elle travaille à l’heure prévue.';break;
+ case 19:medium='Limiter le groupe pendant '+one(/pendant (.+?)\\./u,'événement')+' afin que chacun puisse poser des questions.';break;
+ case 20:medium='Elle souhaite comprendre comment le projet tient compte de '+one(/précisions sur (.+?)\\./u,'préoccupation')+'.';break;
+ case 21:medium='Répartir les bénévoles de '+one(/pour (.+?)\\./u,'événement')+' selon les créneaux où ils sont libres.';break;
+ case 22:medium='Les relations de confiance établies pendant '+one(/autour de (.+?)\\./u,'activité')+' avec les participants.';break;
+ case 23:medium='Tester '+one(/Expérimenter (.+?), recueillir/u,'projet')+', consulter les usagers puis publier un bilan.';break;
+ case 24:medium='L’étude sur '+one(/L’étude de (.+?) exclut/u,'service')+' n’a presque pas touché ceux qui ont abandonné.';break;
+ case 25:medium='Trouver un équilibre entre '+one(/Concilier (.+?) avec/u,'mesures')+' et les préoccupations du public.';break;
+ case 26:medium='Les premiers effets de '+one(/La nouvelle mesure, (.+?), doit/u,'mesure')+' doivent être vérifiés dans la durée.';break;
+ case 27:medium='Réorganiser les horaires de '+one(/Adapter les horaires de (.+?) sans/u,'service')+' sans supprimer les créneaux du soir.';break;
+ case 28:medium='Les équipements de '+one(/Concevoir (.+?) avant/u,'installation')+' ont été choisis avant la consultation des futurs usagers.';break;
+ case 29:medium='L’un veut mesurer '+one(/cet indicateur : (.+?); l’autre/u,'indicateur')+' ; l’autre veut aussi écouter les témoignages.';break;
+ case 30:medium='Préserver l’histoire du lieu de '+one(/lieu accueillant (.+?) tout en/u,'activité')+' tout en y proposant de nouveaux usages.';break;
+ case 31:{
+  const recording=q.segments.map(s=>s.text).join(' ');
+  const m=recording.match(/plus précisément, (.+?)\\./u);
+  const subject=m?.[1]||'les projets locaux';
+  medium=short.replace(/\\.$/,'')+' pour interpréter les données sur '+subject+'.';
+  break;
+ }
+ case 32:medium='Présenter les prévisions sur '+one(/concernant (.+?)\\./u,'service')+' en expliquant hypothèses et incertitudes.';break;
+ case 33:medium='La hausse de fréquentation à '+one(/dans (.+?) ne suffit/u,'lieu')+' ne démontre pas à elle seule un bénéfice durable.';break;
+ case 34:medium='Faire tester '+one(/Faire tester (.+?) par/u,'service')+' par divers publics, avec une aide humaine conservée.';break;
+ case 35:medium='Les résultats techniques de '+one(/installée dans (.+?) garantit/u,'lieu')+' suffiraient même si les usages réels diffèrent.';break;
+ case 36:medium='Des échanges volontaires et réciproques pendant '+one(/à (.+?)\\./u,'activité')+' créent des liens durables.';break;
+ case 37:medium='Confronter les récits sur '+one(/concernant (.+?) aux/u,'service')+' aux faits et aux documents vérifiables.';break;
+ case 38:medium='Le succès de '+one(/Une initiative comme (.+?) peut/u,'initiative')+' peut accroître les contraintes pour les usagers.';break;
+ case 39:medium='Garantir des moyens durables et suivre '+one(/suivre (.+?) pour poursuivre/u,'indicateur')+' pour assurer la continuité.';break;
+ default:throw Error('Unexpected question '+n);
+ }
+ return [...new Set([short,fix(medium),fix(c)])];
+}
+function bestAnswer(q,originalAnswer,forms,wrong,numero){
+ const lens=wrong.map(s=>s.length).sort((a,b)=>a-b),min=lens[0],max=lens[2],middle=(min+max)/2;
+ const desired=(q.number*7+numero*5)%4;
+ const options=forms.map(text=>({text,length:text.length}));
+ if(desired===0){
+  return options.reduce((a,b)=>a.length<b.length?a:b).text;
+ }
+ if(desired===1){
+  return options.reduce((a,b)=>a.length>b.length?a:b).text;
+ }
+ const middleChoices=options.filter(o=>o.length>min&&o.length<max);
+ if(middleChoices.length)return middleChoices.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
+ return options.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
+}
+\nfunction balanceOptions(q,numero){
+ const original=q.options['ABCD'.indexOf(q.correct)],{short,wrong}=variants(q.number,original);\n const improved=bestAnswer(q,original,answerForms(q.number,original,short,q),wrong,numero);
  // The key's role remains unchanged. No auto-generated stem or audio change.
  const copy=structuredClone(q),key='ABCD'.indexOf(copy.correct);
  const rem=[...wrong];
  // Rotate other positions per test instead of repeating a visible deck pattern.
  let start=(numero+copy.number)%3;
  for(let j=0;j<4;j++)if(j!==key)copy.options[j]=rem[start++%3];
- copy.options[key]=short;
- copy.explanation='Le document permet de retenir « '+short+' ». Les autres propositions modifient un élément décisif de la situation enregistrée.';
+ copy.options[key]=improved;
+ copy.explanation='Le document permet de retenir « '+improved.replace(/\\.$/,'')+' ». Les autres propositions modifient un élément décisif de la situation enregistrée.';
  // Only the screen alternatives and learner explanation change.
  if(JSON.stringify(copy.segments)!==JSON.stringify(q.segments)||copy.transcript!==q.transcript||copy.audio!==q.audio)throw Error('Recording changed');
  return copy;
