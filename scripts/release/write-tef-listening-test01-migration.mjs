@@ -24,7 +24,7 @@ const transform=s=>s
  .replaceAll('39','40')
  .replaceAll('^([1-9]|[12][0-9]|3[0-9])$','^([1-9]|[12][0-9]|3[0-9]|40)$');
 core=transform(core);
-const gradeSql=transform(grade),navigationSql=transform(navTable),commandSql=transform(cmd);
+const gradeSql=transform(grade),navigationSql=transform(navTable),commandSql=transform(cmd).replace("'audioSeconds',q->'audioSeconds','slotSeconds'","'audioSeconds',q->'audioSeconds','previewSeconds',q->'previewSeconds','slotSeconds'");
 assert(commandSql.includes("current_no=40"));assert(commandSql.includes("question_no text"));
 assert(commandSql.includes("p_action='next'"));
 assert(!commandSql.includes('academy_tcf_listening'));
