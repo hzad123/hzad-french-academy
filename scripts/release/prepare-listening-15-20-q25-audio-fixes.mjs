@@ -18,6 +18,58 @@ const revisions={
     explanation:"Les responsables souhaitent financer des enquêtes et maintenir des équipes locales, mais ils doivent préserver l’indépendance éditoriale face aux financeurs, malgré les contraintes de temps. Les autres réponses abandonnent la vérification, acceptent la dépendance financière ou introduisent une stratégie absente du reportage.",
     correct:"C"
   },
+  16:{
+    before:"Ils affirment que soutenir les aidants et éviter l'épuisement des bénévoles.",
+    after:"Ils souhaitent soutenir les aidants sans accroître l’épuisement des bénévoles.",
+    question:"Quelle difficulté l’initiative doit-elle prendre en compte ?",
+    options:[
+      "Étendre les activités sans consulter les familles sur les horaires.",
+      "Confier l’ensemble des permanences aux seuls bénévoles disponibles.",
+      "Limiter les rencontres aux familles pouvant venir en semaine.",
+      "Adapter l’accueil aux familles sans épuiser les personnes qui l’animent."
+    ],
+    explanation:"Le reportage évoque des activités accessibles et des horaires décidés avec les familles, mais souligne la forte demande du mercredi et la fatigue possible des bénévoles. Il ne recommande ni l’exclusion des familles ni le transfert complet de l’accueil aux bénévoles.",
+    correct:"D"
+  },
+  17:{
+    before:"Ils affirment que diversifier les revenus et éviter la dépendance aux subventions.",
+    after:"Ils veulent diversifier les revenus afin de réduire leur dépendance aux subventions.",
+    question:"Quel équilibre les responsables cherchent-ils à établir ?",
+    options:[
+      "Mutualiser les achats tout en préservant une activité financièrement viable.",
+      "Fixer les mêmes budgets pour toutes les structures, quels que soient leurs besoins.",
+      "Remplacer les conseils individualisés par des règles d’achat identiques.",
+      "Dépendre principalement des subventions pour financer chaque commande."
+    ],
+    explanation:"Le reportage articule achats mutualisés, conseils adaptés et financement durable, avec des coûts et délais encore incertains. Les autres réponses imposent une uniformité ou une dépendance financière contraire aux objectifs exprimés.",
+    correct:"A"
+  },
+  18:{
+    before:"Ils affirment que préserver les sources et former de nouveaux professionnels de la conservation.",
+    after:"Ils veulent préserver les sources et former une nouvelle génération de professionnels de la conservation.",
+    question:"Quelle contrainte complique la préservation évoquée dans le reportage ?",
+    options:[
+      "Les équipes souhaitent remplacer les archives par des souvenirs non vérifiés.",
+      "Conserver les documents tout en limitant la manipulation des pièces fragiles.",
+      "Les responsables refusent de former de nouveaux spécialistes des archives.",
+      "Les visiteurs demandent tous un accès immédiat aux documents originaux."
+    ],
+    explanation:"Le reportage prévoit des restaurations documentées et rappelle que certains documents sont trop fragiles pour être manipulés directement. Il ne préconise ni l’abandon des sources ni l’arrêt de la formation.",
+    correct:"B"
+  },
+  19:{
+    before:"Ils affirment que rendre compte des décisions et évaluer leurs effets réels.",
+    after:"Ils promettent de rendre compte des décisions et d’en évaluer les effets réels.",
+    question:"Quel risque fragilise la consultation des habitants ?",
+    options:[
+      "Les comptes rendus prévus empêchent de consulter de nouveaux participants.",
+      "Les réunions sont organisées uniquement pour les responsables municipaux.",
+      "Les horaires de réunion peuvent écarter une partie des habitants concernés.",
+      "Les organisateurs envisagent de supprimer toute évaluation des décisions."
+    ],
+    explanation:"Le reportage indique que la première réunion coïncide avec les horaires de travail de nombreux habitants, ce qui menace la représentativité des personnes consultées. Les autres propositions ne sont pas étayées.",
+    correct:"C"
+  },
   20:{
     before:"Ils affirment que assurer la continuité du suivi après les premiers mois.",
     after:"Ils affirment vouloir assurer la continuité du suivi au-delà des premiers mois.",
