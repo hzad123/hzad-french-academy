@@ -5,11 +5,16 @@ import {randomBytes} from 'node:crypto';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {loadJson,saveJson,exists,hash,policyHash,contentHash,createGatewayProvider,paperInput,blindVerdict,letters} from './lib/listening-answer-qc.mjs';
 import {protocol,projectionVersion,screeningMatches,positionsWithFrozenSpoken,sourceInvariant,repair,measure,summarize,ready,rewrite,contrastPlan,authorInput,styleFindings,qualityProjection,editedForQuestion,blindConsensus,groundInput} from './lib/listening-contrast-quality.mjs';
+import {githubOidcFetch} from './lib/listening-github-oidc.mjs';
 const args=process.argv.slice(2),get=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=resolve(get('--out','work/listening-six-contrast-v2'));await mkdir(root,{recursive:true});
 const seedFile=join(root,'seed.json'),seed=await exists(seedFile)?(await loadJson(seedFile)).seed:randomBytes(32).toString('hex');await saveJson(seedFile,{seed});
 await saveJson(join(root,'summary.json'),{protocol,policy:POLICY_VERSION,policyHash,readyForMedia:false,status:'running'});
-const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,token:process.env.LISTENING_QC_TOKEN,adminToken:process.env.LISTENING_QC_ADMIN_TOKEN,
+const githubOidcMode=process.env.LISTENING_QC_AUTH_MODE==='github-oidc';
+const provider=await createGatewayProvider({url:process.env.LISTENING_QC_URL,
+ token:githubOidcMode?'github-signed-per-request':process.env.LISTENING_QC_TOKEN,
+ adminToken:githubOidcMode?'github-oidc-verified-by-private-proxy':process.env.LISTENING_QC_ADMIN_TOKEN,
+ fetcher:githubOidcMode?githubOidcFetch():fetch,
  directory:join(root,'model-receipts'),maxUsd:Number(get('--max-usd','35'))});
 const papers=[],originals=[],evidence=[],imageMaps=[],positions=[],errors=[],baseline=[],baselineMini=[],runNonce=randomBytes(12).toString('hex');
 const workers=Number(get('--workers','8'));
