@@ -41,6 +41,8 @@ test('TCF selected paper opens a Start button, then untimed preflight before att
  assert(home.includes("['Task 1 · Interview',['2 minutes speaking','No preparation']]"));
  assert(home.includes("['Task 3 · Opinion',['4 minutes 30 seconds speaking','No preparation']]"));
  assert(!home.includes("['Task 2 · Conversation'"),'Preparation and conversation must not be separate task cards');
+ assert(!home.includes("item.classList.add('is-preparation')"),'Task 2 should not be orange or highlighted differently');
+ assert(!css.includes('.hz-tcf-speaking-timing-item.is-preparation'),'All three tasks must use matching neutral card styles');
  const tasks=home.split("   const steps=[")[1]?.split("   ];")[0]||'';
  assert.equal((tasks.match(/\['Task [123] ·/g)||[]).length,3,'Instructions must display exactly three task cards');
  assert(home.includes("Task 2 includes 2 minutes of preparation."));
@@ -69,7 +71,7 @@ test('TCF Task 2 still receives server-controlled 120-second preparation separat
 test('TCF home design remains compact and responsive on phone screens',()=>{
  for(const cls of ['hz-tcf-speaking-tabs','hz-tcf-speaking-tab','hz-tcf-speaking-panel',
   'hz-tcf-speaking-history','hz-tcf-speaking-history-item','hz-tcf-speaking-preflight',
-  'hz-tcf-speaking-timing-item.is-preparation','hz-tcf-speaking-three-tasks','hz-tcf-speaking-select-field']){
+  'hz-tcf-speaking-three-tasks','hz-tcf-speaking-select-field']){
   assert(css.includes(cls),cls+' style missing');
  }
  assert(css.includes('@media(max-width:520px)'));
