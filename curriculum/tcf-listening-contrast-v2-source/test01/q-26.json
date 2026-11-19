@@ -1,0 +1,780 @@
+{
+  "question": {
+    "number": 26,
+    "kind": "interview",
+    "question": "D’après le document, sur quel principal critère le restaurant sélectionne-t-il maintenant les quelques recettes proposées sur sa carte ?",
+    "options": [
+      "En fonction des habitudes de commande de sa clientèle",
+      "En fonction des livraisons et disponibilités chez ses producteurs",
+      "En fonction du coût des ingrédients nécessaires à chaque plat",
+      "En fonction du temps de préparation pour assurer un service rapide"
+    ],
+    "correct": "B",
+    "transcript": "Question 26.\nDepuis ce printemps, votre restaurant propose moins de plats. Vous cherchez surtout à aller plus vite ?\nLa rapidité compte, mais nous voulions surtout mieux travailler. Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle. Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs. Les cuisiniers peuvent les préparer avec davantage d'attention. Certains clients ont d'abord regretté leurs habitudes ; nous leur expliquons les changements et gardons toujours une possibilité végétarienne. Réduire le nombre de lignes n'a pas réduit notre envie de bien accueillir.\nD’après le document, sur quel principal critère le restaurant sélectionne-t-il maintenant les quelques recettes proposées sur sa carte ?",
+    "explanation": "Réponse B : La personne explique clairement que le nouveau principe est de choisir les recettes « selon les livraisons des producteurs ». C’est exactement l’idée d’une sélection basée sur les livraisons et disponibilités chez les producteurs. A : Le document mentionne les « habitudes » des clients uniquement pour dire qu’ils ont été bousculés par le changement de carte. Il n’est jamais dit que les recettes sont choisies en fonction de ces habitudes ; au contraire, la sélection est faite selon les livraisons des producteurs. Un auditeur peu attentif pourrait retenir le mot « habitudes » et croire que la carte est bâtie sur les habitudes de commande, alors que ce n’est pas le critère de sélection des recettes. C : Le passage évoque un problème de gaspillage lié au trop grand nombre de produits, mais à aucun moment le coût des ingrédients n’est présenté comme critère de choix actuel des recettes. Un auditeur pourrait faire un lien implicite entre gaspillage et coût financier et en déduire à tort que le critère est le coût, alors que le seul critère déclaré est la dépendance aux livraisons des producteurs. D : Le journaliste suggère que l’objectif serait d’« aller plus vite », et le restaurateur reconnaît que « la rapidité compte », ce qui peut faire croire que le temps de préparation est central. Mais il précise aussitôt que l’enjeu principal est de « mieux travailler » et explique que le critère de sélection est « selon les livraisons des producteurs », pas la durée de préparation pour un service rapide. La rapidité est importante, mais ce n’est pas le critère déclaré pour choisir les recettes.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 26."
+      },
+      {
+        "voice": "female",
+        "text": "Depuis ce printemps, votre restaurant propose moins de plats. Vous cherchez surtout à aller plus vite ?"
+      },
+      {
+        "voice": "male",
+        "text": "La rapidité compte, mais nous voulions surtout mieux travailler. Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle. Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs. Les cuisiniers peuvent les préparer avec davantage d'attention. Certains clients ont d'abord regretté leurs habitudes ; nous leur expliquons les changements et gardons toujours une possibilité végétarienne. Réduire le nombre de lignes n'a pas réduit notre envie de bien accueillir."
+      },
+      {
+        "voice": "female",
+        "text": "D’après le document, sur quel principal critère le restaurant sélectionne-t-il maintenant les quelques recettes proposées sur sa carte ?"
+      }
+    ],
+    "audio": "q-26.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 66
+  },
+  "sourceHash": "bfe68d61cb7054dc12d5b2d9a88960240c07f11c73a76fd1a180a769f0fe0325",
+  "contentHash": "215b26394a6e0564386218f08c98878c1716991ed4fd81880dbc7a296c549103",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 5,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3K9AkHRyz8N8lwODSlHNPDh3iUG",
+    "result": {
+      "question": "D’après le document, sur quel critère le restaurant choisit-il désormais les quelques recettes de sa carte ?",
+      "choices": [
+        "En fonction des livraisons des producteurs",
+        "En fonction des habitudes de commande des clients",
+        "En fonction du temps nécessaire pour servir rapidement",
+        "En fonction du prix des ingrédients utilisés"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que le restaurant «choisit quelques recettes selon les livraisons des producteurs». Les autres éléments (habitudes des clients, rapidité de service, coût des ingrédients) sont évoqués ou sous-entendus comme enjeux possibles d’un restaurant, mais ne sont jamais présentés comme le critère de choix des recettes après la réduction de la carte.",
+      "design": "On teste la relation précise entre la nouvelle carte réduite et le critère concret de sélection des recettes. Tous les choix sont des critères plausibles dans la gestion d’un restaurant (habitudes des clients, rapidité, coût, livraisons), donc sans le document chacun pourrait sembler répondre correctement. Seul l’enregistrement attribue explicitement ce rôle de critère de choix aux livraisons des producteurs.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse attribue aux habitudes des clients le rôle de critère de sélection, en se fondant sur le passage où leurs routines sont mentionnées. Or ces habitudes sont décrites comme un objet de regret pour certains clients, non comme la base des nouvelles recettes. Le vrai critère est lié aux producteurs, pas aux clients.",
+          "operation": "role_swap",
+          "anchors": [
+            "Certains clients ont d'abord regretté leurs habitudes",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, la rapidité de service est prise pour le critère principal, en s’appuyant sur la question initiale et sur le fait que «la rapidité compte». Mais le document précise que l’objectif principal est de «mieux travailler» et que le choix des recettes se fait «selon les livraisons des producteurs», non selon le temps de service.",
+          "operation": "role_swap",
+          "anchors": [
+            "Vous cherchez surtout à aller plus vite ?",
+            "La rapidité compte, mais nous voulions surtout mieux travailler",
+            "nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option transforme la gestion du gaspillage en critère direct de choix basé sur le prix. Le texte évoque bien un problème de stock («trop de produits différents» qui finissent «à la poubelle»), ce qui peut faire penser aux coûts, mais il indique que les nouvelles recettes sont choisies «selon les livraisons des producteurs», pas en fonction du prix des ingrédients.",
+          "operation": "scope_shift",
+          "anchors": [
+            "nous conservions trop de produits différents et certains finissaient à la poubelle",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4445,
+      "completion_tokens": 1600,
+      "total_tokens": 6045,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 988,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02155625,
+    "inputHash": "980ddd40863d302547c63247971b6cfb98340caaaab25c52ecf3194c28cc1b43",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:author:4:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "D’après le document, sur quel critère le restaurant choisit-il désormais les quelques recettes de sa carte ?",
+      "choices": [
+        "En fonction des habitudes de commande des clients",
+        "En fonction des livraisons des producteurs",
+        "En fonction du prix des ingrédients utilisés",
+        "En fonction du temps nécessaire pour servir rapidement"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3KNt1ClrWbAdmEqtERFqsLPAobI",
+      "result": {
+        "question": "D’après le document, sur quel principal critère le restaurant sélectionne-t-il maintenant les quelques recettes proposées sur sa carte ?",
+        "choices": [
+          "En fonction des habitudes de commande de sa clientèle",
+          "En fonction des livraisons et disponibilités chez ses producteurs",
+          "En fonction du coût des ingrédients nécessaires à chaque plat",
+          "En fonction du temps de préparation pour assurer un service rapide"
+        ],
+        "notes": "L’énoncé a été légèrement reformulé pour rester neutre tout en clarifiant le critère principal. Les quatre choix sont conservés avec un style et un niveau de précision comparables, sans qu’aucun ne paraisse naturellement plus responsable ou plus évident que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 223,
+        "total_tokens": 870,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 70,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00303875,
+      "inputHash": "8f8d567e83c734f768ce51c46e778313e87a416a274847c5b395f5216f176a0b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:blind-edit:before:5"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "f75e239e427660746a58a4762a14b1c11f46151cdaa2694291c2057fb86c129d",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 0,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "d048e1117469b2d527927f20cc3b615443694fe60e05463eda1bab8912dfc591",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent répondre à la question dans un contexte ordinaire, mais l’option 3 correspond le mieux, dans sa formulation, à un critère direct et concret d’« élaboration des recettes » (travailler à partir des produits livrés). L’option 2 est plus tordue comme critère principal de création de recettes et son style paraît moins naturel ; l’option 1 concerne davantage l’organisation du service que la base de conception des plats ; l’option 0 reste vague et marketing. Faute d’accès au document sonore, l’option 3 présente le plus net avantage rédactionnel et contextuel, mais avec une incertitude notable.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation très directement alignée avec « élaborer ses recettes » : se baser sur « la nature et la quantité des produits livrés par ses fournisseurs » décrit précisément un critère de conception de recettes à partir des ingrédients disponibles. L’option 2 introduit une formulation plus artificielle (« la part estimée de produits susceptibles de ne pas être utilisés ») qui ressemble davantage à un indicateur de gestion qu’à un critère premier d’élaboration de recettes, tandis que l’option 1 porte sur la logistique de service plutôt que sur la base même de la création culinaire. L’option 0 reste plausible mais plus générique et marketing que strictement liée à l’« élaboration » des recettes, alors que 3 correspond très classiquement au discours sur la cuisine de marché ou de saison évoqué dans ce type de document."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un reportage radio explique qu’un restaurant a analysé les plats les plus souvent commandés, les horaires de forte affluence et les profils de sa clientèle, et qu’il conçoit désormais ses nouvelles recettes en fonction des habitudes de consommation déjà observées pour mieux répondre aux attentes de ses clients."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une interview sur la gestion d’un restaurant en période de forte demande, le gérant explique qu’ils ont revu leur carte et élaborent désormais leurs recettes en tenant compte du temps nécessaire pour préparer et envoyer chaque plat en salle, afin de réduire l’attente et fluidifier le service."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un documentaire sur le gaspillage alimentaire interroge un chef qui explique qu’il réorganise sa carte : désormais, il crée ses recettes en se basant sur la part estimée de produits susceptibles de ne pas être utilisés, pour concevoir des plats qui écoulent plus facilement ces restes potentiels et réduire les déchets."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un sujet sur la cuisine de saison présente un restaurant qui ne fixe plus sa carte à l’avance : le chef explique qu’il élabore désormais ses recettes en fonction de la nature et de la quantité des produits livrés par ses fournisseurs, travaillant au jour le jour avec ce qui arrive (produits de saison, arrivages du marché, pêche du jour)."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4378a834020d080a2e4b8d6b634f27300b8acc0e3e6787918a1a3985bff56cbc",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options restent plausibles pour un extrait audio, mais l’association entre une carte très longue et le surstockage conduisant au gaspillage alimentaire est un inconvénient classique et central dans le discours professionnel sur la restauration ; la réponse 3 est aussi la plus précise et responsable, ce qui lui donne un net avantage malgré une incertitude résiduelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Lien direct et typique entre « carte très longue » et nécessité de stocker de nombreux produits entraînant du gaspillage ; formulation plus détaillée et nuancée que les autres, évoquant un problème structurel (stocks, poubelle) souvent cité comme inconvénient majeur des cartes trop longues."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une interview avec le responsable d’un restaurant, il explique que, paradoxalement, l’ancienne carte très longue faisait que les cuisiniers bâclaient davantage la préparation pour réussir à tout envoyer, d’où un inconvénient principal en termes de qualité de préparation des plats."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un reportage sur un restaurant travaillant uniquement avec des producteurs locaux, le responsable raconte que la carte très longue entraînait des commandes dispersées et difficiles à gérer pour les producteurs, qui n’arrivaient plus à suivre, ce qui constituait selon lui le principal inconvénient."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une émission sur la restauration, le responsable d’un établissement explique que l’ancienne carte très longue compliquait la coordination entre cuisine et salle, ce qui ralentissait l’organisation du service et la sortie des assiettes, principal problème observé au quotidien."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un podcast sur la lutte contre le gaspillage alimentaire en restauration, le responsable décrit comment leur ancienne carte très longue les obligeait à stocker beaucoup de produits différents, dont une partie finissait régulièrement à la poubelle, ce qu’il présente comme l’inconvénient principal de cette carte."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c63c9d2c826f22ea58bb506a9abd7089b04d2c923cd736169914923c3045cbcb",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 3,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "eeb92052496ae60af2ea6fc00a84af033a0f422d6c317757fe500bfd7ecaa18e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent un critère principal de sélection de recettes et restent plausibles. L’option 0 se distingue légèrement par un lien direct avec une problématique actuelle souvent mise en avant (lutte contre le gaspillage) et par une formulation plus explicite et finalisée, ce qui en fait un candidat un peu plus probable sans que les autres soient éliminables.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus développée et finalisée (\"qui permettent de mieux maîtriser le gaspillage\") donnant un critère clair, mesurable et présenté comme un objectif principal, ce qui correspond bien à l’idée d’un \"principal critère\" désormais mis en avant dans de nombreux discours sur la restauration responsable."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage radio sur la transition écologique d’un restaurant, le chef explique qu’ils ont revu toute la carte et qu’ils gardent désormais seulement les recettes qui permettent de mieux maîtriser le gaspillage alimentaire, afin de limiter les déchets et optimiser l’utilisation des produits."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une interview avec un restaurateur local, celui-ci décrit son fonctionnement en circuit court et précise qu’ils choisissent désormais les recettes principalement en fonction des livraisons des producteurs, car l’offre varie beaucoup selon les arrivages et les saisons."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast sur la fidélisation de la clientèle en restauration, la gérante d’un bistrot explique qu’ils ont modifié leur carte et sélectionnent désormais les recettes surtout en fonction des habitudes des clients, en se basant sur les plats les plus souvent commandés."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une émission consacrée aux restaurants d’entreprise, le responsable de la cantine indique qu’ils ont revu l’offre de plats et choisissent désormais surtout les recettes en fonction des plats les plus rapides à préparer, pour pouvoir servir un grand nombre de personnes en peu de temps."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "cb05b3ee36bc20bcd86c0ae3c6dae13ea902380dbf8e6448b25916c5c54f20e7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais la question porte sur « l’impact principal » d’une carte réduite sur « l’organisation du travail en cuisine ». L’option 3 se rattache le plus directement à l’idée d’organisation interne de la production (suivi des préparations), tandis que l’option 0 vise surtout la pression psychologique, l’option 2 une accélération de rythme peu intuitive, et l’option 1 des tâches périphériques (livraisons, approvisionnements). Cela donne un avantage net à l’option 3 malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation « facilite un suivi plus attentif de chaque préparation » correspond directement à une modification de l’« organisation du travail en cuisine » (processus et contrôle des plats). L’option 0 met l’accent sur la pression ressentie plutôt que sur l’organisation, l’option 2 décrit un rythme plus rapide qui n’est pas une conséquence évidente d’une carte réduite, et l’option 3 déplace le focus vers les livraisons et approvisionnements, moins centrés sur le travail en cuisine lui-même."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur un restaurant qui a réduit sa carte, le chef explique que le principal effet est de diminuer la pression en cuisine, car l’équipe doit gérer un nombre plus restreint de plats différents à suivre en même temps, ce qui allège la charge mentale au moment du coup de feu."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une interview, un chef décrit que, depuis qu’il a réduit sa carte, l’organisation en cuisine a changé : l’équipe répète plus souvent les mêmes préparations, a pris des automatismes et enchaîne les plats plus rapidement pendant le service, ce qu’il présente comme l’impact principal sur le travail."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast consacré à la gestion d’un petit restaurant, la propriétaire explique que, grâce à une carte plus réduite, l’organisation de la cuisine est plus souple et lui libère du temps pour planifier les livraisons et gérer les approvisionnements, ce qu’elle décrit comme la principale conséquence de ce changement sur le fonctionnement de la cuisine."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un reportage sur la ‘cuisine de marché’, le chef indique que le fait d’avoir une carte réduite permet à l’équipe de cuisine de mieux s’organiser pour suivre chaque plat : moins de références, plus de contrôle sur chaque préparation, ce qu’il présente comme l’impact principal sur l’organisation du travail en cuisine."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "07a59dad6b22f0ce76b4e5c544251a6a2edf65f4a2f6fe4a2c32f5404dadb7ba",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs critères pourraient raisonnablement être évoqués dans un enregistrement (coûts, demande, disponibilité, rapidité), et tous les choix sont grammaticalement corrects et plausibles. Sans information audio, l’incertitude reste élevée. Cependant, le critère des plats les plus demandés par la clientèle est légèrement favorisé car il correspond à un axe très courant et directement lié à la satisfaction client lorsqu’un document parle d’évolution de la carte, d’où une probabilité un peu plus élevée pour cette option malgré l’absence de preuve décisive.",
+        "cues": [],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion entre le gérant du restaurant et son équipe, le responsable explique qu’ils ont revu la carte pour mieux maîtriser le budget et annonce qu’ils vont désormais sélectionner les plats en fonction des préparations qui réduisent le coût des matières premières."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un document de présentation de la nouvelle stratégie commerciale du restaurant, la direction indique qu’après analyse des ventes et des retours clients, le restaurant choisit désormais les plats de sa carte en se basant sur les plats les plus demandés par la clientèle."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un échange avec un journaliste local, le chef explique que, pour s’adapter aux contraintes d’approvisionnement, le restaurant sélectionne dorénavant les plats de sa carte en fonction de la disponibilité des produits livrés par les producteurs."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une formation interne au personnel de salle et de cuisine, le manager précise qu’afin d’améliorer la rapidité du service, le restaurant choisit désormais les plats de sa carte en privilégiant les recettes qui permettent un envoi rapide en salle."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "742235ef0a9b6e9d7f52644be971a143903ca7dd806c50b4fee93cfca7d7c019",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La formulation du choix 0 est la plus directement liée à la notion de « choix des recettes » en parlant du calendrier et des livraisons de producteurs, ce qui correspond typiquement au discours d’une restauratrice sur une cuisine de saison. Les autres options sont davantage centrées sur la gestion des réservations ou de l’organisation interne, qui influencent plutôt les quantités ou la complexité que le choix même des recettes. Incertitude toutefois élevée faute d’accès à l’audio.",
+        "cues": [],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une interview radio avec la cheffe d’un restaurant locavore, la journaliste lui demande comment elle choisit ses recettes. Elle répond qu’elles dépendent beaucoup du calendrier (saisons, jours de marché) et du contenu des livraisons des producteurs, car elle cuisine principalement en fonction des produits frais disponibles chaque semaine."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un reportage sur un restaurant très prisé, la restauratrice explique que certaines recettes sont plus ou moins proposées selon la fréquence à laquelle les clients réservent ces plats à l’avance via le site de réservation, ce qui oriente ses choix de recettes pour les prochains services."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission sur l’organisation en cuisine, la restauratrice explique que le choix des recettes se fait aussi en fonction de l’organisation des horaires de préparation de la brigade en cuisine : certains plats demandent de longues préparations et ne sont choisis que quand les plannings permettent de les réaliser correctement."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un journal télévisé consacré à la restauration, la restauratrice explique qu’elle adapte les recettes proposées en fonction de l’évolution quotidienne du nombre de couverts réservés : avec beaucoup de réservations, elle privilégie des recettes plus simples à dresser, ce qui oriente ses choix."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "3d918cfa0e3e833d8b0429a8df29af6b734b94d4552f92fac89682b307f9524f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs conséquences sont plausibles pour une carte trop longue, mais les documents de vulgarisation insistent fréquemment sur le gaspillage et les invendus comme difficulté centrale ; l’option 2 a donc un léger avantage malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus globale et typique des discours sur les cartes trop longues (gaspillage, pertes financières), moins centrée sur un seul aspect opérationnel interne et plus sur une conséquence majeure souvent mise en avant dans les documents explicatifs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une formation en gestion de restaurant, un responsable explique que lorsque la carte comporte énormément de plats, il devient plus difficile de coordonner le service entre les équipes (prise de commande, envoi en cuisine, service des plats), car les flux sont plus dispersés et les serveurs doivent gérer beaucoup plus de références différentes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un reportage sur les cuisines de restaurant, le chef explique qu’une carte trop longue oblige les cuisiniers à maîtriser et à préparer en parallèle un très grand nombre de recettes et de mises en place, ce qui complique fortement l’organisation et augmente les risques d’erreurs ou de baisse de qualité."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast de gestion hôtelière, un consultant explique qu’avec une carte très longue, il faut acheter beaucoup de produits différents, dont une partie ne sera pas commandée assez souvent : une grande proportion finit donc invendue puis jetée, entraînant du gaspillage alimentaire et des pertes financières."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une émission de radio sur l’expérience client, un spécialiste du marketing explique qu’une carte de restaurant très longue rend le choix plus difficile : les clients hésitent davantage, comparent plus d’options et mettent ainsi beaucoup plus de temps à se décider sur le plat à commander."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1794a332b376133ae4aef57b18ef2170175f1ecdfeefdaa119d627aada6470b5",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 1,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "c5969d32ecf51e14ebbed413ba36b8920eaf88a30d876f004ee700e542269cba",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre naturellement à la question dans un contexte ordinaire, mais l’option « plats que les clients commandent le plus fréquemment » correspond le mieux, de façon générale, à un critère principal de sélection d’une carte recentrée sur quelques recettes, d’où une légère préférence sans certitude forte.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "La question insiste sur le « critère principal » de sélection d’un nombre limité de recettes, ce qui correspond très directement à la demande client (plats les plus fréquemment commandés), un critère classique et central dans ce type de contexte pédagogique, tandis que les autres options reflètent davantage des contraintes internes possibles mais moins explicitement reliées à la formulation."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur la gestion d’un restaurant après une période difficile, le gérant explique qu’il a analysé ses coûts et marges, et qu’il ne garde à la carte que les préparations jugées les plus rentables pour assurer la viabilité financière de l’établissement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une interview sur l’optimisation du service en période d’affluence, le chef explique qu’il a réduit la carte et choisi principalement des recettes rapides à exécuter pour pouvoir servir plus vite et limiter les temps d’attente en salle."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un sujet sur les circuits courts et les relations avec les producteurs, le restaurateur raconte qu’il a revu sa carte pour ne proposer que des recettes élaborées à partir des produits fournis par ses producteurs habituels, afin de renforcer ces partenariats."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un entretien sur l’adaptation de la carte aux attentes de la clientèle, le responsable explique qu’après avoir étudié les ventes, il ne conserve désormais que les plats que les clients commandent le plus fréquemment, pour coller au mieux à la demande."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6f4b72ef00d979612693f2db97d10ba67a5fcee718ccf1cf48653b55e5603f43",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix pourraient répondre à la question dans un contexte ordinaire, mais le lien direct entre la formulation temporelle (« d’abord ») et « l’une des premières réactions », ainsi que le caractère immédiat et spontané du regret de perdre ses habitudes, donne à l’option 3 un avantage rédactionnel net sur les autres.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "L’option 3 reprend explicitement l’idée de temporalité immédiate (« Ils ont d’abord exprimé… ») qui correspond très bien à « l’une des premières réactions », et décrit une réaction émotionnelle spontanée (le regret de perdre ses habitudes) typique d’un premier ressenti, plus nettement qu’une appréciation réfléchie de la rapidité ou de la qualité en cuisine."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion avec la direction d’un restaurant, après l’annonce de la réduction de la carte, certains clients expliquent qu’ils ne sont pas contre le changement mais demandent à conserver un large choix de produits différents, craignant de ne plus trouver de quoi satisfaire tous les goûts de leur table."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un gérant de restaurant explique dans une interview que, peu après la réduction du nombre de plats au menu, certains clients lui ont directement fait remarquer qu’ils appréciaient de recevoir leurs commandes plus rapidement et de passer moins de temps à attendre."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un reportage sur la simplification des cartes en restauration, le chef raconte que des clients lui ont dit assez vite qu’ils aimaient voir qu’il pouvait désormais se concentrer davantage sur chaque assiette et porter une attention plus soutenue au travail en cuisine."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un témoignage radiophonique, un restaurateur explique qu’immédiatement après avoir réduit le nombre de plats, certains clients réguliers ont d’abord exprimé le regret de perdre leurs habitudes, en disant par exemple que leur plat préféré ou leur routine de commande disparaissait."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3KQJnjZVYzCYxzcsGfzZ4DZL5nM",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un gérant explique dans une interview radio qu’avec l’augmentation des prix, le restaurant ne garde à la carte que les plats dont le coût des ingrédients reste raisonnable afin de proposer des prix stables à ses clients."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un reportage sur la restauration, le responsable décrit comment, après avoir étudié les statistiques de vente, le restaurant ne conserve sur sa carte réduite que les recettes les plus souvent commandées par la clientèle."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une émission consacrée aux circuits courts, une cheffe explique qu’elle a réduit sa carte et ne garde que les plats qu’elle peut préparer en fonction des livraisons et de la disponibilité des produits chez ses producteurs locaux."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un propriétaire de restaurant détaille au micro d’une radio locale qu’il a resserré sa carte pour ne garder que les plats rapides à préparer, afin d’assurer un service plus fluide et de limiter l’attente des clients à l’heure du déjeuner."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre options sont toutes plausibles, grammaticales et directement en lien avec la sélection de recettes sur une carte réduite. Aucune formulation ne présente d’avantage évident ou de précision nettement supérieure ; il n’y a pas de différence claire de longueur, de nuance ou de responsabilité permettant de privilégier une réponse. Faute de tout indice textuel objectif, les probabilités restent uniformes et le choix de la réponse 1 est essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 622,
+          "total_tokens": 1247,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 247,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00700125,
+        "inputHash": "14a5cfe0d999d4dad111947823c25d0dc0c370b35821a4d4eb381100bd12aacd",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:screen:5:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3KXLSUjUfd3XE4ZG9wbJT88QpL6",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une interview radio avec le gérant d’un restaurant, le journaliste lui demande comment il choisit désormais les quelques plats conservés sur sa carte. Le gérant répond qu’ils ont analysé les statistiques de ventes et gardé surtout les recettes qui correspondent le mieux aux habitudes de commande de leur clientèle, car ce sont celles qui sortent le plus et qu’ils sont sûrs de vendre."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un reportage sur un restaurant locavore diffusé sur une radio régionale, le chef explique que la carte a été fortement réduite. Il précise que, désormais, les quelques recettes proposées varient surtout en fonction des livraisons et des disponibilités chez leurs producteurs locaux : s’il n’y a pas telle viande ou tel légume cette semaine, le plat disparaît de la carte au profit d’un autre."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un podcast sur la restauration rapide de qualité, le responsable d’un petit établissement raconte qu’il a réduit sa carte pour fluidifier le service du midi. Il explique que les recettes actuellement maintenues ont été choisies surtout en fonction du temps de préparation, afin de garantir un service rapide à une clientèle pressée, par exemple les employés de bureau."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un reportage économique sur la hausse des coûts alimentaires, un restaurateur explique qu’il a simplifié sa carte et qu’il ne garde que quelques recettes. Il indique que le principal critère de sélection est désormais le coût des ingrédients nécessaires à chaque plat, pour pouvoir conserver des prix attractifs tout en maintenant une marge suffisante."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options peuvent répondre naturellement à la question dans un enregistrement ordinaire, sans indice de formulation clair permettant de privilégier l’un des critères ; faute de signal évident dans l’énoncé, l’incertitude reste élevée et la probabilité est répartie de façon quasi uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 536,
+          "total_tokens": 1161,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 81,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00614125,
+        "inputHash": "ee8add5d9ba388f62c607dbcc999759856e6083549ffd9706b6c9129b5292015",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:screen:5:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3KcEJSXSWM84K8SBDvUFY0XarFt",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une interview radio avec le gérant d’un petit restaurant de quartier en période d’inflation, le journaliste demande comment ils ont adapté leur carte. Le responsable explique qu’ils ont réduit le nombre de recettes et qu’ils gardent maintenant seulement les plats dont le coût des ingrédients reste raisonnable, afin de ne pas augmenter trop les prix pour les clients. Le critère principal de sélection des quelques recettes à la carte est donc le coût des ingrédients nécessaires à chaque plat."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un reportage sur un restaurant locavore diffusé à la radio, le chef explique qu’ils travaillent exclusivement avec des producteurs locaux et en circuits courts. Il précise qu’ils ont réduit la carte à quelques recettes seulement, et qu’ils la modifient en fonction des livraisons hebdomadaires et de la disponibilité des produits chez leurs producteurs. Le critère principal pour choisir les plats présents sur la carte est donc les livraisons et disponibilités chez leurs producteurs."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un podcast sur la restauration rapide mais de qualité, le propriétaire d’un bistrot explique qu’après des problèmes de lenteur en salle, ils ont revu complètement leur carte. Ils l’ont réduite à quelques plats qui peuvent être préparés rapidement pour éviter les temps d’attente. Il précise que le critère principal pour sélectionner les recettes désormais proposées est le temps de préparation, pour garantir un service rapide."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une émission consacrée au marketing en restauration, la gérante d’un restaurant raconte qu’ils ont analysé pendant plusieurs mois les tickets de caisse et les plats commandés. À partir de ces données, ils ont resserré la carte sur quelques recettes seulement, en conservant surtout celles que les clients commandent le plus souvent. Elle indique que le critère principal de sélection des recettes proposées sur la carte est désormais les habitudes de commande de la clientèle."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre options peuvent répondre naturellement à la question dans des contextes ordinaires (coût, saisonnalité/approvisionnement, rapidité, préférences clients). Le libellé ne favorise clairement aucune d’entre elles par la forme ou la portée, et il n’y a pas d’indice textuel évident pointant vers un critère plutôt qu’un autre. Sans accès au document audio, la bonne réponse reste très incertaine, d’où une distribution uniforme malgré un choix de réponse obligé."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 715,
+          "total_tokens": 1340,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 151,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00793125,
+        "inputHash": "1175fd7c54804daa1618083789292a431a4725781ccc1312b027d791ed7ef8d1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:screen:5:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3Kivx0K8T6BHbAJj4VUVRbv0xNp",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le critère principal de sélection des quelques recettes est désormais les livraisons et disponibilités chez les producteurs.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Certains clients ont d'abord regretté leurs habitudes"
+          ],
+          "reason": "Le document mentionne les « habitudes » des clients uniquement pour dire qu’ils ont été bousculés par le changement de carte. Il n’est jamais dit que les recettes sont choisies en fonction de ces habitudes ; au contraire, la sélection est faite selon les livraisons des producteurs. Un auditeur peu attentif pourrait retenir le mot « habitudes » et croire que la carte est bâtie sur les habitudes de commande, alors que ce n’est pas le critère de sélection des recettes.",
+          "misunderstanding": "topic_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "La personne explique clairement que le nouveau principe est de choisir les recettes « selon les livraisons des producteurs ». C’est exactement l’idée d’une sélection basée sur les livraisons et disponibilités chez les producteurs.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avec une carte très longue, nous conservions trop de produits différents et certains finissaient à la poubelle."
+          ],
+          "reason": "Le passage évoque un problème de gaspillage lié au trop grand nombre de produits, mais à aucun moment le coût des ingrédients n’est présenté comme critère de choix actuel des recettes. Un auditeur pourrait faire un lien implicite entre gaspillage et coût financier et en déduire à tort que le critère est le coût, alors que le seul critère déclaré est la dépendance aux livraisons des producteurs.",
+          "misunderstanding": "unsupported_inference"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Vous cherchez surtout à aller plus vite ?",
+            "La rapidité compte, mais nous voulions surtout mieux travailler.",
+            "Maintenant, nous choisissons quelques recettes selon les livraisons des producteurs."
+          ],
+          "reason": "Le journaliste suggère que l’objectif serait d’« aller plus vite », et le restaurateur reconnaît que « la rapidité compte », ce qui peut faire croire que le temps de préparation est central. Mais il précise aussitôt que l’enjeu principal est de « mieux travailler » et explique que le critère de sélection est « selon les livraisons des producteurs », pas la durée de préparation pour un service rapide. La rapidité est importante, mais ce n’est pas le critère déclaré pour choisir les recettes.",
+          "misunderstanding": "focus_misattribution"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 793,
+      "completion_tokens": 934,
+      "total_tokens": 1727,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 330,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01033125,
+    "inputHash": "21908bddd16ea3f650bdcd0c6046f4966321e28281bd9e81e5de79b8d01e4593",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:25:85aecef166340640b146977e:ground:5"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": "0edce6bb266aa9bb54c577fd6d4133d041af4f7656c5f1460afc7df6cb2337f0"
+}

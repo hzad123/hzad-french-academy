@@ -1,0 +1,189 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle situation est représentée ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le texte \"VISITE DU LOGEMENT\" indique clairement qu’il s’agit d’une visite. La personne à droite tient une tablette tournée vers l’autre personne assise à côté d’elle, ce qui correspond à la gestionnaire qui montre des informations sur le logement pendant la visite. Aucune autre action plus précise (signature, prise de notes, lecture solitaire) n’est suggérée visuellement. A : On voit bien une tablette tenue par la personne à droite pendant une visite de logement, ce qui peut faire penser au moment de la signature de l’état des lieux. Cependant, l’image ne montre aucun geste de signature (pas de stylet, pas de main en train d’écrire) : la tablette est simplement tenue, sans interaction visible qui évoquerait une signature. C : Pendant une visite de logement, une gestionnaire pourrait effectivement prendre des notes sur une tablette, ce qui peut inciter à choisir cette réponse. Mais sur l’image, la personne à droite tient simplement la tablette, sans geste d’écriture, de saisie ou d’annotation : rien ne signale qu’elle \"prend des notes\", seulement qu’elle présente ou tient l’appareil. D : On voit une future locataire et une gestionnaire avec une tablette, ce qui peut faire penser à la lecture d’un contrat sur écran. Cependant, la proposition dit que la future locataire \"lit seule\" le contrat, alors que la gestionnaire est présente juste à côté et tient elle-même la tablette. La locataire n’est ni seule ni en train de manipuler la tablette : cette situation de lecture solitaire n’est donc pas représentée.",
+    "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. La future locataire signe l'état des lieux sur la tablette. B. La gestionnaire montre des informations sur le logement sur sa tablette. C. La gestionnaire prend des notes sur sa tablette pendant la visite. D. La future locataire lit seule le contrat affiché sur la tablette.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. La future locataire signe l'état des lieux sur la tablette. B. La gestionnaire montre des informations sur le logement sur sa tablette. C. La gestionnaire prend des notes sur sa tablette pendant la visite. D. La future locataire lit seule le contrat affiché sur la tablette."
+      }
+    ],
+    "audio": "q-01.mp3",
+    "audioSeconds": 21.551,
+    "slotSeconds": 34,
+    "image": "q-01.svg"
+  },
+  "sourceHash": "e7bbe4b63f599d288201e4723ee7dd5fe00f173c0bce987226284a9ca3768997",
+  "contentHash": "172ace6642e8e32b1c15c23cf70453e23255d61d7143c289226603e2ed33e35f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzo383TWXFkBqBFvjeWaTXBZFxZP",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une visite de logement, la gestionnaire pose la tablette sur une table et s’éloigne pour répondre au téléphone, pendant que la future locataire reste seule quelques instants à lire le contrat de location affiché sur l’écran."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "En fin d’état des lieux d’entrée, la gestionnaire tend une tablette à la future locataire en lui disant qu’il faut signer le document récapitulatif, et la locataire utilise un stylet ou son doigt pour signer l’état des lieux sur l’écran."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant une visite d’appartement, la gestionnaire tient une tablette et fait défiler un dossier numérique en expliquant les caractéristiques du logement (plans, montant du loyer, charges, équipements) en les montrant directement sur l’écran à la future locataire."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours de la visite, la gestionnaire suit une check-list sur sa tablette et saisit en direct des remarques sur l’état du logement, tapant des notes pendant que la future locataire regarde les pièces."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre propositions décrivent chacune une scène courante et cohérente correspondant à la question générale « Quelle situation est représentée ? » sans indice textuel clair permettant de privilégier l’une d’elles ; choix effectué malgré une incertitude élevée et des options linguistiquement équivalentes."
+        },
+        "usage": {
+          "prompt_tokens": 614,
+          "completion_tokens": 553,
+          "total_tokens": 1167,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 198,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0062975,
+        "inputHash": "12b0f704b695a1241fe4370dcc3d1d6ebcc2dbc147d42469bbb47402d42768d6",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:0:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzoAU9LO0h5jn1fzI9oQPJYNKf7d",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre une visite de logement où la gestionnaire semble présenter quelque chose sur une tablette à la future locataire, mais on ne voit ni signature, ni prise de notes, ni lecture solitaire du contrat.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "VISITE DU LOGEMENT"
+          ],
+          "reason": "On voit bien une tablette tenue par la personne à droite pendant une visite de logement, ce qui peut faire penser au moment de la signature de l’état des lieux. Cependant, l’image ne montre aucun geste de signature (pas de stylet, pas de main en train d’écrire) : la tablette est simplement tenue, sans interaction visible qui évoquerait une signature.",
+          "misunderstanding": "visual_misinterpretation"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "VISITE DU LOGEMENT"
+          ],
+          "reason": "Le texte \"VISITE DU LOGEMENT\" indique clairement qu’il s’agit d’une visite. La personne à droite tient une tablette tournée vers l’autre personne assise à côté d’elle, ce qui correspond à la gestionnaire qui montre des informations sur le logement pendant la visite. Aucune autre action plus précise (signature, prise de notes, lecture solitaire) n’est suggérée visuellement.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "VISITE DU LOGEMENT"
+          ],
+          "reason": "Pendant une visite de logement, une gestionnaire pourrait effectivement prendre des notes sur une tablette, ce qui peut inciter à choisir cette réponse. Mais sur l’image, la personne à droite tient simplement la tablette, sans geste d’écriture, de saisie ou d’annotation : rien ne signale qu’elle \"prend des notes\", seulement qu’elle présente ou tient l’appareil.",
+          "misunderstanding": "visual_misinterpretation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "VISITE DU LOGEMENT"
+          ],
+          "reason": "On voit une future locataire et une gestionnaire avec une tablette, ce qui peut faire penser à la lecture d’un contrat sur écran. Cependant, la proposition dit que la future locataire \"lit seule\" le contrat, alors que la gestionnaire est présente juste à côté et tient elle-même la tablette. La locataire n’est ni seule ni en train de manipuler la tablette : cette situation de lecture solitaire n’est donc pas représentée.",
+          "misunderstanding": "role_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 745,
+      "completion_tokens": 1256,
+      "total_tokens": 2001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 707,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01349125,
+    "inputHash": "e779722cda414c01e768f84f49d0743d37e92cd781343d6e865f8051024cc7a3",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:0:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "1eafbb233718693fb97571ef4071e394dbd3d8f9fd0006325755de1b171231ad",
+  "designSeedHash": null
+}

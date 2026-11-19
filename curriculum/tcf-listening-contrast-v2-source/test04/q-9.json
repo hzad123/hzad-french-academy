@@ -1,0 +1,302 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Où aura lieu le cours de demain pour les étudiants ?",
+    "options": [
+      "Dans la salle 18, au rez-de-chaussée.",
+      "Au laboratoire 3, au premier étage.",
+      "Au laboratoire 3, au rez-de-chaussée.",
+      "Dans la salle 18, au premier étage."
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La phrase indique explicitement le nouveau lieu : \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option reprend exactement le laboratoire et l'étage annoncés, c’est donc la seule réponse correcte. A : On entend que le cours était \"prévu dans la salle dix-huit\" mais qu'il \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option garde la salle 18 comme lieu du cours, alors que c'est justement la salle habituelle qui n'est plus utilisée à cause du projecteur en réparation. Un auditeur inattentif pourrait ne retenir que \"prévu dans la salle dix-huit\" et croire que rien ne change, d'où cette mauvaise réponse. B : Le document précise clairement que le cours aura lieu \"au laboratoire trois, au rez-de-chaussée\". Cette option reprend bien le laboratoire 3 mais se trompe d'étage en proposant \"au premier étage\". Quelqu'un qui comprend le changement de salle mais saisit mal \"rez-de-chaussée\" pourrait confondre avec un autre étage et choisir cette réponse. D : Le cours était \"prévu dans la salle dix-huit\" mais finalement \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option maintient la salle 18 et ajoute \"au premier étage\", alors que le message précise un autre lieu (laboratoire 3) et le \"rez-de-chaussée\". Un candidat qui retient seulement \"salle dix-huit\" sans écouter la suite pourrait penser qu’on précise juste l’étage habituel et se tromper.",
+    "transcript": "Question 9.\nLe cours de phonétique du groupe B prévu dans la salle dix-huit aura lieu demain au laboratoire trois, au rez-de-chaussée. Le projecteur de la salle habituelle est en réparation. L'horaire de neuf heures reste inchangé, et les étudiants doivent apporter leurs écouteurs.\nOù aura lieu le cours de demain pour les étudiants ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "Le cours de phonétique du groupe B prévu dans la salle dix-huit aura lieu demain au laboratoire trois, au rez-de-chaussée. Le projecteur de la salle habituelle est en réparation. L'horaire de neuf heures reste inchangé, et les étudiants doivent apporter leurs écouteurs."
+      },
+      {
+        "voice": "female",
+        "text": "Où aura lieu le cours de demain pour les étudiants ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 38
+  },
+  "sourceHash": "b6e6ad30a5bf683b42369436cf222754d89c133f4af9b9d3256a49223ec8727b",
+  "contentHash": "798770f7a8fa311cb287e330b2909572df6aaba4bf1595a2fc5bb4bd7696320e",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Où les étudiants suivront-ils le cours de demain ?",
+      "choices": [
+        "Dans la salle dix-huit, au rez-de-chaussée.",
+        "Au laboratoire trois, au premier étage.",
+        "Au laboratoire trois, au rez-de-chaussée.",
+        "Dans la salle dix-huit, au premier étage."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em19nGiePWrQzcXpurFjJWvO5shOo",
+      "result": {
+        "question": "Où aura lieu le cours de demain pour les étudiants ?",
+        "choices": [
+          "Dans la salle 18, au rez-de-chaussée.",
+          "Au laboratoire 3, au premier étage.",
+          "Au laboratoire 3, au rez-de-chaussée.",
+          "Dans la salle 18, au premier étage."
+        ],
+        "notes": "Formulation de la question légèrement précisée et harmonisation des numéros de salles/labos en chiffres, tout en conservant les mêmes lieux et étages pour chaque option sans introduire d’indice de correction."
+      },
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 211,
+        "total_tokens": 858,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 86,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00291875,
+      "inputHash": "e942ebbb105cd922d7ff5944a93e5f200dc6a2a1739c6c2a2a26ac6b639b6d05",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:8:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [],
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em19qKXvGZQTSMfWiKL7zcRYqF6GV",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enseignant en fin de cours rappelle à ses étudiants que, contrairement à d’habitude, le cours de demain se déroulera dans un laboratoire spécifique de l’établissement et précise : « Le cours de demain pour les étudiants aura lieu au laboratoire 3, au premier étage. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un professeur annonce à sa classe qu’en raison de travaux à l’étage, le cours du lendemain est déplacé dans une salle différente et dit : « Le cours de demain pour les étudiants aura lieu dans la salle 18, au rez-de-chaussée. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un responsable pédagogique informe les étudiants qu’un cours de travaux pratiques se fera dans un laboratoire au niveau d’entrée du bâtiment et indique : « Le cours de demain pour les étudiants aura lieu au laboratoire 3, au rez-de-chaussée. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une secrétaire d’université lit une note de service au micro et précise le changement de salle pour le cours du lendemain : « Le cours de demain pour les étudiants aura lieu dans la salle 18, au premier étage. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options répondent directement et naturellement à la question, sont grammaticales, de forme très similaire (lieu + précision d’étage) et aucune ne présente d’avantage rédactionnel ou de pertinence clairement observable. Aucune ne se détache, d’où une incertitude totale et une probabilité répartie de façon uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 437,
+          "total_tokens": 1048,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 69,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00513375,
+        "inputHash": "05fba9791c65f3ee7ce45cff957d3b614164b9d35ba7d26cfe53c7cc40aa82fe",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:8:6103f288fb85e78951f8f219:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em19vJCsCBduV7KxzvmTivimbiQRs",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un professeur enregistre un message pour ses étudiants pour les prévenir d’un changement de salle : « Demain, le cours aura lieu dans la salle 18, au rez-de-chaussée. » Les étudiants doivent simplement savoir dans quelle pièce se rendre."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une université avec plusieurs étages, l’enseignant précise que la salle a changé d’emplacement : « Le cours de demain aura lieu dans la salle 18, au premier étage. » Il insiste sur l’étage pour éviter que les étudiants se trompent."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pour un cours nécessitant du matériel scientifique ou informatique, l’enseignant annonce : « Attention, demain, le cours aura lieu au laboratoire 3, au rez-de-chaussée. » Le message audio est diffusé sur l’espace en ligne du cours."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un enseignant de sciences envoie un message vocal à sa classe : « Le cours de demain aura lieu au laboratoire 3, au premier étage. » Il remplace une salle classique par un laboratoire à l’étage pour un travail pratique."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options répondent directement et naturellement à la question en indiquant un lieu précis pour le cours (salle ou laboratoire + numéro + étage). Aucune ne présente d’erreur grammaticale ni d’inadéquation manifeste, et aucune formulation ne se démarque nettement par sa longueur, sa précision ou son style. Sans accès à l’enregistrement, il n’existe aucun indice textuel objectif pour privilégier une réponse plutôt qu’une autre, d’où des probabilités uniformes et un choix de réponse purement formel."
+        },
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 452,
+          "total_tokens": 1063,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 39,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00528375,
+        "inputHash": "89be13735e3c6fed790dc8d1312a9503ddf9d6745c4edbd097c324b2cc3eb739",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:8:6103f288fb85e78951f8f219:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1A4EyK2Awv0ciTcEMctsf3lYvzI",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le cours de demain aura lieu au laboratoire 3, au rez-de-chaussée.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le cours de phonétique du groupe B prévu dans la salle dix-huit aura lieu demain au laboratoire trois, au rez-de-chaussée.",
+            "Le projecteur de la salle habituelle est en réparation."
+          ],
+          "reason": "On entend que le cours était \"prévu dans la salle dix-huit\" mais qu'il \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option garde la salle 18 comme lieu du cours, alors que c'est justement la salle habituelle qui n'est plus utilisée à cause du projecteur en réparation. Un auditeur inattentif pourrait ne retenir que \"prévu dans la salle dix-huit\" et croire que rien ne change, d'où cette mauvaise réponse.",
+          "misunderstanding": "ignorer_le_changement_de_salle"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "aura lieu demain au laboratoire trois, au rez-de-chaussée."
+          ],
+          "reason": "Le document précise clairement que le cours aura lieu \"au laboratoire trois, au rez-de-chaussée\". Cette option reprend bien le laboratoire 3 mais se trompe d'étage en proposant \"au premier étage\". Quelqu'un qui comprend le changement de salle mais saisit mal \"rez-de-chaussée\" pourrait confondre avec un autre étage et choisir cette réponse.",
+          "misunderstanding": "confusion_d_étage"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "aura lieu demain au laboratoire trois, au rez-de-chaussée."
+          ],
+          "reason": "La phrase indique explicitement le nouveau lieu : \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option reprend exactement le laboratoire et l'étage annoncés, c’est donc la seule réponse correcte.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "prévu dans la salle dix-huit aura lieu demain au laboratoire trois, au rez-de-chaussée."
+          ],
+          "reason": "Le cours était \"prévu dans la salle dix-huit\" mais finalement \"aura lieu demain au laboratoire trois, au rez-de-chaussée\". Cette option maintient la salle 18 et ajoute \"au premier étage\", alors que le message précise un autre lieu (laboratoire 3) et le \"rez-de-chaussée\". Un candidat qui retient seulement \"salle dix-huit\" sans écouter la suite pourrait penser qu’on précise juste l’étage habituel et se tromper.",
+          "misunderstanding": "retenir_uniquement_la_salle_habituelle"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 710,
+      "completion_tokens": 927,
+      "total_tokens": 1637,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 310,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0101575,
+    "inputHash": "a16c9d2ebcb9f433bc56e6760d11e6e8480b1587579cca40d99acf6f3b2d2ea2",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:8:6103f288fb85e78951f8f219:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

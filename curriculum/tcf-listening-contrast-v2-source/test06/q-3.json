@@ -1,0 +1,234 @@
+{
+  "question": {
+    "number": 3,
+    "kind": "image",
+    "question": "Quelle action voit-on ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : Le pain est disposé sur un support rectangulaire portant la mention « 2,5 kg », caractéristique d’un affichage de poids. La situation (« COLLECTE ALIMENTAIRE ») est compatible avec le fait de peser des denrées. L’action visible correspond donc à « On pose le pain sur une balance. ». A : On voit le pain déposé sur un objet rectangulaire marqué « 2,5 kg », posé sur la table, avec la personne assise à côté. Rien n’évoque un placard (pas de portes, pas d’étagère, pas d’espace de rangement vertical). Quelqu’un qui comprend mal pourrait confondre le récipient ou l’appareil avec un simple contenant de stockage et en déduire qu’on « range » le pain, mais l’indication chiffrée de poids montre qu’il ne s’agit pas d’un placard. B : Le pain est posé dans ou sur un dispositif affichant « 2,5 kg » ; on ne voit aucun sachet transparent ou en papier, ni geste d’emballage (on ne ferme rien, on ne maintient pas un sac ouvert). Une compréhension partielle pourrait faire interpréter le récipient comme un « sachet » stylisé, mais la mention du poids suggère une fonction de pesée plutôt qu’un simple emballage. D : La scène montre le pain entier sur la table et sur le dispositif de pesée ; aucun couteau ni tranche visible, aucun geste de découpe n’est représenté. Quelqu’un qui comprend mal pourrait croire que toute manipulation de pain sur une table implique qu’on le découpe, mais ici le contexte de « COLLECTE ALIMENTAIRE » et l’affichage du poids indiquent une pesée, pas une découpe.",
+    "transcript": "Question 3.\nRegardez l’image et écoutez les propositions.\nA. On range le pain dans un placard. B. On emballe le pain dans un sachet. C. On pose le pain sur une balance. D. On découpe le pain sur la table.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 3."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. On range le pain dans un placard. B. On emballe le pain dans un sachet. C. On pose le pain sur une balance. D. On découpe le pain sur la table."
+      }
+    ],
+    "audio": "q-03.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 34,
+    "image": "q-03.svg"
+  },
+  "sourceHash": "5b7a1678fc88964e5ce9b0503666e24e97b22e7148c1bf39af94c5fa270a0f3c",
+  "contentHash": "5b670c101cc11f66c12026d9c3e1b34c1258ab66e315db8f573d9eb8578d765e",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Quelle action voit-on ?",
+      "choices": [
+        "Le pain est rangé dans un placard.",
+        "Du pain est emballé dans un sachet.",
+        "Du pain est posé sur une balance.",
+        "Le pain est découpé sur la table."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzvlYsEIfXpBWdmZbA17W5Y0FPNM",
+      "result": {
+        "question": "Que fait-on avec le pain ?",
+        "choices": [
+          "On range le pain dans un placard.",
+          "On emballe le pain dans un sachet.",
+          "On pose le pain sur une balance.",
+          "On découpe le pain sur la table."
+        ],
+        "notes": "Question et formulations harmonisées autour de la même action sur le pain, avec quatre alternatives crédibles et de niveau comparable, sans indice évident sur la bonne réponse."
+      },
+      "usage": {
+        "prompt_tokens": 634,
+        "completion_tokens": 249,
+        "total_tokens": 883,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 149,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0032825,
+      "inputHash": "f98cf440911cc6550c79cc988888e94f4a5e22aad653bbe3695391970e9088e6",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:2:14721af7be4c27b55696caf7:blind-edit:0"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzvpAqHvydrZpA2ttKSN6kkbDUbo",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une boulangerie, la boulangère prend la baguette que le client vient d’acheter et l’emballe dans un sachet en papier avant de la lui tendre. La caméra montre clairement le geste d’emballer le pain dans un sachet."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À la caisse d’une boulangerie, l’employé pose le pain du client sur une balance pour le peser avant de l’enregistrer. On voit nettement le pain placé sur la balance, affichage du poids à l’écran."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une cuisine, une personne pose un pain sur la table et le découpe en tranches avec un couteau pour préparer le repas. La scène met en évidence le geste de découper le pain sur la table."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Après le repas, quelqu’un range le reste du pain dans un placard de la cuisine pour le conserver. On le voit ouvrir la porte du placard, y déposer le pain, puis refermer."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent toutes une action très ordinaire et cohérente avec la question générale « Quelle action voit-on ? ». Elles sont grammaticalement correctes, de longueur similaire et également plausibles dans une scène de boulangerie ou de cuisine. Aucune différence de formulation, de style ou de précision ne fournit un indice clair sur la réponse attendue, donc aucune option ne se distingue objectivement des autres. Faute de tout indice lexical ou structurel, la probabilité est répartie uniformément et le choix de l’option 0 comme réponse supposée reste arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 509,
+          "total_tokens": 1105,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 106,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005835,
+        "inputHash": "c017572c9d90bbe9ae8180198e92b2c7c7679ed64af418762cb9fa06cbfdf27c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:2:14721af7be4c27b55696caf7:screen:0:edited:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzvwipzQQH9qYhCpqypJO4PBMJOb",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre du pain posé sur un dispositif indiquant « 2,5 kg », ce qui correspond à une balance ; il ne s’agit ni d’un placard, ni d’un sachet, ni d’une découpe de pain.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "2,5 kg"
+          ],
+          "reason": "On voit le pain déposé sur un objet rectangulaire marqué « 2,5 kg », posé sur la table, avec la personne assise à côté. Rien n’évoque un placard (pas de portes, pas d’étagère, pas d’espace de rangement vertical). Quelqu’un qui comprend mal pourrait confondre le récipient ou l’appareil avec un simple contenant de stockage et en déduire qu’on « range » le pain, mais l’indication chiffrée de poids montre qu’il ne s’agit pas d’un placard.",
+          "misunderstanding": "objet_mal_identifie"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "2,5 kg"
+          ],
+          "reason": "Le pain est posé dans ou sur un dispositif affichant « 2,5 kg » ; on ne voit aucun sachet transparent ou en papier, ni geste d’emballage (on ne ferme rien, on ne maintient pas un sac ouvert). Une compréhension partielle pourrait faire interpréter le récipient comme un « sachet » stylisé, mais la mention du poids suggère une fonction de pesée plutôt qu’un simple emballage.",
+          "misunderstanding": "action_inference_error"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "2,5 kg"
+          ],
+          "reason": "Le pain est disposé sur un support rectangulaire portant la mention « 2,5 kg », caractéristique d’un affichage de poids. La situation (« COLLECTE ALIMENTAIRE ») est compatible avec le fait de peser des denrées. L’action visible correspond donc à « On pose le pain sur une balance. ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "COLLECTE ALIMENTAIRE"
+          ],
+          "reason": "La scène montre le pain entier sur la table et sur le dispositif de pesée ; aucun couteau ni tranche visible, aucun geste de découpe n’est représenté. Quelqu’un qui comprend mal pourrait croire que toute manipulation de pain sur une table implique qu’on le découpe, mais ici le contexte de « COLLECTE ALIMENTAIRE » et l’affichage du poids indiquent une pesée, pas une découpe.",
+          "misunderstanding": "confusion_type_action"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 1043,
+      "total_tokens": 1770,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 443,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01133875,
+    "inputHash": "cf3ec04e7e9a395f5a4cd4385f3186856a02fe64b8a3fb38ec99305887d79dfe",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:2:14721af7be4c27b55696caf7:ground:0:edited"
+  },
+  "feedback": null,
+  "imageHash": "00d49be3f1326a3d921087bb56385ca56e4f0aee7fd4e6a3df8da48372f12070",
+  "designSeedHash": null
+}

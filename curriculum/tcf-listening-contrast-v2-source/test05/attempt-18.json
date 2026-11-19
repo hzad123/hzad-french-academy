@@ -1,0 +1,497 @@
+{
+  "question": {
+    "number": 18,
+    "kind": "telephone",
+    "question": "Que précise l’agent qu’il va comparer pour vérifier la situation ?",
+    "options": [
+      "La date à laquelle le virement a été effectué.",
+      "Les différentes opérations enregistrées sur le compte.",
+      "Les coordonnées bancaires indiquées pour le nouveau compte.",
+      "La référence du logement mentionnée sur le virement."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : L’agent explique explicitement qu’il va « comparer les opérations reçues », ce qui correspond à l’idée de vérifier les différentes opérations enregistrées sur le compte pour éclaircir la situation de retard affiché. A : On parle bien d’une date de virement (« le premier du mois »), ce qui peut faire croire que l’agent va vérifier la date précise du virement. Cependant, l’agent ne dit jamais qu’il va comparer des dates ; il annonce seulement qu’il va comparer « les opérations reçues ». La comparaison porte donc sur la liste des mouvements, pas spécifiquement sur la date d’exécution du virement. C : Le dialogue évoque un changement de banque et un « nouveau compte », ce qui peut faire penser que l’agent va comparer les coordonnées bancaires anciennes et nouvelles. Mais il ne le dit jamais : il précise uniquement qu’il va comparer « les opérations reçues », sans mention de coordonnées bancaires ni de RIB. D : Le locataire insiste sur « la référence du logement », ce qui peut faire croire que c’est cet élément que l’agent va vérifier. Toutefois, l’agent ne dit pas qu’il va comparer les références de logement ; il annonce qu’il va comparer « les opérations reçues ». La référence du logement est donc un détail rassurant donné par le client, mais ce n’est pas l’objet de la comparaison annoncée par l’agent.",
+    "transcript": "Question 18.\nBonjour, j'ai réglé mon loyer le premier du mois, pourtant votre espace en ligne m'indique un retard.\nAvez-vous changé de banque récemment ?\nOui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même.\nJe vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier.\nMerci, je préfère éviter un rappel injustifié.\nQue précise l’agent qu’il va comparer pour vérifier la situation ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 18."
+      },
+      {
+        "voice": "female",
+        "text": "Bonjour, j'ai réglé mon loyer le premier du mois, pourtant votre espace en ligne m'indique un retard."
+      },
+      {
+        "voice": "male",
+        "text": "Avez-vous changé de banque récemment ?"
+      },
+      {
+        "voice": "female",
+        "text": "Oui, le virement part désormais d'un nouveau compte, mais la référence du logement est restée la même."
+      },
+      {
+        "voice": "male",
+        "text": "Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier."
+      },
+      {
+        "voice": "female",
+        "text": "Merci, je préfère éviter un rappel injustifié."
+      },
+      {
+        "voice": "female",
+        "text": "Que précise l’agent qu’il va comparer pour vérifier la situation ?"
+      }
+    ],
+    "audio": "q-18.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 46
+  },
+  "sourceHash": "f310220c3a59037fcba8c7bc8be710968d4fd0bbad34fc140186a5dabaa2457a",
+  "contentHash": "8ea9b9494398318ad082c3efb2e73c0699a9487bd650a823ecf9b7edfea9b8ad",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1Ikpz7qEJAaOQ3Si4tv3UfaHCqQ",
+    "result": {
+      "question": "Avant de modifier le dossier, qu’est-ce que l’agent indique qu’il va comparer ?",
+      "choices": [
+        "Les opérations reçues sur le compte.",
+        "La référence du logement figurant sur le virement.",
+        "La date à laquelle le virement a été effectué.",
+        "Les coordonnées bancaires du nouveau compte."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’agent dit explicitement : Je vais comparer les opérations reçues et vous envoyer une confirmation avant de modifier votre dossier. Il ne parle pas de comparer la référence du logement, la date du virement ou les coordonnées bancaires, même si ces éléments sont évoqués ailleurs dans l’échange.",
+      "design": "On teste l’élément précis que l’agent choisit de comparer avant de modifier le dossier (type de vérification effectuée). Les quatre réponses proposent chacune un objet de comparaison plausible dans un contexte de gestion de loyers : opérations, référence, date, coordonnées bancaires. Sans l’enregistrement, toutes semblent également vraisemblables comme étape de contrôle ; seule l’écoute permet d’identifier que la comparaison porte sur les opérations reçues.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le locataire mentionne la référence du logement restée identique, ce qui peut faire penser que l’agent va la vérifier. En réalité, cette référence est simplement signalée comme stable par le locataire ; l’agent, lui, annonce qu’il va comparer les opérations reçues, pas la référence.",
+          "operation": "role_swap",
+          "anchors": [
+            "la référence du logement est restée la même",
+            "Je vais comparer les opérations reçues et vous envoyer une confirmation"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le début de l’échange insiste sur le fait que le loyer a été payé le premier du mois alors qu’un retard apparaît, ce qui rend crédible l’idée que l’agent compare la date du virement. Cependant, il ne parle jamais de contrôler cette date : il précise seulement qu’il va comparer les opérations reçues.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "j'ai réglé mon loyer le premier du mois",
+            "pourtant votre espace en ligne m'indique un retard"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La question sur le changement de banque et le nouveau compte pourrait laisser croire que l’agent va vérifier les coordonnées bancaires. En fait, le changement de banque est évoqué pour expliquer une possible confusion, mais l’action concrète annoncée par l’agent reste la comparaison des opérations reçues, pas des coordonnées.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Avez-vous changé de banque récemment ?",
+            "le virement part désormais d'un nouveau compte"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4424,
+      "completion_tokens": 2446,
+      "total_tokens": 6870,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1896,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02999,
+    "inputHash": "7701ed250bd16bd4e5fa1abf7abce8d33fd0fe375d41bd3ff04a5b06e37f5e4f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:6103f288fb85e78951f8f219:author:2:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Avant de modifier le dossier, qu’est-ce que l’agent indique qu’il va comparer ?",
+      "choices": [
+        "La date à laquelle le virement a été effectué.",
+        "Les opérations reçues sur le compte.",
+        "Les coordonnées bancaires du nouveau compte.",
+        "La référence du logement figurant sur le virement."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1JDaI36PBVwS4OUdheZuwsWYOYb",
+      "result": {
+        "question": "Que précise l’agent qu’il va comparer pour vérifier la situation ?",
+        "choices": [
+          "La date à laquelle le virement a été effectué.",
+          "Les différentes opérations enregistrées sur le compte.",
+          "Les coordonnées bancaires indiquées pour le nouveau compte.",
+          "La référence du logement mentionnée sur le virement."
+        ],
+        "notes": "L’allusion à la modification du dossier, qui pouvait favoriser implicitement la réponse sur les coordonnées bancaires, a été neutralisée en parlant plus largement de vérification de la situation. Les quatre options restent factuellement distinctes, toutes présentées comme des éléments possibles à comparer, sans hiérarchisation ni option manifestement plus pertinente ou professionnelle que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 415,
+        "total_tokens": 1063,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 261,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00496,
+      "inputHash": "07a7ae51d6ab99a2478ec27923db53790106a4f24efd522dc6ba3d09a3eee8ed",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:6103f288fb85e78951f8f219:blind-edit:before:3"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "2fa9a39562f04e3fc84ecfcd5a989f13329ee0c6be76e447654e0c5c715b1ac8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question parle d’une « vérification » avant mise à jour du dossier de loyer, ce qui correspond typiquement à un contrôle de cohérence entre paiements reçus et loyers dus. L’option 2 formule précisément ce type de contrôle et s’aligne le mieux avec l’idée de vérification comptable préalable, tandis que les autres réponses décrivent plutôt des démarches annexes ou moins directement liées à la mise à jour du dossier.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La formulation décrit explicitement une action de contrôle interne (« comparer les opérations reçues… avec les loyers attendus ») qui correspond très directement au mot « vérification », alors que 0 et 3 sont davantage des démarches externes (demander, prendre contact) et 1 porte sur une donnée de référence plutôt que sur le paiement lui‑même. L’option 2 est également la plus complète et précise sur la vérification liée au loyer."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un agent de gestion locative explique à une collègue qu’avant de modifier le dossier de loyer, il va d’abord demander à la locataire un justificatif de virement pour s’assurer que le paiement a bien été effectué avant de corriger les informations."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un service de gestion immobilière, un employé constate un changement d’appartement pour une locataire et annonce qu’avant de mettre à jour le dossier de loyer, il va vérifier que la référence du logement indiquée dans le dossier correspond bien au nouveau logement attribué."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une personne du service comptabilité des loyers explique qu’avant de mettre à jour le dossier de loyer dans le système, elle veut d’abord comparer les opérations reçues sur le compte bancaire avec les loyers attendus afin de confirmer que les paiements correspondent bien aux montants et aux périodes dues."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un service de gestion locative, une employée dit qu’avant de mettre à jour le dossier de loyer suite à un changement de coordonnées bancaires, elle va d’abord prendre contact avec la nouvelle banque indiquée par la locataire pour vérifier la validité du RIB ou des informations fournies."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "90c988f9b8d038fb34544138fb68230df0aaa8d2452d7269c47cde96559c2f86",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 0 correspond au scénario administratif le plus courant (changement de RIB), la tournure ‘faire une comparaison’ y est très idiomatique, et elle s’aligne directement avec l’idée de mise à jour d’un dossier de loyer, ce qui lui donne un avantage net malgré la plausibilité générale des autres options.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation très naturelle pour une procédure standard : « avant de mettre à jour votre dossier, je vais comparer l’ancien RIB avec le nouveau ». Elle vise précisément un changement de coordonnées bancaires, situation fréquente dans la gestion de loyers. Les autres réponses décrivent des vérifications plus complexes ou moins directement associées à l’idée de ‘mettre à jour le dossier de loyer’, et la tournure ‘faire une comparaison’ s’applique particulièrement bien à deux RIB successifs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une locataire appelle pour signaler un changement de compte bancaire pour le prélèvement de son loyer. L’agent dit qu’avant de modifier le dossier de loyer dans le système, il va comparer l’ancien relevé d’identité bancaire avec le nouveau que la locataire vient de lui communiquer, pour vérifier qu’il ne s’agit pas d’une erreur de saisie."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une locataire signale une incohérence entre les informations visibles dans son espace client en ligne et celles dont l’agent semble disposer. L’agent précise qu’avant de mettre à jour le dossier de loyer, il va comparer les données de l’espace en ligne avec celles qui sont enregistrées dans le dossier interne pour vérifier où se trouve l’erreur."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "La locataire indique que son virement de loyer n’a pas été correctement attribué à son logement, et mentionne la référence utilisée sur le virement. L’agent répond qu’avant de modifier quoi que ce soit dans le dossier de loyer, il va comparer la référence du logement inscrite dans le dossier avec celle qui figure sur le virement, afin de voir si elles correspondent."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "La locataire affirme avoir effectué un virement de loyer à une date précise et veut vérifier sa bonne réception. L’agent explique qu’avant de mettre à jour le dossier de loyer, il va comparer les différentes opérations de paiement reçues sur le compte avec le virement de loyer signalé par la locataire, pour l’identifier et l’associer correctement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "e4cf7f1e8c8c224ca959449eae62e3c57d48b66a4a09a3e453e2a5ebf24d4ea0",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent répondre normalement à la question dans un contexte d’appel à un agent de gestion locative. Toutefois, la première réponse se distingue légèrement par son caractère plus global et procédural (vérification des opérations puis confirmation), ce qui correspond bien à une étape annoncée avant la mise à jour d’un dossier. Cela reste incertain, mais donne à l’option 0 un léger avantage.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation la plus complète et procédurale (deux actions successives : analyser les opérations puis envoyer une confirmation), cohérente avec l’idée d’une mise à jour de dossier après un contrôle global du compte, là où les autres options évoquent chacune un seul point de vérification plus étroit."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Lors d’un appel au service de gestion locative, l’agent explique qu’il va d’abord analyser les opérations reçues sur le compte (pour vérifier que le virement du loyer est bien arrivé, qu’il n’y a pas d’erreur de montant ou de doublon), puis qu’il vous enverra une confirmation par mail avant de mettre à jour votre dossier de loyer."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Au téléphone avec un gestionnaire de location, l’agent indique qu’il va d’abord comparer la référence du logement qui apparaît sur le virement ou sur votre dossier avec celle inscrite sur le contrat de location, afin d’être sûr d’affecter le paiement au bon appartement, avant de mettre à jour votre dossier de loyer."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un échange avec l’agence, l’agent précise qu’il vérifiera d’abord que la date du virement correspond bien à la date prévue dans le bail (le premier du mois, par exemple) pour s’assurer du respect des échéances, avant de mettre à jour votre dossier de loyer."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un locataire appelle car son paiement n’apparaît pas encore dans son espace client. L’agent explique qu’avant de mettre à jour le dossier de loyer, il va contacter la banque pour confirmer que le virement a bien été exécuté et qu’il ne s’agit pas d’un rejet ou d’un retard bancaire."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1JJpmOdsVYcGL3vafvQW2ZCTr9Q",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Au téléphone avec un locataire qui signale qu’un virement de loyer n’est pas arrivé, l’agent de l’agence immobilière ou de la banque dit : « Je vais comparer la référence du logement mentionnée sur le virement avec celle que nous avons dans votre dossier pour vérifier la situation. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un client appelle la banque car un virement semble en retard ; l’agent répond : « Je vais comparer la date à laquelle le virement a été effectué avec les délais habituels et les mouvements sur votre compte pour vérifier la situation. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un client doute d’un solde de compte ; l’agent explique : « Je vais comparer les différentes opérations enregistrées sur le compte avec celles que vous mentionnez pour vérifier la situation. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un salarié n’a pas reçu son salaire après un changement de compte ; l’agent de la paie ou de la banque dit : « Je vais comparer les coordonnées bancaires indiquées pour le nouveau compte avec celles que nous avons enregistrées pour vérifier la situation. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.23,
+            0.23,
+            0.23,
+            0.31
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent répondre normalement à la question dans un contexte courant, sans indice décisif dans l’énoncé. L’option 3 est légèrement privilégiée par vraisemblance intuitive dans un scénario fréquent de virement non reçu après changement de compte, mais l’incertitude reste élevée et aucun avantage de formulation n’est net."
+        },
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 798,
+          "total_tokens": 1409,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 428,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00874375,
+        "inputHash": "9b0718b4ed8a1e3178100fe1273d03c60d4005bc822c99660c4ad2fc6b77f920",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:6103f288fb85e78951f8f219:screen:3:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1JUPLTaV1lqRJifqmXDtbyR6TDt",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un locataire appelle son agence immobilière parce qu’un virement de loyer ne semble pas avoir été identifié. L’agent explique qu’il va comparer la référence du logement qui apparaît sur le virement avec la référence figurant dans leur système pour vérifier la situation et retrouver le paiement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un client appelle sa banque au sujet d’un solde incompréhensible. L’agent indique qu’il va comparer les différentes opérations enregistrées sur le compte avec le relevé ou avec les montants annoncés par le client pour vérifier la situation et identifier d’éventuelles anomalies."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un client signale qu’un virement vers un nouveau compte n’est jamais arrivé. L’agent bancaire répond qu’il va comparer les coordonnées bancaires indiquées pour le nouveau compte avec celles fournies par le client ou celles enregistrées dans le dossier, afin de vérifier la situation et s’assurer qu’il n’y a pas eu d’erreur de RIB."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une personne se plaint qu’un virement n’a pas été pris en compte à temps. L’agent précise qu’il va comparer la date à laquelle le virement a été effectué avec la date de valeur ou la date de réception dans le système, afin de vérifier la situation et voir si le délai est normal."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation plus spécialisée et détaillée (\"les coordonnées bancaires indiquées pour le nouveau compte\"), très typique d’un échange avec un agent bancaire à propos d’un virement ; l’idée de comparer des coordonnées bancaires entre elles est particulièrement naturelle pour \"vérifier la situation\". Les autres options sont un peu moins spécifiquement formulées pour l’acte de comparer, même si elles restent plausibles."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.3,
+            0.2,
+            0.35,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Plusieurs choix restent plausibles sans le document audio, mais la formulation longue et spécialisée de l’option 2, centrée sur des coordonnées bancaires à comparer pour vérifier un problème de virement, offre un léger avantage contextuel et lexical par rapport aux autres."
+        },
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 947,
+          "total_tokens": 1558,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 449,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01023375,
+        "inputHash": "640fcf1e83d281ce494883738ba7d983b3c947261639bb0f5fc5318deed66389",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:6103f288fb85e78951f8f219:screen:3:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1JfVnsqYe4HnTYuQKKelzOfJeux",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’agent précise qu’il va comparer les opérations reçues, pas la date, les coordonnées bancaires ni la référence du logement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "j'ai réglé mon loyer le premier du mois"
+          ],
+          "reason": "On parle bien d’une date de virement (« le premier du mois »), ce qui peut faire croire que l’agent va vérifier la date précise du virement. Cependant, l’agent ne dit jamais qu’il va comparer des dates ; il annonce seulement qu’il va comparer « les opérations reçues ». La comparaison porte donc sur la liste des mouvements, pas spécifiquement sur la date d’exécution du virement.",
+          "misunderstanding": "detail_shift"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Je vais comparer les opérations reçues"
+          ],
+          "reason": "L’agent explique explicitement qu’il va « comparer les opérations reçues », ce qui correspond à l’idée de vérifier les différentes opérations enregistrées sur le compte pour éclaircir la situation de retard affiché.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous changé de banque récemment ?",
+            "Oui, le virement part désormais d'un nouveau compte"
+          ],
+          "reason": "Le dialogue évoque un changement de banque et un « nouveau compte », ce qui peut faire penser que l’agent va comparer les coordonnées bancaires anciennes et nouvelles. Mais il ne le dit jamais : il précise uniquement qu’il va comparer « les opérations reçues », sans mention de coordonnées bancaires ni de RIB.",
+          "misunderstanding": "inference_beyond_recording"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la référence du logement est restée la même.",
+            "Je vais comparer les opérations reçues"
+          ],
+          "reason": "Le locataire insiste sur « la référence du logement », ce qui peut faire croire que c’est cet élément que l’agent va vérifier. Toutefois, l’agent ne dit pas qu’il va comparer les références de logement ; il annonce qu’il va comparer « les opérations reçues ». La référence du logement est donc un détail rassurant donné par le client, mais ce n’est pas l’objet de la comparaison annoncée par l’agent.",
+          "misunderstanding": "speaker_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 738,
+      "completion_tokens": 812,
+      "total_tokens": 1550,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 286,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0090425,
+    "inputHash": "e666f29341d828e7a3baad95e6ec564b6d20a8f5ff6f709d0721889b92376e4a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:17:6103f288fb85e78951f8f219:ground:3"
+  },
+  "feedback": null
+}

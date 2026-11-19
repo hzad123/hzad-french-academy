@@ -1,0 +1,416 @@
+{
+  "question": {
+    "number": 16,
+    "kind": "dialogue",
+    "question": "Selon le document, quelle explication est donnée au fait que le rendez-vous de jeudi soit plus court que d’habitude ?",
+    "options": [
+      "Le premier rendez-vous sera consacré uniquement à un bilan des habitudes alimentaires.",
+      "La diététicienne doit enchaîner ensuite avec une visite dans un foyer.",
+      "Un entretien de suivi à distance est déjà programmé pour les questions complémentaires.",
+      "Le nombre de patients reçus ce jour-là rend la plage horaire plus limitée."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question « Est-ce à cause du nombre de patients ? » reçoit une réponse négative, suivie de l’explication : « la diététicienne assurera aussi une visite dans un foyer après son service ». C’est clairement présenté comme la cause du raccourcissement du rendez-vous, ce qui correspond exactement au fait qu’elle doit enchaîner ensuite avec une visite dans un foyer. A : On apprend bien que le rendez-vous sera centré sur les habitudes alimentaires, ce qui pourrait faire croire que c’est parce qu’il est limité à ce thème qu’il est plus court. Cependant, ce n’est présenté nulle part comme la raison de la réduction de durée, seulement comme le contenu maintenu malgré le raccourcissement. L’explication explicite donnée pour la durée plus courte est autre. C : Le document indique qu’« un second échange à distance » est prévu, ce qui pourrait faire croire qu’il explique la brièveté du rendez-vous : comme un suivi à distance existe déjà, le premier serait raccourci. Toutefois, ce suivi est une conséquence organisationnelle de la durée réduite, pas la cause. L’unique explication causale donnée pour le fait que le rendez-vous soit plus court est la visite dans un foyer après le service. D : La question évoque explicitement le « nombre de patients » comme cause possible, ce qui peut rester dans l’esprit d’un auditeur inattentif. Mais cette hypothèse est immédiatement rejetée par « Non », puis remplacée par l’explication réelle (la visite dans un foyer). Le document exclut donc clairement le nombre de patients comme raison de la plage horaire plus limitée.",
+    "transcript": "Question 16.\nLe rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq.\nEst-ce à cause du nombre de patients ?\nNon, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires.\nD'accord, je préparerai mon carnet de repas.\nSelon le document, quelle explication est donnée au fait que le rendez-vous de jeudi soit plus court que d’habitude ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 16."
+      },
+      {
+        "voice": "female",
+        "text": "Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq."
+      },
+      {
+        "voice": "male",
+        "text": "Est-ce à cause du nombre de patients ?"
+      },
+      {
+        "voice": "female",
+        "text": "Non, la diététicienne assurera aussi une visite dans un foyer après son service. Nous garderons l'entretien sur vos habitudes alimentaires et prévoirons un second échange à distance pour les questions complémentaires."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, je préparerai mon carnet de repas."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quelle explication est donnée au fait que le rendez-vous de jeudi soit plus court que d’habitude ?"
+      }
+    ],
+    "audio": "q-16.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 42
+  },
+  "sourceHash": "7230c3a1e22a79fc31dd5ec25b1cfdbe643569c0ad5682b5896670814914a346",
+  "contentHash": "59125d13a80272891a4e19ba88d302dc5428e69588c64a9c6bcb29d39358d452",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em16Qu2CGbGUMyYoTaYHrj97Yn8Y5",
+    "result": {
+      "question": "Selon le document, quelle raison est donnée pour la réduction de la durée du rendez-vous de jeudi ?",
+      "choices": [
+        "La diététicienne doit ensuite effectuer une visite dans un foyer.",
+        "Le nombre de patients prévus ce jour-là est trop important.",
+        "Le premier rendez-vous sera consacré uniquement aux habitudes alimentaires.",
+        "Un second échange à distance est déjà prévu pour les questions complémentaires."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document répond que ce n’est pas à cause du nombre de patients, mais parce que la diététicienne «assurera aussi une visite dans un foyer après son service», ce qui explique la réduction de la durée du rendez-vous.",
+      "design": "Focus on the specific recorded cause of the shortened Thursday appointment. All four options are plausible causes in the same semantic family (reasons for reducing consultation time: workload, extra visit, narrowed content, planned remote follow-up). Only the visit in a foyer is explicitly presented as the actual reason; the others are real elements or hypotheses from the dialogue whose roles are misassigned as causes, so without the audio they all look equally reasonable explanations.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme en cause réelle une hypothèse explicitement écartée. Le nombre de patients est bien mentionné, mais seulement dans la question du patient et immédiatement nié comme raison de la réduction de durée.",
+          "operation": "role_swap",
+          "anchors": [
+            "Est-ce à cause du nombre de patients ?",
+            "Non, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option prend un élément d’organisation du contenu comme si c’était la cause du raccourcissement. Le fait de garder l’entretien sur les habitudes alimentaires décrit ce qui sera fait dans le temps réduit, pas ce qui provoque la réduction de ce temps.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Nous garderons l'entretien sur vos habitudes alimentaires",
+            "Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option inverse le sens du lien causal : le second échange à distance est une conséquence de la réduction du rendez-vous, pas sa raison. Le document présente cet échange comme une solution pour traiter les questions restantes.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "prévoirons un second échange à distance pour les questions complémentaires.",
+            "Le rendez-vous de jeudi durera finalement trente minutes au lieu de quarante-cinq."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4447,
+      "completion_tokens": 1894,
+      "total_tokens": 6341,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1372,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02449875,
+    "inputHash": "f91cf113e9813d8ca664721d92198dc3821cdb996058dd06aee0ffeadc4f99f5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quelle raison est donnée pour la réduction de la durée du rendez-vous de jeudi ?",
+      "choices": [
+        "Le premier rendez-vous sera consacré uniquement aux habitudes alimentaires.",
+        "La diététicienne doit ensuite effectuer une visite dans un foyer.",
+        "Un second échange à distance est déjà prévu pour les questions complémentaires.",
+        "Le nombre de patients prévus ce jour-là est trop important."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em16mQcGW07LRkIaVAZrokZ3Rljr0",
+      "result": {
+        "question": "Selon le document, quelle explication est donnée au fait que le rendez-vous de jeudi soit plus court que d’habitude ?",
+        "choices": [
+          "Le premier rendez-vous sera consacré uniquement à un bilan des habitudes alimentaires.",
+          "La diététicienne doit enchaîner ensuite avec une visite dans un foyer.",
+          "Un entretien de suivi à distance est déjà programmé pour les questions complémentaires.",
+          "Le nombre de patients reçus ce jour-là rend la plage horaire plus limitée."
+        ],
+        "notes": "Question légèrement reformulée pour rester neutre tout en conservant l’idée d’une durée plus courte. Les quatre choix présentent désormais des raisons de même nature (organisationnelles ou liées au contenu de la séance), sans qu’aucun ne soit explicitement plus prudent, complet ou professionnel que les autres, tout en gardant leurs différences factuelles (contenu centré sur les habitudes alimentaires, visite dans un foyer, suivi à distance déjà prévu, surcharge de patients)."
+      },
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 447,
+        "total_tokens": 1110,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 239,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00529875,
+      "inputHash": "67746ce88e68b8888c7c1c4cbfa0e421b711acde955ae8a300aaf287ac0150ba",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "0532cdec244133e3e32460d3b4b51303891a54344d01454a052daff463e0cc66",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options ont un contexte ordinaire plausible, mais l’option 0 présente une justification plus précise et structurée (indication de la partie d’entretien concernée, du report et de la modalité à distance), ce qui lui donne un léger avantage comme formulation d’une explication « d’après le document » dans un support pédagogique ou informatif. L’incertitude reste toutefois notable car aucune option n’est incompatible avec la question.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus développée, explicative et nuancée (mention d’une partie spécifique de l’entretien, du report et d’un second échange à distance), qui ressemble à une justification détaillée typique d’un document d’information ou d’un message au patient, alors que les autres options sont plus générales ou moins circonstanciées."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une diététicienne laisse un message vocal à un patient : elle explique que, comme il est déjà suivi et que l’emploi du temps est chargé, le rendez-vous en présentiel sera plus court que d’habitude car la partie sur les habitudes alimentaires sera abordée plus tard lors d’un second échange à distance (téléphone ou visioconférence)."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un enregistrement d’organisation de planning, la secrétaire d’un cabinet de diététique prévient un patient que la diététicienne devra partir ensuite pour une visite dans un foyer. Elle précise que, pour cette raison, le rendez-vous prévu ce jour-là sera plus court que d’habitude."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un centre de santé envoie un message audio ou un podcast explicatif sur ses nouvelles modalités : on y indique que, pour les consultations en visioconférence, des créneaux plus courts sont réservés, ce qui explique que ce rendez-vous précis sera plus court que les consultations habituelles en présentiel."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un message d’information d’un cabinet médical explique qu’en raison d’un afflux de demandes, davantage de patients ont été ajoutés à l’agenda le même jour. La personne précise que chaque rendez-vous a été légèrement raccourci, ce qui explique que le créneau prévu soit plus court que d’habitude."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em16tHqGVO2lU56aDSPIl5IjovxDQ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un appel de confirmation, une secrétaire de cabinet de diététique explique à un patient : « Le rendez-vous de jeudi sera un peu plus court, mais ne vous inquiétez pas, on a déjà prévu un entretien de suivi en visio la semaine suivante pour toutes les questions complémentaires. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un message vocal du cabinet, la secrétaire précise : « Jeudi, le rendez-vous sera un peu plus court que d’habitude parce qu’on reçoit exceptionnellement beaucoup de patients ce jour-là, donc chaque créneau est réduit. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une diététicienne explique à un nouveau patient au téléphone : « Comme c’est un premier rendez-vous, celui de jeudi sera un peu plus court, car il sera consacré uniquement à faire un bilan de vos habitudes alimentaires, on entrera dans le détail du programme ensuite. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’un échange téléphonique, la diététicienne dit : « Jeudi, le rendez-vous sera un peu plus court que d’habitude parce que je dois enchaîner directement après avec une visite dans un foyer, donc je dois partir à l’heure. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les propositions fournissent une explication directe et ordinaire au fait qu’un rendez-vous précis soit plus court que d’habitude, sans défaut logique ni grammatical évident. Aucune option ne présente d’avantage de formulation ou de pertinence clairement identifiable à partir du seul énoncé écrit, ce qui laisse une incertitude élevée sur la clé attendue ; les probabilités sont donc réparties de façon uniforme et le choix de l’index 0 n’est qu’un meilleur candidat forcé en l’absence de véritable indice."
+        },
+        "usage": {
+          "prompt_tokens": 644,
+          "completion_tokens": 601,
+          "total_tokens": 1245,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 178,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006815,
+        "inputHash": "7380c256b10b32be4ec44b36f48f93d4b3ecf10520866431da2919b63270ecc9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em172iru7ikcLFIICnIFjXy3Pih7d",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une diététicienne explique à un nouveau patient que, contrairement aux séances habituelles plus longues, le premier rendez-vous sera plus court car il servira uniquement à faire un bilan détaillé des habitudes alimentaires, sans encore aborder en profondeur le plan nutritionnel."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un appel de prise de rendez-vous, la diététicienne précise que la séance de jeudi sera plus courte que d’habitude parce qu’un entretien de suivi en visioconférence est déjà prévu la semaine suivante pour traiter toutes les questions complémentaires et affiner les conseils."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message vocal adressé à ses patients, la secrétaire d’un cabinet de diététique explique que le créneau du jeudi sera exceptionnellement plus court parce que la professionnelle doit recevoir un nombre plus important de patients ce jour-là, ce qui oblige à réduire la durée de chaque rendez-vous."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une diététicienne laisse un message à un patient en disant que le rendez-vous de jeudi devra être plus court que d’habitude, car elle doit ensuite se rendre immédiatement dans un foyer pour y faire une visite programmée auprès d’un groupe de résidents."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Tous les choix proposent une explication plausible au fait qu’un rendez-vous soit plus court, sans indice clair dans la seule formulation de la question ni différence évidente de qualité rédactionnelle ou de portée. Faute de contenu audio ou de formulation nettement orientée (par exemple vers la surcharge de patients, la téléconsultation, la spécificité du premier rendez-vous ou une visite extérieure), il est impossible de distinguer de façon fiable l’option attendue, d’où des probabilités réparties uniformément et un choix de réponse très incertain."
+        },
+        "usage": {
+          "prompt_tokens": 644,
+          "completion_tokens": 902,
+          "total_tokens": 1546,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 471,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.009825,
+        "inputHash": "ca0a98c168e81c2c23c3d8e88d47d176c3944acb84987c91ed91a9db142e8424",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:6103f288fb85e78951f8f219:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em17FfDlaWHVpmoln5xDhnirUOMVm",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La réduction de la durée du rendez-vous est expliquée par le fait que la diététicienne doit ensuite assurer une visite dans un foyer, et non par le nombre de patients ni par l’organisation du contenu des entretiens.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous garderons l'entretien sur vos habitudes alimentaires"
+          ],
+          "reason": "On apprend bien que le rendez-vous sera centré sur les habitudes alimentaires, ce qui pourrait faire croire que c’est parce qu’il est limité à ce thème qu’il est plus court. Cependant, ce n’est présenté nulle part comme la raison de la réduction de durée, seulement comme le contenu maintenu malgré le raccourcissement. L’explication explicite donnée pour la durée plus courte est autre.",
+          "misunderstanding": "cause_misattribution"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Non, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ],
+          "reason": "La question « Est-ce à cause du nombre de patients ? » reçoit une réponse négative, suivie de l’explication : « la diététicienne assurera aussi une visite dans un foyer après son service ». C’est clairement présenté comme la cause du raccourcissement du rendez-vous, ce qui correspond exactement au fait qu’elle doit enchaîner ensuite avec une visite dans un foyer.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "prévoirons un second échange à distance pour les questions complémentaires."
+          ],
+          "reason": "Le document indique qu’« un second échange à distance » est prévu, ce qui pourrait faire croire qu’il explique la brièveté du rendez-vous : comme un suivi à distance existe déjà, le premier serait raccourci. Toutefois, ce suivi est une conséquence organisationnelle de la durée réduite, pas la cause. L’unique explication causale donnée pour le fait que le rendez-vous soit plus court est la visite dans un foyer après le service.",
+          "misunderstanding": "causal_reversal"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce à cause du nombre de patients ?",
+            "Non, la diététicienne assurera aussi une visite dans un foyer après son service."
+          ],
+          "reason": "La question évoque explicitement le « nombre de patients » comme cause possible, ce qui peut rester dans l’esprit d’un auditeur inattentif. Mais cette hypothèse est immédiatement rejetée par « Non », puis remplacée par l’explication réelle (la visite dans un foyer). Le document exclut donc clairement le nombre de patients comme raison de la plage horaire plus limitée.",
+          "misunderstanding": "ignored_explicit_negation"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 766,
+      "completion_tokens": 1426,
+      "total_tokens": 2192,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 809,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0152175,
+    "inputHash": "31f573956f21763963cd8e4b5dd9f4d22206670dfc841d73b7523deb03510c67",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:15:6103f288fb85e78951f8f219:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

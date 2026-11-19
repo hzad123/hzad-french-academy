@@ -1,0 +1,192 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question demande explicitement s’il est possible de venir chercher les résultats « aujourd'hui ». La réponse « Oui, ils vous attendent à l'accueil. » apporte un accord clair (« Oui ») et précise même que les résultats sont déjà prêts et disponibles à l’accueil ; elle répond donc directement et complètement à la demande. A : L’interlocuteur demande une autorisation/confirmation temporelle : « je peux venir chercher mes résultats d'analyse aujourd'hui ? ». La réponse attendue doit donc dire si c’est possible ou non aujourd’hui. « C'est bien au nom de Monsieur Dubois ? » ne répond pas à la question (ni oui, ni non, ni une autre indication de temps) ; c’est une demande de précision sur l’identité, pas une réponse à la possibilité de venir aujourd’hui. B : La question porte sur la récupération de « résultats d'analyse », ce qui concerne une étape après le prélèvement. « Les prélèvements se font uniquement sur rendez-vous. » parle de l’organisation des prises de sang, pas de la remise des résultats, et ne répond donc pas à la demande « je peux venir chercher… aujourd'hui ? ». Un candidat pourrait confondre parce que c’est le même univers (laboratoire, analyses) et penser que l’on rappelle une règle générale du service. D : L’interlocuteur parle de la récupération de résultats déjà réalisés. « Vous devrez revenir à jeun pour la prochaine prise de sang. » évoque une future analyse et une condition (être à jeun), sans rien dire sur la possibilité de venir chercher les résultats aujourd’hui. On reste dans le champ médical, avec « prise de sang » lié aux analyses, ce qui peut tromper quelqu’un qui s’accroche au mot « analyse » sans remarquer que l’on ne répond pas à la question posée.",
+    "transcript": "Question 5.\nBonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?\nA. C'est bien au nom de Monsieur Dubois ? B. Les prélèvements se font uniquement sur rendez-vous. C. Oui, ils vous attendent à l'accueil. D. Vous devrez revenir à jeun pour la prochaine prise de sang.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "female",
+        "text": "Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. C'est bien au nom de Monsieur Dubois ? B. Les prélèvements se font uniquement sur rendez-vous. C. Oui, ils vous attendent à l'accueil. D. Vous devrez revenir à jeun pour la prochaine prise de sang."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "5d0c7876aa8ce85cbdd9e2c24c85c3ad36dc8449413530a28a52331a8ee45b75",
+  "contentHash": "a8377941485dfaadcef828fb55a6d52a8a3f7f9578a50d5282c54bca09c419e5",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzXjaKVMVneiAOqv7slJeZAD6ox7",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un laboratoire d’analyses médicales, un patient demande : « Est-ce que je peux venir quand je veux pour les prélèvements ? » Le personnel répond : « Les prélèvements se font uniquement sur rendez-vous. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un patient vient de faire une prise de sang sans être à jeun et le biologiste explique : « Pour ce type d’analyse, il faut être à jeun. Vous devrez revenir à jeun pour la prochaine prise de sang. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un patient arrive au laboratoire et demande : « Est‑ce que les infirmières sont déjà là pour me prendre ? » ou « Est‑ce que je dois aller directement en salle d’attente ? » Le personnel répond : « Oui, ils vous attendent à l’accueil. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "À la réception d’un laboratoire, un patient se présente : « Bonjour, j’ai rendez-vous pour une prise de sang. » Le ou la réceptionniste vérifie l’identité : « C’est bien au nom de Monsieur Dubois ? »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Sans accès à l’enregistrement, les quatre répliques peuvent toutes répondre naturellement à des situations ordinaires dans un laboratoire d’analyses ; aucune option ne présente d’avantage rédactionnel ou contextuel clairement décisif, donc la clé reste très incertaine et le choix de 0 est essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 804,
+          "total_tokens": 1410,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 441,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0087975,
+        "inputHash": "7f8dbcd959e502dd1ace42417d023957ccc05814b6f5a67c0824c18a0d7291b7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:4:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzXst3ac19e6pTQ7yrzJA0AF452f",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne demande si elle peut venir chercher ses résultats aujourd’hui ; la seule réponse qui apporte clairement une réponse adéquate à cette demande est « Oui, ils vous attendent à l’accueil. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?",
+            "C'est bien au nom de Monsieur Dubois ?"
+          ],
+          "reason": "L’interlocuteur demande une autorisation/confirmation temporelle : « je peux venir chercher mes résultats d'analyse aujourd'hui ? ». La réponse attendue doit donc dire si c’est possible ou non aujourd’hui. « C'est bien au nom de Monsieur Dubois ? » ne répond pas à la question (ni oui, ni non, ni une autre indication de temps) ; c’est une demande de précision sur l’identité, pas une réponse à la possibilité de venir aujourd’hui.",
+          "misunderstanding": "focalisation_sur_un_détail"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?",
+            "Les prélèvements se font uniquement sur rendez-vous."
+          ],
+          "reason": "La question porte sur la récupération de « résultats d'analyse », ce qui concerne une étape après le prélèvement. « Les prélèvements se font uniquement sur rendez-vous. » parle de l’organisation des prises de sang, pas de la remise des résultats, et ne répond donc pas à la demande « je peux venir chercher… aujourd'hui ? ». Un candidat pourrait confondre parce que c’est le même univers (laboratoire, analyses) et penser que l’on rappelle une règle générale du service.",
+          "misunderstanding": "changement_de_thème"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?",
+            "Oui, ils vous attendent à l'accueil."
+          ],
+          "reason": "La question demande explicitement s’il est possible de venir chercher les résultats « aujourd'hui ». La réponse « Oui, ils vous attendent à l'accueil. » apporte un accord clair (« Oui ») et précise même que les résultats sont déjà prêts et disponibles à l’accueil ; elle répond donc directement et complètement à la demande.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Bonjour, je peux venir chercher mes résultats d'analyse aujourd'hui ?",
+            "Vous devrez revenir à jeun pour la prochaine prise de sang."
+          ],
+          "reason": "L’interlocuteur parle de la récupération de résultats déjà réalisés. « Vous devrez revenir à jeun pour la prochaine prise de sang. » évoque une future analyse et une condition (être à jeun), sans rien dire sur la possibilité de venir chercher les résultats aujourd’hui. On reste dans le champ médical, avec « prise de sang » lié aux analyses, ce qui peut tromper quelqu’un qui s’accroche au mot « analyse » sans remarquer que l’on ne répond pas à la question posée.",
+          "misunderstanding": "confusion_temps_présent/futur"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 717,
+      "completion_tokens": 1450,
+      "total_tokens": 2167,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 772,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01539625,
+    "inputHash": "c3bcfa5562a93038c051a0d29f87239a7a30b543c7661fa7f01332e04c7d9d15",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:4:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

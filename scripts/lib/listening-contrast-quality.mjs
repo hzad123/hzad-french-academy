@@ -1,0 +1,216 @@
+import {POLICY_VERSION} from '../../supabase/functions/academy-listening-qc/contracts.js';
+import {readFile} from 'node:fs/promises';
+import {hash,policyHash,contentHash,spokenChoices,blindProjection,stimulus,mode,letters,permutation,applyAlternatives,receiptValid,blindVerdict,groundingVerdict,attackStatistics,binomialUpperTail} from './listening-answer-qc.mjs';
+export const protocol='six-listening-contrast-v2';
+export const displayProjection=q=>({question:q.question,choices:[...q.options]});
+export const qualityProjection=blindProjection;
+export const projectionVersion='actual-alternatives-v1';
+export function blindConsensus(q,trials){
+ if(q.number<=8||trials?.length!==trialsFor(q))return {pass:true};
+ const preferred=trials.map(t=>t.order[t.receipt.result.guess]);
+ const stable=new Set(preferred).size===1;
+ const consistentConfidence=q.number>=23||trials.every(t=>Math.max(...t.receipt.result.probabilities)>=.35-1e-9);
+ return {pass:!stable||!consistentConfidence,...(stable&&consistentConfidence?{preferredIndex:preferred[0],reason:'The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference.'}:{})};
+}
+export function editedForQuestion(q,record){
+ if(q.number<=8)return true;
+ try{
+  const edit=record?.blindEdit;if(!edit)return false;
+  receiptValid(edit.receipt,'polish',edit.input);
+  return hash(qualityProjection(applyBlindEdit(q,edit.receipt.result)))===hash(qualityProjection(q));
+ }catch{return false;}
+}
+export function screeningMatches(q,record){
+ const projection=qualityProjection(q);
+ return record?.blind?.length===trialsFor(q)&&record.blind.every(b=>[...b.order].sort().join('')==='0123'&&b.receipt.inputHash===hash({question:projection.question,choices:b.order.map(i=>projection.choices[i])}))&&blindConsensus(q,record.blind).pass;
+}
+export const groundInput=(q,imageData)=>({question:q.question,choices:spokenChoices(q),stimulus:q.number>=5&&q.number<=8?q.transcript:stimulus(q),mode:mode(q),...(imageData?{imageData}:{})});
+export const trialsFor=q=>q.number>=23?3:q.number>=9?2:1;
+const canon=t=>t.normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/gu,' ').trim().toLocaleLowerCase('fr');
+const wordingSignature=q=>hash({question:canon(q.question),choices:spokenChoices(q).map(canon).sort()});
+const verifiedExamples=JSON.parse(await readFile(new URL('../../curriculum/tcf-listening-contrast-exemplars.json',import.meta.url),'utf8'));
+export function authorInput(q,{imageData,feedback}={}){
+ // Do not anchor a rewrite to the failed stem/key. Written alternatives are
+ // built afresh from the recording, rather than cosmetically rephrased.
+ const eligible=verifiedExamples.filter(e=>e.stimulus!==stimulus(q));
+ const examples=q.number>=9?permutation(eligible.length,hash(stimulus(q))).slice(0,2).map(i=>{
+  const {stimulus,answer}=eligible[i];return {stimulus,answer};
+ }):[];
+ return {question:q.number>=9?'Question d’interprétation à construire à partir du document.':q.question,
+  choices:q.number>=9?[...letters].map(l=>'Proposition '+l+' à construire.'):spokenChoices(q),stimulus:stimulus(q),mode:mode(q),
+  feedback:{number:q.number,advanced:q.number>=23,maxAudioSeconds:q.slotSeconds-12,diagnostic:feedback,
+   answerAxis:'Choose one precise answer axis from this source (a role, expense, recipient, trigger, scale, or type of action). Give four ordinary close values of that SAME axis, with comparable human/practical salience. Not every wrong value has to be literally spoken; it must be a realistic misunderstanding of the recorded distinction. Avoid a uniquely cautious policy against three dogmatic policies. Keep foils as direct and concise as the key; do not append invented reasons. Vary wording naturally, without padding or a word-count quota. Narrowing the focus is preferable to inventing administrative reasons to make foils wrong.',
+   verifiedExamples:examples,exampleUse:'Independently screened examples of competitive design. Learn the distinction between four equally credible interpretations; keep the current source, invent no example topic, and vary focus and syntax.'},...(imageData?{imageData}:{})};
+}
+export function contrastPlan(q,authored){
+ if(q.number<9)return {pass:true,errors:[]};
+ const source=canon(stimulus(q)),errors=[];
+ for(const reason of authored.distractorReasons??[]){
+  if(!['role_swap','causal_reversal','condition_transfer','time_swap','proposal_attribution','scope_shift'].includes(reason.operation))errors.push('Missing precise misunderstanding operation');
+  if(!Array.isArray(reason.anchors)||reason.anchors.length<(q.number>=23?2:1)||reason.anchors.some(a=>typeof a!=='string'||a.length<6||!source.includes(canon(a))))errors.push('Missing faithful recorded anchors for distractor '+reason.index);
+ }
+ return {pass:errors.length===0,errors};
+}
+export function positionsWithFrozenSpoken(paper,seed){
+ const counts=[10,10,10,9],fixed=paper.questions.slice(0,8).map(q=>letters.indexOf(q.correct));
+ fixed.forEach(k=>counts[k]--);if(counts.some(c=>c<0))throw Error('Impossible frozen key distribution');
+ const remaining=counts.flatMap((count,key)=>Array(count).fill(key));return [...fixed,...permutation(31,seed).map(i=>remaining[i])];
+}
+export function sourceInvariant(original,candidate){
+ if(original.id!==candidate.id||candidate.questions.length!==39||candidate.seconds!==2100)throw Error('Paper identity/format changed');
+ for(const [i,q] of candidate.questions.entries()){
+  const old=original.questions[i];
+  if(q.transcript!==q.segments.map(s=>s.text).join('\n'))throw Error('Transcript and spoken segments differ at '+q.number);
+  const body=item=>{const spoken=item.number<=8?item.segments.findLast(s=>/\bA\.\s/.test(s.text)):null;return item.segments.filter(s=>s!==spoken&&!/^Question \d+\.$/.test(s.text)&&s.text!==item.question);};
+  if(q.number!==old.number||q.kind!==old.kind||q.slotSeconds!==old.slotSeconds||q.image!==old.image||stimulus(q)!==stimulus(old)||hash(body(q))!==hash(body(old)))throw Error('Topic, recorded situation, actors or clock changed at '+q.number);
+ }
+ return true;
+}
+export function rewrite(original,result,target,seed){
+ const copy=structuredClone(result);copy.question=copy.question.replace(/^\[Question\s+révisée\]\s*/iu,'').replace(/\s*\(question reformulée[^)]*\)\s*$/iu,'');
+ return applyAlternatives(original,copy,target,seed);
+}
+export function applyBlindEdit(original,result){
+ const q=structuredClone(original);q.question=q.number<=8?original.question:result.question.trim();
+ if(q.number<=8){
+  const segment=q.segments.findLast(s=>/\bA\.\s/.test(s.text)),prefix=segment.text.slice(0,segment.text.search(/\bA\.\s/));
+  segment.text=prefix+result.choices.map((text,i)=>letters[i]+'. '+text).join(' ');
+ }else{q.options=[...result.choices];q.segments.at(-1).text=q.question;}
+ q.transcript=q.segments.map(s=>s.text).join('\n');if(hash(q.segments)!==hash(original.segments))q.audioSeconds=null;
+ return q;
+}
+export async function inspect(q,provider,{seed,imageData,round=0}){
+ const projection=qualityProjection(q),blind=[];
+ for(let trial=0;trial<trialsFor(q);trial++){
+  const order=permutation(4,seed+':screen:'+round+':'+trial),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
+  const receipt=receiptValid(await provider('blind',input,{nonce:seed+':screen:'+round+':'+trial}),'blind',input);
+  blind.push({order,receipt});
+  if(!blindVerdict(receipt.result).pass)return {pass:false,blind,feedback:{stage:'blind',reason:receipt.result.reason,cues:receipt.result.cues,plausibility:receipt.result.plausibility}};
+ }
+ const consensus=blindConsensus(q,blind);
+ if(!consensus.pass)return {pass:false,blind,feedback:{stage:'blind-consensus',...consensus}};
+ const input=groundInput(q,imageData),grounded=receiptValid(await provider('ground',input,{nonce:seed+':ground:'+round}),'ground',input);
+ const verdict=groundingVerdict(q,grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true});
+ return {pass:verdict.pass,blind,grounded,feedback:verdict.pass?null:{stage:'ground',assessment:grounded.result,errors:verdict.errors}};
+}
+export async function repair(original,provider,{target,seed,imageData,maxAttempts=5,starting=null,previouslyRejected=null,onAttempt=async()=>{}}){
+ let q=starting?structuredClone(starting):original.number<=8?structuredClone(original):rewrite(original,{question:original.question,choices:spokenChoices(original),correctIndex:letters.indexOf(original.correct),explanation:original.explanation,
+  distractorReasons:[0,1,2,3].filter(i=>i!==letters.indexOf(original.correct)).map(index=>({index,reason:'Existing option pending independent strict screening.'}))},target,seed+':initial');
+ let feedback=null,author=null,blindEdit=null;
+ const rejected=new Map((previouslyRejected?.rejections??[]).map(r=>[r.signature,r.feedback]));
+ const priorFeedback=previouslyRejected?.regenerateFrom??(!previouslyRejected?.pass?previouslyRejected?.feedback:null);
+ if(previouslyRejected?.question&&priorFeedback)rejected.set(wordingSignature(previouslyRejected.question),priorFeedback);
+ const rejections=()=>[...rejected].map(([signature,feedback])=>({signature,feedback}));
+ async function checkCandidate(round){
+  const signature=wordingSignature(q);
+  if(rejected.has(signature))return {pass:false,blind:[],feedback:rejected.get(signature),unchangedRejected:true};
+  const assessment=await inspect(q,provider,{seed,imageData,round});
+  if(!assessment.pass)rejected.set(signature,assessment.feedback);
+  return assessment;
+ }
+ for(let round=0;round<=maxAttempts;round++){
+  if(q.number>=9){
+   const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:before:'+round}),'polish',input);
+   q=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
+  }
+  let assessment=await checkCandidate(round);
+  if(q.number<=8&&!assessment.pass&&assessment.feedback?.stage==='blind'){
+   const input=qualityProjection(q),receipt=receiptValid(await provider('polish',input,{nonce:seed+':blind-edit:'+round}),'polish',input);
+   const edited=applyBlindEdit(q,receipt.result);blindEdit={input,receipt};
+   // No reroll for an unchanged candidate. A real edit must pass a fresh,
+   // independent review and exactly the same transcript-grounding rules.
+   if(wordingSignature(edited)!==wordingSignature(q)){q=edited;assessment=await checkCandidate(round+':edited');}
+  }
+  if(assessment.pass){
+   q.explanation='Réponse '+q.correct+' : '+assessment.grounded.result.options.find(o=>o.index===letters.indexOf(q.correct)).reason+' '+assessment.grounded.result.options.filter(o=>o.index!==letters.indexOf(q.correct)).map(o=>letters[o.index]+' : '+o.reason).join(' ');
+   const result={question:q,sourceHash:contentHash(original),contentHash:contentHash(q),policy:POLICY_VERSION,policyHash,rounds:round,pass:true,author,blindEdit,rejections:rejections(),...assessment};
+   await onAttempt(result);return result;
+  }
+  await onAttempt({question:q,rounds:round,pass:false,author,blindEdit,rejections:rejections(),...assessment});feedback=assessment.feedback;
+  if(round===maxAttempts)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,rounds:round,pass:false,blocked:true,author,blindEdit,rejections:rejections(),...assessment};
+  let plan;
+  for(let planning=0;planning<2;planning++){
+   const input=authorInput(original,{imageData,feedback});
+   author=receiptValid(await provider('author',input,{nonce:seed+':author:'+round+':'+planning}),'author',input);
+   plan=contrastPlan(original,author.result);if(plan.pass)break;feedback={stage:'contrast-plan',errors:plan.errors};
+  }
+  if(!plan.pass)return {question:q,contentHash:contentHash(q),sourceHash:contentHash(original),policy:POLICY_VERSION,policyHash,pass:false,blocked:true,rejections:rejections(),feedback:{stage:'contrast-plan',errors:plan.errors}};
+  q=rewrite(original,author.result,target,seed+':author:'+round);blindEdit=null;
+ }
+}
+export async function measure(q,provider,nonce,stage='blind'){
+ const projection=qualityProjection(q),order=permutation(4,nonce),input={question:projection.question,choices:order.map(i=>projection.choices[i])};
+ const receipt=receiptValid(await provider(stage,input,{nonce}),stage,input);
+ return {order,receipt,correct:order[receipt.result.guess]===letters.indexOf(q.correct)};
+}
+export function scoreGroup(rows){
+ const n=rows.length,k=rows.filter(r=>r.correct).length,p=n?k/n:0,z=1.96,den=1+z*z/n;
+ const centre=n?(p+z*z/(2*n))/den:0,margin=n?z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/den:0;
+ return {sample:n,correct:k,accuracy:n?p:null,chance:.25,confidence95:n?[centre-margin,centre+margin]:null,upperTailP:binomialUpperTail(n,k),
+  passes:n>=100&&p<=.32&&centre-margin<=.25&&centre+margin>=.25&&binomialUpperTail(n,k)>=.05};
+}
+export function summarize(papers,evidence){
+ const rows=evidence.flatMap(e=>e.questions.filter(r=>r?.heldout).map(r=>({number:r.question.number,...r.heldout}))),written=rows.filter(r=>r.number>=9),late=rows.filter(r=>r.number>=23);
+ const challenge=evidence.flatMap(e=>e.questions.filter(r=>r?.challenge).map(r=>({number:r.question.number,...r.challenge})));
+ return {all:scoreGroup(rows),written:scoreGroup(written),late:scoreGroup(late),earlyWritten:scoreGroup(written.filter(r=>r.number<23)),spokenAlternatives:scoreGroup(rows.filter(r=>r.number<=8)),
+  challenge:{all:scoreGroup(challenge),written:scoreGroup(challenge.filter(r=>r.number>=9)),late:scoreGroup(challenge.filter(r=>r.number>=23))},patterns:attackStatistics(papers),lateHeuristicAttacks:attackStatistics(papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=23)}))).heuristicAttacks};
+}
+export function styleFindings(papers){
+ const findings=[];
+ for(const [scope,minNumber] of [['written',9],['late',23]]){
+  const scoped=papers.map(p=>({...p,questions:p.questions.filter(q=>q.number>=minNumber)}));
+  const attacks=attackStatistics(scoped).heuristicAttacks;
+  for(const [attack,result] of Object.entries(attacks)){
+   const upperTailP=binomialUpperTail(result.sample,Math.ceil(result.credit));
+   if(upperTailP>=.01)continue;
+   const candidates=scoped.flatMap(p=>p.questions.filter(q=>attackStatistics([{...p,questions:[q]}]).heuristicAttacks[attack].credit>.25).map(q=>({test:p.id,number:q.number})));
+   findings.push({scope,attack,...result,upperTailP,candidates});
+  }
+ }
+ return findings;
+}
+export function ready(papers,evidence,stats){
+ return papers.length===6&&evidence.every(e=>e.questions.length===39&&e.questions.every(r=>r?.pass&&!r.blocked&&r.heldout&&blindVerdict(r.heldout.receipt.result).pass)&&e.paperAssessment?.result.pass&&!e.paperAssessment.result.patterns.length)&&
+  stats.written.sample===186&&stats.late.sample===102&&stats.written.passes&&stats.late.passes&&stats.all.passes&&stats.challenge.written.sample===186&&stats.challenge.late.sample===102&&stats.challenge.written.passes&&stats.challenge.late.passes&&stats.challenge.all.passes&&stats.patterns.positionPatterns.every(p=>!p.suspiciousFourItemDeck&&Math.max(...Object.values(p.counts))-Math.min(...Object.values(p.counts))<=1)&&
+  [...Object.values(stats.patterns.heuristicAttacks),...Object.values(stats.lateHeuristicAttacks)].every(a=>binomialUpperTail(a.sample,Math.ceil(a.credit))>=.01);
+}
+export function assertPaper(paper,evidence,original,images){
+ sourceInvariant(original,paper);
+ if(evidence.protocol!==protocol||evidence.policyHash!==policyHash||evidence.paperHash!==hash(paper.questions.map(contentHash))||evidence.version!==paper.version||evidence.questions.length!==39)throw Error('Stale strict evidence');
+ const ids=new Set();
+ for(const [i,q] of paper.questions.entries()){
+  const record=evidence.questions[i];if(!record?.pass||record.blocked||record.contentHash!==contentHash(q)||record.sourceHash!==contentHash(original.questions[i])||record.blind.length!==trialsFor(q)||!editedForQuestion(q,record))throw Error('Question has not passed strict validation: '+q.number);
+  if(!blindConsensus(q,record.blind).pass)throw Error('Persistent blind preference remains: '+q.number);
+  if(q.number<=4&&record.imageHash!==images[q.number]?.hash)throw Error('Image changed');
+  const check=(receipt,stage,input)=>{receiptValid(receipt,stage,input);if(ids.has(receipt.responseId))throw Error('Evaluation response reused');ids.add(receipt.responseId);};
+  const proj=qualityProjection(q);
+  for(const trial of [...record.blind,record.heldout]){
+   if(!trial||[...trial.order].sort().join('')!=='0123')throw Error('Invalid blind permutation');
+   check(trial.receipt,'blind',{question:proj.question,choices:trial.order.map(k=>proj.choices[k])});if(!blindVerdict(trial.receipt.result).pass)throw Error('Blind cue remains');
+  }
+  if(record.heldout.correct!==(record.heldout.order[record.heldout.receipt.result.guess]===letters.indexOf(q.correct)))throw Error('Held-out score changed');
+  const challenge=record.challenge;
+  if(!challenge||[...challenge.order].sort().join('')!=='0123')throw Error('Missing second-model frozen experiment');
+  check(challenge.receipt,'challenge',{question:proj.question,choices:challenge.order.map(k=>proj.choices[k])});
+  if(challenge.correct!==(challenge.order[challenge.receipt.result.guess]===letters.indexOf(q.correct)))throw Error('Second-model score changed');
+  const input=groundInput(q,images[q.number]?.data);check(record.grounded,'ground',input);
+  if(!groundingVerdict(q,record.grounded.result,{evidenceSource:input.stimulus,normalizeEvidence:true}).pass)throw Error('Unsupported/ambiguous key');
+ }
+ receiptValid(evidence.paperAssessment,'paper',{questions:paper.questions.map(q=>({number:q.number,kind:q.kind,question:q.question,choices:spokenChoices(q),correct:q.correct})),statistics:attackStatistics([paper])});
+ if(!evidence.paperAssessment.result.pass||evidence.paperAssessment.result.patterns.length)throw Error('Paper pattern audit failed');
+ return true;
+}
+export function assertCohort(cohort,originals){
+ if(cohort?.protocol!==protocol||cohort.policyHash!==policyHash||cohort.papers?.length!==6)throw Error('Missing frozen contrast cohort');
+ const papers=cohort.papers.map(m=>m.paper),proofs=cohort.papers.map(m=>m.evidence),seen=new Set();
+ if(papers.some((p,i)=>p.id!==`tcf-listening-${String(i+1).padStart(2,'0')}`))throw Error('Wrong cohort coverage');
+ for(const [i,member] of cohort.papers.entries()){
+  assertPaper(member.paper,member.evidence,originals[i],member.images);
+  for(const r of member.evidence.questions)for(const receipt of [...r.blind.map(t=>t.receipt),r.heldout.receipt,r.challenge.receipt,r.grounded]){
+   if(seen.has(receipt.responseId))throw Error('Cross-paper evaluation response reused');seen.add(receipt.responseId);
+  }
+ }
+ const statistics=summarize(papers,proofs);
+ if(hash(statistics)!==hash(cohort.statistics)||!ready(papers,proofs,statistics))throw Error('Frozen late/written accuracy or style metrics failed/stale');
+ return true;
+}

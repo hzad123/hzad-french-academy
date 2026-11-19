@@ -1,0 +1,414 @@
+{
+  "question": {
+    "number": 10,
+    "kind": "dialogue",
+    "question": "Que décide de faire la personne qui parle en dernier en attendant l’arrivée de l’autre ?",
+    "options": [
+      "Réserver les places sur Internet.",
+      "Consulter les horaires des séances.",
+      "Aller acheter les billets de cinéma.",
+      "Passer au stand pour acheter du pop-corn."
+    ],
+    "correct": "C",
+    "transcript": "Question 10.\nOn se retrouve à dix-huit heures devant le cinéma ?\nJe termine mon travail à dix-huit heures trente. Dix-neuf heures, ce serait mieux.\nD'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée.\nQue décide de faire la personne qui parle en dernier en attendant l’arrivée de l’autre ?",
+    "explanation": "Réponse C : La phrase « Je prendrai les billets avant ton arrivée. » signifie qu’elle ira acheter/prendre les billets de cinéma avant que l’autre n’arrive. Cela correspond directement à l’action d’« aller acheter les billets de cinéma ». A : Le locuteur dit clairement « Je prendrai les billets avant ton arrivée. ». Il parle de prendre/acheter les billets, sans aucune mention d’Internet ni de réservation en ligne. Quelqu’un pourrait associer l’idée de « prendre les billets » à une réservation sur Internet, mais l’enregistrement ne précise pas ce moyen et reste compatible avec un achat au guichet ; donc cette option ajoute un détail non dit. B : Les horaires des séances ont déjà été implicitemment pris en compte pour proposer une heure de rendez-vous, et la décision est fixée : « D'accord, à dix-neuf heures. ». La dernière personne ne dit pas qu’elle va consulter les horaires mais qu’elle « prendra les billets ». Un candidat qui se concentre sur la discussion d’horaires pourrait croire qu’elle va vérifier les séances, mais le texte montre qu’ils ont déjà choisi et qu’elle se charge seulement des billets. D : On parle d’un rendez-vous « devant le cinéma » et de « billets », mais jamais de pop-corn ni de stand de vente. Quelqu’un pourrait associer spontanément le cinéma à l’achat de pop-corn et imaginer qu’en attendant il va au stand, mais l’enregistrement précise uniquement la prise des billets comme action prévue.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 10."
+      },
+      {
+        "voice": "male",
+        "text": "On se retrouve à dix-huit heures devant le cinéma ?"
+      },
+      {
+        "voice": "female",
+        "text": "Je termine mon travail à dix-huit heures trente. Dix-neuf heures, ce serait mieux."
+      },
+      {
+        "voice": "male",
+        "text": "D'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée."
+      },
+      {
+        "voice": "female",
+        "text": "Que décide de faire la personne qui parle en dernier en attendant l’arrivée de l’autre ?"
+      }
+    ],
+    "audio": "q-10.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "sourceHash": "8fadc080ace60bd94eac5906d2026b3f89aaef1a729b60d7c62c9e965b2e245a",
+  "contentHash": "dea60fa8b179b1976d3ce590fa30c0298658e2b2593d82770cd87d8002cf7c31",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0wnF3bnWEbbXvUBNPtnwhKWG2jL",
+    "result": {
+      "question": "Que décide de faire la personne qui parle en dernier avant l’arrivée de l’autre ?",
+      "choices": [
+        "Prendre les billets de cinéma.",
+        "Acheter du pop-corn.",
+        "Regarder les horaires des séances.",
+        "Choisir les places sur Internet."
+      ],
+      "correctIndex": 0,
+      "explanation": "La dernière réplique dit clairement : « Je prendrai les billets avant ton arrivée. » A est donc correcte. Rien n’évoque l’achat de pop-corn, la consultation des horaires ni un choix de places sur Internet.",
+      "design": "Axis: specific preparatory action effectuée avant l’arrivée de l’autre personne. All four options are plausible pre-arrival tasks in a cinema outing; only the recording specifies that the actual decided action is buying the tickets. The test requires identifying the concrete action, not the general plan or time.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le candidat peut associer naturellement une sortie au cinéma à l’achat de pop-corn et imaginer que c’est ce que la personne prévoit avant l’arrivée de l’autre. En réalité, l’action décidée est de prendre les billets, non d’acheter des consommations.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "On se retrouve à dix-huit heures devant le cinéma ?",
+            "Je prendrai les billets avant ton arrivée."
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que, puisqu’ils parlent d’horaires de travail et d’une séance au cinéma, la personne va vérifier les horaires avant l’arrivée de l’autre. Le document précise seulement le changement d’heure du rendez-vous et le fait de prendre les billets, pas la consultation des séances.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Je termine mon travail à dix-huit heures trente.",
+            "Je prendrai les billets avant ton arrivée."
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La réservation en ligne est une préparation fréquente pour le cinéma, ce qui rend cette option crédible. Cependant, l’échange mentionne un rendez-vous « devant le cinéma » et la prise des billets sur place, pas un choix préalable des places sur Internet.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "On se retrouve à dix-huit heures devant le cinéma ?",
+            "Je prendrai les billets avant ton arrivée."
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4295,
+      "completion_tokens": 1218,
+      "total_tokens": 5513,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 749,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01754875,
+    "inputHash": "2f040896da2de35e54a9d8447afaef46901a6ca13f53240455356fdc7412cdab",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:9:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Que décide de faire la personne qui parle en dernier avant l’arrivée de l’autre ?",
+      "choices": [
+        "Choisir les places sur Internet.",
+        "Regarder les horaires des séances.",
+        "Prendre les billets de cinéma.",
+        "Acheter du pop-corn."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em0x1i2yvmN3So9247AK4Sn4OadJH",
+      "result": {
+        "question": "Que décide de faire la personne qui parle en dernier en attendant l’arrivée de l’autre ?",
+        "choices": [
+          "Réserver les places sur Internet.",
+          "Consulter les horaires des séances.",
+          "Aller acheter les billets de cinéma.",
+          "Passer au stand pour acheter du pop-corn."
+        ],
+        "notes": "L’énoncé a été légèrement généralisé (« en attendant l’arrivée de l’autre »), et chaque option reste une action distincte et plausible à effectuer avant que l’autre personne n’arrive, sans qu’aucune ne paraisse manifestement plus raisonnable ou responsable que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 636,
+        "completion_tokens": 421,
+        "total_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 285,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.005005,
+      "inputHash": "c122943527f40dd325e6e71451a9442aee151281b7cb3a4fb78088acd1cfc0d9",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:9:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "9f8db010711089fa9a9ef2bc7b02e36c1ce09a13c38384d36f8721d21238d7fb",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent naturellement répondre à la question dans un contexte de sortie au cinéma. Aucun contenu n’est donné, donc il est impossible de trancher par le sens entendu. Cependant, l’option 3 est nettement plus développée et précise, ce qui ressemble souvent à une réponse correcte conçue pour se distinguer. Cette différence de rédaction fournit le seul indice exploitable, d’où une légère préférence pour 3, avec une incertitude encore élevée.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus longue, détaillée et finalisée (« pour après le film ») donnant une impression de réponse plus développée et nuancée que les autres, qui sont plus courtes et simples."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Deux amis vont au cinéma. L’un arrive plus tôt et dit à l’autre au téléphone : « Toi, viens directement, moi je prendrai les billets avant que tu n’arrives. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un couple se retrouve au cinéma. L’un est déjà dans le centre commercial et dit : « T’inquiète, avant que tu arrives, j’irai acheter du pop-corn. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Deux collègues prévoient d’aller au cinéma après le travail. L’un consulte son téléphone et dit : « Bon, avant que tu arrives, je vais vérifier les horaires de la séance. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Des amis organisent une sortie ciné suivie d’un dîner. Au téléphone, l’un dit : « Avant que tu n’arrives, je vais réserver une table au restaurant pour après le film. »"
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0xAsH1w50Xc1BgnQnuJTlJND1G5",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux amis prévoient d’aller au cinéma mais sont encore chacun chez eux. L’un dit qu’il part, l’autre, qui parle en dernier, conclut : « D’accord, en attendant que tu arrives, je vais réserver les places sur Internet. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une personne est déjà devant le cinéma, l’ami est en retard. Au téléphone, la personne qui parle en dernier dit : « Bon, en attendant que tu arrives, je vais aller acheter les billets de cinéma. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Les deux hésitent encore sur la séance exacte. L’un est en route, l’autre est déjà à proximité du cinéma et termine la conversation par : « D’accord, en attendant que tu arrives, je vais consulter les horaires des séances. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Quelqu’un est déjà dans le hall du cinéma avec les billets, l’ami est en retard. La personne conclut : « Pas de souci, en attendant que tu arrives, je vais passer au stand pour acheter du pop-corn. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.27,
+            0.3,
+            0.25,
+            0.18
+          ],
+          "guess": 1,
+          "reason": "Tous les choix peuvent répondre naturellement à la question, sans contradiction évidente. Sans accès à l’audio, la décision d’« aller acheter les billets de cinéma » est légèrement privilégiée car c’est une action très typique à faire en attendant quelqu’un devant un cinéma, mais l’avantage reste faible et l’incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 669,
+          "total_tokens": 1275,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 308,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0074475,
+        "inputHash": "ef96a4f8849df420869e19bc5b57a410412d36463eb9d7a56508d5cf3c45855b",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:9:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0xMmStGr6lYW41gaPOCrsXHFRlT",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux amis ont prévu d’aller au cinéma. L’un est déjà devant le cinéma ou dans le hall et l’autre est en retard. Le premier dit à la fin du dialogue : « Bon, en t’attendant, je vais aller consulter les horaires des séances. Comme ça, quand tu arrives, on choisit tout de suite. » Cela répond directement à la question sur ce qu’il décide de faire en attendant l’arrivée de l’autre."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Deux personnes se retrouvent au cinéma. L’une appelle ou envoie un message en disant : « D’accord, tu arrives dans dix minutes ? Pas de problème, en t’attendant, je vais passer au stand pour acheter du pop-corn. » Cette action se fait naturellement en attendant l’autre personne et répond exactement à la question."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Deux amis se donnent rendez-vous pour aller au cinéma mais ne sont pas encore sur place. L’un est devant son ordinateur ou sur son téléphone, l’autre est en chemin. Le dernier locuteur dit : « En t’attendant, je vais réserver les places sur Internet, comme ça on sera sûrs d’avoir des sièges. » Cette décision précise ce qu’il fera pendant l’attente."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Deux personnes vont au cinéma ensemble. L’une est déjà arrivée au complexe et l’autre est en retard. Le dernier locuteur conclut : « Bon, en t’attendant, je vais aller acheter les billets de cinéma, comme ça ce sera fait quand tu arriveras. » Acheter les billets pendant l’attente est une action très courante et correspond directement à la question."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.28,
+            0.22,
+            0.22,
+            0.28
+          ],
+          "guess": 0,
+          "reason": "Les quatre actions sont plausibles à faire « en attendant l’arrivée de l’autre » dans un contexte de sortie au cinéma. Aucun indice décisif ne distingue clairement une option. On peut légèrement privilégier des actions préparatoires simples comme consulter les horaires ou acheter les billets, souvent utilisées dans des dialogues pédagogiques, mais sans certitude, d’où une probabilité seulement un peu plus élevée pour 0 et 3, et un choix final 0 avec faible avantage perçu."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 682,
+          "total_tokens": 1288,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 177,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0075775,
+        "inputHash": "2f7d6fa3bf8ebee9f67917caeaee9dbc6a5e459ea054c30e8e539b2886e702d7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:9:6103f288fb85e78951f8f219:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0xWysaMFTt0vKn7BL0H9aatoVYT",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne qui parle en dernier décide d’aller acheter les billets de cinéma avant l’arrivée de l’autre.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je prendrai les billets avant ton arrivée."
+          ],
+          "reason": "Le locuteur dit clairement « Je prendrai les billets avant ton arrivée. ». Il parle de prendre/acheter les billets, sans aucune mention d’Internet ni de réservation en ligne. Quelqu’un pourrait associer l’idée de « prendre les billets » à une réservation sur Internet, mais l’enregistrement ne précise pas ce moyen et reste compatible avec un achat au guichet ; donc cette option ajoute un détail non dit.",
+          "misunderstanding": "over_specification"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "On se retrouve à dix-huit heures devant le cinéma ?",
+            "Je termine mon travail à dix-huit heures trente. Dix-neuf heures, ce serait mieux.",
+            "D'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée."
+          ],
+          "reason": "Les horaires des séances ont déjà été implicitemment pris en compte pour proposer une heure de rendez-vous, et la décision est fixée : « D'accord, à dix-neuf heures. ». La dernière personne ne dit pas qu’elle va consulter les horaires mais qu’elle « prendra les billets ». Un candidat qui se concentre sur la discussion d’horaires pourrait croire qu’elle va vérifier les séances, mais le texte montre qu’ils ont déjà choisi et qu’elle se charge seulement des billets.",
+          "misunderstanding": "focus_on_context_not_action"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "D'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée."
+          ],
+          "reason": "La phrase « Je prendrai les billets avant ton arrivée. » signifie qu’elle ira acheter/prendre les billets de cinéma avant que l’autre n’arrive. Cela correspond directement à l’action d’« aller acheter les billets de cinéma ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "On se retrouve à dix-huit heures devant le cinéma ?",
+            "D'accord, à dix-neuf heures. Je prendrai les billets avant ton arrivée."
+          ],
+          "reason": "On parle d’un rendez-vous « devant le cinéma » et de « billets », mais jamais de pop-corn ni de stand de vente. Quelqu’un pourrait associer spontanément le cinéma à l’achat de pop-corn et imaginer qu’en attendant il va au stand, mais l’enregistrement précise uniquement la prise des billets comme action prévue.",
+          "misunderstanding": "topic_association"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 697,
+      "completion_tokens": 894,
+      "total_tokens": 1591,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 300,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00981125,
+    "inputHash": "574d506a1b43bff86ba869d7c23d1068887d0e38fd5fb355a60e652d768d05ab",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:9:6103f288fb85e78951f8f219:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

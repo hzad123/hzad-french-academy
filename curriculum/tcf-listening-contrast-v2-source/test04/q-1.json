@@ -1,0 +1,187 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle phrase décrit correctement la scène ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : On voit une seule personne debout devant une table sur laquelle sont posées plusieurs boîtes/cubes alignés. Le bras tendu vers ces boîtes suggère qu’elle est en train de les aligner ou de les disposer sur la table, ce qui correspond bien à la phrase. B : Quelqu’un pourrait associer le mot « MÉDIATHÈQUE » à la lecture d’un roman et confondre la table avec un bureau. Cependant, la personne est debout, pas assise, et elle ne tient ni ne lit de livre : elle tend le bras vers des boîtes sur la table, pas vers un roman ni un écran de bureau. C : On pourrait penser qu’à l’entrée d’une médiathèque il y a souvent des personnes qui discutent, ce qui rend l’option séduisante. Mais l’image ne montre qu’une seule personne, aucune seconde personne face à elle, ni porte identifiée comme « entrée » : il n’y a donc pas « deux personnes » en train de discuter. D : La présence de rayonnages peut faire penser au rangement de livres sur des étagères, ce qui peut tromper. Toutefois, la personne se tient à côté d’une table basse avec des boîtes dessus, et ne touche pas aux étagères latérales. Rien n’indique qu’elle empile des livres ni que les étagères soient « hautes » : l’action visible concerne les boîtes sur la table, pas les rayons.",
+    "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Une personne aligne des boîtes sur une table. B. Une personne lit un roman assise au bureau. C. Deux personnes discutent devant l’entrée de la médiathèque. D. Une personne empile des livres sur des étagères hautes."
+      }
+    ],
+    "audio": "q-01.mp3",
+    "audioSeconds": 19.644,
+    "slotSeconds": 33,
+    "image": "q-01.svg"
+  },
+  "sourceHash": "89b4ca72ce4935ebb5127f5385e40108ff12322efe3099a5f694126d5dca8df9",
+  "contentHash": "f4eec8d0661d08d42717c7ec971cde60297f40b327250efa8a9048a4988d7bb1",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzf5f2PYTfDRge36U1WzUgpOySLg",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une photo d’extérieur montre clairement la façade d’une médiathèque avec son entrée identifiable (panneau, affichage), et deux personnes sont arrêtées juste devant, en train de parler ensemble."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À l’intérieur d’une salle (classe, cuisine, entrepôt), on voit une personne concentrée à mettre plusieurs boîtes en ligne bien droite sur une table, par exemple pour les organiser ou préparer une activité."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un bureau, une personne est assise à son poste de travail, un roman ouvert dans les mains, en train de lire plutôt que d’utiliser l’ordinateur ou les dossiers autour d’elle."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "On voit une personne debout devant une grande bibliothèque, en train de soulever des piles de livres et de les poser les uns sur les autres sur des étagères placées assez haut, comme pour ranger ou stocker des ouvrages."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune option ne présente d’avantage rédactionnel clair ou de lien évident avec l’énoncé très général, donc forte incertitude et choix de réponse arbitraire parmi des propositions toutes plausibles."
+        },
+        "usage": {
+          "prompt_tokens": 610,
+          "completion_tokens": 439,
+          "total_tokens": 1049,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 130,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0051525,
+        "inputHash": "835032ee87d8c9d190b2af010de03f2fea953bc22a4223828b2dd4fa3f8d290d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:0:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzfByP2tXzvHT44P3mVYlSY7eUfP",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description conforme à l’image est celle d’une personne qui aligne des boîtes sur une table.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "On voit une seule personne debout devant une table sur laquelle sont posées plusieurs boîtes/cubes alignés. Le bras tendu vers ces boîtes suggère qu’elle est en train de les aligner ou de les disposer sur la table, ce qui correspond bien à la phrase.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "MÉDIATHÈQUE"
+          ],
+          "reason": "Quelqu’un pourrait associer le mot « MÉDIATHÈQUE » à la lecture d’un roman et confondre la table avec un bureau. Cependant, la personne est debout, pas assise, et elle ne tient ni ne lit de livre : elle tend le bras vers des boîtes sur la table, pas vers un roman ni un écran de bureau.",
+          "misunderstanding": "visual_misread"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "MÉDIATHÈQUE"
+          ],
+          "reason": "On pourrait penser qu’à l’entrée d’une médiathèque il y a souvent des personnes qui discutent, ce qui rend l’option séduisante. Mais l’image ne montre qu’une seule personne, aucune seconde personne face à elle, ni porte identifiée comme « entrée » : il n’y a donc pas « deux personnes » en train de discuter.",
+          "misunderstanding": "visual_misread"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "MÉDIATHÈQUE"
+          ],
+          "reason": "La présence de rayonnages peut faire penser au rangement de livres sur des étagères, ce qui peut tromper. Toutefois, la personne se tient à côté d’une table basse avec des boîtes dessus, et ne touche pas aux étagères latérales. Rien n’indique qu’elle empile des livres ni que les étagères soient « hautes » : l’action visible concerne les boîtes sur la table, pas les rayons.",
+          "misunderstanding": "visual_misread"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 741,
+      "completion_tokens": 1015,
+      "total_tokens": 1756,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 513,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01107625,
+    "inputHash": "b0d289271add6dda8e7e2c3cb3171552c933f0f78215b72aa4afec21710f8edc",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:0:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "58f60ee2c0edd52afe5fac399a0d9930c8d0d999fa3edb7883ffeb6a49979b07",
+  "designSeedHash": null
+}

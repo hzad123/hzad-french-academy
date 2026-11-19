@@ -1,0 +1,417 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ?",
+    "options": [
+      "Il reste fixé à dix heures vingt.",
+      "Il est reporté à plus tard que dix heures vingt.",
+      "Il n’est pas encore précisé et sera communiqué ultérieurement.",
+      "Il est avancé et le train partira avant dix heures vingt."
+    ],
+    "correct": "A",
+    "transcript": "Question 9.\nVotre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai.\nSelon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ?",
+    "explanation": "Réponse A : L’annonce rappelle que le train est « prévu à dix heures vingt » et ajoute explicitement : « Son heure de départ ne change pas. » Cela signifie que l’horaire reste exactement celui de 10h20, sans avance ni retard. B : On pourrait croire que le changement de quai implique un retard, car souvent les modifications sont associées à des reports. Cependant, l’annonce dit clairement : « Son heure de départ ne change pas. » Il n’est donc pas « reporté à plus tard », l’heure reste 10h20. C : Un auditeur distrait pourrait se concentrer seulement sur le changement de quai et avoir l’impression que seule cette information est donnée, en pensant que l’heure n’est plus précisée. Pourtant, l’annonce rappelle l’heure « prévue à dix heures vingt » et précise qu’« elle ne change pas » : l’horaire est donc bien indiqué et confirmé, non laissé indéterminé. D : On peut mal interpréter le changement de quai comme un signe que le train va partir plus tôt, en se disant qu’il faut se dépêcher vers le nouveau quai. Mais l’annonce précise au contraire : « Son heure de départ ne change pas. » Rien n’indique un départ avancé ; l’horaire de 10h20 est maintenu.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "Votre attention, s'il vous plaît. Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre. Son heure de départ ne change pas. Merci de rejoindre ce nouveau quai."
+      },
+      {
+        "voice": "female",
+        "text": "Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 36
+  },
+  "sourceHash": "4b1413e571b30d4b5f72845ebb79de19655e3730eacb26a2ca377dfbf0413d6b",
+  "contentHash": "13ea789633d7f7c31e16eec01a56f3bd780d2c3564b2d16c8a05e67d66eba724",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0wx6HVmCZS3kvxCsIljQtK5RNhZ",
+    "result": {
+      "question": "D’après l’annonce, que se passe-t-il pour l’heure de départ du train pour Tours ?",
+      "choices": [
+        "Elle reste fixée à dix heures vingt.",
+        "Elle est retardée par rapport à dix heures vingt.",
+        "Elle est avancée et le train partira plus tôt.",
+        "Elle n’est pas encore connue et sera annoncée plus tard."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’annonce précise explicitement : Son heure de départ ne change pas. Cela signifie que l’heure reste fixée à dix heures vingt, malgré le changement de quai.",
+      "design": "Axe précis : le statut de l’heure de départ du train (retardée, avancée, inchangée, ou encore inconnue). Dans une gare, ces quatre types d’informations sont courants et crédibles sans accès à l’enregistrement. Le document distingue clairement un changement (le quai) d’un élément confirmé (l’heure de départ). La question cible ce lien particulier : l’annonce modifie le quai tout en confirmant que l’heure reste identique.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’élève peut généraliser à tort qu’une annonce de modification implique un retard, surtout en entendant les précisions sur le train pour Tours et le quai. Or le document annonce seulement un changement de quai, tout en indiquant que l’heure, elle, ne change pas.",
+          "operation": "time_swap",
+          "anchors": [
+            "arrivera sur le quai quatre",
+            "Son heure de départ ne change pas"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Une annonce qui parle de nouvelle organisation peut souvent signaler un départ avancé, ce qui rend cette interprétation tentante. Ici pourtant, seul le quai est modifié, et le texte insiste sur l’absence de changement concernant l’heure de départ.",
+          "operation": "time_swap",
+          "anchors": [
+            "prévu à dix heures vingt sur le quai deux",
+            "Son heure de départ ne change pas"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Dans d’autres annonces, l’heure est parfois « à confirmer », ce qui peut pousser à imaginer qu’aucune information précise n’est donnée. Mais ici l’heure est au contraire parfaitement connue et confirmée comme inchangée par rapport à dix heures vingt.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "prévu à dix heures vingt",
+            "Son heure de départ ne change pas"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4403,
+      "completion_tokens": 1379,
+      "total_tokens": 5782,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 894,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01929375,
+    "inputHash": "5412e9d8959dcc803555226ddf002c6152f39e3271a896c46d24f070b8e59998",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "D’après l’annonce, que se passe-t-il pour l’heure de départ du train pour Tours ?",
+      "choices": [
+        "Elle reste fixée à dix heures vingt.",
+        "Elle est retardée par rapport à dix heures vingt.",
+        "Elle n’est pas encore connue et sera annoncée plus tard.",
+        "Elle est avancée et le train partira plus tôt."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em0xETeG1szeiIYrM1sWmZfmojrTN",
+      "result": {
+        "question": "Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ?",
+        "choices": [
+          "Il reste fixé à dix heures vingt.",
+          "Il est reporté à plus tard que dix heures vingt.",
+          "Il n’est pas encore précisé et sera communiqué ultérieurement.",
+          "Il est avancé et le train partira avant dix heures vingt."
+        ],
+        "notes": "La question mentionne l’horaire initial sans avantager une évolution particulière, et chaque choix décrit une possibilité claire et professionnelle (maintien, report, horaire encore indéterminé, avance) avec un niveau de précision comparable."
+      },
+      "usage": {
+        "prompt_tokens": 656,
+        "completion_tokens": 467,
+        "total_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 324,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00549,
+      "inputHash": "62b877ec9a1a03371b893989aa77397c2f8d524cd13f9725a24ae62da31b60de",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "28f397799a61345434bfd387d1ebf7c9e2fbe313d867620e8b5c5a8eddb5b7ee",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des annonces plausibles, mais l’option 0 se distingue légèrement par une formulation plus complète et typique des messages de perturbation (retard + absence de nouvel horaire), ce qui lui donne un léger avantage comme clé possible, malgré une incertitude réelle faute d’accès à l’enregistrement.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus développée et nuancée (« retardé, sans indication d’un nouvel horaire ») qui ressemble à une annonce standard de gare détaillant à la fois le retard et l’absence d’information complémentaire, alors que les autres réponses sont plus simples ou portent sur des cas un peu moins typiques (avance d’arrivée, départ plus tôt)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une gare, un message sonore informe les voyageurs : « Attention, en raison d’un incident, le départ du train à destination de Tours est retardé. Nous vous prions de bien vouloir patienter, nous vous communiquerons un nouvel horaire dès que possible. » Cette annonce indique clairement que le départ est retardé, sans donner de nouvel horaire."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une annonce à bord d’un train ou en gare : « Mesdames, Messieurs, le train à destination de Tours arrivera finalement avec quelques minutes d’avance par rapport à l’horaire prévu. » Ici, l’information porte sur l’heure d’arrivée à Tours qui est avancée par rapport au planning initial."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Au haut-parleur dans la gare : « Mesdames, Messieurs, en raison d’une réorganisation du trafic, le train à destination de Tours partira finalement à 15 h 45 au lieu de 16 h. Nous vous prions de vous présenter dès maintenant à quai. » L’annonce précise que le train partira plus tôt que prévu."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une annonce rassure les voyageurs après des rumeurs de perturbations : « Mesdames, Messieurs, nous vous confirmons que le train à destination de Tours partira à l’heure, à 17 h, comme initialement prévu. » Le message confirme que l’heure de départ reste inchangée."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0xLczG66D7Qmb8pCprTrhS2uD3D",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, un message sonore informe les voyageurs : « Attention, le train à destination de Tours prévu à dix heures vingt partira bien à l’heure. » Cette annonce répondrait au fait que l’horaire de départ reste inchangé à dix heures vingt."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une annonce en gare indique : « En raison d’une meilleure rotation du matériel, le train à destination de Tours prévu initialement à dix heures vingt partira finalement à dix heures dix. » Le message explique que le train partira plus tôt que 10h20."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Le haut-parleur annonce : « En raison d’un incident technique, le train à destination de Tours prévu à dix heures vingt est retardé. Il partira finalement à onze heures. » L’horaire de départ est donc repoussé à plus tard que dix heures vingt."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une annonce dit : « Le train à destination de Tours prévu à dix heures vingt est pour le moment suspendu. Le nouvel horaire de départ n’est pas encore connu et sera communiqué ultérieurement. » L’horaire n’est plus fixé et doit être annoncé plus tard."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Sans accès à l’annonce sonore, chacune des quatre réponses peut directement répondre à la question dans un contexte ferroviaire ordinaire, sans indice de formulation favorisant clairement une option précise."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 394,
+          "total_tokens": 1019,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 41,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00472125,
+        "inputHash": "6cf6e12b0504a863ae528274582429ba2e6a0f278731ceb9fdd38c850bef60d4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em0xSAiLXYFrhcVe5v5D3ffWNiSV8",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, un message sonore indique : « Attention, en raison d’une meilleure rotation du matériel, le train à destination de Tours initialement prévu à dix heures vingt partira finalement à dix heures quinze. » Un voyageur entend ensuite la question : « Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ? » La réponse directe est que l’horaire est avancé et que le train part avant dix heures vingt."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une annonce en gare dit : « Le train à destination de Tours prévu à dix heures vingt est pour l’instant suspendu. Le nouvel horaire de départ n’est pas encore connu et vous sera communiqué ultérieurement. » On demande alors : « Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ? » La réponse directe est que l’horaire n’est pas encore précisé et sera annoncé plus tard."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un haut-parleur de gare : « Mesdames et messieurs, le train à destination de Tours, initialement prévu à dix heures vingt, est retardé. Son départ est reporté à onze heures. » Face à la question : « Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ? », on répond qu’il est repoussé à plus tard que dix heures vingt."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une annonce de la SNCF précise : « Mesdames et messieurs, nous vous confirmons que le train à destination de Tours partira bien à dix heures vingt comme prévu. » À la question : « Selon l’annonce, que devient l’horaire de départ du train pour Tours prévu à dix heures vingt ? », la réponse est que l’horaire reste fixé à dix heures vingt."
+            }
+          ],
+          "cues": [
+            {
+              "option": 1,
+              "severity": "weak",
+              "cue": "La tournure de la question (« que devient l’horaire de départ… prévu à dix heures vingt ? ») suggère qu’un changement est acté plutôt qu’une absence totale de nouvel horaire, ce qui rend l’option d’un horaire « non précisé » légèrement moins alignée."
+            },
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "La formulation « que devient l’horaire… prévu à dix heures vingt ? » sous-entend typiquement une modification, ce qui rend la réponse « Il reste fixé à dix heures vingt » un peu moins naturelle que des formulations indiquant un avancement ou un report."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.32,
+            0.18,
+            0.32,
+            0.18
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses sont grammaticales et chacune pourrait correspondre à une annonce réelle. La seule nuance exploitable est que la question laisse entendre une modification de l’horaire initial, ce qui rend légèrement plus probables les réponses indiquant un avancement ou un report. Entre ces deux possibilités opposées, aucune piste textuelle claire ne privilégie l’une, mais les annonces de retard/report sont statistiquement plus courantes dans ce type de contexte, d’où une légère préférence pour l’option 2 tout en restant très incertain."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 947,
+          "total_tokens": 1572,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 242,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01025125,
+        "inputHash": "329f5455336a5955cb1e26cb1e2ddd2aecf38942855fbd5744af588fb460e39a",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:6103f288fb85e78951f8f219:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0xhHWz79yEjr5ZpPZSLlNgdQLqY",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’annonce précise clairement que l’heure de départ ne change pas : le train part donc toujours à dix heures vingt.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le train pour Tours, prévu à dix heures vingt sur le quai deux",
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "L’annonce rappelle que le train est « prévu à dix heures vingt » et ajoute explicitement : « Son heure de départ ne change pas. » Cela signifie que l’horaire reste exactement celui de 10h20, sans avance ni retard.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "On pourrait croire que le changement de quai implique un retard, car souvent les modifications sont associées à des reports. Cependant, l’annonce dit clairement : « Son heure de départ ne change pas. » Il n’est donc pas « reporté à plus tard », l’heure reste 10h20.",
+          "misunderstanding": "temporal_shift"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le train pour Tours, prévu à dix heures vingt",
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "Un auditeur distrait pourrait se concentrer seulement sur le changement de quai et avoir l’impression que seule cette information est donnée, en pensant que l’heure n’est plus précisée. Pourtant, l’annonce rappelle l’heure « prévue à dix heures vingt » et précise qu’« elle ne change pas » : l’horaire est donc bien indiqué et confirmé, non laissé indéterminé.",
+          "misunderstanding": "omission_of_clarification"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le train pour Tours, prévu à dix heures vingt sur le quai deux, arrivera sur le quai quatre.",
+            "Son heure de départ ne change pas."
+          ],
+          "reason": "On peut mal interpréter le changement de quai comme un signe que le train va partir plus tôt, en se disant qu’il faut se dépêcher vers le nouveau quai. Mais l’annonce précise au contraire : « Son heure de départ ne change pas. » Rien n’indique un départ avancé ; l’horaire de 10h20 est maintenu.",
+          "misunderstanding": "incorrect_inference_from_context"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 708,
+      "completion_tokens": 771,
+      "total_tokens": 1479,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 241,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.008595,
+    "inputHash": "11158747cc2b2f86b8767d24c0586f006cda095f2f112bec5f3fa6b211038688",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:8:6103f288fb85e78951f8f219:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

@@ -1,0 +1,438 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Pendant la durée des travaux, quel accès est prévu pour l’entrée des patients ?",
+    "options": [
+      "Par un accès latéral situé à l’arrière du bâtiment.",
+      "Par la porte principale, en suivant la signalisation temporaire.",
+      "Par une entrée provisoire aménagée directement sur l’avenue.",
+      "Par la cour intérieure accessible depuis la rue des Écoles."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : La consigne identifie explicitement l’accès prévu : la cour intérieure, en précisant qu’elle est accessible depuis la rue des Écoles, ce qui correspond exactement à l’option proposée. A : Le texte indique clairement que l’accès prévu est la cour intérieure, non un accès latéral situé à l’arrière du bâtiment. Quelqu’un qui comprend mal « cour intérieure » pourrait imaginer une entrée à l’arrière et choisir cette réponse, mais aucun « accès latéral » n’est mentionné. B : Il est précisé que la porte principale sera fermée jusqu’à vendredi, donc elle ne peut pas être l’accès prévu. Un candidat distrait peut se focaliser sur « porte principale » comme entrée habituelle et ignorer l’information de fermeture, mais cela contredit clairement l’énoncé. C : L’avenue est mentionnée uniquement pour préciser que la porte principale donnant sur cette avenue est fermée. L’option parle d’une « entrée provisoire aménagée directement sur l’avenue », qui n’apparaît nulle part. On peut se laisser tromper par la référence à l’avenue et croire qu’une autre entrée y est aménagée, mais le texte désigne uniquement la cour intérieure comme accès alternatif.",
+    "transcript": "Question 17.\nEn raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi. Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. La signalisation a été installée ce matin, et la réception est assurée normalement.\nPendant la durée des travaux, quel accès est prévu pour l’entrée des patients ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "male",
+        "text": "En raison des travaux devant le cabinet des Acacias, la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi. Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles. La signalisation a été installée ce matin, et la réception est assurée normalement."
+      },
+      {
+        "voice": "female",
+        "text": "Pendant la durée des travaux, quel accès est prévu pour l’entrée des patients ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 48
+  },
+  "sourceHash": "16bfd11bf915a1444cb825fde2d7b1d4978124ee80ea2b3e9cfdb63a7724829c",
+  "contentHash": "899da947321805f45db012c6431a88da8e7ddcbfc8a1d657ab71650befccc5dc",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em171epTzFbMOniGdkYLWLHBJ89b8",
+    "result": {
+      "question": "Pendant la durée des travaux, par où les patients doivent-ils entrer ?",
+      "choices": [
+        "Par la cour intérieure accessible depuis la rue des Écoles.",
+        "Par une entrée provisoire installée directement sur l’avenue.",
+        "Par la porte principale, en suivant la signalisation de déviation.",
+        "Par un accès latéral indiqué à l’arrière du bâtiment."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : « Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles ». La porte principale sur l’avenue est au contraire « fermée jusqu’à vendredi », donc les autres accès proposés ne correspondent pas aux consignes données.",
+      "design": "Axe choisi : le lieu précis d’entrée demandé aux patients pendant la fermeture de la porte principale. Les quatre options décrivent chacune un mode d’accès alternatif plausible dans un contexte de travaux (cour intérieure, entrée provisoire sur l’avenue, maintien de la porte principale avec déviation, accès arrière du bâtiment). Sans le document, toutes paraissent raisonnables ; seul l’enregistrement permet d’identifier que l’accès imposé est la cour intérieure donnant sur la rue des Écoles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option attribue à tort à la signalisation le rôle d’indiquer une « entrée provisoire » sur l’avenue, alors que le texte dit que la porte sur l’avenue est fermée et que la signalisation sert à orienter vers la cour intérieure, non à maintenir un accès sur l’avenue. Elle est tentante parce qu’on associe spontanément panneaux et entrée temporaire devant le bâtiment.",
+          "operation": "role_swap",
+          "anchors": [
+            "porte principale donnant sur l'avenue sera fermée jusqu'à vendredi",
+            "La signalisation a été installée ce matin"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, on suppose que les patients continuent de passer par la porte principale en suivant simplement une déviation, ce qui inverse le rôle de la consigne : la fermeture de cette porte est justement la raison pour laquelle un autre accès est imposé. L’option est crédible car travaux et signalisation évoquent souvent un simple changement de chemin vers la même entrée.",
+          "operation": "role_swap",
+          "anchors": [
+            "porte principale donnant sur l'avenue sera fermée jusqu'à vendredi",
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse déplace l’accès alternatif vers « l’arrière du bâtiment », en élargissant indûment l’idée de cour intérieure. Or le document localise précisément l’entrée de remplacement par la cour intérieure reliée à une rue nommée, sans mention d’un accès latéral ou arrière. La confusion est plausible car on imagine facilement une cour située derrière l’immeuble.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles",
+            "En raison des travaux devant le cabinet des Acacias"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4356,
+      "completion_tokens": 1992,
+      "total_tokens": 6348,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1366,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.025365,
+    "inputHash": "4c1d15df6536620de2a09d56f02a42f5963b825af14bb476ea4fbaac73e2f289",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:6103f288fb85e78951f8f219:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Pendant la durée des travaux, par où les patients doivent-ils entrer ?",
+      "choices": [
+        "Par un accès latéral indiqué à l’arrière du bâtiment.",
+        "Par la porte principale, en suivant la signalisation de déviation.",
+        "Par une entrée provisoire installée directement sur l’avenue.",
+        "Par la cour intérieure accessible depuis la rue des Écoles."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em17UHUnpXl8EW3Bpmyta6VqJTQrJ",
+      "result": {
+        "question": "Pendant la durée des travaux, quel accès est prévu pour l’entrée des patients ?",
+        "choices": [
+          "Par un accès latéral situé à l’arrière du bâtiment.",
+          "Par la porte principale, en suivant la signalisation temporaire.",
+          "Par une entrée provisoire aménagée directement sur l’avenue.",
+          "Par la cour intérieure accessible depuis la rue des Écoles."
+        ],
+        "notes": "L’énoncé a été légèrement reformulé pour rester neutre. Les quatre choix décrivent des accès alternatifs précis et plausibles, avec un niveau de détail comparable, sans suggérer qu’un d’eux est plus logique ou responsable que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 658,
+        "completion_tokens": 303,
+        "total_tokens": 961,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 158,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0038525,
+      "inputHash": "ea08260a49df6b2710f04d1eb5df96cfe2ab2bf1a13880ae424e5fd620080dfb",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:6103f288fb85e78951f8f219:blind-edit:before:2"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "8b17594051a37ed9908d264a929b4c381b842224edc340cc7963b1890fadd81a",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre normalement à la question dans un contexte d’annonce liée à des travaux, mais l’option 2 se distingue car elle fait explicitement le lien avec la situation de chantier en parlant d’un « portail provisoire » installé pour l’occasion, ce qui constitue un indice concret qu’elle est la réponse attendue.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La mention explicite d’un « portail provisoire installé » correspond très directement à une situation de travaux nécessitant la création d’un accès spécifique et temporaire, ce qui le relie linguistiquement plus fortement aux « travaux » que les autres options, qui décrivent surtout une localisation sans souligner le caractère provisoire ou exceptionnel de l’accès."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un message diffusé dans une clinique en rénovation de son hall d’entrée, la direction précise : « En raison des travaux, l’accès principal est fermé. Merci de passer par la cour intérieure, en entrant par la rue des Écoles. » Les patients doivent donc contourner le bâtiment et entrer par cette cour."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un cabinet médical dont la façade sur rue est en chantier, un enregistrement téléphonique informe : « Pendant toute la durée des travaux, l’accès se fait par une entrée située côté parking, à l’arrière du bâtiment. » Les patients doivent suivre la signalisation vers le parking et entrer par cette porte arrière."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "À l’hôpital, une annonce au haut-parleur explique : « En raison des travaux dans le hall, un portail provisoire a été installé sur l’avenue. Merci d’utiliser exclusivement ce nouvel accès. » Les patients entrent donc par ce portail temporaire donnant sur l’avenue."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un centre de santé effectuant seulement des travaux sur un accès secondaire, un message précise : « Malgré les travaux sur la cour intérieure, les patients doivent continuer à utiliser la porte principale donnant sur l’avenue. » L’annonce confirme que l’accès habituel reste celui par la porte principale."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "8737db1cec27404ed25e6f811b7d41cbdaa184a0472a278995fde90d438c6a98",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 1 bénéficie d’un avantage rédactionnel net : elle mentionne explicitement un accès provisoire et signalé, ce qui correspond exactement à une situation de travaux nécessitant un changement d’entrée, tandis que les autres réponses décrivent soit une entrée habituelle, soit des localisations plus contingentes sans faire clairement ressortir le caractère temporaire lié aux travaux.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « l’accès provisoire signalé devant le cabinet » correspond directement à une mesure temporaire prise « pendant les travaux » et évoque une entrée spécifique mise en place et indiquée par une signalisation, ce qui cadre particulièrement bien avec la question sur l’accès à utiliser durant des travaux, plus clairement que les formulations plus générales ou habituelles des autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Annonce diffusée dans une salle d’attente : le cabinet explique que, pendant les travaux sur l’entrée principale, les patients doivent passer par la cour intérieure, qui est accessible en contournant l’immeuble par la rue des Écoles. L’assistante décrit clairement cet itinéraire alternatif."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Message audio à l’accueil téléphonique du cabinet : en raison de travaux, une entrée temporaire a été aménagée et indiquée par des panneaux devant le cabinet. L’annonce précise aux patients de suivre ces indications et de passer par cet accès provisoire pour entrer."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Annonce rassurante alors que des travaux ont lieu uniquement à l’étage ou dans une autre aile du bâtiment : le cabinet informe que, malgré les travaux, les patients doivent continuer à utiliser l’entrée habituelle de la réception, située à côté de l’ascenseur, car l’accès n’est pas modifié."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Information diffusée pendant des travaux dans une cour ou un couloir secondaire : le cabinet indique que les patients ne doivent plus emprunter les accès latéraux bloqués par le chantier et qu’ils doivent entrer uniquement par la porte principale donnant sur l’avenue."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em17Zj2WRXMW4oaaIW8ygrS9wdLM8",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enregistrement d’information d’un cabinet médical en rénovation : la secrétaire explique aux patients que, pendant les travaux, ils devront entrer par la cour intérieure, accessible depuis la rue des Écoles, et non plus par l’entrée habituelle sur l’avenue."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un message vocal d’un centre de soins indique que, durant la durée du chantier en façade, l’entrée principale est condamnée et que les patients doivent utiliser un accès latéral situé à l’arrière du bâtiment, indiqué par des panneaux."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une annonce dans une clinique précise que, même pendant les travaux, les patients continuent à entrer par la porte principale, mais qu’ils doivent impérativement suivre une signalisation temporaire mise en place pour contourner la zone de chantier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un enregistrement de la mairie informe que, le temps de la rénovation du bâtiment de la maison de santé, une entrée provisoire a été aménagée directement sur l’avenue, sous un auvent temporaire, pour l’accès des patients."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre options répondent directement et naturellement à la question dans des contextes ordinaires de travaux, sans indice clair dans la seule formulation écrite permettant de privilégier l’une d’elles ; l’option 2 est retenue comme meilleure hypothèse par choix arbitraire sous forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 623,
+          "completion_tokens": 406,
+          "total_tokens": 1029,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 52,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00483875,
+        "inputHash": "72202628e4c6ca784a91ebbc6f7a539b4f9179e4493f300e77e5f452a9706ee8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:6103f288fb85e78951f8f219:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em17ez0W00Te16tsT4H45W3LpwTg0",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Annonce diffusée dans une clinique pendant des travaux : l’agent d’accueil explique que les patients continueront d’entrer par la porte principale mais devront suivre une signalisation temporaire mise en place pour contourner le chantier."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Message d’information d’un hôpital en rénovation : la porte principale est condamnée pendant les travaux et une nouvelle entrée provisoire a été créée directement sur l’avenue, avec un auvent et un guichet temporaire."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Information donnée dans un cabinet médical en travaux : la façade est inaccessible, et l’on précise aux patients qu’ils devront utiliser un accès latéral situé à l’arrière du bâtiment, où une porte secondaire reste ouverte."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Annonce municipale concernant une maison de santé : pendant la durée des travaux sur la façade principale, les patients sont invités à entrer par la cour intérieure, accessible en passant par la rue des Écoles indiquée sur les panneaux."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options décrivent des dispositifs d’accès plausibles pendant des travaux et répondent directement à la question. Aucune formulation ne présente d’avantage évident, de détail unique ou de supériorité rédactionnelle nette permettant de dégager un choix privilégié. L’incertitude reste forte ; un choix doit néanmoins être fourni, d’où un léger choix arbitraire pour l’option 0 avec une probabilité répartie uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 623,
+          "completion_tokens": 539,
+          "total_tokens": 1162,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 173,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00616875,
+        "inputHash": "f20f795c2ffdf30c87b7f7c57584321aa611782ee97d4d8f9f7277f76ebe5b13",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:6103f288fb85e78951f8f219:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em17lzIslVeTetfg4uxo9W90b68sn",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les patients doivent entrer par la cour intérieure accessible depuis la rue des Écoles pendant les travaux.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "Le texte indique clairement que l’accès prévu est la cour intérieure, non un accès latéral situé à l’arrière du bâtiment. Quelqu’un qui comprend mal « cour intérieure » pourrait imaginer une entrée à l’arrière et choisir cette réponse, mais aucun « accès latéral » n’est mentionné.",
+          "misunderstanding": "spatial_inference"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi."
+          ],
+          "reason": "Il est précisé que la porte principale sera fermée jusqu’à vendredi, donc elle ne peut pas être l’accès prévu. Un candidat distrait peut se focaliser sur « porte principale » comme entrée habituelle et ignorer l’information de fermeture, mais cela contredit clairement l’énoncé.",
+          "misunderstanding": "ignore_negation"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la porte principale donnant sur l'avenue sera fermée jusqu'à vendredi.",
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "L’avenue est mentionnée uniquement pour préciser que la porte principale donnant sur cette avenue est fermée. L’option parle d’une « entrée provisoire aménagée directement sur l’avenue », qui n’apparaît nulle part. On peut se laisser tromper par la référence à l’avenue et croire qu’une autre entrée y est aménagée, mais le texte désigne uniquement la cour intérieure comme accès alternatif.",
+          "misunderstanding": "lexical_association"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les patients doivent entrer par la cour intérieure, accessible depuis la rue des Écoles."
+          ],
+          "reason": "La consigne identifie explicitement l’accès prévu : la cour intérieure, en précisant qu’elle est accessible depuis la rue des Écoles, ce qui correspond exactement à l’option proposée.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 723,
+      "completion_tokens": 805,
+      "total_tokens": 1528,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 294,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00895375,
+    "inputHash": "3d12657f74d9a63402e3e8e9ca9a1cd6e6abcf625959629517132e48b0455cf9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:16:6103f288fb85e78951f8f219:ground:2"
+  },
+  "feedback": null
+}

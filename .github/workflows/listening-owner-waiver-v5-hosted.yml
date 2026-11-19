@@ -1,0 +1,32 @@
+name: Verify hosted owner-waived TCF Listening v5
+on:
+  push:
+    branches: [development]
+    paths:
+      - supabase/exams/tcf-listening-test0?-v5.json
+      - assets/tcf-listening/tcf-listening-2026-11-test0?-v5/**
+      - supabase/migrations/*_tcf_listening_01_06_owner_waiver_v5.sql
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted-media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install audio verification tool
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify local owner-waived six-paper keys and media
+        run: node scripts/check-listening-six-release.mjs --require-replacements
+      - name: Wait for exact GitHub Pages commit and verify all 271 hosted assets
+        run: python scripts/release/check-listening-owner-waiver-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: owner-waived-listening-v5-hosted-media-proof
+          path: work/listening-owner-waiver-hosted/verified.json
+          retention-days: 30

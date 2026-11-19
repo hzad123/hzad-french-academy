@@ -1,0 +1,176 @@
+{
+  "question": {
+    "number": 3,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : On voit un bâtiment avec l’enseigne « MUSÉE » et, juste devant, deux personnages installés sur une bande horizontale, dans une posture qui évoque le fait d’être assis. Ils ne montent ni ne descendent, ils ne sont pas en file, mais simplement assis devant le musée. Cette description correspond donc exactement à l’image. A : Sur l’image, les deux personnes sont immobiles et assises sur une surface devant le bâtiment, et non en train de marcher sur une place. Il n’y a aucun indice de mouvement ni de grande place visible. Quelqu’un pourrait se tromper en voyant simplement deux personnages devant un musée en plein air et en en déduisant trop vite qu’ils se promènent « sur la place près du musée ». C : Les deux personnes sont côte à côte et tournées vers l’entrée du musée, mais elles sont assises et non debout en file indienne. Rien ne montre une file d’attente ni une progression vers la porte. On peut se laisser tromper parce que les personnages sont juste devant l’entrée, ce qui peut faire penser à des visiteurs qui attendent pour entrer, mais la position assise contredit l’idée de « faire la queue ». D : Les personnages sont représentés statiques, de dos, assis devant le musée ; il n’y a aucun mouvement vers le bas ni indication claire de marches d’escalier descendues. Quelqu’un qui verrait une bande grise devant le musée pourrait l’interpréter comme des marches et imaginer qu’ils les descendent en sortant, mais leur posture assise et l’absence de dynamique de sortie rendent cette proposition incompatible avec l’image.",
+    "transcript": "Question 3.\nA. Deux personnes se promènent sur la place près du musée. B. Deux personnes sont assises devant le musée. C. Deux personnes font la queue pour entrer au musée. D. Deux personnes quittent le musée en descendant les marches.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 3."
+      },
+      {
+        "voice": "female",
+        "text": "A. Deux personnes se promènent sur la place près du musée. B. Deux personnes sont assises devant le musée. C. Deux personnes font la queue pour entrer au musée. D. Deux personnes quittent le musée en descendant les marches."
+      }
+    ],
+    "image": "q-03.svg",
+    "audio": "q-03.mp3",
+    "audioSeconds": 15.726,
+    "slotSeconds": 32
+  },
+  "sourceHash": "63973bf74ef852483fb5f269960315bee3c1ae078c0dd6bf0fa2960cc315a857",
+  "contentHash": "95160a78a154dc3a464e704f30e44321f72dcea7fed6212655ddb80561600b62",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkynHTIyOJwMWeNRjIjNAUKJ42hol",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Sur une photo prise à la sortie d’un musée, on voit deux personnes de dos qui descendent un large escalier en pierre devant l’entrée du bâtiment, sac ou guide à la main, clairement en train de quitter les lieux."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Sur une photo de l’entrée d’un musée, deux personnes se tiennent l’une derrière l’autre devant les portes vitrées, alignées avec d’autres visiteurs, manifestement dans une file d’attente pour acheter un billet ou passer le contrôle."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Sur une photo d’une grande place piétonne avec un musée en arrière-plan, deux personnes marchent côte à côte au milieu de la place, un peu à distance de l’entrée du musée, en train de se promener plutôt que de faire la queue ou de s’asseoir."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Sur une photo montrant la façade d’un musée, deux personnes sont assises sur un banc ou sur les marches basses devant l’entrée, tournées vers la place, semblant faire une pause ou attendre quelqu’un."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Sans accès à l’image, les quatre descriptions peuvent facilement correspondre à une scène photographiée devant un musée, sans indice textuel privilégiant l’une plutôt qu’une autre ; le choix 0 est donné par défaut malgré une incertitude totale."
+        },
+        "usage": {
+          "prompt_tokens": 605,
+          "completion_tokens": 424,
+          "total_tokens": 1029,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 76,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00499625,
+        "inputHash": "d5db0b7da9cbf1c947617b68b006fc4d9d27d618db4364bb8dfed863b0ade6d0",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:2:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkynLaIH6pY0akjpUWboVey2Gea7Y",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre clairement deux personnes assises juste devant un bâtiment portant l’enseigne « MUSÉE » ; seule la proposition 2 décrit correctement cette scène.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Sur l’image, les deux personnes sont immobiles et assises sur une surface devant le bâtiment, et non en train de marcher sur une place. Il n’y a aucun indice de mouvement ni de grande place visible. Quelqu’un pourrait se tromper en voyant simplement deux personnages devant un musée en plein air et en en déduisant trop vite qu’ils se promènent « sur la place près du musée ».",
+          "misunderstanding": "visual_misinterpretation"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "On voit un bâtiment avec l’enseigne « MUSÉE » et, juste devant, deux personnages installés sur une bande horizontale, dans une posture qui évoque le fait d’être assis. Ils ne montent ni ne descendent, ils ne sont pas en file, mais simplement assis devant le musée. Cette description correspond donc exactement à l’image.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Les deux personnes sont côte à côte et tournées vers l’entrée du musée, mais elles sont assises et non debout en file indienne. Rien ne montre une file d’attente ni une progression vers la porte. On peut se laisser tromper parce que les personnages sont juste devant l’entrée, ce qui peut faire penser à des visiteurs qui attendent pour entrer, mais la position assise contredit l’idée de « faire la queue ».",
+          "misunderstanding": "visual_misinterpretation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Les personnages sont représentés statiques, de dos, assis devant le musée ; il n’y a aucun mouvement vers le bas ni indication claire de marches d’escalier descendues. Quelqu’un qui verrait une bande grise devant le musée pourrait l’interpréter comme des marches et imaginer qu’ils les descendent en sortant, mais leur posture assise et l’absence de dynamique de sortie rendent cette proposition incompatible avec l’image.",
+          "misunderstanding": "visual_misinterpretation"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 736,
+      "completion_tokens": 1027,
+      "total_tokens": 1763,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 488,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01119,
+    "inputHash": "ccd80e5dd42d11615bd974f8a85249978815ebd71a33a05e18a4e5e1610e3933",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:2:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "603a43a5dd4e9e0a03d261c56218b6aa48ee210b5bfe6cd561b2a1ca49b72931",
+  "designSeedHash": null
+}

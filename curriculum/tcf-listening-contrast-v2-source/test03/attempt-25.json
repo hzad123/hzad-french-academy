@@ -1,0 +1,478 @@
+{
+  "question": {
+    "number": 25,
+    "kind": "television-report",
+    "question": "Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ?",
+    "options": [
+      "Mettre en place une formation spécifique pour les médiateurs chargés des cabines.",
+      "Installer des cabines de téléconsultation supplémentaires sur le territoire communal.",
+      "Lancer une campagne de communication dédiée aux cabines de téléconsultation.",
+      "Élargir les horaires de présence du personnel d’accompagnement auprès des cabines."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La question porte sur la mesure que la commune prévoit d’adopter. Le texte dit clairement : \"Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines.\" La mesure envisagée est donc la formation des médiateurs, ce qui correspond exactement à la proposition 0. B : On pourrait se laisser tromper par la mention de \"nouvelles cabines\" et penser que la commune prévoit d’en installer davantage. Mais la formulation complète est \"plutôt que l'achat immédiat de nouvelles cabines\" : cela indique justement que cette option est écartée au profit de la formation des médiateurs. La mesure retenue n’est donc pas l’installation de cabines supplémentaires. C : Un auditeur qui comprend seulement que les cabines sont \"souvent inutilisées\" et qu’une habitante \"n'a pas compris\" leur fonctionnement peut imaginer qu’un problème d’information du public existe et en déduire qu’une campagne de communication serait logique. Cependant, le texte ne mentionne à aucun moment une campagne de communication : la seule mesure explicitement envisagée est \"une formation des médiateurs\". La réponse 2 invente une action qui n’est pas évoquée. D : Le passage indique que le problème apparaît \"le soir, quand le personnel d'accompagnement n'est plus présent\". Un auditeur peut donc penser que la solution logique serait d’\"élargir les horaires\" de ce personnel. Mais le texte ne dit pas que la commune va modifier ces horaires : il précise au contraire la mesure envisagée, \"une formation des médiateurs\", sans lien avec une extension de présence en soirée. La réponse 3 déduit une solution possible mais non citée dans l’enregistrement.",
+    "transcript": "Question 25.\nÀ Saint-Malo, deux cabines de téléconsultation ont été installées dans des bâtiments municipaux. Elles permettent de mesurer certains paramètres avant une consultation vidéo.\nJ'ai essayé, raconte une habitante, mais je n'ai pas compris comment régler la caméra. Un agent m'a aidée, sinon je serais repartie.\nLa commune se félicite des créneaux supplémentaires, mais admet que les appareils restent souvent inutilisés le soir, quand le personnel d'accompagnement n'est plus présent. Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines.\nQuelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 25."
+      },
+      {
+        "voice": "female",
+        "text": "À Saint-Malo, deux cabines de téléconsultation ont été installées dans des bâtiments municipaux. Elles permettent de mesurer certains paramètres avant une consultation vidéo."
+      },
+      {
+        "voice": "male",
+        "text": "J'ai essayé, raconte une habitante, mais je n'ai pas compris comment régler la caméra. Un agent m'a aidée, sinon je serais repartie."
+      },
+      {
+        "voice": "female",
+        "text": "La commune se félicite des créneaux supplémentaires, mais admet que les appareils restent souvent inutilisés le soir, quand le personnel d'accompagnement n'est plus présent. Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines."
+      },
+      {
+        "voice": "female",
+        "text": "Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ?"
+      }
+    ],
+    "audio": "q-25.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 71
+  },
+  "sourceHash": "b2291a9de025ebec81e7fcf8945b5f128cf36596e50322f750453090eab299e5",
+  "contentHash": "3bc1532cd77557c6e7405412c62b50a9016fa088841a74b82114b20759c6a087",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em17pY8L4ynfViCUjgMgVigLL4y9v",
+    "result": {
+      "question": "Que la commune envisage-t-elle de mettre en place ?",
+      "choices": [
+        "Une formation pour les médiateurs qui accompagnent les usagers.",
+        "Une extension des horaires de présence du personnel d’accompagnement en soirée.",
+        "Une commande immédiate de nouvelles cabines de téléconsultation.",
+        "Une campagne de communication pour mieux faire connaître les cabines."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document indique : Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines. La mesure annoncée est bien l’organisation d’une formation pour les médiateurs, non l’extension des horaires, l’achat de nouvelles cabines ou une campagne de communication.",
+      "design": "Tests identification of the specific envisaged measure (communal response) among several plausible improvement actions. All options are reasonable ways to address underuse of teleconsultation booths; only mediator training is explicitly proposed in the recording. Without the source, none is intrinsically more rational than the others.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut relier la sous-utilisation du soir au manque de personnel et en déduire une extension des horaires. Or le document se contente de constater ce manque et propose une autre solution, la formation des médiateurs.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "les appareils restent souvent inutilisés le soir",
+            "quand le personnel d'accompagnement n'est plus présent",
+            "Elle envisage donc une formation des médiateurs"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La mention de l’achat immédiat de nouvelles cabines peut faire croire que c’est la mesure retenue. En réalité, elle est explicitement écartée au profit de la formation des médiateurs, introduite par plutôt que.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Elle envisage donc une formation des médiateurs",
+            "plutôt que l'achat immédiat de nouvelles cabines"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Comme les cabines sont installées mais peu utilisées, une campagne de communication semble logique pour augmenter leur fréquentation. Toutefois, le document n’évoque jamais cette piste et ne propose que la formation des médiateurs comme réponse.",
+          "operation": "scope_shift",
+          "anchors": [
+            "deux cabines de téléconsultation ont été installées",
+            "les appareils restent souvent inutilisés le soir"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4421,
+      "completion_tokens": 2537,
+      "total_tokens": 6958,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2061,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.03089625,
+    "inputHash": "1b5808a3b98ac94b1f095d8cae73daeaff2d0d4fe90fd82ba9227c0994f74d48",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Que la commune envisage-t-elle de mettre en place ?",
+      "choices": [
+        "Une formation pour les médiateurs qui accompagnent les usagers.",
+        "Une commande immédiate de nouvelles cabines de téléconsultation.",
+        "Une campagne de communication pour mieux faire connaître les cabines.",
+        "Une extension des horaires de présence du personnel d’accompagnement en soirée."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em18RpMWgKmLfnkfaYTAg7UvYPhdQ",
+      "result": {
+        "question": "Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ?",
+        "choices": [
+          "Mettre en place une formation spécifique pour les médiateurs chargés des cabines.",
+          "Installer des cabines de téléconsultation supplémentaires sur le territoire communal.",
+          "Lancer une campagne de communication dédiée aux cabines de téléconsultation.",
+          "Élargir les horaires de présence du personnel d’accompagnement auprès des cabines."
+        ],
+        "notes": "La question a été précisée pour cibler les cabines de téléconsultation. Les choix sont reformulés de façon homogène comme quatre mesures possibles de la commune, sans urgence ni justification particulière qui privilégierait une option. Chaque proposition reste factuellement distincte (formation, nouvelles cabines, communication, horaires) et répond directement à la même question."
+      },
+      "usage": {
+        "prompt_tokens": 654,
+        "completion_tokens": 546,
+        "total_tokens": 1200,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 367,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0062775,
+      "inputHash": "6eb664c9a017e4a9830dd751c5c7e7c8626c919e575f785d830c35133bd5250d",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "86cc78603d9d86ed3a68d8ada9640fc3b79e8603eea0b006a4ad0353dce601d8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre motifs sont plausibles, mais le libellé de la question insiste sur le moment de la journée («le soir»). Les réponses 0 et 1 décrivent des problèmes structurels qui ne sont pas spécifiques à ce créneau horaire. Les réponses 2 et 3, au contraire, lient explicitement la cause à la plage du soir. Parmi elles, l’option 3 correspond très directement au principe même de la téléconsultation (dépendance aux créneaux des médecins en visioconférence) et formule clairement un décalage entre disponibilité des médecins et horaires du soir, ce qui lui donne un léger avantage comme clé attendue.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Seule option qui relie explicitement la faible utilisation du soir à une contrainte directement médicale («créneaux des médecins en visio»), ce qui correspond précisément au fonctionnement attendu d’une téléconsultation, et formule une cause ciblée sur les «horaires du soir» plutôt que sur un problème général de visibilité ou d’implantation."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un reportage radio sur le déploiement de cabines de téléconsultation dans une région explique que, de manière générale, elles restent peu utilisées, en particulier le soir, parce que la population connaît encore mal leur existence. L’intervenant précise que la priorité actuelle est de mieux communiquer pour que les habitants sachent qu’ils peuvent y accéder en fin de journée."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une émission locale décrit des cabines de téléconsultation installées dans des bâtiments municipaux excentrés (mairies, maisons des associations) loin des centres-villes et zones commerciales. Le journaliste souligne que, le soir, comme les gens passent plutôt par les grands axes ou restent chez eux, ces cabines, trop à l’écart des lieux de passage, sont très peu utilisées."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un reportage sur l’usage des cabines de téléconsultation explique que, la journée, un agent d’accueil municipal aide les usagers à se connecter et à utiliser le matériel, mais que ce personnel n’est plus présent le soir. L’élu interviewé constate que, en l’absence d’accompagnement à ces horaires, beaucoup de personnes n’osent pas utiliser la cabine, ce qui explique la faible fréquentation en soirée."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une séquence d’information sur la télémédecine indique que les cabines de téléconsultation sont ouvertes en théorie jusqu’en soirée, mais que les créneaux proposés par les médecins en visioconférence s’arrêtent assez tôt. L’animatrice résume en disant que les cabines sont donc peu utilisées le soir, car les disponibilités des médecins ne couvrent pas vraiment ces horaires-là."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em18ZHtmbUJVLHbYL6CQsGqPTSRpx",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un conseil municipal, un élu présente un bilan des cabines de téléconsultation : elles sont utiles mais certains usagers en difficulté numérique n’y trouvent pas toujours d’aide. Il explique que la commune va adopter une mesure pour améliorer l’accompagnement humain, en élargissant les horaires de présence du personnel d’accompagnement auprès des cabines afin d’assister davantage d’usagers."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion publique, l’adjoint à la santé explique que les cabines de téléconsultation sont déjà en place mais que leur usage reste complexe pour certains publics. Il annonce que la mesure prévue par la commune est de mettre en place une formation spécifique pour les médiateurs chargés des cabines afin de mieux accompagner les usagers et gérer les situations sensibles."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une séance du conseil municipal, le maire présente un projet de développement de l’offre de santé à distance. Après avoir rappelé le bon usage des premières cabines de téléconsultation installées, il précise que la commune prévoit d’adopter une mesure visant à installer des cabines de téléconsultation supplémentaires sur le territoire communal pour couvrir davantage de quartiers."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une réunion d’information avec les habitants, un représentant municipal constate que peu de gens connaissent l’existence des cabines de téléconsultation déjà installées. Il indique que la commune prévoit d’adopter une mesure de sensibilisation : lancer une campagne de communication dédiée aux cabines de téléconsultation pour en promouvoir l’usage."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre mesures sont concrètes, grammaticalement correctes et directement pertinentes pour répondre à la question, sans qu’aucune ne bénéficie d’un avantage de formulation décisif. En l’absence de véritable indice dans l’énoncé seul, il reste une forte incertitude et le choix de la réponse 2 n’est qu’un pari sous hypothèse d’égalité des options."
+        },
+        "usage": {
+          "prompt_tokens": 636,
+          "completion_tokens": 643,
+          "total_tokens": 1279,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 179,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007225,
+        "inputHash": "b887fc5d949302ca6d6535f98aebb8f4a9db4add97046217cd10edb5a8985932",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em18hilpb4QDalVAMAZ5QMLkRvwdD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un conseil municipal, l’adjoint à la santé présente un bilan d’utilisation des cabines de téléconsultation et explique que beaucoup d’usagers âgés ont besoin d’aide pour les utiliser. Il annonce alors qu’une mesure va être adoptée pour renforcer l’accompagnement humain : la commune va élargir les horaires de présence du personnel d’accompagnement auprès des cabines."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "En réunion publique, le maire expose le succès des cabines de téléconsultation déjà installées, qui sont souvent complètes. Il indique que, pour répondre à la demande croissante et lutter contre la désertification médicale, la mesure prévue est d’installer des cabines de téléconsultation supplémentaires sur le territoire communal."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une séance d’information, un responsable municipal explique que des médiateurs accueillent déjà les habitants près des cabines de téléconsultation, mais qu’ils ne sont pas toujours à l’aise avec les outils numériques ou les spécificités médicales de base. Il annonce alors que la commune prévoit de mettre en place une formation spécifique pour les médiateurs chargés des cabines."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’une conférence de presse municipale, l’adjointe à la communication constate que les cabines de téléconsultation restent sous-utilisées car peu connues. Elle indique que la commune a décidé de lancer une campagne de communication dédiée aux cabines de téléconsultation pour informer les habitants de leur existence et de leur fonctionnement."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Toutes les options décrivent des mesures plausibles que la commune pourrait prévoir concernant les cabines de téléconsultation, sans indice textuel net permettant d’en privilégier une. En l’absence de cue objectif dans l’énoncé ou la formulation des choix, la clé est très incertaine et les probabilités sont réparties uniformément ; l’option 1 est choisie comme meilleure hypothèse par simple nécessité de réponse."
+        },
+        "usage": {
+          "prompt_tokens": 636,
+          "completion_tokens": 579,
+          "total_tokens": 1215,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 109,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006585,
+        "inputHash": "0d7f6346100c84c6a6899f24daf54be4399b5de51a223840a19733298ac2dad0",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:screen:1:1"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em18p3cfHVyPM1mLIsMBPah5c9Y0S",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un conseil municipal, l’élu en charge de la santé explique que les cabines de téléconsultation sont encore peu utilisées. Il précise que la commune prévoit de lancer une campagne de communication dédiée à ces cabines pour mieux informer les habitants de leur existence et de leur fonctionnement. Interrogé ensuite, l’animateur de la réunion demande : « Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ? », et cette réponse décrit directement la mesure."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion publique, la maire présente un bilan des cabines de téléconsultation et signale que certains usagers, notamment les personnes âgées, ont besoin d’aide pour les utiliser. Elle annonce que la commune prévoit d’élargir les horaires de présence du personnel d’accompagnement auprès de ces cabines. À la fin, l’animateur pose la question : « Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ? », et cette option résume précisément la décision."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une présentation du plan santé communal, un élu explique que les cabines de téléconsultation existantes sont souvent complètes et qu’il y a une forte demande dans plusieurs quartiers. Il indique que la commune prévoit d’installer des cabines de téléconsultation supplémentaires sur le territoire communal. Quand la journaliste demande : « Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ? », cette réponse correspond directement à la mesure annoncée."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une séance de travail entre la mairie et des associations locales, un responsable évoque les difficultés rencontrées par les médiateurs numériques pour accompagner les usagers dans les cabines de téléconsultation. Il précise que la commune prévoit de mettre en place une formation spécifique pour ces médiateurs chargés des cabines. Un résumé audio se conclut par la question : « Quelle mesure la commune prévoit-elle d’adopter concernant les cabines de téléconsultation ? », à laquelle cette proposition répond exactement."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent chacune une mesure concrète et réaliste que la commune pourrait prévoir d’adopter à propos des cabines de téléconsultation, sans contradiction avec l’énoncé. Aucune option ne présente d’avantage textuel clair (ni longueur nettement supérieure, ni formulation sensiblement plus complète ou plus nuancée) qui la distinguerait objectivement des autres. Faute de tout indice dans la seule rédaction des choix, l’incertitude reste forte et les probabilités sont réparties uniformément ; le choix 0 est retenu comme meilleure hypothèse par obligation de réponse, sans justification décisive par le libellé."
+        },
+        "usage": {
+          "prompt_tokens": 636,
+          "completion_tokens": 764,
+          "total_tokens": 1400,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 137,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.008435,
+        "inputHash": "5eaf96e1b16a50bec4d66a60a78f0179555813fbb9c60db6ad2c5ed135e008ba",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:screen:1:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em18yriZ24XD8aIXlOQiChZRjUxFu",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La commune prévoit de mettre en place une formation pour les médiateurs chargés des cabines, et non d’acheter d’autres cabines, de communiquer spécifiquement ou d’élargir les horaires du personnel.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines."
+          ],
+          "reason": "La question porte sur la mesure que la commune prévoit d’adopter. Le texte dit clairement : \"Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines.\" La mesure envisagée est donc la formation des médiateurs, ce qui correspond exactement à la proposition 0.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Elle envisage donc une formation des médiateurs plutôt que l'achat immédiat de nouvelles cabines."
+          ],
+          "reason": "On pourrait se laisser tromper par la mention de \"nouvelles cabines\" et penser que la commune prévoit d’en installer davantage. Mais la formulation complète est \"plutôt que l'achat immédiat de nouvelles cabines\" : cela indique justement que cette option est écartée au profit de la formation des médiateurs. La mesure retenue n’est donc pas l’installation de cabines supplémentaires.",
+          "misunderstanding": "inversion_opposition"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "les appareils restent souvent inutilisés le soir, quand le personnel d'accompagnement n'est plus présent.",
+            "J'ai essayé, raconte une habitante, mais je n'ai pas compris comment régler la caméra."
+          ],
+          "reason": "Un auditeur qui comprend seulement que les cabines sont \"souvent inutilisées\" et qu’une habitante \"n'a pas compris\" leur fonctionnement peut imaginer qu’un problème d’information du public existe et en déduire qu’une campagne de communication serait logique. Cependant, le texte ne mentionne à aucun moment une campagne de communication : la seule mesure explicitement envisagée est \"une formation des médiateurs\". La réponse 2 invente une action qui n’est pas évoquée.",
+          "misunderstanding": "solution_inference_non_mentionnee"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "les appareils restent souvent inutilisés le soir, quand le personnel d'accompagnement n'est plus présent."
+          ],
+          "reason": "Le passage indique que le problème apparaît \"le soir, quand le personnel d'accompagnement n'est plus présent\". Un auditeur peut donc penser que la solution logique serait d’\"élargir les horaires\" de ce personnel. Mais le texte ne dit pas que la commune va modifier ces horaires : il précise au contraire la mesure envisagée, \"une formation des médiateurs\", sans lien avec une extension de présence en soirée. La réponse 3 déduit une solution possible mais non citée dans l’enregistrement.",
+          "misunderstanding": "fausse_inference_solution_horaire"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 797,
+      "completion_tokens": 1028,
+      "total_tokens": 1825,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 371,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01127625,
+    "inputHash": "f8fa1e94a9be232104834c17780360e0b8bd67bd95f0a13ab2bbf0f1cf8c2b8e",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:24:6103f288fb85e78951f8f219:ground:1"
+  },
+  "feedback": null
+}

@@ -1,0 +1,177 @@
+{
+  "question": {
+    "number": 4,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : On voit clairement un arrêt de bus : un panneau « BUS » et un grand affichage avec un schéma de rues et un point, typique d’un plan de quartier, accompagné de la mention « ARRÊT ». La personne se tient juste à côté et tient elle-même un document schématique, ce qui renforce l’idée qu’elle consulte un plan. La proposition « Elle examine le plan du quartier à l’arrêt de bus » correspond exactement à cette scène. A : On voit une personne debout près d’un panneau « BUS » et d’un grand plan avec la mention « ARRÊT », ce qui suggère qu’elle attend un bus. Quelqu’un pourrait donc se focaliser sur l’idée qu’« elle attend le bus ». Mais la phrase ajoute « sans prêter attention au plan » : or la personne tient elle-même un document semblable à un plan et semble le regarder, ce qui montre au contraire qu’elle prête attention à des informations de type plan. La description d’inattention au plan ne correspond donc pas à ce qui est visible. B : On pourrait croire qu’elle lit les horaires parce qu’elle est à un arrêt de bus, avec un panneau « BUS », situation typique où l’on consulte les horaires. Cependant, ni le grand affichage ni le document qu’elle tient ne ressemblent à un tableau d’horaires : ce sont des tracés schématiques (lignes et point) de type plan, sans chiffres ni colonnes. L’image montre un plan du secteur, pas un horaire de ligne de bus. C : La présence du bus à côté peut faire penser à une interaction avec le conducteur et donc à l’idée qu’elle lui « montre l’itinéraire ». Mais on ne voit aucun conducteur ni porte ouverte ; la personne est isolée, tournée vers le panneau ou le document qu’elle tient, et n’interagit avec personne. Elle n’est pas en train de montrer un itinéraire à quelqu’un, mais de regarder un plan seule.",
+    "transcript": "Question 4.\nA. Elle attend le bus sans prêter attention au plan. B. Elle lit les horaires de la ligne de bus. C. Elle montre au conducteur l’itinéraire qu’elle veut suivre. D. Elle examine le plan du quartier à l’arrêt de bus.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 4."
+      },
+      {
+        "voice": "female",
+        "text": "A. Elle attend le bus sans prêter attention au plan. B. Elle lit les horaires de la ligne de bus. C. Elle montre au conducteur l’itinéraire qu’elle veut suivre. D. Elle examine le plan du quartier à l’arrêt de bus."
+      }
+    ],
+    "image": "q-04.svg",
+    "audio": "q-04.mp3",
+    "audioSeconds": 15.856,
+    "slotSeconds": 32
+  },
+  "sourceHash": "020bccf1ac768b21b10cd1918d736f58bbf348dd4414f106b1022dea0cb5558b",
+  "contentHash": "cff5e63d6640336756d254463adb381f69a832b943dc07e15d7fb6873d4fbe6c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzORnJjE1phLBjxrGbHKiWt3LC0C",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une femme est debout à un arrêt de bus où se trouve un grand plan affiché. On la voit tournée vers la route ou son téléphone, sans regarder le panneau : on pourrait décrire la scène en disant qu’elle attend le bus sans prêter attention au plan."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un bus déjà monté, une passagère debout près du conducteur tient un plan déplié et lui montre avec le doigt le trajet qu’elle souhaite faire. La scène pourrait être décrite comme elle montre au conducteur l’itinéraire qu’elle veut suivre."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À un arrêt de bus, une femme se tient devant un panneau où est affiché un plan du quartier. Elle est tournée vers ce plan, le regarde de près, éventuellement avec un doigt posé dessus : on dirait qu’elle examine le plan du quartier à l’arrêt de bus."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "À un arrêt de bus, une femme lit attentivement un tableau d’horaires affiché sur le panneau de la ligne. On pourrait dire qu’elle lit les horaires de la ligne de bus."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Sans avoir l’image, les quatre propositions décrivent toutes une scène ordinaire liée à un arrêt ou un trajet de bus et peuvent chacune correspondre à une photo réaliste. Aucune formulation ne présente d’avantage textuel clair (longueur, précision, style ou responsabilité) sur les autres, donc il n’existe pas de base solide pour privilégier une option à partir des seuls libellés. La clé la plus probable ne peut pas être identifiée de façon fiable, d’où une répartition uniforme et un choix de réponse purement arbitraire parmi elles."
+        },
+        "usage": {
+          "prompt_tokens": 608,
+          "completion_tokens": 606,
+          "total_tokens": 1214,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 188,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00682,
+        "inputHash": "57e45d70daf5fcf73702383796a7d488fe3054b9ea701e25db0be4bbfe5af850",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:3:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzOY40f1yaMDrzmAYTieSgayiNfj",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre une personne qui consulte clairement un plan à un arrêt de bus ; seule la proposition 3 correspond à cette situation.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit une personne debout près d’un panneau « BUS » et d’un grand plan avec la mention « ARRÊT », ce qui suggère qu’elle attend un bus. Quelqu’un pourrait donc se focaliser sur l’idée qu’« elle attend le bus ». Mais la phrase ajoute « sans prêter attention au plan » : or la personne tient elle-même un document semblable à un plan et semble le regarder, ce qui montre au contraire qu’elle prête attention à des informations de type plan. La description d’inattention au plan ne correspond donc pas à ce qui est visible.",
+          "misunderstanding": "scope"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On pourrait croire qu’elle lit les horaires parce qu’elle est à un arrêt de bus, avec un panneau « BUS », situation typique où l’on consulte les horaires. Cependant, ni le grand affichage ni le document qu’elle tient ne ressemblent à un tableau d’horaires : ce sont des tracés schématiques (lignes et point) de type plan, sans chiffres ni colonnes. L’image montre un plan du secteur, pas un horaire de ligne de bus.",
+          "misunderstanding": "category_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "La présence du bus à côté peut faire penser à une interaction avec le conducteur et donc à l’idée qu’elle lui « montre l’itinéraire ». Mais on ne voit aucun conducteur ni porte ouverte ; la personne est isolée, tournée vers le panneau ou le document qu’elle tient, et n’interagit avec personne. Elle n’est pas en train de montrer un itinéraire à quelqu’un, mais de regarder un plan seule.",
+          "misunderstanding": "role_confusion"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "On voit clairement un arrêt de bus : un panneau « BUS » et un grand affichage avec un schéma de rues et un point, typique d’un plan de quartier, accompagné de la mention « ARRÊT ». La personne se tient juste à côté et tient elle-même un document schématique, ce qui renforce l’idée qu’elle consulte un plan. La proposition « Elle examine le plan du quartier à l’arrêt de bus » correspond exactement à cette scène.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 739,
+      "completion_tokens": 1472,
+      "total_tokens": 2211,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 893,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01564375,
+    "inputHash": "8171f41d2aeca28eb11b20acd5089bf9440248cd9c03fa9fd7a48a3e7ffb494f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:3:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "3155b1fbd9a23da5408cc45dc1e7156ad5548b5e22510b91bbe79512f9e4f8d5",
+  "designSeedHash": null
+}

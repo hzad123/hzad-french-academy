@@ -1,0 +1,765 @@
+{
+  "question": {
+    "number": 39,
+    "kind": "interview",
+    "question": "Selon le document, à quel moment la responsable estime-t-elle qu’il est particulièrement important d’assurer le suivi des élèves ?",
+    "options": [
+      "Lors des réunions régulières de coordination avec les écoles",
+      "Lors des séances de formation des nouveaux tuteurs",
+      "Lorsqu’on ouvre une nouvelle période d’inscription pour les élèves",
+      "Lorsqu’un bénévole quitte le dispositif"
+    ],
+    "correct": "D",
+    "explanation": "Le document précise : «assurer le suivi des élèves lorsqu’un bénévole se retire». Le déclencheur indiqué pour ce suivi est donc le départ d’un bénévole, afin de garantir la continuité pour les élèves concernés. Les autres moments évoqués (inscriptions, formation, coordination) sont bien présents dans le texte, mais ils ne sont pas présentés comme le moment précis où l’on doit assurer le suivi des élèves.",
+    "transcript": "Question 39.\nVotre réseau de tutorat bénévole a aidé beaucoup d'élèves cette année. Pourquoi ne pas augmenter immédiatement le nombre d'inscriptions ?\nNous avons pu compter sur des étudiants très motivés, mais certains terminent leur formation ou quittent la ville. Nous devons former de nouveaux tuteurs, assurer le suivi des élèves lorsqu'un bénévole se retire et maintenir une coordination régulière avec les écoles. Sans cela, une expansion rapide créera des promesses impossibles à tenir. Il vaut mieux proposer une place stable à moins d'élèves que multiplier les inscriptions sans continuité pédagogique.\nSelon le document, à quel moment la responsable estime-t-elle qu’il est particulièrement important d’assurer le suivi des élèves ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 39."
+      },
+      {
+        "voice": "male",
+        "text": "Votre réseau de tutorat bénévole a aidé beaucoup d'élèves cette année. Pourquoi ne pas augmenter immédiatement le nombre d'inscriptions ?"
+      },
+      {
+        "voice": "female",
+        "text": "Nous avons pu compter sur des étudiants très motivés, mais certains terminent leur formation ou quittent la ville. Nous devons former de nouveaux tuteurs, assurer le suivi des élèves lorsqu'un bénévole se retire et maintenir une coordination régulière avec les écoles. Sans cela, une expansion rapide créera des promesses impossibles à tenir. Il vaut mieux proposer une place stable à moins d'élèves que multiplier les inscriptions sans continuité pédagogique."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quel moment la responsable estime-t-elle qu’il est particulièrement important d’assurer le suivi des élèves ?"
+      }
+    ],
+    "audio": "q-39.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 81
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3FS0Lfxvqa0a9SKCbrYfbatuzvB",
+    "result": {
+      "question": "Dans le document, à quel moment la responsable dit-elle qu’il faut assurer le suivi des élèves ?",
+      "choices": [
+        "Lorsque un bénévole se retire du dispositif",
+        "Lorsqu’on ouvre de nouvelles inscriptions d’élèves",
+        "Lors des séances de formation des nouveaux tuteurs",
+        "Lors des réunions régulières de coordination avec les écoles"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise : «assurer le suivi des élèves lorsqu’un bénévole se retire». Le déclencheur indiqué pour ce suivi est donc le départ d’un bénévole, afin de garantir la continuité pour les élèves concernés. Les autres moments évoqués (inscriptions, formation, coordination) sont bien présents dans le texte, mais ils ne sont pas présentés comme le moment précis où l’on doit assurer le suivi des élèves.",
+      "design": "Focus on the specific trigger associated with one recorded action: the condition under which they must \"assurer le suivi des élèves\". All four options are plausible triggers for follow-up in a tutoring network (new registrations, tutor training, coordination meetings, or tutor departure). Only careful listening reveals that the follow-up is explicitly linked to a volunteer leaving, while the other events are mentioned with different roles (expansion, preparation, coordination). This tests understanding of the internal structure of the sentence listing several tasks and their respective conditions, not general policy reasoning.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse attribue à tort le suivi des élèves au moment de nouvelles inscriptions. C’est tentant, car le document commence justement par discuter l’idée d’augmenter le nombre d’inscriptions, ce qui pourrait sembler le moment logique pour prévoir un suivi, mais le texte lie explicitement ce suivi au retrait d’un bénévole, pas à l’ouverture de nouvelles places.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Pourquoi ne pas augmenter immédiatement le nombre d'inscriptions ?",
+            "assurer le suivi des élèves lorsqu'un bénévole se retire"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Ici, le déclencheur du suivi est déplacé vers la formation, ce qui est crédible puisqu’on «doit former de nouveaux tuteurs» et qu’on pourrait croire que le suivi se fait pendant cette formation. En réalité, la phrase distingue deux actions parallèles : former les nouveaux tuteurs d’un côté, assurer le suivi des élèves lorsqu’un bénévole se retire de l’autre, sans dire que le suivi a lieu pendant les séances de formation.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Nous devons former de nouveaux tuteurs",
+            "assurer le suivi des élèves lorsqu'un bénévole se retire"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option confond le rôle de la coordination avec celui du suivi individuel. Le texte insiste bien sur une «coordination régulière avec les écoles», ce qui rend plausible l’idée que le suivi des élèves soit assuré lors de ces échanges. Cependant, la structure de l’énumération sépare les tâches : la coordination avec les écoles est une troisième exigence, distincte du suivi expressément rattaché au moment où un bénévole se retire.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "maintenir une coordination régulière avec les écoles",
+            "assurer le suivi des élèves lorsqu'un bénévole se retire"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4433,
+      "completion_tokens": 1988,
+      "total_tokens": 6421,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1321,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02542125,
+    "inputHash": "ad79af2cd8ce14e34ee90e2e6b13791e1ccae086f50bfe535f93d96ae9dc8707",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:38:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, à quel moment la responsable dit-elle qu’il faut assurer le suivi des élèves ?",
+      "choices": [
+        "Lors des réunions régulières de coordination avec les écoles",
+        "Lors des séances de formation des nouveaux tuteurs",
+        "Lorsqu’on ouvre de nouvelles inscriptions d’élèves",
+        "Lorsque un bénévole se retire du dispositif"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3FsuWNe1rz5GnlfIR8rVWBOzVN0",
+      "result": {
+        "question": "Selon le document, à quel moment la responsable estime-t-elle qu’il est particulièrement important d’assurer le suivi des élèves ?",
+        "choices": [
+          "Lors des réunions régulières de coordination avec les écoles",
+          "Lors des séances de formation des nouveaux tuteurs",
+          "Lorsqu’on ouvre une nouvelle période d’inscription pour les élèves",
+          "Lorsqu’un bénévole quitte le dispositif"
+        ],
+        "notes": "L’énoncé a été légèrement reformulé pour neutraliser tout indice de pertinence particulière, et les quatre moments proposés sont présentés comme des contextes professionnels plausibles et de même statut pour assurer le suivi des élèves."
+      },
+      "usage": {
+        "prompt_tokens": 651,
+        "completion_tokens": 283,
+        "total_tokens": 934,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 145,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00364375,
+      "inputHash": "85cf1021f5cac1ff00a15189b19f345d326adcf854e1c777755950391a8e6801",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:38:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "390eabe97989d7c3c83b0b39a7a289b0f76bc06cdd71fa2e854cb48a92593044",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent un moment de transition où la continuité du suivi pourrait être en jeu, donc plusieurs restent plausibles. Cependant, le départ d’un bénévole d’un « réseau d’accompagnement » se rattache le plus directement à l’idée de suivi à assurer pour éviter une rupture, et le choix 3 reprend un vocabulaire très proche (« réseau d’accompagnement » / « suivi des élèves »), ce qui lui donne un léger avantage comme formulation ciblée de la situation où il faut particulièrement veiller au suivi.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Le lexique « réseau d’accompagnement » entre directement en résonance avec « organiser le suivi des élèves » et décrit explicitement une situation de risque de rupture du suivi, ce qui correspond particulièrement bien à la tournure « veiller à organiser » qui suggère une vigilance spécifique lors d’un départ."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une intervenante d’un dispositif de tutorat explique aux coordinateurs qu’il est important d’assurer la continuité du suivi des élèves à chaque changement. Elle précise par exemple : « Lorsqu’un nouveau tuteur commence avec les élèves, il faut veiller à bien organiser le suivi, transmettre les informations sur les besoins de chaque élève, les objectifs déjà fixés, etc. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion pédagogique, une intervenante évoque les effets d’un changement d’organisation sur les apprentissages. Elle dit : « Lorsqu’un groupe d’élèves est réorganisé, il faut veiller à organiser le suivi des élèves, pour ne pas perdre de vue ceux qui ont besoin d’un accompagnement particulier. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une responsable de vie scolaire parle de la continuité des parcours d’élèves fragiles. Elle indique : « Lorsqu’un élève change d’établissement scolaire, il faut veiller à organiser le suivi des élèves, transmettre le dossier, les aménagements, les projets personnalisés, pour que la prise en charge se poursuive sans rupture. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une formation pour coordinateurs d’un réseau de bénévoles qui accompagnent des élèves en difficulté, l’intervenante insiste sur les moments à risque de rupture. Elle explique : « Lorsqu’un bénévole se retire du réseau d’accompagnement, il faut veiller à organiser le suivi des élèves, prévoir un relais, un temps de passation, pour que l’élève ne se retrouve pas brusquement sans soutien. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4e18ee2383515d94baf45d4a39f60fc22463c2dbfc2144e54404cdf0637855bd",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent s’inscrire dans un protocole réaliste, mais l’option 2 présente le lien le plus direct et explicite entre le moment mentionné et la nécessité de renforcer le suivi des élèves, ce qui constitue un avantage concret de formulation par rapport à la question. Cela justifie de la considérer comme plus probable tout en gardant une incertitude notable.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La question porte explicitement sur le « suivi des élèves » et l’option 2 est la seule à lier directement ce suivi à une variation du nombre d’élèves (« augmenter le nombre d’inscriptions d’élèves »). Les autres options concernent surtout l’organisation (partenaires, formation des tuteurs, départ d’un bénévole) et n’évoquent pas directement un changement d’ampleur du public suivi, ce qui donne à l’option 2 une pertinence plus immédiate par rapport à l’intitulé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de coordination entre un réseau associatif et ses écoles partenaires, un responsable explique : « D’après notre protocole, le suivi des élèves doit être renforcé au moment où une école partenaire commence à envoyer une nouvelle cohorte d’élèves, car on ne connaît pas encore bien leur niveau ni leurs besoins. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation interne d’un dispositif de tutorat, la coordinatrice dit : « D’après notre document de référence, le suivi des élèves doit être renforcé au moment où l’on met en place une nouvelle formation pour les tuteurs, afin de vérifier l’impact direct sur les élèves accompagnés. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un comité de pilotage d’un programme d’accompagnement scolaire, un responsable lit une note de cadrage : « D’après le document, le suivi des élèves doit être renforcé au moment où l’on décide d’augmenter le nombre d’inscriptions d’élèves, pour s’assurer que la qualité de l’accompagnement ne se dégrade pas. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un réseau de soutien scolaire reposant sur des bénévoles, la coordinatrice lit une procédure : « D’après le document, le suivi des élèves doit être renforcé au moment où un bénévole annonce son départ du réseau, pour vérifier que chaque élève retrouve rapidement un tuteur et ne décroche pas. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "124e442e123a6d7174c3d3ff0db3ddcbd5c3e88ed1d3b59a0e503c94e8d1ad25",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le cas de la fin d’engagement d’un bénévole est le plus directement lié à la nécessité d’éviter une rupture de suivi pour des élèves déjà accompagnés, ce qui correspond très bien à la notion de « suivi particulier des élèves » dans un cas précis, davantage que les autres options plus structurelles ou générales.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « Lorsqu’un bénévole met fin à son engagement au sein du réseau » se rattache directement à un risque de rupture dans l’accompagnement d’élèves précis, ce qui justifie naturellement un « suivi particulier des élèves ». Les autres choix décrivent surtout des changements structurels ou quantitatifs, alors qu’ici il y a un lien évident et immédiat avec la continuité du suivi d’élèves identifiés, ce qui correspond très bien à l’idée d’un « cas précis » nécessitant un suivi spécifique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion interne, le coordinateur explique que lorsqu’une nouvelle session de formation pour tuteurs démarre, les élèves pris en charge par ces tuteurs nouvellement formés feront l’objet d’un suivi particulier afin de vérifier la bonne mise en œuvre des nouvelles pratiques."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation des procédures du réseau, le responsable précise que lorsque qu’un bénévole met fin à son engagement, le réseau doit prévoir un suivi particulier des élèves dont il s’occupait pour s’assurer de la continuité de l’accompagnement et éviter toute rupture de suivi."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un webinaire d’information, le responsable du réseau explique que, lorsqu’un nouvel établissement partenaire commence à orienter des élèves vers le réseau, un suivi particulier de ces élèves est prévu au début pour vérifier que l’orientation est adaptée et que les besoins sont bien pris en compte."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’un comité de pilotage, la direction indique que si l’on décide d’augmenter significativement le nombre d’inscriptions, il faudra prévoir un suivi particulier des élèves pour vérifier que la qualité de l’accompagnement ne se dégrade pas avec l’augmentation des effectifs."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "ae4f916ffdcfe2a9ffb858619b26c9ee78b6719adcfdcead2c43079f3456d4d0",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Deux options (2 et 3) reprennent explicitement l’idée de personnes suivant déjà des élèves, mais seule l’option 3 décrit une situation où les dossiers d’élèves déjà accompagnés doivent effectivement être modifiés (changement de tuteur, réaffectation), ce qui correspond très directement à « prévoir une mise à jour du suivi ». Les options 0 et 1 concernent surtout l’entrée ou la planification de nouveaux élèves, moins alignées avec la formulation « déjà accompagnés ». D’où une préférence nette pour l’option 3, malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La question insiste sur « la mise à jour du suivi des élèves déjà accompagnés » et le moment où le réseau doit la prévoir. L’option 3 décrit précisément un changement de situation pour des élèves déjà en cours d’accompagnement (réaffectation après le départ d’un bénévole), ce qui rend nécessaire une mise à jour directe et évidente des informations de suivi. Les autres options évoquent des stages de formation, des recommandations ou des hausses futures d’inscriptions, qui concernent surtout l’organisation globale ou l’arrivée de nouveaux élèves, moins directement la nécessité concrète de mettre à jour le suivi de ceux « déjà accompagnés ». De plus, le vocabulaire de réaffectation dans le réseau correspond clairement à un déclencheur administratif de mise à jour des dossiers."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de coordination entre un réseau d’accompagnement scolaire et les écoles partenaires, le coordinateur explique les procédures : il précise que, dès qu’une école commence à recommander de façon formelle des élèves au réseau, celui‑ci doit prévoir une mise à jour du suivi des élèves déjà accompagnés pour intégrer les nouveaux dossiers et ajuster les priorités."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation stratégique annuelle du réseau à ses membres, la direction explique qu’en prévision d’une hausse importante du nombre d’inscriptions l’année suivante, il faut revoir et mettre à jour le système de suivi des élèves déjà accompagnés afin de s’assurer que les ressources seront suffisantes et que chaque dossier est à jour avant l’arrivée du nouveau flux."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un webinaire interne, le responsable pédagogique du réseau annonce le lancement d’une nouvelle session de formation pour les tuteurs qui suivent déjà des élèves et précise qu’à cette occasion, le réseau doit prévoir une mise à jour du suivi des élèves déjà accompagnés pour harmoniser les pratiques de suivi avec les nouveaux outils présentés pendant la formation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une réunion opérationnelle, le coordinateur explique que, lorsque qu’un bénévole arrête sa participation et que ses élèves doivent être réaffectés à d’autres tuteurs, le réseau doit prévoir une mise à jour du suivi des élèves déjà accompagnés pour refléter les changements d’affectation et de responsabilités dans le système de suivi."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "f45bce56ef92665e5ef10d358ef9ef5f563d959c86bd14067f9ea046b1100f4f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent correspondre à un discours sur les dangers d’une croissance trop rapide, mais l’option 1 décrit un risque directement et immédiatement lié à la capacité d’accueil (surenchère de promesses face à trop d’inscriptions), ce qui cadre bien avec la notion de « risque précis » sans dépendre d’effets plus indirects ou à plus long terme. Cela lui donne un léger avantage, bien que l’incertitude demeure réelle en l’absence du document audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Le lien logique entre une hausse trop rapide des inscriptions et le risque de faire des promesses intenables (capacité, suivi individuel, ressources limitées) est direct et précis, alors que la rupture avec les écoles partenaires, l’échec scolaire ou la baisse de motivation des tuteurs sont des conséquences plus indirectes ou secondaires. De plus, la formulation « promesses faites aux élèves qu’il sera impossible de tenir » ressemble à un risque concret et facilement formulé dans un document explicatif sur les limites de capacité d’un dispositif."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un responsable d’un programme de tutorat universitaire explique à la radio que si le nombre d’inscriptions augmente trop vite, ils ne pourront plus placer les tuteurs dans de bonnes conditions dans les établissements partenaires, ce qui risque de créer des tensions et une perte de confiance avec les écoles avec lesquelles ils collaborent."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un reportage sur une association qui propose un accompagnement scolaire, la coordinatrice explique que si les inscriptions croissent trop rapidement, ils seront tentés de promettre à tous les élèves un suivi intensif ou personnalisé, mais qu’en réalité ils n’auront pas les moyens humains de tenir ces promesses, ce qui constitue un risque clairement identifié."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une interview sur un dispositif d’aide aux devoirs, le directeur explique que si les inscriptions augmentent trop vite, ils ne pourront plus assurer un suivi de qualité, ce qui pourrait conduire à une hausse du taux d’échec scolaire parmi les élèves pris en charge, faute de temps suffisant par enfant."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une émission sur les dispositifs de tutorat entre étudiants, une responsable avertit qu’une augmentation trop rapide des inscriptions mettrait une forte pression sur les étudiants tuteurs, qui pourraient se retrouver surchargés et, à terme, voir leur motivation baisser sensiblement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "75622abf2845fc0b5d2bf283470fb2e83ca8ae01a7fe4dd3b9aab05a60964c4c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses peuvent correspondre à des contextes plausibles, mais la réponse 3 est la plus cohérente avec la notion de suivi formalisé : un suivi est souvent organisé de manière périodique via un bilan annuel, et l’option 3 reprend ce vocabulaire administratif (« à la fin de chaque année scolaire, lors d’un bilan annuel »), ce qui lui donne un avantage net sur les autres propositions plus circonstancielles.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus longue et structurée, directement liée à l’idée d’« organiser le suivi » via un « bilan annuel » ; correspond bien à une planification régulière et institutionnelle, typique d’un document associatif décrivant ses modalités de suivi."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion d’une association de soutien scolaire, le coordinateur explique que le suivi des élèves est réorganisé chaque fois qu’un bénévole quitte le dispositif, pour vérifier la continuité de l’accompagnement et réaffecter éventuellement les élèves."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une assemblée générale, le président d’une association explique que le suivi des élèves sera mis en place au moment où l’association prévoit d’augmenter le nombre d’inscriptions, afin de mieux gérer l’afflux de nouveaux bénéficiaires."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion d’information aux parents, la responsable précise que le suivi des élèves commence dès la première inscription de l’élève au programme, pour pouvoir mesurer ses progrès sur toute la durée de sa participation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Pendant un compte rendu de fonctionnement, un membre du bureau explique que le suivi des élèves est organisé à la fin de chaque année scolaire, lors d’un bilan annuel qui permet d’évaluer leurs progrès et d’ajuster les actions pour l’année suivante."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c96734007f8889fc7b049bdb9a7a1b8718c3725cad6dfed2a867debdc02fdeb2",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le lien le plus naturel entre ‘renforcer son suivi auprès des élèves’ et une situation concrète est la rupture de la relation avec un bénévole individuel, qui justifie un suivi renforcé pour éviter une rupture dans l’accompagnement. Les autres options restent plausibles mais relèvent davantage de la gestion globale ou de l’organisation, rendant l’option 3 nettement plus probable comme clé attendue.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation cible directement la situation individuelle d’un élève (‘un bénévole qui accompagnait un élève met fin à son engagement’), ce qui correspond très précisément à ‘renforce son suivi auprès des élèves’ dans une logique de continuité d’accompagnement. Les autres choix portent davantage sur des changements structurels ou organisationnels globaux (évolution du nombre d’élèves, nouveau dispositif, nouveaux tuteurs) et sont moins directement reliés au besoin de suivi renforcé d’élèves particuliers après une rupture de lien."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion de bilan annuelle d’une association de soutien scolaire : le responsable explique que lorsque le nombre d’élèves accompagnés augmente ou diminue fortement d’une année sur l’autre, l’association renforce son suivi pour vérifier que la qualité de l’accompagnement reste la même et que les élèves ne soient pas laissés de côté."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Présentation d’un nouveau partenariat entre une association d’aide aux devoirs et plusieurs collèges : la responsable précise que, lorsqu’un nouveau dispositif de coordination avec les établissements est mis en place, l’association renforce son suivi auprès des élèves afin d’évaluer l’impact de ce dispositif sur leur progression."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Formation d’accueil de nouveaux tuteurs bénévoles : le coordinateur explique que lorsqu’un groupe de nouveaux tuteurs commence à encadrer des élèves, l’association renforce son suivi pour s’assurer que les méthodes sont bien appliquées et que les élèves s’adaptent à ces nouveaux accompagnants."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Compte rendu d’activité d’une association de mentorat scolaire : la coordinatrice indique que lorsqu’un bénévole qui suivait un élève met fin à son engagement, l’association renforce son suivi auprès de cet élève, le temps de réorganiser son accompagnement et de vérifier qu’il ne décroche pas."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c5adfc8642b7f8c70925fb4ec3707b5e5ebfc528f518f93842e281dc97a3b6ee",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’item 0 décrit une modification structurelle du périmètre du réseau (ajout d’une école partenaire), ce qui correspond plus naturellement à une nécessité d’« adapter son organisation » au niveau global. Les autres situations peuvent entraîner des ajustements, mais sont plus routinières ou locales. L’avantage reste modéré car les quatre cas sont plausibles, d’où une probabilité loin de 1.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus structurelle et durable (création d’une nouvelle école partenaire) qui suggère un changement d’organisation du réseau dans son ensemble, plutôt qu’un simple ajustement cyclique ou ponctuel comme le début d’année, le départ d’un bénévole ou l’arrivée d’élèves, souvent déjà anticipés par l’organisation existante."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une responsable d’un réseau d’écoles partenaires explique en réunion : « Notre fonctionnement actuel convient, mais dans quel cas le réseau doit-il adapter son organisation ? » Elle précise ensuite que l’ouverture ou la création d’une nouvelle école partenaire implique une révision des coordinations, des référents et des outils partagés, d’où la réponse : « La création d’une nouvelle école partenaire. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un webinaire pour coordinateurs, un intervenant demande : « Dans quel cas le réseau doit-il adapter son organisation ? » en parlant des pics d’activité. Il explique ensuite que le début d’une nouvelle année scolaire impose une réorganisation des emplois du temps, des affectations de bénévoles et des suivis, ce qui justifie la réponse : « Le début d’une nouvelle année scolaire. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une petite association en réseau de bénévoles, le coordinateur demande : « Dans quel cas le réseau doit-il adapter son organisation ? » Il illustre que le départ d’un bénévole important peut nécessiter une redistribution des tâches au sein du réseau, ce qui en fait une réponse directe et cohérente : « Le départ d’un bénévole. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une coordinatrice de réseau d’accompagnement scolaire discute avec son équipe : « Dans quel cas le réseau doit-il adapter son organisation ? » Elle souligne que l’arrivée de nombreux nouveaux élèves implique de revoir la répartition des groupes, les créneaux d’accueil et le suivi, ce qui rend pertinente la réponse : « L’arrivée de nouveaux élèves. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "cbda753d0fbf87b237ab7285295bcd42ca891aedd80afd2cbdd84495e15866f9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 2 (index 2) est la plus étroitement alignée avec la situation décrite par la question : elle décrit une mesure explicitement conditionnée par la disponibilité des bénévoles, donc directement déclenchée « en cas de retrait ». Les autres choix restent plausibles mais sont moins directement formulés comme une mesure spécifique de gestion en fonction du retrait d’un bénévole.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "La formulation « Réajuster le nombre d’inscriptions en fonction des tuteurs encore disponibles » répond très directement et concrètement au scénario « en cas de retrait d’un bénévole », en décrivant une mesure de gestion immédiate et opérationnelle liée au nombre de bénévoles. Les autres options sont plus générales (formation, coordination) ou centrées sur les élèves, moins explicitement une mesure de contingence quantitative."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une association de soutien scolaire, un responsable explique aux parents qu’en cas de retrait d’un bénévole tuteur, un dispositif de suivi particulier sera mis en place pour les élèves affectés, afin d’éviter une rupture dans leur accompagnement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion d’une association de tutorat, le coordinateur présente le protocole en cas de retrait d’un bénévole : il est prévu de former régulièrement de nouveaux tuteurs pour remplacer ceux qui se retirent au cours de l’année."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une présentation du fonctionnement d’un programme de mentorat, le responsable précise qu’en cas de retrait d’un bénévole, la mesure prévue est de réajuster le nombre d’inscriptions d’élèves en fonction du nombre de tuteurs encore disponibles, afin de maintenir un suivi de qualité."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’une réunion avec des écoles partenaires, une association indique qu’en cas de retrait de bénévoles, elle renforcera la coordination avec les établissements afin de réorganiser l’accompagnement des élèves (réaffectation, changement d’horaires, etc.)."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "e67b5eea2a504ba1207442e4422a9b1bfa8b204d8e9bdc596e18685c4c883d85",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses peuvent avoir un contexte ordinaire cohérent, mais l’option 3 se distingue par une formulation plus précise et circonstanciée («au terme de leur engagement ou quittent la ville»), qui ressemble fortement à une raison factuelle explicitée dans un document de présentation ou un compte rendu. Cette précision correspond directement au verbe «prévoit» (anticipation des départs), alors que les options 2 et 3 (index 1 et 2) décrivent surtout une volonté d’extension du dispositif et que l’option 0 reste plus vague. Cela fournit un indice rédactionnel clair, même si le doute persiste faute d’accès à l’audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation «Parce que plusieurs tuteurs actuels arrivent au terme de leur engagement ou quittent la ville.» est précise et détaillée, reprenant un motif typique d’un document explicatif (mention d’une fin d’engagement et d’un départ géographique), ce qui correspond bien à un «document» décrivant la situation actuelle. Elle justifie directement un besoin de remplacement, en lien très naturel avec le projet de «recruter et former de nouveaux tuteurs». Les autres options sont plus génériques ou expansionnistes (augmentation de la demande ou du nombre d’élèves) et ne reflètent pas aussi nettement une raison concrète et circonstanciée telle qu’on l’attendrait «d’après le document». De plus, l’option 0 est redondante mais moins précise (formulation vague «lorsque des bénévoles s’arrêtent»), alors que l’option 3 explicite deux causes concrètes, ce qui donne un avantage rédactionnel clair."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion d’une association de soutien scolaire : la coordinatrice explique que plusieurs bénévoles arrêtent leur engagement en cours d’année (changement d’horaires, nouvelles obligations), et précise que pour maintenir l’accompagnement continu des élèves déjà suivis, l’équipe prévoit de recruter et former de nouveaux tuteurs bénévoles."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Compte rendu audio d’une réunion avec des chefs d’établissement : on y apprend que plusieurs collèges et lycées partenaires souhaitent accueillir davantage d’élèves dans le dispositif de tutorat. L’équipe explique alors qu’elle prévoit de recruter et former de nouveaux tuteurs afin de pouvoir répondre à ces nouvelles demandes des établissements."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Présentation d’un programme de tutorat lors d’une assemblée générale : le responsable indique que la demande des familles augmente et que l’association veut ouvrir plus de places. Il précise que pour pouvoir inscrire un plus grand nombre d’élèves au dispositif, ils prévoient de recruter et former de nouveaux tuteurs afin d’augmenter leur capacité d’accueil."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Enregistrement d’une réunion interne d’une structure de tutorat : la responsable RH explique que plusieurs tuteurs arrivent bientôt au terme de leur engagement annuel et que d’autres prévoient de quitter la ville pour leurs études ou un nouvel emploi. Elle précise que, pour anticiper ces départs, l’équipe prévoit de recruter et former de nouveaux tuteurs."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "416a4dd6cfd82bfff182f2ce82463356fa14c6075f7b286baba29e1c4ef18b0d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent s’intégrer dans un contexte associatif de soutien scolaire, mais l’option 2 correspond le plus directement à une mesure de gestion des bénévoles elle-même (« en cas de départ d’un bénévole »), plutôt qu’à un aménagement autour des élèves ou des familles. Cette adéquation littérale à la formulation de la question lui donne un avantage clair, même si l’incertitude reste notable.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’option 2 décrit une réaction directement centrée sur la gestion du départ d’un bénévole (relancer une campagne de recrutement), ce qui correspond très littéralement à « en cas de départ d’un bénévole ». Les autres portent davantage sur des conséquences secondaires (élèves, familles, inscriptions) plutôt que sur la réponse organisationnelle immédiate au départ. De plus, le lexique « relancer une campagne de recrutement » est typiquement associé à la gestion des bénévoles dans des documents de présentation ou de fonctionnement d’association."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une association de tutorat scolaire, un coordinateur explique en réunion : « En cas de départ d’un bénévole, on met en place un suivi individualisé pour les élèves concernés, afin d’éviter toute rupture dans leur accompagnement. » Cette phrase répond directement à la question sur l’action prévue après le départ d’un bénévole."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion de présentation d’un dispositif d’aide aux devoirs, le responsable précise : « En cas de départ d’un bénévole, nous organiserons une réunion d’information spécifique avec les familles concernées pour leur expliquer la situation et les solutions proposées. » Cela décrit clairement une action prévue liée au départ d’un bénévole."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un enregistrement décrivant la gestion des ressources humaines dans une association, la responsable dit : « En cas de départ d’un bénévole, nous relancerons une campagne de recrutement ciblant des étudiants motivés pour assurer la continuité du service. » Cette mesure est explicitement une action prévue lorsqu’un bénévole part."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une association qui répartit des élèves entre différentes écoles partenaires selon les bénévoles disponibles, un coordinateur explique : « En cas de départ d’un bénévole, nous reverrons la répartition des inscriptions d’élèves entre les écoles partenaires pour équilibrer les groupes. » Cette réorganisation répond directement à la question sur l’action prévue en cas de départ."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "9c1d3931000e443634f07f392457baa01a52de1ea0f6aa42363ab101dde94de9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le choix 2 correspond le mieux à une mesure prioritaire et globale annoncée par une organisation (« continuité du suivi » comme principe), alors que les autres options décrivent des procédures plus étroites possibles mais pas clairement privilégiées par l’énoncé seul.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation de principe général (« veiller avant tout », « continuité du suivi ») correspondant bien à « que prévoit l’organisation », avec un ton de politique prioritaire plus large et plus nuancé que les procédures plus spécifiques des autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une association de soutien scolaire explique dans un enregistrement aux parents et bénévoles ses règles de fonctionnement : si un bénévole se retire, la place ainsi libérée dans l’atelier est proposée en priorité à un nouvel élève déjà inscrit sur liste d’attente."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion avec des partenaires éducatifs, une organisation décrit sa gestion des désistements : quand un bénévole arrête, les élèves qu’il suivait peuvent, si possible, être transférés vers d’autres écoles partenaires qui disposent encore de créneaux."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion de rentrée, le responsable d’une association explique la procédure en cas de départ d’un bénévole : la priorité absolue est d’assurer la continuité du suivi pour les élèves déjà pris en charge, quitte à réorganiser les binômes ou les horaires."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un coordinateur s’adresse aux familles dans un message vocal et explique qu’en cas de retrait d’un bénévole, l’organisation commence par informer les familles concernées avant de modifier le tuteur ou les horaires des séances."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1ec2fe847ec55384ea88169ede373f218cedef812783532fc04ebce962d12265",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’expression « il est prévu » renvoie typiquement à une échéance régulière et programmée; parmi les choix, seul le début de chaque nouvelle année scolaire constitue un moment standardisé et anticipé pour organiser le suivi des élèves, ce qui lui donne un avantage net malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La tournure « à quel moment est-il prévu d’assurer le suivi » suggère un rendez-vous régulier et planifié plutôt qu’un déclenchement conditionnel; la formulation « Au démarrage de chaque nouvelle année scolaire » correspond précisément à un moment fixe et institutionnalisé, alors que les autres réponses sont des événements contingents dépendant de circonstances externes (besoins, nouvelles inscriptions, départ d’un bénévole)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement présentant le fonctionnement d’un réseau d’accompagnement scolaire, un coordinateur explique que le suivi des élèves est organisé en fonction des retours des écoles partenaires : dès qu’une école signale de nouveaux besoins ou difficultés, l’équipe reprend le dossier des élèves concernés pour assurer un suivi adapté."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de présentation d’un dispositif d’aide aux devoirs, la responsable précise le calendrier : elle indique qu’un suivi systématique des élèves est prévu au démarrage de chaque nouvelle année scolaire, avec bilan de l’année précédente et définition de nouveaux objectifs."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un document audio sur la gestion des inscriptions dans un réseau de soutien scolaire, un intervenant explique que le suivi des élèves est mis en place au moment où de nouveaux élèves rejoignent le réseau, après l’inscription et la collecte des informations nécessaires."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’une formation pour bénévoles d’un dispositif de mentorat, la coordinatrice explique que lorsqu’un bénévole quitte le dispositif, un point de suivi est automatiquement prévu pour les élèves concernés afin de s’assurer de la continuité de l’accompagnement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "fc30f25d48de04160d59e1d6ed1206f17fa6fbeed27baf73e12cf82d771d0c5a",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent s’intégrer dans un contexte ordinaire, mais « Lorsqu’un bénévole quitte le dispositif » correspond le mieux à un moment particulièrement sensible pour la continuité du suivi des élèves; les autres moments sont plus structurels ou tournés vers l’organisation (coordination, inscriptions, formation) et moins directement liés à un risque immédiat de rupture de suivi, d’où une légère préférence pour l’option 0.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Le suivi des élèves est le plus directement menacé par le départ d’un bénévole, ce qui crée un moment charnière où la continuité doit être particulièrement assurée; les autres moments sont plus routiniers (réunions, inscriptions, formation) et concernent davantage l’organisation globale que la continuité immédiate du suivi des élèves existants."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "La responsable d’un dispositif d’accompagnement scolaire explique à un groupe de bénévoles qu’il est crucial d’assurer le suivi des élèves lorsque l’un des bénévoles quitte le dispositif, afin de vérifier que les élèves concernés ne se retrouvent pas sans soutien et qu’une solution de remplacement est rapidement mise en place."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion d’information sur un programme de tutorat, la responsable insiste sur le fait que le suivi des élèves est particulièrement important au moment des réunions régulières de coordination avec les écoles, car c’est l’occasion de faire le point sur la progression de chaque élève et d’ajuster les mesures d’aide."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une présentation du fonctionnement d’une association d’aide aux devoirs, la responsable explique qu’il est particulièrement important d’assurer le suivi des élèves quand on ouvre une nouvelle période d’inscription, pour s’assurer que les élèves déjà suivis ne soient pas « perdus » dans l’afflux de nouveaux inscrits et que la continuité de leur accompagnement soit garantie."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Pendant une séance d’information, la responsable explique que lors des séances de formation des nouveaux tuteurs, il est particulièrement important d’assurer le suivi des élèves, en vérifiant notamment que les nouveaux tuteurs connaissent bien l’historique et les besoins spécifiques des élèves qu’ils vont prendre en charge."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3FwVzcrzop9RBmmcLwiaRGv7i1w",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "La responsable d’un dispositif d’accompagnement scolaire explique à un groupe de bénévoles qu’il est crucial d’assurer le suivi des élèves lorsque l’un des bénévoles quitte le dispositif, afin de vérifier que les élèves concernés ne se retrouvent pas sans soutien et qu’une solution de remplacement est rapidement mise en place."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion d’information sur un programme de tutorat, la responsable insiste sur le fait que le suivi des élèves est particulièrement important au moment des réunions régulières de coordination avec les écoles, car c’est l’occasion de faire le point sur la progression de chaque élève et d’ajuster les mesures d’aide."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une présentation du fonctionnement d’une association d’aide aux devoirs, la responsable explique qu’il est particulièrement important d’assurer le suivi des élèves quand on ouvre une nouvelle période d’inscription, pour s’assurer que les élèves déjà suivis ne soient pas « perdus » dans l’afflux de nouveaux inscrits et que la continuité de leur accompagnement soit garantie."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant une séance d’information, la responsable explique que lors des séances de formation des nouveaux tuteurs, il est particulièrement important d’assurer le suivi des élèves, en vérifiant notamment que les nouveaux tuteurs connaissent bien l’historique et les besoins spécifiques des élèves qu’ils vont prendre en charge."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "Le suivi des élèves est le plus directement menacé par le départ d’un bénévole, ce qui crée un moment charnière où la continuité doit être particulièrement assurée; les autres moments sont plus routiniers (réunions, inscriptions, formation) et concernent davantage l’organisation globale que la continuité immédiate du suivi des élèves existants."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.4,
+            0.25,
+            0.15,
+            0.2
+          ],
+          "guess": 0,
+          "reason": "Tous les choix peuvent s’intégrer dans un contexte ordinaire, mais « Lorsqu’un bénévole quitte le dispositif » correspond le mieux à un moment particulièrement sensible pour la continuité du suivi des élèves; les autres moments sont plus structurels ou tournés vers l’organisation (coordination, inscriptions, formation) et moins directement liés à un risque immédiat de rupture de suivi, d’où une légère préférence pour l’option 0."
+        },
+        "usage": {
+          "prompt_tokens": 622,
+          "completion_tokens": 750,
+          "total_tokens": 1372,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 223,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0082775,
+        "inputHash": "de41ee0779567e7b22c4bf36ad65bdb82709ad6c54b04eb0b298c8d7da0105f5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:38:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix peuvent s’intégrer dans un contexte ordinaire, mais « Lorsqu’un bénévole quitte le dispositif » correspond le mieux à un moment particulièrement sensible pour la continuité du suivi des élèves; les autres moments sont plus structurels ou tournés vers l’organisation (coordination, inscriptions, formation) et moins directement liés à un risque immédiat de rupture de suivi, d’où une légère préférence pour l’option 0.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "weak",
+        "cue": "Le suivi des élèves est le plus directement menacé par le départ d’un bénévole, ce qui crée un moment charnière où la continuité doit être particulièrement assurée; les autres moments sont plus routiniers (réunions, inscriptions, formation) et concernent davantage l’organisation globale que la continuité immédiate du suivi des élèves existants."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "La responsable d’un dispositif d’accompagnement scolaire explique à un groupe de bénévoles qu’il est crucial d’assurer le suivi des élèves lorsque l’un des bénévoles quitte le dispositif, afin de vérifier que les élèves concernés ne se retrouvent pas sans soutien et qu’une solution de remplacement est rapidement mise en place."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une réunion d’information sur un programme de tutorat, la responsable insiste sur le fait que le suivi des élèves est particulièrement important au moment des réunions régulières de coordination avec les écoles, car c’est l’occasion de faire le point sur la progression de chaque élève et d’ajuster les mesures d’aide."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une présentation du fonctionnement d’une association d’aide aux devoirs, la responsable explique qu’il est particulièrement important d’assurer le suivi des élèves quand on ouvre une nouvelle période d’inscription, pour s’assurer que les élèves déjà suivis ne soient pas « perdus » dans l’afflux de nouveaux inscrits et que la continuité de leur accompagnement soit garantie."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Pendant une séance d’information, la responsable explique que lors des séances de formation des nouveaux tuteurs, il est particulièrement important d’assurer le suivi des élèves, en vérifiant notamment que les nouveaux tuteurs connaissent bien l’historique et les besoins spécifiques des élèves qu’ils vont prendre en charge."
+      }
+    ]
+  }
+}

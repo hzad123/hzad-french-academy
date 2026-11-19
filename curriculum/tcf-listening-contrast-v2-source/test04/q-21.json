@@ -1,0 +1,403 @@
+{
+  "question": {
+    "number": 21,
+    "kind": "announcement",
+    "question": "Selon le document, sur quels créneaux l’association manque-t-elle d’accompagnateurs ?",
+    "options": [
+      "Pour le créneau du vendredi en fin d’après-midi",
+      "Pour le créneau du vendredi matin",
+      "Pour le créneau du samedi en fin de journée",
+      "Pour le créneau du mercredi après-midi"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le texte dit explicitement que ce sont « celles du vendredi en fin d’après-midi » qui « manquent d’accompagnateurs ». C’est exactement le créneau décrit dans cette option. B : On pourrait retenir seulement le mot « vendredi » et oublier la précision « en fin d’après-midi », en pensant à tort que tout le vendredi est concerné, y compris le matin. Or le document limite clairement le manque d’accompagnateurs au créneau « en fin d’après-midi », ce qui exclut le vendredi matin. C : Quelqu’un qui comprend seulement l’idée générale de manque de bénévoles peut croire que d’autres jours comme le samedi sont aussi concernés. Pourtant, le texte ne mentionne jamais le samedi et précise au contraire que seules « celles du vendredi en fin d’après-midi » manquent d’accompagnateurs ; aucune séance du samedi n’est évoquée. D : L’auditeur peut retenir « Les séances du mercredi » et, en oubliant « sont déjà bien couvertes », penser que le mercredi pose problème, surtout si la distinction entre mercredi et vendredi n’est pas bien perçue. Le document dit pourtant explicitement que les séances du mercredi « sont déjà bien couvertes » et que ce sont uniquement « celles du vendredi en fin d’après-midi » qui manquent d’accompagnateurs.",
+    "transcript": "Question 21.\nL'association Lire ensemble cherche des bénévoles pour ses ateliers d'aide à la lecture. Les séances du mercredi sont déjà bien couvertes, mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs. Merci d'indiquer vos horaires possibles d'ici lundi. La responsable établira ensuite des groupes de deux, afin que personne n'anime une séance seul lors de sa première participation.\nSelon le document, sur quels créneaux l’association manque-t-elle d’accompagnateurs ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 21."
+      },
+      {
+        "voice": "female",
+        "text": "L'association Lire ensemble cherche des bénévoles pour ses ateliers d'aide à la lecture. Les séances du mercredi sont déjà bien couvertes, mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs. Merci d'indiquer vos horaires possibles d'ici lundi. La responsable établira ensuite des groupes de deux, afin que personne n'anime une séance seul lors de sa première participation."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, sur quels créneaux l’association manque-t-elle d’accompagnateurs ?"
+      }
+    ],
+    "audio": "q-21.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 54
+  },
+  "sourceHash": "2117ae4adcaef02818ba50a4bb1a55945b624112ab0e25737cdac1c62ded453a",
+  "contentHash": "0e997d47eb871341fcca6f638bf3c6c2725713bb499ab4f1de260138248aed46",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1C2YSTMvl1EIFShA5eVyx9W4rfc",
+    "result": {
+      "question": "D’après le document, pour quels créneaux l’association manque-t-elle d’accompagnateurs ?",
+      "choices": [
+        "Pour les séances du mercredi après-midi",
+        "Pour les séances du vendredi matin",
+        "Pour les séances du vendredi en fin d’après-midi",
+        "Pour les séances du samedi en fin de journée"
+      ],
+      "correctIndex": 2,
+      "explanation": "Le document précise que «les séances du mercredi sont déjà bien couvertes, mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs». Le manque concerne donc uniquement le créneau du vendredi en fin d’après-midi, et non le mercredi, un autre moment du vendredi ni un autre jour.",
+      "design": "Axe précis : le créneau horaire/jour qui manque de bénévoles. Les quatre réponses sont des créneaux proches (jour + moment de la journée) qui pourraient tous être en tension dans une association. Sans le document, chacun paraît également plausible comme créneau déficitaire. Seule l’écoute permet d’identifier que la pénurie vise spécifiquement le vendredi en fin d’après-midi, en opposition aux séances du mercredi qui sont déjà bien couvertes.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Cette option inverse le contraste établi dans le document : le mercredi est justement indiqué comme déjà bien pourvu. Un auditeur pouvant retenir seulement l’idée de «séances du mercredi» sans faire attention à «déjà bien couvertes» peut croire à tort que c’est le jour problématique.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les séances du mercredi sont déjà bien couvertes",
+            "mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs"
+          ]
+        },
+        {
+          "index": 1,
+          "reason": "Ici, le jour est correct mais le moment de la journée est élargi : le texte parle uniquement du «vendredi en fin d'après-midi». Un auditeur inattentif peut entendre «vendredi» et généraliser à toute la journée, oubliant la précision sur la fin d’après-midi.",
+          "operation": "scope_shift",
+          "anchors": [
+            "celles du vendredi en fin d'après-midi",
+            "manquent d'accompagnateurs"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option transpose le problème à un autre jour de fin de semaine, en gardant un moment proche («fin de journée»). Quelqu’un peut mémoriser qu’il s’agit d’un créneau en fin de journée lié à des activités périscolaires et projeter spontanément le samedi, alors que ce jour n’est jamais mentionné.",
+          "operation": "time_swap",
+          "anchors": [
+            "Les séances du mercredi sont déjà bien couvertes",
+            "celles du vendredi en fin d'après-midi manquent d'accompagnateurs"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4399,
+      "completion_tokens": 1354,
+      "total_tokens": 5753,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 801,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01903875,
+    "inputHash": "ee41391e1176c2b6c81cbc325668d2f0dfc5a27299189e8d38856abde089f225",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:20:6103f288fb85e78951f8f219:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "D’après le document, pour quels créneaux l’association manque-t-elle d’accompagnateurs ?",
+      "choices": [
+        "Pour les séances du vendredi en fin d’après-midi",
+        "Pour les séances du vendredi matin",
+        "Pour les séances du samedi en fin de journée",
+        "Pour les séances du mercredi après-midi"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1CK5QKoStirs61QoNgdByEpnfoh",
+      "result": {
+        "question": "Selon le document, sur quels créneaux l’association manque-t-elle d’accompagnateurs ?",
+        "choices": [
+          "Pour le créneau du vendredi en fin d’après-midi",
+          "Pour le créneau du vendredi matin",
+          "Pour le créneau du samedi en fin de journée",
+          "Pour le créneau du mercredi après-midi"
+        ],
+        "notes": "Question et réponses harmonisées autour de la notion de créneaux; les quatre propositions sont désormais formulées de manière parallèle, sans indice contextuel évident permettant de déduire la bonne réponse à partir du seul texte."
+      },
+      "usage": {
+        "prompt_tokens": 646,
+        "completion_tokens": 386,
+        "total_tokens": 1032,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 258,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0046675,
+      "inputHash": "79316bf641e35ab9d41621c0437e4904a7681fe003dc3f80429d8619a860a830",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:20:6103f288fb85e78951f8f219:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "5b80fd6b2beba5a37e487401bea6906b46d3d30c37e073704f1eeaae05fc9678",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question porte sur l’utilisation générale des disponibilités pour l’organisation, et l’option 3 reprend explicitement l’idée d’« organiser les plannings » à partir de ces informations, avec une formulation large et cohérente avec un document de planification de bénévoles, d’où une probabilité supérieure malgré la plausibilité des autres options.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation « À organiser les plannings » répond directement à l’idée d’utiliser des disponibilités, et le lien entre disponibilités indiquées et constitution de binômes par créneau constitue un usage classique et complet de ces informations, plus général que les autres réponses qui ciblent un besoin plus spécifique (suppression de créneaux, renforts extérieurs, choix d’un jour unique)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un coordinateur envoie un document aux bénévoles pour qu’ils indiquent leurs disponibilités. Il explique ensuite que ces disponibilités serviront à repérer les créneaux où il y a trop peu de volontaires, afin de supprimer ces créneaux du planning si nécessaire."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une association demande aux bénévoles de remplir un tableau de disponibilités. Dans un message explicatif, le responsable précise que ces informations permettront de voir si l’équipe est suffisante ou s’il faudra faire appel à des renforts extérieurs à l’association."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une organisation accueille de nouveaux bénévoles une fois par semaine et envoie un formulaire pour connaître les disponibilités de l’équipe actuelle. Elle explique que ces disponibilités serviront à choisir le jour qui sera réservé en priorité à l’accueil et à la formation des nouveaux bénévoles."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Le responsable d’une activité associative demande aux bénévoles de renseigner leurs créneaux disponibles dans un document. Il précise que ces disponibilités seront utilisées pour organiser les plannings en constituant des binômes sur chaque créneau afin d’assurer une présence minimale de deux personnes."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1COZlD8tsLZy8bSGqCM4nsWmaIC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une bénévole de l’association présente l’organisation hebdomadaire des accompagnements lors d’une réunion : elle déroule les différents créneaux et précise que globalement la semaine est couverte, mais qu’« il nous manque encore des accompagnateurs pour le créneau du samedi en fin de journée »."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un coordinateur associatif commente au téléphone la répartition des bénévoles en disant que tous les créneaux sont presque complets, sauf « le créneau du mercredi après-midi où on manque vraiment d’accompagnateurs » et pour lequel il cherche quelqu’un de disponible."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un message vocal envoyé aux membres, la personne en charge explique qu’ils ont assez de monde le matin et le week-end, mais qu’« on a un vrai souci sur le créneau du vendredi en fin d’après-midi, il nous manque des accompagnateurs pour maintenir l’activité »."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un enregistrement diffusé en réunion, le responsable explique le planning : tous les créneaux sont couverts sauf « le créneau du vendredi matin, où il nous manque des accompagnateurs », et il invite les adhérents à se proposer s’ils sont disponibles à ce moment-là."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre créneaux proposés sont formulés de manière équivalente, tous grammaticalement corrects et tous répondent directement à la question sans indice de préférence textuelle ; aucune option ne se distingue clairement, d’où une forte incertitude et une distribution uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 613,
+          "completion_tokens": 442,
+          "total_tokens": 1055,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 55,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00518625,
+        "inputHash": "1f33ac8292ed1bacc7598590db589dcf1550f55b4177ffe81572323611862826",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:20:6103f288fb85e78951f8f219:screen:1:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1CTwM1TiBW9v5IlwUBFmdGQdqCr",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un enregistrement, un responsable d’association qui organise des sorties pour enfants explique les besoins en bénévoles : il détaille les différents créneaux hebdomadaires (mercredi matin, mercredi après-midi, samedi, etc.) et précise qu’il manque particulièrement d’accompagnateurs le mercredi après-midi pour les activités sportives ou d’aide aux devoirs."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion enregistrée, le coordinateur d’une association de loisirs explique que la plupart des créneaux sont couverts, mais qu’il reste un manque d’accompagnateurs le samedi en fin de journée pour les retours de sorties ou les activités se terminant tard, et il invite les bénévoles à se positionner sur ce créneau-là."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message vocal adressé aux adhérents, la présidente d’une association d’aide à la mobilité des personnes âgées décrit les tournées hebdomadaires et signale qu’il manque encore des accompagnateurs pour le créneau du vendredi matin, au moment des rendez-vous médicaux réguliers."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant une annonce diffusée lors d’une assemblée générale, un membre du bureau d’une association culturelle liste les créneaux où des renforts sont nécessaires et souligne qu’ils manquent d’accompagnateurs le vendredi en fin d’après-midi pour encadrer les trajets après l’école ou la mise en place d’ateliers du vendredi soir."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre créneaux proposés sont tous des réponses directes et plausibles à la question sans élément textuel distinctif dans l’énoncé. Aucun choix ne présente d’avantage clair de formulation, de précision ou de pertinence observable, donc la clé ne peut pas être inférée de façon fiable ; le choix 0 est donné par simple nécessité de réponse, avec une incertitude maximale."
+        },
+        "usage": {
+          "prompt_tokens": 613,
+          "completion_tokens": 505,
+          "total_tokens": 1118,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 52,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00581625,
+        "inputHash": "2f45a429878e1b690fdfb74a988868f961c1df67f7c18a4883acbcfcbb145017",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:20:6103f288fb85e78951f8f219:screen:1:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1CbLaCipdmxbLhlcFBuN73SRl46",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document indique clairement que l’association manque d’accompagnateurs pour le créneau du vendredi en fin d’après-midi uniquement.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "celles du vendredi en fin d'après-midi manquent d'accompagnateurs."
+          ],
+          "reason": "Le texte dit explicitement que ce sont « celles du vendredi en fin d’après-midi » qui « manquent d’accompagnateurs ». C’est exactement le créneau décrit dans cette option.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "celles du vendredi en fin d'après-midi manquent d'accompagnateurs."
+          ],
+          "reason": "On pourrait retenir seulement le mot « vendredi » et oublier la précision « en fin d’après-midi », en pensant à tort que tout le vendredi est concerné, y compris le matin. Or le document limite clairement le manque d’accompagnateurs au créneau « en fin d’après-midi », ce qui exclut le vendredi matin.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les séances du mercredi sont déjà bien couvertes, mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs."
+          ],
+          "reason": "Quelqu’un qui comprend seulement l’idée générale de manque de bénévoles peut croire que d’autres jours comme le samedi sont aussi concernés. Pourtant, le texte ne mentionne jamais le samedi et précise au contraire que seules « celles du vendredi en fin d’après-midi » manquent d’accompagnateurs ; aucune séance du samedi n’est évoquée.",
+          "misunderstanding": "timing"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les séances du mercredi sont déjà bien couvertes, mais celles du vendredi en fin d'après-midi manquent d'accompagnateurs."
+          ],
+          "reason": "L’auditeur peut retenir « Les séances du mercredi » et, en oubliant « sont déjà bien couvertes », penser que le mercredi pose problème, surtout si la distinction entre mercredi et vendredi n’est pas bien perçue. Le document dit pourtant explicitement que les séances du mercredi « sont déjà bien couvertes » et que ce sont uniquement « celles du vendredi en fin d’après-midi » qui manquent d’accompagnateurs.",
+          "misunderstanding": "timing"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 732,
+      "completion_tokens": 826,
+      "total_tokens": 1558,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 300,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.009175,
+    "inputHash": "62dc372ba077e8aa41a048a57b6421d400058619b0d7e0eef337da06b560d0ef",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:20:6103f288fb85e78951f8f219:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

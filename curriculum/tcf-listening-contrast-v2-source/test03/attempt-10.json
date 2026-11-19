@@ -1,0 +1,352 @@
+{
+  "question": {
+    "number": 10,
+    "kind": "dialogue",
+    "question": "Pour quels comprimés est annoncée la rupture de stock ?",
+    "options": [
+      "Les comprimés au dosage standard.",
+      "Les comprimés en petit conditionnement.",
+      "Les comprimés de la spécialité de marque prescrite.",
+      "Les comprimés de la spécialité générique équivalente."
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : Le pharmacien annonce clairement : « Nous n'avons plus les comprimés de cette marque », ce qui signifie que la rupture de stock concerne la spécialité de marque figurant sur l’ordonnance. Il ajoute seulement qu’« le même dosage existe en générique », ce qui confirme que seule la marque manque, pas l’équivalent générique. A : L’auditeur pourrait se focaliser sur « le même dosage existe » et en déduire à tort que la rupture porte sur le « dosage standard ». En réalité, la phrase complète « Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique. » montre que ce n’est pas le dosage qui manque, mais bien la marque : le dosage reste disponible en générique, donc il n’y a pas de rupture pour les comprimés au dosage standard lui‑même. B : Quelqu’un qui comprend mal pourrait associer la mention d’« une boîte » au lendemain avec une idée de « petit conditionnement » spécialement commandé. Toutefois, le dialogue ne parle jamais de taille ou de type de conditionnement ; il s’agit seulement de réserver une boîte (sans précision de format) parce que le produit de marque est en rupture. Rien n’indique que la rupture concerne seulement un petit conditionnement. D : On pourrait confondre et croire que, puisque l’on parle du générique, c’est lui qui pose problème. Pourtant, la phrase est contrastive : « Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique. » Le générique est précisément présenté comme la solution disponible, donc il n’est pas en rupture de stock.",
+    "transcript": "Question 10.\nBonjour, je viens renouveler mon traitement. Voici mon ordonnance.\nNous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique.\nMa médecin m'avait recommandé de ne pas changer sans la prévenir.\nDans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution.\nJe préfère cette solution, merci.\nPour quels comprimés est annoncée la rupture de stock ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 10."
+      },
+      {
+        "voice": "female",
+        "text": "Bonjour, je viens renouveler mon traitement. Voici mon ordonnance."
+      },
+      {
+        "voice": "male",
+        "text": "Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique."
+      },
+      {
+        "voice": "female",
+        "text": "Ma médecin m'avait recommandé de ne pas changer sans la prévenir."
+      },
+      {
+        "voice": "male",
+        "text": "Dans ce cas, je peux réserver une boîte pour demain et contacter son cabinet pour vérifier la substitution."
+      },
+      {
+        "voice": "female",
+        "text": "Je préfère cette solution, merci."
+      },
+      {
+        "voice": "female",
+        "text": "Pour quels comprimés est annoncée la rupture de stock ?"
+      }
+    ],
+    "audio": "q-10.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 42
+  },
+  "sourceHash": "b66ad8df837c8b096bd61866e2f668d25b2fe17044861036467709d6c0f1e161",
+  "contentHash": "f4731ead24b585a7e5187d36f8fab1f988dfa9535089dd79e499ab5e6203fa3d",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Quelle rupture de stock est annoncée ?",
+      "choices": [
+        "Les comprimés au dosage habituel.",
+        "Les comprimés en petit conditionnement.",
+        "Les comprimés de la marque prescrite.",
+        "Les comprimés équivalents en générique."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em154xRmQo9SKvrE9e1J2uOxkqVBR",
+      "result": {
+        "question": "Pour quels comprimés est annoncée la rupture de stock ?",
+        "choices": [
+          "Les comprimés au dosage standard.",
+          "Les comprimés en petit conditionnement.",
+          "Les comprimés de la spécialité de marque prescrite.",
+          "Les comprimés de la spécialité générique équivalente."
+        ],
+        "notes": "L’énoncé reste centré sur la même information (type de comprimés concerné par une rupture de stock) sans suggérer qu’un type serait plus logique qu’un autre. Les quatre options décrivent des catégories comparables (dosage, conditionnement, marque, générique) avec un niveau de précision équilibré et un ton professionnel, sans introduire de justification ou de jugement de valeur."
+      },
+      "usage": {
+        "prompt_tokens": 634,
+        "completion_tokens": 406,
+        "total_tokens": 1040,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 248,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0048525,
+      "inputHash": "d3123cf9ce8cf0161ebdde512ae5531d2812d246fbe068ca8611a75b314610cb",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "0d28e3fe9aabe87aac39a5f2afc9b53357fe08c530a3546a0e553bc6e2ad44b3",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 0 correspond le mieux, de façon directe et conforme aux usages courants, à la décision typiquement décrite lorsqu’on explique quoi faire en l’absence du médicament de marque demandé ; néanmoins, sans enregistrement, une incertitude significative demeure.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation simple, directe et centrée sur la substitution immédiate par le générique en stock, ce qui correspond à la pratique standard et à l’interprétation la plus naturelle de la question portant sur la décision « en l’absence du médicament de marque demandé »."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une officine, un patient présente une ordonnance pour un médicament de marque, qui est momentanément en rupture. Le pharmacien voit qu’il dispose du générique correspondant en stock et explique au patient : en l’absence de la marque demandée, il décide de délivrer immédiatement le générique disponible afin de ne pas interrompre le traitement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une pharmacie, un patient demande un médicament de marque qui n’est pas disponible, et aucun générique ni alternative appropriée n’est en stock. Le pharmacien explique qu’en l’absence du médicament de marque demandé et d’équivalent disponible, il ne délivrera pour l’instant aucun traitement et demande au patient de revenir avec une nouvelle ordonnance modifiée par le médecin."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Au comptoir, le pharmacien constate que le médicament de marque prescrit est en rupture et qu’une nouvelle livraison doit arriver le lendemain. Il indique au patient qu’il va mettre de côté une boîte pour le lendemain et qu’il appellera le cabinet médical pour valider une éventuelle substitution au générique ou une autre solution, en expliquant que c’est la décision qu’il prend dans ce type de situation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une explication de ses pratiques à un patient méfiant envers les génériques, le pharmacien décrit que, lorsqu’un médicament de marque demandé manque, il peut choisir de proposer de commander uniquement cette spécialité de marque et refuser de délivrer le générique pourtant disponible, par respect d’un accord préalable avec certains patients bien informés de ce choix."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em159ObgdLrs4Y7gWnrK9i0qDphfl",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une pharmacie, le pharmacien écoute un message du grossiste répartiteur annonçant qu’une rupture de stock concerne uniquement les comprimés au dosage standard d’un médicament (et non les dosages plus faibles ou plus forts). Il répond ensuite à un collègue qui lui demande quels comprimés sont en rupture de stock : il dit que ce sont les comprimés au dosage standard."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion d’information entre un pharmacien et un visiteur médical, un enregistrement de l’ANSM ou du laboratoire est diffusé, annonçant une rupture de stock. On y précise que seule la spécialité générique équivalente est en rupture, alors que la spécialité de marque reste disponible. À la question « Pour quels comprimés est annoncée la rupture de stock ? », on répond : pour les comprimés de la spécialité générique équivalente."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message vocal envoyé par un fournisseur à une officine, on précise que la rupture de stock ne concerne que les petits conditionnements (boîtes de 14 comprimés, par exemple), alors que les grands conditionnements restent livrables. Le pharmacien, interrogé ensuite, répond que la rupture de stock est annoncée pour les comprimés en petit conditionnement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un bulletin d’information hospitalier diffusé par haut-parleur ou en fichier audio précise qu’il y a une rupture de stock sur la spécialité de marque qui est habituellement prescrite, tandis que le générique reste disponible. À la question « Pour quels comprimés est annoncée la rupture de stock ? », un professionnel répond : pour les comprimés de la spécialité de marque prescrite."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre options répondent naturellement à la question dans des contextes pharmaceutiques ordinaires, sans indice textuel clair permettant de privilégier l’une plutôt qu’une autre. L’item 3 est choisi comme meilleure hypothèse par nécessité, mais avec une incertitude maximale et sans véritable avantage de formulation par rapport aux autres."
+        },
+        "usage": {
+          "prompt_tokens": 607,
+          "completion_tokens": 608,
+          "total_tokens": 1215,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 115,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00683875,
+        "inputHash": "c134b0a689e420c9674fb989850a0e0b9897050093abfd06894ab231954912c4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:6103f288fb85e78951f8f219:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em15LjnMfNkdS9xp5C6aySH6UHbXT",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une pharmacienne explique à un patient que seule la version au dosage standard de son médicament est momentanément en rupture de stock, tandis que le dosage plus faible et le dosage fort restent disponibles."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Au comptoir d’une pharmacie, le préparateur précise qu’il n’y a plus de comprimés vendus en petit conditionnement (boîtes de 14 ou 20), mais que les grands conditionnements (boîtes de 60 ou 90) sont encore en stock."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un pharmacien informe un patient que la rupture de stock ne concerne que la spécialité de marque exactement prescrite par son médecin, mais qu’un générique équivalent peut être proposé à la place."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une officine, on annonce que la rupture de stock porte sur les comprimés du générique habituellement délivré, alors que la spécialité de marque plus coûteuse reste disponible pour ce médicament."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 2,
+          "reason": "Les quatre options peuvent répondre directement à la question dans un contexte ordinaire de pharmacie ou d’annonce de disponibilité de médicaments, sans contradiction logique ni défaut grammatical. Aucun indice textuel clair (ni de style, ni de portée, ni de pertinence évidente) ne favorise nettement un choix. La sélection de l’option 2 comme clé supposée reste donc très incertaine, avec des probabilités réparties uniformément faute de véritable avantage observable dans l’énoncé seul."
+        },
+        "usage": {
+          "prompt_tokens": 607,
+          "completion_tokens": 565,
+          "total_tokens": 1172,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 195,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00640875,
+        "inputHash": "457042ef0acea69707192831fe2dd500a7ddde4d2c0403ef71e09b1f17721289",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:6103f288fb85e78951f8f219:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em15XXVsTUpFEdfcUABpqFZXpcGVd",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La rupture de stock concerne les comprimés de la spécialité de marque prescrite : le pharmacien dit qu’ils n’a plus « les comprimés de cette marque », alors que le générique équivalent est disponible.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais le même dosage existe en générique."
+          ],
+          "reason": "L’auditeur pourrait se focaliser sur « le même dosage existe » et en déduire à tort que la rupture porte sur le « dosage standard ». En réalité, la phrase complète « Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique. » montre que ce n’est pas le dosage qui manque, mais bien la marque : le dosage reste disponible en générique, donc il n’y a pas de rupture pour les comprimés au dosage standard lui‑même.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Dans ce cas, je peux réserver une boîte pour demain"
+          ],
+          "reason": "Quelqu’un qui comprend mal pourrait associer la mention d’« une boîte » au lendemain avec une idée de « petit conditionnement » spécialement commandé. Toutefois, le dialogue ne parle jamais de taille ou de type de conditionnement ; il s’agit seulement de réserver une boîte (sans précision de format) parce que le produit de marque est en rupture. Rien n’indique que la rupture concerne seulement un petit conditionnement.",
+          "misunderstanding": "referent_confusion"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Nous n'avons plus les comprimés de cette marque"
+          ],
+          "reason": "Le pharmacien annonce clairement : « Nous n'avons plus les comprimés de cette marque », ce qui signifie que la rupture de stock concerne la spécialité de marque figurant sur l’ordonnance. Il ajoute seulement qu’« le même dosage existe en générique », ce qui confirme que seule la marque manque, pas l’équivalent générique.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais le même dosage existe en générique."
+          ],
+          "reason": "On pourrait confondre et croire que, puisque l’on parle du générique, c’est lui qui pose problème. Pourtant, la phrase est contrastive : « Nous n'avons plus les comprimés de cette marque, mais le même dosage existe en générique. » Le générique est précisément présenté comme la solution disponible, donc il n’est pas en rupture de stock.",
+          "misunderstanding": "polarity_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 722,
+      "completion_tokens": 1172,
+      "total_tokens": 1894,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 571,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0126225,
+    "inputHash": "4dd6ca37995e37ba2dd714857880701d8070fda0be509bd26305c1f1053aebfc",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:9:6103f288fb85e78951f8f219:ground:0"
+  },
+  "feedback": null
+}

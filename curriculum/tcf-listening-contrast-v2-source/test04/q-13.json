@@ -1,0 +1,519 @@
+{
+  "question": {
+    "number": 13,
+    "kind": "announcement",
+    "question": "À quel jour les expériences du groupe de troisième sont-elles finalement fixées ?",
+    "options": [
+      "Lundi",
+      "Mercredi",
+      "Jeudi",
+      "Mardi"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La phrase finale indique explicitement : « Les expériences du groupe de troisième sont reportées à jeudi. » C’est donc bien le jeudi qui est la nouvelle date fixée pour ces expériences. A : On entend que le laboratoire sera accessible « lundi et mercredi », ce qui peut faire croire que les expériences auront lieu un de ces jours. Mais la phrase précise clairement que « Les expériences du groupe de troisième sont reportées à jeudi. » Donc lundi concerne seulement l’accessibilité du laboratoire, pas la date des expériences. B : L’auditeur peut se focaliser sur « lundi et mercredi » et penser que les expériences ont été déplacées à mercredi, car c’est un des jours d’ouverture du laboratoire. Cependant, l’énoncé spécifie ensuite : « Les expériences du groupe de troisième sont reportées à jeudi. » La disponibilité du laboratoire mercredi ne signifie pas que les expériences se déroulent ce jour-là. D : On pourrait croire que, puisque le laboratoire est fermé aux classes mardi, les expériences de troisième auraient dû avoir lieu ce jour-là et donc confondre la fermeture avec la date retenue. En réalité, la fermeture explique un report, mais la nouvelle date est donnée clairement : « Les expériences du groupe de troisième sont reportées à jeudi. » Mardi est seulement le jour de fermeture pour travaux, pas la date finale des expériences.",
+    "transcript": "Question 13.\nLe laboratoire de sciences restera accessible aux enseignants lundi et mercredi, mais il sera fermé aux classes mardi pour vérifier les installations électriques. Les travaux n'affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement. Les expériences du groupe de troisième sont reportées à jeudi.\nÀ quel jour les expériences du groupe de troisième sont-elles finalement fixées ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 13."
+      },
+      {
+        "voice": "female",
+        "text": "Le laboratoire de sciences restera accessible aux enseignants lundi et mercredi, mais il sera fermé aux classes mardi pour vérifier les installations électriques. Les travaux n'affectent pas la bibliothèque, où les ateliers de lecture auront lieu normalement. Les expériences du groupe de troisième sont reportées à jeudi."
+      },
+      {
+        "voice": "female",
+        "text": "À quel jour les expériences du groupe de troisième sont-elles finalement fixées ?"
+      }
+    ],
+    "audio": "q-13.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 39
+  },
+  "sourceHash": "196f5e209dd68a4d6e0e1cdf867cbe5cafba012c505ea0de43e63a79fe613716",
+  "contentHash": "aa661added6f1ca1adad149aeb876f137764ab3f6a166a1a26fd1e3de008eadd",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 4,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1D1FrSfJJOiFUzDXw7Lh1UZFKWb",
+    "result": {
+      "question": "À quel jour les expériences du groupe de troisième sont-elles finalement reportées ?",
+      "choices": [
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Les expériences du groupe de troisième sont « reportées à jeudi ». Les autres jours sont mentionnés pour l’accessibilité du laboratoire ou sa fermeture, mais pas comme nouvelle date des expériences.",
+      "design": "Test du repérage précis d’un jour de report dans un court message d’organisation scolaire. Même axe sémantique pour les quatre options (jour de la semaine), toutes crédibles sans le document. Le bon choix (jeudi) s’oppose à trois jours réellement cités dans l’enregistrement mais associés à d’autres rôles (ouverture du labo aux enseignants, jour de fermeture). L’élève doit suivre la fin de l’énoncé et distinguer les fonctions respectives de chaque jour.",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Lundi est tentant car le laboratoire « restera accessible aux enseignants lundi », ce qui peut faire croire que les expériences reportées auront lieu dès cette première journée où le labo est ouvert. En réalité, cette mention ne concerne que l’accès des enseignants ; la phrase qui parle des expériences précise qu’elles sont « reportées à jeudi ».",
+          "operation": "time_swap",
+          "anchors": [
+            "restera accessible aux enseignants lundi et mercredi",
+            "Les expériences du groupe de troisième sont reportées à jeudi"
+          ]
+        },
+        {
+          "index": 1,
+          "reason": "Mardi peut être choisi à tort en retenant surtout le passage où le laboratoire « sera fermé aux classes mardi » et en confondant ce jour problématique avec la nouvelle date des expériences. En fait, mardi est justement le jour où les classes, dont le groupe de troisième, ne peuvent pas utiliser le laboratoire ; les expériences sont explicitement « reportées à jeudi ».",
+          "operation": "time_swap",
+          "anchors": [
+            "il sera fermé aux classes mardi",
+            "Les expériences du groupe de troisième sont reportées à jeudi"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Mercredi semble plausible car, comme lundi, il est cité parmi les jours où le laboratoire « restera accessible aux enseignants ». Un auditeur distrait peut en déduire que les expériences reportées auront lieu au prochain jour d’ouverture complet. Pourtant, le document distingue clairement ces informations : l’accessibilité est indiquée pour « lundi et mercredi », tandis que le report des expériences est annoncé « à jeudi ».",
+          "operation": "time_swap",
+          "anchors": [
+            "restera accessible aux enseignants lundi et mercredi",
+            "Les expériences du groupe de troisième sont reportées à jeudi"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4259,
+      "completion_tokens": 1350,
+      "total_tokens": 5609,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 813,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01882375,
+    "inputHash": "4a3954c10abdddb80de781e92ad7ca325f41fd8631e91dc195a178913cf44ef7",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:12:6103f288fb85e78951f8f219:author:3:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "À quel jour les expériences du groupe de troisième sont-elles finalement reportées ?",
+      "choices": [
+        "Lundi",
+        "Mercredi",
+        "Jeudi",
+        "Mardi"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em1DKeEvy4AeKCJJURfby5wX2HxzO",
+      "result": {
+        "question": "À quel jour les expériences du groupe de troisième sont-elles finalement fixées ?",
+        "choices": [
+          "Lundi",
+          "Mercredi",
+          "Jeudi",
+          "Mardi"
+        ],
+        "notes": "Légère reformulation de la question (\"finalement fixées\" plutôt que \"finalement reportées\") pour retirer l’idée d’un report spécifique tout en conservant la référence temporelle. Les quatre jours restent des réponses directes et équivalentes, sans indice de plausibilité particulier."
+      },
+      "usage": {
+        "prompt_tokens": 617,
+        "completion_tokens": 228,
+        "total_tokens": 845,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 116,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00305125,
+      "inputHash": "dd4ff83301ecb509c4107341eb38dd95c775fcb71e093ebb69415e1f03109a8b",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:12:6103f288fb85e78951f8f219:blind-edit:before:4"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "07809e76b75e7eb9e6e5f2c6cc306df1dd19c8471b51549a66021459cdd5877a",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre normalement à la question selon le contexte de l’annonce. Aucun indice décisif ne permet d’écarter formellement les autres. L’option 2 bénéficie toutefois d’un léger avantage de plausibilité comme activité scolaire typiquement mentionnée à des élèves dans un enregistrement, d’où une probabilité un peu plus élevée mais avec une incertitude importante.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation centrée sur une activité pédagogique précise et typique (expériences d’un groupe d’élèves) qui correspond bien à ce qu’un enregistrement scolaire signalerait comme annulé pour une journée donnée, alors que l’option 3 est plus indirecte (préparations de cours) et moins souvent l’objet d’une annonce explicite aux auditeurs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un message du service technique annonce que mardi, en raison d’une coupure de courant, les contrôles des installations électriques du laboratoire prévus ce jour-là ne pourront pas avoir lieu et seront reportés."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une annonce de la bibliothèque scolaire informe que, mardi, la bibliothèque sera fermée pour inventaire, donc les ateliers de lecture organisés à la bibliothèque ne pourront pas avoir lieu ce jour-là."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un professeur de sciences s’adresse à ses élèves de troisième et explique que, mardi, le laboratoire sera occupé par des techniciens, donc les expériences prévues pour le groupe de troisième au laboratoire ne pourront pas avoir lieu."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un message interne à l’équipe pédagogique précise que, mardi, le laboratoire sera inaccessible toute la journée pour travaux, donc les préparations de cours des enseignants au laboratoire ne pourront pas avoir lieu."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "e08007a7936ee1c6b018dfd796cf7caa55179d4043a4ed8eb5f3a0ef4b5aefa8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses peuvent correspondre à un changement, mais le report explicite et global « elles sont repoussées à jeudi » cadre le mieux avec la formulation générale de la question (« Quel changement est prévu... »), qui suggère une modification claire de la date pour l’ensemble des expériences plutôt qu’un simple changement de lieu ou l’annulation partielle d’une seule journée.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "La formulation « elles sont repoussées à jeudi » exprime un changement global et précis affectant l’ensemble des expériences du groupe, ce qui correspond très directement à la notion de « changement prévu », plus nettement que l’annulation d’une seule partie (« celles de mardi ») ou un simple rappel de lieu ou de début."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un professeur de sciences annonce aux élèves : « Pour le groupe de troisième, il y a un petit changement : les expériences auront lieu dès lundi au lieu de plus tard dans la semaine. » La question récapitule ce changement de date générale pour ce groupe."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une documentaliste explique au micro : « Il y a un changement pour le groupe de troisième : toutes leurs expériences auront lieu à la bibliothèque, pas en salle de sciences. » La question porte alors sur la nature de ce changement (le lieu)."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un enseignant informe sa classe : « Attention, changement pour les expériences du groupe de troisième : elles sont repoussées à jeudi. » L’enregistrement insiste sur le report à une nouvelle date précise."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un coordinateur pédagogique dit : « Changement pour les expériences du groupe de troisième : celles de mardi sont annulées, les autres sont maintenues. » La question demande quel changement est prévu, et l’annulation partielle du mardi en est la réponse."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "b06ea0dbd9835c2cffeec95a415b91af549432bff5a5105d484f1249eb8797ee",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le pluriel \"quels jours\" suggère qu’il y a au moins deux jours d’ouverture, ce qui affaiblit légèrement les réponses ne mentionnant qu’un seul jour. Entre les deux réponses plurielles, \"Lundi, mardi et mercredi.\" se distingue par sa longueur et son caractère plus complet, indice fréquent de bonne réponse dans ce type de QCM, d’où une probabilité un peu plus élevée pour l’option 2 malgré une incertitude réelle faute d’accès au document audio.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La question emploie le pluriel \"quels jours\", ce qui oriente plutôt vers plusieurs jours; parmi les réponses plurielles, \"Lundi, mardi et mercredi.\" est la plus détaillée et la plus longue, donnant une impression de réponse complète et privilégiée par sa rédaction."
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Réponse plurielle cohérente avec \"quels jours\" et formulation naturelle, mais légèrement moins détaillée que l’option 2, ce qui lui donne un léger désavantage formel."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de rentrée, le directeur dit : \"Le laboratoire de sciences est ouvert aux enseignants uniquement un jour par semaine. D’après le document, quels jours le laboratoire de sciences est-il ouvert aux enseignants ?\" Un enseignant qui a lu le document répond : \"Mardi.\""
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une responsable pédagogique présente un planning : \"Vous avez reçu un document avec les jours d’ouverture du laboratoire. D’après le document, quels jours le laboratoire de sciences est-il ouvert aux enseignants ?\" Un collègue qui a vu que c’est seulement un jour répond : \"Lundi.\""
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une formation, on projette un document décrivant les horaires : \"Regardez bien le tableau. D’après le document, quels jours le laboratoire de sciences est-il ouvert aux enseignants ?\" Un participant lit la ligne correspondante et répond : \"Lundi, mardi et mercredi.\""
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Pendant une annonce audio d’organisation de la semaine, la direction explique les créneaux d’accès au laboratoire. Plus tard, on pose la question : \"D’après le document, quels jours le laboratoire de sciences est-il ouvert aux enseignants ?\" Un enseignant qui se réfère au document répond : \"Lundi et mercredi.\""
+          }
+        ]
+      }
+    },
+    {
+      "signature": "2e45bbe4482c3796215988e4a4df28ad8b4a861c10a4eb30b4ee3aa554b6128f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 0 correspond à une justification claire, directe et très typique d’un avis de fermeture de laboratoire dans un établissement scolaire, alors que l’option 2 présente une relation cause/conséquence peu naturelle et que 1 et 3 sont plus indirectes ou atypiques pour un laboratoire de sciences. L’incertitude demeure car le document audio n’est pas disponible, mais l’avantage de rédaction et de plausibilité institutionnelle de l’option 0 est net.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation institutionnelle standard (« pour procéder à une vérification des installations électriques ») typique d’un message administratif justifiant la fermeture ponctuelle d’un local ; les autres raisons sont soit moins directement causales (report d’expériences, travaux concernant un autre lieu), soit moins naturelles pour un labo (réservation pour des ateliers de lecture)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un collège, un message diffusé au micro annonce : « Attention, le laboratoire de sciences sera fermé mardi pour procéder à une vérification des installations électriques. Les cours concernés auront lieu en salle 12. » La raison donnée répond directement à la question."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une semaine thématique sur la lecture, la direction annonce : « Mardi, le laboratoire de sciences sera fermé au public parce qu’il sera réservé aux ateliers de lecture organisés par le CDI. » La fermeture du labo est expliquée par sa réservation pour ces ateliers."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "Dire que le labo ferme « à cause du report des expériences prévues avec le groupe de troisième » est inhabituel : le report des expériences est plutôt une conséquence de la fermeture ou d’un autre problème (professeur absent, panne, travaux), pas une cause suffisante et directe pour fermer le laboratoire un jour précis. Dans un contexte ordinaire, on n’explique pas une fermeture par le simple report d’activités qui pourraient avoir lieu plus tard."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un établissement où la bibliothèque et le labo de sciences partagent des locaux ou des réseaux, un responsable annonce : « Mardi, le laboratoire de sciences sera fermé en raison de travaux qui concernent la bibliothèque et nécessitent la coupure de l’électricité dans cette aile du bâtiment. » La raison donnée reste directement liée à la fermeture du labo."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1DNAuvxSuTUnEsf99luSuXz6bFw",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion entre un professeur de sciences et ses élèves de troisième, ils discutent plusieurs reports pour des expériences au laboratoire. Après quelques hésitations, le professeur conclut : « Bon, pour le groupe de troisième, on va finalement faire les expériences lundi. » À la question « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? », on répondrait directement : « Lundi. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un message vocal envoyé aux parents, une enseignante explique que, suite à un changement de planning de la salle de sciences, les expériences prévues pour les élèves de troisième auront lieu le jeudi au lieu d’un autre jour. Interrogé ensuite, un élève répondrait à la question « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? » par : « Jeudi. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant un cours, le professeur rappelle que les expériences du groupe de troisième ont été plusieurs fois déplacées, puis annonce : « Finalement, on les fera mardi, comme ça vous aurez le temps de préparer vos comptes rendus. » Un élève interrogé ensuite répondrait à la question en disant : « Mardi. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une annonce au micro dans un collège, la direction précise que les expériences de sciences pour le groupe de troisième, initialement prévues un autre jour, sont finalement fixées au mercredi matin, pendant la plage de travaux pratiques. Plus tard, à la question posée, on répondrait naturellement : « Mercredi. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre jours proposés sont tous également compatibles avec la question portant simplement sur le jour finalement retenu pour des expériences ; aucun indice textuel ne favorise un choix particulier, d’où une incertitude totale et des probabilités uniformes."
+        },
+        "usage": {
+          "prompt_tokens": 581,
+          "completion_tokens": 473,
+          "total_tokens": 1054,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 33,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00545625,
+        "inputHash": "732665a8f193ec9d5fd5ca8cc4cd1cc7f85c1815fc124ff140fc8973c943f2fc",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:12:6103f288fb85e78951f8f219:screen:4:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em1DTHh1SHVBFUDpkBfHDXxEtsl7V",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un professeur de sciences parle à ses élèves de troisième en fin de cours : après avoir envisagé plusieurs dates, il conclut finalement que les expériences auront lieu lundi, et un élève demande confirmation : « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? » Le professeur répond : « Lundi. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une réunion de coordination au collège, le coordinateur annonce que, compte tenu de la disponibilité du laboratoire, les expériences prévues pour les élèves de troisième auront finalement lieu le jeudi. Un collègue demande : « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? » et on lui répond : « Jeudi. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un message vocal adressé aux parents, la professeure explique qu’après quelques changements d’emploi du temps, les expériences du groupe de troisième sont finalement programmées pour le mercredi. Un parent réécoute et demande : « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? » puis note la réponse : « Mercredi. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un surveillant lit à haute voix une note affichée en salle des professeurs indiquant que les expériences pour le groupe de troisième, initialement prévues un autre jour, sont finalement fixées au mardi. Un collègue lui demande : « À quel jour les expériences du groupe de troisième sont-elles finalement fixées ? » et il répond : « Mardi. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre jours proposés répondent de manière directe et naturelle à la question sans indice textuel permettant d’en privilégier un ; aucune différence de formulation ou de portée ne distingue une option des autres, d’où une incertitude totale et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 581,
+          "completion_tokens": 444,
+          "total_tokens": 1025,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 13,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00516625,
+        "inputHash": "69d096def35177d8142840f09cf6f06bcffb3d4a282aa6d9546c5e872d48819d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:12:6103f288fb85e78951f8f219:screen:4:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em1DYIFSsazykGalEFwRsbIW6YCFG",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les expériences du groupe de troisième sont finalement fixées au jeudi, comme indiqué explicitement dans l’énoncé.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le laboratoire de sciences restera accessible aux enseignants lundi et mercredi,",
+            "Les expériences du groupe de troisième sont reportées à jeudi."
+          ],
+          "reason": "On entend que le laboratoire sera accessible « lundi et mercredi », ce qui peut faire croire que les expériences auront lieu un de ces jours. Mais la phrase précise clairement que « Les expériences du groupe de troisième sont reportées à jeudi. » Donc lundi concerne seulement l’accessibilité du laboratoire, pas la date des expériences.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le laboratoire de sciences restera accessible aux enseignants lundi et mercredi,",
+            "Les expériences du groupe de troisième sont reportées à jeudi."
+          ],
+          "reason": "L’auditeur peut se focaliser sur « lundi et mercredi » et penser que les expériences ont été déplacées à mercredi, car c’est un des jours d’ouverture du laboratoire. Cependant, l’énoncé spécifie ensuite : « Les expériences du groupe de troisième sont reportées à jeudi. » La disponibilité du laboratoire mercredi ne signifie pas que les expériences se déroulent ce jour-là.",
+          "misunderstanding": "scope_confusion"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les expériences du groupe de troisième sont reportées à jeudi."
+          ],
+          "reason": "La phrase finale indique explicitement : « Les expériences du groupe de troisième sont reportées à jeudi. » C’est donc bien le jeudi qui est la nouvelle date fixée pour ces expériences.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "mais il sera fermé aux classes mardi pour vérifier les installations électriques.",
+            "Les expériences du groupe de troisième sont reportées à jeudi."
+          ],
+          "reason": "On pourrait croire que, puisque le laboratoire est fermé aux classes mardi, les expériences de troisième auraient dû avoir lieu ce jour-là et donc confondre la fermeture avec la date retenue. En réalité, la fermeture explique un report, mais la nouvelle date est donnée clairement : « Les expériences du groupe de troisième sont reportées à jeudi. » Mardi est seulement le jour de fermeture pour travaux, pas la date finale des expériences.",
+          "misunderstanding": "causal_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 676,
+      "completion_tokens": 670,
+      "total_tokens": 1346,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 134,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.007545,
+    "inputHash": "b87d73d73395e99a24e81fea58b49823a41963f0065407acc4a2ab4319b6185f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:12:6103f288fb85e78951f8f219:ground:4"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

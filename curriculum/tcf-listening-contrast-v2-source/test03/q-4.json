@@ -1,0 +1,181 @@
+{
+  "question": {
+    "number": 4,
+    "kind": "image",
+    "question": "Quelle description correspond à l’image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : Le médecin place un brassard autour du bras du patient et tient un boîtier, configuration caractéristique d’un tensiomètre servant à mesurer la tension artérielle. Aucun autre outil (stéthoscope, thermomètre, seringue) n’est visible, ce qui confirme que la scène correspond à une prise de tension et non à une autre procédure. A : Sur l’image, le médecin n’utilise pas de stéthoscope posé sur le thorax du patient, mais un brassard relié à un appareil tenu à la main. Quelqu’un pouvant associer automatiquement une consultation médicale au stéthoscope pourrait choisir cette réponse, mais aucun stéthoscope n’apparaît et le geste correspond à une mesure de tension, pas à l’auscultation du cœur. B : Pour prendre la température, on s’attendrait à voir un thermomètre (oral, frontal, auriculaire, etc.). Ici, le médecin enroule un brassard autour du bras du patient et tient un boîtier : c’est typique d’un tensiomètre. Quelqu’un qui verrait seulement un petit appareil dans la main du médecin pourrait croire à un thermomètre, mais la position sur le bras et la forme du dispositif contredisent cette interprétation. C : Une prise de sang nécessite généralement une aiguille ou une seringue insérée dans le bras du patient, avec éventuellement un tube pour recueillir le sang. Sur l’image, on voit un brassard large entourant le bras et un appareil, sans aiguille ni tube visible. Un observateur peu attentif pourrait confondre toute intervention sur le bras avec une prise de sang, mais l’absence de matériel de ponction montre que ce n’est pas le cas.",
+    "transcript": "Question 4.\nRegardez l’image et écoutez les propositions.\nA. Le médecin écoute le cœur du patient au stéthoscope. B. Le médecin prend la température du patient. C. Le médecin fait une prise de sang au patient. D. Le médecin prend la tension du patient.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 4."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Le médecin écoute le cœur du patient au stéthoscope. B. Le médecin prend la température du patient. C. Le médecin fait une prise de sang au patient. D. Le médecin prend la tension du patient."
+      }
+    ],
+    "audio": "q-04.mp3",
+    "audioSeconds": 18.547,
+    "slotSeconds": 34,
+    "image": "q-04.svg"
+  },
+  "sourceHash": "6853437582a34caafe3f5c5040f97ab630e9a9d1c274c71241e9e89f95363048",
+  "contentHash": "611f52569ebd03afaf6d8f0f05e8c832509e47b82178116b08b037e34c6259ac",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzXaZc2kqUyo0G88XX8FSmUn98s1",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En cours de français, les élèves regardent une image dans un manuel montrant un médecin qui tient un thermomètre sous l’aisselle ou dans la bouche d’un patient assis sur une table d’examen. Le professeur demande : « Quelle description correspond à l’image ? » et l’élève répond : « Le médecin prend la température du patient. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une vidéo pédagogique sur la visite médicale, on voit un médecin mettre un garrot, désinfecter le bras et insérer une aiguille dans la veine du patient avec un tube pour recueillir le sang. À la pause, l’enseignant demande : « Quelle description correspond à l’image ? » et quelqu’un répond : « Le médecin fait une prise de sang au patient. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un exercice de compréhension orale en classe montre la photo d’un médecin qui tient un stéthoscope contre la poitrine d’un patient assis, en train d’écouter. L’enseignant demande : « Quelle description correspond à l’image ? » et l’étudiant dit : « Le médecin écoute le cœur du patient au stéthoscope. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Sur l’écran d’une salle d’attente, une affiche de prévention montre un médecin qui entoure le bras d’un patient d’un brassard de tensiomètre et regarde le cadran pour vérifier les chiffres. Lors d’un quiz de santé, l’animateur montre cette image et demande : « Quelle description correspond à l’image ? » ; on répond : « Le médecin prend la tension du patient. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Sans accès à l’image, les quatre descriptions décrivent chacune une scène médicale banale et plausible qui pourrait parfaitement correspondre à une photo de consultation. Aucun élément de formulation, de longueur, de précision ou de correction grammaticale ne distingue clairement une option comme étant favorisée par l’énoncé, d’où une incertitude forte et une répartition de probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 601,
+          "completion_tokens": 548,
+          "total_tokens": 1149,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 70,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00623125,
+        "inputHash": "b2a6863202868d9c1f565b7b92bd54e7f6aa500e33d7eb50b34fe2b8244be2e1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:3:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzXhuUNpNfI6zI23e2RytEtmUGhj",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre un médecin qui mesure la tension artérielle du patient à l’aide d’un tensiomètre. Les autres descriptions parlent d’outils (stéthoscope, thermomètre, matériel de prise de sang) qui ne sont pas visibles ni utilisés dans la scène.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Sur l’image, le médecin n’utilise pas de stéthoscope posé sur le thorax du patient, mais un brassard relié à un appareil tenu à la main. Quelqu’un pouvant associer automatiquement une consultation médicale au stéthoscope pourrait choisir cette réponse, mais aucun stéthoscope n’apparaît et le geste correspond à une mesure de tension, pas à l’auscultation du cœur.",
+          "misunderstanding": "object_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Pour prendre la température, on s’attendrait à voir un thermomètre (oral, frontal, auriculaire, etc.). Ici, le médecin enroule un brassard autour du bras du patient et tient un boîtier : c’est typique d’un tensiomètre. Quelqu’un qui verrait seulement un petit appareil dans la main du médecin pourrait croire à un thermomètre, mais la position sur le bras et la forme du dispositif contredisent cette interprétation.",
+          "misunderstanding": "object_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Une prise de sang nécessite généralement une aiguille ou une seringue insérée dans le bras du patient, avec éventuellement un tube pour recueillir le sang. Sur l’image, on voit un brassard large entourant le bras et un appareil, sans aiguille ni tube visible. Un observateur peu attentif pourrait confondre toute intervention sur le bras avec une prise de sang, mais l’absence de matériel de ponction montre que ce n’est pas le cas.",
+          "misunderstanding": "procedure_confusion"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "Le médecin place un brassard autour du bras du patient et tient un boîtier, configuration caractéristique d’un tensiomètre servant à mesurer la tension artérielle. Aucun autre outil (stéthoscope, thermomètre, seringue) n’est visible, ce qui confirme que la scène correspond à une prise de tension et non à une autre procédure.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 732,
+      "completion_tokens": 756,
+      "total_tokens": 1488,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 185,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.008475,
+    "inputHash": "1d46ba086922f3091f28705aea3ce5561f329b56115b977c78b067f22a66abb0",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:3:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "4bc34358b098b17bd381011cbcc923982ecc3f5fa78feeaf38291710516de6f1",
+  "designSeedHash": null
+}

@@ -1,0 +1,613 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "D’après le document, quel impact des travaux de réaménagement est mentionné ?",
+    "options": [
+      "La fermeture temporaire de certains accès à la gare pendant le chantier.",
+      "Une augmentation du niveau sonore ressentie dans les commerces voisins.",
+      "Des difficultés ponctuelles de livraison pour les fournisseurs des commerces alentours.",
+      "Une baisse de la fréquentation piétonne dans plusieurs rues proches."
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : Le document indique explicitement que les travaux ont \"réduit la fréquentation de certaines rues\", ce qui correspond directement à l’idée d’une baisse de la fréquentation piétonne dans plusieurs rues proches. C’est le seul impact des travaux mentionné dans le texte. A : Le document parle seulement d’une réduction de la fréquentation de certaines rues, sans jamais mentionner une fermeture temporaire de certains accès à la gare. Un auditeur distrait peut déduire à tort que si la fréquentation baisse, c’est parce que des accès sont fermés, mais le texte ne dit pas que des accès à la gare ont été fermés, seulement que la fréquentation de certaines rues a diminué. B : On comprend que les commerçants subissent des difficultés, ce qui pourrait faire penser à des nuisances comme le bruit. Cependant, le document ne parle jamais d’\"augmentation du niveau sonore\" ni d’un problème de bruit dans les commerces voisins, seulement de baisse de fréquentation et d’aide pour adapter horaires ou signalisation. C : Le soutien aux commerçants pourrait faire croire que les livraisons sont perturbées, mais le texte n’évoque à aucun moment des \"difficultés ponctuelles de livraison\". L’aide annoncée concerne uniquement l’adaptation des horaires et l’amélioration de la signalisation, en lien avec une baisse de fréquentation, pas avec la logistique des livraisons.",
+    "transcript": "Question 15.\nVoici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois.\nD’après le document, quel impact des travaux de réaménagement est mentionné ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "Voici les informations locales. La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare. Les travaux de réaménagement ont réduit la fréquentation de certaines rues. Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation. Les élus promettent un premier bilan dans trois mois."
+      },
+      {
+        "voice": "female",
+        "text": "D’après le document, quel impact des travaux de réaménagement est mentionné ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 49
+  },
+  "sourceHash": "2318934c56291c894c4eef711f9ffbe32aa2b16dc50a73d7ac9594f77c21053b",
+  "contentHash": "246dc19451f285d133e031d99a928f0657376939185a01bc7513bf0049cdd93c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em15i37vkGRasFL746bcyOPDjoxMi",
+    "result": {
+      "question": "Selon le document, quel effet des travaux de réaménagement est évoqué ?",
+      "choices": [
+        "Une baisse de la fréquentation de certaines rues.",
+        "Une augmentation du bruit dans les commerces voisins.",
+        "Une fermeture temporaire de plusieurs accès à la gare.",
+        "Des difficultés de livraison pour les fournisseurs des commerces."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit que «les travaux de réaménagement ont réduit la fréquentation de certaines rues». L’effet mentionné est donc une baisse de la fréquentation. Il n’est jamais question de bruit, de fermeture d’accès à la gare ni de problèmes de livraison dans l’extrait.",
+      "design": "Axe unique : l’effet concret attribué aux travaux de réaménagement. Les quatre choix décrivent des conséquences typiques d’un chantier urbain sur des commerces (baisse de fréquentation, bruit accru, fermetures d’accès, difficultés de livraison). Sans le document, chacune paraît plausible. Seule la baisse de fréquentation est explicitement reliée aux travaux dans l’enregistrement, ce qui exige une écoute précise plutôt que des connaissances générales sur les chantiers.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’auditeur peut associer spontanément des travaux à une hausse du bruit et généraliser cet effet plausible. Mais le document ne mentionne que la baisse de fréquentation comme conséquence : il dit «les travaux de réaménagement» puis précise qu’ils «ont réduit la fréquentation de certaines rues», sans évoquer le bruit dans les commerces.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les travaux de réaménagement",
+            "ont réduit la fréquentation de certaines rues"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Comme il est question de la gare, on peut imaginer que les travaux entraînent la fermeture d’accès, ce qui aurait un impact sur les commerces. Cependant, le texte ne parle jamais d’accès fermés : la seule conséquence explicitée est que les travaux «ont réduit la fréquentation de certaines rues», pas qu’ils bloquent l’entrée de la gare.",
+          "operation": "scope_shift",
+          "anchors": [
+            "autour de la gare",
+            "ont réduit la fréquentation de certaines rues"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Les travaux près de commerces font souvent penser à des livraisons compliquées, ce qui rend cette interprétation tentante. Mais dans le document, le lien causal établi avec «Les travaux de réaménagement» concerne uniquement le fait qu’ils «ont réduit la fréquentation de certaines rues» ; aucune allusion n’est faite aux fournisseurs ni aux livraisons.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Les travaux de réaménagement",
+            "ont réduit la fréquentation de certaines rues"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4324,
+      "completion_tokens": 2617,
+      "total_tokens": 6941,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2061,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.031575,
+    "inputHash": "e8260ffac31cd38d0b84d2dc8057404ab5c4c4da836bbc70722270a30fad5533",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:6103f288fb85e78951f8f219:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quel effet des travaux de réaménagement est évoqué ?",
+      "choices": [
+        "Une fermeture temporaire de plusieurs accès à la gare.",
+        "Une augmentation du bruit dans les commerces voisins.",
+        "Des difficultés de livraison pour les fournisseurs des commerces.",
+        "Une baisse de la fréquentation de certaines rues."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em16IGrpKYbK6JWbN9PpSla5AOmFS",
+      "result": {
+        "question": "D’après le document, quel impact des travaux de réaménagement est mentionné ?",
+        "choices": [
+          "La fermeture temporaire de certains accès à la gare pendant le chantier.",
+          "Une augmentation du niveau sonore ressentie dans les commerces voisins.",
+          "Des difficultés ponctuelles de livraison pour les fournisseurs des commerces alentours.",
+          "Une baisse de la fréquentation piétonne dans plusieurs rues proches."
+        ],
+        "notes": "Formulation généralisée sur un impact des travaux, sans suggérer qu’un type d’effet (ex. fermeture d’accès) serait plus évident que les autres. Les quatre propositions décrivent des conséquences concrètes, de portée et de sérieux comparables, chacune restant distincte par la nature de l’impact (accès, bruit, livraisons, fréquentation)."
+      },
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 529,
+        "total_tokens": 1176,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 359,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00609875,
+      "inputHash": "da9cea2bce5b10991c4bdf8b06e58a8e24bfa40eeee08c58843663d15958b8cd",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:6103f288fb85e78951f8f219:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "397a7d0d55cf1238d4c07c78cddae426bd0061a9ccaa2dabe34d7abab85abc9a",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La notion d’« aide temporaire » pendant des travaux renvoie le plus naturellement à un soutien financier direct, et la formulation « alléger le poids du loyer des locaux » est particulièrement adaptée et nuancée ; les autres options restent plausibles mais paraissent moins directement liées à un dispositif d’aide financière classique.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Formulation plus précise et habituelle pour une « aide temporaire » liée à des travaux (alléger le poids du loyer), correspondant à un dispositif financier classique ; les autres réponses décrivent des mesures plus indirectes ou moins typiquement associées à une aide municipale pendant des travaux."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une mairie informe les commerçants autour de la gare que, durant les travaux, elle met en place une aide temporaire consistant à assouplir la réglementation sur les horaires afin qu’ils puissent ouvrir plus tôt ou fermer plus tard, pour compenser la baisse de fréquentation en journée. Dans ce cadre, l’aide leur sert à modifier leurs horaires d’ouverture pendant les travaux."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un responsable municipal présente un dispositif de soutien financier aux établissements situés autour de la gare en chantier : la ville prend en charge une partie du loyer ou verse une subvention pour aider à payer les loyers le temps des travaux. L’aide temporaire sert alors clairement à alléger le poids du loyer des locaux pendant cette période."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion d’information, la chambre de commerce explique aux commerçants impactés par des travaux autour de la gare qu’une aide temporaire sera disponible pour financer des affiches, flyers et encarts dans la presse locale afin de rappeler l’ouverture des magasins malgré le chantier. L’aide sert donc à mener une campagne de publicité locale pendant les travaux."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une collectivité annonce un fonds exceptionnel destiné aux établissements autour de la gare pour faire face à un afflux ponctuel de voyageurs dû à une réorganisation temporaire du trafic pendant les travaux. L’aide proposée leur permet de financer le recrutement de personnel supplémentaire pendant cette période."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0141fd60d87782080af4cdde466a51701bd50d6bf41af514f47c32a84dd0b5e4",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre à la question dans des contextes ordinaires, mais l’option 3 se distingue par la reprise explicite de la temporalité (« pendant la durée des travaux ») en écho à « aide temporaire », ce qui constitue le seul indice concret dans la formulation même ; je la privilégie donc légèrement tout en restant incertain.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Le choix mentionne explicitement « pendant la durée des travaux », ce qui reprend et précise l’idée d’« aide temporaire » suggérée dans la question, créant un alignement direct de formulation que les autres options n’ont pas."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une mairie annonce des travaux de voirie autour de certains commerces et explique dans un message audio qu’elle versera une aide exceptionnelle aux établissements concernés pour qu’ils puissent adapter leurs horaires d’ouverture aux contraintes du chantier et financer une meilleure signalisation provisoire pour guider la clientèle jusqu’à leurs entrées."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un bulletin d’information aux commerçants, une collectivité locale indique qu’un dispositif d’aide temporaire est mis en place avec les propriétaires pour que le loyer commercial des établissements affectés par des travaux de longue durée soit réduit provisoirement, afin d’alléger leurs charges pendant cette période difficile."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une chambre de commerce diffuse un enregistrement expliquant que, pour soutenir les établissements impactés par de grands travaux, une aide temporaire leur sera accordée afin de financer une campagne de communication dans les médias locaux, destinée à rappeler à la clientèle que les commerces restent ouverts malgré le chantier."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une réunion d’information enregistrée, la responsable de projet explique que, pour aider temporairement les établissements touchés par des travaux, une aide spécifique est proposée afin qu’ils puissent recruter du personnel supplémentaire pendant la durée des travaux, par exemple pour gérer les accès compliqués, informer les clients ou absorber des tâches logistiques accrues."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "aaa4c341df0ea3492eb54b3bda1e0d59252aec8044078e6b33a80938d550e914",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont concevables, mais le couple « volet de leur fonctionnement » / « faire évoluer leur organisation » cadre très directement avec l’idée de planifier différemment les horaires d’ouverture, souvent objet d’aides temporaires pour tester de nouvelles amplitudes. Cette option se distingue par son adéquation lexicale et pragmatique, tandis que la politique tarifaire et le bail sont plus structurels et moins typiquement liés à une aide temporaire centrée sur l’organisation quotidienne.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’énoncé parle de « volet de leur fonctionnement » et de « faire évoluer leur organisation grâce à cette aide temporaire » : la « planification de leurs plages d’ouverture au public » décrit précisément un aspect organisationnel du fonctionnement quotidien (horaires, présence de personnel) qu’une aide temporaire permet typiquement d’ajuster à titre expérimental. Les autres options visent soit une stratégie de long terme (politique tarifaire, bail commercial), soit la taille d’équipe sans mention explicite d’organisation ou de planification. Le lexique d’« organisation » et de « fonctionnement » s’aligne particulièrement bien avec la planification des heures d’ouverture."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un document d’information du ministère de l’Économie présente une aide temporaire destinée aux petits commerces pour revoir la structure de leur politique tarifaire (par exemple lisser les augmentations de prix de l’énergie ou adapter les remises saisonnières). On y lit que, grâce à cette aide, les établissements pourront faire évoluer leur organisation sur le volet de la construction et de la gestion de leurs tarifs, en les rendant plus lisibles ou mieux segmentés."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une collectivité propose une aide temporaire aux commerces de centre-ville afin de soutenir l’emploi en boutique. Le document explique que, grâce à cette aide financière sur quelques mois, les établissements concernés pourront faire évoluer leur organisation sur le volet des ressources humaines, notamment la taille des équipes présentes en boutique et le nombre de salariés sur les créneaux de forte affluence."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document d’une chambre de commerce détaille une aide temporaire pour permettre aux établissements de s’adapter à une baisse de fréquentation. Il précise qu’avec cette aide, ils pourront faire évoluer leur organisation sur le volet de la planification de leurs plages d’ouverture au public, en testant de nouveaux horaires (ouvertures tardives, fermeture sur certains créneaux) sans mettre en péril leur équilibre financier."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un organisme parapublic propose une aide temporaire destinée à accompagner la renégociation des baux commerciaux après une crise sanitaire. Le document explique que les établissements bénéficiaires pourront faire évoluer leur organisation sur le volet des conditions de leur bail commercial (durée résiduelle, loyer progressif, clauses de résiliation), cette aide finançant les frais de conseil juridique et de négociation."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "72c5023eb36d7d5fcebdf30b6642353cac55ccd9e58723ef4b8884a86326721e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse sur les travaux de réaménagement fournit une cause concrète, immédiate et courante d’une baisse de fréquentation, formulée de manière simple et directe. Les autres options sont plus spéculatives ou indirectes, ce qui les rend moins probables comme élément mis en avant «selon le document», d’où une préférence marquée pour l’option 2 malgré l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation directe et factuelle d’une cause classique («les travaux… compliquent l’accès»), en lien immédiat avec une baisse de fréquentation. Les autres choix reposent sur des mécanismes plus indirects ou interprétatifs (attente d’un bilan, interprétation de l’aide, projet futur), ce qui les rend moins naturellement présentés comme explication principale dans un document informatif."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur un nouveau plan de piétonnisation, un élu explique qu’un premier bilan n’aura lieu que dans trois mois. Certains habitants interviewés disent qu’ils préfèrent attendre ces résultats avant de revenir faire leurs courses dans le quartier, ce qui est présenté comme une des raisons de la baisse de fréquentation de certaines rues."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un journal local traite d’un dispositif d’aide temporaire aux commerçants d’un centre-ville. Des passants expliquent qu’en voyant cette aide, ils ont l’impression que le secteur est sinistré et qu’ils vont donc ailleurs, ce qui est donné comme une explication possible de la baisse de fréquentation de certaines rues."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un sujet radio sur un centre-ville en chantier, le journaliste explique que les travaux de réaménagement bloquent l’accès en voiture et réduisent les trottoirs. Les commerçants témoignent d’une nette baisse de fréquentation de certaines rues, explicitement attribuée aux difficultés d’accès liées aux travaux."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un reportage aborde la mauvaise signalisation des commerces dans un quartier : des usagers se plaignent de ne pas trouver facilement les boutiques, ce qui décourage certains de revenir. Le document indique que cette signalisation peu claire participe à la baisse de fréquentation de certaines rues, et qu’un projet d’amélioration est à l’étude."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "bbabb882a6c84053c42e8c2d6fcc433bc77901d806ad928f35505b52e4cbb7fa",
+      "feedback": {
+        "stage": "ground",
+        "assessment": {
+          "supportedIndices": [],
+          "ambiguous": true,
+          "questionSupported": false,
+          "summary": "Le document indique seulement qu’un premier bilan aura lieu dans trois mois, sans préciser de rythme régulier. Aucune des réponses proposées ne correspond exactement à cette information, car toutes expriment une périodicité répétée que le document ne mentionne pas.",
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les élus promettent un premier bilan dans trois mois."
+              ],
+              "reason": "Le document parle d’« un premier bilan dans trois mois », ce qui désigne un moment unique prévu, pas un rendez-vous fixé « une fois par an, en fin d’année ». Rien n’indique que ce bilan aura lieu chaque année, encore moins spécifiquement en fin d’année. Un auditeur peu attentif peut simplement retenir l’idée d’un bilan périodique et choisir une fréquence habituelle comme « une fois par an », mais le texte ne mentionne ni l’annualité ni la fin d’année.",
+              "misunderstanding": "temporal_inference"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les élus promettent un premier bilan dans trois mois."
+              ],
+              "reason": "Le document précise seulement « un premier bilan dans trois mois » et ne parle jamais d’un bilan « une fois par mois ». Quelqu’un qui confond « dans trois mois » avec « pendant trois mois » ou qui associe l’idée de suivi régulier des commerçants à un contrôle mensuel pourrait choisir cette option, mais aucune indication dans l’énoncé ne justifie un rythme mensuel.",
+              "misunderstanding": "temporal_confusion"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les élus promettent un premier bilan dans trois mois."
+              ],
+              "reason": "Le texte annonce « un premier bilan dans trois mois », c’est-à-dire un unique bilan prévu à l’issue de trois mois. Il ne dit pas que ce bilan aura lieu « tous les six mois ». Un candidat qui se focalise sur l’idée de délai et imagine un suivi espacé pour laisser le temps au dispositif de produire des effets pourrait penser à six mois, mais cette durée n’apparaît pas dans le document.",
+              "misunderstanding": "arbitrary_duration_guess"
+            },
+            {
+              "index": 3,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Les élus promettent un premier bilan dans trois mois."
+              ],
+              "reason": "L’énoncé ne dit pas que les bilans auront lieu « tous les trois mois », mais qu’« un premier bilan » aura lieu « dans trois mois ». La présence de « premier » montre qu’il s’agit de la première évaluation, sans préciser que les suivantes seront également espacées de trois mois. Un auditeur peut facilement généraliser « dans trois mois » en « tous les trois mois », en interprétant à tort ce premier délai comme une périodicité, mais cette extrapolation n’est pas soutenue par le texte.",
+              "misunderstanding": "temporal_overgeneralization"
+            }
+          ]
+        },
+        "errors": [
+          "Not exactly the independently supported marked answer",
+          "Support verdict inconsistent at 3"
+        ]
+      }
+    },
+    {
+      "signature": "3f9bff45613acac7737b5045b79941d6c2172bdf8f73bb4513b387e8409deb7b",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La nature d’« aide temporaire » à des établissements concernés évoque avant tout un mécanisme de compensation d’un préjudice économique ponctuel (ici, une baisse de fréquentation), ce qui correspond le mieux à l’option 0. Les autres usages (financer une étude, cofinancer des travaux publics, ou seulement l’adaptation d’horaires/signalisation) restent possibles mais paraissent moins directement alignés avec ce type d’aide tel qu’il est généralement formulé dans les documents administratifs.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation très typique d’un dispositif d’« aide temporaire » pour établissements touchés par des travaux : l’idée d’indemniser une baisse de fréquentation ou de chiffre d’affaires est plus conforme au rôle habituel d’une telle aide que le financement d’études (option 2) ou la participation à des travaux publics (option 3), et plus direct que l’aide ciblée sur des ajustements d’horaires ou de signalisation (option 1)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un document municipal explique qu’une aide financière temporaire est mise en place pour les commerces situés autour d’un grand chantier de réaménagement urbain. On y précise que ces établissements peuvent solliciter cette aide afin d’indemniser en partie la baisse de fréquentation constatée dans les rues voisines pendant la durée des travaux."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une préfecture informe les commerçants qu’en raison de travaux autour d’une gare, ils peuvent adapter leurs horaires d’ouverture et mettre en place une nouvelle signalisation pour orienter la clientèle. Le document précise que l’aide temporaire peut être sollicitée pour couvrir les dépenses liées à ces modifications (changement d’enseignes, affichage supplémentaire, communication d’horaires spéciaux)."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un courrier de l’administration est adressé à un groupement d’établissements pilotes dans le cadre d’un nouveau dispositif d’accompagnement économique. Il indique qu’ils peuvent déposer un dossier pour bénéficier d’une aide temporaire destinée à financer une étude externe, en vue de préparer le premier bilan du dispositif annoncé dans trois mois."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une collectivité locale informe les commerçants autour d’une gare que des travaux de réaménagement vont avoir lieu. Le document prévoit une aide temporaire permettant aux établissements concernés de participer au financement d’une partie des travaux d’aménagement immédiats devant leurs vitrines (terrasses, accès, devantures) afin de les adapter au nouveau plan de circulation."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em16PTmoolQNeIu12ojoAqOwjM7EC",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un enregistrement d’information municipale sur des travaux de réaménagement d’un quartier commerçant explique que la circulation est déviée et que cela provoque une baisse de la fréquentation piétonne dans plusieurs rues proches, ce qui inquiète les commerçants."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un représentant des commerçants interviewé à la radio se plaint que les travaux de réaménagement ont entraîné une augmentation du niveau sonore, rendant les commerces voisins plus bruyants et gênant les clients pendant la journée."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une annonce diffusée dans une gare ou un bulletin d’information locale précise que, en raison de travaux de réaménagement, certains accès à la gare seront temporairement fermés pendant le chantier et qu’il faut utiliser des entrées alternatives."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un reportage local sur des travaux de réaménagement de voirie autour d’un quartier commercial indique que les nouveaux sens de circulation et les engins de chantier provoquent des difficultés ponctuelles de livraison pour les fournisseurs des commerces alentours."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Formulation nuancée et réaliste («difficultés ponctuelles», «fournisseurs des commerces alentours») qui ressemble à la façon précise et mesurée dont un document informatif décrit généralement les impacts concrets d’un chantier, sans exagération générale comme une baisse globale de fréquentation ou une augmentation du bruit ressentie."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.23,
+            0.22,
+            0.3
+          ],
+          "guess": 3,
+          "reason": "Les quatre impacts sont plausibles dans un document sur des travaux de réaménagement, sans contradiction apparente. L’option 3 se distingue légèrement par son ton nuancé et concret, typique d’un texte informatif décrivant un impact limité et pratique («difficultés ponctuelles de livraison»), ce qui lui donne un faible avantage mais l’incertitude reste importante."
+        },
+        "usage": {
+          "prompt_tokens": 626,
+          "completion_tokens": 699,
+          "total_tokens": 1325,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 252,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0077725,
+        "inputHash": "1616a990e1393b49a7a0f76a7e5917470d4d21b353896423ba79ddfb5677271c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:6103f288fb85e78951f8f219:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em16Yxs1UZ5CXNIjLu4xRxRlj0hfg",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un message audio municipal informe les riverains que, pendant les travaux de réaménagement d’une place commerçante, certains camions ne peuvent plus accéder facilement, ce qui entraîne des difficultés ponctuelles de livraison pour les fournisseurs des commerces alentours."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un représentant de la mairie présente les conséquences d’un réaménagement de voirie et explique que la piétonnisation partielle et les déviations provoquent une baisse de la fréquentation piétonne dans plusieurs rues proches."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un commerçant interviewé à la radio se plaint que les travaux de réaménagement devant son magasin génèrent beaucoup de bruit, et qu’il y a une augmentation du niveau sonore ressentie dans les commerces voisins."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une annonce diffusée dans une gare prévient les usagers que, en raison de travaux de réaménagement du hall, certains accès à la gare seront temporairement fermés pendant le chantier."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre impacts proposés sont typiques de travaux de réaménagement et s’intègrent sans problème dans un document audio plausible ; aucun indice textuel net ne favorise clairement une option plutôt qu’une autre, d’où une forte incertitude et une probabilité répartie de façon uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 626,
+          "completion_tokens": 552,
+          "total_tokens": 1178,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 217,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0063025,
+        "inputHash": "87aa245a341a1ac24767677e7fe84dd021c4365fac041fa03fabe92c53329a07",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:6103f288fb85e78951f8f219:screen:6:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em16fIEEvOclMlrS921nSokBqWU5B",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document mentionne explicitement que les travaux ont entraîné une baisse de la fréquentation dans certaines rues, et aucun autre impact n’est évoqué.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les travaux de réaménagement ont réduit la fréquentation de certaines rues."
+          ],
+          "reason": "Le document parle seulement d’une réduction de la fréquentation de certaines rues, sans jamais mentionner une fermeture temporaire de certains accès à la gare. Un auditeur distrait peut déduire à tort que si la fréquentation baisse, c’est parce que des accès sont fermés, mais le texte ne dit pas que des accès à la gare ont été fermés, seulement que la fréquentation de certaines rues a diminué.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare.",
+            "Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation."
+          ],
+          "reason": "On comprend que les commerçants subissent des difficultés, ce qui pourrait faire penser à des nuisances comme le bruit. Cependant, le document ne parle jamais d’\"augmentation du niveau sonore\" ni d’un problème de bruit dans les commerces voisins, seulement de baisse de fréquentation et d’aide pour adapter horaires ou signalisation.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La municipalité a présenté ce matin un dispositif de soutien aux commerçants autour de la gare.",
+            "Les établissements concernés pourront demander une aide temporaire pour adapter leurs horaires ou améliorer leur signalisation."
+          ],
+          "reason": "Le soutien aux commerçants pourrait faire croire que les livraisons sont perturbées, mais le texte n’évoque à aucun moment des \"difficultés ponctuelles de livraison\". L’aide annoncée concerne uniquement l’adaptation des horaires et l’amélioration de la signalisation, en lien avec une baisse de fréquentation, pas avec la logistique des livraisons.",
+          "misunderstanding": "inference_beyond_text"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les travaux de réaménagement ont réduit la fréquentation de certaines rues."
+          ],
+          "reason": "Le document indique explicitement que les travaux ont \"réduit la fréquentation de certaines rues\", ce qui correspond directement à l’idée d’une baisse de la fréquentation piétonne dans plusieurs rues proches. C’est le seul impact des travaux mentionné dans le texte.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 734,
+      "completion_tokens": 865,
+      "total_tokens": 1599,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 275,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0095675,
+    "inputHash": "5d35b0e57c6f0948e43766a6070ad3f3e28f86e55a7eeaa17d2fe60ee97ef4a0",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:14:6103f288fb85e78951f8f219:ground:6"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

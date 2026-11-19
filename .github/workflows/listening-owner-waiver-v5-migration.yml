@@ -1,0 +1,59 @@
+name: Stage owner-waived TCF Listening01–06 v5 migration
+on:
+  push:
+    branches: [fix/listening-six-blind-cues-v5]
+    paths:
+      - supabase/exams/tcf-listening-test0?-v5.json
+      - .github/workflows/listening-owner-waiver-v5-migration.yml
+permissions:
+  contents: write
+concurrency:
+  group: listening-owner-waiver-v5-migration
+  cancel-in-progress: true
+jobs:
+  migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - run: npm install --no-package-lock
+      - name: Install media verifier
+        run: |
+          if ! command -v ffprobe >/dev/null 2>&1 || ! command -v ffmpeg >/dev/null 2>&1; then
+            timeout 150s sudo apt-get update -qq
+            timeout 150s sudo apt-get install -y -qq ffmpeg
+          fi
+          ffprobe -version | head -n 1
+      - name: Verify six complete immutable owner-waiver banks and recordings
+        run: node scripts/check-listening-six-release.mjs --require-replacements
+      - name: Create timestamped migration through Supabase CLI
+        run: |
+          supabase migration new --help
+          existing=$(find supabase/migrations -maxdepth 1 -type f -name '*_tcf_listening_01_06_owner_waiver_v5.sql' | wc -l)
+          if [ "$existing" -ne 0 ]; then
+            echo 'Migration already exists; refuse duplicate release version'
+            exit 1
+          fi
+          supabase migration new tcf_listening_01_06_owner_waiver_v5
+          migration=$(find supabase/migrations -maxdepth 1 -type f -name '*_tcf_listening_01_06_owner_waiver_v5.sql' | head -1)
+          test -n "$migration"
+          node scripts/release/listening-owner-waiver-v5.mjs "$migration"
+          git add "$migration"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Stage preservation-checked owner-waived listening v5 migration"
+          git fetch origin fix/listening-six-blind-cues-v5
+          git rebase origin/fix/listening-six-blind-cues-v5
+          git push origin HEAD:fix/listening-six-blind-cues-v5
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: owner-waived-listening-six-v5-migration
+          path: supabase/migrations/*_tcf_listening_01_06_owner_waiver_v5.sql
+          retention-days: 30

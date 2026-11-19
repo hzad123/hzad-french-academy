@@ -1,10 +1,11 @@
 import {createHash,randomBytes} from 'node:crypto';
 import {readFile,writeFile,mkdir,copyFile,access} from 'node:fs/promises';
 import {join} from 'node:path';
-import {POLICY_VERSION,MODELS,PROMPTS,validateInput,validateResult,modelRequest,MAX_OUTPUT,stagePrice} from '../../supabase/functions/academy-listening-qc/contracts.js';
+import {POLICY_VERSION,MODELS,PROMPTS,DRAFT_MODEL,DRAFT_PROMPT,stageModel,validateInput,validateResult,modelRequest,MAX_OUTPUT,stagePrice} from '../../supabase/functions/academy-listening-qc/contracts.js';
 import {keyPattern,choiceStats} from './listening-quality.mjs';
 export const hash=x=>createHash('sha256').update(typeof x==='string'||Buffer.isBuffer(x)?x:JSON.stringify(x)).digest('hex');
 export const policyHash=hash({policy:POLICY_VERSION,model:MODELS,prompts:PROMPTS});
+export const draftPolicyHash=hash({policy:POLICY_VERSION,model:DRAFT_MODEL,prompt:DRAFT_PROMPT});
 export const letters='ABCD';
 export const exists=path=>access(path).then(()=>true,()=>false);
 export const loadJson=async path=>JSON.parse(await readFile(path,'utf8'));
@@ -51,15 +52,17 @@ export function applyAlternatives(original,result,target,seed) {
 }
 export function receiptValid(receipt,stage,input) {
  if(receipt?.stage!==stage||receipt.policy!==POLICY_VERSION||typeof receipt.model!=='string'||!receipt.responseId?.startsWith('chatcmpl-')||receipt.inputHash!==hash(input))throw Error('Missing/stale real-model receipt');
- if(receipt.model!==MODELS[stage]&&!receipt.model.startsWith(MODELS[stage]+'-20'))throw Error('Unexpected independent evaluator model');
- if(receipt.policyHash!==policyHash)throw Error('Evaluation prompts/model changed; old receipt cannot approve new content');
+ const model=stageModel(stage);
+ if(!model||receipt.model!==model&&!receipt.model.startsWith(model+'-20'))throw Error('Unexpected independent evaluator model');
+ if(receipt.policyHash!==(stage==='polish'?draftPolicyHash:policyHash))throw Error('Evaluation prompts/model changed; old receipt cannot approve new content');
  validateResult(stage,receipt.result);
  return receipt;
 }
 export function blindVerdict(result) {
  validateResult('blind',result);
  const sorted=[...result.probabilities].sort((a,b)=>b-a);
- return {pass:!result.standsOut&&result.cues.length===0&&sorted[0]<=0.42&&sorted[0]-sorted[1]<=0.15,
+ const fourCredible=Array.isArray(result.plausibility)&&result.plausibility.length===4&&new Set(result.plausibility.map(p=>p.index)).size===4&&result.plausibility.every(p=>Number.isInteger(p.index)&&p.index>=0&&p.index<4&&p.credible===true&&typeof p.context==='string'&&p.context.length>=10);
+ return {pass:fourCredible&&!result.standsOut&&!result.cues.some(c=>c.severity!=='weak')&&sorted[0]<=0.42+1e-9&&sorted[0]-sorted[1]<=0.15+1e-9,
   maximum:sorted[0],gap:sorted[0]-sorted[1]};
 }
 export function groundingVerdict(q,result,{evidenceSource=stimulus(q),normalizeEvidence=false}={}) {
@@ -87,7 +90,7 @@ export function attackStatistics(papers,proofs=[]) {
   for(const {q,choices,key} of rows) {
    let values;
    if(attack==='longest'||attack==='shortest')values=choices.map(t=>t.length*(attack==='shortest'?-1:1));
-   else if(attack==='mostQualified')values=choices.map(t=>(t.match(/\b(?:mais|sans|tout en|selon|afin|avant|si|plutôt|tenant compte|à condition)\b/gi)||[]).length);
+   else if(attack==='mostQualified')values=choices.map(t=>(t.match(/(?<![\p{L}])(?:mais|sans|tout en|selon|afin|avant|si|plutôt|tenant compte|à condition)(?![\p{L}])/giu)||[]).length);
    else {const words=new Set(q.question.toLowerCase().match(/[\p{L}]{4,}/gu)||[]);values=choices.map(t=>(t.toLowerCase().match(/[\p{L}]{4,}/gu)||[]).filter(w=>words.has(w)).length);}
    const max=Math.max(...values),ties=values.filter(v=>v===max).length;
    if(values[key]===max)hits+=1/ties;
@@ -161,7 +164,7 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
  let writes=Promise.resolve(),fatal=null;const persist=()=>writes=writes.then(()=>saveJson(ledgerFile,ledger));
  return async(stage,input,{nonce='default'}={})=>{
   validateInput(stage,input);const inputHash=hash(input),key=hash({stage,inputHash,policy:POLICY_VERSION,nonce});
-  const file=join(directory,hash(key+policyHash)+'.json');
+  const requestPolicyHash=stage==='polish'?draftPolicyHash:policyHash,file=join(directory,hash(key+requestPolicyHash)+'.json');
   if(await exists(file))return receiptValid(await loadJson(file),stage,input);
   if(fatal)throw Error(fatal);
   const request=modelRequest(stage,input),textBytes=Buffer.byteLength(JSON.stringify(request.messages).replace(input.imageData||'__no_image__',''));
@@ -169,11 +172,11 @@ export async function createGatewayProvider({url,token,adminToken,directory,maxU
   const reserve=((textBytes+1024+(input.imageData?16000:0))*price.inputPerMillion+MAX_OUTPUT[stage]*price.outputPerMillion)/1e6;
   if(ledger.spentUsd+ledger.reservedUsd+reserve>maxUsd)throw Error('Offline authoring cost cap reached; progress saved');
   ledger.reservedUsd+=reserve;ledger.requests++;await persist();
-  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash}),signal:AbortSignal.timeout(70000)});
+  const response=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+token,apikey:token,'x-listening-qc-token':adminToken,'Content-Type':'application/json'},body:JSON.stringify({stage,input,policyHash:requestPolicyHash}),signal:AbortSignal.timeout(130000)});
   if(!response.ok) {
    const detail=await response.json().catch(()=>({}));
    const code=/^QC_[A-Z_]+$/.test(detail.error||'')?detail.error:'GATEWAY';
-   if(detail.diagnostic)await saveJson(file.replace(/\.json$/,'.rejected.json'),{stage,inputHash,policyHash,code,diagnostic:detail.diagnostic});
+   if(detail.diagnostic)await saveJson(file.replace(/\.json$/,'.rejected.json'),{stage,inputHash,policyHash:requestPolicyHash,code,diagnostic:detail.diagnostic});
    if([401,403,404,409,503].includes(response.status)) {
     ledger.reservedUsd-=reserve;await persist();
     fatal='Private authoring gateway unavailable: HTTP'+response.status+' '+code+'; no further paid calls';

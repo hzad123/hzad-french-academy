@@ -1,0 +1,825 @@
+{
+  "question": {
+    "number": 25,
+    "kind": "television-report",
+    "question": "À propos des tablettes, sur quel point précis la direction de l’école dit-elle vouloir d’abord se faire une idée ?",
+    "options": [
+      "Que les résultats scolaires des élèves progressent de manière notable.",
+      "Que la plupart des familles disposent effectivement d’une connexion Internet fiable.",
+      "Que les devoirs sur support numérique ne supplantent pas entièrement les supports papier.",
+      "Que les enseignants exploitent réellement les possibilités d’exercices différenciés sur tablette."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise que «Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Ce qu’ils veulent contrôler en priorité, ce sont donc les progrès effectifs des élèves, pas la connexion des familles, l’usage des tablettes par les enseignants ni l’équilibre entre numérique et papier.",
+    "transcript": "Question 25.\nDans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux.\nMais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous.\nL'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils.\nÀ propos des tablettes, sur quel point précis la direction de l’école dit-elle vouloir d’abord se faire une idée ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 25."
+      },
+      {
+        "voice": "female",
+        "text": "Dans une école primaire d'Annecy, des tablettes ont été distribuées à toutes les classes. Les enseignants peuvent proposer des exercices adaptés à différents niveaux."
+      },
+      {
+        "voice": "male",
+        "text": "Mais plusieurs familles ne disposent pas de connexion stable à domicile, explique la directrice. Les devoirs numériques n'étaient donc pas accessibles à tous."
+      },
+      {
+        "voice": "female",
+        "text": "L'école prête désormais des équipements et laisse les exercices disponibles sur papier. Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils."
+      },
+      {
+        "voice": "female",
+        "text": "À propos des tablettes, sur quel point précis la direction de l’école dit-elle vouloir d’abord se faire une idée ?"
+      }
+    ],
+    "audio": "q-25.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 71
+  },
+  "contentHash": "a78f8b5605e4daffbdc4da16cd12d419ea789b9cfa379c93657e42778e70bde8",
+  "sourceHash": "8b942b0690ba2b31820994b23eadb8164b516c7aceab74c0397d93e703e6cf75",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3OgpEMVGej7ncJwEW98vGrfxiTq",
+    "result": {
+      "question": "Avant de commander davantage de tablettes, sur quel point précis les responsables de l'école veulent-ils d'abord se rendre compte ?",
+      "choices": [
+        "Que les résultats des élèves s'améliorent réellement.",
+        "Que toutes les familles disposent désormais d'une connexion stable.",
+        "Que les enseignants utilisent bien les exercices différenciés sur tablette.",
+        "Que les devoirs numériques ne remplacent pas complètement les supports papier."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que «Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils». Ce qu’ils veulent contrôler en priorité, ce sont donc les progrès effectifs des élèves, pas la connexion des familles, l’usage des tablettes par les enseignants ni l’équilibre entre numérique et papier.",
+      "design": "On cible la relation précise «condition à vérifier avant d’acheter plus d’appareils». Les quatre choix sont quatre conditions tout à fait plausibles qu’une école pourrait vouloir vérifier : progrès des résultats, amélioration de la connexion des familles, adoption des exercices numériques par les enseignants, maintien des devoirs papier. Sans le texte, chacune paraît également raisonnable comme critère préalable à un nouvel achat. Seule l’écoute permet d’identifier que la vérification porte explicitement sur l’amélioration des résultats des élèves, les autres éléments étant évoqués dans d’autres rôles (constat de difficulté, possibilité pédagogique, mesure d’accessibilité).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse transforme la difficulté de connexion des familles en condition explicite pour de futurs achats. Le texte mentionne bien que «plusieurs familles ne disposent pas de connexion stable à domicile» et que c’est un problème d’accès, ce qui rend cette interprétation tentante. Mais la seule chose que les responsables disent vouloir «vérifier» avant de commander davantage d’appareils, ce sont les résultats des élèves, pas l’évolution de la connexion des foyers.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "plusieurs familles ne disposent pas de connexion stable à domicile",
+            "Les responsables souhaitent vérifier si les résultats s'améliorent réellement avant de commander davantage d'appareils"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option attribue à la phase de vérification ce qui est présenté comme une possibilité déjà en place pour les enseignants. On peut se laisser tromper par «Les enseignants peuvent proposer des exercices adaptés à différents niveaux» et penser qu’on veut vérifier qu’ils le font effectivement. En réalité, la vérification annoncée concerne uniquement l’amélioration des résultats, non l’utilisation des exercices différenciés par les enseignants.",
+          "operation": "role_swap",
+          "anchors": [
+            "Les enseignants peuvent proposer des exercices adaptés à différents niveaux",
+            "Les responsables souhaitent vérifier si les résultats s'améliorent réellement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Ici, on transforme une mesure d’accessibilité en critère préalable à de nouveaux achats. Le texte dit que l’école «laisse les exercices disponibles sur papier» pour que les devoirs restent accessibles malgré les problèmes de connexion et de matériel. Il ne dit pas que les responsables veulent vérifier que le papier n’est pas entièrement remplacé avant de commander davantage d’appareils ; la seule condition de vérification citée avant l’achat est l’amélioration effective des résultats.",
+          "operation": "scope_shift",
+          "anchors": [
+            "L'école prête désormais des équipements et laisse les exercices disponibles sur papier",
+            "avant de commander davantage d'appareils"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4262,
+      "completion_tokens": 1903,
+      "total_tokens": 6165,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1195,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0243575,
+    "inputHash": "af68ee2ffe46f7f7c09ad76ac5b43a85c98c01cb58c4f98383cae0c0c9c2743a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Avant de commander davantage de tablettes, sur quel point précis les responsables de l'école veulent-ils d'abord se rendre compte ?",
+      "choices": [
+        "Que les résultats des élèves s'améliorent réellement.",
+        "Que toutes les familles disposent désormais d'une connexion stable.",
+        "Que les devoirs numériques ne remplacent pas complètement les supports papier.",
+        "Que les enseignants utilisent bien les exercices différenciés sur tablette."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3P10O9YUeN0EBRFh7qcom0DwIb8",
+      "result": {
+        "question": "À propos des tablettes, sur quel point précis la direction de l’école dit-elle vouloir d’abord se faire une idée ?",
+        "choices": [
+          "Que les résultats scolaires des élèves progressent de manière notable.",
+          "Que la plupart des familles disposent effectivement d’une connexion Internet fiable.",
+          "Que les devoirs sur support numérique ne supplantent pas entièrement les supports papier.",
+          "Que les enseignants exploitent réellement les possibilités d’exercices différenciés sur tablette."
+        ],
+        "notes": "La question est légèrement généralisée (« à propos des tablettes ») pour réduire l’indice lié à la commande de nouvelles tablettes, tout en conservant l’idée d’un point à vérifier en priorité. Chaque option reste un critère distinct et professionnel (résultats, équipement des familles, équilibre papier/numérique, usages pédagogiques), formulé à un niveau de sérieux similaire, sans qu’aucun ne paraisse évidemment plus avisé ou prudent que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 665,
+        "completion_tokens": 518,
+        "total_tokens": 1183,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 310,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00601125,
+      "inputHash": "1f2b8077a1a90ec780eb9c37c44998be3a7b3758ac4d24e2db86b552e3ec44ad",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "7fe902ae7cc57f69c7b18910dc7fa2f3c8c56099513f3f8678c04cba7f8a453b",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent correspondre à un contexte ordinaire, mais l’option 3 est légèrement décalée (rendre vs réaliser) et l’option 1 introduit une contrainte spécifique (« à deux »). Entre 0 et 2, la tournure de 2 décrit une modalité encadrée et institutionnelle qui correspond particulièrement bien à l’idée d’une option unique qui « reste proposée ». Cela donne à l’option 2 un léger avantage, d’où une probabilité plus élevée tout en restant incertaine.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Mentionner « à deux » ajoute une contrainte très spécifique (travail en binôme) qui n’est pas suggérée par la question générale sur la modalité de réalisation des devoirs, rendant cette option un peu moins naturellement générale que les autres."
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation fluide et générale, directement centrée sur un dispositif institutionnel (« sur les tablettes de la classe à des moments prévus ») qui correspond bien à une modalité officielle que l’établissement pourrait décider de maintenir seule."
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "L’option parle de « rendre les exercices en les envoyant par courrier électronique », alors que la question cible la « réalisation des devoirs » ; le décalage entre faire et rendre constitue un léger désavantage de formulation par rapport aux autres propositions qui parlent toutes de « faire les exercices »."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un enseignant explique aux élèves qu’à partir de maintenant, plusieurs modalités de réalisation des devoirs sont supprimées (plateforme en ligne, tablette, etc.), mais qu’il reste toujours possible de faire les exercices sur une fiche papier remise en classe."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion d’information, la direction d’un collège rappelle qu’il existait différentes modalités pour faire les devoirs (seul, en ligne, sur papier) et précise que, parmi elles, reste proposée la possibilité de faire les exercices à deux sur une tablette que l’établissement prête aux élèves qui n’en ont pas chez eux."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un message enregistré à destination des familles, le professeur détaille les anciennes modalités (devoirs à la maison sur cahier, sur l’ENT, etc.) puis précise que désormais, la seule modalité qui reste proposée est de faire les exercices sur les tablettes de la classe, à des moments prévus à l’emploi du temps, pour garantir l’égalité d’accès au numérique."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une coordinatrice pédagogique rappelle qu’il y avait plusieurs façons de rendre les devoirs (papier à déposer dans une boîte, ENT, clé USB) et indique que, parmi ces modalités, il reste proposé aux élèves de renvoyer leurs exercices par courrier électronique à l’adresse de la classe."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0e87186ce7727a7faa2b6ef10111d3d3d6e736e5d3b773b5e82aaf07b00251e3",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles, mais l’option 1 se distingue par une formulation plus élaborée, centrée sur la question d’accessibilité des devoirs pour tous, ce qui fait souvent l’objet d’une première préoccupation explicite dans ce type d’enregistrement. Je la considère donc comme légèrement favorisée malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Formulation la plus longue et nuancée (« la mesure dans laquelle… suffit à… »), directement liée à l’égalité d’accès aux devoirs, ce qui correspond typiquement à une préoccupation prioritaire dans un discours institutionnel sur les tablettes, et grammaticalement très soignée et précise par rapport aux autres choix plus simples et génériques."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion de direction sur l’usage des tablettes pour les devoirs : avant de généraliser les devoirs en ligne, la directrice explique qu’il faut d’abord savoir quelle proportion de familles a une connexion Internet stable à domicile pour éviter d’exclure certains élèves."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Conseil pédagogique : les responsables envisagent de prêter des tablettes aux élèves et disent qu’avant tout, ils veulent savoir dans quelle mesure ce simple prêt de matériel numérique suffit à ce que tous les élèves puissent effectivement réaliser leurs devoirs."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Briefing sur le bilan d’un projet tablettes : le chef d’établissement demande en priorité des données sur la fréquence à laquelle les enseignants s’appuient sur les tablettes pour donner des devoirs, afin de savoir si l’outil est réellement utilisé."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Présentation d’une évaluation interne : la proviseure explique qu’elle souhaite d’abord obtenir des informations sur l’existence d’un impact mesurable des tablettes sur les résultats des élèves avant de poursuivre ou d’étendre le dispositif."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "f61d322bd535431a848eb4ba50495934e1a64d41f97a279875e3c6e27f6a63b3",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options ont un contexte plausible, mais vérifier une amélioration des résultats avant d’investir dans davantage d’appareils correspond très directement à une logique d’évaluation d’un projet pilote et à la formulation « avant de décider de commander davantage », d’où une légère préférence pour cette réponse malgré une incertitude réelle.",
+        "cues": [],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de direction après une phase pilote d’introduction de tablettes, le chef d’établissement explique qu’avant de commander davantage d’appareils, ils veulent vérifier que les enseignants utilisent réellement les tablettes dans les devoirs à la maison, et pas seulement en démonstration ponctuelle en classe."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un bilan intermédiaire d’un projet numérique, les responsables indiquent qu’ils ont acheté un premier lot de tablettes et qu’avant de décider d’en commander davantage, ils souhaitent vérifier si les résultats scolaires des élèves montrent déjà une amélioration mesurable."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une présentation à un conseil d’école, la direction explique qu’ils envisagent de prêter davantage de tablettes aux élèves pour travailler à domicile, mais qu’avant d’en commander d’autres, ils doivent vérifier que la plupart des familles ont une connexion Internet suffisamment stable pour en profiter."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une discussion sur l’équipement numérique des élèves, un responsable explique qu’ils réfléchissent à commander davantage d’appareils pour combler les derniers manques, mais qu’avant de le faire, ils veulent vérifier que presque tous les élèves sont déjà équipés d’un appareil pour travailler à la maison, afin de dimensionner précisément la commande complémentaire."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "79ae2dc20e42df733243637422190c2389977ed1ecaecd1d70f5547e297a99ad",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options sont plausibles dans un contexte scolaire ordinaire, mais l’option 2 présente le lien le plus direct et complet avec l’idée d’« achat d’appareils supplémentaires » : elle se focalise sur le dispositif concret de prêt d’équipements et sur la question de savoir s’il remplit déjà l’objectif d’accessibilité pour tous les élèves, ce qu’il est logique de vérifier en premier avant tout nouvel investissement. Les autres réponses évoquent des considérations réalistes mais moins spécifiquement reliées à la décision immédiate d’acheter davantage d’appareils, d’où une probabilité plus faible malgré l’incertitude liée à l’absence d’écoute de l’enregistrement.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’option 2 reprend explicitement le champ lexical le plus directement lié à « l’achat d’appareils supplémentaires » : « prêt d’équipements » et l’objectif central d’un tel achat (« permettre à l’ensemble des élèves d’accéder à leurs devoirs »). Elle répond de manière ciblée à la question de la justification d’achats supplémentaires (efficacité et couverture du dispositif existant), alors que les autres portent sur des conditions plus périphériques (version papier, connexion Internet, résultats scolaires globaux) qui ne sont pas nécessairement le premier point à vérifier avant d’acheter plus d’appareils."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion pédagogique dans un collège : la direction discute de l’introduction de nouvelles tablettes en classe. Avant d’en acheter davantage pour l’établissement, les responsables veulent d’abord s’assurer que, pour des raisons d’inclusion et de continuité pédagogique (élèves sans équipement, pannes, besoins d’archivage), tous les exercices restent aussi disponibles en version papier. On rappelle cette consigne en réunion et on pose la question de ce qui doit être vérifié en premier."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Conseil d’école après une phase de prêt de tablettes ou d’ordinateurs aux familles pour faire les devoirs en ligne. Avant de décider d’acheter plus d’appareils pour couvrir d’autres élèves, la direction veut d’abord vérifier, via enquêtes ou retours des parents, que toutes les familles disposent désormais d’une connexion Internet stable à domicile, sans quoi l’investissement supplémentaire serait peu utile."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Bilan d’un projet d’équipement numérique : l’école a déjà acheté un certain nombre d’ordinateurs portables à prêter aux élèves qui n’en ont pas. Avant d’envisager l’achat d’appareils supplémentaires, les responsables veulent d’abord vérifier, grâce à des questionnaires ou aux retours des enseignants, que le système actuel de prêt d’équipements permet effectivement à l’ensemble des élèves d’accéder à leurs devoirs, sans qu’aucun ne soit laissé de côté."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Réunion de pilotage d’un projet de numérisation des devoirs : l’école a investi dans des appareils pour que les élèves fassent plus de travaux en ligne. Avant d’acheter davantage d’appareils, la direction souhaite d’abord vérifier, en analysant les résultats des évaluations, que les performances des élèves montrent une amélioration mesurable et que la stratégie a un réel impact pédagogique."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "8f30502221ab663157f7c1539f24cd42907e210df4971617d7e0e6d819864ae4",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles dans un bilan d’introduction des tablettes, mais le fait de vérifier en premier lieu l’usage réel dans chaque classe correspond bien à l’idée de priorité (« d’abord ») avant d’examiner des conséquences plus secondaires ou conditionnelles, ce qui donne un léger avantage à l’option 0 sans lever toute incertitude.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "L’expression « souhaitent-ils d’abord obtenir des informations » s’accorde naturellement avec une première étape de vérification de l’usage effectif (« chaque classe utilise régulièrement les tablettes ») avant d’évaluer des effets plus indirects comme les résultats, l’égalité d’accès ou les versions papier."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion de début d’année dans un collège après l’introduction de tablettes : l’inspecteur demande aux chefs d’établissement sur quel point ils veulent d’abord des retours. Ils répondent qu’ils souhaitent d’abord savoir si chaque classe utilise régulièrement les tablettes avant d’analyser d’autres éléments plus fins."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Bilan de mi-parcours d’un projet de numérisation : les responsables pédagogiques expliquent qu’ils souhaitent d’abord obtenir des informations sur le fait que les résultats des élèves s’améliorent vraiment grâce aux tablettes, avant de décider de prolonger ou non le dispositif."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Réunion avec les coordinateurs pour vérifier le respect des consignes d’accessibilité : les responsables disent qu’ils veulent d’abord savoir si tous les devoirs numériques existent aussi en version papier, pour ne léser aucun élève sans équipement adapté."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Assemblée avec les directeurs d’école d’un secteur rural : les responsables déclarent qu’ils souhaitent d’abord obtenir des informations sur le fait que toutes les familles disposent d’une connexion stable, condition préalable à l’usage efficace des tablettes à la maison."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "9262847df6e031dee0104ccc9766abb059ac46277b298184c48885a150fa0bcb",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix pourraient répondre à la question dans des contextes ordinaires, mais la mention explicite de l’amélioration des résultats scolaires comme condition préalable à une nouvelle dépense donne à l’option 0 un léger avantage logique et rédactionnel pour un enregistrement de type bilan/évaluation avant réinvestissement, d’où une préférence modérée et non certaine pour cette option.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus complète et orientée vers l’évaluation d’impact («résultats des élèves», «se sont réellement améliorés grâce aux tablettes»), ce qui correspond bien à une étape préalable structurée avant un nouvel investissement ; les autres réponses portent sur l’usage, la répartition ou l’environnement, un peu plus périphériques par rapport à la décision d’achat."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un proviseur présente au conseil d’administration un bilan d’une première expérimentation de tablettes dans quelques classes. Avant d’acheter de nouvelles tablettes pour étendre le dispositif, les responsables disent qu’ils veulent d’abord savoir si les résultats des élèves se sont réellement améliorés grâce aux tablettes, pour vérifier l’impact pédagogique avant d’investir à nouveau."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion entre direction et enseignants, on discute d’une première dotation en tablettes. Avant de décider une nouvelle commande, les responsables expliquent qu’ils veulent d’abord vérifier que les élèves se servent effectivement des tablettes pour faire leurs devoirs, afin de s’assurer qu’elles sont réellement utilisées dans le cadre du travail personnel."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une direction d’établissement a déjà équipé plusieurs classes en tablettes mais craint des inégalités entre elles. Avant de commander de nouvelles tablettes, les responsables indiquent qu’ils veulent d’abord obtenir des informations pour savoir si chaque classe dispose d’un nombre de tablettes strictement identique, afin de corriger d’éventuels déséquilibres avant tout nouvel achat."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une collectivité locale a lancé un programme de prêt de tablettes aux élèves, à utiliser principalement à la maison. Avant d’envisager une nouvelle commande, les responsables disent qu’ils souhaitent d’abord savoir si toutes les familles ont désormais accès à une connexion Internet stable, condition nécessaire pour que les futures tablettes puissent réellement servir."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "b425f3bc018f6c58af876845866d9ecf4908f3355fdd0662d96c06f18d31e612",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options sont plausibles, mais la justification d’égalité d’accès (option 2) correspond fréquemment au rôle principal attribué au support papier dans des documents sur le numérique éducatif, ce qui lui donne un léger avantage sans rendre les autres implausibles.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation socialement nuancée et ciblée (prise en compte des familles sans connexion fiable) qui ressemble à une justification principale et responsable du maintien du papier dans un document de politique éducative, plutôt qu’à un effet secondaire technique ou organisationnel."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un coordinateur du numérique explique que, faute de temps ou de maîtrise des outils, beaucoup d’enseignants n’utilisent pas toutes les fonctionnalités de différenciation des plateformes, et continuent donc à proposer surtout des exercices sur papier qui, dans les faits, se substituent largement aux exercices numériques différenciés qu’ils pourraient préparer."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion avec des parents, la direction d’un collège explique que les tablettes sont surtout utilisées en classe, et que les exercices sur papier sont conservés pour les devoirs afin de limiter l’usage des écrans à la maison et d’éviter que les élèves aient à emporter les appareils chez eux."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un rapport sur l’introduction des tablettes en milieu rural, l’auteur précise que les exercices sur papier restent le support principal pour les devoirs à la maison afin que les élèves dont la famille n’a pas de connexion Internet fiable puissent continuer à faire leurs devoirs comme les autres."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un chef d’établissement présente un projet pilote de tablettes : il explique qu’on conserve des exercices sur papier en parallèle pour pouvoir comparer les résultats avant et après l’introduction du numérique, afin de décider s’il est pertinent d’acheter davantage d’appareils."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "dff2073f5f79d7fee5ffd88599ca9923090993fafe6859dfa49c9e4f2ed959ae",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 0,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "66e8d75fcc674f50a52529169d65b1d8228b3a7f9dab5a52aa34cc4674bb615d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options pourraient servir d’indicateur préalable à un nouvel achat, mais l’accent mis sur les progrès scolaires offre un critère prioritaire cohérent avec la finalité pédagogique des tablettes. Cette orientation vers l’impact sur les élèves donne à la réponse 3 un léger avantage, tout en laissant une incertitude notable car les usages enseignants ou les coûts d’entretien sont aussi des indicateurs réalistes.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Met l’accent sur un indicateur final et pédagogique (progrès scolaires) qui apparaît comme un critère prioritaire et plus ‘noble’ que des contraintes techniques ou budgétaires, ce qui correspond souvent à la justification attendue dans un contexte éducatif. La formulation est également directement liée à la finalité de l’achat (impact sur les élèves) plutôt qu’à des considérations indirectes."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion dans un établissement scolaire ayant prêté des tablettes aux élèves pour un usage à la maison. Avant d’en acheter davantage, la direction propose de vérifier d’abord si les familles disposent d’une connexion internet suffisamment fiable à domicile, car sans cela l’investissement aurait peu d’impact sur les apprentissages."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Conseil pédagogique où l’on fait le bilan d’une première dotation en tablettes. Les responsables expliquent qu’avant de décider d’en acheter d’autres, ils veulent surtout regarder à quel point les enseignants les utilisent réellement en classe, car si l’usage reste ponctuel, il n’est pas pertinent d’augmenter le parc."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Réunion de gestion budgétaire dans une collectivité qui prête des tablettes aux élèves. Avant de décider d’étendre le dispositif, les responsables indiquent qu’ils vont d’abord examiner le coût de l’entretien, des réparations et du renouvellement du matériel prêté, afin de s’assurer que les dépenses restent soutenables."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Bilan d’un projet numérique à l’échelle d’un établissement ou d’un réseau d’écoles. Avant d’acheter davantage de tablettes, les responsables annoncent qu’ils veulent avant tout s’appuyer sur les résultats observés chez les élèves (notes, évaluations, compétences) pour voir si les tablettes améliorent réellement les progrès scolaires."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4f497639abaa548bf4dda50af2ac85e550c85d768461d76fa5f1b40b3be8af34",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses peuvent se concevoir comme des mesures possibles, mais « réorganiser les devoirs numériques » suggère une adaptation structurelle plutôt qu’une suppression (option 1 ou 2) ou un simple double support (option 3). L’option 2 (index 2) est aussi la plus développée, finalisée et cohérente avec les préoccupations usuelles d’équité d’accès au numérique dans un établissement, d’où une probabilité supérieure malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’option 2 formule une mesure concrète, structurante et typique des discussions sur les devoirs numériques (allonger les horaires pour l’accès au matériel), avec une formulation plus longue, finalisée (« afin que les élèves puissent y faire leurs devoirs numériques ») qui répond directement à un problème d’accès et correspond bien à l’idée de « réorganiser » plutôt que supprimer ou simplement dupliquer les devoirs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion avec les parents, le chef d’établissement explique qu’à la suite de difficultés liées à l’équipement numérique des élèves, l’école envisage de ne plus donner de devoirs numériques à la maison et de les réserver à des séances encadrées en classe. À la question d’un parent « Selon le document, quelle mesure l’établissement envisage-t-il pour réorganiser les devoirs numériques ? », on répondrait qu’il s’agit de limiter ces devoirs aux activités réalisées uniquement en classe."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un proviseur présente un plan transitoire après des problèmes techniques récurrents sur la plateforme numérique : l’établissement déciderait de suspendre tous les devoirs en ligne le temps de réévaluer le dispositif. Dans un compte rendu audio envoyé aux familles, on explique que, pour réorganiser les devoirs numériques, l’établissement envisage d’abord de les suspendre temporairement. La réponse serait alors la suspension."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un conseil d’administration, la direction expose que beaucoup d’élèves n’ont pas d’accès Internet à la maison. Pour rendre les devoirs numériques plus équitables, l’établissement envisage d’allonger les horaires d’ouverture (CDI, salles informatiques) afin que les élèves puissent y réaliser leurs devoirs numériques. Dans un enregistrement récapitulatif adressé aux parents, on demande ensuite : « Selon le document, quelle mesure l’établissement envisage-t-il pour réorganiser les devoirs numériques ? », et cette mesure d’extension des horaires est donnée comme réponse."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une réunion pédagogique, la direction explique vouloir garder les avantages des devoirs en ligne tout en tenant compte des familles sans équipement. L’établissement envisage donc de proposer systématiquement une version papier de tous les exercices donnés sur la plateforme. Un message vocal d’information aux parents mentionne précisément cette solution comme nouvelle organisation des devoirs numériques, et une question de compréhension demande de l’identifier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "7fc648bc3d4770e6edc2bcdf8143f6bdae9a738c7b67a1c35c08dfcdb1213971",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options pourraient être mentionnées comme initiatives en lien avec un prêt de matériel, mais l’idée de conserver un support papier complète directement le dispositif de prêt en termes d’accessibilité et d’inclusion, ce qui lui donne un léger avantage de plausibilité rédactionnelle par rapport aux autres formulations.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "« Prêt d’équipements » renvoie normalement à du matériel prêté ponctuellement aux élèves, alors que « fournir des tablettes à l’ensemble des classes » décrit plutôt un équipement permanent des salles de classe, moins clairement formulé comme une initiative distincte mais liée au prêt."
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "L’initiative de « maintenir une version des exercices disponible sur support papier » se présente comme un complément prudent et inclusif au prêt d’équipements, directement relié à l’usage de ce matériel et formulé de manière précise et responsable, ce qui cadre bien avec une mention d’« autre initiative » associée."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une directrice présente en réunion parents-profs un dispositif de prêt d’ordinateurs pour les devoirs à la maison et ajoute qu’en parallèle, l’établissement prévoit de fournir des tablettes à l’ensemble des classes pour un usage quotidien en cours. Cette distribution généralisée est présentée comme une autre initiative liée à la politique numérique de l’école, en plus du prêt d’équipements individuels."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un conseil d’établissement, le chef d’établissement explique qu’un système de prêt d’ordinateurs portables est mis en place pour les élèves n’ayant pas de matériel à la maison, et précise qu’une autre initiative associée sera de contrôler, sur l’année, si les résultats des élèves s’améliorent effectivement grâce à cet accès au matériel."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une coordinatrice numérique décrit en audio un projet de prêt de tablettes aux élèves pour qu’ils puissent s’exercer chez eux, et ajoute qu’une autre initiative, liée à ce prêt, consiste à adapter les exercices numériques à plusieurs niveaux d’élèves, afin que chacun puisse travailler avec le matériel emprunté à un niveau approprié."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un enseignant présente un nouveau dispositif de prêt de tablettes par le collège pour les devoirs en ligne et précise qu’une autre initiative, associée à ce prêt, consiste à maintenir une version des exercices disponible sur support papier, pour les élèves qui ne souhaitent ou ne peuvent pas utiliser l’équipement emprunté en permanence."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "ec99c81a081cce96b83dea59f04991779e8696301f247d52938d441116178cbb",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses peuvent s’insérer dans un contexte scolaire crédible, mais l’option 1 correspond le plus naturellement à une étape initiale : avant de décider de la suite, on vérifie d’abord que les appareils sont effectivement utilisés comme prévu. La mention « à propos de ces appareils » s’aligne bien avec un contrôle d’usage concret plutôt qu’avec des effets indirects (résultats) ou des conditions externes (connexion) ; d’où une probabilité plus élevée pour l’option 1, malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Parmi les formulations, « Que les élèves utilisent bien les tablettes pour travailler à la maison » correspond directement à « à propos de ces appareils » et à une vérification préalable et pragmatique (« d’abord vérifier ») de l’usage réel, avant d’envisager des effets plus indirects comme les résultats scolaires ou la disparition du papier. Les autres choix portent soit sur des conditions externes (connexion Internet), soit sur des conséquences plus lointaines (résultats, remplacement du papier), moins typiquement décrites comme la toute première vérification."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une école prête des tablettes aux élèves. Avant de généraliser le dispositif, les responsables expliquent en réunion de parents qu’ils doivent d’abord vérifier que toutes les familles ont une connexion Internet stable à domicile, condition nécessaire pour exploiter pleinement ces appareils à la maison."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un projet pilote où des tablettes sont distribuées aux élèves, la direction dit en conseil d’établissement qu’avant de décider de la suite (prolongation, achat d’appareils supplémentaires, nouvelles applications), elle veut d’abord vérifier que les élèves utilisent bien les tablettes pour travailler à la maison, et pas seulement pour se divertir."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un établissement a lancé un programme d’équipement en tablettes. Lors d’une présentation au rectorat, les responsables expliquent qu’avant de décider de la suite du projet (pérennisation, extension à d’autres niveaux), ils veulent d’abord vérifier que les résultats des élèves s’améliorent de façon mesurable grâce à l’usage de ces appareils."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une école a introduit des tablettes pour les devoirs. Lors d’une réunion pédagogique, les responsables disent qu’avant de décider de la suite (par exemple supprimer complètement les cahiers de devoirs), ils veulent d’abord vérifier que les devoirs numériques remplacent en grande partie la version sur papier, ce qui justifierait de changer l’organisation matérielle."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "5364b26476f21662e982a40965b223debed55bbc18a22c22bca5be2fd4345db8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent des difficultés plausibles, mais la formulation insiste sur un « problème concret » lié aux devoirs numériques ; l’option 2 correspond exactement à un obstacle pratique classique pour faire les devoirs à la maison (connexion instable), directement relié au contexte familial des devoirs numériques, ce qui lui donne un avantage net malgré une incertitude résiduelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Le problème de la connexion Internet à domicile est un obstacle très directement lié et fréquemment associé aux devoirs numériques, formulé comme une difficulté pratique et concrète pour les familles, ce qui colle particulièrement bien avec « problème concret … à propos des devoirs numériques », plus que les autres options qui portent davantage sur l’organisation interne de l’établissement ou des ressources pédagogiques."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une émission de radio sur l’introduction des devoirs numériques au collège, un directeur explique qu’ils reçoivent beaucoup de données sur les résultats des élèves, mais que l’établissement manque de temps pour analyser correctement si ces résultats progressent, ce qui pose un problème concret pour évaluer l’efficacité des devoirs numériques."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un reportage sur la mise en place des devoirs numériques dans une école, la chef d’établissement explique qu’un frein concret est que les tablettes, qui doivent servir à faire les devoirs numériques, n’ont pas encore été distribuées à l’ensemble des classes, ce qui empêche une généralisation du dispositif."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une interview sur les devoirs numériques, une enseignante explique qu’un problème très concret concerne l’inégalité entre élèves : dans certaines familles, la connexion Internet à domicile n’est pas assez stable, ce qui empêche les enfants de réaliser correctement leurs devoirs en ligne."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un podcast de formation pour enseignants, une formatrice évoque que, pour les devoirs numériques, un problème concret est que les enseignants ne disposent pas d’assez d’exercices numériques adaptés aux différents niveaux de leurs élèves, ce qui limite l’usage pédagogique de ces devoirs."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0a2ae3b632df09b347f1acce8b4db537177d538b8bc588bffe9f1d0819e8a3b4",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre à la question dans un contexte ordinaire, mais la tournure « se faire une idée » suggère davantage une observation initiale de pratiques que la mesure de résultats chiffrés ou la vérification d’un prérequis technique. L’option 3 s’aligne le mieux avec cette nuance, d’où un léger avantage sans certitude totale.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "La formulation « se faire une idée » cadre particulièrement bien avec l’observation qualitative de pratiques enseignantes (exploiter les possibilités d’exercices différenciés), alors que l’option 0 évoque une progression « notable » des résultats plus objective et chiffrée, l’option 1 un simple prérequis logistique, et l’option 2 une décision de politique de supports. L’option 3 correspond plus naturellement à un premier champ d’exploration pédagogique tel que formulé dans la question."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Lors d’une réunion avec les parents, le directeur explique que l’école vient d’introduire des tablettes. Il précise que, avant d’aller plus loin dans le projet, la direction veut d’abord se faire une idée de l’impact réel sur la réussite scolaire, par exemple en comparant les notes sur plusieurs trimestres pour voir si les résultats des élèves progressent de manière notable."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une responsable d’établissement présente un projet de dotation en tablettes à un conseil d’école. Elle explique que, avant de généraliser leur usage à la maison, la direction veut d’abord se faire une idée de la situation matérielle des familles, notamment vérifier si la plupart d’entre elles disposent d’une connexion Internet fiable pour que les élèves puissent vraiment utiliser les tablettes hors de l’école."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un échange avec les enseignants, le chef d’établissement affirme que l’école souhaite introduire les tablettes sans abandonner complètement les supports traditionnels. Il dit que la direction veut d’abord se faire une idée de l’évolution des pratiques de devoirs, en vérifiant si les devoirs numériques restent un complément et ne supplantent pas entièrement les supports papier."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Pendant une formation interne, la direction explique que l’objectif des tablettes est de mieux s’adapter aux différences entre élèves. Elle indique que, avant d’élargir le dispositif, elle veut d’abord se faire une idée de la manière dont les enseignants exploitent ou non les possibilités d’exercices différenciés offertes par les tablettes dans leurs cours quotidiens."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3P5KZxaKXquejLbHxrjWPzfGDLF",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Réunion avec les parents d’élèves sur l’introduction de tablettes en classe. La direction explique qu’avant d’aller plus loin, elle veut surtout se faire une idée de l’impact sur les pratiques de travail à la maison, notamment vérifier que les devoirs numériques ne finissent pas par remplacer totalement les supports papier."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Conseil pédagogique où la direction présente un projet d’équipement en tablettes. Elle précise qu’elle veut d’abord se faire une idée de la manière dont les enseignants comptent exploiter l’outil, en particulier s’ils utiliseront vraiment les possibilités d’exercices différenciés offertes par les tablettes."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Présentation d’un projet pilote de tablettes en classe. La direction explique qu’avant de déployer le dispositif à grande échelle, elle veut d’abord se faire une idée de l’effet sur les apprentissages, c’est‑à‑dire si les résultats scolaires des élèves progressent réellement et de façon notable."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Réunion d’information sur un projet de cartable numérique. La direction indique qu’avant de généraliser les tablettes, elle veut d’abord se faire une idée de l’équipement des familles, en particulier vérifier que la plupart disposent d’une connexion Internet fiable à la maison."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.3,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Tous les choix peuvent répondre directement à la question dans un contexte ordinaire. L’énoncé « se faire d’abord une idée » s’accorde légèrement mieux, de façon générale, avec l’idée de mesurer en priorité l’impact sur les résultats scolaires, d’où un léger avantage pour l’option 2, mais l’incertitude reste élevée en l’absence de tout extrait audio."
+        },
+        "usage": {
+          "prompt_tokens": 640,
+          "completion_tokens": 641,
+          "total_tokens": 1281,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 222,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00721,
+        "inputHash": "9ce63789c2ff96947824806e7403d6d57985e1b4b71fbf70685f4611a53c65c7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:85aecef166340640b146977e:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3PCPxCZpdVzrqVisV858WlJqDUE",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une réunion avec les parents, le directeur explique que l’école vient d’introduire des tablettes. Il précise que, avant d’aller plus loin dans le projet, la direction veut d’abord se faire une idée de l’impact réel sur la réussite scolaire, par exemple en comparant les notes sur plusieurs trimestres pour voir si les résultats des élèves progressent de manière notable."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une responsable d’établissement présente un projet de dotation en tablettes à un conseil d’école. Elle explique que, avant de généraliser leur usage à la maison, la direction veut d’abord se faire une idée de la situation matérielle des familles, notamment vérifier si la plupart d’entre elles disposent d’une connexion Internet fiable pour que les élèves puissent vraiment utiliser les tablettes hors de l’école."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’un échange avec les enseignants, le chef d’établissement affirme que l’école souhaite introduire les tablettes sans abandonner complètement les supports traditionnels. Il dit que la direction veut d’abord se faire une idée de l’évolution des pratiques de devoirs, en vérifiant si les devoirs numériques restent un complément et ne supplantent pas entièrement les supports papier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Pendant une formation interne, la direction explique que l’objectif des tablettes est de mieux s’adapter aux différences entre élèves. Elle indique que, avant d’élargir le dispositif, elle veut d’abord se faire une idée de la manière dont les enseignants exploitent ou non les possibilités d’exercices différenciés offertes par les tablettes dans leurs cours quotidiens."
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "La formulation « se faire une idée » cadre particulièrement bien avec l’observation qualitative de pratiques enseignantes (exploiter les possibilités d’exercices différenciés), alors que l’option 0 évoque une progression « notable » des résultats plus objective et chiffrée, l’option 1 un simple prérequis logistique, et l’option 2 une décision de politique de supports. L’option 3 correspond plus naturellement à un premier champ d’exploration pédagogique tel que formulé dans la question."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.18,
+            0.22,
+            0.2,
+            0.4
+          ],
+          "guess": 3,
+          "reason": "Tous les choix peuvent répondre à la question dans un contexte ordinaire, mais la tournure « se faire une idée » suggère davantage une observation initiale de pratiques que la mesure de résultats chiffrés ou la vérification d’un prérequis technique. L’option 3 s’aligne le mieux avec cette nuance, d’où un léger avantage sans certitude totale."
+        },
+        "usage": {
+          "prompt_tokens": 640,
+          "completion_tokens": 847,
+          "total_tokens": 1487,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 246,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00927,
+        "inputHash": "1ba9f8e5686812382a5b08aa3dfb0e2ac8c560014a5b8c99332ad3f18837d293",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:24:85aecef166340640b146977e:screen:6:1"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix peuvent répondre à la question dans un contexte ordinaire, mais la tournure « se faire une idée » suggère davantage une observation initiale de pratiques que la mesure de résultats chiffrés ou la vérification d’un prérequis technique. L’option 3 s’aligne le mieux avec cette nuance, d’où un léger avantage sans certitude totale.",
+    "cues": [
+      {
+        "option": 3,
+        "severity": "weak",
+        "cue": "La formulation « se faire une idée » cadre particulièrement bien avec l’observation qualitative de pratiques enseignantes (exploiter les possibilités d’exercices différenciés), alors que l’option 0 évoque une progression « notable » des résultats plus objective et chiffrée, l’option 1 un simple prérequis logistique, et l’option 2 une décision de politique de supports. L’option 3 correspond plus naturellement à un premier champ d’exploration pédagogique tel que formulé dans la question."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Lors d’une réunion avec les parents, le directeur explique que l’école vient d’introduire des tablettes. Il précise que, avant d’aller plus loin dans le projet, la direction veut d’abord se faire une idée de l’impact réel sur la réussite scolaire, par exemple en comparant les notes sur plusieurs trimestres pour voir si les résultats des élèves progressent de manière notable."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une responsable d’établissement présente un projet de dotation en tablettes à un conseil d’école. Elle explique que, avant de généraliser leur usage à la maison, la direction veut d’abord se faire une idée de la situation matérielle des familles, notamment vérifier si la plupart d’entre elles disposent d’une connexion Internet fiable pour que les élèves puissent vraiment utiliser les tablettes hors de l’école."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’un échange avec les enseignants, le chef d’établissement affirme que l’école souhaite introduire les tablettes sans abandonner complètement les supports traditionnels. Il dit que la direction veut d’abord se faire une idée de l’évolution des pratiques de devoirs, en vérifiant si les devoirs numériques restent un complément et ne supplantent pas entièrement les supports papier."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Pendant une formation interne, la direction explique que l’objectif des tablettes est de mieux s’adapter aux différences entre élèves. Elle indique que, avant d’élargir le dispositif, elle veut d’abord se faire une idée de la manière dont les enseignants exploitent ou non les possibilités d’exercices différenciés offertes par les tablettes dans leurs cours quotidiens."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": "023d28571fbc899a2d900e1436de433bad1ffc7c4f80fe309f0899bedab0d99f"
+}

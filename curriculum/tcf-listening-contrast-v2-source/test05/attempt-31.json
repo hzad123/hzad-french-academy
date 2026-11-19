@@ -1,0 +1,797 @@
+{
+  "question": {
+    "number": 31,
+    "kind": "academic-monologue",
+    "question": "Selon le document, à quoi sert la comparaison entre des périodes où les températures extérieures sont similaires ?",
+    "options": [
+      "Évaluer l’évolution de la consommation de chauffage sur ces périodes.",
+      "Vérifier si l’isolation installée apporte réellement un gain notable.",
+      "Identifier les parties du logement qui restent moins bien chauffées.",
+      "Mettre en évidence d’éventuels problèmes de réglage ou de ventilation."
+    ],
+    "correct": "A",
+    "explanation": "Le texte dit explicitement : Pour mesurer les économies, il faut comparer des périodes aux températures comparables. La comparaison sert donc à évaluer les économies de chauffage après les travaux, et non à localiser des pièces froides, diagnostiquer des problèmes techniques ou juger directement de l’inefficacité des matériaux.",
+    "transcript": "Question 31.\nAprès des travaux d'isolation, les consommations de chauffage peuvent diminuer moins que prévu. Cela ne signifie pas nécessairement que les matériaux sont inefficaces. Certains habitants choisissent de chauffer davantage des pièces auparavant trop froides. D'autres rencontrent des problèmes de réglage ou d'aération. Pour mesurer les économies, il faut comparer des périodes aux températures comparables et tenir compte de ces modifications de comportement. Une réduction théorique calculée avant les travaux ne doit pas être confondue avec la consommation réellement observée ensuite.\nSelon le document, à quoi sert la comparaison entre des périodes où les températures extérieures sont similaires ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 31."
+      },
+      {
+        "voice": "female",
+        "text": "Après des travaux d'isolation, les consommations de chauffage peuvent diminuer moins que prévu. Cela ne signifie pas nécessairement que les matériaux sont inefficaces. Certains habitants choisissent de chauffer davantage des pièces auparavant trop froides. D'autres rencontrent des problèmes de réglage ou d'aération. Pour mesurer les économies, il faut comparer des périodes aux températures comparables et tenir compte de ces modifications de comportement. Une réduction théorique calculée avant les travaux ne doit pas être confondue avec la consommation réellement observée ensuite."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, à quoi sert la comparaison entre des périodes où les températures extérieures sont similaires ?"
+      }
+    ],
+    "audio": "q-31.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 72
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3QD4YKQVbiXoeNfliYS6MFfQjPA",
+    "result": {
+      "question": "Dans le document, quel est l’objectif de la comparaison entre des périodes aux températures comparables ?",
+      "choices": [
+        "Mesurer les économies de chauffage après les travaux.",
+        "Repérer les pièces qui restent trop froides malgré l’isolation.",
+        "Mettre en évidence les problèmes de réglage ou d’aération.",
+        "Vérifier si les matériaux d’isolation sont réellement inefficaces."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte dit explicitement : Pour mesurer les économies, il faut comparer des périodes aux températures comparables. La comparaison sert donc à évaluer les économies de chauffage après les travaux, et non à localiser des pièces froides, diagnostiquer des problèmes techniques ou juger directement de l’inefficacité des matériaux.",
+      "design": "La relation testée est le rôle précis attribué à l’action comparer des périodes aux températures comparables. Le document en fait un moyen de mesurer les économies de chauffage, tandis que d’autres éléments (pièces auparavant trop froides, problèmes de réglage ou d’aération, éventuelle inefficacité des matériaux) jouent d’autres rôles dans l’explication. Les quatre réponses proposent des objectifs plausibles et de même nature (diagnostics possibles après des travaux d’isolation). Sans l’écoute, chacune pourrait sembler un but raisonnable pour une telle comparaison. Seule la première reprend fidèlement la fonction indiquée dans la source.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option attribue à la comparaison de périodes la fonction de repérer les pièces restées trop froides, en s’appuyant sur la mention de pièces auparavant trop froides. En réalité, ce passage décrit un changement de comportement des habitants, alors que la comparaison de périodes est explicitement présentée comme un moyen de mesurer les économies, non de cartographier le confort pièce par pièce.",
+          "operation": "role_swap",
+          "anchors": [
+            "certains habitants choisissent de chauffer davantage des pièces auparavant trop froides",
+            "Pour mesurer les économies, il faut comparer des périodes aux températures comparables"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que la comparaison sert à mettre en évidence les problèmes de réglage ou d’aération, puisqu’ils sont évoqués juste après les comportements des habitants. Mais ces problèmes sont donnés comme une autre cause possible d’écart entre la baisse attendue et la baisse observée; la comparaison de périodes est, elle, associée à la mesure des économies, pas au diagnostic direct de ces problèmes techniques.",
+          "operation": "role_swap",
+          "anchors": [
+            "D'autres rencontrent des problèmes de réglage ou d'aération",
+            "Pour mesurer les économies, il faut comparer des périodes aux températures comparables"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "L’énoncé précise que des économies moindres ne signifient pas forcément que les matériaux sont inefficaces, ce qui peut amener à penser que la comparaison sert à vérifier cette efficacité. En réalité, le texte distingue l’avertissement sur l’interprétation (ne pas conclure trop vite à l’inefficacité) de la méthode de mesure, où la comparaison de périodes est rattachée à l’évaluation des économies, pas au contrôle direct des matériaux.",
+          "operation": "role_swap",
+          "anchors": [
+            "Cela ne signifie pas nécessairement que les matériaux sont inefficaces",
+            "Pour mesurer les économies, il faut comparer des périodes aux températures comparables"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4328,
+      "completion_tokens": 3667,
+      "total_tokens": 7995,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2974,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.04208,
+    "inputHash": "f2811357e014db012ddc319743e36040eb09ab04d15b0e277fed6869a374bef4",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, quel est l’objectif de la comparaison entre des périodes aux températures comparables ?",
+      "choices": [
+        "Mesurer les économies de chauffage après les travaux.",
+        "Vérifier si les matériaux d’isolation sont réellement inefficaces.",
+        "Repérer les pièces qui restent trop froides malgré l’isolation.",
+        "Mettre en évidence les problèmes de réglage ou d’aération."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3QqQXcWIDky97wTWXaHPUnzGtbW",
+      "result": {
+        "question": "Selon le document, à quoi sert la comparaison entre des périodes où les températures extérieures sont similaires ?",
+        "choices": [
+          "Évaluer l’évolution de la consommation de chauffage sur ces périodes.",
+          "Vérifier si l’isolation installée apporte réellement un gain notable.",
+          "Identifier les parties du logement qui restent moins bien chauffées.",
+          "Mettre en évidence d’éventuels problèmes de réglage ou de ventilation."
+        ],
+        "notes": "La question reste centrée sur la finalité de la comparaison de périodes à températures similaires, sans suggérer directement une réponse. Chaque option propose un objectif plausible, de même niveau de précision (analyse de consommation, efficacité de l’isolation, répartition de la chaleur, diagnostic de réglages/ventilation), sans qu’une seule paraisse clairement plus raisonnable ou complète que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 501,
+        "total_tokens": 1164,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 322,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00583875,
+      "inputHash": "2698167d8f6cc7dfa728e89622c3a8853dba6214c22b4de36710be90c34040fc",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "ed2c47e8864195d61727ec9be311f8ec03b088fbc007ee9faf67ab589ac0357a",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options ont un contexte plausible où comparer des périodes aurait du sens, mais la justification liée aux variations de météo dans l’estimation des économies de chauffage correspond le mieux à une recommandation générale d’un document explicatif sur le suivi des économies d’énergie, sans se limiter à un cas particulier (après travaux, comportement des matériaux, ou seules habitudes des occupants). L’avantage reste modéré, d’où une probabilité non écrasante et une incertitude réelle.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La formulation lie directement la comparaison de périodes à une nécessité classique et mesurable (corriger les effets de la météo pour estimer les économies de chauffage), en écho au « Selon le document » qui suggère une recommandation méthodologique générale plutôt qu’un contrôle ponctuel (problèmes après travaux, vieillissement des matériaux, habitudes)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller en rénovation énergétique explique à un propriétaire qu’après des travaux (changement de chaudière, ajout de VMC, etc.), il est utile de comparer la consommation de chauffage sur différentes périodes (par exemple avant/après travaux, ou différents hivers) pour repérer d’éventuels problèmes de réglage du système ou de qualité de l’aération pouvant être apparus après les travaux."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un guide sur l’évaluation des économies de chauffage, un expert recommande de comparer des périodes de consommation (par exemple deux hivers successifs) afin de corriger l’analyse en fonction des différences de météo entre ces périodes (hiver plus doux ou plus rigoureux), ce qui permet d’estimer plus justement les économies réellement dues aux travaux plutôt qu’aux conditions climatiques."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document technique sur l’isolation d’un bâtiment conseille de suivre la consommation de chauffage sur plusieurs périodes (par exemple chaque hiver pendant plusieurs années) pour vérifier, en les comparant, que les matériaux d’isolation conservent bien leurs performances dans le temps et ne se dégradent pas plus vite que prévu."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un animateur d’atelier sur les économies d’énergie explique qu’en comparant différentes périodes de consommation (par exemple avant et après un changement d’habitudes de chauffage, ou périodes d’occupation différente du logement), on peut mieux séparer l’impact des habitudes des occupants (température de consigne, durée de chauffage) de celui d’autres facteurs comme la météo ou la qualité de l’isolation."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "2749fa307da1bf0312003157e91df381f76545b3ba8f0fed002f302b2c47be29",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses peuvent s’intégrer dans un contexte ordinaire de comparaison de consommations de chauffage, mais le critère des « températures comparables » correspond à un principe méthodologique plus précis et souvent explicitement enseigné en gestion énergétique. Faute de contexte audio, cela reste incertain, mais cette spécificité donne à l’option 1 un léger avantage.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La mention des « températures comparables » est un critère technique fréquemment mis en avant dans les méthodes de suivi énergétique (degrés-jours, correction climatique), ce qui donne à cette option une pertinence méthodologique plus spécifique que la simple égalité de durée ou de configuration d’occupation, sans que le texte de la question introduise d’autre restriction."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un formateur en gestion de l’énergie explique comment suivre la consommation de chauffage d’un bâtiment au fil du temps. Il dit qu’on ne peut comparer que des périodes de même durée (par exemple deux mois complets) pour que la comparaison soit pertinente, puis pose la question : « Sur quel critère précis doit reposer la comparaison entre les différentes périodes ? » et l’auditeur répond : « Sur des périodes ayant une durée identique. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation sur le suivi des consommations de chauffage, un ingénieur explique qu’il faut tenir compte de la météo pour comparer des consommations d’énergie d’une année sur l’autre. Il insiste sur le fait qu’il faut comparer des périodes où les conditions de température extérieure sont similaires. Il demande ensuite : « Sur quel critère précis doit reposer la comparaison entre les différentes périodes ? » et on répond : « Sur des périodes présentant des températures comparables. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion de copropriété, un technicien évoque la répartition du chauffage dans l’immeuble. Il explique que certaines économies apparentes viennent du fait que toutes les pièces n’ont pas été chauffées aux mêmes périodes. Il conclut qu’il faut comparer uniquement les périodes où exactement les mêmes pièces sont chauffées et demande : « Sur quel critère précis doit reposer la comparaison entre les différentes périodes ? » La réponse donnée est : « Sur des périodes où les mêmes pièces sont chauffées. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un consultant en efficacité énergétique parle de l’influence de l’occupation d’un logement sur la consommation de chauffage. Il explique qu’un appartement occupé par deux personnes ne consommera pas comme le même appartement occupé par cinq personnes. Il précise qu’une comparaison de consommation doit donc se faire sur des périodes avec le même niveau d’occupation et pose la question : « Sur quel critère précis doit reposer la comparaison entre les différentes périodes ? » La réponse proposée est : « Sur des périodes comptant le même nombre d’occupants. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "830649eaba835ce44d690823b741d9730953b6ca66fdc5285d3e3cb40068faab",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 1 (index 1) correspond exactement à une confusion typique lors de l’évaluation de travaux d’isolation : assimiler la baisse théorique issue de calculs préalables à la baisse réellement constatée sur les consommations de chauffage. Cette opposition calcul/mesure correspond très bien à l’« analyse des effets » évoquée dans l’énoncé, alors que les autres distracteurs concernent des facteurs périphériques (météo vs comportement, réglage vs aération, matériaux vs équipements) moins directement liés à cette problématique de comparaison entre prévision et observation. Incertitude modérée mais avantage net pour l’option 1.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation vise explicitement la comparaison entre un résultat théorique (diminution calculée avant travaux) et un résultat réel (baisse mesurée après travaux), ce qui correspond très directement à l’« analyse des effets de travaux d’isolation sur les consommations de chauffage ». Les autres options portent sur d’autres distinctions (conditions extérieures, comportements, réglages, matériaux vs équipements) qui sont plausibles mais moins directement ancrées dans l’opposition entre prévision et mesure après travaux."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une formation pour conseillers en énergie, un intervenant explique qu’après des travaux d’isolation, il faut analyser les consommations de chauffage en tenant compte à la fois des températures extérieures et du comportement des occupants. Un participant demande quelle erreur fréquente il faut éviter, et l’intervenant répond qu’il ne faut pas confondre l’impact des variations de température extérieure avec celui des changements de comportement des occupants, car ce sont deux facteurs d’influence différents à distinguer dans les analyses."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un bilan énergétique après rénovation, un ingénieur explique à un syndicat de copropriété que les simulations effectuées avant travaux donnaient une baisse théorique des consommations, tandis que les relevés de facture après travaux montrent une autre valeur. Il insiste sur la nécessité de ne pas confondre la diminution calculée avant les travaux avec la baisse effectivement mesurée après les travaux, car l’une est un scénario théorique et l’autre reflète la réalité observée."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion entre un bailleur social et un bureau d’études, on discute de plaintes d’habitants après des travaux d’isolation : certains se plaignent d’inconfort et de consommation élevée. Le technicien explique qu’il faut d’abord vérifier les réglages des chaudières et des robinets thermostatiques, et qu’il ne faut pas confondre des défauts de réglage des installations avec des problèmes d’aération des logements, car les causes et les solutions ne sont pas les mêmes."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un séminaire sur la rénovation énergétique, un expert présente les différents paramètres influençant la consommation de chauffage. Il précise qu’au moment d’interpréter les résultats après des travaux d’isolation, il ne faut pas confondre la qualité des matériaux isolants avec la performance des équipements de chauffage installés, car ce sont deux volets distincts de la performance globale du bâtiment et ils s’analysent séparément."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "a9bbd08c78ee0fa2c71a0201ff32f37331711f72ff37ccc254b64340277a1d35",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des conditions raisonnables à maintenir stables pour comparer des consommations de chauffage. Cependant, dans les approches usuelles d’évaluation de travaux d’isolation, la sélection de périodes avec des températures extérieures globalement similaires est un critère clé, explicite et très standardisé (correction climatique), alors que les habitudes, réglages et aération sont des variables plus difficiles à maîtriser et moins souvent formulées comme critère principal de choix des périodes. Cette focalisation sur le facteur climatique donne un avantage net à l’option 2, bien que l’incertitude reste non négligeable sans le document audio.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Pour évaluer l’impact de travaux d’isolation sur la consommation de chauffage, le critère le plus directement lié au ‘type’ de comparaison de périodes, et classiquement mis en avant dans les documents techniques, est la similarité des températures extérieures, car elle conditionne la demande de chauffage indépendamment des usages, réglages ou aération. Le choix 2 cible explicitement ce facteur climatique central, alors que les autres portent sur des comportements ou réglages plus secondaires par rapport au critère météorologique standard (jours de chauffe, degrés-jours)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement où un conseiller en énergie explique comment évaluer l’efficacité de travaux d’isolation à partir des factures, il précise qu’il faut comparer des périodes (par exemple deux hivers successifs) pendant lesquelles les occupants gardent à peu près les mêmes habitudes de chauffage (heures d’allumage, présence au domicile, température recherchée), afin que la variation de consommation reflète surtout l’isolation."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un technicien décrit une méthode de suivi de consommation après des travaux : il conseille de choisir deux périodes de référence durant lesquelles les réglages des thermostats et la programmation des radiateurs ou de la chaudière (plages horaires, températures de consigne) n’ont pas été modifiés de façon notable, pour isoler l’effet propre des travaux d’isolation sur la consommation."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un spécialiste des économies d’énergie explique qu’on ne peut pas comparer deux hivers sans tenir compte de la météo : pour mesurer l’impact de l’isolation, il recommande de choisir des périodes (par exemple deux mois de janvier différents) où les températures extérieures moyennes sont globalement similaires, afin de rendre la comparaison de consommation de chauffage pertinente."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une conseillère en rénovation énergétique explique qu’il faut limiter les biais dans la comparaison avant/après travaux : elle recommande, entre autres, de tenir compte des habitudes d’aération et de choisir des périodes où la fréquence et la durée d’ouverture des fenêtres ou de la ventilation sont globalement similaires, pour ne pas confondre pertes de chaleur par aération et effet de l’isolation."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0296449c938372c721b3ac1d1b137fe10601e1fd46b5a825b3861d348e041480",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses sont plausibles dans un contexte quelconque, mais pour un document évaluant une réduction de consommation après travaux, une base explicitement méthodique et neutre comme la comparaison de périodes à températures extérieures similaires (option 2) est nettement plus cohérente et responsable que les autres formulations, qui introduisent soit des biais comportementaux (0), soit un calcul seulement théorique ou mal défini (1), soit une approche incomplète ne justifiant pas une « réduction annoncée » (3). D’où une probabilité nettement plus élevée pour l’option 2, malgré l’incertitude liée à l’absence de l’audio.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’option 2 décrit une méthode de calcul explicitement rigoureuse et directement pertinente pour « évaluer » une réduction de consommation dans un document technique (comparaison de périodes à températures extérieures similaires), tandis que 0 intègre un biais comportemental souvent exclu, 3 ignore toute référence avant/après ou correction et paraît méthodologiquement faible, et 1 reste vague (« coefficient standard ») et moins directement relié à une comparaison de réduction présentée dans un document de résultats."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller énergie présente à des habitants d’un immeuble rénové un document chiffrant les économies de chauffage. Il explique que la réduction de consommation indiquée tient compte non seulement de l’isolation mais aussi des changements d’habitudes de chauffage et d’aération adoptés par les occupants après une campagne de sensibilisation. La question porte sur la base de calcul de cette réduction, et l’intervenant répond qu’elle est évaluée en intégrant ces changements d’habitudes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion d’information sur un programme de rénovation énergétique, un technicien décrit un document qui annonce un pourcentage de réduction théorique de consommation. Il précise que cette réduction est calculée avant les travaux en appliquant un coefficient standard de performance énergétique sur la situation initiale du bâtiment. On lui demande sur quelle base la réduction annoncée est évaluée, et il répond que c’est en appliquant ce coefficient standard avant les travaux d’isolation."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un ingénieur présente un bilan de travaux d’isolation lors d’une assemblée de copropriété. Le document compare les consommations avant et après travaux. Il explique qu’ils ont corrigé l’influence de la météo en choisissant des périodes de référence ayant des températures extérieures similaires pour que la réduction annoncée reflète réellement l’effet des travaux. Quand on lui pose la question, il répond que la réduction est évaluée en comparant des périodes présentant des températures extérieures similaires."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un propriétaire montre à son locataire un document simplifié où il a calculé les économies de chauffage après l’isolation de l’appartement. Il explique qu’il n’a pas fait de correction météo ni de comparaison fine, et que la réduction annoncée dans le document provient uniquement des factures de consommation relevées après les travaux. Interrogé sur la base de cette évaluation, il dit que c’est uniquement à partir des consommations mesurées après les travaux."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "20703b5e007040930e640970267bd218dd4cf6d3bd7713529063327cb1a3a412",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent être intégrés dans un discours plausible, mais la question oppose directement un résultat décevant à la décision de réaliser des travaux d’isolation. Il est courant dans ce type de documents de rassurer sur le bien-fondé de la rénovation elle-même, même si les économies chiffrées sont inférieures aux simulations. L’option 2 reprend précisément cette idée de ne pas remettre en cause la pertinence du choix d’engager les travaux, ce qui lui donne un avantage de formulation et de portée par rapport aux autres.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La question met en tension des économies réelles plus faibles que prévu avec des « travaux d’isolation » dans leur ensemble ; la formulation « la pertinence même du choix d’engager des travaux d’isolation » correspond exactement à l’idée de ne pas remettre en cause la décision globale, alors que les autres options portent sur des causes ponctuelles (habitudes, réglages, performance des matériaux) et sont moins naturellement visées par la tournure générale du document."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement de conseil aux particuliers après des travaux d’isolation, un expert explique que, si la baisse de consommation est moins forte qu’attendu, cela ne veut pas forcément dire que les occupants chauffent « mal » ou de façon déraisonnable : leurs habitudes de chauffage n’ont pas nécessairement à être remises en cause, d’autres facteurs pouvant expliquer l’écart (hiver plus froid, sous-estimation des déperditions initiales, etc.)."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un technicien en efficacité énergétique commente des résultats décevants après isolation et précise qu’une économie moindre que prévue ne signifie pas forcément qu’il y a un défaut de réglage ou un problème d’aération des radiateurs ou de la chaudière : l’installation peut être correctement réglée, et d’autres facteurs peuvent expliquer l’écart entre économies théoriques et réelles."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une conseillère en rénovation énergétique s’adresse à des propriétaires déçus par des économies de chauffage inférieures aux simulations. Elle insiste sur le fait que cela ne remet pas forcément en cause la pertinence même d’avoir réalisé des travaux d’isolation : ces travaux restent globalement bénéfiques (confort, valeur du bien, réduction des pertes), même si les gains mesurés sont plus modestes que prévu."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un bilan de rénovation, un ingénieur explique qu’une réduction de consommation plus faible qu’annoncé ne signifie pas automatiquement que les matériaux isolants sont de mauvaise qualité : la performance thermique nominale des matériaux n’est pas forcément à remettre en cause, car le décalage peut venir de la mise en œuvre, de la météo ou du comportement des occupants."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "a4c2533dd2c0e37e72b83641ed9228b232012b824fed23fde1e20e86dc4c6183",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La comparaison de périodes aux températures similaires est classiquement utilisée pour isoler l’impact de la météo et mesurer les économies réelles après une action (travaux, changement de réglages). L’option B décrit exactement cette finalité globale, alors que A rajoute une notion de modèle théorique non mentionnée dans la question, C se centre sur les seuls matériaux isolants, et D décrit une étape d’ajustement ultérieure. B apparaît donc comme légèrement favorisée par la formulation, même si les autres restent plausibles.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La formulation vise directement la finalité standard de la comparaison entre périodes à températures similaires (neutraliser l’effet météo pour quantifier les gains), sans introduire d’hypothèse théorique préalable ni se focaliser sur un seul élément (matériaux, réglages). C’est la réponse la plus générale et immédiatement pertinente par rapport à l’idée de comparaison de périodes similaires pour évaluer un résultat global."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un technicien en efficacité énergétique explique un rapport après des travaux d’isolation : il rappelle qu’on a un modèle théorique prévoyant une baisse de consommation de 20 %, puis précise que l’on compare des périodes aux températures extérieures similaires avant et après travaux pour confronter cette réduction théorique attendue aux résultats réellement observés sur les factures."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un conseiller énergie présente à des locataires la méthode utilisée pour évaluer les gains d’un programme de rénovation : il indique qu’en comparant la consommation sur des périodes où il a fait à peu près la même température avant et après les travaux, on peut isoler l’effet météo et ainsi estimer les économies effectivement réalisées grâce à la rénovation."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un ingénieur bâtiment commente un protocole de test de différents isolants : il dit que l’on observe la consommation d’énergie de logements types sur des périodes présentant des températures extérieures très proches afin d’apprécier la performance propre des matériaux isolants utilisés, en limitant l’influence des variations climatiques."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un gestionnaire de parc immobilier explique une démarche de suivi continu : il décrit comment on compare des périodes aux températures extérieures similaires pour voir si les réglages actuels de chauffage et de ventilation sont adaptés, afin d’ajuster ensuite finement les consignes et plages horaires des équipements dans les logements."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "5583ffe0932e16f93c49b40533e9289b30196a1fe93f9d6a7a8a34b57e5f3f44",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La paire de notions « réduction théorique » / « consommation réellement mesurée après les travaux » est un contraste standard et très littéral dans les documents de rénovation énergétique. Les autres options portent sur des sous-aspects (comportements, isolation seule, défauts de réglage) qui expliquent l’écart mais ne forment pas un binôme lexical aussi direct. Cela donne à l’option 3 un avantage net, bien que les autres restent concevables dans certains discours.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation « réduction théorique de consommation » s’oppose très naturellement à « consommation réellement mesurée après les travaux », contraste canonique dans les documents sur la performance énergétique (théorique vs mesurée). L’option 3 reprend exactement ce couple notionnel, avec une opposition nette théorie/réalité temporellement située « après les travaux », ce qui la rend particulièrement alignée et plus directement pertinente que les reformulations partielles des autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion d’information sur la rénovation énergétique, un ingénieur explique la différence entre divers types d’économies : « La réduction théorique de consommation correspond à un calcul standardisé. Il ne faut pas la confondre avec les économies qui proviennent uniquement des changements de comportement des occupants, comme baisser le chauffage ou prendre des douches plus courtes. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation technique, un thermicien détaille plusieurs méthodes de calcul : « La réduction théorique de consommation est issue d’un modèle global du bâtiment. Il ne faut pas la confondre avec une diminution calculée en ne prenant en compte que les matériaux d’isolation, car d’autres paramètres entrent en jeu. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une formation sur la performance énergétique, un formateur précise : « La réduction théorique de consommation, c’est ce que les calculs donnent dans des conditions idéales. Il ne faut pas la confondre avec l’impact des défauts de réglage et de ventilation sur les consommations, qui expliquent justement les écarts entre théorie et pratique. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un rapport présenté en réunion de copropriété après des travaux d’isolation, un expert commente : « Le document donne une réduction théorique de consommation basée sur des hypothèses standard. Il est indiqué qu’il ne faut pas la confondre avec la consommation réellement mesurée après les travaux, qui dépendra de vos usages réels et des conditions météo. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "e1a283fa7b36fe8ac8fa4231e02d53efb09b7c2f1488dcea73dc817ecb46701d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le critère des températures extérieures comparables est le plus typiquement mis en avant lorsqu’on parle de comparer deux périodes pour évaluer le chauffage, car il s’agit du facteur déterminant des besoins de chauffage. Les autres options restent plausibles mais paraissent plus secondaires ou contextuelles, d’où une probabilité nettement plus élevée pour l’option 2 malgré l’incertitude liée à l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La mention explicite des \"températures extérieures\" est directement et classiquement liée à l’évaluation du chauffage entre périodes, car c’est le facteur principal qui conditionne les besoins de chauffage. Les autres critères (occupants, jours d’absence, durée d’utilisation) sont pertinents mais plus indirects ou moins fondamentaux. L’option 2 est précisément formulée, très naturelle dans un discours technique sur la comparaison de consommation de chauffage et se lit comme le critère central enseigné dans ce type de contexte."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller énergétique explique à des habitants comment comparer leur consommation de chauffage entre l’hiver dernier et celui de cette année : il insiste sur le fait qu’il faut que le nombre d’occupants soit le même sur les deux périodes pour que la comparaison soit pertinente, et précise que c’est le critère de base utilisé dans l’analyse."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un gestionnaire de résidence étudiante parle de l’analyse des coûts de chauffage entre deux semestres et souligne qu’il faut comparer des périodes où les étudiants sont absents aux mêmes dates (vacances, ponts) afin d’éviter des biais, en disant que le critère retenu est d’avoir les mêmes jours d’absence des résidents."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un spécialiste du chauffage présente un rapport sur la performance énergétique d’un immeuble et explique qu’on compare deux périodes uniquement si les températures extérieures sont comparables, en disant clairement que le critère de base pour évaluer le chauffage entre deux périodes est la similarité des températures extérieures."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un technicien montre à un particulier comment mesurer l’impact de nouveaux radiateurs en comparant deux périodes d’utilisation : il insiste sur le fait que la durée d’utilisation des appareils doit être identique d’une période à l’autre, présenté comme le critère retenu pour comparer le chauffage."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "368bbbb14da9040c28cbeaedf05227d1efbeba3cf721b1717cb530257e32ead1",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La formulation de l’option 1 correspond exactement à l’usage attendu dans un document d’analyse : intégrer les changements de comportement à l’interprétation de la baisse réelle de consommation. Les autres options présentent soit une incohérence temporelle (2), soit un rôle plus artificiel ou orienté (0 et 3). L’option 1 a donc un net avantage, même si l’absence du document source laisse une part d’incertitude.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "L’option 1 est la seule à formuler un usage méthodologique courant et temporellement cohérent : intégrer les modifications de comportement postérieures aux travaux dans l’analyse de la baisse effectivement constatée. L’option 2 viole clairement la chronologie (effet postérieur servant à expliquer une décision antérieure). L’option 0 utilise de façon peu naturelle ces modifications comme « référence » pour un calcul théorique déjà effectué avant les travaux. L’option 3 propose une interprétation très restrictive et orientée (forcément indice d’insuffisance des matériaux), moins neutre et moins générale que l’analyse proposée en 1."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un rapport d’évaluation énergétique, l’ingénieur explique que, après les travaux d’isolation, on observe comment les habitants modifient leur usage du chauffage (température de consigne, durée de chauffe). Ces modifications sont ensuite prises comme point de comparaison par rapport au calcul théorique de réduction de consommation établi avant les travaux, afin de voir si le modèle théorique tenait compte ou non de ces changements de comportement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une présentation de résultats d’un programme de rénovation énergétique, l’analyste précise que les changements de comportement des habitants (chauffage moins fort, meilleure gestion des volets, etc.) sont intégrés à l’analyse afin d’expliquer pourquoi la baisse réelle de la consommation de chauffage est plus ou moins importante : on distingue ce qui vient de l’isolation elle-même et ce qui vient des nouvelles habitudes des occupants."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "Les modifications de comportement sont explicitement situées « après les travaux d’isolation » dans la question. Les utiliser pour « éclairer les raisons qui ont conduit à décider les travaux » suppose qu’un phénomène postérieur servirait d’argument préalable à la décision, ce qui inverse la chronologie de manière peu compatible avec un contexte ordinaire et cohérent d’étude ou de rapport sur des travaux d’isolation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un bilan critique de travaux d’isolation, un expert affirme que, si l’on constate que les habitants doivent malgré tout adopter des comportements très contraignants (baisser fortement le chauffage, limiter la chauffe de certaines pièces) pour voir une baisse notable de la consommation, alors ces modifications de comportement sont considérées comme un indice que les matériaux ou la qualité de l’isolation restent insuffisants pour faire vraiment baisser les consommations par la seule performance thermique."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6ee7d9a5a340cc3ffb6766d5cb4cc7cb0c2dcda13d2157ff3dffed1f93bfb142",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La mention explicite de « différentes périodes » avec des températures extérieures similaires renvoie à une approche de correction climatique pour comparer la consommation avant/après travaux et isoler l’effet des rénovations, ce qui correspond très directement à l’option 3. Les autres réponses sont plausibles en contexte large, mais elles n’exploitent pas aussi spécifiquement cette idée de comparaison temporelle sous conditions extérieures équivalentes.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La formulation « comparer différentes périodes où les températures extérieures sont similaires » correspond précisément à une méthode standard pour isoler l’effet des travaux sur la consommation de chauffage et donc « mesurer de façon plus fiable les économies de chauffage réellement obtenues après les travaux ». Les autres choix soit n’exigent pas spécifiquement une comparaison de périodes (repérer des pièces froides se fait plutôt à un instant donné), soit relèvent d’un usage plus indirect ou spéculatif de ces comparaisons (orientation du choix futur de matériaux)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un organisme de logement social enregistre les températures intérieures et la consommation de chauffage dans plusieurs logements sur différentes périodes où la météo extérieure est comparable. En comparant ces périodes, ils repèrent les appartements qui consomment anormalement plus ou qui restent mal chauffés malgré des conditions extérieures semblables, ce qui suggère des problèmes de réglage de chauffage ou d’aération particulièrement marqués dans ces logements."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un bureau d’études thermiques analyse des données issues de capteurs installés dans un parc de logements. Ils comparent plusieurs périodes avec des températures extérieures similaires pour voir comment le bâtiment réagit thermiquement. Les performances observées lors de ces périodes les aident ensuite à conseiller, pour de futurs chantiers, tel ou tel type de matériau d’isolation jugé plus adapté au comportement du logement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une agence de rénovation énergétique a installé des compteurs et thermomètres avant et après des travaux d’isolation dans un logement. Pour évaluer objectivement les économies de chauffage obtenues, elle compare les consommations sur des périodes différentes mais présentant des températures extérieures similaires (par exemple un hiver avant travaux et un hiver après travaux avec des moyennes comparables) afin de mesurer de façon plus fiable le gain réel dû aux travaux."
+          },
+          {
+            "index": 3,
+            "credible": false,
+            "context": "Trouver les pièces plus froides à l’intérieur d’un même logement se fait typiquement en comparant les températures des pièces au même moment, pas en comparant différentes périodes avec des températures extérieures similaires. Le fait de parler de « différentes périodes » et de températures extérieures suggère une comparaison temporelle globale (avant/après ou entre logements), plutôt qu’une localisation spatiale précise de pièces froides à l’intérieur d’un seul logement. L’option ne répond donc pas directement au rôle de cette comparaison telle qu’énoncée dans la question."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "3b0146ef9abd3aad5b666e97a78a039795ac92ac13d5c87909769dd7ff74477d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles dans un contexte ordinaire, mais le sens le plus neutre et directement lié à l’expression « réduction théorique de consommation indiquée avant les travaux » est celui d’un calcul préalable servant de base de comparaison avec les consommations réelles ultérieures. Les autres réponses supposent des intentions plus particulières (objectif de comportement, argument commercial sur les matériaux, outil de diagnostic) qui ne sont pas suggérées explicitement par la question. D’où une probabilité plus forte pour l’option 1, tout en conservant une part d’incertitude.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « une estimation préalable servant de base de comparaison avec la consommation réellement observée ensuite » reprend très directement l’idée usuelle d’une réduction « théorique » indiquée avant travaux : un calcul initial utilisé ensuite comme point de comparaison. Les autres choix ajoutent des finalités plus spécifiques (objectif minimal de comportement, preuve des matériaux, critère de diagnostic technique) qui ne découlent pas aussi naturellement du seul libellé de « réduction théorique de consommation » dans un document descriptif."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller en rénovation énergétique présente aux habitants d’un immeuble un document avant des travaux d’isolation. Il leur explique que la « réduction théorique de consommation » indiquée n’est pas garantie, mais représente un objectif minimal que chacun devrait pouvoir atteindre s’il adapte ses habitudes au quotidien (chauffage, ventilation, usage des appareils). La question est posée ensuite pour vérifier s’ils ont compris que cette réduction est un objectif de comportement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de copropriété, un ingénieur thermicien commente un rapport pré-travaux. Il y est mentionné une « réduction théorique de consommation » calculée selon un modèle. Il précise que cette valeur sert surtout de point de repère pour comparer avec les consommations réelles après les travaux, afin d’évaluer l’efficacité globale du chantier. L’enseignant pose la question ensuite pour vérifier que les auditeurs ont compris cette fonction comparative."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une vidéo promotionnelle d’une entreprise d’isolation, un technicien présente un document d’étude thermique. Il met en avant la « réduction théorique de consommation » avant travaux comme un élément de preuve que, sur le papier, les matériaux d’isolation prévus sont performants et permettent des économies importantes. La question est alors utilisée pour voir si l’auditeur a bien saisi que cette réduction est présentée comme une preuve de performance des matériaux choisis."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un expert en efficacité énergétique explique à des bailleurs sociaux un rapport d’audit. Il indique que la « réduction théorique de consommation » sert de critère de référence : si la consommation réelle après travaux s’écarte fortement de ce calcul, cela peut révéler des problèmes de réglage du chauffage ou de défauts d’aération dans les logements. La question vise à vérifier que le public a compris ce rôle de repère pour détecter d’éventuels dysfonctionnements."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "8dd15e66733f2ce7615d067ba37e3319c92b3f7f59ed2a632cdc05ec496c66de",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 1 (index 1) reprend exactement le même champ lexical et une structure miroir par rapport à l’énoncé (réduction théorique avant travaux vs consommation réellement mesurée après travaux), ce qui constitue un avantage de formulation net par rapport aux autres options, même si celles-ci restent plausibles dans d’autres contextes.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « consommation d’énergie réellement mesurée après les travaux » fait écho de façon symétrique et précise à « réduction théorique de consommation calculée avant les travaux » : avant/après, théorique/réel, calculée/mesurée. C’est l’indicateur le plus directement comparable, plus concret et opérationnel que le confort ressenti, les dysfonctionnements ou les « performances énergétiques » plus vagues."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de restitution de travaux de rénovation énergétique, un conseiller explique qu’il ne faut pas se focaliser uniquement sur les chiffres de réduction théorique de consommation, mais aussi sur l’amélioration du confort réel : on compare la baisse théorique de kWh avec le niveau de confort thermique ressenti dans les pièces qui étaient auparavant trop froides."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors de la présentation d’un audit énergétique, le technicien indique qu’il faut confronter la réduction théorique de consommation estimée avant les travaux aux relevés de compteurs et factures d’énergie réellement mesurés après les travaux, afin de vérifier l’écart entre théorie et pratique."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un guide de rénovation, le document précise qu’il ne suffit pas de regarder la réduction théorique prévue avant les travaux ; il faut aussi la mettre en regard des dysfonctionnements ultérieurs de réglage ou de ventilation qui peuvent limiter les économies, afin d’interpréter correctement les résultats."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une brochure technique sur l’isolation, le texte explique qu’il faut comparer la réduction théorique de consommation, calculée avant les travaux, avec les performances énergétiques effectivement obtenues grâce aux matériaux d’isolation posés, par exemple via des tests ou certifications in situ."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0ac0bbb15ad946fecf11707d5871c05683421701bc4643a839156ccc0a3a2e44",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le libellé parle d’une « démarche proposée pour évaluer les économies » ; l’option 1 (index 1) formule précisément une méthode d’évaluation en confrontant économies théoriques et consommations observées, alors que les autres choisissent des ajustements ou vérifications ponctuelles. Cela lui donne un avantage clair même si toutes restent plausibles sans le document audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Cette option décrit une démarche globale et directement centrée sur « évaluer les économies de chauffage après les travaux » en articulant économies théoriques et consommations réelles, alors que les autres réponses portent plutôt sur des précautions ou conditions (comportement, météo, défauts d’isolation) qui encadrent la comparaison sans définir à elles seules la démarche d’évaluation."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un webinaire sur la rénovation énergétique, un ingénieur explique à des copropriétaires comment interpréter leurs factures après des travaux d’isolation : il recommande, pour évaluer les économies de chauffage, de neutraliser autant que possible l’effet de changements de comportement des occupants (par exemple, chauffage plus élevé ou présence accrue) lors de la comparaison des consommations avant/après."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de restitution d’un audit énergétique après travaux, le bureau d’études présente la démarche proposée pour évaluer les économies de chauffage : mettre en parallèle la réduction de consommation théoriquement attendue (issue des calculs thermiques) avec la consommation réellement observée après les travaux, afin de mesurer l’écart et valider les gains."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une capsule audio destinée à des syndics de copropriété, une conseillère énergie décrit comment évaluer les économies de chauffage après une rénovation : elle explique qu’il faut comparer les consommations sur des périodes présentant des conditions météorologiques similaires pour que la comparaison avant/après soit pertinente."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Pendant une formation technique pour artisans en rénovation, le formateur détaille la démarche à suivre pour évaluer les économies de chauffage après isolation : il insiste d’abord sur la nécessité de vérifier qu’aucun défaut dans les matériaux d’isolation (ponts thermiques, malfaçons) n’influence les résultats avant de comparer les consommations enregistrées avant et après travaux."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6e04b6547f8cc999cf3dbb9ca862012d4331de7a4aacaa77807578dc1bfe0023",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs réponses restent plausibles pour un document sur la gestion énergétique, mais la réponse 2 correspond le mieux au motif générique habituel de comparer des périodes à météo similaire : isoler l’effet de la température extérieure pour suivre l’évolution de la consommation. Sa formulation fait écho à la structure de la question (« comparer des périodes » / « sur ces périodes »), ce qui lui donne un léger avantage, sans exclure totalement les autres possibilités.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "La formulation « Évaluer l’évolution de la consommation de chauffage sur ces périodes » reprend presque textuellement l’idée de comparer « des périodes où les températures extérieures sont similaires », ce qui correspond à une justification standard en énergie (neutraliser l’effet météo pour suivre l’évolution de la consommation). Les autres options ciblent des buts plus spécifiques (réglages, isolation, zones froides) qui nécessitent une précision non mentionnée dans la question."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller énergie explique comment analyser les factures de chauffage : « Pour détecter des problèmes de réglage de la chaudière ou de ventilation, il faut comparer des périodes où les températures extérieures sont similaires, afin que la météo ne fausse pas l’analyse. » Dans ce contexte, la comparaison sert directement à mettre en évidence d’éventuels problèmes de réglage ou de ventilation."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un technicien revient après des travaux d’isolation et dit au client : « Pour savoir si la nouvelle isolation apporte vraiment un gain, on va comparer votre consommation sur des périodes où les températures extérieures sont similaires, avant et après les travaux. » Ici, la comparaison sert à vérifier si l’isolation apporte réellement un gain notable."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un formateur en gestion énergétique explique : « Pour suivre l’évolution de votre consommation de chauffage, comparez toujours des périodes où les températures extérieures sont similaires, sinon la météo fausse la comparaison. » Dans cette situation, la comparaison sert précisément à évaluer l’évolution de la consommation sur ces périodes."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un spécialiste du chauffage donne des conseils à un occupant : « Pour identifier les pièces moins bien chauffées, on compare les températures intérieures sur des périodes où les températures extérieures restent similaires, afin d’éliminer l’effet du climat. » La comparaison sert alors à repérer les parties du logement moins bien chauffées."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3QvONktuhg4Jhkw1Zlt6HT7Vc7D",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un conseiller énergie explique comment analyser les factures de chauffage : « Pour détecter des problèmes de réglage de la chaudière ou de ventilation, il faut comparer des périodes où les températures extérieures sont similaires, afin que la météo ne fausse pas l’analyse. » Dans ce contexte, la comparaison sert directement à mettre en évidence d’éventuels problèmes de réglage ou de ventilation."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un technicien revient après des travaux d’isolation et dit au client : « Pour savoir si la nouvelle isolation apporte vraiment un gain, on va comparer votre consommation sur des périodes où les températures extérieures sont similaires, avant et après les travaux. » Ici, la comparaison sert à vérifier si l’isolation apporte réellement un gain notable."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un formateur en gestion énergétique explique : « Pour suivre l’évolution de votre consommation de chauffage, comparez toujours des périodes où les températures extérieures sont similaires, sinon la météo fausse la comparaison. » Dans cette situation, la comparaison sert précisément à évaluer l’évolution de la consommation sur ces périodes."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un spécialiste du chauffage donne des conseils à un occupant : « Pour identifier les pièces moins bien chauffées, on compare les températures intérieures sur des périodes où les températures extérieures restent similaires, afin d’éliminer l’effet du climat. » La comparaison sert alors à repérer les parties du logement moins bien chauffées."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "La formulation « Évaluer l’évolution de la consommation de chauffage sur ces périodes » reprend presque textuellement l’idée de comparer « des périodes où les températures extérieures sont similaires », ce qui correspond à une justification standard en énergie (neutraliser l’effet météo pour suivre l’évolution de la consommation). Les autres options ciblent des buts plus spécifiques (réglages, isolation, zones froides) qui nécessitent une précision non mentionnée dans la question."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.24,
+            0.21,
+            0.4,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Plusieurs réponses restent plausibles pour un document sur la gestion énergétique, mais la réponse 2 correspond le mieux au motif générique habituel de comparer des périodes à météo similaire : isoler l’effet de la température extérieure pour suivre l’évolution de la consommation. Sa formulation fait écho à la structure de la question (« comparer des périodes » / « sur ces périodes »), ce qui lui donne un léger avantage, sans exclure totalement les autres possibilités."
+        },
+        "usage": {
+          "prompt_tokens": 631,
+          "completion_tokens": 721,
+          "total_tokens": 1352,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 163,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00799875,
+        "inputHash": "7a94ca40c13a63637ba8744eb5386e016a789cef5a292f48603e30b8fea72919",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:30:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Plusieurs réponses restent plausibles pour un document sur la gestion énergétique, mais la réponse 2 correspond le mieux au motif générique habituel de comparer des périodes à météo similaire : isoler l’effet de la température extérieure pour suivre l’évolution de la consommation. Sa formulation fait écho à la structure de la question (« comparer des périodes » / « sur ces périodes »), ce qui lui donne un léger avantage, sans exclure totalement les autres possibilités.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "La formulation « Évaluer l’évolution de la consommation de chauffage sur ces périodes » reprend presque textuellement l’idée de comparer « des périodes où les températures extérieures sont similaires », ce qui correspond à une justification standard en énergie (neutraliser l’effet météo pour suivre l’évolution de la consommation). Les autres options ciblent des buts plus spécifiques (réglages, isolation, zones froides) qui nécessitent une précision non mentionnée dans la question."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un conseiller énergie explique comment analyser les factures de chauffage : « Pour détecter des problèmes de réglage de la chaudière ou de ventilation, il faut comparer des périodes où les températures extérieures sont similaires, afin que la météo ne fausse pas l’analyse. » Dans ce contexte, la comparaison sert directement à mettre en évidence d’éventuels problèmes de réglage ou de ventilation."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un technicien revient après des travaux d’isolation et dit au client : « Pour savoir si la nouvelle isolation apporte vraiment un gain, on va comparer votre consommation sur des périodes où les températures extérieures sont similaires, avant et après les travaux. » Ici, la comparaison sert à vérifier si l’isolation apporte réellement un gain notable."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un formateur en gestion énergétique explique : « Pour suivre l’évolution de votre consommation de chauffage, comparez toujours des périodes où les températures extérieures sont similaires, sinon la météo fausse la comparaison. » Dans cette situation, la comparaison sert précisément à évaluer l’évolution de la consommation sur ces périodes."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un spécialiste du chauffage donne des conseils à un occupant : « Pour identifier les pièces moins bien chauffées, on compare les températures intérieures sur des périodes où les températures extérieures restent similaires, afin d’éliminer l’effet du climat. » La comparaison sert alors à repérer les parties du logement moins bien chauffées."
+      }
+    ]
+  }
+}

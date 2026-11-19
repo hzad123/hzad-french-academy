@@ -1,0 +1,190 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question demande explicitement un moment : « Savez-vous quand il sera réparé ? ». La réponse B donne précisément une indication temporelle : « Normalement avant la fin de journée. », ce qui correspond directement au « quand ». Elle est donc pleinement adaptée. A : La réponse A reprend l’idée que l’ascenseur tombe souvent en panne, ce qui se rattache à « L’ascenseur est encore en panne. ». Cependant, la question précise « Savez-vous quand il sera réparé ? », donc on attend une indication de moment. Dire « Il est souvent en panne, vous savez. » ne donne aucune information sur la date ou l’heure de la réparation : cela commente la fréquence, pas le moment de la réparation. Un candidat pouvant se laisser guider par la reprise du mot « panne » et le ton de plainte pourrait la juger cohérente, mais elle ne répond pas à la question posée, ce qui la rend incorrecte. C : L’énoncé affirme « L’ascenseur est encore en panne. », donc il ne fonctionne pas. Répondre « Non, il fonctionne très bien. » contredit frontalement cette information. Cette réponse pourrait venir d’un auditeur qui aurait mal perçu « en panne » comme quelque chose de positif (par exemple « en marche ») et penserait qu’on lui demande de confirmer le bon fonctionnement ; mais en l’état, par rapport aux mots réellement prononcés, c’est incompatible. D : La question posée est « Savez-vous quand il sera réparé ? », donc on demande une date ou un délai. Répondre « Oui, il est très ancien. » répondrait plutôt à une question de type « Est-ce qu’il est ancien ? » ou expliquerait éventuellement la cause des pannes, mais ne donne aucune indication sur le moment de la réparation. Un auditeur qui se focalise sur le fait que l’ascenseur est « encore en panne » pourrait croire qu’on discute de son état général ou de son âge, et trouver pertinent de confirmer qu’il est vieux, mais cela ne répond pas au « quand il sera réparé », donc c’est incorrect.",
+    "transcript": "Question 8.\nL'ascenseur est encore en panne. Savez-vous quand il sera réparé ?\nA. Il est souvent en panne, vous savez. B. Normalement avant la fin de journée. C. Non, il fonctionne très bien. D. Oui, il est très ancien.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "L'ascenseur est encore en panne. Savez-vous quand il sera réparé ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Il est souvent en panne, vous savez. B. Normalement avant la fin de journée. C. Non, il fonctionne très bien. D. Oui, il est très ancien."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 18.808,
+    "slotSeconds": 38
+  },
+  "sourceHash": "9c75328f32ce82f4acc242e542e0f4c316b7fb87e27bff3d0c31621550a1afa3",
+  "contentHash": "dec8d5117d1b6a7d194881861b4b24b13caf375ee973e9cf08525dbaf2520a2c",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzoqX5m4l4rzIc035tpTJHvxmCoX",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un bureau, quelqu’un demande à un collègue : « Le photocopieur, il marche bien en ce moment ? » ou « L’ascenseur est fiable ? » Le collègue répond : « Il est souvent en panne, vous savez. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À la réception d’un service technique, un client demande : « Vous pensez que ce sera réparé quand ? » ou « Je pourrai le récupérer à quelle heure ? » L’employé répond : « Normalement avant la fin de journée. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un magasin d’électroménager, un client demande : « Est-ce que cet appareil a des problèmes ? » ou « Il a tendance à tomber en panne ? » Le vendeur répond : « Non, il fonctionne très bien. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Deux collègues parlent d’un appareil au bureau. L’un demande : « Cet ordinateur est récent ? » ou « Cet appareil est-il neuf ? » L’autre répond : « Oui, il est très ancien. » (sous-entendu : oui, il ne date pas d’hier)."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucune option ne présente d’avantage rédactionnel net ou de lien évident avec une question précise ; chacune peut répondre naturellement à un type de question différent, donc incertitude élevée et probabilité répartie uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 590,
+          "completion_tokens": 545,
+          "total_tokens": 1135,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 196,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0061875,
+        "inputHash": "a17cb7f30a95a6bf696326e9b6a9657893b12e05110a19336799ae0c1b4f862d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:7:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzoxFpRZ02ezuO0PUsQmBzGBZVsY",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte clairement sur le moment de la réparation de l’ascenseur. Seule la réponse B donne une indication temporelle correspondant à « quand il sera réparé ». Les autres réponses ne répondent pas à la question, ou la contredisent.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'ascenseur est encore en panne.",
+            "Il est souvent en panne, vous savez."
+          ],
+          "reason": "La réponse A reprend l’idée que l’ascenseur tombe souvent en panne, ce qui se rattache à « L’ascenseur est encore en panne. ». Cependant, la question précise « Savez-vous quand il sera réparé ? », donc on attend une indication de moment. Dire « Il est souvent en panne, vous savez. » ne donne aucune information sur la date ou l’heure de la réparation : cela commente la fréquence, pas le moment de la réparation. Un candidat pouvant se laisser guider par la reprise du mot « panne » et le ton de plainte pourrait la juger cohérente, mais elle ne répond pas à la question posée, ce qui la rend incorrecte.",
+          "misunderstanding": "ignores_question"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Savez-vous quand il sera réparé ?",
+            "Normalement avant la fin de journée."
+          ],
+          "reason": "La question demande explicitement un moment : « Savez-vous quand il sera réparé ? ». La réponse B donne précisément une indication temporelle : « Normalement avant la fin de journée. », ce qui correspond directement au « quand ». Elle est donc pleinement adaptée.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'ascenseur est encore en panne.",
+            "Non, il fonctionne très bien."
+          ],
+          "reason": "L’énoncé affirme « L’ascenseur est encore en panne. », donc il ne fonctionne pas. Répondre « Non, il fonctionne très bien. » contredit frontalement cette information. Cette réponse pourrait venir d’un auditeur qui aurait mal perçu « en panne » comme quelque chose de positif (par exemple « en marche ») et penserait qu’on lui demande de confirmer le bon fonctionnement ; mais en l’état, par rapport aux mots réellement prononcés, c’est incompatible.",
+          "misunderstanding": "polarity_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'ascenseur est encore en panne.",
+            "Oui, il est très ancien."
+          ],
+          "reason": "La question posée est « Savez-vous quand il sera réparé ? », donc on demande une date ou un délai. Répondre « Oui, il est très ancien. » répondrait plutôt à une question de type « Est-ce qu’il est ancien ? » ou expliquerait éventuellement la cause des pannes, mais ne donne aucune indication sur le moment de la réparation. Un auditeur qui se focalise sur le fait que l’ascenseur est « encore en panne » pourrait croire qu’on discute de son état général ou de son âge, et trouver pertinent de confirmer qu’il est vieux, mais cela ne répond pas au « quand il sera réparé », donc c’est incorrect.",
+          "misunderstanding": "question_change"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 692,
+      "completion_tokens": 1179,
+      "total_tokens": 1871,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 465,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.012655,
+    "inputHash": "8293d1add37e2c60bf1ad38f806fcafb90d3873f87f044f744ae568a02ba4f89",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:7:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
+}

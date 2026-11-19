@@ -1,0 +1,300 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La question porte explicitement sur le fait que « la dégustation de ce soir » soit « comprise dans le billet », donc sur l’inclusion dans le prix. La réponse 0 reprend exactement cette idée avec un « Oui » et l’énoncé « est incluse dans le prix du billet », qui est une reformulation directe de « est comprise dans le billet ». Elle répond donc pleinement et précisément à la question, sans ajout ni restriction. B : La question demande si la dégustation est « comprise dans le billet », c’est‑à‑dire incluse dans le prix payé. La réponse 1 indique seulement que « la dégustation figure au programme de la soirée », ce qui parle de la présence de l’activité au programme, pas de son inclusion tarifaire. On peut très bien avoir une activité au programme qui soit en supplément du billet. Un candidat qui comprend seulement qu’on parle d’une « dégustation de ce soir » pourrait associer à tort « figure au programme de la soirée » à « comprise dans le billet », en pensant que si c’est au programme, c’est inclus, alors que rien dans la formulation ne parle du prix ni de l’inclusion dans le billet. C : La question concerne l’inclusion dans le billet, pas l’horaire : « est comprise dans le billet ». La réponse 2 dit « Non, la dégustation a déjà eu lieu plus tôt », ce qui répond à un problème de temps (elle n’aurait plus lieu « ce soir ») mais ne dit absolument rien sur le fait qu’elle soit comprise ou non dans le prix du billet. De plus, elle contredit l’expression « de ce soir » en affirmant qu’elle a eu lieu « plus tôt ». Un candidat qui saisirait mal « comprise dans le billet » pourrait croire qu’on demande simplement si la dégustation a bien lieu ce soir, et choisir cette réponse en se focalisant sur l’opposition temporelle « de ce soir » / « plus tôt », mais cela détourne la question de sa dimension tarifaire. D : La question porte sur le contenu du billet en général : « est comprise dans le billet ? ». Elle ne mentionne aucune condition de taille de groupe, ni ne demande si la dégustation est simplement « prévue ». La réponse 3 apporte une restriction : « mais seulement pour les groupes de plus de dix personnes », ce qui introduit une condition qui n’apparaît pas dans la question. Elle répond surtout à « Pour qui la dégustation est-elle prévue ? » plutôt qu’à « Est-elle comprise dans le billet ? », et ne précise pas clairement si, pour ces groupes, la dégustation est incluse dans le prix ou constitue un supplément. Un candidat qui entendrait surtout « la dégustation de ce soir » et « est prévue » pourrait croire que cela suffit à répondre positivement, sans remarquer que la condition sur les groupes ne répond pas à la question sur l’inclusion dans le billet.",
+    "transcript": "Question 8.\nEst-ce que la dégustation de ce soir est comprise dans le billet ?\nA. Oui, la dégustation est incluse dans le prix du billet. B. Oui, la dégustation figure au programme de la soirée. C. Non, la dégustation a déjà eu lieu plus tôt. D. Oui, la dégustation est prévue, mais seulement pour les groupes de plus de dix personnes.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Est-ce que la dégustation de ce soir est comprise dans le billet ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Oui, la dégustation est incluse dans le prix du billet. B. Oui, la dégustation figure au programme de la soirée. C. Non, la dégustation a déjà eu lieu plus tôt. D. Oui, la dégustation est prévue, mais seulement pour les groupes de plus de dix personnes."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 37
+  },
+  "sourceHash": "e96e66743c6a9f67792392a1303f44d24176050c0237cbf87b4e9925d4dd2958",
+  "contentHash": "f407e604a2cccc5d083e71053429599814ba4eb829c06e70e1fd618411daf8f4",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzxGXPx0K1VAcgkS9zdZj8g2gzum",
+    "result": {
+      "question": "Quelle réponse convient ?",
+      "choices": [
+        "Oui, la dégustation est comprise dans le billet.",
+        "Je peux vous donner le programme complet de la soirée.",
+        "Non, la dégustation a déjà commencé.",
+        "Oui, mais seulement pour les groupes de plus de dix personnes."
+      ],
+      "correctIndex": 0,
+      "explanation": "La question porte sur le fait de savoir si la dégustation est comprise dans le billet. La réponse 0 reprend explicitement cette idée d’inclusion et répond directement par oui/non. Les autres réponses parlent d’éléments annexes (programme, horaire, condition d’accès) sans dire si la dégustation est comprise dans le billet.",
+      "design": "Réponse appropriée à une question fermée sur l’inclusion d’un service dans un billet. Les quatre options sont toutes réalistes après une question à propos d’une dégustation lors d’un événement : obtenir le programme, signaler un horaire, introduire une condition d’accès par taille de groupe. Sans l’enregistrement, toutes semblent également plausibles comme suites de conversation. Seule l’option 0 reprend exactement l’axe demandé (est-ce que la dégustation est comprise dans le billet ?) en confirmant l’inclusion, alors que les autres changent de focus (contenu de la soirée, moment, conditions d’accès).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "La réponse 1 semble plausible car une personne interrogée sur « la dégustation de ce soir » pourrait proposer de donner le programme de la soirée. Mais la question porte précisément sur l’inclusion de la dégustation dans le billet, pas sur le détail du programme.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "comprise dans le billet"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La réponse 2 transforme la question de l’inclusion dans le billet en question d’horaire ou de déroulement (« déjà commencé »). C’est tentant si l’on ne retient que « la dégustation de ce soir », mais la question porte sur le fait qu’elle soit comprise dans le billet, pas sur le moment où elle commence.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "la dégustation de ce soir"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La réponse 3 paraît crédible car elle garde la structure oui/mais et parle d’une condition d’accès possible pour une dégustation. Toutefois, la question initiale porte sur l’inclusion dans le billet en général, sans mention de groupes ni de seuil de personnes.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "dans le billet"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2361,
+      "completion_tokens": 666,
+      "total_tokens": 3027,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 91,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00961125,
+    "inputHash": "4d2da137889ba70428990731c5269936566a20a5f1fbe6fdcb7b5f8631343652",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:14721af7be4c27b55696caf7:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Quelle réponse convient ?",
+      "choices": [
+        "Oui, la dégustation est comprise dans le billet.",
+        "Je peux vous donner le programme complet de la soirée.",
+        "Non, la dégustation a déjà commencé.",
+        "Oui, mais seulement pour les groupes de plus de dix personnes."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzxXON6iw2QzV3yzqWatzA1Zqtpq",
+      "result": {
+        "question": "Que répond la personne à propos de la dégustation ?",
+        "choices": [
+          "Oui, la dégustation est incluse dans le prix du billet.",
+          "Oui, la dégustation figure au programme de la soirée.",
+          "Non, la dégustation a déjà eu lieu plus tôt.",
+          "Oui, la dégustation est prévue, mais seulement pour les groupes de plus de dix personnes."
+        ],
+        "notes": "La question a été précisée pour viser la position de l’interlocuteur sur la dégustation. Les quatre options donnent désormais des réponses directes et cohérentes à la même question, en restant distinctes par le moment, les conditions et la façon dont la dégustation est proposée, sans suggérer qu’une option est plus raisonnable ou complète que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 564,
+        "total_tokens": 1203,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 397,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00643875,
+      "inputHash": "f61f60c346088aacab5b90b86e93150b35aa60176f543df9f62e5d74c35e71a6",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:14721af7be4c27b55696caf7:blind-edit:1"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzxduSAOxgMigHmYHqWQaflHgdQW",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’un appel à une mairie ou à un office de tourisme, un auditeur demande si une dégustation est prévue pendant une soirée événementielle. L’organisateur répond en expliquant le déroulement de la soirée et précise simplement que la dégustation fait partie du programme : la réponse directe à la question est « Oui, la dégustation figure au programme de la soirée. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Au téléphone avec le service billetterie d’un festival, une cliente veut savoir si le prix de l’entrée comprend une dégustation de produits locaux. L’employé détaille les tarifs et, pour répondre à la question sur le coût, ajoute : « Oui, la dégustation est incluse dans le prix du billet. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un visiteur arrive en retard à un événement œnologique et demande à l’accueil si la dégustation est encore prévue. L’hôtesse explique le déroulement passé de la soirée et lui répond : « Non, la dégustation a déjà eu lieu plus tôt. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réservation par téléphone pour une visite de cave, un responsable explique les formules proposées. Le client demande s’il y a une dégustation pour sa famille de quatre personnes. Le responsable précise les conditions : « Oui, la dégustation est prévue, mais seulement pour les groupes de plus de dix personnes. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les réponses peuvent s’intégrer naturellement dans un échange oral où l’on s’informe sur une dégustation ; sans autre élément de l’enregistrement ni indice grammatical ou stylistique distinctif, aucune option ne se détache clairement, d’où une forte incertitude et des probabilités réparties de façon égale."
+        },
+        "usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 476,
+          "total_tokens": 1092,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 54,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00553,
+        "inputHash": "7ae1c473d155fcc41e8a58b80db9d65416f4175497e96464104637d8caf13d71",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:14721af7be4c27b55696caf7:screen:1:edited:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzxkwG9wX94xc0Vp0KdTEZR3QvCQ",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui réponde directement à la question sur l’inclusion de la dégustation dans le prix du billet est l’option 0.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Oui, la dégustation est incluse dans le prix du billet."
+          ],
+          "reason": "La question porte explicitement sur le fait que « la dégustation de ce soir » soit « comprise dans le billet », donc sur l’inclusion dans le prix. La réponse 0 reprend exactement cette idée avec un « Oui » et l’énoncé « est incluse dans le prix du billet », qui est une reformulation directe de « est comprise dans le billet ». Elle répond donc pleinement et précisément à la question, sans ajout ni restriction.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Oui, la dégustation figure au programme de la soirée."
+          ],
+          "reason": "La question demande si la dégustation est « comprise dans le billet », c’est‑à‑dire incluse dans le prix payé. La réponse 1 indique seulement que « la dégustation figure au programme de la soirée », ce qui parle de la présence de l’activité au programme, pas de son inclusion tarifaire. On peut très bien avoir une activité au programme qui soit en supplément du billet. Un candidat qui comprend seulement qu’on parle d’une « dégustation de ce soir » pourrait associer à tort « figure au programme de la soirée » à « comprise dans le billet », en pensant que si c’est au programme, c’est inclus, alors que rien dans la formulation ne parle du prix ni de l’inclusion dans le billet.",
+          "misunderstanding": "confusion_inclusion_vs_presence"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Non, la dégustation a déjà eu lieu plus tôt."
+          ],
+          "reason": "La question concerne l’inclusion dans le billet, pas l’horaire : « est comprise dans le billet ». La réponse 2 dit « Non, la dégustation a déjà eu lieu plus tôt », ce qui répond à un problème de temps (elle n’aurait plus lieu « ce soir ») mais ne dit absolument rien sur le fait qu’elle soit comprise ou non dans le prix du billet. De plus, elle contredit l’expression « de ce soir » en affirmant qu’elle a eu lieu « plus tôt ». Un candidat qui saisirait mal « comprise dans le billet » pourrait croire qu’on demande simplement si la dégustation a bien lieu ce soir, et choisir cette réponse en se focalisant sur l’opposition temporelle « de ce soir » / « plus tôt », mais cela détourne la question de sa dimension tarifaire.",
+          "misunderstanding": "temporal_focus_instead_of_price"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que la dégustation de ce soir est comprise dans le billet ?",
+            "Oui, la dégustation est prévue, mais seulement pour les groupes de plus de dix personnes."
+          ],
+          "reason": "La question porte sur le contenu du billet en général : « est comprise dans le billet ? ». Elle ne mentionne aucune condition de taille de groupe, ni ne demande si la dégustation est simplement « prévue ». La réponse 3 apporte une restriction : « mais seulement pour les groupes de plus de dix personnes », ce qui introduit une condition qui n’apparaît pas dans la question. Elle répond surtout à « Pour qui la dégustation est-elle prévue ? » plutôt qu’à « Est-elle comprise dans le billet ? », et ne précise pas clairement si, pour ces groupes, la dégustation est incluse dans le prix ou constitue un supplément. Un candidat qui entendrait surtout « la dégustation de ce soir » et « est prévue » pourrait croire que cela suffit à répondre positivement, sans remarquer que la condition sur les groupes ne répond pas à la question sur l’inclusion dans le billet.",
+          "misunderstanding": "added_condition_not_in_question"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 741,
+      "completion_tokens": 2891,
+      "total_tokens": 3632,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1981,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02983625,
+    "inputHash": "18f202872f3a983b81796af8eb91585effb13cb877369ad203f1fb5a5f6bf055",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:7:14721af7be4c27b55696caf7:ground:1:edited"
+  },
+  "feedback": null
+}

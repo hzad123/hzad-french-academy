@@ -1,0 +1,746 @@
+{
+  "question": {
+    "number": 15,
+    "kind": "radio-news",
+    "question": "Selon le dispositif présenté, dans quels cas précis les pharmaciens transmettront-ils leurs observations au médecin traitant ?",
+    "options": [
+      "Lorsque les patients auront donné leur accord explicite.",
+      "Uniquement à l’occasion du renouvellement des ordonnances.",
+      "Seulement s’il apparaît un problème important signalé par le patient.",
+      "Uniquement lorsque le médecin traitant en fera la demande expresse."
+    ],
+    "correct": "A",
+    "explanation": "Le document précise que les pharmaciens «transmettront leurs observations au médecin traitant avec l'accord des intéressés». La condition mentionnée est donc l'accord des patients, et non un moment précis du suivi, la gravité d'un problème ou une demande expresse du médecin.",
+    "transcript": "Question 15.\nDans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps.\nSelon le dispositif présenté, dans quels cas précis les pharmaciens transmettront-ils leurs observations au médecin traitant ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 15."
+      },
+      {
+        "voice": "female",
+        "text": "Dans les nouvelles de santé locale, cinq pharmacies vont proposer un suivi régulier aux personnes sous plusieurs traitements. Les pharmaciens ne modifieront pas les prescriptions. Ils vérifieront avec les patients les horaires de prise, les oublis fréquents et les éventuelles difficultés à comprendre les notices, puis transmettront leurs observations au médecin traitant avec l'accord des intéressés. Une évaluation aura lieu au printemps."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le dispositif présenté, dans quels cas précis les pharmaciens transmettront-ils leurs observations au médecin traitant ?"
+      }
+    ],
+    "audio": "q-15.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 48
+  },
+  "contentHash": "dc2f39a7df79b9510f6978a25307cce91b8982d622250e6b8172d5cb95949082",
+  "sourceHash": "d4bac4b8a97de270da402bb7463dda14f823778870cb97d0feb4326ed4ddeead",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 6,
+  "pass": false,
+  "blocked": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3LJBqgXQJc22bLmKhbDnM62XTVT",
+    "result": {
+      "question": "Dans le dispositif décrit, à quelle condition les pharmaciens adresseront-ils leurs observations au médecin traitant ?",
+      "choices": [
+        "Uniquement si les patients donnent leur accord.",
+        "Uniquement lors du renouvellement des ordonnances.",
+        "Seulement en cas de problème grave signalé par le patient.",
+        "Uniquement quand le médecin traitant en fait expressément la demande."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que les pharmaciens «transmettront leurs observations au médecin traitant avec l'accord des intéressés». La condition mentionnée est donc l'accord des patients, et non un moment précis du suivi, la gravité d'un problème ou une demande expresse du médecin.",
+      "design": "Axe précis : la condition posée pour l’envoi des observations au médecin traitant. Quatre réponses proposent chacune une condition plausible de transmission dans un dispositif de suivi (consentement du patient, moment administratif du renouvellement, seuil de gravité d’un problème, demande expresse du médecin). Sans le document, toutes semblent réalistes dans un protocole de coordination ville‑hôpital. La source permet de trancher car elle indique explicitement «avec l'accord des intéressés» comme seule condition formulée, sans mention de renouvellement, de problème grave ni de demande du médecin.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transpose la régularité du suivi à un moment administratif typique (le renouvellement des ordonnances). On peut l’imaginer dans un vrai protocole, mais le texte ne relie jamais la transmission au seul renouvellement : la seule condition formulée est l’accord des intéressés, pas une échéance de prescription.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "suivi régulier",
+            "transmettront leurs observations au médecin traitant avec l'accord des intéressés"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’auditeur peut généraliser l’idée d’«oublis fréquents» et de «difficultés» en pensant que le rapport ne part qu’en cas de problème grave. En réalité, ces éléments sont des points systématiquement vérifiés dans le suivi ; le texte ne pose pas la gravité comme condition d’envoi, seulement l’accord des patients.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "oublis fréquents",
+            "éventuelles difficultés à comprendre les notices"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Parce que le texte mentionne le «médecin traitant», on peut croire que la transmission dépend d’une demande de celui-ci. Mais le passage associe cette transmission à l’accord des intéressés, sans évoquer une sollicitation préalable du médecin comme condition.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "transmettront leurs observations au médecin traitant",
+            "avec l'accord des intéressés"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4340,
+      "completion_tokens": 1506,
+      "total_tokens": 5846,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 925,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.020485,
+    "inputHash": "4080b44e2f6344cc78dc67ab08af16bd1756d0000679f5a569078723c8227118",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le dispositif décrit, à quelle condition les pharmaciens adresseront-ils leurs observations au médecin traitant ?",
+      "choices": [
+        "Uniquement si les patients donnent leur accord.",
+        "Uniquement lors du renouvellement des ordonnances.",
+        "Seulement en cas de problème grave signalé par le patient.",
+        "Uniquement quand le médecin traitant en fait expressément la demande."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3Lbmz3qqUDosqSeQxVYe9bChIYx",
+      "result": {
+        "question": "Selon le dispositif présenté, dans quels cas précis les pharmaciens transmettront-ils leurs observations au médecin traitant ?",
+        "choices": [
+          "Lorsque les patients auront donné leur accord explicite.",
+          "Uniquement à l’occasion du renouvellement des ordonnances.",
+          "Seulement s’il apparaît un problème important signalé par le patient.",
+          "Uniquement lorsque le médecin traitant en fera la demande expresse."
+        ],
+        "notes": "La question reste centrée sur la condition de transmission des observations. Les quatre choix présentent chacun un critère professionnel distinct (consentement du patient, moment de renouvellement, gravité d’un problème, demande du médecin) avec un niveau de précision et de sérieux comparable, sans qu’un seul paraisse évidemment plus responsable ou réaliste que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 368,
+        "total_tokens": 1029,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 198,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00450625,
+      "inputHash": "1cb890078e8ef067bbe5a17d6fcbca7680eca87baf423ac0caf7e89ce08ca759",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "1fb810f641a9b44daa270d6ccfbfb06de5e0a8b932b3778629ff595983f2f372",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre naturellement à la question, mais la mention spécifique d’une « équipe chargée de l’évaluation de printemps » ressemble davantage à une formulation tirée d’un document officiel décrivant une campagne ou étude datée, ce qui lui donne un léger avantage malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus précise et institutionnelle (« l’équipe chargée de l’évaluation de printemps ») qui ressemble à la désignation d’un destinataire officiel dans un document; les autres restent plus génériques ou internes."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une campagne de suivi médicamenteux est organisée : les pharmaciens doivent observer les effets secondaires ou problèmes d’adhésion au traitement et transmettre leurs observations directement au médecin traitant des patients pour adapter les prescriptions si nécessaire."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "La ville lance un programme de surveillance de l’usage de certains médicaments (antibiotiques, antidouleurs, etc.). Les pharmaciens recueillent des données et remarques sur les usages et les envoient aux services municipaux de santé publique qui centralisent et analysent ces informations."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une étude ou un audit saisonnier est mis en place, intitulé par exemple « évaluation de printemps » d’une nouvelle campagne de prévention. Le document précise que les pharmaciens devront transmettre toutes les observations recueillies à l’équipe chargée de cette évaluation spécifique pour en faire le bilan au printemps."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un réseau de pharmacies met en place un dispositif interne d’observation (sur la qualité de service, la gestion d’une promotion ou la mise en place d’un nouveau protocole). Chaque pharmacien participant doit faire remonter ses observations à la direction de sa propre pharmacie pour un suivi en interne."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6a3d70d81bbb9adc780a6d9dbbf7ba6964f8b066a7e39de4ec6ae6e65daf4594",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le syntagme \"médecin référent associé au dispositif\" correspond très bien au vocabulaire courant des dispositifs coordonnés en santé (suivi thérapeutique, pharmacovigilance), où un référent identifié reçoit les observations des pharmaciens. Les autres options restent plausibles mais paraissent soit trop circonstancielles (évaluation de printemps), soit centrées sur la gestion interne, soit plus vagues administrativement, ce qui donne à l’option 0 un avantage net sans supprimer toute incertitude en l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation institutionnelle standard pour un dispositif de santé (\"médecin référent associé au dispositif\") qui désigne clairement un destinataire désigné et individualisé, alors que l’\"équipe chargée de l’évaluation de printemps\" est très circonstancielle, la \"direction de leur officine\" est interne et moins en phase avec l’idée d’un dispositif externe, et les \"services municipaux de santé publique\" sont plus génériques et administratifs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un enregistrement présente un dispositif de suivi de patients chroniques mis en place entre des pharmacies et un médecin coordinateur. Les pharmaciens doivent noter les effets indésirables ou difficultés d’observance puis transmettre ces observations au médecin référent associé au dispositif pour qu’il adapte les traitements."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une formation décrit un projet temporaire d’évaluation d’un dispositif de prévention mené au printemps. Les pharmaciens recueillent des observations auprès des patients durant cette période et doivent les transmettre à l’équipe chargée de l’évaluation de printemps du dispositif, qui analysera les données saisonnières."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un dispositif interne de suivi de la qualité de service dans une chaîne d’officines est expliqué. Les pharmaciens doivent collecter les remarques des patients sur l’accueil, les conseils reçus et l’attente, puis transmettre ces observations à la direction de leur officine pour améliorer l’organisation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une municipalité lance un dispositif de surveillance sanitaire locale via les pharmacies (par exemple sur des symptômes grippaux). Les pharmaciens doivent transmettre les observations recueillies sur les cas repérés aux services municipaux de santé publique, qui coordonnent la réponse."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "403f0d165cb9456d875c041567868b70adbbdefd2bf0f0297b78de11aa549a63",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Sans accès au document audio, plusieurs réponses restent plausibles. Toutefois, dans un contexte de santé publique ou de pharmacie, un « suivi régulier » est fréquemment associé à la prise concomitante de plusieurs traitements (polymédication), décrite ici de façon neutre et objective à la réponse 2, alors que la réponse 0 est excessivement large et 1 et 3 ciblent des difficultés spécifiques. Cela donne un léger avantage rédactionnel à l’option 2, mais avec une incertitude importante.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Les choix 1 et 3 ciblent des difficultés particulières (oublis fréquents, compréhension des notices), alors que le suivi régulier peut être présenté dans un document institutionnel comme un dispositif standard, plus neutre, pour les personnes sous plusieurs traitements en même temps. L’option 0 est très générale (« à l’ensemble des patients ») et moins vraisemblable dans un document décrivant un programme spécifique. L’option 2 formule un critère objectif courant (« plusieurs traitements médicamenteux en même temps ») qui ressemble à un libellé typique de cible dans un texte de santé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un médecin généraliste présente à ses patients un nouveau dispositif de suivi régulier proposé par le cabinet, en expliquant qu’il s’adresse à l’ensemble des patients suivis par leur médecin traitant, qu’ils aient ou non des traitements complexes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une infirmière en éducation thérapeutique explique un programme de suivi téléphonique destiné spécifiquement aux personnes qui oublient souvent de prendre leurs traitements, en précisant que ce suivi régulier leur sera proposé en priorité."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un pharmacien détaille un dispositif de suivi régulier mis en place pour les personnes polymédiquées, en disant que ce suivi sera proposé aux personnes qui prennent plusieurs traitements médicamenteux en même temps."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une animatrice d’atelier santé explique qu’un suivi régulier personnalisé sera proposé aux personnes qui ont des difficultés à comprendre les notices de leurs médicaments, afin de les aider à mieux les utiliser."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6f2c2e8f2bd4c963508d10560780c7aa5ffcebaedae12dbc9e45776bd93faeb5",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles, mais la mention spécifique d’« évaluation prévue au printemps » ressemble à une reprise quasi textuelle d’un détail du document et cadre bien avec l’idée de destination principale des observations pour une analyse ultérieure; cela donne à la réponse 1 un avantage de formulation par rapport aux autres options.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « lors de l’évaluation prévue au printemps » suggère fortement un écho littéral à une information temporelle déjà donnée dans le document audio; elle répond précisément à la notion de « destination principale » (analyse ultérieure globale) plutôt qu’à un simple stockage ou à une action immédiate, ce qui s’aligne mieux avec un protocole structuré de suivi décrit en amont."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement, une pharmacienne explique à un patient qu’un nouveau dispositif de suivi en pharmacie est mis en place : les observations recueillies (effets secondaires, observance, tension, etc.) seront principalement transmises au médecin traitant pour compléter son suivi médical global."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de présentation d’un projet de suivi pharmaceutique, l’intervenant précise que toutes les observations collectées en officine seront surtout utilisées pour une grande évaluation du dispositif prévue au printemps, au cours de laquelle les données seront analysées de manière globale."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un responsable d’officine présente un protocole interne de suivi de certains traitements : il insiste sur le fait que les observations faites à la pharmacie seront simplement enregistrées et conservées dans les dossiers internes, sans transmission systématique à l’extérieur, afin de suivre la qualité des conseils fournis par l’équipe."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une formation destinée aux pharmaciens, l’animateur explique que les observations recueillies pendant le suivi serviront directement à proposer des adaptations de traitement à l’officine, par exemple en suggérant au patient des ajustements de posologie ou des changements de spécialité lorsque c’est autorisé et approprié."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6f706287d5377fca8601be79486fa7a81868f5e9929d1d457d41819834285489",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les actions sont plausibles dans un suivi par les pharmaciens, mais la vérification des horaires et du rythme de prise est une formulation plus standard et centrale pour décrire l’accompagnement pharmaceutique, ce qui lui donne un léger avantage comme réponse attendue.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus générale et directement centrée sur un élément classique du suivi pharmaceutique (“horaires et rythme de prise”), moins spécifique ou conditionnel que les autres propositions, ce qui la rend légèrement plus vraisemblable comme item retenu dans un document de présentation du suivi."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur le rôle des pharmaciens dans l’observance des traitements, une pharmacienne explique qu’elle propose un suivi en demandant régulièrement aux patients s’ils oublient souvent de prendre leurs médicaments, et en en discutant avec eux pour chercher des solutions."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission sur la coopération médecin–pharmacien, un pharmacien décrit son suivi des patients chroniques : il dit qu’en cas de problème il contacte le médecin pour faire ajuster, si nécessaire, les prescriptions des patients."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une capsule d’information sur le suivi pharmaceutique, le narrateur explique que les pharmaciens proposent un accompagnement en vérifiant avec les patients les horaires et le rythme de prise de leurs médicaments afin d’assurer une bonne observance."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un document audio sur l’éducation thérapeutique, une pharmacienne précise que le suivi consiste aussi à repérer les difficultés des patients à comprendre les notices afin de pouvoir les réexpliquer plus clairement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "7e7180bc34c02da8bffac2d919509d93cf0183ffa94484c5da186d1cb2e980dc",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre usages sont plausibles dans l’absolu, mais la mention précise d’un «compte rendu structuré» envoyé au «médecin traitant» correspond bien au type de formulations normatives et coordonnées que l’on trouve dans des documents décrivant le suivi pharmaceutique. L’option 2 paraît un peu moins conforme au positionnement habituel du pharmacien, ce qui renforce légèrement la probabilité de l’option 0 sans pour autant supprimer toute incertitude.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation technique et institutionnelle («compte rendu structuré», «médecin traitant») qui ressemble à la description d’un dispositif officiel de coordination des soins plutôt qu’à une simple pratique interne."
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation potentiellement moins conforme au rôle habituel décrit dans des documents officiels («formuler eux-mêmes des propositions d’ajustement du traitement»), pouvant paraître moins responsable ou trop autonome pour un item-corrigé standard."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une formation explique un dispositif de suivi pharmaceutique de patients chroniques. Le formateur décrit que, après chaque entretien de suivi, le pharmacien synthétise ses observations (adhésion, effets indésirables, difficultés pratiques) et les envoie au médecin traitant sous forme de compte rendu structuré intégré au dossier médical."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un document interne d’officine décrit la procédure de suivi: les observations recueillies lors des entretiens sont consignées dans un dossier patient conservé à l’officine, afin de pouvoir être exploitées lors d’un bilan de médication ou d’une évaluation annuelle de la prise en charge."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un protocole de coopération local entre médecins et pharmaciens, un document prévoit que les pharmaciens, à partir des observations de suivi (tension, glycémie, observance), formulent eux-mêmes des propositions d’ajustement de posologie ou de changement de molécule, propositions ensuite soumises à validation médicale."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une brochure sur les entretiens pharmaceutiques décrit un suivi en plusieurs étapes : les observations collectées lors d’un premier suivi servent de base à un second entretien dédié, au cours duquel le pharmacien revient avec le patient sur les points relevés pour adapter les conseils et vérifier les progrès."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1f326580815894a609cdf8eb28def1bc0077aacc2e3d83da0fedddb25e11e4b7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent correspondre à une restriction du rôle dans un suivi, mais l’énoncé sur l’impossibilité pour les pharmaciens de modifier eux-mêmes les prescriptions ressemble fortement à une limite professionnelle centrale et juridiquement encadrée, plus directement liée à la notion de « restriction » du rôle que les autres, qui concernent davantage des modalités pratiques. Cette différence fournit un léger avantage mais l’incertitude demeure importante faute d’accès à l’audio.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation typique d’une borne légale claire sur le rôle professionnel (« ils ne modifieront pas eux-mêmes les prescriptions »), directement reliée au cœur de l’acte de soin, alors que les autres portent sur des modalités (présentiel/distanciel, transmission, explication de notices) qui paraissent plus contingentes par rapport à la notion générale de restriction de rôle dans un suivi."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur une expérimentation de suivi pharmaceutique pour des patients chroniques, un journaliste interroge un représentant de l’Ordre des pharmaciens. Celui-ci explique que les pharmaciens vont participer activement au suivi, par exemple en détectant des effets indésirables ou des problèmes d’observance, mais précise bien la limite légale : « Ils ne modifieront pas eux-mêmes les prescriptions » ; toute modification devra passer par le médecin prescripteur."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une présentation d’un nouveau service de suivi médicamenteux par les pharmaciens, le responsable d’un groupement précise que le suivi se fera uniquement par téléphone ou visio pour des raisons d’organisation et de temps : « Pour ce programme, les pharmaciens ne rencontreront pas en personne les patients concernés, tout se fera à distance. » Il répond ainsi à une question sur les restrictions de leur rôle dans ce suivi."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion d’information sur un dispositif de suivi partagé entre médecins généralistes et pharmacies, un coordinateur explique la répartition des tâches : les pharmaciens feront des entretiens et consigneront leurs observations dans le dossier informatisé, mais il ajoute : « Ils ne seront pas responsables de transmettre un compte rendu systématique au médecin traitant, ce sera automatisé via le logiciel ou pris en charge par le secrétariat médical. » Il décrit cette limite comme une restriction de leur rôle dans le suivi."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un podcast sur un programme de suivi des traitements mené en pharmacie, l’animateur demande si les pharmaciens vont aussi assurer une éducation détaillée sur les documents fournis. L’intervenant précise : « Dans ce dispositif précis, ils ne seront pas chargés d’accompagner les patients sur la compréhension des notices, l’objectif est plutôt de surveiller l’observance et les interactions. » Il présente cela comme une restriction du rôle des pharmaciens dans ce suivi."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "e727153bd2095f297617a5c356cec795c54d3b061a7cd701c3d105d0220a306c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre choix décrivent des thèmes plausibles dans un échange pharmacie‑patient, mais l’option 1 (index 1) se distingue par sa focalisation cohérente sur l’observance et la compréhension du traitement, qui sont typiquement les aspects sur lesquels un pharmacien annonce qu’il va interroger un patient; les autres options incluent davantage d’éléments liés aux décisions médicales ou à l’organisation administrative. Cette adéquation de rôle et de formulation fournit un avantage net sans qu’il soit possible d’écarter totalement les autres, d’où une probabilité renforcée mais non certaine.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Les trois éléments portent tous sur l’observance et l’usage concret des médicaments (horaires de prise, oublis, lecture des notices), ce qui correspond très directement au type de questionnement qu’un pharmacien annonce au patient; l’énoncé est homogène, clairement dans le cœur de rôle du pharmacien et formulé de façon simple et pragmatique, alors que les autres options mélangent davantage des domaines plus médicaux ou administratifs (consultations, analyses, prix, renouvellements) et paraissent moins centrés sur le questionnement du patient lui‑même."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Le pharmacien explique qu’il va faire un petit bilan avec le patient sous antidépresseur : il annonce qu’il lui posera des questions sur les effets qu’il ressent avec le traitement, sur la fréquence/rythme de ses consultations avec le médecin, et sur la qualité de son sommeil depuis le début de la prise."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Le pharmacien reçoit un patient qui renouvelle une ordonnance chronique et indique qu’il souhaite vérifier l’observance : il précise qu’il va lui demander à quelles heures il prend ses médicaments, s’il lui arrive de les oublier et s’il lit bien les notices pour comprendre comment les utiliser."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un patient vient avec une nouvelle ordonnance assez lourde, l’air inquiet du coût. Le pharmacien annonce qu’il va d’abord lui poser des questions sur le prix global des traitements, sur certains détails pratiques de l’ordonnance, puis sur la façon dont il souhaite organiser les renouvellements pour éviter les ruptures."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’un suivi de traitement complexe (anticoagulant, chimiothérapie, etc.), le pharmacien explique qu’il va interroger le patient sur les récents changements de dosage, sur la façon dont sont planifiés ses prochains rendez-vous médicaux, et sur le suivi de ses analyses de sang liées au traitement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "685e8c05dfcaa14cc43ad06411bf1d257cac31ffdc7ca668a7e9388b435ba412",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le rôle de réception et d’analyse de comptes rendus envoyés par les pharmaciens est à la fois très concret, compatible avec l’organisation habituelle des soins et typique des dispositifs de coordination ; l’option 1 fait doublon avec la mission pédagogique du pharmacien, l’option 2 introduit une contrainte temporelle arbitraire, et l’option 1 confère au médecin un pouvoir de sélection des pharmacies peu réaliste, ce qui donne à l’option 3 un net avantage malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation précise et réaliste dans un dispositif officinal : la réception et l’analyse de comptes rendus envoyés par les pharmaciens correspond à un rôle classique du médecin traitant dans des dispositifs coordonnés ; l’option 1 double le rôle éducatif du pharmacien, l’option 2 est temporellement très spécifique, et l’option 1 est institutionnellement peu vraisemblable."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Présentation d’un nouveau dispositif d’accompagnement pharmaceutique pour les patients sous traitement chronique. Le narrateur explique que, parallèlement au suivi en officine, le médecin traitant doit revoir avec ses patients, lors de consultations spécifiques, les informations sur leurs traitements pour s’assurer de leur bonne compréhension."
+          },
+          {
+            "index": 1,
+            "credible": false,
+            "context": "En France, dans un document décrivant un dispositif de suivi coordonné, on demanderait au médecin traitant de « sélectionner les pharmacies autorisées » à assurer le suivi des patients, ce qui sortirait du cadre habituel de ses missions et des règles d’agrément des officines. La sélection des pharmacies ne relève normalement pas du médecin traitant, ce qui rend cette option difficilement compatible avec un dispositif ordinaire."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Compte rendu audio d’une réunion de lancement d’un dispositif expérimental de coordination ville-hôpital. Le présentateur précise que le médecin traitant aura pour rôle de coordonner, au printemps, l’évaluation du dispositif avec les autres professionnels de santé, par exemple en collectant les retours des infirmiers, pharmaciens et spécialistes."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Description d’un dispositif de suivi pharmaceutique (par exemple entretiens pharmaceutiques pour malades chroniques). Le document précise que les pharmaciens rédigent des comptes rendus après chaque entretien, transmis au médecin traitant, dont le rôle est de les recevoir et de les analyser pour adapter si besoin la prise en charge médicale du patient."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "66e9e35bdddd71e5004d776f0b8d85666604dea115cc18aacdbc6b7e14c1f5d3",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question demande sous quelle condition générale les pharmaciens transmettront leurs observations. Parmi les options, celle qui évoque l’accord préalable du patient correspond à une exigence standard de confidentialité et apparaît comme la condition cadre la plus naturelle et globale, alors que les autres décrivent des situations particulières possibles mais non nécessaires. D’où une probabilité nettement plus élevée pour l’option 3, malgré l’absence du document sonore.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La réponse introduit la condition de consentement du patient, directement liée au cadre légal et déontologique du partage d’informations de santé en France, ce qui en fait une condition générale et nécessaire à toute transmission d’observations, plus large et plus responsable que les circonstances factuelles plus étroites décrites dans les autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un document expliquant un programme de suivi de l’observance, on précise que les pharmaciens surveilleront la prise des traitements et qu’ils transmettront leurs observations au médecin traitant lorsqu’ils constateront des oublis répétés de prise de médicaments chez un patient chronique."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une présentation d’un projet pilote en officine, le document indique qu’une évaluation globale du dispositif est prévue au printemps et que ce n’est qu’une fois cette évaluation réalisée que les pharmaciens transmettront formellement un compte rendu de leurs observations aux médecins traitants."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un document sur la prévention des interactions médicamenteuses, il est expliqué que les pharmaciens suivront particulièrement les patients polymédiqués et qu’ils enverront leurs observations au médecin traitant lorsque les personnes suivront plusieurs traitements simultanément."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une fiche d’information sur un nouveau service d’accompagnement pharmaceutique, il est précisé que, pour des raisons de confidentialité, les pharmaciens ne transmettront leurs observations au médecin traitant que lorsque les patients auront donné leur accord explicite."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "93ad5c3c7156291b254f74641c31bcc780c93ca9a9452211268396457cd48915",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 0,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "c9e9e402720bb17ed3848bdc4faaf10ae3b81edfd03c4f0e853cdc82230e18ff",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre destinataires sont plausibles, mais le terme « observations » dans un contexte de suivi régulier par des pharmaciens suggère davantage des informations cliniques à partager avec le médecin traitant que des données principalement administratives ou de santé publique, d’où une préférence modérée pour l’option 3 malgré une incertitude réelle sur l’enregistrement d’origine.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Les « observations recueillies lors de ce suivi régulier » évoquent des informations cliniques ou thérapeutiques qui, par leur nature, sont le plus directement pertinentes pour le « médecin traitant des patients », ce qui rend cette option légèrement plus ciblée et cohérente avec un suivi médical individualisé que les organismes ou services plus administratifs mentionnés dans les autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une circulaire explique aux pharmaciens qu’à l’issue d’un suivi régulier de certains traitements (par exemple un programme de pharmacovigilance régional), ils doivent transmettre leurs observations à l’agence régionale de santé, qui centralise les données et surveille les pratiques sur le territoire."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une formation décrit un dispositif où les pharmaciens réalisent un suivi régulier de l’observance des patients dans le cadre d’un programme financé par l’assurance maladie, et sont tenus de transmettre les observations recueillies (fréquence de prise, difficultés rencontrées, etc.) à la caisse d’assurance maladie pour évaluation et remboursement du dispositif."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une petite commune, un dispositif local de santé publique prévoit que les pharmaciens participant à un suivi régulier (par exemple sur la consommation de certains médicaments chez les personnes âgées) adressent leurs observations au service municipal de santé, qui les utilise pour orienter des actions de prévention locales."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une procédure de coordination des soins précise que lorsque les pharmaciens réalisent un suivi régulier de la prise des médicaments (effets indésirables, problèmes d’observance, interactions suspectées), ils doivent transmettre les observations recueillies au médecin traitant des patients afin d’adapter si besoin le traitement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "ffc2dfa36f120463aa09fa817e31b40e4c1b125ca5293b2d8e2f5969ddfbc553",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options sont contextuellement plausibles, mais la mention de l’interdiction de modifier les prescriptions médicales se distingue comme une limite légale explicite, typiquement rappelée dans les documents encadrant le suivi par les pharmaciens. Cela lui donne un avantage net sur les autres comme clé probable malgré une incertitude résiduelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La limite sur le fait de « ne pas modifier les prescriptions médicales établies par le médecin » correspond à une frontière juridique et déontologique classique, formulée de manière formelle et générale. Elle apparaît comme une restriction-type souvent explicitée dans des documents officiels sur l’élargissement du rôle des pharmaciens, plus centrale et institutionnelle que les autres, qui décrivent des tâches pratiques plus contingentes."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur un nouveau dispositif de suivi thérapeutique en pharmacie, le journaliste explique que les pharmaciens vérifieront l’observance de manière générale mais qu’ils ne feront pas un contrôle détaillé et systématique des horaires exacts de prise de chaque médicament. L’intervenant précise alors que le rôle des pharmaciens a des limites et qu’ils ne contrôleront pas eux-mêmes en détail les horaires de prise des traitements."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation d’un programme de suivi en officine pour des patients chroniques, un représentant de l’Agence de santé explique que le consentement formel reste recueilli par le médecin ou par un autre professionnel dédié, et non par le pharmacien. Il insiste sur le fait que les pharmaciens participent au suivi mais ne seront pas chargés de recueillir formellement le consentement des personnes suivies."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission radio sur l’extension des missions des pharmaciens, un porte‑parole de l’Ordre des pharmaciens précise que, même si les pharmaciens suivent les patients et peuvent signaler des problèmes, ils ne modifieront pas les prescriptions médicales établies par le médecin. Il souligne que l’ajustement des traitements reste de la responsabilité du médecin prescripteur."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un podcast de santé publique présentant un dispositif d’accompagnement des patients par les pharmaciens, l’animatrice précise que les pharmaciens pourront discuter des prises avec les patients mais qu’ils ne prendront pas en charge le suivi systématique de tous les oublis de prise rapportés ; ce suivi reste par exemple l’objet d’un autre service ou d’une application dédiée."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "48a55c2bcd91edbf3064ac1fc5e1db7b6d04221d5d0089b1adf39853a7d51f5e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 2 se distingue par une condition centrée sur le consentement explicite du patient, typique d’un « dispositif » formalisé en santé et plus en phase avec les règles de partage d’informations médicales que les formulations très restrictives des autres choix.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation conditionnelle et éthique (« lorsque les patients auront donné leur accord explicite ») cohérente avec les exigences usuelles de confidentialité et de consentement en santé ; moins restrictive et plus nuancée que les autres (« uniquement », « seulement »), ce qui correspond davantage à un dispositif organisé présenté dans un enregistrement informatif."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une présentation d’un nouveau protocole en officine, le responsable explique : « Les pharmaciens feront remonter leurs observations au médecin traitant uniquement à l’occasion du renouvellement des ordonnances, par exemple pour signaler une mauvaise observance ou des effets indésirables. » La question porte alors précisément sur ce cas d’envoi des observations."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion entre médecins et pharmaciens, un coordinateur décrit un dispositif très médicalisé : « Le pharmacien ne transmettra ses remarques au médecin traitant que lorsque celui-ci en fera la demande expresse, par exemple dans le cadre d’un suivi ciblé. » Le dispositif limite formellement la transmission aux seules demandes explicites du médecin."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un reportage sur un nouveau dispositif de coordination ville-hôpital, une responsable explique : « Les pharmaciens pourront transmettre leurs observations au médecin traitant lorsque les patients auront donné leur accord explicite, conformément aux règles de confidentialité. » La question vise alors à identifier cette condition précise de partage d’information."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’une formation sur la pharmacovigilance, l’animateur décrit un protocole restreint : « Les pharmaciens ne remonteront leurs observations au médecin traitant que s’il apparaît un problème important signalé par le patient, comme un effet secondaire grave ou une non-observance majeure. » Le dispositif prévoit donc une transmission uniquement en cas de problème important."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3LgJATXgEsjtZ4vCtENww4R73Vy",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une présentation d’un nouveau protocole en officine, le responsable explique : « Les pharmaciens feront remonter leurs observations au médecin traitant uniquement à l’occasion du renouvellement des ordonnances, par exemple pour signaler une mauvaise observance ou des effets indésirables. » La question porte alors précisément sur ce cas d’envoi des observations."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion entre médecins et pharmaciens, un coordinateur décrit un dispositif très médicalisé : « Le pharmacien ne transmettra ses remarques au médecin traitant que lorsque celui-ci en fera la demande expresse, par exemple dans le cadre d’un suivi ciblé. » Le dispositif limite formellement la transmission aux seules demandes explicites du médecin."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un reportage sur un nouveau dispositif de coordination ville-hôpital, une responsable explique : « Les pharmaciens pourront transmettre leurs observations au médecin traitant lorsque les patients auront donné leur accord explicite, conformément aux règles de confidentialité. » La question vise alors à identifier cette condition précise de partage d’information."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’une formation sur la pharmacovigilance, l’animateur décrit un protocole restreint : « Les pharmaciens ne remonteront leurs observations au médecin traitant que s’il apparaît un problème important signalé par le patient, comme un effet secondaire grave ou une non-observance majeure. » Le dispositif prévoit donc une transmission uniquement en cas de problème important."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "clear",
+              "cue": "Formulation conditionnelle et éthique (« lorsque les patients auront donné leur accord explicite ») cohérente avec les exigences usuelles de confidentialité et de consentement en santé ; moins restrictive et plus nuancée que les autres (« uniquement », « seulement »), ce qui correspond davantage à un dispositif organisé présenté dans un enregistrement informatif."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.15,
+            0.15,
+            0.55,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 2 se distingue par une condition centrée sur le consentement explicite du patient, typique d’un « dispositif » formalisé en santé et plus en phase avec les règles de partage d’informations médicales que les formulations très restrictives des autres choix."
+        },
+        "usage": {
+          "prompt_tokens": 629,
+          "completion_tokens": 719,
+          "total_tokens": 1348,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 186,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00797625,
+        "inputHash": "15648cf0a0853183218d351e86db9a963c9698ddbaefac2826fd6b335fcb6717",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:14:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Les quatre réponses sont plausibles dans des contextes ordinaires, mais l’option 2 se distingue par une condition centrée sur le consentement explicite du patient, typique d’un « dispositif » formalisé en santé et plus en phase avec les règles de partage d’informations médicales que les formulations très restrictives des autres choix.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "clear",
+        "cue": "Formulation conditionnelle et éthique (« lorsque les patients auront donné leur accord explicite ») cohérente avec les exigences usuelles de confidentialité et de consentement en santé ; moins restrictive et plus nuancée que les autres (« uniquement », « seulement »), ce qui correspond davantage à un dispositif organisé présenté dans un enregistrement informatif."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une présentation d’un nouveau protocole en officine, le responsable explique : « Les pharmaciens feront remonter leurs observations au médecin traitant uniquement à l’occasion du renouvellement des ordonnances, par exemple pour signaler une mauvaise observance ou des effets indésirables. » La question porte alors précisément sur ce cas d’envoi des observations."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’une réunion entre médecins et pharmaciens, un coordinateur décrit un dispositif très médicalisé : « Le pharmacien ne transmettra ses remarques au médecin traitant que lorsque celui-ci en fera la demande expresse, par exemple dans le cadre d’un suivi ciblé. » Le dispositif limite formellement la transmission aux seules demandes explicites du médecin."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un reportage sur un nouveau dispositif de coordination ville-hôpital, une responsable explique : « Les pharmaciens pourront transmettre leurs observations au médecin traitant lorsque les patients auront donné leur accord explicite, conformément aux règles de confidentialité. » La question vise alors à identifier cette condition précise de partage d’information."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Au cours d’une formation sur la pharmacovigilance, l’animateur décrit un protocole restreint : « Les pharmaciens ne remonteront leurs observations au médecin traitant que s’il apparaît un problème important signalé par le patient, comme un effet secondaire grave ou une non-observance majeure. » Le dispositif prévoit donc une transmission uniquement en cas de problème important."
+      }
+    ]
+  },
+  "imageHash": null,
+  "designSeedHash": "ca64baf3b1dc78177f272bbf95a4cf152d593def4d8c491b834fd6da0f5291b8"
+}

@@ -1,0 +1,174 @@
+{
+  "question": {
+    "number": 3,
+    "kind": "image",
+    "question": "Quelle proposition correspond à l'image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "transcript": "Question 3.\nÉcoutez les quatre propositions. A. Ils déplacent des pions sur un plateau. B. Ils regardent un film sur une tablette. C. Ils mangent ensemble à table. D. Ils écrivent chacun sur un carnet.",
+    "explanation": "Réponse A : On voit deux personnes assises face à face à une table, avec un grand plateau quadrillé au centre et plusieurs éléments qui ressemblent à des pions. Leur position suggère une interaction avec le plateau, ce qui correspond à « Ils déplacent des pions sur un plateau. ». B : Il n’y a pas de tablette visible : l’objet rectangulaire sur la table est un plateau quadrillé de type jeu de société, pas un écran. Quelqu’un pourrait confondre le plateau vu de dessus avec une tablette posée à plat, d’où la tentation de choisir cette réponse, mais rien n’indique qu’ils « regardent un film » (absence d’images, de cadre d’écran, de posture tournée vers un dispositif vidéo). C : On ne voit ni assiettes, ni verres, ni couverts, ni aliments sur la table : elle est occupée uniquement par un grand plateau avec des pions. Un observateur distrait pourrait assimiler toute scène à table à un repas et choisir « Ils mangent ensemble à table. », mais aucun élément visuel ne renforce cette interprétation. D : Il n’y a ni carnets ni stylos visibles : les deux personnes ont les mains vers le plateau de jeu, pas vers du papier. Une personne peu attentive pourrait interpréter la posture assise face à face comme une situation de travail ou d’écriture et penser qu’ils « écrivent chacun sur un carnet », mais les objets présents sont clairement des pions sur un plateau de jeu, pas du matériel d’écriture.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 3."
+      },
+      {
+        "voice": "male",
+        "text": "Écoutez les quatre propositions. A. Ils déplacent des pions sur un plateau. B. Ils regardent un film sur une tablette. C. Ils mangent ensemble à table. D. Ils écrivent chacun sur un carnet."
+      }
+    ],
+    "image": "q-03.svg",
+    "audio": "q-03.mp3",
+    "audioSeconds": 17.58,
+    "slotSeconds": 32
+  },
+  "sourceHash": "c4521fbcbc9c07ee5a32a09c003298d6212005536405e6ffab131c935386a643",
+  "contentHash": "3a03668ca81b1a3025982bd661e60ced961c29e570461b8fe67dfc36d753b067",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkykZPSmUI3KgLvWAnx6QLSYyXPzH",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une salle de classe ou un salon, on voit deux ou plusieurs personnes assises côte à côte, chacune avec un petit carnet ou cahier, en train d’écrire. La photo montre clairement des stylos et des carnets individuels plutôt que d’autres activités."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Sur un canapé ou à une table basse, deux personnes ou plus sont tournées vers une tablette posée devant elles ou tenue par l’une d’elles, l’écran affichant une scène de film. Leur attention est manifestement concentrée sur l’écran."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Autour d’une table, on voit des personnes penchées sur un jeu de société, avec un plateau et des pions bien visibles. L’image les montre en train de déplacer un pion ou la main au-dessus du plateau."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une famille ou des amis sont assis autour d’une table dressée avec des assiettes, verres et couverts, et on les voit en train de manger ou de partager un plat, ce qui illustre clairement un repas pris en commun."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre phrases sont grammaticalement correctes, de longueur et de style comparables, et chacune peut décrire de façon naturelle une photo typique. Sans accès à l’image, aucun indice textuel clair ne favorise une option plutôt qu’une autre, d’où une forte incertitude et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 441,
+          "total_tokens": 1037,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 75,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005155,
+        "inputHash": "5712089464f013cbfd9566891dfba29703470438120adfeb8d6b4402f4f53128",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:2:ce40c9091f7f36b9e4c06d49:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkykfiHUQnE9L4M5o6eGReZBfJYlN",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description qui correspond clairement à l’image est qu’ils déplacent des pions sur un plateau de jeu posé sur la table.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "On voit deux personnes assises face à face à une table, avec un grand plateau quadrillé au centre et plusieurs éléments qui ressemblent à des pions. Leur position suggère une interaction avec le plateau, ce qui correspond à « Ils déplacent des pions sur un plateau. ».",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Il n’y a pas de tablette visible : l’objet rectangulaire sur la table est un plateau quadrillé de type jeu de société, pas un écran. Quelqu’un pourrait confondre le plateau vu de dessus avec une tablette posée à plat, d’où la tentation de choisir cette réponse, mais rien n’indique qu’ils « regardent un film » (absence d’images, de cadre d’écran, de posture tournée vers un dispositif vidéo).",
+          "misunderstanding": "visual_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On ne voit ni assiettes, ni verres, ni couverts, ni aliments sur la table : elle est occupée uniquement par un grand plateau avec des pions. Un observateur distrait pourrait assimiler toute scène à table à un repas et choisir « Ils mangent ensemble à table. », mais aucun élément visuel ne renforce cette interprétation.",
+          "misunderstanding": "schema_overgeneralisation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Il n’y a ni carnets ni stylos visibles : les deux personnes ont les mains vers le plateau de jeu, pas vers du papier. Une personne peu attentive pourrait interpréter la posture assise face à face comme une situation de travail ou d’écriture et penser qu’ils « écrivent chacun sur un carnet », mais les objets présents sont clairement des pions sur un plateau de jeu, pas du matériel d’écriture.",
+          "misunderstanding": "activity_misattribution"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 749,
+      "total_tokens": 1476,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 250,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00839875,
+    "inputHash": "f09c8c88c1b3e48f43f705a676680ac55377e965e7fce2cf5b0176c5aa5dc878",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:2:ce40c9091f7f36b9e4c06d49:ground:0"
+  },
+  "feedback": null
+}

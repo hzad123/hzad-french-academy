@@ -1,0 +1,302 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question demande explicitement un emprunt « jusqu’à la semaine prochaine », soit une durée d’environ une semaine. La réponse « Oui, le prêt d’une semaine est possible. » répond directement et positivement à cette demande en confirmant que ce type de prêt est autorisé. Il y a adéquation totale entre la demande (durée, objet à emprunter) et la réponse. A : L’énoncé demande clairement l’autorisation d’« emprunter ce dictionnaire jusqu’à la semaine prochaine », donc une réponse devrait porter sur la possibilité de prêt et/ou la durée. « Allez plutôt voir sur Internet. » détourne la demande vers un autre moyen de chercher une information, sans répondre si l’emprunt jusqu’à la semaine prochaine est autorisé ou non. Quelqu’un pouvant mal comprendre la situation pourrait penser que, puisqu’il s’agit d’un dictionnaire, proposer Internet est logique pour chercher un mot, mais l’enregistrement parle bien d’un emprunt matériel, pas d’une simple consultation ou recherche de définition. C : Le locuteur demande s’il peut emprunter un dictionnaire pour une semaine, donc il s’agit d’une demande de prêt d’un ouvrage, pas d’une demande d’explication lexicale. La réponse « Je peux vous expliquer ce mot si vous voulez. » suppose au contraire que la personne a un problème avec un mot précis. Quelqu’un comprenant mal pourrait se focaliser sur le mot « dictionnaire » et imaginer que l’usager a du mal avec un terme, mais l’expression « Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ? » montre qu’il veut emporter le livre, pas seulement comprendre un mot. D : La question porte sur « ce dictionnaire », alors que la réponse parle de « ce roman ». Il y a donc changement d’objet : dictionnaire vs roman. De plus, la réponse évoque une réservation d’un roman et non l’autorisation ou non d’un prêt d’une semaine de ce dictionnaire. Quelqu’un distrait pourrait ne pas remarquer la différence entre « dictionnaire » et « roman » et penser qu’il s’agit simplement d’un refus de prêt, mais en réalité l’enregistrement signale clairement un type de document différent, rendant cette réponse inadaptée à la question posée.",
+    "transcript": "Question 8.\nPuis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?\nA. Allez plutôt voir sur Internet. B. Oui, le prêt d’une semaine est possible. C. Je peux vous expliquer ce mot si vous voulez. D. Non, ce roman est déjà réservé.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Allez plutôt voir sur Internet. B. Oui, le prêt d’une semaine est possible. C. Je peux vous expliquer ce mot si vous voulez. D. Non, ce roman est déjà réservé."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 37
+  },
+  "sourceHash": "af2511f4fb7f4f6ec6b1d24c0f6efc943d836b1ad1c15f271408f0396bcbfc71",
+  "contentHash": "57a1d138c04961b5f68048261c2c9c76b6cd286b00569bf49aa0ef9f74024648",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzh8Q3904UIeFsaPTsRS15zEPY9P",
+    "result": {
+      "question": "Quelle réponse convient à la situation ?",
+      "choices": [
+        "Oui, le prêt d’une semaine est possible.",
+        "Je peux vous expliquer ce mot si vous voulez.",
+        "Non, ce roman est déjà réservé.",
+        "Allez plutôt voir sur Internet."
+      ],
+      "correctIndex": 0,
+      "explanation": "La question Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ? demande explicitement une autorisation de prêt pour une semaine. Seule la réponse Oui, le prêt d’une semaine est possible. répond directement à la demande de permission et à la durée précisée. Les autres propositions changent soit l’action (expliquer un mot), soit l’objet (un roman), soit l’objectif (orienter vers Internet) et ne constituent pas de véritables réponses à la demande de prêt formulée.",
+      "design": "Item de réponse à un énoncé oral bref. Le lien testé est la correspondance pragmatique entre l’acte de parole du locuteur (demande de permission d’emprunter un dictionnaire pour une semaine) et la nature de la réplique. Toutes les options semblent des réponses plausibles dans un contexte de bibliothèque ou de recherche d’information, mais une seule accorde ou refuse explicitement le prêt demandé avec la bonne durée. Les distracteurs exploitent des malentendus réalistes (croire qu’il s’agit d’un problème de compréhension du mot, confondre dictionnaire et roman, ou réorienter vers Internet) sans répondre à la demande d’emprunt elle-même.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse suppose à tort que la demande porte sur la compréhension d’un mot et non sur l’autorisation d’emprunter un ouvrage. Elle est tentante car un dictionnaire sert justement à expliquer des mots, mais elle ne répond pas à la question de prêt pour une semaine.",
+          "operation": "role_swap",
+          "anchors": [
+            "Puis-je emprunter ce dictionnaire",
+            "Je peux vous expliquer ce mot"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse inverse à tort l’objet concerné : elle parle d’un roman déjà réservé alors que la demande porte sur un dictionnaire à emprunter pour une semaine. Elle paraît crédible dans un contexte de bibliothèque, mais elle ne traite ni le bon type de document ni la durée.",
+          "operation": "scope_shift",
+          "anchors": [
+            "ce dictionnaire",
+            "ce roman est déjà réservé"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse déplace la situation en renvoyant vers Internet au lieu de se prononcer sur la possibilité d’emprunter le dictionnaire pour une semaine. Elle semble plausible comme conseil général pour chercher une information, mais elle ne donne ni accord ni refus de prêt.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Puis-je emprunter ce dictionnaire",
+            "Allez plutôt voir sur Internet"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2466,
+      "completion_tokens": 1105,
+      "total_tokens": 3571,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 531,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0141325,
+    "inputHash": "ddab189ef746f6ba6f62beb3353321856d3cc28a84d1c7ac4cccef29413dfd18",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:14721af7be4c27b55696caf7:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Quelle réponse convient à la situation ?",
+      "choices": [
+        "Oui, mais uniquement pour le week-end.",
+        "Oui, le prêt d’une semaine est possible.",
+        "Non, ce dictionnaire reste en consultation sur place.",
+        "Oui, mais il doit être rendu dès demain."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-EkzgM3XX6MozWIFYK2c1dTuV10OZG",
+      "result": {
+        "question": "À la bibliothèque, que peut répondre l’agent à la personne qui veut emprunter ce dictionnaire ?",
+        "choices": [
+          "Oui, mais seulement pour le week-end.",
+          "Oui, un prêt d’une semaine est possible.",
+          "Non, ce dictionnaire est réservé à la consultation sur place.",
+          "Oui, mais il devra être rendu dès demain."
+        ],
+        "notes": "Précision du contexte (emprunt d’un dictionnaire en bibliothèque) sans suggérer la bonne durée ni l’autorisation ou l’interdiction. Les quatre options restent des réponses directes et professionnelles, différenciées uniquement par la possibilité d’emprunt et la durée du prêt."
+      },
+      "usage": {
+        "prompt_tokens": 638,
+        "completion_tokens": 426,
+        "total_tokens": 1064,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 278,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.0050575,
+      "inputHash": "70e985616706a9b142f14588e2b5956d6a66721dd05490c96257e89652c211bc",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:14721af7be4c27b55696caf7:blind-edit:0"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzhOpv55eKtPDLE269GE0OBzGZbO",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une bibliothèque, un usager demande au bibliothécaire : « Est-ce que je peux emprunter ce livre pour une semaine ? ». Le bibliothécaire répond : « Oui, le prêt d’une semaine est possible. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un magasin ou un bureau d’information, un client demande : « Où est-ce que je peux trouver plus de renseignements sur ce produit ? ». L’employé, pressé ou limité en informations, répond : « Allez plutôt voir sur Internet. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À la bibliothèque, un usager montre un livre et demande : « Est-ce que je peux emprunter ce roman ? ». Le bibliothécaire vérifie l’ordinateur et répond : « Non, ce roman est déjà réservé. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "En cours de français, un étudiant demande le sens d’un mot entendu dans un enregistrement : « Qu’est‑ce que ça veut dire, ce mot ? ». Le professeur répond : « Je peux vous expliquer ce mot si vous voulez. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses peuvent convenir de façon naturelle à une situation ordinaire et aucune ne présente d’avantage rédactionnel, de longueur ou de précision qui la distingue clairement des autres. Sans accès à l’enregistrement, il n’y a pas d’indice objectif permettant de privilégier une option plutôt qu’une autre."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 395,
+          "total_tokens": 992,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 43,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00469625,
+        "inputHash": "815e32236c5aac8d03c3baf8967fcf9f3695a86f567415feaa5e2d6bd995da76",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:14721af7be4c27b55696caf7:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzhUFgYX30HAudjG91GDlf37kZGi",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question porte sur la possibilité d’emprunter un dictionnaire pour une semaine. La seule réponse qui réponde directement et correctement à cette demande est la réponse B : elle confirme explicitement que le prêt d’une semaine est possible.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Allez plutôt voir sur Internet."
+          ],
+          "reason": "L’énoncé demande clairement l’autorisation d’« emprunter ce dictionnaire jusqu’à la semaine prochaine », donc une réponse devrait porter sur la possibilité de prêt et/ou la durée. « Allez plutôt voir sur Internet. » détourne la demande vers un autre moyen de chercher une information, sans répondre si l’emprunt jusqu’à la semaine prochaine est autorisé ou non. Quelqu’un pouvant mal comprendre la situation pourrait penser que, puisqu’il s’agit d’un dictionnaire, proposer Internet est logique pour chercher un mot, mais l’enregistrement parle bien d’un emprunt matériel, pas d’une simple consultation ou recherche de définition.",
+          "misunderstanding": "question_misinterpretation"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Oui, le prêt d’une semaine est possible."
+          ],
+          "reason": "La question demande explicitement un emprunt « jusqu’à la semaine prochaine », soit une durée d’environ une semaine. La réponse « Oui, le prêt d’une semaine est possible. » répond directement et positivement à cette demande en confirmant que ce type de prêt est autorisé. Il y a adéquation totale entre la demande (durée, objet à emprunter) et la réponse.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Je peux vous expliquer ce mot si vous voulez."
+          ],
+          "reason": "Le locuteur demande s’il peut emprunter un dictionnaire pour une semaine, donc il s’agit d’une demande de prêt d’un ouvrage, pas d’une demande d’explication lexicale. La réponse « Je peux vous expliquer ce mot si vous voulez. » suppose au contraire que la personne a un problème avec un mot précis. Quelqu’un comprenant mal pourrait se focaliser sur le mot « dictionnaire » et imaginer que l’usager a du mal avec un terme, mais l’expression « Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ? » montre qu’il veut emporter le livre, pas seulement comprendre un mot.",
+          "misunderstanding": "question_misinterpretation"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Puis-je emprunter ce dictionnaire jusqu'à la semaine prochaine ?",
+            "Non, ce roman est déjà réservé."
+          ],
+          "reason": "La question porte sur « ce dictionnaire », alors que la réponse parle de « ce roman ». Il y a donc changement d’objet : dictionnaire vs roman. De plus, la réponse évoque une réservation d’un roman et non l’autorisation ou non d’un prêt d’une semaine de ce dictionnaire. Quelqu’un distrait pourrait ne pas remarquer la différence entre « dictionnaire » et « roman » et penser qu’il s’agit simplement d’un refus de prêt, mais en réalité l’enregistrement signale clairement un type de document différent, rendant cette réponse inadaptée à la question posée.",
+          "misunderstanding": "referent_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 698,
+      "completion_tokens": 1272,
+      "total_tokens": 1970,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 507,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0135925,
+    "inputHash": "67b998372ca3061cb22b3f3e822bd591a8cb2c6ce09e565488f72fdd1aa434c9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:7:14721af7be4c27b55696caf7:ground:1"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

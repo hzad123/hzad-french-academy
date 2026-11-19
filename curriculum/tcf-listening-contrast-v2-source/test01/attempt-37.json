@@ -1,0 +1,774 @@
+{
+  "question": {
+    "number": 37,
+    "kind": "interview",
+    "question": "Dans le document, parmi les éléments que les enquêteurs disent vouloir examiner, quel exemple n’est pas cité ?",
+    "options": [
+      "Les dates évoquées",
+      "Les effectifs présents",
+      "Les peurs exprimées",
+      "Les décisions prises"
+    ],
+    "correct": "C",
+    "transcript": "Question 37.\nQuand deux témoins racontent différemment la fermeture d'une usine, comment décidez-vous lequel dit vrai ?\nNous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs. Mais toutes les différences ne se ramènent pas à une erreur. Un cadre, une ouvrière et un commerçant voisin n'ont pas vécu la même journée, même s'ils parlent du même événement. Leurs récits montrent ce qu'ils pouvaient voir, ce qu'ils redoutaient et ce qu'ils ont retenu. Nous gardons donc les circonstances de chaque entretien et comparons les témoignages avec les archives. Il ne s'agit pas de déclarer que tout se vaut, ni d'effacer les contradictions pour produire un récit plus confortable. Les écarts peuvent devenir une source d'information, à condition d'être examinés plutôt que simplement juxtaposés ou utilisés pour accuser d'emblée l'un des témoins de mentir.\nDans le document, parmi les éléments que les enquêteurs disent vouloir examiner, quel exemple n’est pas cité ?",
+    "explanation": "Le texte précise : \"Nous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs.\" Les peurs ne figurent pas dans cette liste d'exemples de faits vérifiés ; elles apparaissent ailleurs comme un aspect du vécu des témoins, pas comme un fait contrôlé dans les archives.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 37."
+      },
+      {
+        "voice": "female",
+        "text": "Quand deux témoins racontent différemment la fermeture d'une usine, comment décidez-vous lequel dit vrai ?"
+      },
+      {
+        "voice": "male",
+        "text": "Nous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs. Mais toutes les différences ne se ramènent pas à une erreur. Un cadre, une ouvrière et un commerçant voisin n'ont pas vécu la même journée, même s'ils parlent du même événement. Leurs récits montrent ce qu'ils pouvaient voir, ce qu'ils redoutaient et ce qu'ils ont retenu. Nous gardons donc les circonstances de chaque entretien et comparons les témoignages avec les archives. Il ne s'agit pas de déclarer que tout se vaut, ni d'effacer les contradictions pour produire un récit plus confortable. Les écarts peuvent devenir une source d'information, à condition d'être examinés plutôt que simplement juxtaposés ou utilisés pour accuser d'emblée l'un des témoins de mentir."
+      },
+      {
+        "voice": "female",
+        "text": "Dans le document, parmi les éléments que les enquêteurs disent vouloir examiner, quel exemple n’est pas cité ?"
+      }
+    ],
+    "audio": "q-37.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 80
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3L2Fk9JQroW1WVkpsU27lHNbIwY",
+    "result": {
+      "question": "Dans le document, parmi les faits que les enquêteurs disent vérifier, quel exemple n'est pas cité ?",
+      "choices": [
+        "Les dates",
+        "Les décisions",
+        "Les effectifs",
+        "Les peurs"
+      ],
+      "correctIndex": 3,
+      "explanation": "Le texte précise : \"Nous vérifions les faits qui peuvent l'être : les dates, les décisions, les effectifs.\" Les peurs ne figurent pas dans cette liste d'exemples de faits vérifiés ; elles apparaissent ailleurs comme un aspect du vécu des témoins, pas comme un fait contrôlé dans les archives.",
+      "design": "Focus on one recorded relationship: membership in the explicit list of examples of facts that can be checked. All four options are plausible types of information a researcher might try to verify after an industrial closure, so without the audio none is obviously excluded. Only three, however, are actually named in the list; the fourth (fears) is present in the source but with a different role (dimension of experience rather than verifiable fact).",
+      "distractorReasons": [
+        {
+          "index": 0,
+          "reason": "Les dates sont explicitement données comme un exemple de fait vérifié : elles sont dans la liste \"les dates, les décisions, les effectifs\" après \"Nous vérifions les faits qui peuvent l'être\". L’erreur consiste à sortir cet élément de cette liste et à croire qu’il n’est pas cité comme exemple de vérification.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous vérifions les faits qui peuvent l'être",
+            "les dates, les décisions, les effectifs"
+          ]
+        },
+        {
+          "index": 1,
+          "reason": "Les décisions figurent elles aussi dans la série d’exemples de faits contrôlés. On peut être tenté de penser qu’elles relèvent plutôt de l’interprétation que de la vérification, mais dans le document elles sont bien rangées parmi les faits que l’on vérifie.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous vérifions les faits qui peuvent l'être",
+            "les dates, les décisions, les effectifs"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les effectifs sont cités au même titre que les dates et les décisions comme faits que l’enquêteur peut vérifier. Croire que les effectifs ne sont pas mentionnés comme exemple revient à méconnaître que le texte les insère explicitement dans cette énumération.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Nous vérifions les faits qui peuvent l'être",
+            "les dates, les décisions, les effectifs"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4593,
+      "completion_tokens": 4332,
+      "total_tokens": 8925,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3812,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.04906125,
+    "inputHash": "ee31784deb97741bc10da2f7eafaec48f48a8ea66d93b3ca2688998f05939a92",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:36:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, parmi les faits que les enquêteurs disent vérifier, quel exemple n'est pas cité ?",
+      "choices": [
+        "Les dates",
+        "Les effectifs",
+        "Les peurs",
+        "Les décisions"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3LdGO0d5aVY11zEkauGgbr22hNC",
+      "result": {
+        "question": "Dans le document, parmi les éléments que les enquêteurs disent vouloir examiner, quel exemple n’est pas cité ?",
+        "choices": [
+          "Les dates évoquées",
+          "Les effectifs présents",
+          "Les peurs exprimées",
+          "Les décisions prises"
+        ],
+        "notes": "Le terme « faits » a été remplacé par « éléments » pour que les quatre réponses (y compris les peurs) paraissent également plausibles à examiner. Les quatre options ont été reformulées dans une syntaxe parallèle pour équilibrer leur crédibilité sans suggérer laquelle est correcte."
+      },
+      "usage": {
+        "prompt_tokens": 625,
+        "completion_tokens": 574,
+        "total_tokens": 1199,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 448,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00652125,
+      "inputHash": "e20018a97d1120ec520486bdc1ebdc194b4e7adc0b86ab5807609b6b8e51068f",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:36:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "c7fc7b586f880a7dad506285d725c31670cc28a23fdc27cba4cc56907a9e5c87",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 2,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "e286590b80176ad09bb9f4aab7fdfdefce2f875b23a6ab3de67d89ae39d86ae9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent correspondre à des données chiffrées, mais la formulation \"Les effectifs de l’usine au moment de la fermeture\" colle le plus littéralement à \"information chiffrée à propos de la fermeture de l’usine\", en liant directement le chiffre à l’instant de la fermeture, d’où une probabilité plus élevée pour l’option 1 malgré une incertitude persistante faute d’accès au document sonore.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "\"Les effectifs de l’usine au moment de la fermeture\" correspond très directement à une \"information chiffrée\" explicitement rattachée à l’événement de fermeture lui-même, alors que les salaires de l’année précédente, le montant des indemnités négociées ou les horaires imposés peuvent être perçus comme des données plus périphériques (contexte économique, conséquences sociales ou conditions de travail) et pas aussi immédiatement centrées sur le moment de la fermeture indiqué par \"au moment de la fermeture\"."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Journal télévisé sur la fermeture d’une usine : le journaliste rappelle le contexte économique en indiquant qu’au cours de l’année précédente, l’entreprise a versé un certain montant de salaires aux employés, pour illustrer l’ampleur de l’activité avant la fermeture."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Reportage radio sur la fermeture d’une usine : le présentateur précise qu’au moment de la fermeture, l’usine comptait un nombre exact de salariés, pour montrer combien de personnes sont directement touchées par cette décision."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Débat radiophonique sur un plan social : un représentant syndical indique le montant total des indemnités de départ négociées avec la direction après l’annonce de la fermeture de l’usine, en donnant des chiffres précis."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Émission d’information économique : on décrit la dégradation des conditions de travail avant la fermeture en mentionnant le nombre d’heures travaillées par semaine ou les nouveaux horaires imposés pendant les derniers mois, avec des chiffres détaillés."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "69290d2ee22ad033ca2ae90bd48a0ae827931fbb0485314d1051fc0c2da8d6eb",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 3 formule une méthode concrète et spécifique («mise en parallèle des récits») qui correspond exactement à l’idée de traiter des divergences, tandis que la 0 reste vague et les 1 et 2 impliquent une modification des témoignages moins conforme à une approche respectueuse des sources ; cette précision lui donne un avantage net malgré l’impossibilité de vérifier sans l’audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation «les présenter côte à côte dans une mise en parallèle des récits» décrit une méthode précise directement centrée sur la gestion de divergences ; les autres réponses sont soit très générales («les analyser de façon détaillée»), soit orientées vers la correction ou la fusion des versions, ce qui paraît méthodologiquement plus discutable comme recommandation explicite d’un document pédagogique ou scientifique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un cours de méthodologie en sciences sociales, un enseignant explique que lorsque plusieurs témoins racontent différemment un même événement, il est important de procéder à une analyse détaillée des divergences pour en dégager le sens, par exemple pour comprendre les points de vue, les enjeux de mémoire ou les contextes d’énonciation."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une formation aux pratiques archivistiques dans un service d’histoire orale, un intervenant soutient (de façon discutable mais plausible) qu’en cas de divergences entre témoignages, on peut les corriger en les ajustant à partir des archives disponibles afin de restituer au mieux la version des faits considérée comme la plus exacte."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’un atelier de rédaction d’un rapport historique de synthèse, un responsable explique que, face à des témoignages divergents, l’équipe choisit de les regrouper pour en dégager une version moyenne et consensuelle, destinée à produire un récit unifié pour le grand public."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un séminaire sur l’histoire orale ou la mémoire des conflits, l’enseignant recommande, pour gérer les divergences entre témoignages, de les présenter côte à côte dans une mise en parallèle des récits, afin de rendre visibles les différences plutôt que de les gommer."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "3fdd26307aedc2622e0fe92a03a51d65e006a7d14fb91bdceafebe8d123bfc91",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre usages des archives sont concevables, mais la question («comment les archives sont-elles mobilisées en lien avec les témoignages») appelle une réponse générale sur la fonction principale des archives dans le dispositif, plutôt qu’un usage plus spécifique (trancher, rectifier, unifier). L’option 2, avec l’idée de point de comparaison pour analyser et mettre en perspective chaque témoignage, est la plus neutre, englobante et méthodologiquement typique d’un document sur la confrontation archives/récits, d’où une probabilité plus élevée malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation plus générale et méthodologique («fournissent un point de comparaison pour analyser et mettre en perspective chaque témoignage») qui correspond bien à une réponse de type synthèse sur la manière de mobiliser conjointement archives et témoignages, sans se limiter à corriger, trancher ou unifier; vocabulaire typique de mise en perspective analytique dans un cours ou document académique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un documentaire radio sur un conflit social autour d’une fermeture d’usine, un historien du travail explique qu’il existe plusieurs témoignages parfois contradictoires d’anciens ouvriers et de cadres. Il décrit comment il s’appuie sur les archives administratives et syndicales pour accorder davantage de poids à certains récits qu’à d’autres lorsqu’il faut décider entre des versions divergentes d’un même événement, par exemple les conditions exactes de l’annonce de la fermeture."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un entretien enregistré avec une chercheuse en histoire orale, celle-ci explique qu’elle confronte systématiquement les témoignages des salariés licenciés aux dossiers de l’entreprise, aux procès-verbaux de réunions et aux correspondances officielles. Elle indique que les archives lui servent à corriger des dates, des chiffres ou des enchaînements d’événements lorsque le souvenir raconté s’éloigne des éléments consignés, ou à ajouter des précisions manquantes dans les récits oraux."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast universitaire sur la fermeture d’une grande usine, un sociologue explique qu’il recueille des témoignages d’ouvriers, de syndicalistes et de responsables politiques, puis les compare aux archives de l’entreprise, des collectivités locales et de la presse. Il précise que ces archives lui fournissent un point de comparaison qui lui permet d’analyser chaque témoignage, d’en comprendre les biais possibles et de mettre en perspective les expériences individuelles par rapport au déroulement documenté des faits."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une conférence enregistrée sur la mémoire d’un site industriel fermé, une historienne détaille sa méthode : elle part des archives (rapports, lettres, procès-verbaux) et des témoignages oraux pour construire une grande narration continue de la fermeture. Elle explique que les archives sont utilisées pour relier et assembler les passages discordants des différents récits, afin d’élaborer une version d’ensemble plus unifiée de l’histoire de l’usine, malgré les divergences de souvenirs."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "708f6783cfda0beecfb881210dac4a153501473e1e2f6d6c42ea483d67be30b6",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question insiste sur les « conditions » sous lesquelles les écarts entre témoignages peuvent être considérés comme une véritable source d’information. L’option 0 formule précisément que ces écarts deviennent informatifs lorsqu’ils sont examinés en détail et pris comme objet d’analyse en soi, ce qui correspond très bien à un discours méthodologique classique sur les témoignages. Les autres réponses restent plausibles, mais sont soit plus orientées vers la construction d’un récit commun (1), soit vers la confrontation avec d’autres sources (2) ou un type spécifique de différenciation sociale (3). D’où une probabilité nettement plus élevée pour l’option 0, tout en conservant une part d’incertitude faute du document audio.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation directement méthodologique et générale (« examinés en détail », « pris pour objet d’analyse plutôt que simplement mis en parallèle ») qui répond précisément à la condition de transformation des écarts en source d’information. Les autres réponses proposent soit une intégration narrative qui atténue les contradictions (1), soit des procédures complémentaires (confrontation aux archives en 2, focalisation sur un type de différence sociale particulier en 3), moins directement alignées sur l’idée que ce sont les écarts eux-mêmes, en tant qu’objets d’analyse, qui deviennent source."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un cours de méthodologie en histoire orale, l’enseignant explique que les divergences entre témoignages ne sont vraiment informatives que si on les examine minutieusement et qu’on en fait l’objet même de l’analyse, au lieu de se contenter de les mettre côte à côte pour en chercher une version « moyenne ». Il conclut en disant que, dans ces conditions, les écarts deviennent une véritable source d’information."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une formation de journalisme narratif, le formateur explique comment construire un récit global à partir de plusieurs témoins d’un même événement. Il conseille d’intégrer les différents témoignages dans une histoire cohérente, en atténuant certaines contradictions pour faire ressortir une trame commune, et ajoute que, dans cette perspective, les écarts deviennent une source d’information sur ce qu’on peut raconter au public."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un séminaire d’histoire contemporaine, l’intervenant insiste sur la nécessité de confronter les témoignages oraux aux archives écrites. Il explique qu’en comparant chaque version aux documents disponibles, on peut mieux comprendre ce que chaque écart révèle des faits, et que c’est à cette condition que ces écarts deviennent une véritable source d’information pour l’historien."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une enquête de sociologie du travail, le chercheur explique que les témoignages du cadre, de l’ouvrière et du commerçant voisin diffèrent fortement. Il précise que, lorsque ces écarts sont rapportés aux positions sociales respectives des témoins et interprétés à cette lumière, ils constituent alors une véritable source d’information sur les rapports sociaux au sein du quartier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "43b59c9e1d04f510da35fbb0f8de236c25ce6c8676998b8e610f1c05fe81dd02",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des comparaisons possibles à partir de témoignages, mais parler de comparaison de «dates, décisions et effectifs évoqués» cadre particulièrement bien avec une démarche d’enquête visant à recouper des récits et vérifier leur cohérence factuelle, ce qui donne à l’option 1 un léger avantage malgré une incertitude réelle faute d’accès au document sonore.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Formulation plus factuelle et méthodologique («dates, décisions et effectifs évoqués») qui correspond typiquement à un objectif d’enquête visant à recouper et vérifier des éléments concrets de plusieurs témoignages, alors que les autres réponses portent sur des aspects plus thématiques ou interprétatifs sans mention explicite d’éléments vérifiables."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage radio sur les conséquences humaines d’une fermeture d’usine, un sociologue explique que, pour comprendre l’impact vécu, les enquêteurs recueillent plusieurs témoignages et comparent surtout les émotions décrites pendant la journée de fermeture : choc, tristesse, colère, soulagement, etc."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission documentaire sur une fermeture d’usine controversée, un historien du travail explique que les enquêteurs recoupent les témoignages en comparant les dates mentionnées, les décisions annoncées ce jour-là et les effectifs concernés, afin de vérifier la cohérence et la précision des récits."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast de sociologie sur le monde ouvrier, une chercheuse décrit une enquête qualitative et précise que les enquêteurs recueillent plusieurs témoignages pour comparer les positions sociales des personnes interrogées (ouvriers, encadrants, direction) et voir comment celles-ci influencent la façon de raconter la fermeture de l’usine."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un documentaire audio sur la mémoire des licenciements collectifs, un psychologue explique que, lorsqu’ils récoltent plusieurs témoignages sur la fermeture de l’usine, les enquêteurs comparent les peurs exprimées (chômage, perte de statut, avenir des enfants) et les souvenirs jugés marquants afin de cerner les traumatismes communs."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "19c5158005a69bc29d57ddd65afe520a28a76cff71a18f596ebf597333a2f94f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le libellé insiste sur l’exploitation des écarts entre témoignages «comme le propose l’intervenant», ce qui évoque une démarche réflexive visant à enrichir l’analyse. L’option 1 décrit précisément cette idée en faisant des écarts une information supplémentaire à explorer, tandis que 2 et 3 sont plus normativement discutables et 0 reste dans l’observation sans exploitation active. D’où une forte mais non certaine préférence pour 1.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Formulation nuancée, méthodologiquement responsable et directement orientée vers l’exploitation constructive des écarts («information supplémentaire à explorer»), typique d’un discours d’intervenant académique ou professionnel. Les autres choix suggèrent soit une suspension d’analyse, soit une manipulation ou une méfiance, moins en phase avec l’idée d’«exploiter» les écarts telle qu’on l’enseigne habituellement."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une formation à l’enquête orale, un intervenant explique qu’en présence de versions divergentes d’un même fait, il est utile de commencer par mettre les témoignages en parallèle, sans chercher à les interpréter tout de suite, afin de repérer calmement les points communs et les différences avant de tirer des conclusions."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un séminaire de méthodologie en histoire orale ou en sociologie, l’intervenant explique que les écarts entre témoignages ne sont pas forcément un problème mais peuvent être considérés comme une information supplémentaire à explorer, révélant des points de vue, des enjeux de pouvoir ou des mémoires différentes."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une formation à l’audition de témoins pour des enquêtes internes en entreprise, un intervenant, adoptant une approche très méfiante, recommande d’utiliser les écarts entre témoignages pour mettre en doute la sincérité de certains témoins et hiérarchiser leur crédibilité."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’un atelier de communication destiné aux journalistes, un formateur explique qu’afin de produire un reportage compréhensible par le grand public, on peut être tenté d’atténuer les écarts entre témoignages pour construire un récit continu et plus facilement partageable."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "57247b8a88c8587c06bfa1fc22cb3a0bdeca31e3257639bc3a658abcf3034ef5",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les trois personnages produisent des « récits », terme associé à des témoignages subjectifs. L’option 0 formule précisément ce type d’approche en soulignant observation, anticipation et mémoire personnelles, ce qui cadre naturellement avec des récits d’un cadre, d’une ouvrière et d’un commerçant voisin. Les autres options privilégient des dimensions plus techniques (chiffres, responsabilités, chronologie proche des archives) qui paraissent moins directement reliées à la notion de récits individuels, d’où une probabilité nettement plus élevée pour l’option 0 malgré l’incertitude sur l’enregistrement réel.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "La question mentionne des « récits » de trois personnes différentes, ce qui oriente vers la dimension subjective et vécue plutôt que vers des données factuelles ou archivistiques. L’option 0 reprend explicitement cette idée de témoignages personnels (« Leur expérience vécue : ce qu’ils ont observé, anticipé et retenu ») et correspond bien à des récits croisés, tandis que les autres réponses décrivent davantage une analyse factuelle (effectifs, responsabilités, chronologie) qui sonne plus distante par rapport à l’idée de récits individuels."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un documentaire sonore sur la fermeture d’une usine, le journaliste recueille les témoignages d’un cadre, d’une ouvrière et d’un commerçant voisin. Le narrateur conclut que ces trois récits mettent surtout en lumière leur expérience vécue de la fermeture – ce qu’ils ont vu au quotidien, ce qu’ils craignaient à l’avance et ce qu’il en reste pour eux aujourd’hui – plutôt que des données économiques précises."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un reportage radiophonique traite d’abord des conséquences économiques de la fermeture d’une usine, avec des graphiques et des chiffres sur l’emploi. Puis le présentateur explique que les récits du cadre, de l’ouvrière et du commerçant servent principalement à illustrer l’évolution des effectifs et de l’activité, dans l’usine comme dans le quartier, en décrivant par exemple la baisse de fréquentation du magasin ou la diminution du nombre d’équipes de travail."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission de débat sur une fermeture controversée, le document sonore présente successivement les récits d’un cadre, d’une ouvrière et d’un commerçant, chacun insistant sur qui, selon lui, porte la responsabilité de la fermeture (direction, actionnaires, pouvoirs publics, syndicats). Le commentateur résume ensuite que ces récits attirent surtout l’attention sur la manière dont chaque acteur attribue des rôles et des responsabilités dans la décision finale."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une série documentaire sur les fermetures d’usines propose un épisode consacré à un site précis. Le document confronte les récits du cadre, de l’ouvrière et du commerçant à des archives (courriers officiels, décisions administratives). Le narrateur souligne que leurs témoignages servent principalement à reconstituer une version chronologique des événements, calée sur les dates et documents disponibles."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "fbf4215ff3a2a962cd33ac4f7f75fd72c272c443e0f414b40442544d97b0a745",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le syntagme « consigner systématiquement » associé au contexte de confrontation de récits évoque une pratique standard de recherche qualitative : documenter les circonstances des entretiens comme métadonnées essentielles. Les autres options sont possibles mais paraissent plus spécifiques ou moins centrales méthodologiquement, ce qui confère à l’option 3 un avantage net malgré l’absence de source audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation large, méthodologiquement centrale et compatible avec l’idée de consigner « systématiquement » un type d’information de base (métadonnées d’entretien). Les autres propositions sont plus étroites, particulières ou moins naturellement liées à une procédure systématique de recherche qualitative, ce qui donne à l’option 3 un avantage rédactionnel net."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une étude d’histoire orale, les chercheurs reçoivent des témoignages au fil des semaines. Lorsqu’ils confrontent différents récits, ils expliquent dans un enregistrement méthodologique qu’ils ont décidé de consigner systématiquement l’ordre d’arrivée des témoignages afin d’analyser l’influence possible de la diffusion d’informations publiques sur les récits ultérieurs."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un séminaire de méthodologie, des chercheurs décrivent un cadre d’analyse pour comparer plusieurs récits d’un même événement. Ils expliquent qu’à chaque confrontation de récits, ils consignent systématiquement la chronologie proposée par ce cadre d’analyse (suite d’étapes temporelles) afin de pouvoir comparer, de manière homogène, les différents témoignages à cette trame temporelle standardisée."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un projet d’histoire orale, les chercheurs font revenir les témoins pour leur montrer des archives (photos, articles, rapports). Lorsqu’ils comparent les récits initiaux et les récits révisés, ils expliquent dans un entretien de méthode qu’ils consignent systématiquement les réactions de chaque témoin lors de la consultation des archives, afin de voir comment ces documents influencent ou modifient leur récit."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une enquête qualitative, les chercheurs expliquent leur protocole : lorsqu’ils confrontent différents récits d’un même événement, ils notent systématiquement les circonstances précises de chaque entretien (lieu, date, durée, présence d’un tiers, contexte émotionnel) pour interpréter les divergences entre récits à la lumière de ces conditions d’énonciation."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d9a72e8a68712093535069b26f55e36b15ef0882eea8a80e1f0e7df251cc1cee",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent des traitements plausibles de divergences de témoignages, mais l’option 2 offre une approche plus élaborée et analytique, typique d’un document explicatif ou scientifique, ce qui lui donne un léger avantage sur le plan rédactionnel et méthodologique.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus nuancée et méthodologique (« analysées comme des informations supplémentaires ») qui correspond bien à un discours de type documentaire ou scientifique, tandis que l’option 3 est plus réductrice (centrée sur les mensonges) et les options 0 et 1 sont plus simplistes (harmoniser ou simplement présenter)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un documentaire historique explique sa méthode : face à des témoignages qui se contredisent sur un événement, l’auteur indique qu’il compare les récits pour en dégager une trame commune considérée comme la version la plus probable des faits."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un rapport d’enquête journalistique précise que, pour ne pas orienter le public, il restitue chaque témoignage dans sa forme originale, même en cas de divergences, et laisse au lecteur la responsabilité de tirer ses propres conclusions."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un ouvrage de sociologie décrit sa méthode en expliquant que les divergences entre témoignages ne sont pas vues comme un problème mais comme des indices supplémentaires sur la complexité de la situation étudiée, chaque divergence apportant un éclairage nouveau."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un rapport d’audit interne ou une enquête policière explique que les divergences entre différents témoignages sont croisées pour repérer les incohérences majeures et déceler d’éventuelles déclarations mensongères."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "96b249ecd828fbfe4fc0e0f11feaebabbe6cda7b5f8cd548891528ce48425313",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question renvoie à un document qui semble décrire une démarche de traitement de témoignages; parmi les formulations proposées, celle de l’option 3 est la plus conforme à un discours méthodologique et analytique, et la plus complète dans son vocabulaire, ce qui lui donne un avantage clair malgré la plausibilité générale des autres options.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus méthodologique et nuancée (« matériau d’analyse », « mieux comprendre les faits et leur contexte ») qui correspond typiquement au discours d’un document explicatif ou académique sur le traitement de témoignages, sans juger ni lisser les divergences, alors que les autres réponses évoquent soit une simplification du récit, soit une hiérarchisation des versions, soit une simple juxtaposition moins analytique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un documentaire historique de vulgarisation, le narrateur explique que les divergences entre témoignages sont souvent lissées par l’historien ou le réalisateur afin de proposer au grand public un récit global plus cohérent et plus facile à suivre, quitte à atténuer certaines contradictions de détail."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission consacrée aux méthodes d’enquête policière, un enquêteur explique que lorsque des témoignages divergent, on les considère comme des incohérences probables et on réduit ces divergences en privilégiant la version jugée la plus solide sur la base des preuves matérielles et des recoupements."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un reportage radio sur un travail de mémoire autour d’un conflit, l’animatrice précise que les témoignages divergents sont présentés comme l’expression de points de vue distincts, mis côte à côte dans l’exposition ou le livre, sans que les organisateurs cherchent à trancher entre eux, afin de montrer la pluralité des mémoires."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une présentation universitaire sur la méthode en histoire orale, un chercheur explique que les divergences entre témoignages sont traitées comme un matériau d’analyse à part entière, qui permet de mieux comprendre non seulement les faits relatés mais aussi leur contexte social, politique et la position de chaque témoin."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "82ddb3c565f7fc7832ae1cfb3a558bac271123c0ec04fc1e38f4fa5566ff18ec",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 3 reprend un vocabulaire caractéristique des documents méthodologiques (analyse détaillée, prise en compte du contexte de chaque entretien) et correspond à une exploitation réflexive des écarts, plus conforme au registre attendu par «selon le document». Les autres réponses décrivent des usages plus réducteurs ou plus partiels des divergences. L’option 3 présente donc un net avantage de formulation et de pertinence analytique.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus longue, nuancée et méthodologique («analysés en détail», «en tenant compte du contexte propre à chaque entretien») qui décrit un véritable mode d’exploitation analytique des écarts, plutôt qu’un simple usage instrumentalisant (repérer des mensonges) ou uniformisant (récit homogène)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une formation à l’enquête journalistique, un formateur explique qu’après avoir recueilli plusieurs témoignages contradictoires sur un même événement, l’équipe organise des réunions de recoupement pour réduire progressivement les écarts et dégager un récit commun plus homogène à publier dans un article de synthèse."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un cours de techniques d’interrogatoire en école de police, l’instructeur explique que les enquêteurs comparent systématiquement les divergences entre témoignages afin de tester la cohérence des récits et identifier de possibles mensonges ou tentatives de dissimulation."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un séminaire universitaire sur la mémoire collective, l’enseignant montre comment on peut exploiter les écarts entre témoignages en les présentant côte à côte dans un rapport pour illustrer la diversité des points de vue sur un même événement historique."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un cours de méthodologie en sciences sociales, le professeur explique que les divergences entre témoignages ne sont pas à effacer, mais à exploiter en les analysant finement, en tenant compte du contexte particulier de chaque entretien (position sociale de l’interviewé, moment de l’entretien, cadre, relation enquêteur-enquêté, etc.)."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d332416c10e50ed9ece0f32950bfed3bfa1019b1cdf10cf68c2c4e662655d927",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question évoque une démarche de mise en perspective des témoignages, ce qui renvoie typiquement au croisement des sources orales avec des sources écrites comme des archives. L’option 2 reprend exactement cette idée sans restriction excessive, alors que 1 et 3 sont focalisées sur un seul type de traitement (divergences ou faits chiffrés) et 0 insiste sur le seul contexte de l’entretien. La présence d’« uniquement » et « systématiquement » dans 1 et 3, ainsi que de « avant tout » dans 0, suggère des méthodes partielles ou exclusives, alors que 2 propose une mise en perspective plus équilibrée et conforme au vocabulaire habituel en analyse de témoignages.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La formulation « En les rapprochant des dossiers et archives existant sur l’usine » correspond très directement à une recommandation méthodologique classique pour mettre des témoignages en perspective, en les reliant à des sources écrites. Les autres choix comportent des adverbes restrictifs (« avant tout », « systématiquement », « uniquement ») qui rendent la méthode moins nuancée et moins vraisemblable comme formulation privilégiée dans un document explicatif."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un historien présente une enquête orale sur la fermeture d’une usine et explique dans un enregistrement qu’il faut « mettre en perspective les témoignages » en rappelant à chaque fois le cadre particulier de l’entretien : date, lieu, fonction de la personne interrogée, sa situation au moment de la fermeture, afin de mieux comprendre ses propos."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un séminaire de méthodologie, un chercheur décrit qu’il a choisi de « mettre en perspective les témoignages » en les comparant systématiquement entre eux pour repérer les contradictions et divergences de points de vue entre anciens ouvriers, cadres et syndicalistes sur la fermeture de l’usine."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un documentaire radio sur la mémoire industrielle explique que, pour « mettre en perspective les témoignages » d’anciens salariés sur la fermeture de l’usine, les auteurs les croisent avec les dossiers administratifs, les archives de l’entreprise et de la presse locale afin de confronter mémoire et traces écrites."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’un exposé de sociologie, un intervenant défend une approche très positiviste et dit que, pour « mettre en perspective les témoignages » sur la fermeture de l’usine, il choisit de les évaluer uniquement au regard de faits datés et chiffrés comme les bilans comptables, les courbes de production et les dates officielles de procédures."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1332a61707b69636f7fc07ddf90246e74bf68ab75da072b45d74b6d56cef0e03",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre options décrivent des stratégies d’analyse de récits plausibles pour un chercheur. Aucune n’est éliminée par le texte de la question seule. L’option 3 présente toutefois une approche plus factuelle et structurée, évoquant plusieurs types de marqueurs concrets par lesquels un chercheur pourrait logiquement commencer, ce qui lui donne un léger avantage comme clé probable malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "La formulation insiste sur plusieurs types de repères concrets (dates, décisions, effectifs), ce qui en fait une réponse plus méthodique et englobante pour un chercheur qui décrit par quoi il commence son analyse, sans se limiter à un seul angle d’attaque comme les contradictions, la position sociale ou les émotions."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un chercheur en sciences sociales explique sa méthode d’analyse d’entretiens après un conflit social dans une entreprise. Il dit qu’il commence par confronter les différents récits pour repérer les contradictions majeures entre témoins (direction, syndicat, employés) afin d’identifier rapidement les points de divergence qui devront être éclaircis par la suite."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un sociologue du travail décrit à un journaliste comment il exploite des entretiens menés dans une usine. Il précise qu’il commence toujours par regarder comment la position sociale (cadre, ouvrière, intérimaire, etc.) colore le point de vue de chacun, car c’est pour lui la clé d’interprétation de tous les récits recueillis."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un psychologue qui mène une enquête qualitative sur le vécu d’un accident industriel explique à la radio sa démarche : il dit qu’il se penche d’abord sur les émotions et les peurs exprimées dans les récits, afin de comprendre ce que les témoins ont ressenti ce jour-là avant d’entrer dans les détails factuels."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un historien du monde du travail raconte sa méthode d’analyse de témoignages d’anciens salariés après une fermeture de site. Il explique qu’il commence toujours par relever les repères factuels donnés dans les récits (dates précises, décisions de la direction, effectifs présents) pour reconstituer la chronologie des événements avant de passer à l’interprétation plus qualitative."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "eaac9dbda04ad9a29fe511a127513434cafdf395f906ce39c2bba5426600479d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix pourraient correspondre à des éléments examinés lors d’une enquête, sans contradiction évidente avec l’énoncé. Cependant, la liste des autres items est factuelle et procédurale, tandis que « les peurs exprimées » est d’un registre plus subjectif et psychologique, moins typique dans une énumération d’éléments à examiner, ce qui lui donne un léger désavantage et en fait mon meilleur candidat pour l’élément non cité, avec une incertitude importante.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Parmi les quatre, « les peurs exprimées » est le seul élément de nature clairement subjective et émotionnelle, alors que les trois autres renvoient à des données factuelles classiques (effectifs, dates, décisions). Pour une formulation générale « les éléments que les enquêteurs disent vouloir examiner », on s’attend un peu plus à une liste d’éléments factuels, ce qui peut rendre cette option légèrement plus suspecte comme n’étant pas citée."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un reportage sur une enquête administrative après un incident dans une entreprise ou un service public. Le journaliste explique que les enquêteurs veulent examiner les effectifs présents au moment des faits pour voir si le personnel était suffisant ou conforme aux normes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une émission d’actualité décrivant une enquête sur la gestion d’un dossier sensible. Le présentateur dit que les enquêteurs souhaitent examiner les dates évoquées dans les documents pour vérifier la chronologie des événements et repérer d’éventuelles incohérences."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un sujet radio sur une enquête interne à propos de harcèlement ou de risques psychosociaux dans une entreprise. Le responsable de l’enquête déclare qu’ils vont examiner les peurs exprimées par les salariés dans les témoignages pour comprendre le climat de travail et l’ampleur du malaise."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un journal d’information décrivant une enquête officielle après une crise ou un scandale politique. Le commentateur explique que les enquêteurs disent vouloir examiner les décisions prises à chaque étape afin de déterminer les responsabilités et les éventuelles erreurs de jugement."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3LjHdPqfuPLAfpBZ65UwmkM9coW",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un reportage sur une enquête administrative après un incident dans une entreprise ou un service public. Le journaliste explique que les enquêteurs veulent examiner les effectifs présents au moment des faits pour voir si le personnel était suffisant ou conforme aux normes."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une émission d’actualité décrivant une enquête sur la gestion d’un dossier sensible. Le présentateur dit que les enquêteurs souhaitent examiner les dates évoquées dans les documents pour vérifier la chronologie des événements et repérer d’éventuelles incohérences."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un sujet radio sur une enquête interne à propos de harcèlement ou de risques psychosociaux dans une entreprise. Le responsable de l’enquête déclare qu’ils vont examiner les peurs exprimées par les salariés dans les témoignages pour comprendre le climat de travail et l’ampleur du malaise."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un journal d’information décrivant une enquête officielle après une crise ou un scandale politique. Le commentateur explique que les enquêteurs disent vouloir examiner les décisions prises à chaque étape afin de déterminer les responsabilités et les éventuelles erreurs de jugement."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Parmi les quatre, « les peurs exprimées » est le seul élément de nature clairement subjective et émotionnelle, alors que les trois autres renvoient à des données factuelles classiques (effectifs, dates, décisions). Pour une formulation générale « les éléments que les enquêteurs disent vouloir examiner », on s’attend un peu plus à une liste d’éléments factuels, ce qui peut rendre cette option légèrement plus suspecte comme n’étant pas citée."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.2,
+            0.4,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Tous les choix pourraient correspondre à des éléments examinés lors d’une enquête, sans contradiction évidente avec l’énoncé. Cependant, la liste des autres items est factuelle et procédurale, tandis que « les peurs exprimées » est d’un registre plus subjectif et psychologique, moins typique dans une énumération d’éléments à examiner, ce qui lui donne un léger désavantage et en fait mon meilleur candidat pour l’élément non cité, avec une incertitude importante."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 640,
+          "total_tokens": 1236,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 122,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007145,
+        "inputHash": "1ac32974ae631b2954b174528a5f6d1ef0134ce55abf90a89fa6e6547242744c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:36:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix pourraient correspondre à des éléments examinés lors d’une enquête, sans contradiction évidente avec l’énoncé. Cependant, la liste des autres items est factuelle et procédurale, tandis que « les peurs exprimées » est d’un registre plus subjectif et psychologique, moins typique dans une énumération d’éléments à examiner, ce qui lui donne un léger désavantage et en fait mon meilleur candidat pour l’élément non cité, avec une incertitude importante.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "Parmi les quatre, « les peurs exprimées » est le seul élément de nature clairement subjective et émotionnelle, alors que les trois autres renvoient à des données factuelles classiques (effectifs, dates, décisions). Pour une formulation générale « les éléments que les enquêteurs disent vouloir examiner », on s’attend un peu plus à une liste d’éléments factuels, ce qui peut rendre cette option légèrement plus suspecte comme n’étant pas citée."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un reportage sur une enquête administrative après un incident dans une entreprise ou un service public. Le journaliste explique que les enquêteurs veulent examiner les effectifs présents au moment des faits pour voir si le personnel était suffisant ou conforme aux normes."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une émission d’actualité décrivant une enquête sur la gestion d’un dossier sensible. Le présentateur dit que les enquêteurs souhaitent examiner les dates évoquées dans les documents pour vérifier la chronologie des événements et repérer d’éventuelles incohérences."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un sujet radio sur une enquête interne à propos de harcèlement ou de risques psychosociaux dans une entreprise. Le responsable de l’enquête déclare qu’ils vont examiner les peurs exprimées par les salariés dans les témoignages pour comprendre le climat de travail et l’ampleur du malaise."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un journal d’information décrivant une enquête officielle après une crise ou un scandale politique. Le commentateur explique que les enquêteurs disent vouloir examiner les décisions prises à chaque étape afin de déterminer les responsabilités et les éventuelles erreurs de jugement."
+      }
+    ]
+  }
+}

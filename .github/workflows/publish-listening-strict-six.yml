@@ -1,0 +1,51 @@
+name: Verify or activate six accepted listening replacements
+on:
+  push:
+    branches: [fix/listening-six-blind-cues-v5]
+    paths:
+      - .github/workflows/publish-listening-strict-six.yml
+      - scripts/release/listening-strict-six.py
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Read current catalog or activate accepted published media
+        type: choice
+        options: [status, publish]
+        default: status
+      migration:
+        description: CLI-created strict migration path, required for publish
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: academy-listening-publication
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        if: inputs.mode == 'publish'
+        with:
+          node-version: '22'
+      - name: Install media verifier
+        if: inputs.mode == 'publish'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify status or publish exact accepted banks
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RELEASE_MODE: ${{ inputs.mode || 'status' }}
+          RELEASE_MIGRATION: ${{ inputs.migration || '' }}
+        run: python scripts/release/listening-strict-six.py --mode "$RELEASE_MODE" --migration "$RELEASE_MIGRATION" --commit "$GITHUB_SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: strict-listening-publication-${{ github.run_id }}
+          path: work/listening-strict-release
+          retention-days: 30

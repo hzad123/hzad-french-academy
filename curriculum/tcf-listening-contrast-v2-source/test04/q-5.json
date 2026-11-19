@@ -1,0 +1,192 @@
+{
+  "question": {
+    "number": 5,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La question demande explicitement « dans quelle salle », c’est-à-dire le lieu précis du cours. « Dans la salle trois. » fournit exactement cette information en nommant une salle, c’est donc la seule réponse pragmatiquement adéquate. A : La question porte clairement sur le lieu du cours, formulé par « dans quelle salle ? », on attend donc un numéro ou un nom de salle. « Avec le professeur Martin. » répond à la question « Avec quel professeur ? » et non à la salle. Quelqu’un qui comprend seulement « Le cours de conversation » pourrait penser qu’on demande avec qui il a lieu, et répondre par le nom du professeur, mais l’expression « dans quelle salle » montre que c’est incorrect. C : La question concerne le lieu (« dans quelle salle ? ») et non l’horaire. « À dix heures. » répondrait à « À quelle heure le cours de conversation a-t-il lieu ? ». Un auditeur qui ne retient que « Le cours de conversation a lieu » pourrait croire qu’on demande l’heure et répondre par un horaire, mais le segment « dans quelle salle » montre que c’est une erreur. D : « Oui, c’est ça. » sert à confirmer une information déjà proposée, pas à fournir un nouveau contenu. Or la question « Le cours de conversation a lieu dans quelle salle ? » attend une information nouvelle (le numéro de la salle). Quelqu’un habitué à entendre des confirmations de ce type dans des dialogues pourrait choisir cette réponse mécaniquement, mais ici aucune proposition de salle n’a été formulée, donc la confirmation ne répond pas à la question.",
+    "transcript": "Question 5.\nLe cours de conversation a lieu dans quelle salle ?\nA. Avec le professeur Martin. B. Dans la salle trois. C. À dix heures. D. Oui, c’est ça.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 5."
+      },
+      {
+        "voice": "female",
+        "text": "Le cours de conversation a lieu dans quelle salle ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Avec le professeur Martin. B. Dans la salle trois. C. À dix heures. D. Oui, c’est ça."
+      }
+    ],
+    "audio": "q-05.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "d02a3c1945e870cf12217ed2656341f6533dab6234574ce34d98b2db9f946eb0",
+  "contentHash": "54aa02aff3dbd0905dce9fb33d5977375808af4186ca71b7187d752134a3dce4",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzfqNinovjbAA1oMNAjLGX8G4tIq",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux personnes vérifient une information, par exemple l’heure ou le lieu d’un rendez-vous. L’une reformule : « Donc, on se voit demain à dix heures ? », l’autre répond : « Oui, c’est ça. » Cette réponse convient naturellement à une multitude de petites situations de confirmation sans autre précision dans la consigne."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "On demande à quelqu’un où se déroule une activité : « Excusez-moi, la projection du film commence où ? » ou « La réunion de ce matin, c’est dans quelle salle ? » La personne répond simplement : « Dans la salle trois. » Cela correspond bien à une situation ordinaire d’orientation dans un bâtiment."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un étudiant ou un parent demande : « Avec qui est le cours de maths ? » ou « Mon fils est avec quel professeur ? » L’autre répond : « Avec le professeur Martin. » Cette réponse est naturelle dans un contexte scolaire ou universitaire quand on précise la personne responsable d’une activité."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Deux personnes organisent un rendez-vous ou vérifient un horaire : « À quelle heure commence la visite ? » ou « On se retrouve quand ? » L’autre répond : « À dix heures. » C’est une réponse typique pour indiquer l’horaire dans de nombreuses situations quotidiennes."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont très courtes, grammaticalement correctes et chacune peut parfaitement convenir à des situations orales courantes différentes (confirmation, lieu, interlocuteur, heure). L’énoncé ne fournit aucun indice concret permettant de privilégier l’un de ces types d’information plutôt qu’un autre. Il n’existe donc pas de choix clairement favorisé par la formulation, et la probabilité de chaque option reste équivalente malgré la nécessité de proposer un indice et un choix final."
+        },
+        "usage": {
+          "prompt_tokens": 582,
+          "completion_tokens": 512,
+          "total_tokens": 1094,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 62,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0058475,
+        "inputHash": "710f89fc1a4adc00e9312db756ca129b831b4ff2bed144b0ae475c9b0a66cf9c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:4:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzfxVVapQOMFi1f9BWHQ45u63k7T",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question demande explicitement le numéro de la salle, donc seule la réponse qui donne une salle convient.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le cours de conversation a lieu dans quelle salle ?",
+            "Avec le professeur Martin."
+          ],
+          "reason": "La question porte clairement sur le lieu du cours, formulé par « dans quelle salle ? », on attend donc un numéro ou un nom de salle. « Avec le professeur Martin. » répond à la question « Avec quel professeur ? » et non à la salle. Quelqu’un qui comprend seulement « Le cours de conversation » pourrait penser qu’on demande avec qui il a lieu, et répondre par le nom du professeur, mais l’expression « dans quelle salle » montre que c’est incorrect.",
+          "misunderstanding": "question_mismatch"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Le cours de conversation a lieu dans quelle salle ?",
+            "Dans la salle trois."
+          ],
+          "reason": "La question demande explicitement « dans quelle salle », c’est-à-dire le lieu précis du cours. « Dans la salle trois. » fournit exactement cette information en nommant une salle, c’est donc la seule réponse pragmatiquement adéquate.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le cours de conversation a lieu dans quelle salle ?",
+            "À dix heures."
+          ],
+          "reason": "La question concerne le lieu (« dans quelle salle ? ») et non l’horaire. « À dix heures. » répondrait à « À quelle heure le cours de conversation a-t-il lieu ? ». Un auditeur qui ne retient que « Le cours de conversation a lieu » pourrait croire qu’on demande l’heure et répondre par un horaire, mais le segment « dans quelle salle » montre que c’est une erreur.",
+          "misunderstanding": "keyword_substitution"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Le cours de conversation a lieu dans quelle salle ?",
+            "Oui, c’est ça."
+          ],
+          "reason": "« Oui, c’est ça. » sert à confirmer une information déjà proposée, pas à fournir un nouveau contenu. Or la question « Le cours de conversation a lieu dans quelle salle ? » attend une information nouvelle (le numéro de la salle). Quelqu’un habitué à entendre des confirmations de ce type dans des dialogues pourrait choisir cette réponse mécaniquement, mais ici aucune proposition de salle n’a été formulée, donc la confirmation ne répond pas à la question.",
+          "misunderstanding": "missing_context"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 665,
+      "completion_tokens": 1040,
+      "total_tokens": 1705,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 470,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01123125,
+    "inputHash": "4b6ff12de0a1ac56bfeebef7936f4dedb961ec2ad05e24389eef572ed7835a3a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:4:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

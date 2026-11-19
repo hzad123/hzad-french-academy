@@ -1,0 +1,303 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "Où les patients doivent-ils se présenter pour leur rendez-vous de ce matin ?",
+    "options": [
+      "Au rez-de-chaussée, entre les urgences et le bureau 12.",
+      "Au premier étage, devant le bureau 12, côté escalier de droite.",
+      "Au rez-de-chaussée, directement devant le bureau 12.",
+      "Au premier étage, devant le bureau 14."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : L’énoncé indique clairement : « montez au premier étage par l’escalier de droite » et précise ensuite : « Un agent vous attend devant le bureau douze ». Cette option reprend exactement l’étage, le bureau et la référence à l’escalier de droite. A : Cette option place les patients « au rez-de-chaussée, entre les urgences et le bureau 12 ». Or l’enregistrement précise que ce sont uniquement « les urgences [qui] restent au rez-de-chaussée » et que, pour le rendez-vous, il faut monter. Le bon lieu est lié au bureau 12 mais à l’étage, pas au rez-de-chaussée. C : Cette option est fausse uniquement sur l’étage : elle situe « au rez-de-chaussée, directement devant le bureau 12 », alors que le message demande de « monter au premier étage ». On peut être tenté de choisir cette réponse parce que le bureau 12 est bien mentionné et que l’on retient aussi le mot « rez-de-chaussée » entendu pour les urgences, mais cet étage ne concerne pas le rendez-vous. D : Cette option se trompe seulement sur le numéro du bureau : elle parle du « bureau 14 » alors que l’enregistrement indique clairement « le bureau douze ». Un auditeur inattentif peut retenir l’idée du premier étage et oublier le numéro exact, d’où la tentation de choisir un autre bureau à ce même étage.",
+    "transcript": "Question 9.\nL'accueil des consultations est déplacé ce matin. Les urgences restent au rez-de-chaussée. Pour votre rendez-vous, montez au premier étage par l'escalier de droite. Un agent vous attend devant le bureau douze. Demain, l'accueil retrouvera son emplacement habituel.\nOù les patients doivent-ils se présenter pour leur rendez-vous de ce matin ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "L'accueil des consultations est déplacé ce matin. Les urgences restent au rez-de-chaussée. Pour votre rendez-vous, montez au premier étage par l'escalier de droite. Un agent vous attend devant le bureau douze. Demain, l'accueil retrouvera son emplacement habituel."
+      },
+      {
+        "voice": "female",
+        "text": "Où les patients doivent-ils se présenter pour leur rendez-vous de ce matin ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 38
+  },
+  "sourceHash": "059340b3a9ac20a6087c229f83b5479d5c8d2bc2014111d6c9c83a7798f1d008",
+  "contentHash": "fb058b8d1e72f3bcfd0ddd1c8825826fc5039cf4d40ed3232b25f579c0254ba4",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Où les patients doivent-ils se présenter ce matin ?",
+      "choices": [
+        "Au rez-de-chaussée, entre les urgences et le bureau douze.",
+        "Au premier étage, devant le bureau douze, côté escalier de droite.",
+        "Au rez-de-chaussée, devant le bureau douze, comme d’habitude.",
+        "Au premier étage, devant le bureau quatorze."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em14nRUXkBclF7hqeiyLrwI4udVUj",
+      "result": {
+        "question": "Où les patients doivent-ils se présenter pour leur rendez-vous de ce matin ?",
+        "choices": [
+          "Au rez-de-chaussée, entre les urgences et le bureau 12.",
+          "Au premier étage, devant le bureau 12, côté escalier de droite.",
+          "Au rez-de-chaussée, directement devant le bureau 12.",
+          "Au premier étage, devant le bureau 14."
+        ],
+        "notes": "Suppression de l’indice « comme d’habitude » qui favorisait la réponse 3 et harmonisation minimale de la formulation pour que les quatre lieux soient décrits avec un niveau de précision comparable, sans suggérer lequel est correct."
+      },
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 455,
+        "total_tokens": 1119,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 309,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00538,
+      "inputHash": "6c8855a615112c577dbd92a23c47d19ed2dd40e15cb18be31737935910ce075d",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:8:6103f288fb85e78951f8f219:blind-edit:before:0"
+    }
+  },
+  "rejections": [],
+  "blind": [
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em14tSakTyESQMZoAVC5Rs67zXMW3",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un message diffusé à l’accueil d’un hôpital, l’agent d’admission annonce : « Pour les rendez-vous de ce matin, les patients sont priés de se présenter au rez-de-chaussée, directement devant le bureau 12. » Les patients attendent précisément à cet endroit."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une annonce dans une clinique à plusieurs étages, la secrétaire précise : « Pour les rendez-vous de ce matin, merci de vous présenter au premier étage, devant le bureau 12, côté escalier de droite. » Les patients comprennent exactement où se placer pour être appelés."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un couloir de l’hôpital où se trouvent les urgences et plusieurs bureaux de consultation, une annonce indique : « Les patients ayant un rendez-vous ce matin doivent se présenter au rez-de-chaussée, entre les urgences et le bureau 12. » Les patients attendent dans ce secteur bien déterminé."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un centre de soins où les consultations du matin ont été déplacées, un message informe : « Pour tous les rendez-vous de ce matin, les patients doivent se présenter au premier étage, devant le bureau 14. » Les patients se regroupent devant ce bureau en attendant leur tour."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre lieux proposés correspondent naturellement à la question et sont tous grammaticaux, précis et plausibles dans un contexte hospitalier ou de clinique. Aucune option n’a d’avantage rédactionnel ou de pertinence évidente par rapport aux autres sans inventer le contenu de l’enregistrement, de sorte qu’aucune ne se démarque clairement. La clé ne peut pas être déduite de la seule formulation de la question et des choix ; le choix 0 est donné seulement comme meilleure hypothèse par défaut avec forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 605,
+          "total_tokens": 1233,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 157,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006835,
+        "inputHash": "f6f006fa4aa47d1c004cd8ef63b0b446fac90a1e7e746e3745878e690d295a35",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:8:6103f288fb85e78951f8f219:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em150lWXmRD9OpzvMIX3tNmpMk3ow",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un message automatique de l’hôpital, une secrétaire indique aux patients : « Pour votre prise de sang, vous vous présenterez au premier étage, devant le bureau 14 » pour les orienter précisément dans le couloir."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À l’accueil d’un centre médical, l’agent explique : « Pour les consultations de ce matin, vous vous présentez au rez-de-chaussée, directement devant le bureau 12 » afin d’indiquer un point de rendez-vous simple, juste en face d’une porte identifiable."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un service des urgences, un message interne annonce : « Pour les rendez-vous de ce matin, les patients doivent se présenter au rez-de-chaussée, entre les urgences et le bureau 12 » pour situer une zone d’attente dans un couloir entre deux repères bien connus."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une infirmière donne des consignes détaillées au téléphone : « Les patients ont rendez-vous au premier étage, devant le bureau 12, côté escalier de droite » pour distinguer deux escaliers ou deux ailes similaires de l’étage."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre options répondent directement et naturellement à la question, décrivant un lieu précis où les patients doivent se présenter. Elles sont toutes grammaticalement correctes, plausibles en contexte hospitalier et sans indice textuel clair permettant de privilégier l’une plutôt que les autres, en l’absence de tout extrait audio. La clé prévue par l’auteur ne peut pas être déduite de la seule formulation écrite ; le choix de l’index 0 est donc un pur désigneur en situation d’incertitude élevée."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 534,
+          "total_tokens": 1162,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 117,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006125,
+        "inputHash": "ecb05e93f9862307bc83065c5060f3c1a5232f7276f7aaad59658aa092118620",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:8:6103f288fb85e78951f8f219:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em15ATx3oEHX79bVI8DoJIcNiiJyK",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les patients doivent se présenter au premier étage, devant le bureau 12, en venant par l’escalier de droite.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les urgences restent au rez-de-chaussée.",
+            "Un agent vous attend devant le bureau douze."
+          ],
+          "reason": "Cette option place les patients « au rez-de-chaussée, entre les urgences et le bureau 12 ». Or l’enregistrement précise que ce sont uniquement « les urgences [qui] restent au rez-de-chaussée » et que, pour le rendez-vous, il faut monter. Le bon lieu est lié au bureau 12 mais à l’étage, pas au rez-de-chaussée.",
+          "misunderstanding": "floor_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Pour votre rendez-vous, montez au premier étage par l'escalier de droite. Un agent vous attend devant le bureau douze."
+          ],
+          "reason": "L’énoncé indique clairement : « montez au premier étage par l’escalier de droite » et précise ensuite : « Un agent vous attend devant le bureau douze ». Cette option reprend exactement l’étage, le bureau et la référence à l’escalier de droite.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les urgences restent au rez-de-chaussée.",
+            "Un agent vous attend devant le bureau douze."
+          ],
+          "reason": "Cette option est fausse uniquement sur l’étage : elle situe « au rez-de-chaussée, directement devant le bureau 12 », alors que le message demande de « monter au premier étage ». On peut être tenté de choisir cette réponse parce que le bureau 12 est bien mentionné et que l’on retient aussi le mot « rez-de-chaussée » entendu pour les urgences, mais cet étage ne concerne pas le rendez-vous.",
+          "misunderstanding": "partial_matching"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pour votre rendez-vous, montez au premier étage par l'escalier de droite. Un agent vous attend devant le bureau douze."
+          ],
+          "reason": "Cette option se trompe seulement sur le numéro du bureau : elle parle du « bureau 14 » alors que l’enregistrement indique clairement « le bureau douze ». Un auditeur inattentif peut retenir l’idée du premier étage et oublier le numéro exact, d’où la tentation de choisir un autre bureau à ce même étage.",
+          "misunderstanding": "number_substitution"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 997,
+      "total_tokens": 1724,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 420,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01087875,
+    "inputHash": "cb5b3bdfeeaa52ea8c94eecaedf8d37a8208175dc17e81b508d0cd6c1ae14d7c",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:8:6103f288fb85e78951f8f219:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

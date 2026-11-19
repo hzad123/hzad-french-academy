@@ -1,0 +1,745 @@
+{
+  "question": {
+    "number": 17,
+    "kind": "announcement",
+    "question": "Comment peut-on demander à bénéficier du service de portage ?",
+    "options": [
+      "Se connecter avec sa carte de bibliothèque sur le portail en ligne pour activer le service de portage.",
+      "S’adresser à l’équipe en charge du portage, qui organise les emprunts et les retours.",
+      "Contacter l’association de bénévoles qui assure le service de portage à domicile.",
+      "Faire la demande directement à l’accueil de la bibliothèque."
+    ],
+    "correct": "D",
+    "transcript": "Question 17.\nLa bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison.\nComment peut-on demander à bénéficier du service de portage ?",
+    "explanation": "Réponse D : Le document répond directement à la question : « Pour demander ce service, contactez l'accueil ». Cela correspond exactement à « Faire la demande directement à l’accueil de la bibliothèque. », qui est donc la seule réponse conforme à la procédure décrite. A : La proposition parle de se connecter avec sa carte sur un portail en ligne pour « activer » le service, comme si la carte suffisait à déclencher le portage. Or le document précise explicitement que « une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison » et ne mentionne aucun portail en ligne ni activation. On pourrait se tromper en retenant seulement l’idée de la « carte de bibliothèque » et en imaginant une procédure numérique, mais le texte exclut précisément cette possibilité et impose le contact avec l’accueil. B : Cette option affirme qu’il faut s’adresser à « l’équipe en charge du portage ». Le texte mentionne bien « l'équipe », mais uniquement pour dire que « les dates de retour seront convenues avec l'équipe », c’est‑à‑dire pour organiser les retours, pas pour faire la demande initiale. Pour demander le service, il est dit clairement : « contactez l'accueil ». On peut se tromper en se focalisant sur le mot « équipe » et en lui attribuant à tort le rôle de point de contact, alors que ce rôle revient à l’accueil. C : L’énoncé mentionne qu’« un bénévole leur apportera une sélection de livres », ce qui peut faire penser à une association de bénévoles. Cependant, le texte ne parle jamais d’« association » ni ne dit qu’il faut la contacter ; il précise au contraire la procédure : « Pour demander ce service, contactez l'accueil ». L’option extrapole en inventant une structure (l’association) comme interlocuteur, alors que le seul contact indiqué est l’accueil de la bibliothèque.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 17."
+      },
+      {
+        "voice": "female",
+        "text": "La bibliothèque lance un service de portage pour les habitants qui ont des difficultés à se déplacer, même temporairement. Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile. Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe. Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+      },
+      {
+        "voice": "female",
+        "text": "Comment peut-on demander à bénéficier du service de portage ?"
+      }
+    ],
+    "audio": "q-17.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 51
+  },
+  "sourceHash": "5cdd636801c19b2cbe9820c2413dd8f8d94a45b884e040a822fe89f65c40770c",
+  "contentHash": "ebcbf102aca2091f11f938b4fe3434b40eadcb711ef4b53a12f0b84770d73487",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 4,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3K1cR8a9zYsVOeg0spVxsTwYvub",
+    "result": {
+      "question": "Que faut-il faire pour demander ce service de portage ?",
+      "choices": [
+        "Prendre contact avec l'accueil de la bibliothèque.",
+        "Attendre qu’un bénévole propose spontanément ce service.",
+        "S’adresser directement à l’équipe qui fixe les dates de retour.",
+        "Utiliser sa carte de bibliothèque pour activer le service."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise clairement : Pour demander ce service, contactez l'accueil. C’est donc le passage obligé pour en faire la demande. Les bénévoles sont mentionnés pour la livraison, l’équipe pour la fixation des dates de retour et la carte de bibliothèque est explicitement présentée comme ne suffisant pas à déclencher automatiquement une livraison.",
+      "design": "Test du mode de déclenchement du service (qui contacter/quelle action effectuer). Les quatre options décrivent des moyens ordinaires et plausibles pour accéder à un service de portage (contacter l’accueil, attendre une proposition d’un bénévole, s’adresser à l’équipe, utiliser sa carte comme déclencheur automatique). Seule l’écoute permet d’identifier précisément que la demande doit passer par l’accueil, alors que bénévoles, équipe et carte jouent d’autres rôles dans le dispositif.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse les rôles en faisant du bénévole l’initiateur de la demande, alors que le texte lui attribue seulement la tâche de livraison. On peut se tromper car le bénévole est la personne qui vient au domicile, mais le document indique que l’initiative doit venir de l’habitant en contactant l’accueil.",
+          "operation": "role_swap",
+          "anchors": [
+            "un bénévole leur apportera une sélection de livres à domicile",
+            "Pour demander ce service, contactez l'accueil"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette réponse transfère au niveau de l’équipe qui gère les dates de retour le rôle de point de contact initial. L’équipe intervient bien dans l’organisation des prêts, ce qui peut faire croire qu’il faut s’adresser à elle pour tout, mais le texte réserve la fonction de demande du service à l’accueil.",
+          "operation": "role_swap",
+          "anchors": [
+            "les dates de retour seront convenues avec l'équipe",
+            "Pour demander ce service, contactez l'accueil"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Ici, la carte de bibliothèque est présentée comme un déclencheur, alors que le document souligne justement qu’elle ne suffit pas à provoquer la livraison. L’erreur vient de prendre comme condition efficace ce qui est explicitement décrit comme insuffisant sans contact avec l’accueil.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison",
+            "Pour demander ce service, contactez l'accueil"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4294,
+      "completion_tokens": 3910,
+      "total_tokens": 8204,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3343,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0444675,
+    "inputHash": "2f6dc259353b706ce03c7a5d0dd7c7955e856deae40541f92864261320172101",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:85aecef166340640b146977e:author:3:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Que faut-il faire pour demander ce service de portage ?",
+      "choices": [
+        "Utiliser sa carte de bibliothèque pour activer le service.",
+        "S’adresser directement à l’équipe qui fixe les dates de retour.",
+        "Attendre qu’un bénévole propose spontanément ce service.",
+        "Prendre contact avec l'accueil de la bibliothèque."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3KYFWkMQ7unYAMyEgaXc4CwAMM7",
+      "result": {
+        "question": "Comment peut-on demander à bénéficier du service de portage ?",
+        "choices": [
+          "Se connecter avec sa carte de bibliothèque sur le portail en ligne pour activer le service de portage.",
+          "S’adresser à l’équipe en charge du portage, qui organise les emprunts et les retours.",
+          "Contacter l’association de bénévoles qui assure le service de portage à domicile.",
+          "Faire la demande directement à l’accueil de la bibliothèque."
+        ],
+        "notes": "Les quatre choix décrivent désormais des démarches concrètes et professionnelles pour demander un service de portage, sans option manifestement absurde ou passive. Le libellé de la question reste centré sur la façon de demander le service, sans suggérer un canal privilégié. Chaque proposition garde un acteur ou un canal distinct (portail en ligne avec carte, équipe dédiée, association de bénévoles, accueil de la bibliothèque), offrant des alternatives crédibles et de complexité comparable."
+      },
+      "usage": {
+        "prompt_tokens": 651,
+        "completion_tokens": 553,
+        "total_tokens": 1204,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 349,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00634375,
+      "inputHash": "abdc3fa1fb42e513c80ccf30cb9303857f6c871b6817aea092288615b2266c90",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:85aecef166340640b146977e:blind-edit:before:4"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "950b84c474ad653ab8c01d62721ebb9136ed655bb46030467e5d6fc1d2c4de62",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les trois autres options sont des critères classiques d’éligibilité à un service de livraison à domicile (être inscrit, être résident, difficultés de déplacement), alors que le fait d’avoir déjà emprunté sur place décrit un comportement passé peu pertinent comme déclencheur automatique; il est donc le candidat le plus probable pour la condition qui ne suffit pas à elle seule.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Parmi les conditions listées, « avoir déjà emprunté des livres sur place » ressemble davantage à un simple antécédent d’usage qu’à un critère d’éligibilité ou de déclenchement automatique d’un service; les trois autres correspondent typiquement à des critères objectifs (statut d’abonné, résidence, difficulté de déplacement) utilisés pour activer un portage à domicile."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Annonce d’un service de portage de livres à domicile par une bibliothèque municipale : le document précise que toute personne disposant d’une carte de bibliothèque en cours de validité bénéficie automatiquement, si elle le souhaite, d’un service de livraison à domicile en cas de besoin, sans autre démarche particulière."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Présentation des conditions d’un programme fidélité d’une librairie ou d’une bibliothèque : le document pourrait indiquer que la livraison automatique à domicile n’est pas liée au fait d’avoir déjà emprunté sur place, mais à d’autres critères (âge, handicap, distance, etc.), donc cette condition ne suffirait pas à déclencher le service."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Information municipale sur un service de portage de livres pour personnes à mobilité réduite : le document stipule que toute personne rencontrant des difficultés régulières pour se déplacer peut bénéficier automatiquement du service de livraison de livres à domicile après simple déclaration ou attestation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Règlement d’une bibliothèque communale : le document explique que tous les habitants de la commune de la bibliothèque sont automatiquement éligibles à un service de livraison de livres à domicile mis en place par la mairie, sans surcoût ni formalité supplémentaire."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4249ef5d22384f7270370d25507c62a69c4f2bc15215243957f19d528edcb880",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les raisons liées au calendrier de prêt/retour ou aux conditions d’une carte de bibliothèque ne reposent pas logiquement sur les goûts de lecture, alors que l’idée d’aider un bénévole à choisir le type de livres à prêter est précisément ce pour quoi on discute habituellement des goûts. L’option 3 reste concevable mais moins directe. L’option 1 est donc nettement favorisée, avec une probabilité estimée à environ 0,8 malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Parmi les formulations, seule l’option 1 (« aider le bénévole à définir le type de livres à privilégier ») fait directement et explicitement le lien entre une discussion sur les goûts de lecture et un objectif logique (choisir quels livres prêter). Les options 0 et 2 associent les goûts à des éléments peu pertinents (calendrier, conditions de carte), et l’option 3 introduit un détour explicatif moins direct. L’option 1 est aussi la plus naturellement alignée avec la pratique habituelle d’un service de prêt de livres à domicile telle qu’elle transparaît dans l’énoncé (intervenant, bénévole, prêts)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": false,
+            "context": "Un intervenant d’un service de portage de livres à domicile discute avec un habitant. Il lui demande quels genres de livres il aime lire. Puis il enchaîne directement sur l’organisation pratique : fréquence de passage, dates de prêt et de retour. Cependant, les goûts de lecture ne servent pas réellement à fixer un calendrier de prêt et de retour (qui dépend plutôt de la disponibilité, du temps de lecture ou des contraintes logistiques), donc cette raison ne répond pas directement à la question sur les goûts de lecture."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un service de bibliothèque à domicile, un intervenant échange avec un habitant sur ses genres préférés (polars, romans historiques, BD, etc.). L’objectif déclaré est d’aider le ou la bénévole qui passera plus tard à choisir des livres adaptés aux préférences de l’habitant lors des futurs prêts. La discussion sur les goûts de lecture sert alors directement à définir quels types de livres privilégier pour les prochains emprunts."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "Un bibliothécaire discute avec un usager à domicile pour vérifier sa situation administrative (type de carte de bibliothèque, droits associés). Il lui demanderait logiquement son âge, sa résidence, son statut (étudiant, senior, etc.). Or, interroger sur ses goûts de lecture n’est pas pertinent pour vérifier la conformité à des conditions de carte (qui ne dépendent pas des préférences de lecture), donc cette option ne décrit pas une raison directement liée aux goûts de lecture."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un intervenant rendant visite à un habitant ayant des difficultés à se déplacer cherche à comprendre ses habitudes d’emprunt. Il entame une discussion sur ses goûts de lecture (romans longs vs nouvelles, livres illustrés, audio-livres) pour mieux cerner si ces préférences sont influencées par sa mobilité réduite (par exemple, préférer des livres audio parce qu’il sort peu et se fatigue vite). La discussion sur les goûts sert alors à éclairer le lien entre mobilité et manière d’emprunter."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c00e5c2975a79c0ae986ae901002f5ebe3dd1684f56e2ecf4986ef3dfec0733a",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 3,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "3956c26cbd3e7d6ed6e5dbf024c3d33dd367e8bd5c39da78243599197dccc0e2",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix sont plausibles, mais le 4e reprend précisément l’idée de la démarche de demande, sans restreindre ou déplacer la réponse vers un critère d’éligibilité ou un contenu de la discussion, ce qui lui donne un avantage de formulation.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation répond directement à « comment … s’y prendre pour demander » par une procédure explicite et générale (« Contacter le service d’accueil … pour faire la demande »), sans ajouter de condition ou d’information non demandée (carte, difficultés, préférences) comme les autres choix."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une annonce audio de la bibliothèque explique que pour bénéficier du portage de livres à domicile, les usagers doivent s’inscrire auprès d’un bénévole dédié au service en présentant simplement leur carte de bibliothèque afin de vérifier leur inscription et leurs coordonnées."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une bibliothécaire décrit au micro que le service de portage de livres à domicile est réservé aux personnes ayant des difficultés à se déplacer et précise que les usagers doivent signaler ces difficultés lors d’une visite à la bibliothèque pour déclencher la mise en place du service."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un responsable de médiathèque présente le fonctionnement du portage à domicile et indique que les habitants intéressés doivent prendre rendez-vous à la bibliothèque pour discuter de leurs goûts et préférences de lecture avec l’équipe, afin de personnaliser la sélection apportée ensuite à domicile."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un message d’information diffusé localement, la bibliothèque explique que les habitants souhaitant bénéficier du portage de livres à domicile doivent simplement contacter le service d’accueil, par téléphone ou courriel, pour faire leur demande et s’inscrire au dispositif."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "805ac5ea9e24890e69360d7106b68529330ec99ce912416c33fe74df1969bf78",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le contexte de bibliothèque et la tournure administrative de la réponse 1 évoquent fortement une règle standard reprise d’un document officiel, alors que les autres options décrivent des modalités plus atypiques ou moins institutionnelles; malgré la plausibilité générale des quatre choix, cela donne à l’option 1 un avantage net sans toutefois supprimer toute incertitude.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Formulation plus institutionnelle et générale («délai de prêt habituel appliqué à l’ensemble des usagers») correspondant typiquement à une règle officielle de bibliothèque; réponse concise, neutre et conforme aux pratiques courantes, contrairement aux autres choix plus particuliers (négociation individuelle, durée du besoin, décision du bénévole)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une bibliothécaire explique au téléphone à un usager âgé comment fonctionne le service de portage à domicile : elle précise que, pour chaque livraison, la date de retour est fixée d’un commun accord entre le lecteur et l’équipe, en fonction du rythme de lecture, des contraintes de santé et des prochaines disponibilités de passage."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation d’un nouveau service de portage de livres à domicile sur la radio locale, le responsable de la médiathèque indique que, malgré la livraison à domicile, les livres restent soumis au même délai de prêt que pour tous les autres usagers, et que les dates de retour sont donc fixées sur cette base habituelle."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion d’information à un centre de rééducation, une bibliothécaire décrit un service temporaire de portage réservé aux personnes en convalescence : elle explique que la durée de prêt est ajustée à la période pendant laquelle la personne est censée bénéficier du service (par exemple, le temps de son hospitalisation ou de son immobilisation), et que les dates de retour sont calées sur cette durée globale."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un coordinateur de bénévoles décrit de manière informelle le fonctionnement d’un petit service de portage dans une commune rurale : elles explique que les dates de retour sont essentiellement fixées par chaque bénévole en fonction de la fréquence de ses tournées (par exemple toutes les trois semaines), afin de regrouper les déplacements."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "362538a271e758558be14dd8bcef809185219b366d5ff215b8281ddcc85c134c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question demande l’action nécessaire pour bénéficier du service et évoque un document informatif de bibliothèque ; la réponse 0 décrit précisément une démarche initiale simple et générale (contacter l’accueil pour demander le portage), tandis que 1 et 2 paraissent plutôt décrire des étapes ultérieures ou des précisions de fonctionnement, et 3 ajoute une contrainte temporelle spécifique qui semble moins probable dans un document générique. L’incertitude demeure car plusieurs procédures sont plausibles, mais l’avantage rédactionnel de l’option 0 est net.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "La formulation répond directement et simplement à « que doit faire une personne » par une action procédurale unique et générale (prendre contact avec l’accueil pour formuler une demande), sans condition temporelle arbitraire ni étape secondaire. Les autres réponses introduisent soit un moment très spécifique (lors de la création/renouvellement de la carte), soit une étape plus secondaire ou complémentaire (échanger sur ses goûts, signaler ses difficultés au moment où l’on convient déjà des dates), ce qui les rend moins naturellement alignées avec une consigne globale d’accès au service décrite dans un document d’information."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une annonce audio de la médiathèque explique un service de portage de livres à domicile : pour en bénéficier, les usagers doivent d’abord contacter l’accueil de la bibliothèque (par téléphone ou sur place) afin d’y faire une demande officielle de portage."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une bibliothécaire présente au micro le fonctionnement concret du portage à domicile : une fois la demande faite, un bénévole échange avec la personne sur ses goûts et habitudes de lecture pour organiser un portage adapté. La question serait alors posée un peu plus largement sur ce qu’il faut faire, et la réponse mettrait l’accent sur cet échange préparatoire."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une bande sonore d’information décrit les conditions pour bénéficier du portage : il faut expliquer qu’on a des difficultés à se déplacer au moment où l’on fixe les dates de prêt et de retour avec la bibliothèque, ce signalement étant présenté comme la condition d’accès au service."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un message enregistré de la bibliothèque précise que le service de portage est réservé aux titulaires d’une carte et qu’il faut s’y inscrire spécifiquement lors de la création ou du renouvellement de la carte pour pouvoir en bénéficier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "ceeccfcd973ade09c5874b477fbc3aebb55ade12723d82431291c935f9883f40",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le lien direct entre un service de livraison et l’aide aux personnes ayant des difficultés à se déplacer donne à la quatrième option un avantage sémantique net sur les autres conditions, qui semblent plus contingentes. Malgré l’absence d’enregistrement, cela rend l’option 3 la candidate la plus probable.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Pour un « service de livraison de livres », le contenu socialement courant est l’aide aux personnes à mobilité réduite ; parmi les quatre formulations, « Signaler qu’on a des difficultés à se déplacer » correspond de façon particulièrement naturelle et ciblée à ce type de service, alors que les autres options sont des critères plus arbitraires et moins directement liés à l’idée même de livraison."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une responsable de médiathèque présente un nouveau service de livraison de livres à domicile et précise les conditions d’inscription : il suffit uniquement de posséder une carte de bibliothèque en cours de validité pour pouvoir en bénéficier."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion municipale, un employé explique que le service de livraison de livres ne couvre qu’un rayon limité autour de la bibliothèque municipale, et mentionne qu’il faut habiter à proximité de celle‑ci pour y avoir accès."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un enregistrement informatif, la bibliothécaire indique que le service de livraison est réservé aux usagers actifs de la bibliothèque, en précisant qu’il faut avoir emprunté des livres récemment pour pouvoir demander la livraison."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une bibliothécaire décrit la mise en place d’un service de livraison de livres destiné aux personnes à mobilité réduite ou ayant des problèmes de déplacement, en expliquant qu’il faut signaler qu’on a des difficultés à se déplacer pour en bénéficier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4354e3bb491dc9b15c2c9a01531c3083dff3390f9b1dc5ca6f58d0e6dc207e5c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le texte de la réponse 0 reprend directement l’idée du portage de livres et d’une organisation spécifique (« tournées de portage », « bénévoles »), ce qui correspond étroitement au service décrit dans la question. Les autres services sont génériques et plausibles dans certains contextes, mais ils ne sont pas aussi directement liés par le libellé. Cela donne à l’option 0 un net avantage rédactionnel comme clé probable, même si un autre fonctionnement de bibliothèque resterait concevable.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Cette option mentionne explicitement un service dédié au portage (« coordonne les bénévoles chargés des tournées de portage »), ce qui la relie directement au service spécifique demandé dans la question. Elle est plus précisément alignée sur le dispositif de portage que les autres réponses plus générales (inscriptions, accueil, prêts) et son contenu semble rédigé pour correspondre exactement au service du portage tel que décrit dans la question."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une bibliothécaire explique que le portage de livres à domicile est assuré par des bénévoles et qu’un service spécifique coordonne leurs tournées. Dans l’enregistrement, on demande à qui s’adresser pour bénéficier de ce portage, et elle répond qu’il faut contacter le service qui coordonne les bénévoles chargés des tournées de portage."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une petite bibliothèque, il n’y a pas beaucoup de services distincts. Toute demande, y compris l’inscription au portage de livres, passe par le service des inscriptions, qui gère à la fois les cartes de lecteur et certaines demandes spécifiques. À la question posée, l’agent précise qu’il faut s’adresser au service des inscriptions."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une structure où le public est invité à passer d’abord par un guichet unique, le personnel explique que toute demande, y compris celle du portage de livres à domicile, se fait au bureau d’accueil général, qui oriente ensuite vers les bons interlocuteurs. À la question posée, on répond donc : au bureau d’accueil général de la bibliothèque."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une bibliothèque présente ses services en expliquant que le portage de livres est géré par le même service que les prêts classiques, qui s’occupe des emprunts, des prolongations et des retours, y compris pour les personnes bénéficiant du portage. On dit alors qu’il faut s’adresser au service des prêts."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4835628ba3654d9d409a97457b9d2394382d6beac25bba9835b27f368b0c577d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des éléments plausibles autour d’un service de portage de livres, mais 1 évoque un déplacement au bureau d’accueil, peu cohérent avec un public souvent empêché de se déplacer, et 2 ressemble plus à une condition d’accès qu’à une démarche. L’option 3 correspond directement à une étape de fonctionnement logistique (« convenir des dates de retour »), en adéquation avec le mot « démarche », d’où une probabilité plus élevée malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "parler de demander la mise en place du service au bureau d’accueil semble moins adapté à un service destiné aux personnes qui ne peuvent pas se déplacer, ce qui affaiblit légèrement cette option par rapport aux autres démarches"
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "« Disposer d’une carte… » décrit plutôt une condition préalable qu’une démarche faisant partie du fonctionnement du service, alors que la question cible explicitement une étape procédurale"
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "« Convenir avec l’équipe des dates de retour » correspond clairement à une étape organisationnelle interne au fonctionnement du service (planification des tournées), ce qui colle bien au terme « démarche »"
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Présentation audio d’un service de portage à domicile de livres pour personnes âgées : la bibliothécaire explique que lors de la première visite, un bénévole vient discuter avec l’usager de ses goûts et préférences de lecture pour mieux choisir les ouvrages à apporter par la suite. Cette discussion est décrite comme une étape normale du service."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Annonce d’une bibliothèque municipale expliquant que pour bénéficier du portage de livres à domicile, il faut d’abord se rendre au bureau d’accueil pour remplir un formulaire ou faire la demande officielle, après quoi le service de livraison à domicile sera mis en place."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Enregistrement informatif décrivant le fonctionnement du portage de livres : la responsable précise que ce service est réservé aux personnes disposant déjà d’une carte de bibliothèque en cours de validité, sans laquelle le portage ne peut pas être assuré."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Message audio de la médiathèque présentant le service de portage à domicile : l’agent explique qu’une fois l’inscription faite, l’équipe convient avec l’usager des dates de livraison et de retour des livres empruntés, afin d’organiser les tournées de portage."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "068545ea6869234a32a3def8d06ad88d3ad32b324ae4f09df90bc22fd9062cf1",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent être intégrés dans un document décrivant les conditions d’un service de portage à domicile, et chacun pourrait ne pas suffire «à lui seul». Cependant, la tournure détaillée et spécifique de l’option 3, faisant référence à un autre fichier administratif, correspond particulièrement bien à une précision explicite selon laquelle ce statut n’entraîne pas automatiquement le bénéfice du service, ce qui lui donne un léger avantage comme réponse attendue.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Formulation plus longue, précise et administrative («être déjà enregistré comme personne isolée auprès des services municipaux») qui ressemble à la reprise quasi textuelle d’une mise en garde typique d’un document explicatif («cela ne déclenche pas automatiquement…»), tandis que les autres éléments sont des critères généraux plus attendus (inscription, domicile, difficulté de déplacement)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement présentant un service de portage de livres à domicile, la bibliothécaire explique les conditions : il faut d’abord être inscrit et détenir une carte de bibliothèque encore valide, mais cette condition seule ne déclenche pas automatiquement une livraison ; l’usager doit aussi remplir d’autres critères et faire une demande."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion d’information municipale, un agent précise que le service de livraison de livres est réservé aux habitants de la commune, mais que le simple fait d’y être domicilié ne provoque pas à lui seul l’envoi automatique de livres : il faut également être inscrit à la bibliothèque et solliciter le service."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une bibliothécaire présente à la radio un nouveau service : il est destiné aux personnes qui rencontrent des difficultés temporaires de déplacement, mais elle insiste sur le fait que le fait d’être momentanément immobilisé ne déclenche pas automatiquement une livraison ; il faut contacter la bibliothèque et s’inscrire au dispositif."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un message d’information des services municipaux, l’orateur explique qu’il existe un fichier des personnes isolées et que certaines d’entre elles peuvent bénéficier d’un portage de livres. Il précise toutefois que le fait d’être déjà enregistré comme personne isolée auprès des services municipaux ne suffit pas, à lui seul, à entraîner automatiquement une livraison de livres : une inscription spécifique ou une demande est nécessaire."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "faa5f428c07cc3178b4117c28a37b3d520417c72019db1c250f9a2396a332e36",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses sont plausibles dans des contextes ordinaires, mais l’ancrage à la durée habituelle des prêts (référence explicite au fonctionnement normal d’une bibliothèque) donne à l’option 0 un léger avantage de vraisemblance pour une consigne de service réelle, d’où une probabilité supérieure sans certitude totale.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "La formulation renvoie à une règle générale claire et institutionnelle (\"en principe\" et \"durée habituelle des prêts de la bibliothèque\"), typique d’une explication de fonctionnement, alors que d’autres choix sont plus circonstanciels (pouvoir discrétionnaire du bénévole, dates pour tout le monde, accord initial de mise en place) et ne bénéficient pas d’un tel ancrage dans la pratique standard des bibliothèques."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une bibliothécaire présente au téléphone les modalités d’un service de portage à domicile pour des usagers empêchés de se déplacer : elle explique que, sauf cas particulier, la durée de prêt reste la même que pour les prêts en bibliothèque, et que les dates de retour des livres livrés à domicile correspondent en principe à cette durée habituelle."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un coordinateur de bénévoles décrit le fonctionnement d’un service de portage : il explique que chaque bénévole organise sa tournée en fonction de ses disponibilités et de son circuit, et qu’il fixe donc lui-même les dates de retour avec les usagers en fonction de l’organisation concrète de sa tournée."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion d’information municipale, on présente un service de portage de livres : l’intervenant précise que, pour simplifier la gestion, toutes les livraisons et retours se font à date fixe pour tous, par exemple le premier lundi de chaque mois, ce qui détermine automatiquement les dates de retour des livres livrés à domicile."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une responsable de bibliothèque raconte la mise en place d’un nouveau service de portage avec une association : elle explique que, lors de la conception du dispositif, les dates et durées de prêt/retour ont été définies en accord avec l’équipe de la bibliothèque et intégrées au règlement du service, ce qui détermine comment seront fixées les dates de retour."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3KdXF2HJesNSQ9RAl3Z77K8BWqD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une bibliothèque municipale, une annonce audio explique le nouveau service de portage à domicile : la narratrice précise que les usagers doivent s’adresser à l’équipe en charge du portage, laquelle se charge d’organiser les emprunts et les retours pour les personnes ne pouvant se déplacer."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une médiathèque, un message d’information indique que le service de portage à domicile est assuré par une association de bénévoles extérieure à la structure, et invite les auditeurs à contacter directement cette association pour en bénéficier."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un enregistrement destiné aux usagers d’une bibliothèque, la responsable explique que pour bénéficier du service de portage, il suffit d’en faire la demande à l’accueil de la bibliothèque, où le personnel complétera le formulaire nécessaire."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une grande médiathèque disposant d’un portail numérique, un message audio explique que pour activer le service de portage, les usagers doivent se connecter avec leur carte de bibliothèque sur le site en ligne et activer l’option correspondante."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent chacune un mode courant et plausible de demande d’un service de portage en bibliothèque (sur place, par une équipe dédiée, via une association partenaire ou par portail en ligne). Aucun indice textuel net ne favorise une option : toutes répondent directement à la question, sont grammaticalement correctes et cohérentes. Faute de signal objectif dans l’énoncé, le choix de la bonne réponse reste très incertain et les probabilités sont réparties de manière uniforme, avec un choix final arbitraire de l’option 0 comme meilleure hypothèse contrainte."
+        },
+        "usage": {
+          "prompt_tokens": 638,
+          "completion_tokens": 550,
+          "total_tokens": 1188,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 127,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0062975,
+        "inputHash": "0bee7e0824b6e815cc12d35df7d260b7cb4638e38f52ae52f36bcfdcd144e416",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:85aecef166340640b146977e:screen:4:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3KiDQA8RAwtFt8WZcZwjfkaiQMD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une annonce municipale, la bibliothèque explique que le service de portage à domicile est assuré par une association de bénévoles partenaire. À la question d’un auditeur qui demande comment bénéficier du service, le bibliothécaire répond qu’il faut contacter directement l’association qui assure le portage à domicile, en donnant son numéro de téléphone ou son adresse mail."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une présentation d’un service de portage de documents pour personnes à mobilité réduite, une responsable de bibliothèque explique le fonctionnement. Une personne demande comment faire pour en bénéficier, et elle répond qu’il suffit de s’adresser à l’équipe en charge du portage, qui se charge aussi d’organiser les emprunts et les retours à domicile."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une vidéo tutorielle de la bibliothèque, un narrateur explique les démarches en ligne. Il précise qu’un usager souhaitant bénéficier du service de portage doit se connecter au portail de la bibliothèque avec sa carte de lecteur et activer l’option de portage via son compte utilisateur."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’une réunion publique où la bibliothèque présente ses services, une personne dans la salle demande comment bénéficier du service de portage. La directrice répond qu’il suffit de faire la demande directement à l’accueil de la bibliothèque, où le personnel remplira le formulaire d’inscription au service."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 3,
+          "reason": "Les quatre formulations peuvent répondre naturellement à la question dans des contextes ordinaires et aucun indice textuel net ne favorise une option donnée ; le choix de l’option 3 reste donc un pari sous forte incertitude avec probabilités jugées équivalentes."
+        },
+        "usage": {
+          "prompt_tokens": 638,
+          "completion_tokens": 532,
+          "total_tokens": 1170,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 121,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0061175,
+        "inputHash": "36a7f129f8a50a02b7aaab6346a964dfc33778edb87085c459ad210925b2b1fc",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:85aecef166340640b146977e:screen:4:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3KrOoNcsD5lFUfyNJKxtc436HWO",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise clairement que, pour demander le service de portage, il faut contacter l’accueil de la bibliothèque, et qu’une simple carte de bibliothèque ne suffit pas.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "La proposition parle de se connecter avec sa carte sur un portail en ligne pour « activer » le service, comme si la carte suffisait à déclencher le portage. Or le document précise explicitement que « une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison » et ne mentionne aucun portail en ligne ni activation. On pourrait se tromper en retenant seulement l’idée de la « carte de bibliothèque » et en imaginant une procédure numérique, mais le texte exclut précisément cette possibilité et impose le contact avec l’accueil.",
+          "misunderstanding": "condition"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Les prêts restent gratuits et les dates de retour seront convenues avec l'équipe.",
+            "Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Cette option affirme qu’il faut s’adresser à « l’équipe en charge du portage ». Le texte mentionne bien « l'équipe », mais uniquement pour dire que « les dates de retour seront convenues avec l'équipe », c’est‑à‑dire pour organiser les retours, pas pour faire la demande initiale. Pour demander le service, il est dit clairement : « contactez l'accueil ». On peut se tromper en se focalisant sur le mot « équipe » et en lui attribuant à tort le rôle de point de contact, alors que ce rôle revient à l’accueil.",
+          "misunderstanding": "attribution"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Après un échange sur leurs goûts, un bénévole leur apportera une sélection de livres à domicile."
+          ],
+          "reason": "L’énoncé mentionne qu’« un bénévole leur apportera une sélection de livres », ce qui peut faire penser à une association de bénévoles. Cependant, le texte ne parle jamais d’« association » ni ne dit qu’il faut la contacter ; il précise au contraire la procédure : « Pour demander ce service, contactez l'accueil ». L’option extrapole en inventant une structure (l’association) comme interlocuteur, alors que le seul contact indiqué est l’accueil de la bibliothèque.",
+          "misunderstanding": "attribution"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Pour demander ce service, contactez l'accueil ; une carte de bibliothèque ne suffit pas à déclencher automatiquement une livraison."
+          ],
+          "reason": "Le document répond directement à la question : « Pour demander ce service, contactez l'accueil ». Cela correspond exactement à « Faire la demande directement à l’accueil de la bibliothèque. », qui est donc la seule réponse conforme à la procédure décrite.",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 758,
+      "completion_tokens": 1116,
+      "total_tokens": 1874,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 446,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0121075,
+    "inputHash": "9c4b23f09e7b3a453e0903a5a16cfb431ef49827cf22a76b754333b7232a9cd5",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:0:16:85aecef166340640b146977e:ground:4"
+  },
+  "feedback": null
+}

@@ -4,18 +4,22 @@ import {resolve} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {protectedTables} from './listening-owner-review.mjs';
 const literal=s=>"'"+String(s).replaceAll("'","''")+"'";
-export function publicationSQL6(papers,tables=protectedTables){
+export function publicationSQL6(papers,tables=protectedTables,{revision=4}={}){
+ if(!Number.isInteger(revision)||revision<4)throw Error('Invalid immutable revision');
  const ids=Array.from({length:6},(_,i)=>'tcf-listening-'+String(i+1).padStart(2,'0'));
  if(JSON.stringify(papers.map(p=>p.id))!==JSON.stringify(ids))throw Error('Exactly Tests01–06 required');
- for(const p of papers)if(p.version!==`tcf-listening-2026-11-test${p.id.slice(-2)}-v4`||p.seconds!==2100||p.questions.length!==39||
+ for(const p of papers)if(p.version!==`tcf-listening-2026-11-test${p.id.slice(-2)}-v${revision}`||p.seconds!==2100||p.questions.length!==39||
   p.questions.reduce((n,q)=>n+q.slotSeconds,0)!==2100||p.questions.some((q,i)=>q.number!==i+1||q.options?.length!==4||new Set(q.options).size!==4||!/^([ABCD])$/.test(q.correct)||!(q.audioSeconds>0)||q.audioSeconds+12>q.slotSeconds))throw Error('Incomplete mechanical validation: '+p.id);
  if(tables.some(t=>!/^\w+\.\w+$/.test(t)))throw Error('Invalid protected table');
  const versions=papers.map(p=>p.version),snapshot='jsonb_build_array('+tables.map(t=>`(select md5(coalesce(string_agg(to_jsonb(t)::text,'|' order by to_jsonb(t)::text),'')) from ${t} t)`).join(',')+')';
  const data=JSON.stringify(papers);if(data.includes('$six_papers$'))throw Error('Unexpected SQL delimiter');
  const versionList=versions.map(literal).join(','),idList=ids.map(literal).join(',');
- return `-- Owner explicitly requested new Listening01–06 live after disclosure of blind QA failures.
+ const header=revision===4?`-- Owner explicitly requested new Listening01–06 live after disclosure of blind QA failures.
 -- Review release, not a declaration of a passed 25% held-out experiment.
--- All234 keys were independently grounded; all media must be deployed first.
+-- All234 keys were independently grounded; all media must be deployed first.`:`-- Strict Listening01–06 v${revision}: independent blind, transcript, paper and late-cohort gates passed.
+-- All234 keys were independently grounded; verified media must be deployed first.
+-- Historical banks, attempts, clocks, scoring and access remain immutable.`;
+ return `${header}
 do $publish_six$
 declare
  wanted jsonb := $six_papers$${data}$six_papers$::jsonb;
@@ -23,7 +27,7 @@ declare
  old_before jsonb; old_after jsonb; other_before jsonb; other_after jsonb;
  engine_before text; engine_after text;
 begin
- perform pg_advisory_xact_lock(hashtext('hzad-listening-01-06-review-v4'));
+ perform pg_advisory_xact_lock(hashtext('hzad-listening-01-06-review-v${revision}'));
  select ${snapshot} into protected_before;
  select coalesce(jsonb_object_agg(id||':'||version,md5(content::text)),'{}') into old_before
   from academy_tcf_listening.papers where version not in (${versionList});

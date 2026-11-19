@@ -1,0 +1,774 @@
+{
+  "question": {
+    "number": 26,
+    "kind": "interview",
+    "question": "Selon le document, pourquoi la librairie insiste-t-elle pour bien expliquer qu’il est possible de commander les autres livres qui ne sont pas en rayon ?",
+    "options": [
+      "Pour compenser le manque de place en montrant qu’elle peut proposer davantage de titres sur commande.",
+      "Pour mettre davantage en avant les collections des éditeurs de la région en proposant de commander l’ensemble de leurs ouvrages.",
+      "Pour convaincre les clients que les commandes sont traitées dans des délais relativement courts.",
+      "Pour éviter que certains clients n’aient l’impression que le choix de titres proposé par la librairie a réellement diminué."
+    ],
+    "correct": "D",
+    "explanation": "La personne dit qu’il faut « bien expliquer cette possibilité » parce que « certaines personnes croient d’abord que notre offre a diminué ». L’explication vise donc à corriger ce malentendu sur la baisse supposée du choix, non à gérer la place, promouvoir les éditeurs régionaux ou insister sur la rapidité des livraisons.",
+    "transcript": "Question 26.\nVous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?\nPas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité.\nSelon le document, pourquoi la librairie insiste-t-elle pour bien expliquer qu’il est possible de commander les autres livres qui ne sont pas en rayon ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 26."
+      },
+      {
+        "voice": "male",
+        "text": "Vous avez réduit le nombre de livres exposés dans votre librairie. Est-ce une conséquence du manque de clients ?"
+      },
+      {
+        "voice": "female",
+        "text": "Pas exactement. Notre local est petit, et nous accumulions des titres qui restaient des mois sur les étagères. Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région. Les autres livres ne sont pas supprimés : nous pouvons les commander, souvent pour le lendemain. Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué. En réalité, nous essayons de rendre la librairie plus facile à parcourir sans renoncer à la diversité."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, pourquoi la librairie insiste-t-elle pour bien expliquer qu’il est possible de commander les autres livres qui ne sont pas en rayon ?"
+      }
+    ],
+    "audio": "q-26.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 66
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3MF90fKA826ZO6xKZrJ6YfvXS5F",
+    "result": {
+      "question": "Selon le document, pourquoi la librairie tient-elle à bien expliquer la possibilité de commander les autres livres ?",
+      "choices": [
+        "Pour éviter que certains clients pensent que le choix de titres a réellement diminué.",
+        "Pour compenser le manque de place en montrant qu’elle peut stocker les livres ailleurs.",
+        "Pour mettre davantage en avant les collections des éditeurs de la région.",
+        "Pour convaincre les clients que les commandes sont livrées très rapidement."
+      ],
+      "correctIndex": 0,
+      "explanation": "La personne dit qu’il faut « bien expliquer cette possibilité » parce que « certaines personnes croient d’abord que notre offre a diminué ». L’explication vise donc à corriger ce malentendu sur la baisse supposée du choix, non à gérer la place, promouvoir les éditeurs régionaux ou insister sur la rapidité des livraisons.",
+      "design": "Axe précis : la raison pour laquelle la librairie doit « bien expliquer » la possibilité de commander les livres non exposés. Les quatre options proposent toutes une motivation plausible pour insister sur ce service (corriger un malentendu, gérer le manque de place, mettre en avant les éditeurs régionaux, rassurer sur la rapidité). Sans le document, chacune semble raisonnable dans le contexte d’une librairie ayant moins de livres en rayon. Seule l’écoute permet de repérer que la justification donnée renvoie explicitement à la fausse impression de diminution de l’offre.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le manque de place est bien donné comme cause de la réduction des livres exposés, ce qui peut faire croire qu’expliquer la commande sert à « compenser » ce problème. En réalité, la place limitée motive la réorganisation, pas la nécessité d’expliquer la possibilité de commander.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Notre local est petit",
+            "Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les éditeurs de la région sont effectivement mis en avant, ce qui peut faire penser que tout le discours sert surtout cette promotion. Toutefois, la mise en valeur des collections régionales motive la nouvelle présentation des rayons, pas l’explication de la commande des autres livres.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "Nous avons choisi de mieux présenter quelques collections, notamment celles des éditeurs de la région",
+            "Les autres livres ne sont pas supprimés : nous pouvons les commander"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La précision « souvent pour le lendemain » peut laisser croire que l’oratrice insiste surtout sur la rapidité pour convaincre. Mais elle explique explicitement que ce qu’il faut clarifier, c’est que l’offre n’a pas diminué, la raison étant le malentendu des clients, non la seule mise en avant de délais courts.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "nous pouvons les commander, souvent pour le lendemain",
+            "Il faut bien expliquer cette possibilité, car certaines personnes croient d'abord que notre offre a diminué"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4509,
+      "completion_tokens": 2621,
+      "total_tokens": 7130,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1993,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.03184625,
+    "inputHash": "72a09d2aa832045b277d56185caa9e96da1c21743ead42bee1766340ebadc3e7",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, pourquoi la librairie tient-elle à bien expliquer la possibilité de commander les autres livres ?",
+      "choices": [
+        "Pour compenser le manque de place en montrant qu’elle peut stocker les livres ailleurs.",
+        "Pour mettre davantage en avant les collections des éditeurs de la région.",
+        "Pour convaincre les clients que les commandes sont livrées très rapidement.",
+        "Pour éviter que certains clients pensent que le choix de titres a réellement diminué."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3Mb0eHHjx5pOLbsH7Xsws449H4V",
+      "result": {
+        "question": "Selon le document, pourquoi la librairie insiste-t-elle pour bien expliquer qu’il est possible de commander les autres livres qui ne sont pas en rayon ?",
+        "choices": [
+          "Pour compenser le manque de place en montrant qu’elle peut proposer davantage de titres sur commande.",
+          "Pour mettre davantage en avant les collections des éditeurs de la région en proposant de commander l’ensemble de leurs ouvrages.",
+          "Pour convaincre les clients que les commandes sont traitées dans des délais relativement courts.",
+          "Pour éviter que certains clients n’aient l’impression que le choix de titres proposé par la librairie a réellement diminué."
+        ],
+        "notes": "La question a été légèrement généralisée pour ne pas privilégier une seule motivation commerciale. Les quatre options restent des explications professionnelles plausibles : gestion du manque de place, valorisation d’éditeurs régionaux, mise en avant des délais de commande, correction d’une perception de baisse de l’offre. Aucune n’est formulée comme manifestement plus responsable ou évidente que les autres."
+      },
+      "usage": {
+        "prompt_tokens": 675,
+        "completion_tokens": 831,
+        "total_tokens": 1506,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 612,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00915375,
+      "inputHash": "8dda1bf786d006f79b2ea0d61db0b44df4ad7cc9b2a732bf540eb10f56b5fe4a",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "70764aa9820ceb933ec2d828cdac5a1eeff9321d1a4b4affa5a1f1bacad06605",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question porte sur ce qu’ils prévoient pour des éditeurs de la région, ce qui évoque plutôt une mise en valeur qu’une mise à l’écart. L’option 3 se distingue par une formulation plus détaillée, positive et typique d’un discours de réorganisation visant à mieux promouvoir le local, ce qui constitue un avantage de rédaction clair par rapport aux autres propositions plus négatives ou restrictives.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation positive et stratégique (« les rendre plus visibles », « en les mettant en avant ») correspondant à une décision de mise en valeur, fréquente pour des éditeurs de la région ; réponse plus longue et précise, directement alignée avec l’idée d’une nouvelle organisation commerciale. Les trois autres options décrivent un retrait ou une mise à l’écart, moins cohérente avec la tournure neutre/positive de « que prévoient-ils » appliquée à des éditeurs locaux."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion d’équipe dans une librairie qui doit réduire le nombre de références en rayon faute de place. Le responsable explique : « Avec la nouvelle organisation, on va devoir se séparer des collections des éditeurs de la région et les retirer des rayons pour faire de la place à d’autres ouvrages. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Discussion logistique dans une librairie qui réaménage l’espace de vente : « Pour les collections des éditeurs de la région, dans la nouvelle organisation, on va les placer en réserve, hors de l’espace de vente. On ne les gardera qu’en stock, accessibles sur demande. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Réunion où le gérant explique une nouvelle stratégie de vente : « Dans la nouvelle organisation de la librairie, pour les collections des éditeurs de la région, on ne les proposera plus qu’en commande rapide. Les clients pourront les obtenir en 24/48 heures, mais elles ne seront plus en rayon. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Présentation du nouveau plan de merchandising : « Dans la nouvelle organisation de la librairie, pour les collections des éditeurs de la région, on a décidé de les rendre plus visibles en les mettant en avant dans les rayons, pour soutenir la production locale. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "fdbe06b33bce44c9310fdbe930c7323d964ea5c2d2d71bab366e30597dadabcc",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent une évolution plausible dans une réorganisation, mais l’option 0 se distingue légèrement par une formulation proactive et valorisante (« plus visibles », « davantage en évidence ») qui cadre bien avec l’idée d’une réorganisation destinée à mieux mettre en avant les éditeurs de la région, ce qui lui donne un léger avantage sans exclure sérieusement les autres.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation positive, orientée vers la mise en valeur et la visibilité, cohérente avec une réorganisation pensée comme amélioration du magasin et soutien aux éditeurs de la région, sans restriction ou mesure défensive comme la mise en réserve ou la réduction d’espace."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion d’équipe dans une librairie indépendante qui prépare une réorganisation des rayons : le responsable propose de mettre davantage en avant les éditeurs locaux, avec des têtes de gondole, une signalétique spécifique et un regroupement plus visible pour valoriser la production de la région."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Discussion logistique entre le responsable de magasin et le gestionnaire des stocks : ils décident que, compte tenu des faibles ventes des éditeurs régionaux, leurs collections seront surtout conservées en réserve, gérées comme un stock à part, et sorties ponctuellement selon les besoins."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Réunion de réorganisation où l’on cherche à réduire la place occupée en rayon : l’équipe envisage de ne plus garder en permanence les collections des éditeurs régionaux en libre accès, mais de les proposer sur commande rapide via le système de réservation, en expliquant aux clients qu’ils peuvent être obtenus en quelques jours."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Réunion stratégique sur l’optimisation de la surface de vente : constatant que les collections des éditeurs régionaux tournent peu, ils projettent de réorganiser les rayons en réduisant l’espace qui leur est dédié, pour libérer des mètres linéaires pour d’autres segments plus demandés."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "762a251629f667568653341e9e86369dc13fbdd52abf22404ecfb14af0da01b7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses sont plausibles dans un contexte ordinaire, mais la formulation de la question vise manifestement une politique générale de gestion des livres retirés des rayons. L’option 3 se distingue par sa pertinence directe, son lexique de gestion des stocks et son caractère global, là où 0 et 2 se focalisent davantage sur le service au client que sur le traitement physique des ouvrages, et 1 ne décrit qu’un cas partiel. Cela donne à l’option 3 un avantage net, d’où une probabilité plus élevée, bien qu’il subsiste une incertitude faute d’accès au document sonore.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La question porte sur le sort matériel des livres « qui ne sont plus présentés en rayon ». L’option 3 décrit explicitement une procédure globale et standard de gestion des stocks (« les renvoyer régulièrement aux éditeurs dans le cadre de la gestion des stocks »). Les options 0 et 2 déplacent le focus vers les modalités de mise à disposition pour les clients (vente en ligne, fourniture sur commande) sans vraiment dire ce qu’il advient des exemplaires retirés des rayons. L’option 1 ne décrit qu’une remise « de temps en temps » en rayon, ce qui est plus partiel et moins net comme politique de traitement. L’option 3 est ainsi la plus directement pertinente pour répondre à la question telle qu’elle est formulée."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une librairie explique dans un message audio à ses clients que, lorsqu’un livre disparaît des rayons physiques, il reste disponible via leur site de vente en ligne : les exemplaires sont stockés hors rayon mais proposés exclusivement sur Internet, d’où la formulation « les proposer ensuite uniquement via le site de vente en ligne »."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un responsable de librairie décrit à un journaliste leur politique de rotation des stocks : les livres sont retirés des rayons, conservés en réserve, puis remis ponctuellement en présentation lors de promotions ou de réaménagements, ce qui correspond à « les conserver en réserve et les remettre de temps en temps en rayon »."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une bande sonore de présentation du service client, le libraire précise que les titres retirés des rayons restent référencés et peuvent être fournis sur commande, généralement en un jour, soit depuis la réserve interne soit via une commande rapide au distributeur."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un enregistrement de formation interne ou un reportage sur la gestion d’une librairie détaille la politique de gestion des invendus : au-delà d’un certain temps hors rayon, les livres sont renvoyés aux éditeurs de façon régulière dans le cadre de la gestion des stocks, ce qui répond directement à la question sur le devenir de ces ouvrages."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "70320e40ae3111f6e25873e185426f0081f73a0483cd409998188d1a0ef78f40",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les propositions peuvent correspondre à un objectif lié à une nouvelle présentation des livres, mais l’amélioration de la fluidité des déplacements clients est un objectif directement et fréquemment associé à la réorganisation de l’agencement et de la présentation en magasin. Cela donne un léger avantage à l’option 2, sans pour autant éliminer clairement les autres, d’où une incertitude notable.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "L’item 2 relie directement une nouvelle présentation des livres à l’expérience de circulation des clients en magasin, ce qui correspond typiquement à un objectif prioritaire explicite dans des documents de présentation ou de réaménagement, tandis que les autres options (coûts, réduction de titres, accent régional) peuvent être des effets secondaires ou objectifs plus spécifiques et moins systématiquement associés à la notion générale de « présentation des livres »."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Lors d’une réunion dans une librairie, le responsable explique qu’une nouvelle présentation des livres en rayon a été mise en place afin de réduire le nombre de titres exposés et ainsi concentrer l’offre sur les ouvrages qui se vendent le mieux. On lui demande quel est l’objectif prioritaire de cette nouvelle présentation, et il répond que c’est de réduire le nombre de titres exposés en rayon pour mieux focaliser l’offre."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un document interne d’une chaîne de librairies, la direction décrit une nouvelle présentation des livres visant à optimiser l’espace. Le texte précise que cette réorganisation permet de limiter les stocks visibles et de mieux gérer les coûts. À la question sur l’objectif prioritaire associé à la nouvelle présentation, la réponse donnée est la maîtrise des coûts liés au stockage des ouvrages."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une responsable de librairie présente un nouveau plan d’agencement des rayons : les livres sont disposés différemment, les parcours sont réorganisés et la signalétique a changé. Dans un extrait audio, elle explique que cette nouvelle présentation des livres a pour priorité de faciliter la circulation de la clientèle. Interrogés ensuite, les auditeurs doivent indiquer que l’objectif prioritaire est de rendre les déplacements des clients plus fluides à l’intérieur de la librairie."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un reportage sur une librairie indépendante, le gérant explique qu’il a repensé la présentation des livres pour mieux faire ressortir les éditeurs locaux, avec des tables et des rayons dédiés. Le document insiste sur l’importance donnée au tissu éditorial régional. À la question sur l’objectif prioritaire de cette nouvelle présentation, la réponse est de mettre particulièrement en avant les collections d’éditeurs de la région."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "aacae22bea5cb069c89c304d76baf3da23b47c9fe491dc86d979d7747066bc5f",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs politiques décrites par les choix sont plausibles, mais l’option 1 colle le plus directement à la formulation « n’est plus présenté en rayon » en décrivant le devenir physique du livre (réserve puis remise en magasin à la demande), ce qui lui donne un léger avantage par rapport aux autres réponses, d’où une probabilité supérieure mais avec une incertitude notable.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La question porte littéralement sur ce que devient un livre « lorsqu’il n’est plus présenté en rayon », ce qui concerne directement le sort physique de l’exemplaire. L’option 1 répond précisément par un changement de lieu (mise en réserve) et une condition claire de remise en rayon, alors que l’option 0 glisse plutôt vers le statut commercial général du titre (disponible sur commande) sans préciser ce qu’il advient concrètement de l’exemplaire retiré du rayon. Cette adéquation plus littérale au libellé de la question constitue un léger avantage rédactionnel."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une vidéo de présentation d’une librairie en ligne ou d’un réseau de librairies, le responsable explique : « Même lorsqu’un livre n’est plus présenté en rayon, il reste disponible sur commande et est livré à la demande. » Le document décrit alors la politique de disponibilité étendue via les distributeurs, au‑delà de ce qui est physiquement exposé."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un enregistrement où un libraire détaille le fonctionnement de son magasin, il explique : « Lorsqu’un livre n’est plus présenté en rayon, il est placé en réserve et remis en magasin uniquement à la demande. » Le document décrit la gestion du stock entre la salle de vente et la réserve."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un message interne ou une formation pour nouveaux employés de librairie, la formatrice précise : « Lorsqu’un livre n’est plus présenté en rayon et qu’il ne se vend plus, ils sont renvoyés aux éditeurs, qui les reprennent hors des rayons. » Le document évoque la procédure de retour des invendus aux éditeurs ou distributeurs."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un enregistrement promotionnel d’une librairie très orientée vers le numérique, le gérant explique : « Lorsqu’un livre n’est plus présenté en rayon, il ne reste plus proposé qu’en version numérique via le site de la librairie. » Le document présente la stratégie de transition vers le catalogue numérique quand les exemplaires papier sont retirés."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "37f4b000e77d147b166a0fba49d2fa24efc5588e81d772861379940ee3f1e276",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’item 0 mentionne explicitement l’idée fausse classique à propos de livres retirés du rayon — la croyance qu’ils sont définitivement inaccessibles — et correspond mot à mot au thème de la question. Les autres options restent plausibles mais sont plus périphériques ou trop spécialisées par rapport à l’énoncé, ce qui donne à 0 un net avantage malgré une incertitude résiduelle sur l’écoute réelle.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation directement centrée sur le statut des livres qui ne sont plus en rayon («ne puissent plus être obtenus du tout»), ce qui répond de la façon la plus précise et complète à la question. Les autres options introduisent des restrictions plus spécifiques (éditeurs de la région), ou déplacent le malentendu vers la santé commerciale de la librairie ou la perception globale du choix plutôt que sur la possibilité concrète d’obtenir ces livres."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une librairie, le libraire explique à un client que certains titres ont été retirés des étagères pour faire de la place, et précise qu’ils restent tout à fait commandables, car plusieurs clients pensent à tort que, n’étant plus en rayon, ces livres ne peuvent plus être obtenus du tout."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un libraire discute avec un client à propos des livres régionaux et explique que, même si certains ouvrages d’éditeurs locaux ne sont plus visibles en rayon, la librairie peut toujours les commander, contrairement à l’idée de certains clients qui s’imaginent que les livres d’éditeurs de la région ne sont plus commandables."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une conversation, le libraire raconte que des clients, voyant moins de livres ou certains titres disparaître des rayons, en déduisent à tort que la librairie a désormais trop peu de clients pour continuer à commander autant de titres, et qu’il faut rectifier cette interprétation erronée."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un libraire explique qu’en retirant certains livres des étagères pour les stocker ailleurs ou pour faire une rotation, certains clients pensent d’abord, à tort, que le choix de livres auquel ils ont accès a été réduit, et qu’il est important de leur expliquer qu’ils peuvent toujours demander ou commander ces titres."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c8b0f563486b09323602f7720a4fa9e1d15ee3206dac21316e54df13db631fdd",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les délais peuvent exister selon le type de librairie et de fournisseur, mais l’option « sous une semaine » correspond le mieux à un délai standard généralement annoncé pour un livre à commander, et se situe dans une position médiane plus plausible que le très court ou le très long délai, d’où un avantage modéré sans garantie.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "La formulation « sous une semaine » correspond à un délai moyen et raisonnable pour une commande standard, ce qui cadre bien avec « généralement » et évite les extrêmes (le jour même, le lendemain ou un mois), donnant un léger avantage de vraisemblance sans certitude."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un employé de librairie explique à un client que, même si le livre n’est plus en rayon, il peut le recommander auprès du distributeur et le recevoir très rapidement, dès le lendemain, grâce à des livraisons quotidiennes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un responsable de petite librairie de quartier, travaillant avec des fournisseurs lointains ou à flux très lents, explique qu’il faut souvent attendre environ un mois pour obtenir à nouveau un titre qui n’est plus exposé en rayon."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une grande librairie située en centre-ville, le libraire explique qu’il peut, pour certains titres encore disponibles dans un autre point de vente ou dans son stock centralisé, récupérer le livre dans la journée même si le titre n’est plus présent en rayon au moment de la demande."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un libraire décrit à un client les délais de commande standards : quand un livre n’est plus exposé en rayon mais reste disponible chez le distributeur, il le reçoit en général dans un délai habituel d’acheminement de quelques jours, formulé comme « sous une semaine »."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "76e80372f24efb54596a666d72bf74a30de2c53f5d52b0f323732d90edd8b268",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent correspondre à un malentendu lié à des changements dans une librairie, mais la crainte que la librairie soit sur le point de fermer est un malentendu fréquent, simple et saillant dans ce type de contexte. Les autres options sont plus spécialisées ou détaillées, ce qui semble légèrement moins probable comme accent principal d’un document audio généraliste.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Parmi les malentendus proposés, la peur que la librairie soit sur le point de fermer est un quiproquo très général et typique lors de changements visibles (travaux, rayons vides, changement de propriétaire), ce qui en fait une inquiétude centrale et naturelle à mentionner pour un libraire. Les autres options sont plus techniques ou spécifiques (politique de prix, éditeurs régionaux), reposant sur interprétations plus élaborées des changements."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Le libraire explique à ses clients qu’il fait des travaux importants (réaménagement, changement de vitrine, rayons vides temporairement) et précise qu’il veut rassurer tout le monde pour éviter qu’ils ne s’imaginent que la librairie est sur le point de fermer."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Le libraire décrit une nouvelle organisation des rayons où certains livres sont rangés différemment, peut‑être avec plus d’espace ou moins d’exemplaires en vitrine, et il insiste sur le fait que l’offre reste aussi large qu’avant pour éviter que les clients aient l’impression que le choix de livres a été nettement réduit."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Le libraire explique avoir déplacé certains ouvrages dans des rayonnages plus discrets ou plus bas, et il précise qu’il s’agit seulement d’un nouveau classement thématique, pour éviter que les clients en déduisent que les livres rangés de façon moins visible sont désormais plus chers ou soumis à une politique de prix différente."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Le libraire annonce des changements d’agencement ou de partenariat avec certains diffuseurs et précise qu’il continue néanmoins à travailler avec les maisons d’édition locales pour éviter que les clients pensent que les éditeurs régionaux ne sont plus du tout distribués."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "f1b537deda87f9990ad77290c1f95f60a42e1e35ec5e72b852c145be0054f7d6",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent correspondre à un contexte ordinaire, mais pour des « titres commandés » en librairie, un délai d’environ une semaine est typiquement présenté comme délai usuel, tandis que le lendemain ou le jour même semblent plutôt des cas d’exception, et la fin du mois un délai inhabituellement long. Cela donne un léger avantage à l’option 1 sans permettre une certitude élevée en l’absence de l’audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Parmi les délais proposés, « Habituellement la semaine suivante. » est le plus modéré et réaliste pour des titres commandés en librairie (ni extrême rapidité ni attente très longue), ce qui peut correspondre à une formulation d’examen cherchant une réponse moyenne et raisonnable sans être exceptionnelle."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un client téléphone un lundi pour commander un roman que la librairie n’a pas en stock. La libraire explique que le distributeur livre très vite et répond : « Pour ce genre de titre, on les reçoit souvent dès le lendemain. » Cela répond directement à la question sur le délai indiqué en général pour les titres commandés."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une petite librairie indépendante, un client demande combien de temps il faut pour recevoir un livre commandé. La libraire répond : « Quand on doit les commander, c’est habituellement la semaine suivante. » Elle décrit le délai général annoncé pour les commandes."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une libraire parle de commandes spéciales, par exemple des ouvrages étrangers ou de maisons d’édition peu diffusées. À un client qui pose la question, elle dit : « Pour ces titres qu’on commande, en général c’est vers la fin du mois. » Ici le délai ordinaire annoncé est plus long, lié à des groupements de commandes mensuelles."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une grande librairie en centre-ville a un accord avec un entrepôt local. Un client demande le délai pour un titre qu’il faut commander. La libraire répond : « Avec notre service express, le plus souvent le jour même. » Elle donne le délai de livraison généralement annoncé pour ces commandes rapides."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "3c252c173aff62b8939d779a297c56ceeb704aa9c7f70ec6310019dd472bfcbf",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent des politiques réalistes pour des livres retirés des étagères, mais l’option 0 reprend explicitement la notion de retrait du rayon tout en les gardant physiquement dans la librairie, ce qui colle le mieux à « ne sont plus maintenus en rayon ». Les autres modifient plus radicalement le statut (commande uniquement à la demande, transfert à une autre librairie, retour éditeur). Cette proximité de formulation et de portée donne à l’option 0 un net avantage, bien que les autres restent plausibles en l’absence du document sonore.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "La formulation « ne sont plus maintenus en rayon » s’aligne presque mot pour mot avec « plutôt que de les laisser en rayon », et la réponse décrit explicitement un simple déplacement vers la réserve sans changer le statut de stock, ce qui correspond littéralement à l’idée de gestion des livres retirés des rayons mais encore présents dans la librairie."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un responsable de librairie explique son organisation : lorsque certains titres ne se vendent plus suffisamment, ils sont retirés des étagères visibles pour libérer de la place et sont rangés dans la réserve, où ils restent disponibles sur demande du client ou pour d’éventuelles promotions ultérieures."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de gestion des stocks, le gérant décrit sa politique : pour les titres qui tournent mal, la librairie arrête de les conserver physiquement. Elle les retire complètement du stock et ne les obtient plus qu’en les commandant ponctuellement si un client en fait la demande."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un réseau de plusieurs librairies, un responsable explique que les livres qui ne se vendent plus dans un magasin sont transférés vers un autre point de vente du même groupe, où le public est différent et où ils ont plus de chances de trouver preneur."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un libraire détaille à un stagiaire que, lorsque certains livres ne se vendent plus et ne sont plus tenus en rayon, ils sont renvoyés aux éditeurs dans le cadre de la procédure de retours prévue par les contrats de distribution."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "5714d5a7bfe6a00c5f540fbd54183deff21f5efcf62d40b8f02aac208e5252d0",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre réponses peuvent s’intégrer à un contexte ordinaire, mais l’option 2 se distingue par sa pertinence client : clarifier que la réduction de l’exposition en rayon ne signifie pas une impossibilité d’obtenir les livres, mais qu’ils restent commandables rapidement. Ce type de précision est typiquement présenté comme prioritaire dans un discours professionnel sur l’« offre en librairie ». Les autres propositions décrivent surtout des causes structurelles de la réduction de l’offre visible, moins naturellement formulées comme le point prioritaire à clarifier pour les clients.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Parmi les formulations, l’option 2 met l’accent sur un point très typique et prioritaire à expliquer aux clients en situation de réduction d’offre visible : distinguer clairement entre livres non exposés et livres réellement indisponibles, en insistant sur la possibilité de commande rapide. C’est une clarification pratique, rassurante et directement tournée vers le service au client, plus que les autres choix qui sont surtout des explications internes (taille du local, arrêt de collections, baisse de fréquentation)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un responsable de librairie est interviewé par une radio locale à propos de l’évolution de son assortiment. Il explique qu’il doit avant tout faire comprendre aux clients que l’arrêt de certaines collections, notamment celles d’éditeurs régionaux, a modifié l’offre disponible en magasin, ce qui peut expliquer que certains titres ne soient plus trouvables en rayon."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un reportage sur les commerces de centre-ville, la personne interrogée, gérante d’une petite librairie, insiste sur le fait qu’il est prioritaire d’expliquer aux clients que la taille très réduite du local limite physiquement le nombre de titres différents pouvant être mis en rayon, afin qu’ils comprennent pourquoi l’offre exposée semble restreinte."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion d’information filmée pour les clients fidèles, le libraire explique qu’il est essentiel de clarifier que, même si certains livres ne sont plus visibles en rayon à cause d’un recentrage de l’offre, ils peuvent tout de même être commandés et livrés rapidement, afin que les clients ne pensent pas que la librairie ne peut plus leur fournir ces ouvrages."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une interview pour une chaîne locale, le propriétaire d’une librairie explique qu’il doit d’abord clarifier auprès des clients que la diminution du nombre de livres exposés résulte d’une baisse de fréquentation, et non d’un manque d’intérêt pour certains genres, afin d’éviter des malentendus sur la stratégie de la librairie."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "c5d938d74139d1d3c4129d03c5089d16012a42b4bd6f2affb6e66cf323dbc924",
+      "feedback": {
+        "stage": "blind-consensus",
+        "pass": false,
+        "preferredIndex": 2,
+        "reason": "The isolated blind screens consistently preferred the same claim despite shuffled positions. Redesign the competing interpretations; uncertainty alone does not remove this stable wording preference."
+      }
+    },
+    {
+      "signature": "e47ef34c79a11d51ab84d3715bad73c1fa5a7be4a05251a21e4070c70947b850",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent une gestion possible des livres retirés des étagères, mais l’option 1 colle le mieux à l’idée qu’ils ne sont plus visibles en rayon tout en restant physiquement disponibles dans la boutique, ce qui constitue un léger avantage sans supprimer une part d’incertitude.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La formulation insiste sur une solution directement liée à la simple invisibilité en rayon (livres toujours présents dans la boutique mais déplacés à l’arrière), ce qui correspond littéralement à « ne sont plus visibles en rayon » plutôt qu’à une rupture de stock ou un retour aux éditeurs."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un client s’étonne de ne plus voir certains titres en rayon. Le libraire répond qu’il renvoie régulièrement les livres invendus aux éditeurs pour faire de la place sur les étagères, mais précise qu’il peut les redemander facilement si un client en a besoin."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une cliente cherche un livre qu’elle ne voit pas en rayon. Le libraire explique que, quand un titre ne se vend plus très bien, il le retire du présentoir et le met en réserve à l’arrière de la boutique, mais qu’il peut aller le chercher et l’apporter sur simple demande."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un client demande pourquoi un livre n’apparaît plus en rayon. Le libraire indique qu’il ne le tient plus systématiquement en stock, mais qu’il peut le commander sans problème pour ses clients s’ils le souhaitent."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un habitué remarque la disparition de certains ouvrages des rayons. Le libraire explique qu’il retire parfois des livres des étagères pour les proposer plus tard lors de ventes spéciales à prix réduit afin d’écouler les stocks."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1a3e58d8075a6f265774b550006f429e98c4a1f0d9fb5394abfb5411188f24c4",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question évoque un malentendu lié à la \"nouvelle organisation\" de la librairie, ce qui suggère un effet direct sur la perception de l’offre. Parmi les choix, l’idée que les clients pensent que le choix de titres s’est nettement réduit est la méprise la plus générale et attendue lorsqu’on voit moins de livres exposés ou des rayons réorganisés, sans supposer de motivations économiques ou géographiques particulières. Les autres options restent possibles mais paraissent plus circonstancielles ou secondaires par rapport à cette interprétation globale, d’où une probabilité nettement plus élevée pour l’option 3 tout en conservant une part d’incertitude faute du document audio.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Le malentendu décrit porte directement sur la \"nouvelle organisation\" et la perception globale de l’offre : l’option 3 formule une méprise générale et typique (croire que le choix s’est réduit en voyant moins de livres exposés). Les autres réponses introduisent des explications plus spécifiques ou moins centrales (durée de présence en rayon, manque de clientèle, priorité aux éditeurs régionaux) qui supposent des interprétations additionnelles non indiquées dans l’énoncé, tandis que 3 correspond à une conséquence immédiate et globale de la réorganisation visible des rayons."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "La responsable explique que la nouvelle organisation de la librairie consiste à faire davantage tourner les livres en vitrine et en tête de gondole, en les remplaçant plus souvent. Certains clients, en voyant qu’un ouvrage qu’ils voyaient depuis des mois n’est plus à l’étalage, en concluent à tort qu’il a été retiré du magasin, alors qu’il est simplement rangé ailleurs ou toujours disponible sur commande."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un reportage sur la réorganisation d’une librairie, le gérant précise qu’il a choisi d’aérer les rayonnages pour rendre la circulation plus fluide. Quelques clients, en découvrant moins de livres physiquement exposés et peut-être des espaces vides, interprètent mal la situation et s’imaginent que cette diminution d’exposition vient d’un manque de clientèle ou d’une baisse d’activité commerciale."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une librairie réorganise ses rayons par thématiques locales avec une mise en avant plus visible des éditeurs de la région. Des clients, en voyant plusieurs présentoirs et têtes de gondole consacrés aux maisons d’édition locales, croient à tort que la librairie privilégie presque exclusivement ces éditeurs désormais, alors que le reste de l’offre nationale et internationale est toujours présent mais rangé différemment."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Le responsable décrit une nouvelle organisation qui réduit le nombre de livres visibles en rayons pour mettre davantage chaque titre en valeur et faciliter la lisibilité. En entrant, certains clients constatent qu’il y a moins de livres exposés à l’œil nu et pensent, à tort, que le choix de titres s’est nettement réduit, alors que le stock global et les possibilités de commande restent les mêmes."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1b6d6173cacb1f9a5447f0c32c3a9b4e05b4295e7c83b8e33ec515925876413d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question insiste sur l’aspect explicatif vis-à-vis des clients, ce qui renvoie à la gestion de la perception de l’assortiment (« livres qui ne sont pas en rayon »). L’option 0 répond directement à ce souci en évoquant l’impression de diminution du choix, sans ajouter d’objectifs ou de contraintes spécifiques non mentionnés dans l’énoncé, ce qui lui donne un net avantage malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Le lien explicite entre la crainte que les clients perçoivent une diminution du choix de titres et le fait de bien expliquer la possibilité de commander les livres non en rayon correspond directement à une stratégie de communication centrée sur la perception de l’offre, ce qui reflète précisément la formulation de la question (« insiste-t-elle pour bien expliquer »). Les autres options introduisent des objectifs plus spécifiques (mise en avant d’éditeurs régionaux, délais de commande, manque de place) qui supposent davantage de contexte non mentionné."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion interne, le responsable d’une librairie explique qu’après une réorganisation des rayons, certains titres ne sont plus visibles en magasin. Il insiste pour que les employés rappellent systématiquement aux clients qu’ils peuvent commander les livres non présents en rayon afin d’éviter que ceux-ci pensent que le choix global de la librairie a diminué."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une petite librairie indépendante participe à une émission de radio locale consacrée aux acteurs culturels de la région. Le libraire y explique qu’il insiste auprès de la clientèle sur la possibilité de commander les livres qui ne sont pas en rayon, car cela lui permet de mettre en avant les collections complètes d’éditeurs régionaux, même s’il ne stocke qu’une partie de leurs titres sur place."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une vidéo de présentation de ses services, une librairie explique sa politique de commande. Le gérant insiste sur le fait que les livres non disponibles en rayon peuvent être commandés et ajoute qu’il tient à bien expliquer ce point pour rassurer les clients sur la rapidité des délais de traitement et de livraison."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’une interview pour un reportage sur les petits commerces de centre-ville, le propriétaire d’une librairie mentionne le manque de place dans son magasin. Il explique qu’il insiste toujours pour bien dire aux clients qu’ils peuvent commander les livres qui ne sont pas en rayon, afin de montrer que, malgré l’espace limité, la librairie peut leur proposer un choix beaucoup plus large sur commande."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3MjO5VbeRCxDHKAVCTIJDhDRUV5",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion interne, le responsable d’une librairie explique qu’après une réorganisation des rayons, certains titres ne sont plus visibles en magasin. Il insiste pour que les employés rappellent systématiquement aux clients qu’ils peuvent commander les livres non présents en rayon afin d’éviter que ceux-ci pensent que le choix global de la librairie a diminué."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une petite librairie indépendante participe à une émission de radio locale consacrée aux acteurs culturels de la région. Le libraire y explique qu’il insiste auprès de la clientèle sur la possibilité de commander les livres qui ne sont pas en rayon, car cela lui permet de mettre en avant les collections complètes d’éditeurs régionaux, même s’il ne stocke qu’une partie de leurs titres sur place."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une vidéo de présentation de ses services, une librairie explique sa politique de commande. Le gérant insiste sur le fait que les livres non disponibles en rayon peuvent être commandés et ajoute qu’il tient à bien expliquer ce point pour rassurer les clients sur la rapidité des délais de traitement et de livraison."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une interview pour un reportage sur les petits commerces de centre-ville, le propriétaire d’une librairie mentionne le manque de place dans son magasin. Il explique qu’il insiste toujours pour bien dire aux clients qu’ils peuvent commander les livres qui ne sont pas en rayon, afin de montrer que, malgré l’espace limité, la librairie peut leur proposer un choix beaucoup plus large sur commande."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "clear",
+              "cue": "Le lien explicite entre la crainte que les clients perçoivent une diminution du choix de titres et le fait de bien expliquer la possibilité de commander les livres non en rayon correspond directement à une stratégie de communication centrée sur la perception de l’offre, ce qui reflète précisément la formulation de la question (« insiste-t-elle pour bien expliquer »). Les autres options introduisent des objectifs plus spécifiques (mise en avant d’éditeurs régionaux, délais de commande, manque de place) qui supposent davantage de contexte non mentionné."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.55,
+            0.1,
+            0.1,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "La question insiste sur l’aspect explicatif vis-à-vis des clients, ce qui renvoie à la gestion de la perception de l’assortiment (« livres qui ne sont pas en rayon »). L’option 0 répond directement à ce souci en évoquant l’impression de diminution du choix, sans ajouter d’objectifs ou de contraintes spécifiques non mentionnés dans l’énoncé, ce qui lui donne un net avantage malgré l’absence du document audio."
+        },
+        "usage": {
+          "prompt_tokens": 669,
+          "completion_tokens": 927,
+          "total_tokens": 1596,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 324,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.01010625,
+        "inputHash": "d1288668df7edd13d6e3fac8bd884f6ec786552b2c3707d250ac45f4c4c481b4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:25:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "La question insiste sur l’aspect explicatif vis-à-vis des clients, ce qui renvoie à la gestion de la perception de l’assortiment (« livres qui ne sont pas en rayon »). L’option 0 répond directement à ce souci en évoquant l’impression de diminution du choix, sans ajouter d’objectifs ou de contraintes spécifiques non mentionnés dans l’énoncé, ce qui lui donne un net avantage malgré l’absence du document audio.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "clear",
+        "cue": "Le lien explicite entre la crainte que les clients perçoivent une diminution du choix de titres et le fait de bien expliquer la possibilité de commander les livres non en rayon correspond directement à une stratégie de communication centrée sur la perception de l’offre, ce qui reflète précisément la formulation de la question (« insiste-t-elle pour bien expliquer »). Les autres options introduisent des objectifs plus spécifiques (mise en avant d’éditeurs régionaux, délais de commande, manque de place) qui supposent davantage de contexte non mentionné."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans une réunion interne, le responsable d’une librairie explique qu’après une réorganisation des rayons, certains titres ne sont plus visibles en magasin. Il insiste pour que les employés rappellent systématiquement aux clients qu’ils peuvent commander les livres non présents en rayon afin d’éviter que ceux-ci pensent que le choix global de la librairie a diminué."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Une petite librairie indépendante participe à une émission de radio locale consacrée aux acteurs culturels de la région. Le libraire y explique qu’il insiste auprès de la clientèle sur la possibilité de commander les livres qui ne sont pas en rayon, car cela lui permet de mettre en avant les collections complètes d’éditeurs régionaux, même s’il ne stocke qu’une partie de leurs titres sur place."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans une vidéo de présentation de ses services, une librairie explique sa politique de commande. Le gérant insiste sur le fait que les livres non disponibles en rayon peuvent être commandés et ajoute qu’il tient à bien expliquer ce point pour rassurer les clients sur la rapidité des délais de traitement et de livraison."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Lors d’une interview pour un reportage sur les petits commerces de centre-ville, le propriétaire d’une librairie mentionne le manque de place dans son magasin. Il explique qu’il insiste toujours pour bien dire aux clients qu’ils peuvent commander les livres qui ne sont pas en rayon, afin de montrer que, malgré l’espace limité, la librairie peut leur proposer un choix beaucoup plus large sur commande."
+      }
+    ]
+  }
+}

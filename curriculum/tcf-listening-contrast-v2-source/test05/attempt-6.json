@@ -1,0 +1,190 @@
+{
+  "question": {
+    "number": 6,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question demande explicitement de déplacer la visite à vendredi ; répondre « Oui, vendredi après-midi, c’est parfait » accepte ce changement et précise un moment le vendredi, ce qui correspond exactement à la demande. A : La question porte sur un changement de date pour la visite (« déplacer la visite … à vendredi »), pas sur l’appréciation de l’appartement. Répondre qu’on n’a pas aimé l’appartement ne répond pas à la possibilité de changer le rendez-vous ; c’est un autre sujet (le jugement sur l’appartement, pas l’organisation de la visite). B : On demande seulement si on peut changer le jour de la visite, pas si la personne possède des papiers administratifs. Dire « je n’ai pas encore les papiers » laisserait entendre que les papiers sont nécessaires pour fixer la visite, ce qui n’est pas mentionné dans la question. Un auditeur distrait pourrait associer l’idée de visite d’appartement avec des « papiers » de location et croire que c’est pertinent, mais rien dans la question ne parle de documents, donc ce refus n’est pas justifié par l’énoncé. D : La question concerne la possibilité de changer la date de la visite, pas la disponibilité de l’appartement lui-même. « Oui, il est toujours disponible » répondrait à « L’appartement est-il toujours disponible ? » et change le référent de la question (on passe de la visite à l’appartement). Un auditeur qui entend seulement « l’appartement » pourra croire qu’on parle de disponibilité du logement, mais cela ne répond pas à la demande de déplacement de rendez-vous.",
+    "transcript": "Question 6.\nPouvez-vous déplacer la visite de l'appartement à vendredi ?\nA. Non, je n’ai pas aimé l’appartement. B. Non, je n’ai pas encore les papiers. C. Oui, vendredi après-midi, c’est parfait. D. Oui, il est toujours disponible.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 6."
+      },
+      {
+        "voice": "male",
+        "text": "Pouvez-vous déplacer la visite de l'appartement à vendredi ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Non, je n’ai pas aimé l’appartement. B. Non, je n’ai pas encore les papiers. C. Oui, vendredi après-midi, c’est parfait. D. Oui, il est toujours disponible."
+      }
+    ],
+    "audio": "q-06.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 35
+  },
+  "sourceHash": "30a269fdcb1ee466050bb1ec4a818aefe0aceda3c7eac2747d44373558781998",
+  "contentHash": "95e36a26078e3c01181271b19676b65e05f1ab8669efd3cfbd45b11ef9579642",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzohGnFcuKz5tbUn2dJScMHm0Wca",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un agent immobilier demande : « L’appartement que vous avez visité hier, il vous a plu ? » Le client répond : « Non, je n’ai pas aimé l’appartement. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une personne propose un rendez-vous : « On peut se voir vendredi après-midi ? » L’autre répond : « Oui, vendredi après-midi, c’est parfait. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un employé administratif demande : « Vous avez apporté tous les papiers nécessaires ? » Le demandeur répond : « Non, je n’ai pas encore les papiers. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un client appelle une agence : « L’appartement du troisième étage, il est toujours disponible ? » L’agent répond : « Oui, il est toujours disponible. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "La question est entièrement hors contexte (« Quelle réponse convient ? ») et les quatre propositions sont grammaticales, naturelles et chacune pourrait être la réponse appropriée à une question orale différente. Aucun indice textuel ne favorise objectivement une option par rapport aux autres, d’où une incertitude totale et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 379,
+          "total_tokens": 977,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 74,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0045375,
+        "inputHash": "ba68f13354890fede4f148d32120ca96de79b8dc50d9818dcdf383c97bb1c6b8",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:5:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzomj4ADnKWq4Lo1GbuLxzIFiT6A",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La question demande si l’on peut déplacer la visite à vendredi ; seule la réponse C accepte explicitement ce changement de date et précise un moment le vendredi.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, je n’ai pas aimé l’appartement."
+          ],
+          "reason": "La question porte sur un changement de date pour la visite (« déplacer la visite … à vendredi »), pas sur l’appréciation de l’appartement. Répondre qu’on n’a pas aimé l’appartement ne répond pas à la possibilité de changer le rendez-vous ; c’est un autre sujet (le jugement sur l’appartement, pas l’organisation de la visite).",
+          "misunderstanding": "referent"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Non, je n’ai pas encore les papiers."
+          ],
+          "reason": "On demande seulement si on peut changer le jour de la visite, pas si la personne possède des papiers administratifs. Dire « je n’ai pas encore les papiers » laisserait entendre que les papiers sont nécessaires pour fixer la visite, ce qui n’est pas mentionné dans la question. Un auditeur distrait pourrait associer l’idée de visite d’appartement avec des « papiers » de location et croire que c’est pertinent, mais rien dans la question ne parle de documents, donc ce refus n’est pas justifié par l’énoncé.",
+          "misunderstanding": "other"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Oui, vendredi après-midi, c’est parfait."
+          ],
+          "reason": "La question demande explicitement de déplacer la visite à vendredi ; répondre « Oui, vendredi après-midi, c’est parfait » accepte ce changement et précise un moment le vendredi, ce qui correspond exactement à la demande.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Pouvez-vous déplacer la visite de l'appartement à vendredi ?",
+            "Oui, il est toujours disponible."
+          ],
+          "reason": "La question concerne la possibilité de changer la date de la visite, pas la disponibilité de l’appartement lui-même. « Oui, il est toujours disponible » répondrait à « L’appartement est-il toujours disponible ? » et change le référent de la question (on passe de la visite à l’appartement). Un auditeur qui entend seulement « l’appartement » pourra croire qu’on parle de disponibilité du logement, mais cela ne répond pas à la demande de déplacement de rendez-vous.",
+          "misunderstanding": "referent"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 972,
+      "total_tokens": 1675,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 362,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01059875,
+    "inputHash": "0417fc25acf3956bf84221d5006311a09dcef04694d5fc9ec9e617179d8e44af",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:5:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
+}

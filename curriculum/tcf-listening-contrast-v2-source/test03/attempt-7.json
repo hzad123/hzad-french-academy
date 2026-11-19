@@ -1,0 +1,196 @@
+{
+  "question": {
+    "number": 7,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La question porte explicitement sur la possibilité d’une consultation par téléphone (« La consultation peut-elle se faire par téléphone ? »). La réponse « Oui, c’est possible par téléphone. » répond directement par une confirmation claire à cette question fermée, avec la même formulation (« par téléphone »), ce qui en fait la réponse la plus adaptée et parfaitement cohérente. B : Cette proposition ne répond pas à la question posée. On passe d’une question sur le mode de consultation (« par téléphone » ou non) à une autre question sur la durée de la consultation. Quelqu’un qui comprend seulement qu’on parle d’une consultation pourrait croire que toute autre question à propos de cette consultation convient, mais il y a un décalage thématique précis : on ne répond pas à la possibilité par téléphone, on change de sujet vers la durée, ce que rien dans l’enregistrement ne justifie. C : Ici encore, la réponse ne traite pas de la possibilité de faire la consultation par téléphone. Elle parle de l’envoi de « résultats par courriel », donc d’un autre moment (après la consultation) et d’un autre support (le courriel, non le téléphone). Quelqu’un saisissant seulement l’idée de communication à distance (téléphone / courriel) pourrait croire que c’est lié, mais il y a erreur de lien : la question porte sur le mode de consultation, pas sur le mode de transmission des résultats. D : Cette réponse exprime la préférence d’un patient (« Je préfère venir directement au cabinet. »), alors que dans la situation d’examen la phrase précédente ressemble à la question du patient adressée au professionnel (« La consultation peut-elle se faire par téléphone ? »). Elle ne dit pas si c’est possible ou non par téléphone ; elle se contente d’indiquer un choix personnel de venir sur place. Un candidat qui ne distingue pas bien les rôles (qui parle à qui) pourrait penser que toute phrase mentionnant le cabinet médical convient, mais ici le pronom « je » et la préférence ne répondent pas à la question de possibilité, et inversent les rôles attendus entre patient et cabinet.",
+    "transcript": "Question 7.\nLa consultation peut-elle se faire par téléphone ?\nA. Oui, c’est possible par téléphone. B. Combien de temps dure la consultation ? C. Je vous envoie les résultats par courriel. D. Je préfère venir directement au cabinet.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 7."
+      },
+      {
+        "voice": "female",
+        "text": "La consultation peut-elle se faire par téléphone ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Oui, c’est possible par téléphone. B. Combien de temps dure la consultation ? C. Je vous envoie les résultats par courriel. D. Je préfère venir directement au cabinet."
+      }
+    ],
+    "audio": "q-07.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 32
+  },
+  "sourceHash": "c2ac47646db663ecaefb275f4d1709a2b3aa0b52cace331dc430efd3a1ef6720",
+  "contentHash": "5a834bf512df2c55a3fb74834183c99fb3a79207259a67de13eef843000dca57",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzXw67ttLtks6dQyQA9pJMvZ3HOk",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un patient demande au secrétariat : « Est-ce que je peux prendre rendez-vous comme ça ? » ou « Est-ce que c’est possible de fixer un rendez-vous sans me déplacer ? » La secrétaire répond : « Oui, c’est possible par téléphone. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "La secrétaire propose différentes options : « Vous pouvez régler ça par téléphone si vous voulez. » Le patient répond : « Je préfère venir directement au cabinet. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Le médecin ou la secrétaire dit : « Vous pouvez me transmettre les résultats comme vous voulez : courrier, fax, courriel… » Le patient répond : « Je vous envoie les résultats par courriel. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Le secrétariat explique le fonctionnement des rendez-vous, et le patient souhaite plus de précisions avant d’accepter : il répond par une question pour se renseigner davantage : « Combien de temps dure la consultation ? »"
+            }
+          ],
+          "cues": [
+            {
+              "option": 3,
+              "severity": "weak",
+              "cue": "Seule option formulée comme une question, alors que ce type d’exercice propose souvent de choisir une réplique-réponse déclarative à un énoncé entendu ; les trois autres sont des réponses affirmatives adaptées à des questions probables."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.3,
+            0.3,
+            0.3,
+            0.1
+          ],
+          "guess": 0,
+          "reason": "Tous les énoncés sont grammaticalement corrects et plausibles dans un contexte de rendez-vous médical ; sans l’audio, aucune situation ne s’impose clairement. La seule différence formelle nette est que l’option 3 est une question, légèrement moins typique comme « réponse » attendue dans ce type de tâche. Faute d’autre indice objectif, les trois réponses déclaratives restent à probabilité proche, et l’option 0 est choisie comme légère préférence mais avec forte incertitude."
+        },
+        "usage": {
+          "prompt_tokens": 595,
+          "completion_tokens": 835,
+          "total_tokens": 1430,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 403,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00909375,
+        "inputHash": "1c3b26bbe00a29ce68947b15dcf2fd7e86977900ac24d04b892868f700987dea",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:6:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzY6iITP9x9kfRdObYNTJYWnqLsw",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui répond directement et correctement à la question sur la possibilité d’une consultation par téléphone est « Oui, c’est possible par téléphone. » Les autres propositions changent de sujet ou supposent un autre rôle pour le locuteur.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Oui, c’est possible par téléphone."
+          ],
+          "reason": "La question porte explicitement sur la possibilité d’une consultation par téléphone (« La consultation peut-elle se faire par téléphone ? »). La réponse « Oui, c’est possible par téléphone. » répond directement par une confirmation claire à cette question fermée, avec la même formulation (« par téléphone »), ce qui en fait la réponse la plus adaptée et parfaitement cohérente.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Combien de temps dure la consultation ?"
+          ],
+          "reason": "Cette proposition ne répond pas à la question posée. On passe d’une question sur le mode de consultation (« par téléphone » ou non) à une autre question sur la durée de la consultation. Quelqu’un qui comprend seulement qu’on parle d’une consultation pourrait croire que toute autre question à propos de cette consultation convient, mais il y a un décalage thématique précis : on ne répond pas à la possibilité par téléphone, on change de sujet vers la durée, ce que rien dans l’enregistrement ne justifie.",
+          "misunderstanding": "topic_shift"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Je vous envoie les résultats par courriel."
+          ],
+          "reason": "Ici encore, la réponse ne traite pas de la possibilité de faire la consultation par téléphone. Elle parle de l’envoi de « résultats par courriel », donc d’un autre moment (après la consultation) et d’un autre support (le courriel, non le téléphone). Quelqu’un saisissant seulement l’idée de communication à distance (téléphone / courriel) pourrait croire que c’est lié, mais il y a erreur de lien : la question porte sur le mode de consultation, pas sur le mode de transmission des résultats.",
+          "misunderstanding": "referent_error"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La consultation peut-elle se faire par téléphone ?",
+            "Je préfère venir directement au cabinet."
+          ],
+          "reason": "Cette réponse exprime la préférence d’un patient (« Je préfère venir directement au cabinet. »), alors que dans la situation d’examen la phrase précédente ressemble à la question du patient adressée au professionnel (« La consultation peut-elle se faire par téléphone ? »). Elle ne dit pas si c’est possible ou non par téléphone ; elle se contente d’indiquer un choix personnel de venir sur place. Un candidat qui ne distingue pas bien les rôles (qui parle à qui) pourrait penser que toute phrase mentionnant le cabinet médical convient, mais ici le pronom « je » et la préférence ne répondent pas à la question de possibilité, et inversent les rôles attendus entre patient et cabinet.",
+          "misunderstanding": "role_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 691,
+      "completion_tokens": 1329,
+      "total_tokens": 2020,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 620,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01415375,
+    "inputHash": "10f09235c79418c959b04af642ea28bfec34f35f1123c40b8a06a0ca83e8378f",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:6:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
+}

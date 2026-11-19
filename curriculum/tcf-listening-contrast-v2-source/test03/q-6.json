@@ -1,0 +1,192 @@
+{
+  "question": {
+    "number": 6,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : La personne a mal noté le jour de son rendez-vous et demande quoi faire. La solution logique est de contacter l’organisme qui gère les rendez-vous pour en fixer un nouveau : « Rappelez le secrétariat pour reprogrammer. » répond directement à la question « Que dois-je faire ? » en proposant une action concrète et adaptée. B : On pourrait croire qu’il faut simplement « reporter » la visite, et l’option paraît donc liée à l’idée de changer de date. Mais le message ne dit pas qu’il faut attendre « le mois prochain » ni que le cabinet impose un tel délai : il faut d’abord convenir d’une nouvelle date avec le secrétariat. Dire d’emblée de déplacer au mois prochain ajoute une condition temporelle arbitraire qui n’est pas justifiée par la situation. C : Quelqu’un comprenant mal pourrait penser que, même en s’étant trompé de jour, il suffit de venir « à l’heure prévue » (en confondant jour et heure). Mais si la personne s’est trompée de jour, venir à l’heure initialement prévue ne résout rien : le rendez-vous n’existe plus ou n’est pas prévu ce jour-là. Cette réponse ne propose pas de corriger l’erreur de date, contrairement à l’option avec le secrétariat. D : On peut être tenté de choisir cette option en se disant que, après une erreur, c’est au cabinet de rappeler pour proposer une solution. Cependant, dans la situation décrite, aucune indication n’est donnée que le cabinet compte recontacter la personne ; au contraire, la question « Que dois-je faire ? » implique que c’est à elle d’agir. Dire « Attendez, le cabinet vous recontactera. » inverse donc à tort l’initiative attendue.",
+    "transcript": "Question 6.\nJe me suis trompé de jour pour mon rendez-vous. Que dois-je faire ?\nA. Rappelez le secrétariat pour reprogrammer. B. Reportez votre visite au mois prochain. C. Venez tout de même à l’heure prévue. D. Attendez, le cabinet vous recontactera.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 6."
+      },
+      {
+        "voice": "male",
+        "text": "Je me suis trompé de jour pour mon rendez-vous. Que dois-je faire ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Rappelez le secrétariat pour reprogrammer. B. Reportez votre visite au mois prochain. C. Venez tout de même à l’heure prévue. D. Attendez, le cabinet vous recontactera."
+      }
+    ],
+    "audio": "q-06.mp3",
+    "audioSeconds": 19.592,
+    "slotSeconds": 36
+  },
+  "sourceHash": "18fbe5f0e36a0a879206de6d42f7d17a9e55439925fd8f19e9559c272eedb3db",
+  "contentHash": "cc950bf0abd564e8fe82b6f8d5c08a0e2424730247ac0742b3884c2e5cbbcaf2",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzXqhB4Wxh0vwzG6p5kDa63fPGGD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un patient appelle le jour de son rendez-vous médical pour dire qu’il a un léger contretemps (retard de transport, petit malaise passé) et demande s’il doit annuler. Le secrétaire lui répond : « Venez tout de même à l’heure prévue. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une personne appelle un cabinet (médical, juridique, etc.) pour annuler un rendez-vous fixé, et demande comment procéder pour en fixer un autre. Le secrétaire dit : « Rappelez le secrétariat pour reprogrammer. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un patient laisse un message ou appelle en dehors des horaires, ou le planning est incertain. Le personnel répond : « Attendez, le cabinet vous recontactera. » pour indiquer qu’ils prendront l’initiative du rappel."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une personne a un rendez-vous, mais le professionnel lui explique qu’il est surchargé ce mois-ci ou en congé, et dit : « Reportez votre visite au mois prochain. » pour lui demander de décaler la venue."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont grammaticales, polies et peuvent toutes convenir à une situation plausible de rendez-vous avec un cabinet ou un secrétariat. Aucun indice textuel clair ne permet de privilégier une option sans connaître l’enregistrement, d’où une forte incertitude et des probabilités réparties uniformément."
+        },
+        "usage": {
+          "prompt_tokens": 602,
+          "completion_tokens": 555,
+          "total_tokens": 1157,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 196,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0063025,
+        "inputHash": "d10594b09b2bac026ab1e0c94cba087b86642920730c0261111a2ac1e7a8673e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:5:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzXvQILUvanSDqxletDHLcfMJVhF",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne s’est trompée de jour pour son rendez-vous : la réponse adaptée est de rappeler le secrétariat pour fixer un nouveau rendez-vous.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Je me suis trompé de jour pour mon rendez-vous. Que dois-je faire ?",
+            "Rappelez le secrétariat pour reprogrammer."
+          ],
+          "reason": "La personne a mal noté le jour de son rendez-vous et demande quoi faire. La solution logique est de contacter l’organisme qui gère les rendez-vous pour en fixer un nouveau : « Rappelez le secrétariat pour reprogrammer. » répond directement à la question « Que dois-je faire ? » en proposant une action concrète et adaptée.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je me suis trompé de jour pour mon rendez-vous.",
+            "Reportez votre visite au mois prochain."
+          ],
+          "reason": "On pourrait croire qu’il faut simplement « reporter » la visite, et l’option paraît donc liée à l’idée de changer de date. Mais le message ne dit pas qu’il faut attendre « le mois prochain » ni que le cabinet impose un tel délai : il faut d’abord convenir d’une nouvelle date avec le secrétariat. Dire d’emblée de déplacer au mois prochain ajoute une condition temporelle arbitraire qui n’est pas justifiée par la situation.",
+          "misunderstanding": "scope"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je me suis trompé de jour pour mon rendez-vous.",
+            "Venez tout de même à l’heure prévue."
+          ],
+          "reason": "Quelqu’un comprenant mal pourrait penser que, même en s’étant trompé de jour, il suffit de venir « à l’heure prévue » (en confondant jour et heure). Mais si la personne s’est trompée de jour, venir à l’heure initialement prévue ne résout rien : le rendez-vous n’existe plus ou n’est pas prévu ce jour-là. Cette réponse ne propose pas de corriger l’erreur de date, contrairement à l’option avec le secrétariat.",
+          "misunderstanding": "referent_mixup"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je me suis trompé de jour pour mon rendez-vous. Que dois-je faire ?",
+            "Attendez, le cabinet vous recontactera."
+          ],
+          "reason": "On peut être tenté de choisir cette option en se disant que, après une erreur, c’est au cabinet de rappeler pour proposer une solution. Cependant, dans la situation décrite, aucune indication n’est donnée que le cabinet compte recontacter la personne ; au contraire, la question « Que dois-je faire ? » implique que c’est à elle d’agir. Dire « Attendez, le cabinet vous recontactera. » inverse donc à tort l’initiative attendue.",
+          "misunderstanding": "causal_reversal"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 711,
+      "completion_tokens": 894,
+      "total_tokens": 1605,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 237,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00982875,
+    "inputHash": "3c1f5c912d63f3cd2f76ced1ef191cedb307420ab20f4e22f4d789a0eb6d08da",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:5:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

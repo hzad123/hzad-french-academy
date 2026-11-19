@@ -1,0 +1,181 @@
+{
+  "question": {
+    "number": 1,
+    "kind": "image",
+    "question": "Quelle action voit-on ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La personne est placée devant le présentoir, le bras tendu vers les fruits, la main touchant un fruit posé avec les autres. Cette position correspond naturellement au geste de prendre un fruit sur le présentoir, qui est l’action la plus directement identifiable sur une image fixe. A : On voit la main de la personne posée sur un fruit aligné avec les autres sur le présentoir, sans fruit clairement séparé dans la main. Rien n’indique un mouvement de retour vers le panier : l’image montre seulement un contact avec un fruit posé. Un élève qui confondrait « prendre » et « remettre » ou qui interpréterait le simple geste vers le fruit comme le fait de le reposer pourrait choisir cette réponse, mais l’image ne donne aucun indice de remise d’un fruit. B : Il n’y a ni sac de fruits ni balance visibles sur l’image ; les fruits sont simplement posés dans des caisses sur le présentoir. Quelqu’un qui associe automatiquement un marché à l’action de peser les fruits pourrait répondre cela par anticipation du passage à la balance, mais ici on ne voit que la main qui se dirige vers un fruit, pas l’acte de peser un sac. D : On ne voit ni vendeur ni argent ni mouvement de main vers une caisse ou un portefeuille. La scène est centrée sur la personne qui choisit un fruit, non sur une transaction. Un élève qui se fonde seulement sur le contexte « marché » et qui s’attend à l’étape du paiement pourrait choisir cette option, mais l’image ne montre aucun paiement en cours.",
+    "transcript": "Question 1.\nRegardez l’image et écoutez les propositions.\nA. La personne remet un fruit dans le panier. B. La personne pèse un sac de fruits. C. La personne prend un fruit sur le présentoir. D. La personne paie les fruits au vendeur.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 1."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. La personne remet un fruit dans le panier. B. La personne pèse un sac de fruits. C. La personne prend un fruit sur le présentoir. D. La personne paie les fruits au vendeur."
+      }
+    ],
+    "audio": "q-01.mp3",
+    "audioSeconds": 17.842,
+    "slotSeconds": 33,
+    "image": "q-01.svg"
+  },
+  "sourceHash": "230af284df1e8eead4d69dfe82fb41508aef1322b3d1c4b31839df77eaf4ba6c",
+  "contentHash": "1ea136063f335feef21f3f709f1a05eb7214ad61c744a6e5a5083ce29e9433be",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzv1gbhNVDMRv8yS2uKhUbOABMs9",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une vidéo tournée au marché, on voit un client tendre de l’argent au vendeur après avoir choisi des fruits. L’enseignant arrête l’image et demande : « Quelle action voit-on ? » L’élève répondrait : « La personne paie les fruits au vendeur. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un supermarché, une cliente prend un fruit, l’examine puis décide de le reposer dans le panier à fruits commun. L’image est figée au moment où elle remet le fruit. À la question « Quelle action voit-on ? », on peut répondre : « La personne remet un fruit dans le panier. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans une scène de marché filmée, un client accroche un sac de fruits à la balance et regarde le poids s’afficher. On arrête la vidéo pendant cette action et on demande : « Quelle action voit-on ? » La réponse adaptée est : « La personne pèse un sac de fruits. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une vidéo montre un client qui tend la main vers le présentoir et saisit un fruit devant lui. L’image est arrêtée au moment où il prend le fruit. À la question « Quelle action voit-on ? », la réponse directe est : « La personne prend un fruit sur le présentoir. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent des actions simples, visibles et plausibles dans un contexte de marché ou de supermarché, et chacune répond littéralement à la question générale « Quelle action voit-on ? » sans indice supplémentaire dans l’énoncé. Aucune formulation ne présente d’avantage lexical, grammatical ou de portée clairement décisif, d’où une forte incertitude et une distribution de probabilité uniforme malgré l’obligation de choisir un index."
+        },
+        "usage": {
+          "prompt_tokens": 597,
+          "completion_tokens": 503,
+          "total_tokens": 1100,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 70,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00577625,
+        "inputHash": "14ef9f8d5b3b0b03b8e92bd907e86f07b00ba78b4095e36d3ee5c533f26d20e1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:0:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzv87OpCK7YwX3qygWYf1DnNXgVf",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’image montre une personne qui tend la main vers un fruit posé sur le présentoir ; l’action la plus directement lisible est qu’elle prend un fruit sur le présentoir.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit la main de la personne posée sur un fruit aligné avec les autres sur le présentoir, sans fruit clairement séparé dans la main. Rien n’indique un mouvement de retour vers le panier : l’image montre seulement un contact avec un fruit posé. Un élève qui confondrait « prendre » et « remettre » ou qui interpréterait le simple geste vers le fruit comme le fait de le reposer pourrait choisir cette réponse, mais l’image ne donne aucun indice de remise d’un fruit.",
+          "misunderstanding": "visual_ambiguity"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "Il n’y a ni sac de fruits ni balance visibles sur l’image ; les fruits sont simplement posés dans des caisses sur le présentoir. Quelqu’un qui associe automatiquement un marché à l’action de peser les fruits pourrait répondre cela par anticipation du passage à la balance, mais ici on ne voit que la main qui se dirige vers un fruit, pas l’acte de peser un sac.",
+          "misunderstanding": "object_confusion"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "La personne est placée devant le présentoir, le bras tendu vers les fruits, la main touchant un fruit posé avec les autres. Cette position correspond naturellement au geste de prendre un fruit sur le présentoir, qui est l’action la plus directement identifiable sur une image fixe.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On ne voit ni vendeur ni argent ni mouvement de main vers une caisse ou un portefeuille. La scène est centrée sur la personne qui choisit un fruit, non sur une transaction. Un élève qui se fonde seulement sur le contexte « marché » et qui s’attend à l’étape du paiement pourrait choisir cette option, mais l’image ne montre aucun paiement en cours.",
+          "misunderstanding": "inferred_context"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 728,
+      "completion_tokens": 1187,
+      "total_tokens": 1915,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 671,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01278,
+    "inputHash": "f35c81f73f24b5ddceafca4768c557b6673647ca1d5710885a0491efe409807d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:0:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "f92053744d98d640dbfc72f35cb5df9774be6a14ce65de354a0d982be5c9a73a",
+  "designSeedHash": null
+}

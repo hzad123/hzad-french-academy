@@ -1,7 +1,7 @@
 """Record accepted offline-QC candidates without altering historical media/clocks.
 No AI calls. Piper/FFmpeg are local authoring tools, never a student expense.
 """
-import argparse,hashlib,json,shutil,subprocess,tempfile,wave
+import argparse,hashlib,json,shutil,subprocess,tempfile,wave,re
 from pathlib import Path
 from piper import PiperVoice,SynthesisConfig
 ROOT=Path(__file__).resolve().parents[1]
@@ -13,10 +13,12 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def source_hash(q):return hashlib.sha256(json.dumps(q['segments'],ensure_ascii=False,sort_keys=True).encode()).hexdigest()
 def duration(path):return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)]))
 def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-def render(root,models,owner_review=False,only=None):
+def render(root,models,owner_review=False,owner_waiver=False,only=None):
  summary=json.loads((root/'summary.json').read_text())
  if owner_review:
   if summary.get('tests')!=[1,2,3,4,5,6] or not summary.get('readyForOwnerRequestedReview') or summary.get('groundedItems')!=234 or summary.get('reviewAuthorization',{}).get('message')!='make the 1 to6 new ones live now':raise RuntimeError('Exact owner review request and234 independently supported keys required')
+ elif owner_waiver:
+  if summary.get('ownerWaiver') is not True or summary.get('readyForOwnerWaiver') is not True or summary.get('totalItems')!=234 or summary.get('groundedItems')!=234 or summary.get('tests')!=[1,2,3,4,5,6] or summary.get('reviewAuthorization',{}).get('message')!='just publish everything. its good enough':raise RuntimeError('Owner-waived release still needs234 uniquely supported keys and exact authorization')
  elif not summary.get('readyForMedia'):raise RuntimeError('Independent answer QC/held-out cohort has not passed')
  voices={};loaded={}
  for profile,(name,speaker,expected) in MODELS.items():
@@ -29,16 +31,20 @@ def render(root,models,owner_review=False,only=None):
   folder=root/f'test{number:02d}';bank=json.loads((folder/'bank.json').read_text());source=json.loads((ROOT/json.loads((folder/'evidence.json').read_text())['source']).read_text())
   if bank['version']==source['version']:raise RuntimeError('New immutable version required')
   source_root=ROOT/'assets/tcf-listening'/('v1' if source['version']=='tcf-listening-2026-11-v1' else source['version'])
-  output=ROOT/'assets/tcf-listening'/bank['version'];proof=ROOT/('curriculum/tcf-listening-owner-review-v4' if owner_review else 'curriculum/tcf-listening-answer-qc')/bank['version']
+  output=ROOT/'assets/tcf-listening'/bank['version'];proof=ROOT/('curriculum/tcf-listening-owner-review-v4' if owner_review else 'curriculum/tcf-listening-owner-waiver-v5' if owner_waiver else 'curriculum/tcf-listening-answer-qc')/bank['version']
   output.mkdir(parents=True,exist_ok=True);(output/'audio').mkdir(exist_ok=True);(output/'images').mkdir(exist_ok=True)
   proof.mkdir(parents=True,exist_ok=True)
   for name in ['evidence.json']:shutil.copyfile(folder/name,proof/name)
-  shutil.copyfile(root/'summary.json',proof/('review-release.json' if owner_review else 'cohort.json'));shutil.copytree(folder/'images',proof/'images',dirs_exist_ok=True)
+  cohort_source=root/'cohort.json' if summary.get('protocol')=='six-listening-contrast-v2' else root/'summary.json'
+  shutil.copyfile(cohort_source,proof/('review-release.json' if owner_review or owner_waiver else 'cohort.json'));shutil.copytree(folder/'images',proof/'images',dirs_exist_ok=True)
   for q in bank['questions'][:4]:shutil.copyfile(source_root/'images'/q['image'],output/'images'/q['image'])
-  subprocess.run(['node','scripts/check-listening-owner-review.mjs' if owner_review else 'scripts/check-listening-answer-quality.mjs','--bank',str(folder/'bank.json'),'--evidence',str(proof)],cwd=ROOT,check=True)
-  destination=ROOT/f'supabase/exams/tcf-listening-test{number:02d}-v4.json'
+  checker='scripts/check-listening-owner-waiver-v5.mjs' if owner_waiver else 'scripts/check-listening-owner-review.mjs' if owner_review else 'scripts/check-listening-contrast-quality.mjs' if summary.get('protocol')=='six-listening-contrast-v2' else 'scripts/check-listening-answer-quality.mjs'
+  subprocess.run(['node',checker,'--bank',str(folder/'bank.json'),'--evidence',str(proof)],cwd=ROOT,check=True)
+  revision=re.search(r'-v([0-9]+)$',bank['version'])
+  if not revision:raise RuntimeError('Invalid immutable revision')
+  destination=ROOT/f"supabase/exams/tcf-listening-test{number:02d}-v{revision.group(1)}.json"
   if destination.exists() and subprocess.run(['git','ls-files','--error-unmatch',str(destination.relative_to(ROOT))],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0:
-   raise RuntimeError('Refusing to overwrite a tracked immutable v4 bank')
+   raise RuntimeError('Refusing to overwrite a tracked immutable bank')
   old_manifest=json.loads((output/'manifest.json').read_text()) if (output/'manifest.json').exists() else {'files':[]}
   entries={entry['file']:entry for entry in old_manifest['files']};manifest=[]
   for q,old in zip(bank['questions'],source['questions']):
@@ -77,6 +83,6 @@ def render(root,models,owner_review=False,only=None):
    manifest.append(entry);write(output/'manifest.json',{'version':bank['version'],'seconds':2100,'files':manifest,'state':'BUILDING' if len(manifest)<39 else 'MEDIA_VERIFIED'})
   if len(manifest)!=39 or sum(q['slotSeconds'] for q in bank['questions'])!=2100:raise RuntimeError('Incomplete paper')
   shutil.copyfile(source_root/'AUDIO-LICENSES.md',output/'AUDIO-LICENSES.md')
-  write(destination,bank);print(f'Test{number:02d}:39 complete matched recordings in unchanged slots; '+('owner-review authorization and independent grounding retained; blind warnings remain.' if owner_review else 'independent answer QC retained.'),flush=True)
+  write(destination,bank);print(f'Test{number:02d}:39 complete matched recordings in unchanged slots; '+('owner waiver: all keys independently grounded; blind accuracy target explicitly waived.' if owner_waiver else 'owner-review authorization and independent grounding retained; blind warnings remain.' if owner_review else 'independent answer QC retained.'),flush=True)
 if __name__=='__main__':
- parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--models',type=Path,required=True);parser.add_argument('--owner-review',action='store_true');parser.add_argument('--only',type=int,choices=range(1,21));args=parser.parse_args();render(args.root,args.models,args.owner_review,args.only)
+ parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--models',type=Path,required=True);parser.add_argument('--owner-review',action='store_true');parser.add_argument('--owner-waiver',action='store_true');parser.add_argument('--only',type=int,choices=range(1,21));args=parser.parse_args();render(args.root,args.models,args.owner_review,args.owner_waiver,args.only)

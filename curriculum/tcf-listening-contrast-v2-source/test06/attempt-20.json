@@ -1,0 +1,385 @@
+{
+  "question": {
+    "number": 20,
+    "kind": "dialogue",
+    "question": "Sur quoi le dernier interlocuteur propose-t-il de baser l’adaptation des menus ?",
+    "options": [
+      "Sur les produits de saison et les périodes de récolte des légumes.",
+      "Sur les souhaits recueillis auprès des clients chaque semaine.",
+      "Sur les fluctuations de prix annoncées par le producteur voisin.",
+      "Sur les contraintes de disponibilité de l’équipe de cuisine au fil de l’année."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le dernier interlocuteur explique qu’ils peuvent faire \"des menus qui changent selon les saisons\" en lien avec le fait que \"les récoltes sont irrégulières\". Il propose donc de baser l’adaptation des menus sur la saisonnalité des produits et les périodes de récolte des légumes, ce qui correspond exactement à cette option. B : On pourrait mal comprendre la phrase sur les promesses faites aux clients (\"Je ne veux pas promettre les mêmes plats toute l'année\") comme une volonté de s’ajuster aux souhaits des clients, éventuellement recueillis régulièrement. Mais le motif évoqué est clairement la disponibilité des produits (\"si les récoltes sont irrégulières\"), pas les souhaits exprimés par les clients chaque semaine. Il n’est jamais question de sondages hebdomadaires ou de demandes spécifiques des clients. C : L’expression \"Son offre est intéressante\" peut faire penser à certains auditeurs à une question de prix ou de promotions venant du producteur voisin. Ils pourraient alors imaginer que les menus seraient adaptés selon les fluctuations de ces prix. Cependant, la suite précise un autre critère : \"des menus qui changent selon les saisons\" en lien avec la disponibilité des variétés et des récoltes, et non avec des annonces de prix. Aucune fluctuation de prix n’est mentionnée comme base de l’adaptation des menus. D : Un auditeur distrait pourrait assimiler les \"périodes\" dont on parle à des périodes de travail du personnel de cuisine et croire que l’on adapte les menus à la disponibilité de l’équipe. En réalité, ces \"périodes\" concernent clairement la pousse des légumes (\"périodes où certaines variétés ne poussent pas\") et mènent à la solution de menus saisonniers. Il n’est fait mention nulle part d’horaires, de congés ou de contraintes de l’équipe de cuisine.",
+    "transcript": "Question 20.\nNous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante.\nC'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas.\nJustement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières.\nNous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions.\nSur quoi le dernier interlocuteur propose-t-il de baser l’adaptation des menus ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 20."
+      },
+      {
+        "voice": "male",
+        "text": "Nous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante."
+      },
+      {
+        "voice": "female",
+        "text": "C'est possible, mais il faut tenir compte des périodes où certaines variétés ne poussent pas."
+      },
+      {
+        "voice": "male",
+        "text": "Justement. Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières."
+      },
+      {
+        "voice": "female",
+        "text": "Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions."
+      },
+      {
+        "voice": "female",
+        "text": "Sur quoi le dernier interlocuteur propose-t-il de baser l’adaptation des menus ?"
+      }
+    ],
+    "audio": "q-20.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 47
+  },
+  "sourceHash": "e3289af428c860eed69d46eff0e921403140f2a5692d2521a3f54c7ae5120054",
+  "contentHash": "ebfac4c5137afa584017a6a6b6d92191d99f87bc7c151eb90111dd0c9a937b9e",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 3,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-ElhxIKAhwacRUti8BLctkKxKqYkc1",
+    "result": {
+      "question": "Dans cet échange, à quoi le dernier interlocuteur propose-t-il d’adapter les menus ?",
+      "choices": [
+        "Aux saisons et aux périodes de récolte des légumes.",
+        "Aux préférences exprimées par les clients chaque semaine.",
+        "Aux variations de prix proposées par le producteur voisin.",
+        "Aux disponibilités de l’équipe de cuisine pendant l’année."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le dernier locuteur conclut : « Nous pouvons établir des menus qui changent selon les saisons et prévoir des substitutions. » Cette proposition fait directement écho aux « périodes où certaines variétés ne poussent pas » et aux « récoltes [qui] sont irrégulières ». Les menus sont donc explicitement adaptés aux saisons et à la disponibilité des légumes, pas aux préférences des clients, aux prix ni aux plannings de l’équipe.",
+      "design": "Axe précis : l’élément de référence auquel les menus doivent être adaptés. Les quatre options donnent des cibles d’adaptation toutes plausibles en restauration (saisons, goûts des clients, prix, organisation de l’équipe). Sans le document, chacune semble réaliste et répond directement au verbe « adapter/proposer d’adapter les menus ». Le document permet de trancher car il rattache la proposition finale aux saisons et aux périodes de pousse des légumes, et non aux autres paramètres possibles.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’évocation de la crainte de « promettre les mêmes plats toute l’année » peut faire penser à un souci de lassitude des clients et à la volonté d’ajuster les menus aux goûts exprimés semaine après semaine. En réalité, cette remarque est immédiatement reliée aux « périodes où certaines variétés ne poussent pas » et aux « récoltes [qui] sont irrégulières » : l’adaptation vise les saisons et la disponibilité des légumes, pas les préférences déclarées des clients.",
+          "operation": "proposal_attribution",
+          "anchors": [
+            "je ne veux pas promettre les mêmes plats toute l'année",
+            "périodes où certaines variétés ne poussent pas"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut associer « Son offre est intéressante » à une logique de prix et supposer que si l’on change les menus, c’est surtout pour profiter de variations tarifaires avantageuses. Cependant, la suite précise le véritable motif : « il faut tenir compte des périodes où certaines variétés ne poussent pas » et « prévoir des substitutions ». Le critère d’ajustement est la disponibilité saisonnière des légumes, pas l’évolution de leurs prix.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "Son offre est intéressante",
+            "il faut tenir compte des périodes où certaines variétés ne poussent pas"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La phrase « Je ne veux pas promettre les mêmes plats toute l'année » pourrait être interprétée à tort comme liée aux contraintes d’organisation interne (congés, roulements de l’équipe) qui empêcheraient de reproduire toujours les mêmes recettes. Mais le dialogue relie clairement cette réserve aux « périodes où certaines variétés ne poussent pas » et à la nécessité de « menus qui changent selon les saisons » : la condition qui fait varier les menus est l’irrégularité des récoltes, pas les disponibilités de l’équipe.",
+          "operation": "condition_transfer",
+          "anchors": [
+            "Je ne veux pas promettre les mêmes plats toute l'année",
+            "menus qui changent selon les saisons"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4290,
+      "completion_tokens": 1214,
+      "total_tokens": 5504,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 497,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0175025,
+    "inputHash": "edee006c0b6edaeba67e57e13bd0e251d3cc48703617a8787d842affce96d826",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:583ea06f863af6598424143b:author:2:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans cet échange, à quoi le dernier interlocuteur propose-t-il d’adapter les menus ?",
+      "choices": [
+        "Aux saisons et aux périodes de récolte des légumes.",
+        "Aux préférences exprimées par les clients chaque semaine.",
+        "Aux variations de prix proposées par le producteur voisin.",
+        "Aux disponibilités de l’équipe de cuisine pendant l’année."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Elhxn7bMuFBKQlN61ir0QUMOdk2oM",
+      "result": {
+        "question": "Sur quoi le dernier interlocuteur propose-t-il de baser l’adaptation des menus ?",
+        "choices": [
+          "Sur les produits de saison et les périodes de récolte des légumes.",
+          "Sur les souhaits recueillis auprès des clients chaque semaine.",
+          "Sur les fluctuations de prix annoncées par le producteur voisin.",
+          "Sur les contraintes de disponibilité de l’équipe de cuisine au fil de l’année."
+        ],
+        "notes": "Question légèrement reformulée pour rester neutre et les quatre propositions ont été homogénéisées comme quatre critères possibles d’adaptation des menus, toutes plausibles et de même niveau de professionnalisme."
+      },
+      "usage": {
+        "prompt_tokens": 655,
+        "completion_tokens": 359,
+        "total_tokens": 1014,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 221,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00440875,
+      "inputHash": "b04d62c73affb513aa1c26338fb5f8509c9d104baa7f51ca50cbc289d7c734ed",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:583ea06f863af6598424143b:blind-edit:3"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-ElhxtzIwS3XD9TLR1zi5SYISTevED",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion entre le chef et le propriétaire d’un restaurant, le dernier intervenant conclut : « Pour adapter nos menus, on devrait surtout se baser sur les produits de saison et les périodes de récolte des légumes, comme ça on garantit la fraîcheur et on maîtrise les coûts. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une petite auberge qui travaille presque exclusivement avec un maraîcher voisin, le gérant explique : « Vu que notre producteur voisin nous annonce régulièrement ses fluctuations de prix, on pourrait adapter nos menus en fonction de ces variations, pour garder des tarifs stables pour les clients. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion de suivi de la satisfaction client, le responsable de salle dit : « On pourrait adapter nos menus chaque semaine en se basant sur les souhaits qu’on recueille auprès des clients, par exemple via les fiches de commentaires et les retours en fin de service. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un petit restaurant avec une équipe réduite, le propriétaire précise : « Pour adapter nos menus au fil de l’année, il faudrait les baser sur les contraintes de disponibilité de l’équipe de cuisine, en proposant des plats plus simples pendant les périodes où on est en sous-effectif. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Chaque option pourrait naturellement répondre à la question dans un contexte ordinaire, sans indication explicite dans l’énoncé permettant de privilégier l’une d’elles ; en l’absence de source audio, le choix de 0 reste très incertain et essentiellement arbitraire."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 581,
+          "total_tokens": 1209,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 196,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006595,
+        "inputHash": "aea4a2db10f8ff1d90c6ffc7cd9f8fa61298d64fdf321f3a8db146037029977c",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:583ea06f863af6598424143b:screen:3:edited:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Elhy10oBNI1g5IjQyEVhLHZifcQ51",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "En réunion avec le chef et le responsable de salle, le directeur d’un restaurant explique qu’il faut adapter les menus selon les périodes où l’équipe de cuisine est complète ou réduite (saison touristique, congés, absences), afin de proposer des cartes plus simples quand le personnel est moins disponible. Le dernier interlocuteur conclut en disant qu’ils baseront l’adaptation des menus sur ces contraintes de disponibilité au fil de l’année."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une discussion entre un restaurateur et un agriculteur voisin qui lui fournit des produits, ils évoquent la forte variabilité des prix annoncés pour les prochains mois. En réunion d’équipe, le restaurateur rapporte ces informations et propose que l’adaptation des menus se fasse en fonction des fluctuations de prix annoncées par ce producteur afin de maintenir les marges."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un établissement scolaire ou un restaurant locavore, l’équipe de cuisine discute avec la direction. Ils souhaitent mettre en avant une cuisine plus durable. Le dernier interlocuteur propose clairement d’adapter les menus en fonction des produits de saison et des périodes de récolte des légumes, pour garantir fraîcheur, qualité et cohérence avec une démarche écoresponsable."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réunion entre le responsable de salle et le chef, ils analysent les fiches de satisfaction remplies par les clients chaque semaine. Le dernier intervenant suggère d’ajuster régulièrement les menus en se basant sur les souhaits les plus fréquemment exprimés par la clientèle, relevés dans ces retours hebdomadaires."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Formulation plus développée et nuancée (« produits de saison » + « périodes de récolte des légumes »), directement liée à un critère très courant pour l’adaptation de menus, ce qui en fait une réponse particulièrement complète et naturelle pour ce type de question."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.2,
+            0.4,
+            0.15
+          ],
+          "guess": 2,
+          "reason": "Toutes les options ont un contexte plausible, mais la réponse sur les produits de saison et les périodes de récolte est la plus complète et typique d’un discours professionnel sur l’adaptation des menus, d’où une probabilité légèrement plus élevée malgré une incertitude réelle liée à l’absence d’enregistrement."
+        },
+        "usage": {
+          "prompt_tokens": 628,
+          "completion_tokens": 652,
+          "total_tokens": 1280,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 118,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007305,
+        "inputHash": "5b64d093b00ad78a72824e69e729025627f70041d42a05cf108418563fe647ee",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:583ea06f863af6598424143b:screen:3:edited:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-ElhyBUf7AItx1Re41qQOuCGZbpZfd",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le dernier interlocuteur propose d’adapter les menus en fonction des saisons, donc des produits disponibles selon les périodes de récolte.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Nous pouvons établir des menus qui changent selon les saisons",
+            "si les récoltes sont irrégulières."
+          ],
+          "reason": "Le dernier interlocuteur explique qu’ils peuvent faire \"des menus qui changent selon les saisons\" en lien avec le fait que \"les récoltes sont irrégulières\". Il propose donc de baser l’adaptation des menus sur la saisonnalité des produits et les périodes de récolte des légumes, ce qui correspond exactement à cette option.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Je ne veux pas promettre les mêmes plats toute l'année",
+            "Je ne veux pas promettre les mêmes plats toute l'année si les récoltes sont irrégulières."
+          ],
+          "reason": "On pourrait mal comprendre la phrase sur les promesses faites aux clients (\"Je ne veux pas promettre les mêmes plats toute l'année\") comme une volonté de s’ajuster aux souhaits des clients, éventuellement recueillis régulièrement. Mais le motif évoqué est clairement la disponibilité des produits (\"si les récoltes sont irrégulières\"), pas les souhaits exprimés par les clients chaque semaine. Il n’est jamais question de sondages hebdomadaires ou de demandes spécifiques des clients.",
+          "misunderstanding": "changement_de_focalisation_client_vs_produit"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Nous pourrions acheter tous nos légumes au producteur voisin. Son offre est intéressante.",
+            "Nous pouvons établir des menus qui changent selon les saisons"
+          ],
+          "reason": "L’expression \"Son offre est intéressante\" peut faire penser à certains auditeurs à une question de prix ou de promotions venant du producteur voisin. Ils pourraient alors imaginer que les menus seraient adaptés selon les fluctuations de ces prix. Cependant, la suite précise un autre critère : \"des menus qui changent selon les saisons\" en lien avec la disponibilité des variétés et des récoltes, et non avec des annonces de prix. Aucune fluctuation de prix n’est mentionnée comme base de l’adaptation des menus.",
+          "misunderstanding": "assimilation_offre=prix"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "il faut tenir compte des périodes où certaines variétés ne poussent pas.",
+            "Nous pouvons établir des menus qui changent selon les saisons"
+          ],
+          "reason": "Un auditeur distrait pourrait assimiler les \"périodes\" dont on parle à des périodes de travail du personnel de cuisine et croire que l’on adapte les menus à la disponibilité de l’équipe. En réalité, ces \"périodes\" concernent clairement la pousse des légumes (\"périodes où certaines variétés ne poussent pas\") et mènent à la solution de menus saisonniers. Il n’est fait mention nulle part d’horaires, de congés ou de contraintes de l’équipe de cuisine.",
+          "misunderstanding": "confusion_de_référent_périodes"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 748,
+      "completion_tokens": 1417,
+      "total_tokens": 2165,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 716,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.015105,
+    "inputHash": "fd33c290c386bf128f7baf25cacfa79fb5540859923b930b37a8f2969607f4a9",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:5:19:583ea06f863af6598424143b:ground:3:edited"
+  },
+  "feedback": null
+}

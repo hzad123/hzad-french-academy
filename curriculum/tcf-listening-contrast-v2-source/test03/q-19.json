@@ -1,0 +1,440 @@
+{
+  "question": {
+    "number": 19,
+    "kind": "announcement",
+    "question": "Selon le document, quelle activité est prévue dans la salle bleue ?",
+    "options": [
+      "L’atelier de mobilité pour les participants.",
+      "Les conseils et échanges sur l’alimentation.",
+      "La séance de marche accompagnée.",
+      "Les démonstrations organisées pour le public."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : Le document indique clairement que ce sont les conseils sur l’alimentation qui se dérouleront dans la salle bleue ; c’est exactement ce que reprend cette option. A : On parle bien d’une séance de mobilité, mais elle est prévue « sous le préau » en cas de pluie, et non dans la salle bleue. Quelqu’un peut confondre car c’est une autre activité intérieure de remplacement, mais le texte précise son lieu, différent de la salle bleue. C : La marche accompagnée est explicitement située « dans le parc voisin », pas dans la salle bleue. On peut se tromper en retenant seulement qu’il y a une activité physique prévue ce jour-là sans faire attention au lieu indiqué. D : Les démonstrations sont annoncées « à l'intérieur du centre » sans précision de salle, tandis que la salle bleue est associée uniquement aux conseils sur l’alimentation. Une confusion est possible si l’on suppose à tort que la salle bleue est l’endroit principal de toutes les activités en intérieur.",
+    "transcript": "Question 19.\nLa journée de prévention de samedi proposera des démonstrations à l'intérieur du centre et une courte marche accompagnée dans le parc voisin. Les conseils sur l'alimentation auront lieu dans la salle bleue. En cas de forte pluie, seule la marche sera remplacée par une séance de mobilité sous le préau.\nSelon le document, quelle activité est prévue dans la salle bleue ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 19."
+      },
+      {
+        "voice": "female",
+        "text": "La journée de prévention de samedi proposera des démonstrations à l'intérieur du centre et une courte marche accompagnée dans le parc voisin. Les conseils sur l'alimentation auront lieu dans la salle bleue. En cas de forte pluie, seule la marche sera remplacée par une séance de mobilité sous le préau."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quelle activité est prévue dans la salle bleue ?"
+      }
+    ],
+    "audio": "q-19.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 41
+  },
+  "sourceHash": "e940664b482f5e3b10ec0967126b22541a7ce44a0596e596e9ca0869cf1d9f06",
+  "contentHash": "3aa6d672c625125a77cdfa663b963238163abde31f4c7d20122e2a4f51d830f2",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em17JzAJt8n7Y0uJLWkqWXncIzX3b",
+    "result": {
+      "question": "Selon le document, quelle activité est prévue dans la salle bleue ?",
+      "choices": [
+        "Les conseils sur l’alimentation.",
+        "Les démonstrations proposées au centre.",
+        "La marche accompagnée dans le parc.",
+        "La séance de mobilité sous le préau."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que « les conseils sur l’alimentation auront lieu dans la salle bleue ». Les démonstrations sont indiquées « à l’intérieur du centre », la marche se déroule « dans le parc voisin » et, en cas de pluie, seule la marche est remplacée par « une séance de mobilité sous le préau », pas dans la salle bleue.",
+      "design": "On teste l’attribution d’un lieu précis (la salle bleue) à l’une des activités du programme. Les quatre propositions sont des activités mentionnées ou suggérées par le document, toutes crédibles comme pouvant se tenir dans une salle nommée ; seule l’écoute permet de savoir laquelle est effectivement annoncée dans la salle bleue.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette réponse confond les différentes activités en intérieur. Le document distingue les démonstrations « à l'intérieur du centre » des conseils sur l’alimentation « dans la salle bleue ». Attribuer la salle bleue aux démonstrations revient à échanger les lieux entre deux activités toutes deux plausiblement en salle.",
+          "operation": "role_swap",
+          "anchors": [
+            "des démonstrations à l'intérieur du centre",
+            "Les conseils sur l'alimentation auront lieu dans la salle bleue"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "La marche, organisée dehors, pourrait être déplacée en salle en cas de pluie, ce qui rend l’erreur tentante. Mais le texte situe clairement la marche « dans le parc voisin » et réserve la mention de « la salle bleue » uniquement aux conseils sur l’alimentation.",
+          "operation": "role_swap",
+          "anchors": [
+            "une courte marche accompagnée dans le parc voisin",
+            "Les conseils sur l'alimentation auront lieu dans la salle bleue"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La séance de mobilité apparaît bien comme une activité en cas de pluie, donc facilement assimilable à une activité de salle. Pourtant, le document précise qu’elle a lieu « sous le préau », alors que « la salle bleue » n’est associée qu’aux conseils sur l’alimentation.",
+          "operation": "role_swap",
+          "anchors": [
+            "une séance de mobilité sous le préau",
+            "Les conseils sur l'alimentation auront lieu dans la salle bleue"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4226,
+      "completion_tokens": 1964,
+      "total_tokens": 6190,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1442,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0249225,
+    "inputHash": "5deac33afcce39e711c46b56a37fdb1ffa1d6a3ce3db9f1d2b246b412a57d47b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:18:6103f288fb85e78951f8f219:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quelle activité est prévue dans la salle bleue ?",
+      "choices": [
+        "La séance de mobilité sous le préau.",
+        "Les conseils sur l’alimentation.",
+        "La marche accompagnée dans le parc.",
+        "Les démonstrations proposées au centre."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em17hSD255iKaYVrPLiTEYIlSdp43",
+      "result": {
+        "question": "Selon le document, quelle activité est prévue dans la salle bleue ?",
+        "choices": [
+          "L’atelier de mobilité pour les participants.",
+          "Les conseils et échanges sur l’alimentation.",
+          "La séance de marche accompagnée.",
+          "Les démonstrations organisées pour le public."
+        ],
+        "notes": "Suppression des indications de lieu spécifiques (« sous le préau », « dans le parc », « au centre ») qui rendaient certaines options incompatibles avec une salle. Reformulation des quatre propositions en activités de type équivalent, toutes présentées comme des séances ou ateliers plausibles en salle, sans hiérarchie de pertinence."
+      },
+      "usage": {
+        "prompt_tokens": 637,
+        "completion_tokens": 490,
+        "total_tokens": 1127,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 349,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00569625,
+      "inputHash": "9c5bee2a8815401fb5ed78aceeec7c85d334c184201d486cac585031ab0f29e9",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:18:6103f288fb85e78951f8f219:blind-edit:before:2"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "7a335392fa8819e99ca593a06efc7f516cf364be8d66082dbe50885e27d14f64",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options pourraient répondre à la question, mais l’option 2 est la plus longue, la plus spécifique (mention d’une « salle bleue » et d’un format alternatif détaillé) et correspond typiquement à la précision que l’on trouve dans un enregistrement informatif, ce qui lui donne un léger avantage malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation plus développée et précise (« reportée dans la salle bleue », « sous forme d’atelier marche ») qui ressemble à un détail concret tiré d’une annonce réelle, alors que les autres restent plus génériques ou tranchées (maintien, simple remplacement, annulation)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une école ou un centre de loisirs organise une marche accompagnée dans la cour ou le quartier. L’animateur explique aux parents dans un message vocal ou une annonce : en cas de pluie ou de vent fort, la marche sera remplacée par une séance de mobilité sous le préau, avec des exercices de déplacement et d’équilibre adaptés."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un club de marche nordique ou une association sportive prévoit une sortie dans un parc. Le responsable annonce aux participants : si la météo est défavorable mais pas dangereuse, la marche sera maintenue dans le parc, mais sur un parcours raccourci, afin de limiter le temps d’exposition au mauvais temps."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une maison de quartier ou une structure pour seniors propose une marche accompagnée hebdomadaire. Dans un message vocal d’information, l’organisateur précise que, en cas de météo défavorable, l’activité est reportée dans la salle bleue, sous forme d’atelier marche, avec explications techniques, exercices en intérieur et parcours simulés."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un centre de vacances ou une association de quartier diffuse un message d’organisation de la journée : la marche accompagnée est prévue le matin, mais l’animateur précise qu’en cas de météo défavorable, l’activité sera annulée et simplement retirée du programme, sans remplacement particulier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "405d95089ecc6adbb65f424083cc40c1b7e0208c4749eaf8d6708282c14d4438",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des politiques réalistes en cas de pluie ; aucune n’est logiquement exclue. Toutefois, le choix 1 est le plus long et le plus précisément formulé, ce qui correspond souvent à la réponse clé dans un QCM de compréhension orale décrivant des consignes d’organisation. Cet avantage reste modeste, d’où une probabilité seulement légèrement supérieure et une incertitude réelle.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Formulation plus développée et précise (« déplacée », « salle bleue », « transformée en exercices en intérieur ») donnant une impression de consigne officielle et détaillée par rapport aux autres réponses plus simples ou moins structurées."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un centre social propose chaque semaine une séance de marche accompagnée. L’animateur rappelle par message aux inscrits : « En cas de forte pluie, que devient la séance de marche accompagnée ? Elle est annulée sans activité de remplacement prévue. » Les participants savent alors qu’ils restent chez eux s’il pleut fort."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une association sportive affiche un règlement pour ses activités seniors : « En cas de forte pluie, que devient la séance de marche accompagnée ? Elle est déplacée dans la salle bleue et transformée en exercices en intérieur. » Les membres comprennent qu’ils se rendent quand même au centre, mais pour une activité adaptée en salle."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un centre de remise en forme explique le fonctionnement de ses sorties marche : « En cas de forte pluie, que devient la séance de marche accompagnée ? Elle est maintenue mais sur un parcours plus court autour du centre. » Les participants sont ainsi informés que la marche n’est pas annulée, seulement écourtée et sécurisée."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un foyer pour personnes âgées détaille l’organisation de ses activités : « En cas de forte pluie, que devient la séance de marche accompagnée ? Elle est remplacée par une séance de mobilité sous le préau. » Les résidents savent qu’ils auront une activité de substitution abritée, axée sur des exercices de mobilité."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em17pAdjdCXjuG6kgiFihqoY4aNOg",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un forum de santé ou une journée d’information, plusieurs salles de couleur sont indiquées sur un plan. L’animateur explique : « Dans la salle bleue, vous trouverez l’atelier de mobilité pour les participants, avec des exercices pour améliorer l’équilibre et la souplesse. » Cette réponse indique clairement l’activité prévue dans la salle bleue."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un salon ou d’un événement grand public (sécurité, santé, innovations), l’organisateur décrit la répartition des activités : « Dans la salle verte, il y aura les conférences, et dans la salle bleue, les démonstrations organisées pour le public. » Cette option répond directement à la question sur ce qui est prévu dans la salle bleue."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Pendant une journée de prévention santé pour seniors, un intervenant détaille les salles : « Dans la salle jaune, ce sera le dépistage, et dans la salle bleue, la séance de marche accompagnée, pour vous aider à reprendre une activité physique en douceur. » Cela correspond explicitement à l’activité de la salle bleue."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un programme d’ateliers bien-être, l’animatrice présente un planning projeté : « La salle rouge est dédiée au sommeil, la salle bleue aux conseils et échanges sur l’alimentation, où une diététicienne répondra à vos questions. » La phrase décrit naturellement l’activité prévue dans cette salle."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Les quatre activités proposées peuvent aisément être associées à une « salle bleue » dans un contexte d’événement (forum, journée santé, salon), sans contradiction et sans indice explicite dans l’énoncé. Aucune option ne se distingue clairement par sa formulation (longueur, précision, style, registre ou portée) au point de paraître privilégiée par la rédaction de la question. Faute de tout indice objectif dans le libellé, le choix de la réponse reste hautement incertain et la sélection de l’option 1 n’est qu’un pari sans fondement textuel solide."
+        },
+        "usage": {
+          "prompt_tokens": 604,
+          "completion_tokens": 652,
+          "total_tokens": 1256,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 149,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.007275,
+        "inputHash": "e308120117fa6fb4f773def8018d1c625041117e475bcb1738a7ad21432e387e",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:18:6103f288fb85e78951f8f219:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em181vXyVDkGNkYoh08ydZAe9SDMB",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une réunion d’information sur la santé organisée dans un centre culturel, l’animatrice présente le programme : elle explique que dans la salle rouge il y aura une conférence, dans la salle verte un espace de repos, et ajoute : « Dans la salle bleue est prévu l’atelier de mobilité pour les participants. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une journée bien‑être dans une maison de quartier, l’organisateur décrit les lieux au micro : « La séance de relaxation aura lieu dans la salle jaune, la séance de marche accompagnée est prévue dans la salle bleue, et les stands d’information sont dans le hall. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans le cadre d’un salon de la santé, l’animatrice décrit la répartition des animations : « Les conférences se tiennent dans l’auditorium, les ateliers pratiques dans la salle verte, et toutes les démonstrations organisées pour le public sont prévues dans la salle bleue. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Au cours d’un forum sur la nutrition et l’activité physique, le présentateur détaille le plan des salles : « Dans la salle orange, vous avez le dépistage, dans la salle bleue les conseils et échanges sur l’alimentation, et dans la salle verte les ateliers d’activité physique. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Tous les choix décrivent naturellement une activité localisable dans une salle spécifique et répondent directement à la question sans défaut grammatical ni logique. Aucun indice textuel clair ne favorise une option (longueur, précision, registre, formulation) au‑delà des autres, et le document audio manquant pourrait raisonnablement mentionner n’importe laquelle de ces activités pour la salle bleue. En l’absence de tout autre signal, la probabilité est répartie équitablement et le choix 0 n’est qu’un pari contraint, non fondé sur un avantage objectif."
+        },
+        "usage": {
+          "prompt_tokens": 604,
+          "completion_tokens": 545,
+          "total_tokens": 1149,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 86,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.006205,
+        "inputHash": "fc0e0d7bfd537dfa4bf38c79bd636da979284221d209229040346161b47960b9",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:18:6103f288fb85e78951f8f219:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em189Hb9yoyZO89c0RsUwn7EBOG3e",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’activité prévue dans la salle bleue est celle consacrée aux conseils sur l’alimentation, comme indiqué explicitement dans le document.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En cas de forte pluie, seule la marche sera remplacée par une séance de mobilité sous le préau."
+          ],
+          "reason": "On parle bien d’une séance de mobilité, mais elle est prévue « sous le préau » en cas de pluie, et non dans la salle bleue. Quelqu’un peut confondre car c’est une autre activité intérieure de remplacement, mais le texte précise son lieu, différent de la salle bleue.",
+          "misunderstanding": "location_confusion"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Les conseils sur l'alimentation auront lieu dans la salle bleue."
+          ],
+          "reason": "Le document indique clairement que ce sont les conseils sur l’alimentation qui se dérouleront dans la salle bleue ; c’est exactement ce que reprend cette option.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "une courte marche accompagnée dans le parc voisin."
+          ],
+          "reason": "La marche accompagnée est explicitement située « dans le parc voisin », pas dans la salle bleue. On peut se tromper en retenant seulement qu’il y a une activité physique prévue ce jour-là sans faire attention au lieu indiqué.",
+          "misunderstanding": "location_confusion"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "La journée de prévention de samedi proposera des démonstrations à l'intérieur du centre",
+            "Les conseils sur l'alimentation auront lieu dans la salle bleue."
+          ],
+          "reason": "Les démonstrations sont annoncées « à l'intérieur du centre » sans précision de salle, tandis que la salle bleue est associée uniquement aux conseils sur l’alimentation. Une confusion est possible si l’on suppose à tort que la salle bleue est l’endroit principal de toutes les activités en intérieur.",
+          "misunderstanding": "scope_overgeneralization"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 706,
+      "completion_tokens": 860,
+      "total_tokens": 1566,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 389,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0094825,
+    "inputHash": "1edd6a1150a42314e7dfb03263d32dfedd372dd72a39e856f7821c6d8fe9fe3d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:18:6103f288fb85e78951f8f219:ground:2"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

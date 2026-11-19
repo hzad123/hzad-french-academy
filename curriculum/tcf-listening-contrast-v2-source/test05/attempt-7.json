@@ -1,0 +1,190 @@
+{
+  "question": {
+    "number": 7,
+    "kind": "response",
+    "question": "Quelle réponse convient ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : À la question « Avez-vous une copie du règlement de l'immeuble ? », répondre « Oui, je peux vous l’imprimer » implique qu’on a le règlement sous une forme permettant d’en tirer une copie papier. Cela confirme la possession (au moins numérique) de la copie demandée et propose même de la fournir, ce qui correspond exactement à l’intention de la question. A : La question porte sur la possession d’une copie du règlement (« Avez-vous une copie… ? »). Répondre « Oui, je l’ai fait modifier hier » parle d’une action sur le contenu ou la forme du règlement (on l’a fait modifier), pas du fait d’avoir ou non une copie disponible. On ne sait pas s’il en a une copie à donner ou à montrer. Quelqu’un qui comprend seulement « règlement » et entend « modifier » peut croire que parler du règlement suffit à répondre, mais il manque la relation directe avec « une copie ». B : La question demande s’il possède une copie du règlement. Dire « Oui, je dois le rediscuter en réunion » évoque un futur échange au sujet du règlement, pas la disponibilité d’une copie. On répond à ce qu’on va faire avec le règlement (le rediscuter), pas à la demande concrète d’un document. Un auditeur qui saisit seulement l’idée de « règlement » et de « réunion » peut penser que le lien avec le règlement rend la réponse pertinente, mais cela ne confirme pas qu’il a une copie. D : « Avez-vous une copie… ? » demande si l’interlocuteur possède un exemplaire du règlement. « Oui, il est affiché dans l’entrée » indique seulement que le règlement est visible dans l’entrée, pas que la personne a une copie à elle. D’ailleurs, si elle n’en a pas, elle dirait plutôt « Non, mais il est affiché… ». Un candidat peut trouver cette réponse plausible en se disant que l’affichage est une forme d’« accès » au règlement, mais cela ne répond pas précisément à la demande d’une copie détenue par la personne interrogée.",
+    "transcript": "Question 7.\nAvez-vous une copie du règlement de l'immeuble ?\nA. Oui, je l’ai fait modifier hier. B. Oui, je dois le rediscuter en réunion. C. Oui, je peux vous l’imprimer. D. Oui, il est affiché dans l’entrée.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 7."
+      },
+      {
+        "voice": "female",
+        "text": "Avez-vous une copie du règlement de l'immeuble ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. Oui, je l’ai fait modifier hier. B. Oui, je dois le rediscuter en réunion. C. Oui, je peux vous l’imprimer. D. Oui, il est affiché dans l’entrée."
+      }
+    ],
+    "audio": "q-07.mp3",
+    "audioSeconds": 19.513,
+    "slotSeconds": 33
+  },
+  "sourceHash": "898afb8549d3e5b8505fa5530ea394feb6cb7b2be94e7120bc25c27d783fb370",
+  "contentHash": "49024150e606dde1c7bc31dfa21d3875088f1bcbdfe26a5360e8c1f922db95e9",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzohyXhm7IVAOl6LGAa4uf25awS2",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Lors d’une discussion de travail, un collègue demande : « Est-ce que tu dois encore en parler avec l’équipe ? » ou « Est-ce que tu dois revenir sur ce point en réunion ? ». On répond alors : « Oui, je dois le rediscuter en réunion. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un visiteur ou un employé demande : « Est-ce que le planning (ou le règlement, ou l’avis) est quelque part ? » ou « Est-ce qu’il est affiché ? ». On répond : « Oui, il est affiché dans l’entrée. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Quelqu’un demande à un employé : « Est-ce que vous pouvez me donner ce document ? » ou « Est-ce que vous pouvez me faire une copie de ce formulaire ? ». L’employé répond : « Oui, je peux vous l’imprimer. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un supérieur ou un collègue demande : « Est-ce que tu as fait modifier le contrat / le document ? » ou « Est-ce que le texte a été corrigé ? ». On répond : « Oui, je l’ai fait modifier hier. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre réponses sont grammaticales, naturelles et peuvent chacune convenir à des questions orales très ordinaires. Aucune ne présente d’avantage évident de formulation ou de portée par rapport à l’énoncé très vague « Quelle réponse convient ? », qui ne donne aucun indice de contenu. Faute de signal clair dans le libellé, la clé reste très incertaine et le choix du numéro 0 n’est qu’un choix forcé parmi des options équivalentes."
+        },
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 489,
+          "total_tokens": 1087,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 79,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0056375,
+        "inputHash": "9cb948b1a63cc50eb82c35d432917f8ca96522e72c2dc9277536b2be83417850",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:6:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Ekzon1qSRx1iVu53L93zzUltAiVlg",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui convient clairement à la question « Avez-vous une copie du règlement de l'immeuble ? » est « Oui, je peux vous l’imprimer. » car elle répond à la possession d’une copie et propose de la fournir.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je l’ai fait modifier hier."
+          ],
+          "reason": "La question porte sur la possession d’une copie du règlement (« Avez-vous une copie… ? »). Répondre « Oui, je l’ai fait modifier hier » parle d’une action sur le contenu ou la forme du règlement (on l’a fait modifier), pas du fait d’avoir ou non une copie disponible. On ne sait pas s’il en a une copie à donner ou à montrer. Quelqu’un qui comprend seulement « règlement » et entend « modifier » peut croire que parler du règlement suffit à répondre, mais il manque la relation directe avec « une copie ».",
+          "misunderstanding": "topic_confusion"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je dois le rediscuter en réunion."
+          ],
+          "reason": "La question demande s’il possède une copie du règlement. Dire « Oui, je dois le rediscuter en réunion » évoque un futur échange au sujet du règlement, pas la disponibilité d’une copie. On répond à ce qu’on va faire avec le règlement (le rediscuter), pas à la demande concrète d’un document. Un auditeur qui saisit seulement l’idée de « règlement » et de « réunion » peut penser que le lien avec le règlement rend la réponse pertinente, mais cela ne confirme pas qu’il a une copie.",
+          "misunderstanding": "topic_confusion"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, je peux vous l’imprimer."
+          ],
+          "reason": "À la question « Avez-vous une copie du règlement de l'immeuble ? », répondre « Oui, je peux vous l’imprimer » implique qu’on a le règlement sous une forme permettant d’en tirer une copie papier. Cela confirme la possession (au moins numérique) de la copie demandée et propose même de la fournir, ce qui correspond exactement à l’intention de la question.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Avez-vous une copie du règlement de l'immeuble ?",
+            "Oui, il est affiché dans l’entrée."
+          ],
+          "reason": "« Avez-vous une copie… ? » demande si l’interlocuteur possède un exemplaire du règlement. « Oui, il est affiché dans l’entrée » indique seulement que le règlement est visible dans l’entrée, pas que la personne a une copie à elle. D’ailleurs, si elle n’en a pas, elle dirait plutôt « Non, mais il est affiché… ». Un candidat peut trouver cette réponse plausible en se disant que l’affichage est une forme d’« accès » au règlement, mais cela ne répond pas précisément à la demande d’une copie détenue par la personne interrogée.",
+          "misunderstanding": "pragmatic_inference"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 1514,
+      "total_tokens": 2217,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 780,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01601875,
+    "inputHash": "6b6c333d9fc09d5fe16773b6088a17563777e7331a648c3d2226ffd5a9cd7a9b",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:6:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
+}

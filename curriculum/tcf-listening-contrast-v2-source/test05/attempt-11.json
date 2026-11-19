@@ -1,0 +1,553 @@
+{
+  "question": {
+    "number": 11,
+    "kind": "announcement",
+    "question": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
+    "options": [
+      "Jusqu’au jeudi à midi.",
+      "Jusqu’au mardi à midi.",
+      "Jusqu’au mercredi matin.",
+      "Jusqu’au lundi en fin de journée."
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : La consigne indique clairement que les résidents doivent envoyer la description du problème « avant mardi midi ». Cela correspond directement à la formulation « Jusqu’au mardi à midi. » qui fixe l’échéance à mardi midi. A : Le message précise que la description du problème doit être transmise « avant mardi midi », pas jusqu’au jeudi à midi. Un auditeur distrait pourrait mal retenir le jour de la semaine et confondre mardi avec jeudi, mais il n’est jamais question de jeudi dans l’annonce. C : Le texte parle précisément de « mardi midi » comme limite, et non du « mercredi matin ». Quelqu’un qui a compris qu’il s’agissait du milieu de la semaine prochaine pourrait décaler d’un jour et penser à mercredi matin, mais l’annonce ne mentionne jamais le mercredi. D : On pourrait croire que, puisque les réparations seront regroupées « la semaine prochaine », on a jusqu’à « lundi en fin de journée » pour signaler les problèmes. Mais l’annonce précise clairement une échéance plus précoce : « avant mardi midi », et ne parle pas de lundi en fin de journée.",
+    "transcript": "Question 11.\nLa société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone.\nJusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 11."
+      },
+      {
+        "voice": "male",
+        "text": "La société de gestion rappelle aux résidents de l'immeuble des Tilleuls que les réparations non urgentes seront regroupées la semaine prochaine. Afin de planifier l'intervention, merci de transmettre la description du problème avant mardi midi. Les fuites importantes et les pannes dangereuses doivent toujours être signalées immédiatement par téléphone."
+      },
+      {
+        "voice": "female",
+        "text": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?"
+      }
+    ],
+    "audio": "q-11.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 41
+  },
+  "sourceHash": "6b04f02d218759677e32ec6128f3ea0963bf651ef92a7a80614cf88948a10c84",
+  "contentHash": "fa97cf3052515e2a82b325fcc4bbaf6ac10d0b19012e3c07cb6df98b33a58f53",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": {
+    "input": {
+      "question": "Avant quelle échéance les résidents doivent-ils décrire leurs problèmes non urgents ?",
+      "choices": [
+        "Avant jeudi à midi.",
+        "Avant mardi à midi.",
+        "Avant mercredi matin.",
+        "Avant lundi en fin de journée."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3LmVcewgoDHm0ztev7Hs713mvVH",
+      "result": {
+        "question": "Jusqu’à quand les résidents peuvent-ils signaler leurs problèmes non urgents ?",
+        "choices": [
+          "Jusqu’au jeudi à midi.",
+          "Jusqu’au mardi à midi.",
+          "Jusqu’au mercredi matin.",
+          "Jusqu’au lundi en fin de journée."
+        ],
+        "notes": "Question reformulée de façon plus neutre sur l’échéance; les quatre propositions restent des jours et moments précis, de même nature et niveau de détail, sans indice évident sur la bonne réponse."
+      },
+      "usage": {
+        "prompt_tokens": 629,
+        "completion_tokens": 427,
+        "total_tokens": 1056,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 310,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00505625,
+      "inputHash": "1e01ea263927266b34c0f0522836087483c6d63578457601bdea0249edd1090e",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:blind-edit:before:0"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "5341f6a469056e28c826b3c5656cb31ca2dfce29a245654ff2c66e2b8cef07f6",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent s’inscrire dans un contexte ordinaire, mais la fonction la plus générale et immédiatement liée à une « description du problème » dans un cadre de réclamations de résidents est l’évaluation de l’urgence, dont découlent ensuite les décisions d’organisation et administratives. Le libellé semble viser cette étape de tri des demandes, d’où une préférence modérée pour l’option 2 avec une incertitude restante importante.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "La formulation « à évaluer le niveau d’urgence des réparations demandées » correspond très directement à l’idée d’un usage principal et en amont des autres actions (informer le propriétaire, dossier d’assurance, organisation de la visite), et la description du problème est typiquement utilisée d’abord pour juger l’urgence dans les procédures de maintenance immobilière."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement destiné aux résidents d’un immeuble, le gestionnaire explique qu’en fonction de la description du problème (gravité, localisation, nature des dégâts), le syndic décidera ou non de prévenir le ou les propriétaires concernés pour qu’ils prennent les mesures nécessaires. La description sert alors à juger si l’information aux propriétaires est pertinente."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un gestionnaire d’immeuble présente une procédure : les résidents doivent remplir un formulaire décrivant précisément le problème (infiltrations d’eau, fissures, dégâts matériels) afin de constituer un dossier complet qui pourra, si besoin, servir de base à une future déclaration à l’assurance de l’immeuble en cas d’aggravation ou de sinistre reconnu."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un message vocal ou une vidéo d’information, le service de maintenance explique que plus la description du problème est précise (panne totale ou partielle, présence de risque de chute, fuite importante ou simple suintement, etc.), plus il peut évaluer le niveau d’urgence et décider si une intervention immédiate est nécessaire ou si l’on peut programmer la réparation plus tard."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un responsable technique explique à des résidents que la description fournie (type de panne, accès au logement, contraintes d’horaires) sert à organiser concrètement le passage de l’équipe de maintenance : choix du technicien, durée estimée de l’intervention et ordre de tournée."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "0c08e4975bca4eb923f60bf9992f00d42f9d16d460cedaeb2bfb2bd56eb97bda",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le libellé de l’option 0 correspond très bien à la consigne habituelle de réserver le téléphone aux urgences techniques, ce qui est cohérent avec un « message adressé aux résidents ». Les autres choix sont plus complexes ou procéduraux (réparations de la semaine suivante, demandes déposées après mardi midi, problèmes déjà décrits par écrit) et paraissent moins naturels comme instruction principale. Cela donne à l’option 0 un net avantage, bien que les autres restent plausibles en théorie.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation générale, prudente et typique d’un règlement d’immeuble (« fuites d’eau importantes » et « pannes présentant un risque ») correspondant à la distinction classique entre urgences (appel téléphonique) et demandes ordinaires (autre canal). Les autres options introduisent des contraintes de calendrier ou de procédure plus spécifiques et moins universelles pour un simple message aux résidents."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un immeuble résidentiel, un avis est affiché dans le hall : il explique aux résidents qu’ils doivent remplir un formulaire en ligne ou déposer un mot écrit pour les petites réparations, mais qu’en cas de fuite d’eau importante ou de panne présentant un danger (électricité, chauffage en plein hiver, etc.), ils doivent impérativement téléphoner directement au bureau de gestion."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "La régie d’un immeuble envoie un message précisant que les demandes de réparation non urgentes doivent normalement être déposées avant le mardi midi via un formulaire papier. Elle ajoute qu’exceptionnellement, si une demande non urgente est déposée après le mardi midi, il faut téléphoner au bureau pour qu’elle soit prise en compte dans le planning suivant."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une société de gestion informe les résidents que toutes les réparations sont planifiées par semaine. Le message précise que, pour toute réparation déjà prévue pour la semaine suivante, les résidents doivent téléphoner au bureau pour confirmer les rendez-vous, modifier l’horaire ou signaler une indisponibilité."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un syndic explique dans un courrier qu’en principe les problèmes doivent d’abord être signalés par écrit (formulaire, courriel ou boîte à lettres). Le message précise que, si un problème déjà décrit par écrit n’a toujours pas été pris en charge après un certain délai, les résidents sont alors priés de téléphoner au bureau pour relancer le dossier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "792eb7b48822ac481993ac8151e32e1c88b8623464007cac549a51ccd660ec94",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre options pourraient répondre à la question dans des contextes ordinaires, mais l’option 2 se distingue légèrement par son caractère général et typique des consignes de gestion d’urgence ou de pannes, sans condition temporelle ou situationnelle complexe, ce qui la rend un peu plus probable comme clé attendue.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation générale, claire et intemporelle (« problèmes techniques touchant l’eau, le gaz ou l’électricité ») correspondant typiquement à une consigne standard de gestion d’immeuble ; ne dépend pas d’une date ou d’une planification particulière, donc paraît plus universellement adapté à une question générique sur la procédure à suivre."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Annonce dans une résidence étudiante : l’intendant explique un nouveau système de demandes de réparation. Il précise qu’à partir de mardi midi, toutes les réparations non urgentes signalées ensuite doivent désormais être faites via la société de gestion, et qu’il faut donc l’appeler pour ce type de problème."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Réunion d’information pour des locataires avant des travaux planifiés : la responsable indique que pour toutes les réparations déjà programmées la semaine prochaine, les résidents doivent téléphoner à la société de gestion afin de convenir des créneaux de visite et de l’accès au logement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Message vocal ou annonce dans un immeuble expliquant les procédures en cas de panne : le gestionnaire dit que pour tout problème technique concernant l’eau, le gaz ou l’électricité dans le logement, les résidents doivent téléphoner directement à la société de gestion."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Courrier ou message aux résidents : la société explique qu’en raison de retards de traitement, les occupants dont les problèmes ont déjà été signalés mais n’ont toujours pas été pris en charge doivent téléphoner à la société de gestion pour faire le point sur leur dossier."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "9e24064e07ae3225fd7fb5b7bf56d14327726297c1f141cfc5de611d08dd0c59",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent s’imaginer dans un enregistrement d’information, mais l’option 3 se démarque par l’association claire entre le téléphone et la gestion d’urgences ou de risques, ce qui est une pratique très courante et cohérente avec la formulation « invités à téléphoner », d’où une probabilité nettement plus élevée malgré une incertitude résiduelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation insiste sur des situations manifestement urgentes (« fuites importantes », « pannes présentant un risque »), ce qui correspond très naturellement à l’idée d’« inviter à téléphoner » plutôt qu’utiliser des canaux écrits; les autres choix décrivent des usages plus administratifs ou non urgents, moins directement reliés au besoin d’un appel téléphonique explicite."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une résidence gérée par une société de gestion, la procédure standard impose aux résidents de signaler par téléphone uniquement les demandes d’intervention qui ont déjà été formulées par écrit avant le mardi midi, afin de pouvoir organiser la tournée hebdomadaire des techniciens. L’enregistrement précise : « Vous êtes invités à téléphoner à la société de gestion lorsque le problème a été décrit par écrit et transmis avant le mardi midi. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un message d’information laissé sur un répondeur, la société de gestion explique les différents canaux de contact : un site web pour les questions administratives, un email pour les réclamations, et le téléphone pour planifier les interventions techniques non urgentes de la semaine suivante. On entendrait par exemple : « Pour une intervention non urgente à programmer pour la semaine prochaine, vous êtes invités à téléphoner à la société de gestion. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Après des travaux programmés dans les appartements (remplacement de chaudières, changement de compteurs, etc.), la société de gestion précise dans un enregistrement que les résidents doivent la contacter par téléphone pour confirmer la bonne réalisation : « Une fois les travaux terminés, vous êtes invités à téléphoner à la société de gestion pour confirmer qu’ils ont bien été réalisés comme convenu. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un message automatique de la société de gestion d’une résidence explique la marche à suivre selon le degré d’urgence : formulaires en ligne pour les petites réparations, courrier pour les réclamations, et un numéro de téléphone dédié aux urgences dans le logement. Le message dit par exemple : « En cas de fuites importantes ou de pannes présentant un risque dans le logement, vous êtes invités à téléphoner immédiatement à la société de gestion. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "2b54faf2bae50114390a6352c299e043b3eab666357d000557e4f05bd47a46b3",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options sont plausibles dans un contexte ordinaire, mais l’idée d’un envoi préalable sert typiquement à faire un tri initial et à vérifier la pertinence de la demande; l’option 3 correspond directement à cette fonction de vérification du périmètre, tandis que les autres suggèrent des usages plus secondaires ou contingentés de la description.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation générale, directement reliée au contrôle de périmètre de responsabilité (« relever de la société de gestion ») qui correspond naturellement à l’idée d’un envoi préalable; les autres options ajoutent des finalités plus spécifiques ou secondaires (planification de la semaine suivante, mise à jour de dossier, estimation budgétaire à facturer) qui paraissent moins immédiatement liées à la raison principale évoquée par la question."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une résidence gérée par une société de maintenance, les résidents remplissent un formulaire décrivant leur problème (bruit, porte qui ferme mal, petit défaut) avant toute visite. Le service technique utilise ces descriptions préalables pour classer les interventions en urgentes ou non, et programmer les réparations mineures la semaine suivante lors d’une tournée planifiée dans l’immeuble."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un bailleur social demande à chaque locataire de décrire par écrit tout problème rencontré dans le logement avant d’appeler un technicien. Le service de gestion technique utilise ces descriptions pour enrichir et mettre à jour le dossier technique individuel de chaque logement, en y consignant l’historique des pannes et réparations."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une résidence de services, les interventions techniques sont facturées aux résidents. Avant chaque déplacement, on demande l’envoi préalable d’une description précise du problème afin que l’administration puisse estimer le temps et le matériel nécessaires et préparer un devis ou une estimation de budget à facturer au résident concerné."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une société de gestion immobilière explique aux résidents qu’ils doivent d’abord envoyer une description détaillée de tout problème rencontré (fuite, panne électrique, équipement cassé). Le service de gestion lit cette description pour vérifier si le problème fait partie des éléments couverts par la société de gestion ou s’il relève plutôt du locataire, d’un fournisseur externe ou d’une autre entreprise avant de déclencher une intervention."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "669a76be647ece1fb7616d904646a62bc53a091fa48ab5945ff23b436d63241e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs réponses restent plausibles sans connaître l’enregistrement, mais l’option 0 correspond bien à l’usage typique d’un numéro communiqué dans une annonce de résidence pour des problèmes d’urgence définis par leur gravité ou leur dangerosité, ce qui s’accorde légèrement mieux avec la formulation « types de problèmes » que les restrictions de calendrier des options 2 et 3. Incertitude néanmoins importante.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Le libellé de la question parle de « types de problèmes », ce qui s’aligne naturellement avec une distinction du genre urgences graves vs autres. L’option 3 repose surtout sur une contrainte temporelle (avant mardi midi) plutôt qu’un type de problème, et l’option 2 ajoute une condition de calendrier (« planifiées la semaine prochaine ») qui dépasse le simple critère de type. L’option 0 reste centrée sur une catégorie de problèmes (fuites importantes, pannes dangereuses) cohérente avec l’idée d’un numéro indiqué pour les urgences, fréquente dans les annonces de résidence."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une résidence, un message diffusé dans l’ascenseur explique qu’un numéro spécial est réservé pour les urgences techniques : « En cas de fuite d’eau importante ou de panne présentant un danger pour la sécurité, veuillez appeler le numéro suivant… ». Le gestionnaire précise donc que ce numéro ne doit être utilisé que pour les gros dégâts ou risques, pas pour les petits soucis."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion d’immeuble, le syndic fait une annonce enregistrée et l’envoie par haut-parleur dans les parties communes : « Pour toute réparation dans l’immeuble, qu’elle soit urgente ou non, merci d’utiliser le numéro suivant… ». Le message insiste sur le fait que toutes les demandes de maintenance passent par ce numéro unique."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un gestionnaire d’immeuble laisse un message avant le début d’un chantier de maintenance : « Pour les réparations non urgentes qui seront planifiées la semaine prochaine, merci d’appeler le numéro suivant afin que nous organisions l’intervention. Pour les urgences, continuez à appeler le gardien. » Ici, le numéro désigné sert spécifiquement aux problèmes non urgents prévus pour la semaine à venir."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Le syndic laisse une annonce au répondeur collectif en vue d’un passage d’expert : « Afin d’établir la liste des problèmes à traiter, merci d’utiliser le numéro suivant pour donner la description initiale de tout problème, et ce avant mardi midi. » Le numéro sert à recueillir un premier signalement, dans un délai précis, quel que soit le type de problème."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4d956c6339dedf30d8fe54c9c112161f0ba2c6ec1b3eb0aa700d5029424379e9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le délai fixe laisse penser à une fonction de planification des interventions plutôt qu’à une simple hiérarchisation d’urgences ou à un dispositif d’« alternative » à l’appel téléphonique ; l’option 0 colle bien à cette idée sans introduire de contraintes supplémentaires, mais les autres usages restent plausibles, d’où une incertitude notable.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Un délai précis (« avant mardi midi ») correspond très naturellement à un besoin de planifier l’intervention des techniciens pour la tournée suivante, formulation générale et directement liée à l’organisation du service, alors que l’option 3 ajoute la notion d’« alternative à un premier appel » non suggérée dans la question, et 1–2 se focalisent sur les seules urgences (fuites/pannes dangereuses) plutôt que sur l’ensemble des descriptions demandées."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Annonce d’un service de maintenance dans une résidence : on demande aux habitants d’envoyer avant mardi midi une courte description des problèmes (robinet qui goutte, volet qui coince, prise défectueuse) afin d’organiser la tournée des techniciens pour toutes les réparations non urgentes à partir de mercredi."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Message du syndic d’immeuble avant un épisode de grand froid : les occupants doivent signaler les problèmes de plomberie ou d’électricité avant mardi midi en décrivant la gravité, afin que le gestionnaire puisse classer par priorité les grosses fuites et pannes potentiellement dangereuses et intervenir en premier sur celles‑ci."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Annonce d’un service technique d’urgence : les résidents doivent toujours téléphoner immédiatement en cas de gros danger, mais on leur demande en plus d’envoyer avant mardi midi une description écrite des problèmes constatés pour permettre au service de confirmer si la fuite ou la panne justifie aussi un appel téléphonique immédiat ou si un simple traitement différé suffit."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Information d’un bailleur social : pour toutes les réparations prévues la semaine prochaine, les locataires peuvent soit appeler, soit envoyer avant mardi midi un message décrivant le problème ; cette description sert alors à enregistrer officiellement la demande sans avoir à passer par un premier appel téléphonique."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3LsCaq3Khy0CKvIt5M8nITBpTpA",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une résidence étudiante, le gestionnaire explique en réunion : \"Pour les problèmes non urgents (ampoules, petites réparations), vous pouvez les signaler jusqu’au mardi à midi pour qu’on les traite dans la semaine.\""
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un foyer pour seniors, l’intendante précise : \"Les demandes non urgentes doivent être déposées à l’accueil jusqu’au jeudi à midi pour être prises en compte dans le planning du vendredi.\""
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un immeuble locatif, le syndic indique lors d’une assemblée : \"Vous pouvez nous signaler vos problèmes non urgents jusqu’au lundi en fin de journée, on organise ensuite l’intervention des prestataires le mardi.\""
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans une résidence de vacances, le responsable annonce : \"Les résidents peuvent signaler leurs problèmes non urgents jusqu’au mercredi matin, après c’est trop tard pour organiser les réparations avant le week-end.\""
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Aucun indice clair dans la seule formulation de la question et des réponses : les quatre limites temporelles sont plausibles et grammaticalement correctes, sans avantage évident de style, précision ou pertinence ; choix purement incertain."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 423,
+          "total_tokens": 1029,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 105,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0049875,
+        "inputHash": "ac915d57ea13fbdddfa8e581a0ab488e8a2a26cd8d544934959499ffa34f3f40",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:screen:0:0"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3LyOP9bFwFEDViFMQ00gY9OL4nD",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un gardien d’immeuble laisse un message vocal aux résidents : il explique que pour les petits soucis (ampoule à changer, poignée qui coince, etc.), ils doivent les signaler via le formulaire en ligne, et précise : « Pour les problèmes non urgents, vous pouvez les signaler jusqu’au mardi à midi. Après, ce sera traité la semaine suivante. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’une réunion de copropriété enregistrée, le syndic explique la nouvelle procédure : les locataires doivent transmettre leurs demandes non urgentes via une plateforme, et il conclut : « Les résidents peuvent nous signaler leurs problèmes non urgents jusqu’au lundi en fin de journée, comme ça on planifie les interventions pour le reste de la semaine. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un message audio diffusé sur le site de la résidence étudiante, l’intendante indique le calendrier de maintenance : « Pour tous les problèmes non urgents, vous avez jusqu’au jeudi à midi pour les signaler. Après cette heure, ils seront pris en compte la semaine prochaine. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message automatique sur le répondeur du service technique d’une résidence précise : « Les résidents peuvent signaler leurs problèmes non urgents jusqu’au mercredi matin ; au‑delà, merci de rappeler la semaine suivante, sauf en cas d’urgence. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre limites temporelles proposées sont ordinaires et répondent toutes directement à la question sans indice contextuel supplémentaire ; aucun avantage clair de formulation, de responsabilité ou de pertinence ne distingue une option des autres, d’où une forte incertitude et un choix par défaut avec probabilités uniformes."
+        },
+        "usage": {
+          "prompt_tokens": 606,
+          "completion_tokens": 463,
+          "total_tokens": 1069,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 46,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0053875,
+        "inputHash": "d59b4729e4439ccb463e2f38cd17af0abf6c03317679621c527ab5d990adb652",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:screen:0:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3M3uuDJBV1KlcGh7FU67Lb06cNL",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Les résidents doivent signaler leurs problèmes non urgents au plus tard avant mardi midi, donc la bonne réponse est « Jusqu’au mardi à midi. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "avant mardi midi"
+          ],
+          "reason": "Le message précise que la description du problème doit être transmise « avant mardi midi », pas jusqu’au jeudi à midi. Un auditeur distrait pourrait mal retenir le jour de la semaine et confondre mardi avec jeudi, mais il n’est jamais question de jeudi dans l’annonce.",
+          "misunderstanding": "autre_jour_semblable"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "merci de transmettre la description du problème avant mardi midi"
+          ],
+          "reason": "La consigne indique clairement que les résidents doivent envoyer la description du problème « avant mardi midi ». Cela correspond directement à la formulation « Jusqu’au mardi à midi. » qui fixe l’échéance à mardi midi.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "avant mardi midi"
+          ],
+          "reason": "Le texte parle précisément de « mardi midi » comme limite, et non du « mercredi matin ». Quelqu’un qui a compris qu’il s’agissait du milieu de la semaine prochaine pourrait décaler d’un jour et penser à mercredi matin, mais l’annonce ne mentionne jamais le mercredi.",
+          "misunderstanding": "décalage_temporel"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "la semaine prochaine",
+            "avant mardi midi"
+          ],
+          "reason": "On pourrait croire que, puisque les réparations seront regroupées « la semaine prochaine », on a jusqu’à « lundi en fin de journée » pour signaler les problèmes. Mais l’annonce précise clairement une échéance plus précoce : « avant mardi midi », et ne parle pas de lundi en fin de journée.",
+          "misunderstanding": "mauvaise_inférence_sur_la_planification"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 713,
+      "completion_tokens": 493,
+      "total_tokens": 1206,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 41,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00582125,
+    "inputHash": "6a23db6e2fe944ddbd76895c770949744309c0ad8935d53c8b2b3e3cf74cb7a6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:10:85aecef166340640b146977e:ground:0"
+  },
+  "feedback": null
+}

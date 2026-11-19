@@ -1,0 +1,786 @@
+{
+  "question": {
+    "number": 31,
+    "kind": "academic-monologue",
+    "question": "Dans le document, comment la diminution des hospitalisations pour troubles respiratoires est-elle présentée ?",
+    "options": [
+      "Elle est principalement attribuée à la baisse de la pollution relevée la même année.",
+      "Elle est surtout mise en relation avec la mise en place du centre de dépistage dans le quartier.",
+      "Elle est considérée comme le signe conjoint de l’action du centre de dépistage et d’autres évolutions locales.",
+      "Elle est rapprochée des changements de pratiques des professionnels de santé intervenus au même moment."
+    ],
+    "correct": "B",
+    "explanation": "Le texte précise que la baisse des hospitalisations «semble encourageant[e]», mais «ne démontre pas, à [elle] seule, que le dépistage en est la cause». La bonne réponse reprend exactement ce statut : résultat positif mais insuffisant pour prouver la causalité du centre.",
+    "transcript": "Question 31.\nDans une ville, les hospitalisations pour troubles respiratoires ont diminué après l'ouverture d'un centre de dépistage. Ce résultat semble encourageant, mais il ne démontre pas, à lui seul, que le dépistage en est la cause. La pollution était également moins importante cette année-là et plusieurs professionnels ont changé leurs pratiques. Pour évaluer l'effet propre du centre, nous devons disposer d'une comparaison pertinente, tenir compte de ces évolutions parallèles et examiner les données sur une durée suffisante. Une succession temporelle n'est pas une preuve de causalité.\nDans le document, comment la diminution des hospitalisations pour troubles respiratoires est-elle présentée ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 31."
+      },
+      {
+        "voice": "female",
+        "text": "Dans une ville, les hospitalisations pour troubles respiratoires ont diminué après l'ouverture d'un centre de dépistage. Ce résultat semble encourageant, mais il ne démontre pas, à lui seul, que le dépistage en est la cause. La pollution était également moins importante cette année-là et plusieurs professionnels ont changé leurs pratiques. Pour évaluer l'effet propre du centre, nous devons disposer d'une comparaison pertinente, tenir compte de ces évolutions parallèles et examiner les données sur une durée suffisante. Une succession temporelle n'est pas une preuve de causalité."
+      },
+      {
+        "voice": "female",
+        "text": "Dans le document, comment la diminution des hospitalisations pour troubles respiratoires est-elle présentée ?"
+      }
+    ],
+    "audio": "q-31.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 75
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3Mdb6umdywrrwQY5yTsbQkEW7H2",
+    "result": {
+      "question": "Dans le document, comment est interprétée la diminution des hospitalisations pour troubles respiratoires ?",
+      "choices": [
+        "Comme un résultat encourageant qui ne suffit pas, à lui seul, à prouver l'effet du centre de dépistage.",
+        "Comme la preuve directe que l'ouverture du centre de dépistage est bien la cause de cette amélioration.",
+        "Comme un indice que les changements de pratiques des professionnels pourraient expliquer, à eux seuls, la baisse observée.",
+        "Comme un simple effet attendu de la diminution de la pollution mesurée la même année."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le texte précise que la baisse des hospitalisations «semble encourageant[e]», mais «ne démontre pas, à [elle] seule, que le dépistage en est la cause». La bonne réponse reprend exactement ce statut : résultat positif mais insuffisant pour prouver la causalité du centre.",
+      "design": "On interroge ici le statut logique attribué, dans le document, à un résultat précis : la diminution des hospitalisations pour troubles respiratoires. Les quatre options proposent des interprétations concurrentes de ce même fait (preuve directe de causalité, simple résultat encourageant mais non probant, attribution aux pratiques professionnelles seules, ou à la pollution seule). Sans le texte, chacune est une lecture raisonnable d’une baisse d’hospitalisations. Le document, lui, la décrit précisément comme un résultat encourageant qui ne suffit pas à établir une relation causale avec l’ouverture du centre, ce qui permet d’identifier une seule bonne réponse. Les distracteurs réaffectent à tort comme cause principale des éléments que le texte mentionne seulement comme facteurs parallèles ou comme limites méthodologiques.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme la baisse des hospitalisations en preuve directe que le centre est la cause, alors que le document insiste au contraire sur le fait que ce résultat ne démontre pas, à lui seul, la causalité et qu’une succession temporelle n’est pas une preuve.",
+          "operation": "causal_reversal",
+          "anchors": [
+            "les hospitalisations pour troubles respiratoires ont diminué après l'ouverture d'un centre de dépistage",
+            "il ne démontre pas, à lui seul, que le dépistage en est la cause"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le texte mentionne les changements de pratiques comme une évolution parallèle dont il faut tenir compte, pas comme explication unique de la baisse. La réponse en fait, de façon tentante, la cause principale alors que le document ne leur attribue jamais, à eux seuls, l’amélioration observée.",
+          "operation": "role_swap",
+          "anchors": [
+            "plusieurs professionnels ont changé leurs pratiques",
+            "tenir compte de ces évolutions parallèles"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "La pollution plus faible est présentée comme un autre changement survenu la même année, à intégrer dans l’analyse, pas comme explication exhaustive de la baisse des hospitalisations. La réponse élargit abusivement ce rôle en en faisant le seul effet attendu, alors que le texte liste la pollution parmi d’autres facteurs parallèles.",
+          "operation": "scope_shift",
+          "anchors": [
+            "La pollution était également moins importante cette année-là",
+            "tenir compte de ces évolutions parallèles"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4735,
+      "completion_tokens": 3151,
+      "total_tokens": 7886,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2483,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.03742875,
+    "inputHash": "9ce1687d99cd0f4cb495567ca94df0df546075032a48cc13e1612cd05ebabb62",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:30:85aecef166340640b146977e:author:5:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Dans le document, comment est interprétée la diminution des hospitalisations pour troubles respiratoires ?",
+      "choices": [
+        "Comme un simple effet attendu de la diminution de la pollution mesurée la même année.",
+        "Comme un résultat encourageant qui ne suffit pas, à lui seul, à prouver l'effet du centre de dépistage.",
+        "Comme la preuve directe que l'ouverture du centre de dépistage est bien la cause de cette amélioration.",
+        "Comme un indice que les changements de pratiques des professionnels pourraient expliquer, à eux seuls, la baisse observée."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3N4twV3h8iFByTUsaufKkgED1BG",
+      "result": {
+        "question": "Dans le document, comment la diminution des hospitalisations pour troubles respiratoires est-elle présentée ?",
+        "choices": [
+          "Elle est principalement attribuée à la baisse de la pollution relevée la même année.",
+          "Elle est surtout mise en relation avec la mise en place du centre de dépistage dans le quartier.",
+          "Elle est considérée comme le signe conjoint de l’action du centre de dépistage et d’autres évolutions locales.",
+          "Elle est rapprochée des changements de pratiques des professionnels de santé intervenus au même moment."
+        ],
+        "notes": "Formulations harmonisées pour proposer quatre interprétations professionnelles et plausibles d’une même baisse d’hospitalisations, sans langage de preuve absolue ni degré de prudence privilégié. Chaque choix garde son facteur explicatif distinct (pollution, centre seul, combinaison centre+autres facteurs, pratiques des professionnels) et le même indice d’origine est conservé pour chaque option."
+      },
+      "usage": {
+        "prompt_tokens": 697,
+        "completion_tokens": 579,
+        "total_tokens": 1276,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 378,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00666125,
+      "inputHash": "89b6f5c2fe80e2f67fffc6e7ff8a6df1ba4161bcee8545734bb35a6d46334fdd",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:30:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "511499a7c8ca77318ffdcf17ef539ad228b33c0fa6e05d916484e72442811dd4",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les réponses peuvent décrire un changement sur une période donnée, mais la formulation technique et structurée de l’option 2 correspond le mieux au ton d’« une période étudiée », ce qui offre un léger avantage sans pour autant exclure sérieusement les autres possibilités.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Le vocabulaire (« période étudiée », « nombre d’examens prescrits par patient ») s’accorde particulièrement bien avec le registre d’une étude structurée en contexte de santé ou de recherche, donnant à cette option un style plus directement aligné sur la formulation quasi‑académique de la question que les autres, plus généralistes ou contextuellement moins marqués."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un reportage à la radio présente les résultats d’une étude sur l’évolution de la qualité de l’air dans une région sur cinq ans. Après avoir expliqué que le nombre d’hospitalisations liées aux maladies respiratoires a baissé, le journaliste demande : « Quel autre changement est mentionné pour la période étudiée ? » et l’intervenant répond qu’une baisse de la pollution a été constatée la même année."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un enregistrement interne d’un centre médical, la direction fait le bilan d’activité sur les trois dernières années : augmentation du nombre de patients, déménagement dans de nouveaux locaux, etc. Ensuite on demande : « Quel autre changement est mentionné pour la période étudiée ? » et quelqu’un précise que les horaires d’ouverture du centre ont été étendus."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une conférence sur l’optimisation des soins dans un service hospitalier, une médecin présente une étude couvrant la période 2019–2023. Elle indique d’abord une hausse du nombre de patients, puis l’animateur demande : « Quel autre changement est mentionné pour la période étudiée ? » et elle ajoute que le nombre d’examens prescrits par patient a diminué."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une émission de radio locale commente l’évolution d’un quartier sur une dizaine d’années : nouveaux logements, arrivée de familles, fermeture d’une maison de retraite. Le journaliste demande ensuite : « Quel autre changement est mentionné pour la période étudiée ? » et l’invité répond que la population du secteur s’est rajeunie."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "7b5b0151338d23bbbe16406c13c8bf7f7bdee2d19411e88d89e7900c43c89bc1",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le choix 2 se distingue par un ancrage clair dans une démarche d’évaluation causale : il évoque une mesure d’issue (hospitalisations) et une comparaison temporelle structurée (variation par rapport aux années précédentes), conforme à l’idée d’« effet propre ». Les autres réponses restent soit trop vagues, soit portent sur des éléments parallèles ou seulement chronologiques. Cela lui donne un avantage net, même si l’absence d’accès au document source maintient une part d’incertitude.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation méthodologique la plus précise et opérationnelle : elle décrit explicitement un indicateur quantitatif (nombre d’hospitalisations) et surtout une comparaison avant/après (« et sa variation par rapport aux années précédentes »), ce qui correspond typiquement à la façon dont on apprécierait un effet propre en évaluation. Les autres formulations sont soit trop générales (0), renvoient à d’autres facteurs plutôt qu’à l’effet propre du centre (1), soit se limitent à la simple chronologie, critiquée en causalité (3)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement où un épidémiologiste présente une étude d’impact d’un centre de dépistage, il explique que, pour juger de l’effet propre du centre, on s’appuie sur le fait que son ouverture a constitué le principal changement dans l’organisation des soins et de la prévention au cours de l’année étudiée, ce qui permet de l’identifier comme facteur explicatif majeur."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion de santé publique, un intervenant discute des difficultés à attribuer un effet propre au centre de dépistage et explique que l’analyse tient compte d’évolutions parallèles comme la baisse de la pollution atmosphérique et la modification des pratiques des professionnels de santé, ce qui sert de base pour apprécier ce qui revient ou non au centre."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un rapport audio de suivi sanitaire, une chercheuse décrit la méthode d’évaluation : pour apprécier l’effet propre du centre de dépistage, on examine le nombre d’hospitalisations pour troubles respiratoires après son ouverture et on compare cette valeur aux années précédentes, afin de mesurer la variation attribuable au centre."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’un cours enregistré de méthodologie, l’enseignant illustre un exemple : pour apprécier l’effet propre d’un centre de dépistage, on peut d’abord regarder la chronologie entre son ouverture et la diminution des hospitalisations, en soulignant que cette concordance temporelle est un élément parmi d’autres dans l’analyse causale."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d653c93dbf6eb42877fb510f9ff8d0472a3eac98ac8a5e3d3cb6d19aaf87a25e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le syntagme « ces évolutions parallèles » appelle deux dynamiques de changement décrites juste avant. Deux options seulement correspondent clairement à ce schéma (0 et 3). Parmi elles, la 3 reprend explicitement la baisse des hospitalisations et les changements associés à l’ouverture d’un centre de dépistage, ce qui correspond très naturellement à deux évolutions parallèles dans un document de santé publique. Les options 1 et 2 ne décrivent pas deux évolutions au sens habituel, mais une méthode (comparaison, durée) ou un décalage unique, ce qui les rend peu plausibles. Ainsi, l’option 3 présente un avantage net, tout en laissant une faible possibilité que 0 soit visée dans un autre texte.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "L’expression « ces évolutions parallèles » suggère deux phénomènes qui changent simultanément. L’option 3 nomme explicitement deux évolutions (diminution des hospitalisations + changements liés à l’ouverture du centre) qui peuvent raisonnablement être qualifiées de parallèles et renvoie clairement au contexte d’un centre de dépistage, cohérent avec la formulation. L’option 0 mentionne aussi deux évolutions mais n’intègre pas la référence explicite au centre de dépistage que l’item 3 reprend, tandis que 1 et 2 ne décrivent pas réellement deux « évolutions » au sens courant. Cela donne à l’option 3 un net avantage de pertinence et d’adéquation lexicale."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un rapport de santé publique décrit l’impact de plusieurs mesures environnementales et médicales. Après avoir présenté d’une part la baisse progressive de la pollution atmosphérique et d’autre part l’évolution des pratiques des professionnels de santé (meilleur suivi, nouvelles recommandations), l’auteur conclut en parlant de « ces évolutions parallèles » pour désigner ces deux dynamiques qui se produisent en même temps."
+          },
+          {
+            "index": 1,
+            "credible": false,
+            "context": "La question porte sur l’expression « ces évolutions parallèles ». Parler ensuite de « la comparaison des données disponibles » (qui est une action méthodologique) et de « la durée de la période étudiée » (un simple paramètre temporel) ne décrit pas deux évolutions en tant que phénomènes qui changent. Dans un enregistrement ordinaire, on ne qualifierait pas une comparaison et une durée d’« évolutions parallèles », donc cette option ne répond pas naturellement à la question."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "L’option parle d’« l’évolution décalée dans le temps entre l’ouverture du centre et la baisse des hospitalisations », ce qui décrit un décalage temporel unique entre deux événements, pas deux évolutions parallèles. Employer ensuite dans le document l’expression « ces évolutions parallèles » pour renvoyer à une évolution justement présentée comme décalée serait contradictoire. Dans un contexte normal, on n’utiliserait pas ce syntagme pour cette idée, donc cela ne répond pas directement à la question."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un bilan sanitaire évoque d’abord la diminution progressive des hospitalisations pour une certaine maladie, puis détaille les changements organisationnels et comportementaux apparus avec l’ouverture d’un centre de dépistage (augmentation des tests, nouveaux circuits de prise en charge, meilleure information du public). Le narrateur résume ces deux dynamiques en parlant de « ces évolutions parallèles », renvoyant précisément à la baisse des hospitalisations et aux changements liés à l’ouverture du centre."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d9cfee10241b59602936f55bcbc1a56c9c8fa1df364f11a7dea5a1ff84bda410",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent décrire une comparaison dans un document de santé publique, mais la question demande explicitement « sur quel type de relation », ce à quoi l’option 0 répond le plus clairement en parlant de « relation temporelle ». Cette précision de type de relation constitue un avantage concret de formulation par rapport aux autres choix, qui restent plus génériques. L’incertitude demeure car un autre extrait pourrait théoriquement privilégier une des autres relations, mais la cohérence lexicale fait de l’option 0 le meilleur candidat.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation la plus directement en phase avec « sur quel type de relation » grâce à l’expression explicite « relation temporelle », qui nomme précisément un type de relation, là où les autres réponses énoncent seulement des paires de phénomènes sans qualifier la nature de la relation. Le vocabulaire plus méthodologique (« relation temporelle », « baisse observée ») correspond bien à la mention d’une « comparaison pertinente » dans un document analytique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un document d’épidémiologie décrit l’ouverture d’un centre de dépistage en 2018 et montre un graphique avec le nombre d’hospitalisations avant et après cette date. L’auteur parle de « comparaison pertinente » à propos de la mise en relation temporelle entre l’année d’ouverture du centre et la baisse observée des hospitalisations, en précisant qu’on ne conclut pas pour autant à une causalité."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un rapport d’évaluation expose des formations et changements de pratiques mis en place auprès des professionnels de santé. Il y est indiqué qu’une « comparaison pertinente » consiste à mettre en regard les modifications de pratiques déclarées et l’évolution des hospitalisations sur la même période pour voir s’il existe une association."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document de santé publique traite de la baisse de la pollution atmosphérique dans une ville après certaines mesures environnementales. Il y est mentionné qu’une « comparaison pertinente » porte sur la relation entre cette baisse de la pollution et l’évolution des hospitalisations pour problèmes respiratoires, illustrée par des courbes sur plusieurs années."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un rapport décrit la création d’un centre de dépistage dans une région et présente des données d’hospitalisations avant et après sa mise en place. Le texte précise que la « comparaison pertinente » porte sur la relation entre l’implantation de ce centre et l’évolution des hospitalisations, sans parler nécessairement d’une année précise mais plutôt de la période pré-/post-implantation."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "55b2d4b8abec56cd80ca65a0dca36be1fb64e5782fbf72ed129a1d71d9561a71",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre propositions peuvent être insérées dans un contexte oral crédible, mais l’expression « ces évolutions parallèles » suggère deux phénomènes évolutifs, ce qui affaiblit les choix contenant un événement ponctuel (« l’ouverture du centre »). Restent surtout les options 1 et 2, qui décrivent clairement deux évolutions. Parmi elles, l’option 1 bénéficie d’un léger avantage lexical et conceptuel : « évolution des pratiques des professionnels » résonne directement avec « ces évolutions parallèles », alors que l’option 2 se limite à deux diminutions chiffrables. D’où une préférence modérée pour 1, tout en reconnaissant une incertitude notable avec l’option 2.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "L’expression « ces évolutions parallèles » désigne normalement deux phénomènes qui évoluent dans le temps; ici, « l’ouverture du centre » est un événement ponctuel plutôt qu’une évolution, ce qui en fait une réponse lexicalement et conceptuellement moins adéquate que les options ne mentionnant que des évolutions ou diminutions."
+          },
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Même problème structurel que pour l’option 0 : « l’ouverture du centre de dépistage » est un fait ponctuel, difficile à présenter comme une « évolution » au même titre qu’une baisse ou une transformation continue; les options 1 et 2 proposent deux phénomènes clairement évolutifs."
+          },
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Les deux éléments sont formulés explicitement comme des dynamiques (« baisse de la pollution » et « évolution des pratiques ») et le terme « évolution des pratiques » fait écho lexicalement à « ces évolutions parallèles », ce qui correspond très bien à la formulation de la question sans avoir à supposer un contexte particulier."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur la gestion d’une épidémie, un médecin de santé publique commente un graphique : l’ouverture d’un centre de dépistage est indiquée à une date précise et, à partir de là, on observe une diminution progressive des hospitalisations. L’intervenant parle alors de « ces évolutions parallèles » en englobant l’événement d’ouverture du centre et la courbe de baisse des hospitalisations, de façon un peu lâche mais compréhensible dans le discours oral."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission consacrée à la santé environnementale, on explique que la baisse progressive de la pollution atmosphérique va de pair avec une transformation des pratiques des professionnels de santé (plus de prévention, de conseils, de dépistage ciblé). Le commentateur résume en disant : « Ces évolutions parallèles montrent que l’amélioration de l’environnement s’accompagne d’un changement des pratiques professionnelles. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un bulletin d’information hospitalier, un responsable commente deux indicateurs affichés sur un même graphique : la diminution des hospitalisations pour maladies respiratoires et, en parallèle, la baisse de la pollution dans la région. Il conclut : « Ces évolutions parallèles suggèrent un impact positif des politiques environnementales sur la santé de la population. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un reportage sur la réorganisation de l’offre de soins, on décrit l’ouverture récente d’un centre de dépistage, puis on explique que, en parallèle, les pratiques des professionnels évoluent (plus de travail en réseau, de consultation de prévention, etc.). Le journaliste ou l’expert parle alors de « ces évolutions parallèles » pour désigner à la fois le développement de nouvelles structures (dont l’ouverture du centre) et l’évolution des pratiques professionnelles."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "984e212abbffb3645fde70dad7bd6178c323ee94b3175c0f1737dae1b462ac45",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre options sont plausibles, mais la troisième se distingue par une formulation prudente et analytique qui correspond bien à la manière dont une information sur la baisse de la pollution serait classiquement utilisée dans une argumentation : comme facteur contextuel additionnel susceptible d’expliquer partiellement une baisse des hospitalisations, plutôt que comme critère principal, objectif majeur ou indice spéculatif sur un effet environnemental du centre de dépistage.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation nuancée et méthodologique (« illustrer », « facteur contextuel supplémentaire », « pouvant contribuer ») qui décrit précisément une fonction argumentative typique d’une donnée secondaire dans un document scientifique ou de santé publique, sans en faire ni le critère principal ni un objectif majeur ni une hypothèse spéculative supplémentaire."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement, un chercheur explique qu’il a choisi une ville de comparaison pour son étude car, entre autres critères, on y a observé une baisse marquée de la pollution. L’information sur la baisse de la pollution est alors explicitement présentée comme un critère déterminant dans la sélection de cette ville par rapport à d’autres."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une responsable de santé publique décrit un changement de pratiques professionnelles (par exemple, en milieu hospitalier) en précisant que l’un des objectifs majeurs est de contribuer à la baisse de la pollution (moins de déplacements, meilleure gestion des déchets). Elle intègre donc l’information sur la baisse de la pollution comme objectif central associé à ces nouvelles pratiques."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un médecin commente une étude montrant une diminution des hospitalisations et mentionne qu’en parallèle, on a observé une baisse de la pollution dans la région. Il précise que cette baisse de la pollution est un facteur contextuel supplémentaire susceptible de participer à la diminution des hospitalisations, sans pour autant être le seul élément explicatif."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un reportage sur un centre de dépistage, un intervenant souligne que, de manière surprenante, la période suivant l’ouverture du centre coïncide aussi avec une baisse de la pollution locale, et avance prudemment que le centre pourrait avoir un effet indirect sur l’environnement (par exemple, moins de déplacements inutiles ou de trajets répétés). L’information sur la baisse de la pollution est alors utilisée comme indice en faveur de cette hypothèse."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "495dc327c626bcd27ecf80d2b4e24f3be79b1fc549c87232e09257f18fa07e31",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Deux options (0 et 1) correspondent bien à une «démarche complémentaire» dans un cadre d’analyse d’impact; l’option 0 présente toutefois une formulation technique très spécifique liée aux séries temporelles et à l’année suivant l’ouverture, ce qui cadre particulièrement bien avec l’idée d’une analyse additionnelle précise mentionnée dans un document. Les options 2 et 3, bien que plausibles en contexte, paraissent moins directement alignées avec l’énoncé général et semblent introduire des éléments plus périphériques. L’incertitude demeure élevée, mais l’option 0 a un léger avantage de formulation méthodologique ciblée.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation très précise et technique («analyser séparément la première année suivant l’ouverture du centre dans les séries temporelles») qui ressemble à une démarche additionnelle bien délimitée par rapport à une analyse principale, cohérente avec l’idée de «démarche complémentaire» appliquée à une méthode en séries temporelles."
+          },
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Contenu pertinent mais formulé de manière assez générale, ressemblant davantage à un principe de prise en compte de facteurs de confusion qu’à une «démarche complémentaire» unique explicitement ajoutée à une analyse déjà décrite."
+          },
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Introduit un thème (pollution) qui n’apparaît pas dans la question et semble plus spécifique que nécessaire pour l’impact d’un simple centre de dépistage, ce qui le rend légèrement moins aligné avec l’énoncé."
+          },
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Démarche possible mais moins directement quantitative ou méthodologique pour «analyser l’impact»; elle ressemble davantage à une évaluation qualitative complémentaire, un peu en décalage si le document porte surtout sur une analyse statistique d’impact."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un épidémiologiste présente une étude en séries temporelles sur les hospitalisations avant et après l’ouverture d’un centre de dépistage. Il explique que, de façon complémentaire à l’analyse principale, ils ont analysé séparément la première année suivant l’ouverture pour voir s’il y a un effet immédiat ou transitoire du centre sur les indicateurs de santé."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de présentation des résultats d’un rapport de santé publique sur l’impact de l’ouverture d’un centre de dépistage, l’orateur précise qu’en plus de l’analyse principale ils ont pris en compte les autres changements organisationnels ou contextuels survenus au même moment (réorganisation de l’hôpital, nouvelle campagne de prévention, modification des critères de recours au dépistage)."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une équipe de recherche évalue l’impact d’un nouveau centre de dépistage des effets de la pollution atmosphérique sur les hospitalisations respiratoires. Dans la présentation orale, le chercheur mentionne comme démarche complémentaire qu’ils distinguent, dans leur base de données, les hospitalisations directement attribuées à la pollution de celles dues à d’autres causes afin de mieux cibler l’impact du centre."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une présentation de résultats sur l’ouverture d’un centre de dépistage, le responsable de l’étude explique qu’en plus de l’analyse des indicateurs quantitatifs ils ont systématiquement interrogé les professionnels de santé sur les changements de leurs pratiques pour mieux comprendre qualitativement l’impact du nouveau centre."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "570fa537f72d00b73cd3104483a3e9b6eeaebeee8510761f3e36e4d090cb3fea",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le lien de formulation entre « en dehors du centre » et « visites à domicile » est le plus direct et spécifique, ce qui donne à l’option 2 un avantage clair malgré l’absence d’accès à l’enregistrement.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "L’expression « en dehors du centre » correspond directement à l’idée de « visites à domicile », qui se déroulent explicitement hors du centre, donnant à cette option un lien lexical et conceptuel plus net que les autres réponses plus générales (population, pollution) ou rattachées à une autre structure spécifique (l’hôpital)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un bilan annuel d’un centre médical, la directrice explique qu’en dehors du centre, dans le village autour, on a observé cette année-là une baisse de la population locale, ce qui a eu un impact sur la fréquentation du centre."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de présentation des résultats environnementaux d’un centre de soins, l’intervenant précise que, cette année-là, en dehors du centre lui-même, les mesures ont montré une diminution de la pollution dans le quartier."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un rapport audio sur l’activité d’un centre de santé, le responsable explique qu’en dehors du centre, cette année-là, une nouveauté a été mise en place : une hausse des visites à domicile par le personnel soignant."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une présentation de restructuration de l’offre de soins, le directeur indique qu’en dehors du centre de santé, l’hôpital de la même ville a modifié ses horaires cette année-là, ce qui a influencé l’organisation du centre."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6eba9974edc556693cda4a9cb3e09c60e0316d9f6d76ebed344a19e2f7bd899c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question demande comment est exploitée la mention de la pollution moins importante. Le terme de « mention » suggère un usage secondaire ou contextuel plutôt qu’un rôle central dans la méthodologie (période de référence, indicateur principal) ou une hypothèse causale forte. L’option 1 correspond précisément à un usage contextuel de l’information environnementale pour interpréter l’évolution des hospitalisations, d’où une probabilité plus élevée, même si 2 reste défendable.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "La formulation met l’accent sur l’usage de l’information comme simple élément de contexte (« pour décrire un contexte… susceptible d’éclairer l’évolution des hospitalisations »), ce qui correspond naturellement à une mention ponctuelle du niveau de pollution ; les autres choix impliquent un rôle plus central (période de référence, indicateur principal, effet du centre sur la pollution) qui semble plus forcé à partir d’une simple « mention »."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un rapport local étudie l’impact de l’ouverture d’un centre de dépistage sur la vie du quartier (flux de circulation, fréquentation, comportements). Les auteurs notent que la pollution atmosphérique était moins importante cette année-là et suggèrent prudemment que la réorganisation des trajets et la diminution de certains déplacements vers l’hôpital pourraient avoir eu un effet, direct ou indirect, sur le niveau de pollution locale."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un document d’épidémiologie analyse l’évolution des hospitalisations pour problèmes respiratoires. Il précise qu’au cours de l’année étudiée, la pollution était moins importante, ce qui constitue un élément de contexte environnemental pour interpréter la baisse des hospitalisations et discuter les facteurs possibles (conditions météo, politiques de transport, etc.)."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un rapport méthodologique compare plusieurs années de données. Les auteurs expliquent qu’ils retiennent cette année-là comme période de référence parce qu’elle se distingue par une pollution moins importante, ce qui en fait selon eux un point de comparaison pertinent ou une base plus « favorable » pour l’analyse des effets du dépistage sur la santé."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une étude sur l’impact environnemental global d’un programme de santé publique insiste sur un indicateur principal : le niveau de pollution atmosphérique. Le document indique que la pollution était moins importante cette année-là et présente ce paramètre comme l’indicateur principal retenu pour évaluer l’impact global (sanitaire et environnemental) du déploiement du centre de dépistage."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "f89115c4bf50bfe9960e782d85a572c25e634fe99511e5b3b6368c7ef1068dfb",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La tournure « baisse de la pollution » et « évolution des pratiques professionnelles » suggère des effets ou des conséquences liées au centre de dépistage. L’option 1 reprend précisément cette logique en parlant d’« effets possibles attendus de l’ouverture du centre », tandis que l’option 0 les érige en indicateurs directs privilégiés, l’option 2 les traite comme variables explicatives d’un autre indicateur (les hospitalisations), et l’option 3 est difficilement compatible avec l’idée de baisse/évolution comme situation de référence. D’où une probabilité nettement plus élevée pour l’option 1, avec une incertitude résiduelle faute du document audio.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Les termes « baisse » et « évolution » désignent eux-mêmes des effets ou changements ; l’option 1 les présente explicitement comme des effets possibles attendus de l’ouverture du centre, ce qui correspond directement à cette idée, alors que les autres réponses les requalifient en indicateurs directs, facteurs de confusion ou situation de référence, moins alignés avec cette formulation."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un rapport d’évaluation d’un centre de dépistage, l’équipe précise qu’elle utilisera certains indicateurs pour juger de son efficacité globale. Elle explique par exemple : « Nous retiendrons comme indicateurs privilégiés la baisse de la pollution et l’évolution des pratiques professionnelles, qui permettront de mesurer directement l’efficacité globale du centre. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une présentation de projet pour l’ouverture d’un centre de dépistage, un responsable décrit les impacts attendus : « L’ouverture de ce centre devrait avoir plusieurs effets possibles, comme une baisse de la pollution liée aux déplacements et une évolution des pratiques professionnelles, tant sur l’environnement que sur l’organisation des soins. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une étude sur l’impact d’un centre de dépistage sur les hospitalisations, un épidémiologiste détaille les variables à prendre en compte : « La baisse de la pollution et l’évolution des pratiques professionnelles font partie des facteurs susceptibles d’influencer, parmi d’autres, l’évolution des hospitalisations, et devront être intégrés à notre analyse. »"
+          },
+          {
+            "index": 3,
+            "credible": false,
+            "context": "Pour servir de situation de référence, le document devrait décrire l’état initial avant toute intervention (niveau de pollution, pratiques professionnelles en place). Or parler de « baisse de la pollution » et d’« évolution des pratiques professionnelles » renvoie déjà à des changements observés ou envisagés, pas à un état de référence servant de base aux comparaisons ultérieures, ce qui ne répond pas naturellement à la formulation de la question."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "084fc894c9f3f8061afdac780eba119d864c9d1c123eb8041f134052eb271ae1",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options pourraient répondre à un objectif de comparaison, mais l’option 3 formule explicitement une finalité d’évaluation rigoureuse (isoler l’effet spécifique du centre), ce qui lui donne un léger avantage de plausibilité comme clé attendue, malgré une incertitude importante.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "weak",
+            "cue": "Formulation plus méthodologique et nuancée (« distinguer l’effet propre du centre de celui d’autres évolutions observées la même année ») qui correspond typiquement à l’objectif explicite d’une comparaison dans un document d’évaluation, en distinguant un effet spécifique des facteurs concomitants."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un enregistrement présente une étude de santé publique qui compare sur plusieurs années les taux de pollution atmosphérique et les hospitalisations pour problèmes respiratoires. L’orateur explique que la comparaison des courbes doit servir à apprécier dans quelle mesure la baisse des hospitalisations peut être reliée à la diminution de la pollution."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une responsable décrit l’ouverture d’un nouveau centre de formation ou de soins et explique qu’ils comparent les pratiques avant et après l’ouverture du centre. Elle précise que cette comparaison doit servir à montrer dans quelle mesure l’ouverture du centre a contribué à modifier les pratiques professionnelles."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un spécialiste commente des données de santé annuelles et explique qu’ils comparent les chiffres de plusieurs années consécutives. Il dit que cette comparaison doit servir à vérifier si la baisse des hospitalisations suit un rythme comparable d’une année à l’autre."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un chercheur présente l’évaluation d’un nouveau centre (par exemple un centre de santé ou d’accueil) mis en place la même année que d’autres réformes. Il explique que la comparaison entre zones avec et sans centre, ou entre périodes, doit servir à distinguer l’effet propre du centre de celui d’autres évolutions observées la même année."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "981b260b8a87340a0e8d6762167050cd19e02ce6285ada7118ab6a79f00060e8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question demande à quoi sert l’évocation de la baisse de la pollution dans le document, ce qui suggère un rôle argumentatif ou explicatif. L’idée qu’elle soit présentée comme un autre facteur possible de diminution des hospitalisations (option 1) correspond bien à une utilisation illustrative et nuancée, fréquente dans des documents informatifs, tandis que les options 0 et 2 reposent sur des liens de causalité plus discutables et que l’option 3 attribue à cette évocation un statut d’indicateur principal, ce qui est plus spécifique et donc moins probable sans indication explicite.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "weak",
+            "cue": "Formulation typique d’un raisonnement épidémiologique nuancé : la baisse de la pollution est présentée comme un facteur explicatif parmi d’autres de la baisse des hospitalisations, ce qui correspond bien à l’idée d’« évocation » dans un document de type informatif ou scientifique. Les options 0 et 2 sont plus contre-intuitives sur le plan logique (justifier un centre par une baisse, ou considérer la baisse de la pollution comme une conséquence directe de ce centre), et l’option 3 introduit un rôle très spécifique (indicateur principal de comparaison) qui n’est pas suggéré par l’énoncé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur la santé publique, un élu explique la création d’un centre de dépistage des maladies respiratoires. Il commence par rappeler la baisse récente de la pollution pour montrer que, malgré cette amélioration environnementale, il reste nécessaire de dépister, et présente cette évocation comme un argument introductif dans son discours de justification du projet."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une chronique radio sur la diminution des hospitalisations pour problèmes respiratoires, un médecin évoque plusieurs explications possibles : meilleure prévention, campagnes de vaccination, changement des comportements… et mentionne aussi la baisse de la pollution comme un autre facteur possible de la baisse des admissions à l’hôpital."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission locale, un responsable politique présente l’ouverture d’un centre de dépistage dans un quartier très pollué. Quelques années après, il souligne que la baisse de la pollution est interprétée, à tort ou à raison, comme l’une des conséquences globales de cette politique de santé (y compris l’ouverture du centre), et il relie explicitement l’évocation de la baisse de la pollution à ce résultat supposé du centre."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un bulletin d’information municipale, on compare plusieurs périodes (avant et après certaines politiques publiques) en utilisant principalement la baisse de la pollution comme indicateur de référence. Le narrateur précise que cette baisse sert d’indicateur principal pour comparer ces différentes périodes et évaluer les progrès accomplis."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "fbe056f8463a57db1a4065471fd0d5586c0807c44b73b555ffa57ec2d5902a7d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 3 énonce une condition méthodologique standard et directement pertinente pour isoler l’« effet propre » d’une intervention : disposer de données sur une période suffisamment longue avant et après l’ouverture. Les options 0 et 1 se focalisent respectivement sur un sous-aspect (pratiques professionnelles) ou un effet immédiat (hospitalisations), ce qui est plus restrictif et moins en phase avec l’idée d’« effet propre » au sens de causalité globale. L’option 2 introduit un critère (pollution) sans lien évident avec un centre de dépistage, la rendant nettement moins plausible. Ainsi, même sans connaître le document, la 3 présente un avantage net, justifiant une probabilité nettement plus élevée tout en conservant une part d’incertitude.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation « Examiner les données sur une durée suffisamment longue avant et après l’ouverture » correspond directement à une condition méthodologique classique pour isoler un effet propre dans une étude d’impact (comparaison temporelle avant/après avec une fenêtre assez longue). Elle est plus générale, neutre et rigoureuse que les autres réponses : elle ne fait pas une hypothèse spécifique (hospitalisations immédiates, pratiques professionnelles, pollution) mais énonce une condition de validité structurante. Elle est aussi la plus clairement alignée avec la notion d’« effet propre » évoquée dans la question."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une formation en santé publique, un intervenant explique : « Selon le document, pour vraiment isoler l’effet propre de l’ouverture d’un centre de dépistage, il faudrait surtout observer comment changent les pratiques des professionnels impliqués. » Ici, la condition évoquée est de se concentrer principalement sur les changements de pratiques des soignants après l’ouverture."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un bilan de politique de santé, un épidémiologiste commente : « Selon le document, pour évaluer l’effet propre de l’ouverture d’un centre de dépistage, il faut vérifier si les hospitalisations évoluent immédiatement après l’ouverture du centre. » La condition est alors de regarder spécifiquement l’évolution immédiate des hospitalisations."
+          },
+          {
+            "index": 2,
+            "credible": false,
+            "context": "La réponse mentionne une année où la pollution diminue, alors que la question porte sur l’effet propre de l’ouverture d’un centre de dépistage en général. Pour que cette option réponde directement à la question, il faudrait supposer un contexte très particulier où le centre de dépistage serait intrinsèquement lié à une baisse de pollution mesurée, ce qui n’est ni ordinaire ni cohérent sans hypothèses spéciales. Dans un contexte normal d’évaluation d’un centre de dépistage, se focaliser sur l’année où la pollution baisse ne constitue pas une condition pertinente ni logique pour mesurer l’effet de l’ouverture du centre."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un cours sur l’évaluation d’interventions en santé, l’enseignant lit le texte source puis demande : « Selon le document, quelle condition est évoquée pour évaluer l’effet propre de l’ouverture d’un centre de dépistage ? » et un étudiant répond : « Examiner les données sur une durée suffisamment longue avant et après l’ouverture. » La condition est ici la nécessité d’une fenêtre temporelle étendue de part et d’autre de l’ouverture pour isoler l’effet propre du centre."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "6eb50a32cb99e0fa88b1889da7ba91fbb5ca175f2a966daaf8de219ea53b3649",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le choix 0 se distingue par une formulation nuancée et multifactorielle, typique d’un document analytique, tandis que les autres réponses proposent des attributions uniques plus simplistes ; cela lui donne un avantage clair malgré l’impossibilité de vérifier sans le document audio.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation plus nuancée et complète (« signe conjoint de l’action du centre de dépistage et d’autres évolutions locales ») qui présente une explication multifactorielle, souvent privilégiée dans des documents de santé publique, par rapport aux autres choix plus mono‑causaux ou spécifiques."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un médecin de santé publique commente un rapport annuel : il explique que la baisse des hospitalisations pour troubles respiratoires est vue comme le résultat combiné de l’ouverture d’un centre de dépistage dans le quartier et d’autres changements locaux, comme de nouvelles politiques de logement ou des campagnes anti-tabac."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission de radio sur la qualité de l’air, un épidémiologiste décrit un rapport montrant une forte baisse de pollution la même année et indique que la diminution des hospitalisations pour troubles respiratoires y est principalement rattachée dans le document."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion municipale, un responsable de projet présente un bilan du nouveau centre de dépistage respiratoire et lit un passage du rapport affirmant que la baisse des hospitalisations pour troubles respiratoires est surtout mise en lien avec la mise en place de ce centre dans le quartier."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une conférence hospitalière sur l’évolution des pratiques médicales expose qu’un rapport interne rapproche la diminution des hospitalisations pour troubles respiratoires des changements récents dans les protocoles de prise en charge et dans le suivi ambulatoire par les professionnels de santé."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3NA7tlHOzvPxNvCd1yCqxHXho0h",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un médecin de santé publique commente un rapport annuel : il explique que la baisse des hospitalisations pour troubles respiratoires est vue comme le résultat combiné de l’ouverture d’un centre de dépistage dans le quartier et d’autres changements locaux, comme de nouvelles politiques de logement ou des campagnes anti-tabac."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une émission de radio sur la qualité de l’air, un épidémiologiste décrit un rapport montrant une forte baisse de pollution la même année et indique que la diminution des hospitalisations pour troubles respiratoires y est principalement rattachée dans le document."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une réunion municipale, un responsable de projet présente un bilan du nouveau centre de dépistage respiratoire et lit un passage du rapport affirmant que la baisse des hospitalisations pour troubles respiratoires est surtout mise en lien avec la mise en place de ce centre dans le quartier."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une conférence hospitalière sur l’évolution des pratiques médicales expose qu’un rapport interne rapproche la diminution des hospitalisations pour troubles respiratoires des changements récents dans les protocoles de prise en charge et dans le suivi ambulatoire par les professionnels de santé."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "clear",
+              "cue": "Formulation plus nuancée et complète (« signe conjoint de l’action du centre de dépistage et d’autres évolutions locales ») qui présente une explication multifactorielle, souvent privilégiée dans des documents de santé publique, par rapport aux autres choix plus mono‑causaux ou spécifiques."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.5,
+            0.15,
+            0.25,
+            0.1
+          ],
+          "guess": 0,
+          "reason": "Le choix 0 se distingue par une formulation nuancée et multifactorielle, typique d’un document analytique, tandis que les autres réponses proposent des attributions uniques plus simplistes ; cela lui donne un avantage clair malgré l’impossibilité de vérifier sans le document audio."
+        },
+        "usage": {
+          "prompt_tokens": 655,
+          "completion_tokens": 609,
+          "total_tokens": 1264,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 162,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00690875,
+        "inputHash": "0b04e5ada4ae183273ace8b069443a5e2e69bea2eaba0d79852c1d87e23086cc",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:30:85aecef166340640b146977e:screen:6:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Le choix 0 se distingue par une formulation nuancée et multifactorielle, typique d’un document analytique, tandis que les autres réponses proposent des attributions uniques plus simplistes ; cela lui donne un avantage clair malgré l’impossibilité de vérifier sans le document audio.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "clear",
+        "cue": "Formulation plus nuancée et complète (« signe conjoint de l’action du centre de dépistage et d’autres évolutions locales ») qui présente une explication multifactorielle, souvent privilégiée dans des documents de santé publique, par rapport aux autres choix plus mono‑causaux ou spécifiques."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Un médecin de santé publique commente un rapport annuel : il explique que la baisse des hospitalisations pour troubles respiratoires est vue comme le résultat combiné de l’ouverture d’un centre de dépistage dans le quartier et d’autres changements locaux, comme de nouvelles politiques de logement ou des campagnes anti-tabac."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Dans une émission de radio sur la qualité de l’air, un épidémiologiste décrit un rapport montrant une forte baisse de pollution la même année et indique que la diminution des hospitalisations pour troubles respiratoires y est principalement rattachée dans le document."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Lors d’une réunion municipale, un responsable de projet présente un bilan du nouveau centre de dépistage respiratoire et lit un passage du rapport affirmant que la baisse des hospitalisations pour troubles respiratoires est surtout mise en lien avec la mise en place de ce centre dans le quartier."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Une conférence hospitalière sur l’évolution des pratiques médicales expose qu’un rapport interne rapproche la diminution des hospitalisations pour troubles respiratoires des changements récents dans les protocoles de prise en charge et dans le suivi ambulatoire par les professionnels de santé."
+      }
+    ]
+  }
+}

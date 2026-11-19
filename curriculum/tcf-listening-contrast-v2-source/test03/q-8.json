@@ -1,0 +1,192 @@
+{
+  "question": {
+    "number": 8,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La personne a perdu « la carte avec le numéro du cabinet » et demande : « Vous pouvez m'aider ? ». Répondre « Je vais vous noter le numéro. » correspond exactement à la demande : on propose de réécrire ou fournir à nouveau le numéro perdu. C’est une aide directe et précisément adaptée au problème mentionné. A : La demande porte sur la récupération d’un numéro précis : la personne a perdu « la carte avec le numéro du cabinet » et demande une aide directe pour ce numéro. Proposer « Appelez le standard de l'hôpital. » ne répond pas vraiment à la demande : on ne fournit pas le numéro du cabinet mais on renvoie vers un autre interlocuteur, sans lien explicite avec ce cabinet (il peut ne pas dépendre d’un hôpital). Quelqu’un qui comprend seulement le contexte médical pourrait penser qu’appeler l’hôpital est une aide logique, mais l’enregistrement parle spécifiquement du « numéro du cabinet », pas du standard d’un hôpital, donc ce n’est pas la réponse la plus appropriée à la question posée. B : Le problème énoncé concerne la perte de la carte contenant « le numéro du cabinet », donc un numéro de téléphone, pas un plan ou une adresse. « Je peux vous indiquer le chemin. » répondrait à une personne qui ne sait pas où se rendre, mais ici la personne ne dit pas qu’elle est perdue, seulement qu’elle n’a plus le numéro. Quelqu’un qui retient seulement « J'ai perdu la carte » pourrait croire qu’il s’agit d’une carte avec un plan et penser à l’itinéraire, mais le fragment « avec le numéro du cabinet » montre que c’est le numéro qui manque, rendant cette réponse inadaptée. D : La difficulté porte sur l’absence du numéro de téléphone du cabinet. « Les horaires sont affichés à l'entrée. » parle des heures d’ouverture visibles sur place, ce qui ne répond ni à la perte de la carte ni à la demande d’aide pour retrouver un numéro. Un auditeur peu attentif pourrait associer « carte » et « informations pratiques » (horaires, etc.) et croire que toute information visible sur place est pertinente, mais le fragment « avec le numéro du cabinet » indique clairement que la demande concerne le numéro, pas les horaires, donc cette réponse ne convient pas.",
+    "transcript": "Question 8.\nJ'ai perdu la carte avec le numéro du cabinet. Vous pouvez m'aider ?\nA. Appelez le standard de l'hôpital. B. Je peux vous indiquer le chemin. C. Je vais vous noter le numéro. D. Les horaires sont affichés à l'entrée.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 8."
+      },
+      {
+        "voice": "male",
+        "text": "J'ai perdu la carte avec le numéro du cabinet. Vous pouvez m'aider ?"
+      },
+      {
+        "voice": "female",
+        "text": "A. Appelez le standard de l'hôpital. B. Je peux vous indiquer le chemin. C. Je vais vous noter le numéro. D. Les horaires sont affichés à l'entrée."
+      }
+    ],
+    "audio": "q-08.mp3",
+    "audioSeconds": 17.868,
+    "slotSeconds": 37
+  },
+  "sourceHash": "388bd3f04582de96502c1e8560bb5865bb48e802a9ccdf682746f63c265ca36d",
+  "contentHash": "157b734e5373a6c789c61684c366861257d09920ab6093b6d83e7a4ea72af14f",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzY4Jk5KwTEp8leHMbfxD5AstOBM",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Au téléphone avec un service client, un usager demande : « Vous pouvez me donner le numéro de ce médecin, s’il vous plaît ? » L’employé répond : « Je vais vous noter le numéro. »"
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "À l’accueil d’un magasin ou d’un musée, un visiteur demande : « Excusez-moi, quels sont vos horaires d’ouverture ? » L’agent d’accueil répond : « Les horaires sont affichés à l'entrée. »"
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Quelqu’un à l’accueil d’un bâtiment administratif demande : « Comment puis-je joindre les urgences ou un médecin ici ? » L’agent répond : « Appelez le standard de l'hôpital. »"
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un passant dans la rue demande : « Excusez-moi, savez-vous où se trouve l’hôpital ? » L’autre répond : « Je peux vous indiquer le chemin. »"
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les répliques peuvent convenir à des situations ordinaires différentes ; aucune option ne présente d’avantage rédactionnel ou contextuel évident, donc le choix reste très incertain et revient pratiquement au hasard."
+        },
+        "usage": {
+          "prompt_tokens": 595,
+          "completion_tokens": 399,
+          "total_tokens": 994,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 90,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00473375,
+        "inputHash": "735207c29f39b5f50b97e4338e30f12e8f1805bc34415a6d1458257b0980171d",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:7:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzY84nI6KtwGFnW7i7n3s8hQnf45",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La personne a perdu la carte contenant le numéro du cabinet et demande de l’aide pour ce numéro ; la réponse adaptée est de proposer de noter ce numéro.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "J'ai perdu la carte avec le numéro du cabinet.",
+            "Appelez le standard de l'hôpital."
+          ],
+          "reason": "La demande porte sur la récupération d’un numéro précis : la personne a perdu « la carte avec le numéro du cabinet » et demande une aide directe pour ce numéro. Proposer « Appelez le standard de l'hôpital. » ne répond pas vraiment à la demande : on ne fournit pas le numéro du cabinet mais on renvoie vers un autre interlocuteur, sans lien explicite avec ce cabinet (il peut ne pas dépendre d’un hôpital). Quelqu’un qui comprend seulement le contexte médical pourrait penser qu’appeler l’hôpital est une aide logique, mais l’enregistrement parle spécifiquement du « numéro du cabinet », pas du standard d’un hôpital, donc ce n’est pas la réponse la plus appropriée à la question posée.",
+          "misunderstanding": "wrong_referent"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "J'ai perdu la carte avec le numéro du cabinet.",
+            "Je peux vous indiquer le chemin."
+          ],
+          "reason": "Le problème énoncé concerne la perte de la carte contenant « le numéro du cabinet », donc un numéro de téléphone, pas un plan ou une adresse. « Je peux vous indiquer le chemin. » répondrait à une personne qui ne sait pas où se rendre, mais ici la personne ne dit pas qu’elle est perdue, seulement qu’elle n’a plus le numéro. Quelqu’un qui retient seulement « J'ai perdu la carte » pourrait croire qu’il s’agit d’une carte avec un plan et penser à l’itinéraire, mais le fragment « avec le numéro du cabinet » montre que c’est le numéro qui manque, rendant cette réponse inadaptée.",
+          "misunderstanding": "wrong_focus"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "J'ai perdu la carte avec le numéro du cabinet.",
+            "Je vais vous noter le numéro."
+          ],
+          "reason": "La personne a perdu « la carte avec le numéro du cabinet » et demande : « Vous pouvez m'aider ? ». Répondre « Je vais vous noter le numéro. » correspond exactement à la demande : on propose de réécrire ou fournir à nouveau le numéro perdu. C’est une aide directe et précisément adaptée au problème mentionné.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "J'ai perdu la carte avec le numéro du cabinet.",
+            "Les horaires sont affichés à l'entrée."
+          ],
+          "reason": "La difficulté porte sur l’absence du numéro de téléphone du cabinet. « Les horaires sont affichés à l'entrée. » parle des heures d’ouverture visibles sur place, ce qui ne répond ni à la perte de la carte ni à la demande d’aide pour retrouver un numéro. Un auditeur peu attentif pourrait associer « carte » et « informations pratiques » (horaires, etc.) et croire que toute information visible sur place est pertinente, mais le fragment « avec le numéro du cabinet » indique clairement que la demande concerne le numéro, pas les horaires, donc cette réponse ne convient pas.",
+          "misunderstanding": "scope_error"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 697,
+      "completion_tokens": 1055,
+      "total_tokens": 1752,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 315,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01142125,
+    "inputHash": "9ba324acbdb3a6a576dec6e896bd8b71009682f5592e3fc0065b8cab78413aaa",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:7:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": null,
+  "designSeedHash": null
+}

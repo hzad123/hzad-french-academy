@@ -19,7 +19,13 @@ test('validator formatting removes only exact duplicate rows and preserves confl
  const ambiguous=structuredClone(original);ambiguous.ambiguous=true;
  assert(!groundingVerdict(q(),normalizeModelResult('ground',ambiguous).result).pass);
 });
-const uncertain=()=>({guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
+const uncertain=()=>({plausibility:[0,1,2,3].map(index=>({index,credible:true,context:'A normal recording could explicitly select this particular appointment.'})),guess:0,probabilities:[.25,.25,.25,.25],standsOut:false,cues:[],reason:'These four close interpretations are equally credible without hearing the statement.'});
+test('the qualification shortcut recognizes French accented conditions and excludes embedded words',()=>{
+ const paper={id:'metric-fixture',questions:[{number:9,question:'Quelle solution est envisagée ?',options:['Une ouverture à condition de renforcer les équipes.','Une ouverture progressive au public.','Une réorganisation des plannings.','Une utilisation différente des salles.'],correct:'A'}]};
+ assert.equal(attackStatistics([paper]).heuristicAttacks.mostQualified.credit,1);
+ paper.questions[0].options[0]='Une ouverture ainsi organisée.';
+ assert.equal(attackStatistics([paper]).heuristicAttacks.mostQualified.credit,.25);
+});
 const q=()=>({number:9,kind:'announcement',question:'Quand le rendez-vous aura-t-il lieu ?',options:['Jeudi à neuf heures.','Mercredi à neuf heures.','Jeudi à dix heures.','Vendredi à dix heures.'],correct:'A',explanation:'PRIVATE_EXPLANATION_NOT_FOR_THE_BLIND_MODEL',segments:[{voice:'female',text:'Question 9.'},{voice:'female',text:'Le rendez-vous prévu mercredi aura finalement lieu jeudi à neuf heures, sans changement de salle.'},{voice:'female',text:'Quand le rendez-vous aura-t-il lieu ?'}],audio:'q-09.mp3',audioSeconds:17,slotSeconds:40});
 function ground(input) {
  const index=input.choices.indexOf('Jeudi à neuf heures.');
@@ -46,9 +52,16 @@ test('blind boundary allowlists ONLY question and four choices, never key/transc
  assert.throws(()=>validateInput('blind',{...blindProjection(item),history:[]}),/only question/);
  const request=modelRequest('blind',blindProjection(item));
  assert.equal(request.messages.length,2);assert(!JSON.stringify(request).includes('PRIVATE_EXPLANATION'));
- assert.equal(request.model,'gpt-5-mini');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
- assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-4.1');
- assert.equal(stagePrice('ground').outputPerMillion,8);
+ assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
+ assert.equal(modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).model,'gpt-5.1');
+ const groundedFormat=modelRequest('ground',{...blindProjection(item),stimulus:stimulus(item),mode:'document'}).response_format;
+ assert.equal(groundedFormat.type,'json_schema');assert.equal(groundedFormat.json_schema.schema.properties.options.maxItems,4);
+ assert.equal(request.response_format.type,'json_object');
+ assert.equal(stagePrice('ground').outputPerMillion,10);
+ const challenge=modelRequest('challenge',blindProjection(item));assert.equal(challenge.model,'gpt-5-mini');
+ assert(request.messages[0].content.includes('FIRST assess EACH'));assert(!challenge.messages[0].content.includes('FIRST assess EACH'));
+ assert.equal(challenge.messages.length,2);assert.equal(stagePrice('challenge').outputPerMillion,2);
+ for(const hidden of ['correct','transcript','explanation','history'])assert.throws(()=>validateInput('challenge',{...blindProjection(item),[hidden]:'LEAK'}),/only question/);
 });
 
 test('a conspicuous WRONG choice also rejects an item; author cannot game a blind guess',async()=>{
@@ -189,8 +202,10 @@ test('reasoning author requests use compatible parameters and account for billed
  const handler=createQcHandler({adminToken,providerKey:'private-test-only',fetcher:async(url,options)=>{
   assert.equal(url,'https://api.openai.com/v1/chat/completions');
   const request=JSON.parse(options.body);
-  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'low');
+  assert.equal(request.model,'gpt-5.1');assert.equal(request.reasoning_effort,'medium');
   assert.equal(request.max_completion_tokens,6000);assert(!Object.hasOwn(request,'temperature'));assert(!Object.hasOwn(request,'max_tokens'));
+  assert.equal(request.response_format.type,'json_schema');assert.equal(request.response_format.json_schema.strict,true);
+  assert.equal(request.response_format.json_schema.schema.properties.distractorReasons.maxItems,3);
   return Response.json({id:'chatcmpl-cost-fixture',model:'gpt-5.1-2025-11-13',choices:[{finish_reason:'stop',message:{content:JSON.stringify(authored)}}],usage:{prompt_tokens:100,completion_tokens:100,completion_tokens_details:{reasoning_tokens:80}}});
  }});
  const response=await handler(new Request('https://example/qc',{method:'POST',headers:{'x-listening-qc-token':adminToken},body:JSON.stringify({stage:'author',policyHash,input})}));

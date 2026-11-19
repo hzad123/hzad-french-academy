@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,access,readdir} from 'node:fs/promises';
 import {PGlite} from '@electric-sql/pglite';
 import {publicationSQL6} from '../scripts/release/listening-01-06-v4.mjs';
-import {protectedTables} from '../scripts/release/listening-owner-review.mjs';
+import {protectedTables,strictProtectedTables} from '../scripts/release/listening-owner-review.mjs';
 import {assertReviewAuthorization,assertReviewQuestion,reviewRequest} from '../scripts/lib/listening-owner-review.mjs';
 import {POLICY_VERSION,MODELS} from '../supabase/functions/academy-listening-qc/contracts.js';
 import {policyHash,hash,contentHash,blindProjection,stimulus} from '../scripts/lib/listening-answer-qc.mjs';
@@ -47,6 +47,12 @@ test('six-test publication rejects missing audio and never accepts another test 
  const bad=structuredClone(fixtures);bad[0].questions[0].audioSeconds=null;
  assert.throws(()=>publicationSQL6(bad),/Incomplete mechanical/);
  const source=publicationSQL6(fixtures);assert(!source.includes('create or replace function'));assert(!/update\s+academy_ai\./i.test(source));
+ const strict=fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
+ assert.throws(()=>publicationSQL6(strict),/Incomplete mechanical/);
+ const strictSql=publicationSQL6(strict,protectedTables,{revision:5});
+ assert(strictSql.startsWith('-- Strict Listening01–06 v5:'));assert(!strictSql.includes('Review release, not a declaration'));
+ assert(strictSql.includes('protected_before is distinct from protected_after'));
+ assert(strictSql.includes('old_before is distinct from old_after'));assert(strictSql.includes('engine_before is distinct from engine_after'));
 });
 test('committed six-test migration matches the exact final banks when recorded candidates are present',async()=>{
  if(!present.every(Boolean))return;
@@ -57,7 +63,7 @@ test('committed six-test migration matches the exact final banks when recorded c
   assert.deepEqual(p.questions.map(q=>q.slotSeconds),current[i].questions.map(q=>q.slotSeconds));
  }
 });
-test('v4 publication rolls back, preserves pending/completed results and old banks, and scores all six exact versions',async()=>{
+test('review and strict publication roll back, preserve historical results and score all six exact versions',async()=>{
  const db=new PGlite();try{
   await db.exec(`create role anon;create role authenticated;create role service_role;create schema auth;create table auth.users(id uuid primary key,email_confirmed_at timestamptz);
    create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
@@ -72,7 +78,7 @@ test('v4 publication rolls back, preserves pending/completed results and old ban
    await db.query('insert into academy_tcf_listening.papers values($1,$2,$3) on conflict do nothing',[p.id,p.version,p]);
    await db.query('insert into academy_tcf_listening.published values($1,$2) on conflict(test_id) do update set version=excluded.version',[p.id,p.version]);
   }
-  for(const table of protectedTables)if(!(await db.query('select to_regclass($1) name',[table])).rows[0].name){await db.exec(`create schema if not exists ${table.split('.')[0]};create table ${table}(fixture_data jsonb);`);await db.query(`insert into ${table} values($1)`,[{preserve:'unchanged'}]);}
+  for(const table of strictProtectedTables)if(!(await db.query('select to_regclass($1) name',[table])).rows[0].name){await db.exec(`create schema if not exists ${table.split('.')[0]};create table ${table}(fixture_data jsonb);`);await db.query(`insert into ${table} values($1)`,[{preserve:'unchanged'}]);}
   const cmd=async(user,action,id=null,payload={})=>{await db.query("select set_config('request.jwt.claim.sub',$1,false)",[user]);return (await db.query('select public.academy_tcf_listening_command($1,$2,$3) value',[action,id,payload])).rows[0].value;};
   const pendingId=crypto.randomUUID(),completedId=crypto.randomUUID();
   let pending=await cmd(alice,'start',pendingId,{testId:current[0].id,version:current[0].version});
@@ -98,5 +104,52 @@ test('v4 publication rolls back, preserves pending/completed results and old ban
   assert.equal((await db.query('select count(*) n from academy_tcf_listening.papers')).rows[0].n,30);
   const changed=structuredClone(fixtures);changed[0].questions[0].explanation+=' Modified immutable bank.';
   await assert.rejects(()=>db.exec(publicationSQL6(changed)),/Immutable review version differs/);
+  // These are transaction fixtures, never evidence of real authoring quality.
+  // Validate the new revision's preservation/rollback behavior independently.
+  const strictPaths=fixtures.map(p=>`supabase/exams/tcf-listening-test${p.id.slice(-2)}-v5.json`);
+  const strictPresent=await Promise.all(strictPaths.map(p=>access(p).then(()=>true,()=>false)));
+  if(strictPresent.some(Boolean)&&!strictPresent.every(Boolean))throw Error('All six actual strict banks required');
+  const strict=strictPresent.every(Boolean)?await Promise.all(strictPaths.map(read)):fixtures.map(p=>({...structuredClone(p),version:p.version.replace(/-v4$/,'-v5')}));
+  const attemptsBefore=(await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows;
+  const strictSql=publicationSQL6(strict,strictProtectedTables,{revision:5});
+  for(const table of ['academy_tef_writing.attempts','academy_tef_speaking.attempts','academy_tef_speaking.calls'])assert(strictSql.includes('from '+table+' t)'));
+  if(strictPresent.every(Boolean)){
+   const files=await readdir('supabase/migrations');
+   const migrations=files.filter(f=>/_tcf_listening_01_06_strict_v5\.sql$/.test(f));
+   const waiverMigrations=files.filter(f=>/_tcf_listening_01_06_owner_waiver_v5\.sql$/.test(f));
+   const waiverProof='curriculum/tcf-listening-owner-waiver-v5/'+strict[0].version+'/review-release.json';
+   const ownerWaiver=await access(waiverProof).then(()=>true,()=>false);
+   if(ownerWaiver){
+    assert.equal(migrations.length,0,'Owner waiver cannot pretend to pass strict blind benchmarks');
+    assert(waiverMigrations.length<=1,'Only one independently checked owner-waiver migration may exist');
+    const proof=await read(waiverProof);
+    assert.equal(proof.ownerWaiver,true);
+    assert.equal(proof.groundedItems,234);
+    assert.equal(proof.reviewAuthorization?.message,'just publish everything. its good enough');
+    // During the media-preparation job the migration is created in the next
+    // stage. Once it exists, demand the exact SQL, including its honest waiver.
+    if(waiverMigrations.length){
+     const strictHeader='-- Strict Listening01–06 v5: independent blind, transcript, paper and late-cohort gates passed.\n-- All234 keys were independently grounded; verified media must be deployed first.\n-- Historical banks, attempts, clocks, scoring and access remain immutable.';
+     const waiverHeader='-- OWNER-APPROVED TCF Listening01-06 v5: blind-guessing threshold expressly waived on 19 November 2026.\n-- Every key retains independent transcript/image grounding; any unapproved edited question falls back to published verified v4.\n-- All 234 source-matched audio clips and original images must be live and verified before activation.\n-- Historical attempts, banks, clocks, scoring, wallet, access and TEF records remain protected by transaction hashes.';
+     assert(strictSql.startsWith(strictHeader),'Owner waiver must not weaken shared transactional guards');
+     assert.equal(await readFile('supabase/migrations/'+waiverMigrations[0],'utf8'),strictSql.replace(strictHeader,waiverHeader));
+    }
+   }else{
+    assert.equal(waiverMigrations.length,0,'Owner waiver migration requires owner-waiver evidence');
+    assert.equal(migrations.length,1);
+    assert.equal(await readFile('supabase/migrations/'+migrations[0],'utf8'),strictSql);
+   }
+  }
+  await db.exec('begin;'+strictSql);assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v5')));await db.exec('rollback;');
+  assert((await cmd(alice,'catalog')).tests.every(p=>p.version.endsWith('-v4')));
+  await db.exec('begin;'+strictSql+'commit;');await db.exec('begin;'+strictSql+'commit;');
+  assert.deepEqual((await db.query('select to_jsonb(a) row from academy_tcf_listening.attempts a order by id')).rows,attemptsBefore);
+  assert.equal((await db.query('select count(*) n from academy_tcf_listening.papers')).rows[0].n,36);
+  for(const p of strict){
+   const id=crypto.randomUUID();let a=await cmd(alice,'start',id,{testId:p.id,version:p.version});
+   const deadline=a.deadline;assert.equal(a.paper.version,p.version);assert.equal(Date.parse(deadline)-Date.parse(a.startedAt),2100000);
+   for(const q of p.questions){a=await cmd(alice,'answer',id,{number:q.number,choice:q.correct,revision:a.revision});if(q.number<39)a=await cmd(alice,'next',id,{number:q.number,revision:a.revision});assert.equal(a.deadline,deadline);}
+   a=await cmd(alice,'submit',id,{revision:a.revision});assert.equal(a.result.correct,39);assert.equal(a.result.total,39);
+  }
  }finally{await db.close();}
 });

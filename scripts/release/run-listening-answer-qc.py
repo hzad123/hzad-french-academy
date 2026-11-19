@@ -10,7 +10,7 @@ spec=importlib.util.spec_from_file_location('management',Path(__file__).with_nam
 api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--bundle',type=Path,required=True)
- parser.add_argument('--script',choices=['scripts/run-listening-answer-qc.mjs','scripts/prepare-listening-01-06-live-review.mjs'],default='scripts/run-listening-answer-qc.mjs')
+ parser.add_argument('--script',choices=['scripts/run-listening-answer-qc.mjs','scripts/prepare-listening-01-06-live-review.mjs','scripts/run-listening-six-contrast-qc.mjs'],default='scripts/run-listening-answer-qc.mjs')
  args,forwarded=parser.parse_known_args()
  access_token=os.environ.get('SUPABASE_ACCESS_TOKEN','').strip()
  if not access_token:raise RuntimeError('Trusted Actions credential not configured')

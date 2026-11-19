@@ -1,0 +1,434 @@
+{
+  "question": {
+    "number": 35,
+    "kind": "interview",
+    "question": "Selon le document, dans quel type de lieu les habitudes décrites ont-elles été observées ?",
+    "options": [
+      "Dans une maison",
+      "Dans des bureaux en open space",
+      "Dans une résidence étudiante",
+      "Dans un immeuble partagé"
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : Le document parle explicitement des habitudes \"relativement stables\" dans une maison. C’est donc bien le type de lieu où les habitudes décrites ont été observées. B : On pourrait confondre \"habitudes\" et \"horaires\" et croire que les habitudes décrites concernent les lieux où les horaires varient fortement, et imaginer des bureaux en open space. Cependant le document ne mentionne jamais des bureaux : il parle uniquement d’un \"immeuble partagé\". Associer ces horaires variables à des bureaux est donc une extrapolation non fondée sur l’enregistrement. C : Un auditeur peut penser qu’une résidence étudiante correspond à un lieu où les horaires varient fortement, ce qui ressemble à la description. Mais le texte ne parle ni d’étudiants ni de résidence étudiante, seulement d’un \"immeuble partagé\"; ce lien est donc imaginé par l’auditeur et ne repose pas sur le document. D : On pourrait se focaliser sur \"dans un immeuble partagé\" parce que c’est présenté comme le cas problématique (horaires variables, risque d’inconfort), et croire que c’est là que les habitudes ont été \"observées\". Or la phrase qui décrit explicitement des \"habitudes\" se rapporte à la maison (\"les habitudes sont relativement stables\"), tandis que pour l’immeuble partagé, le document évoque uniquement les \"horaires\". Confondre horaires et habitudes rend ce choix tentant mais il ne respecte pas le texte.",
+    "transcript": "Question 35.\nLes nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?\nPas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne.\nSelon le document, dans quel type de lieu les habitudes décrites ont-elles été observées ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 35."
+      },
+      {
+        "voice": "male",
+        "text": "Les nouveaux thermostats adaptent le chauffage à la présence des occupants. N'est-ce pas une solution idéale ?"
+      },
+      {
+        "voice": "female",
+        "text": "Pas toujours. Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement. Si le système abaisse la température alors qu'une personne fragile est présente, il crée un inconfort. Il faut permettre aux occupants de comprendre les réglages, de les corriger et de signaler un problème. Une technologie performante ne dispense pas d'observer la vie quotidienne."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, dans quel type de lieu les habitudes décrites ont-elles été observées ?"
+      }
+    ],
+    "audio": "q-35.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 69
+  },
+  "sourceHash": "ddb37e53fa5acebe2b024b9020ad45ad2a067f538b89d5163be273f6ccbb8812",
+  "contentHash": "3924a9aa794d96d1347811558ef11185f017a9a9da48e79597973010f5073e06",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Elhu2G61Ws8PevCiVoBCpPTPartVX",
+    "result": {
+      "question": "Selon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?",
+      "choices": [
+        "Dans une maison",
+        "Dans un immeuble partagé",
+        "Dans des bureaux en open space",
+        "Dans une résidence étudiante"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document dit explicitement : «Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement.» C’est donc bien la maison qui est associée à des habitudes stables.",
+      "design": "On teste ici la relation particulière entre le type de lieu (maison / immeuble partagé) et la stabilité ou la variabilité des habitudes. Les quatre réponses proposent des types de lieux où la gestion d’un chauffage automatique serait plausiblement liée à des rythmes de présence plus ou moins réguliers. Sans le document, tous paraissent crédibles. Seule l’écoute permet d’identifier que le texte attribue explicitement la stabilité des habitudes à la maison, en l’opposant à l’immeuble partagé.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse le rôle des deux lieux mentionnés : le document associe la stabilité à la maison et la forte variabilité à l’immeuble partagé. On peut se tromper en retenant seulement l’idée d’un bâtiment collectif et en lui attribuant la stabilité, alors que le texte fait exactement l’inverse.",
+          "operation": "role_swap",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Les bureaux en open space évoquent aussi un espace partagé où les horaires peuvent être irréguliers, ce qui rend cette réponse intuitive. Mais le document ne parle jamais de bureaux, seulement d’une maison et d’un immeuble partagé; la stabilité n’est attribuée qu’à la maison.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Une résidence étudiante est un lieu collectif aux usages très variables, ce qui pourrait sembler correspondre à une réflexion sur les rythmes d’occupation. Cependant, le document ne mentionne pas ce type de lieu et n’associe la stabilité des habitudes qu’à la maison, en opposant celle-ci à l’immeuble partagé.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Dans une maison, les habitudes sont relativement stables",
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 3999,
+      "completion_tokens": 1165,
+      "total_tokens": 5164,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 630,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01664875,
+    "inputHash": "cc5293c389e15ab53aeb0ee6d3bdeb0a8146745c87c2fe1001bb9b9882ee6e5a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:author:0:1"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, dans quel type de lieu les habitudes sont-elles décrites comme relativement stables ?",
+      "choices": [
+        "Dans une maison",
+        "Dans des bureaux en open space",
+        "Dans une résidence étudiante",
+        "Dans un immeuble partagé"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-ElhurBFsR1wvHVDru3zHmUjtrdYWs",
+      "result": {
+        "question": "Selon le document, dans quel type de lieu les habitudes décrites ont-elles été observées ?",
+        "choices": [
+          "Dans une maison",
+          "Dans des bureaux en open space",
+          "Dans une résidence étudiante",
+          "Dans un immeuble partagé"
+        ],
+        "notes": "La référence à la stabilité des habitudes a été retirée de l’énoncé pour éviter de favoriser implicitement le cadre d’une maison par simple bon sens. La question porte maintenant de façon neutre sur le type de lieu où les habitudes ont été observées, rendant les quatre lieux également plausibles et directement comparables."
+      },
+      "usage": {
+        "prompt_tokens": 633,
+        "completion_tokens": 551,
+        "total_tokens": 1184,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 418,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00630125,
+      "inputHash": "0a18fbecda883c87929bb66979e79f6d0defb706bd660a0a7b17638ff6463d0e",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:blind-edit:1"
+    }
+  },
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Elhv2JcioIbwrwU3oF5irGmikCf0W",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un reportage radio sur la vie en copropriété présente une enquête sur les habitudes de tri des déchets, de bruit ou d’usage des espaces communs, menée dans un immeuble partagé où plusieurs foyers vivent sur différents étages."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une émission décrit les routines quotidiennes d’une famille (repas, chauffage, consommation d’eau, gestion des déchets) observées dans une maison individuelle en périphérie d’une ville."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un documentaire audio sur la vie étudiante s’appuie sur une étude des habitudes de travail, de fêtes, de sommeil et de partage des cuisines et salles de bains dans une résidence étudiante."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un podcast sur le monde du travail commente les habitudes de collaboration, de pauses, de bruit et d’utilisation des espaces communs observées dans des bureaux en open space."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les options peuvent répondre directement à la question avec un contexte ordinaire plausible, sans avantage rédactionnel net ni indice textuel permettant de privilégier un type de lieu plutôt qu’un autre ; l’incertitude reste donc élevée et la probabilité répartie de manière égale."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 448,
+          "total_tokens": 1044,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 140,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005225,
+        "inputHash": "d924d584183782b91d56b4ed13d6e232f3d9ecec76ea48238c993276abb5a807",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:screen:1:edited:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Elhv8fbdiM49ySxZbkwxDN8NeUliT",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un reportage radio décrit les habitudes de vie et de voisinage de jeunes adultes, en expliquant qu’une sociologue a observé ces comportements au sein d’une résidence étudiante pendant plusieurs mois."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une émission traite de la cohabitation entre plusieurs foyers dans un même bâtiment, et le narrateur précise que les habitudes de partage d’espaces communs ont été observées dans un immeuble partagé entre différentes familles ou colocations."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un podcast sur la vie quotidienne raconte qu’un chercheur en sociologie a étudié les habitudes familiales, comme les heures de repas ou l’usage des écrans, et que ces observations ont été faites dans une maison individuelle."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un documentaire sur le monde du travail décrit les habitudes de collaboration, de communication et de pauses café, en précisant qu’elles ont été observées dans des bureaux en open space d’une grande entreprise."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre types de lieux correspondent naturellement à des « habitudes observées » et répondent directement à la question sans contrainte contextuelle particulière ; aucune option ne présente d’avantage de formulation, de précision ou de plausibilité suffisamment net pour la distinguer des autres, d’où une forte incertitude et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 426,
+          "total_tokens": 1022,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 89,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005005,
+        "inputHash": "3bbe8577919cfb91fe4bff70b12cfbd93ac248c03f3ed760c9d63e5491f1ec88",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:screen:1:edited:1"
+      }
+    },
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-ElhvFrykyzx1U6nLcaeWDcJw2DN4l",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un reportage radio décrit une étude menée sur les habitudes de travail et de collaboration entre collègues dans des bureaux en open space, où des observateurs ont noté les comportements quotidiens des employés."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une émission de société présente une enquête sur les habitudes de vie familiale observées dans une maison, par exemple les routines du matin, les repas et l’usage des écrans au domicile d’un foyer."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un documentaire suit les habitudes de jeunes adultes dans une résidence étudiante, en observant leurs rythmes de travail, de sortie et de vie en communauté au sein du campus universitaire."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un sujet de radio traite de la vie en immeuble partagé, où plusieurs foyers partagent certains espaces communs, et décrit les habitudes observées dans ces parties communes (buanderie, cour, salle partagée)."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre types de lieux peuvent naturellement servir de cadre à l’observation d’« habitudes » décrites dans un document audio, sans indice supplémentaire dans l’énoncé ou les formulations des choix. Aucun libellé ne présente un avantage lexical, grammatical ou de pertinence clairement décisif, d’où une forte incertitude et une répartition de probabilité uniforme malgré le choix obligé d’une réponse."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 508,
+          "total_tokens": 1104,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 170,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005825,
+        "inputHash": "5d0e5701bf984b57d6f581dc0dcb222f42db61ac1ea806cd76435a243435f3a1",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:screen:1:edited:2"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-ElhvOSAwwduKu6UFcke9qPTNCf4AB",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "Le document précise que c’est dans une maison que les habitudes sont décrites comme relativement stables.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Dans une maison, les habitudes sont relativement stables"
+          ],
+          "reason": "Le document parle explicitement des habitudes \"relativement stables\" dans une maison. C’est donc bien le type de lieu où les habitudes décrites ont été observées.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "dans un immeuble partagé, les horaires peuvent varier fortement"
+          ],
+          "reason": "On pourrait confondre \"habitudes\" et \"horaires\" et croire que les habitudes décrites concernent les lieux où les horaires varient fortement, et imaginer des bureaux en open space. Cependant le document ne mentionne jamais des bureaux : il parle uniquement d’un \"immeuble partagé\". Associer ces horaires variables à des bureaux est donc une extrapolation non fondée sur l’enregistrement.",
+          "misunderstanding": "inference_beyond_scope"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "les horaires peuvent varier fortement"
+          ],
+          "reason": "Un auditeur peut penser qu’une résidence étudiante correspond à un lieu où les horaires varient fortement, ce qui ressemble à la description. Mais le texte ne parle ni d’étudiants ni de résidence étudiante, seulement d’un \"immeuble partagé\"; ce lien est donc imaginé par l’auditeur et ne repose pas sur le document.",
+          "misunderstanding": "inference_beyond_scope"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Dans une maison, les habitudes sont relativement stables; dans un immeuble partagé, les horaires peuvent varier fortement."
+          ],
+          "reason": "On pourrait se focaliser sur \"dans un immeuble partagé\" parce que c’est présenté comme le cas problématique (horaires variables, risque d’inconfort), et croire que c’est là que les habitudes ont été \"observées\". Or la phrase qui décrit explicitement des \"habitudes\" se rapporte à la maison (\"les habitudes sont relativement stables\"), tandis que pour l’immeuble partagé, le document évoque uniquement les \"horaires\". Confondre horaires et habitudes rend ce choix tentant mais il ne respecte pas le texte.",
+          "misunderstanding": "scope_confusion"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 742,
+      "completion_tokens": 719,
+      "total_tokens": 1461,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 178,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0081175,
+    "inputHash": "deeffb9e9b4e42e43b80ba69d46d8fe3272b29ef1ac27117eb532cb58c11ac0a",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:34:583ea06f863af6598424143b:ground:1:edited"
+  },
+  "feedback": null
+}

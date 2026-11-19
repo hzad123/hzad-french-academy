@@ -1,0 +1,621 @@
+{
+  "question": {
+    "number": 36,
+    "kind": "interview",
+    "question": "Selon le document, que doit-il se passer lorsque certaines idées d’élèves ne sont finalement pas retenues ?",
+    "options": [
+      "On leur redonne la parole afin qu’ils puissent proposer d’autres idées.",
+      "Ils reçoivent une réponse qui explique les raisons pour lesquelles leurs propositions ne sont pas acceptées.",
+      "On leur présente les principales contraintes de l’établissement qui limitent la mise en œuvre de leurs idées.",
+      "On ouvre une discussion spécifique avec les élèves les plus silencieux pour recueillir leur point de vue."
+    ],
+    "correct": "B",
+    "explanation": "Le document précise que les élèves doivent «recevoir une réponse argumentée quand leurs idées ne sont pas retenues». Il ne parle pas, à ce moment précis, d’une présentation détaillée des contraintes, d’un nouveau tour de parole ni d’une discussion ciblée sur les élèves les plus silencieux.",
+    "transcript": "Question 36.\nVotre collège consulte les élèves sur les activités proposées. Est-ce une forme de démocratie scolaire ?\nPas si nous leur demandons seulement de voter pour une décision déjà prise. Ils doivent connaître les contraintes, proposer des alternatives et recevoir une réponse argumentée quand leurs idées ne sont pas retenues. Il faut aussi veiller à entendre ceux qui parlent rarement en réunion. La participation devient éducative lorsqu'elle donne une réelle possibilité de discussion, plutôt qu'une simple photographie de la popularité d'une proposition.\nSelon le document, que doit-il se passer lorsque certaines idées d’élèves ne sont finalement pas retenues ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 36."
+      },
+      {
+        "voice": "male",
+        "text": "Votre collège consulte les élèves sur les activités proposées. Est-ce une forme de démocratie scolaire ?"
+      },
+      {
+        "voice": "female",
+        "text": "Pas si nous leur demandons seulement de voter pour une décision déjà prise. Ils doivent connaître les contraintes, proposer des alternatives et recevoir une réponse argumentée quand leurs idées ne sont pas retenues. Il faut aussi veiller à entendre ceux qui parlent rarement en réunion. La participation devient éducative lorsqu'elle donne une réelle possibilité de discussion, plutôt qu'une simple photographie de la popularité d'une proposition."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, que doit-il se passer lorsque certaines idées d’élèves ne sont finalement pas retenues ?"
+      }
+    ],
+    "audio": "q-36.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 70
+  },
+  "rounds": 1,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3LKDvsxVzwH4xJqwIKEfWSIvI3G",
+    "result": {
+      "question": "Selon le document, lorsque les idées des élèves ne sont pas retenues, qu’est-il censé se passer ?",
+      "choices": [
+        "Ils doivent recevoir une réponse argumentée expliquant le refus.",
+        "On leur présente en détail les contraintes de l’établissement.",
+        "On leur donne un nouveau tour de parole pour formuler d’autres alternatives.",
+        "On leur garantit l’ouverture d’une discussion avec les élèves les plus silencieux."
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document précise que les élèves doivent «recevoir une réponse argumentée quand leurs idées ne sont pas retenues». Il ne parle pas, à ce moment précis, d’une présentation détaillée des contraintes, d’un nouveau tour de parole ni d’une discussion ciblée sur les élèves les plus silencieux.",
+      "design": "Axe précis : type de retour prévu lorsque les idées des élèves ne sont pas retenues. Toutes les réponses proposent une forme de réaction institutionnelle plausible après un refus (explication, présentation des contraintes, nouveau tour de parole, discussion ciblée), donc sont crédibles sans le document. Le texte, lui, attribue explicitement à ce moment-là la seule exigence d’une «réponse argumentée», ce qui permet de discriminer la bonne réponse sans faire appel à des jugements généraux sur la démocratie scolaire.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option transforme l’exigence générale «Ils doivent connaître les contraintes» en réaction spécifique au refus d’une idée. Or le texte distingue clairement le fait de connaître les contraintes, valable en amont pour tous, de la réponse argumentée qui est liée au moment où une idée n’est pas retenue.",
+          "operation": "role_swap",
+          "anchors": [
+            "Ils doivent connaître les contraintes",
+            "recevoir une réponse argumentée quand leurs idées ne sont pas retenues"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "On peut croire que la non‑acceptation d’une idée entraîne automatiquement un nouveau tour de propositions, en s’appuyant sur «proposer des alternatives». Mais dans le document, proposer des alternatives est une possibilité accordée aux élèves de manière générale, pas une étape systémique déclenchée chaque fois qu’une idée est refusée.",
+          "operation": "role_swap",
+          "anchors": [
+            "proposer des alternatives",
+            "quand leurs idées ne sont pas retenues"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette option élargit à tort au seul cas du refus d’une idée une exigence plus globale : «Il faut aussi veiller à entendre ceux qui parlent rarement en réunion». Le texte ne conditionne pas cette attention particulière au fait que des idées aient été écartées ; c’est une vigilance de portée générale pendant les réunions.",
+          "operation": "scope_shift",
+          "anchors": [
+            "Il faut aussi veiller à entendre ceux qui parlent rarement en réunion",
+            "quand leurs idées ne sont pas retenues"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4502,
+      "completion_tokens": 1586,
+      "total_tokens": 6088,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1005,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0214875,
+    "inputHash": "525e8260819fe1890757a9b481cda7c6a64100fc4696b339869f3ea7649e8bf7",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:35:85aecef166340640b146977e:author:0:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, lorsque les idées des élèves ne sont pas retenues, qu’est-il censé se passer ?",
+      "choices": [
+        "On leur donne un nouveau tour de parole pour formuler d’autres alternatives.",
+        "Ils doivent recevoir une réponse argumentée expliquant le refus.",
+        "On leur présente en détail les contraintes de l’établissement.",
+        "On leur garantit l’ouverture d’une discussion avec les élèves les plus silencieux."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3LWtcR3Ek7WxBL3Ca2O1YCew0ZV",
+      "result": {
+        "question": "Selon le document, que doit-il se passer lorsque certaines idées d’élèves ne sont finalement pas retenues ?",
+        "choices": [
+          "On leur redonne la parole afin qu’ils puissent proposer d’autres idées.",
+          "Ils reçoivent une réponse qui explique les raisons pour lesquelles leurs propositions ne sont pas acceptées.",
+          "On leur présente les principales contraintes de l’établissement qui limitent la mise en œuvre de leurs idées.",
+          "On ouvre une discussion spécifique avec les élèves les plus silencieux pour recueillir leur point de vue."
+        ],
+        "notes": "La question est légèrement reformulée pour rester neutre et processuelle. Les quatre options décrivent désormais des suites professionnelles plausibles, de même niveau de précision, sans qu’aucune ne soit manifestement plus responsable ou raisonnable que les autres. Les acteurs, objets et relations distinctifs de chaque choix (nouveau tour de parole, réponse explicative, contraintes de l’établissement, discussion avec élèves silencieux) sont conservés."
+      },
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 670,
+        "total_tokens": 1338,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 460,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.007535,
+      "inputHash": "f75fe1bf17e297012b2140479310550c350901aaaf30e9d33b2f7aa89eafa0de",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:35:85aecef166340640b146977e:blind-edit:before:1"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "b7bf9f1f477806b364542a710c2b52a529a4b5fc5bbe0b91e239a38699959f15",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse visant « les élèves qui s’expriment le moins habituellement » correspond le mieux, par son contenu et son style, à une consigne centrale sur la prise de parole en contexte de consultation au collège, où l’on cherche généralement à équilibrer les interventions et à inclure les plus discrets. Les autres options restent plausibles mais semblent plus limitées ou moins en phase avec cette visée globale.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La formulation met l’accent sur un objectif pédagogique nuancé et cohérent avec une « consultation au collège » : favoriser la participation en ciblant « les élèves qui s’expriment le moins habituellement », ce qui correspond typiquement à une consigne principale sur la prise de parole. Les autres réponses visent des groupes plus restreints ou déjà très investis (enseignants responsables, parents très impliqués, délégués élus), moins alignés avec l’idée générale de régulation équitable de la parole en réunion."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Lors d’une consultation au collège sur le fonctionnement des conseils de classe, le principal explique qu’en réunion de suivi des projets, la consigne principale est que la prise de parole est d’abord réservée aux enseignants responsables des activités, afin qu’ils présentent clairement leurs projets avant d’ouvrir la discussion aux autres."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion de consultation sur l’organisation des rencontres parents-professeurs, la direction explique qu’en conseil d’établissement la consigne principale concernant la prise de parole est d’abord adressée aux parents les plus investis, à qui l’on demande de canaliser leurs interventions pour ne pas monopoliser la discussion."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Pendant une consultation au collège sur la démocratie scolaire, la CPE précise qu’en réunion de classe la consigne principale est de donner la parole en priorité aux élèves qui s’expriment le moins habituellement, pour favoriser une meilleure participation de tous."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’une consultation sur le fonctionnement des conseils de classe, le principal indique que la consigne principale est que seuls les élèves délégués déjà élus prennent la parole lors de ces réunions, afin de structurer les échanges et éviter les débordements."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "a0c5622d4836c425589b2635f93d85b11b320f493d30e963a08da9868bdc64d9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La notion de « réponse argumentée » renvoie le plus naturellement à l’explication et à la justification d’une décision ; l’option 1 est classique et générale alors que les autres introduisent des objectifs plus spécialisés ou secondaires, ce qui donne à l’option 1 un net avantage malgré l’absence d’enregistrement.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation correspond exactement à la fonction habituelle d’une « réponse argumentée » : justifier et expliciter une décision en détaillant les raisons ; les autres choix ajoutent des finalités plus spécifiques (comparaison de projets, préparation d’une future consultation, focalisation sur critères/contraintes) qui semblent plus étroites ou dérivées."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une réunion de comité de sélection de projets, l’animateur explique qu’à la suite de l’appel à projets, il faudra rédiger une « réponse argumentée » pour préciser clairement les critères retenus (budget, délais, impact) et les contraintes (réglementation, ressources limitées) qui encadrent le choix final d’un projet plutôt qu’un autre."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un service municipal ou une entreprise, un responsable explique aux équipes que, lorsque l’on répond à une proposition (par exemple un appel d’offres ou une demande de subvention), une « réponse argumentée » doit servir à expliquer la décision prise, positive ou négative, en détaillant les raisons du choix afin qu’elle soit comprise et justifiable."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une formation à la gestion de projets, le formateur indique qu’une « réponse argumentée » est attendue pour mettre en parallèle les différents projets soumis, en discuter les points forts (coût, faisabilité, bénéfices attendus) et ainsi montrer qu’une analyse comparative a été menée."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un atelier de concertation citoyenne, l’animateur précise qu’une « réponse argumentée » à la consultation doit servir à formuler des pistes pour modifier les propositions existantes, afin de préparer une future consultation mieux adaptée aux besoins exprimés."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1498ac1af080e4e8e7fed8255d05eea22ceeab695e3df9b96c2189e2a675158e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 3 correspond le mieux au contexte explicite de réunions et d’échanges oraux décrit dans la question, en s’alignant sur une préoccupation pédagogique courante (soutenir les élèves qui parlent peu). Les autres choix restent plausibles mais sont moins directement liés au déroulement des réunions ou sont centrés sur l’issue des projets plutôt que sur la participation pendant les échanges.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "L’énoncé précise « lors des réunions » et mentionne « les échanges » dans la réponse 3, ce qui correspond directement à la dynamique de prise de parole pendant une réunion. L’option 2 se focalise sur le résultat des propositions (« ne sont finalement pas retenues ») plutôt qu’au déroulement même des réunions, tandis que 0 et 1 ne sont pas liés de façon aussi directe au déroulement des échanges. La réponse 3 est aussi formulée dans un registre pédagogique typique (attention aux élèves peu participatifs) et répond très précisément à une préoccupation d’inclusion en réunion."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un collège, après un forum de présentation de projets d’élèves, l’équipe éducative tient des réunions pour discuter des projets avec les classes. Un document interne précise que, pendant ces réunions, le collège doit accorder une attention particulière aux élèves qui ont présenté les projets jugés les plus attractifs, afin de les valoriser, de les encourager et de préparer d’éventuelles mises en œuvre concrètes."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un document de fonctionnement du collège décrit des réunions d’information pour les nouveaux élèves. Il indique que, lors de ces réunions, le collège doit accorder une attention particulière aux élèves qui maîtrisent déjà bien le fonctionnement et les règles du collège, par exemple les délégués ou tuteurs, car ils peuvent aider à relayer les informations et accompagner les autres."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un projet de vie collégienne, un document explique l’organisation de réunions où les élèves proposent des idées pour des actions ou projets. Il y est précisé que le collège doit accorder une attention particulière, lors de ces réunions et juste après, aux élèves dont les propositions ne sont finalement pas retenues, afin de les accompagner, d’éviter leur démotivation et de maintenir leur engagement dans la vie de l’établissement."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un règlement ou un guide de la vie scolaire décrit des réunions de classe ou de conseil d’élèves. Le document indique que, pendant ces réunions, le collège doit accorder une attention particulière aux élèves qui s’expriment peu pendant les échanges, afin de les encourager à prendre la parole et de s’assurer que tous les élèves soient entendus et inclus dans la discussion."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "1acc37ffb8711e4783bb86df7ed3ee1e2deb0e98d38d7e27d7d7d4c4a7801651",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs options restent plausibles sans le document audio, mais le besoin explicite d’une « réponse argumentée » est particulièrement cohérent avec la situation où les idées des élèves ne sont pas retenues, ce qui donne à l’option 3 un avantage modéré malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formule « apporte une réponse argumentée » évoque très naturellement la justification d’un refus ou d’une non‑sélection, ce qui correspond précisément à « Lorsque leurs idées ne sont pas retenues dans le projet », plus directement lié au besoin d’argumenter qu’aux autres cas possibles."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un enseignant discute avec sa classe d’un projet de vie scolaire. Il explique qu’il prend le temps de répondre de façon argumentée quand les élèves proposent des activités déjà très répandues dans l’établissement, par exemple parce qu’il veut leur montrer l’intérêt de capitaliser sur l’existant plutôt que de multiplier les nouveautés."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un enregistrement sur la participation des élèves à un projet, l’enseignant dit que lorsqu’une proposition d’élève est retenue et effectivement mise en œuvre, il donne une réponse argumentée pour expliquer pourquoi cette idée a été acceptée et quelles en sont les qualités."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Lors d’une réunion de préparation de projet, l’enseignant explique qu’il doit parfois adapter les propositions des élèves en fonction de contraintes (budget, sécurité, horaires) et qu’il apporte alors une réponse argumentée pour justifier les modifications nécessaires."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une séquence sur la démocratie scolaire, l’enseignant précise qu’il donne toujours une réponse argumentée lorsque les idées des élèves ne sont pas retenues dans le projet, afin d’expliquer clairement les raisons du refus et de respecter leur engagement."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "44b724592ffd8699d2e0cdf9746cc109833fbe793ee1a6062df02bbc3c7618bf",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La situation où des idées ne sont pas retenues est celle qui appelle le plus directement, dans un cadre éducatif, une réponse détaillée et argumentée pour expliquer le refus et rester dans une logique de participation respectueuse. Les autres options restent plausibles mais présentent un lien moins fort ou moins nécessaire avec l’exigence d’argumentation explicite.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La formulation « lorsque certaines de leurs idées ne sont pas retenues » correspond de manière naturelle à la nécessité d’une « réponse détaillée et argumentée », typiquement utilisée pour justifier un refus et accompagner pédagogiquement la décision. Les autres cas pourraient recevoir des explications, mais ils n’imposent pas aussi clairement un devoir de justification structurée que la situation de non‑sélection."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion ou atelier de concertation dans un collège : des élèves proposent diverses actions pour améliorer la vie scolaire. Le chef d’établissement explique qu’ils recevront une réponse détaillée et argumentée lorsque leurs idées font en réalité doublon avec des projets déjà en place, afin de justifier pourquoi l’établissement ne va pas les retenir ou les redéployer tels quels."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Conseil de vie collégienne : les élèves construisent un projet (club, sortie, aménagement d’un espace). La direction précise que, lorsque leurs propositions doivent être ajustées en fonction de contraintes budgétaires, de sécurité ou d’emploi du temps, les adultes devront fournir une réponse détaillée et argumentée pour expliquer ces modifications."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dispositif de participation des élèves : ils déposent des projets, mais tous ne peuvent être acceptés. Le document de cadrage stipule que, lorsque certaines de leurs idées ne sont pas retenues dans la décision finale, une réponse détaillée et argumentée doit leur être fournie pour expliquer les motifs du refus et maintenir un climat de confiance."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Appel à projets internes dans un lycée : les élèves soumettent plusieurs propositions. Le règlement indique que, lorsque leurs propositions sont finalement retenues comme projet prioritaire, l’établissement doit leur donner une réponse détaillée et argumentée décrivant les raisons du choix et la mise en œuvre prévue."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "70aa1f6c224e09f7790200dc3664130b7a108b48789dcf612ceb50b7985b1f1d",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent des contextes envisageables, mais le lien le plus direct avec l’idée d’une obligation de justification détaillée apparaît dans le cas où des idées pourtant jugées intéressantes sont refusées. Cette situation appelle naturellement une « réponse explicitement argumentée » pour être perçue comme légitime, ce qui donne à l’option 3 un avantage net malgré une incertitude résiduelle.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "La formulation « certaines de leurs idées, même jugées intéressantes, ne peuvent pas être mises en œuvre » correspond typiquement à un passage de texte normatif précisant l’obligation d’expliquer un refus ; elle met clairement en scène la nécessité d’une justification détaillée, ce qui s’aligne directement avec « réponse explicitement argumentée ». Les autres choix évoquent des situations plausibles mais moins directement corrélées à l’exigence d’argumentation explicite, et sont moins génériques que le cas général d’idées intéressantes non retenues."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un règlement interne sur la participation des élèves, il est prévu que lorsqu’un vote des élèves n’est pas suivi par l’établissement (par exemple sur l’organisation d’un événement ou l’aménagement d’un espace), les adultes doivent expliquer de manière argumentée pourquoi une autre décision a été prise malgré le résultat du vote."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un texte sur la vie collégienne précise que, pour encourager la parole de tous, lorsque des élèves qui interviennent rarement en classe ou en conseil demandent des explications sur une décision, les adultes ont l’obligation de leur fournir une réponse détaillée et argumentée pour valoriser leur prise de parole."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Une charte de fonctionnement d’un collège indique que lorsque les propositions des élèves (horaires, activités, aménagements) se heurtent à des contraintes d’emploi du temps ou de sécurité, les adultes doivent répondre de façon explicitement argumentée afin de rendre compréhensibles ces contraintes d’organisation."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un document-cadre sur la participation des élèves stipule que quand certaines idées d’élèves, même reconnues intéressantes par les adultes (projets, aménagements, activités), ne peuvent pas être mises en œuvre (budget, sécurité, cadre légal), il est prévu que les adultes leur donnent une réponse explicitement argumentée pour justifier ce refus."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "b5988a404d9d10ddf864afc4424940154e16e07ee281ccaa71fbd67f9cc2d8a9",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options décrivent des situations plausibles où une explication est souhaitable, mais la quatrième met explicitement en jeu un vote qui ne change pas réellement la décision, ce qui rend la nécessité d’une réponse clairement argumentée particulièrement forte et cohérente avec la formulation du document attendu.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation plus longue et nuancée (\"leur vote revient à entériner une décision déjà prise\") décrivant une situation éthiquement sensible qui appelle particulièrement une justification argumentée de la part de l’enseignant ; le lien explicite entre illusion de choix et nécessité d’une explication claire est plus direct que pour les autres options."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un cours où l’enseignant mène un débat ou un travail de projet, les élèves proposent différentes idées pour organiser une activité. Finalement, l’enseignant choisit une autre solution. Pour que les élèves comprennent et acceptent la décision, le document peut recommander de donner une réponse clairement argumentée expliquant pourquoi leurs idées n’ont pas été retenues (contraintes de temps, sécurité, budget, objectifs pédagogiques, etc.)."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans un document sur la participation orale en classe, il est expliqué que lorsqu’un élève qui parle rarement ose enfin prendre la parole en groupe, l’enseignant doit répondre de manière développée et clairement argumentée pour valoriser et encourager cette prise de parole, plutôt que de donner une réponse brève ou vague qui pourrait décourager l’élève."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un texte qui traite de la conduite de projets avec les élèves, le document peut dire que lorsque l’on sollicite leur avis ou leurs choix avant de leur avoir présenté les contraintes concrètes de mise en œuvre (budget, sécurité, temps, règlement), l’enseignant doit ensuite fournir une réponse clairement argumentée pour expliquer pourquoi certaines propositions ne sont pas réalisables, en s’appuyant explicitement sur ces contraintes encore inconnues des élèves au moment de leur proposition."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un document sur l’apprentissage de la démocratie à l’école, il est expliqué que lorsque l’enseignant organise un vote mais que, pour des raisons institutionnelles ou organisationnelles, la décision est en réalité déjà prise, il doit donner une réponse clairement argumentée aux élèves pour expliquer la situation (cadre réglementaire, marges de manœuvre limitées), afin d’éviter de donner l’illusion d’une fausse participation et de clarifier le sens de ce vote purement formel."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "cb44c8732812a9cb34c64549d929a580c9e5c98ff506ec3e570092d407473905",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question vise «la situation précise» où l’établissement doit fournir une réponse argumentée. L’option 1 décrit précisément le cas classique où l’on doit justifier un refus après discussion des idées des élèves. Les autres réponses sont soit trop générales (0), soit formulées de manière moins naturelle ou moins centrale dans un dispositif de consultation (2 et 3). Incertitude modérée mais avantage net pour l’option 1.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "Formulation ciblée et nuancée («leurs idées, même discutées, ne sont finalement pas retenues») qui décrit une situation précise justifiant typiquement l’obligation d’une réponse argumentée, en lien direct avec la participation et la consultation des élèves, alors que les autres options sont soit plus vagues (0), soit formulées de façon plus artificielle ou négative (2,3)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Réunion d’information dans un lycée : des élèves interrogent la direction sur les raisons des effectifs limités dans certains cours. Le chef d’établissement est tenu de leur fournir une réponse argumentée pour expliquer les contraintes budgétaires et réglementaires qui pèsent sur l’établissement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Conseil de vie lycéenne : des élèves ont proposé plusieurs projets d’aménagement, longuement discutés, mais l’établissement décide de ne pas les retenir. Le règlement de la participation étudiante prévoit alors qu’une réponse argumentée doit être fournie aux élèves pour justifier ce refus."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Charte interne de participation des élèves : il est précisé que lorsque l’établissement prend une décision sans qu’aucune alternative n’ait été formellement proposée par les élèves, il doit présenter une réponse argumentée expliquant les motifs de cette décision unilatérale."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Après une réunion de consultation sur un projet d’établissement, certains élèves se plaignent de ne pas avoir suffisamment pris la parole. Un texte interne pourrait exiger qu’en cas de sentiment d’expression insuffisante, l’établissement fournisse une réponse argumentée sur la prise en compte globale de la parole des élèves."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "cbdbc59bd47a780ac5ec58c67928564eda6a7c5d755cbfd888eabf2032e14bf8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 0 décrit une réaction simple, réaliste et pédagogique (fournir une explication aux élèves) qui s’accorde bien avec un enregistrement sur la participation ou la démocratie scolaire. Son contenu est clairement relié à la formulation de la question et exige moins d’hypothèses institutionnelles que les trois autres, ce qui lui donne un avantage malgré l’incertitude sur l’enregistrement réel.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "Formulation précise, pédagogique et directement liée à la formulation de la question (« Selon ce qui est dit… »). L’option 0 met l’accent sur un retour explicatif aux élèves, ce qui correspond bien à un discours institutionnel ou éducatif et répond exactement « que se passe-t-il » par une conséquence concrète et nuancée. Les autres options impliquent des procédures plus lourdes (vote de confirmation, nouvelle consultation, report systématique) qui semblent plus spécifiques et moins naturellement évoquées comme règle générale."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un enregistrement sur la vie démocratique au collège, un CPE explique le fonctionnement du conseil d’élèves : les élèves peuvent proposer des idées, mais si une proposition n’est pas retenue, l’équipe éducative envoie toujours un message ou fait un retour en classe pour expliquer clairement pourquoi la décision a été prise, afin que les élèves comprennent le refus."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une réunion enregistrée entre le principal et des délégués de classe, on explique qu’après l’étude des propositions des élèves, si une idée n’est pas retenue par l’administration, la décision est ensuite présentée et soumise à un vote de confirmation lors d’une séance officielle du conseil d’établissement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast sur la participation des élèves, un enseignant décrit un dispositif particulier : quand une idée d’une classe n’est pas retenue, l’établissement choisit parfois de relancer la réflexion en consultant une autre classe sur la même question, pour voir si une nouvelle proposition plus aboutie peut émerger."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une explication du fonctionnement d’un club ou d’un projet scolaire, l’animateur indique que lorsqu’une idée n’est pas retenue pour le trimestre en cours, elle n’est pas abandonnée, mais reportée et représentée systématiquement au trimestre suivant, lorsque le programme des activités est revu."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "8b1015c96e4398375a1cf25b5e1f2f789e7fdcb512981940751082f3613ad2f8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent s’inscrire dans un contexte éducatif ordinaire, mais la question porte sur ce qui doit se passer lorsque des idées ne sont pas retenues. L’option 0 décrit une exigence générale de retour explicatif, typique des documents institutionnels sur la participation des élèves ; l’option 1 ne parle que des contraintes de l’établissement (cas particulier d’une explication), l’option 2 ajoute une étape facultative (proposer d’autres idées) et l’option 3 s’éloigne du traitement direct des idées non retenues. D’où un avantage net mais non certain pour 0.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Formulation plus générale et complète (« une réponse qui explique les raisons ») qui couvre aussi bien les contraintes que la transparence pédagogique, semblant mieux correspondre à une recommandation de principe dans un document de référence ; les autres options sont plus spécifiques ou tangentielles (silence des élèves, présentation de contraintes, relance de nouvelles idées)."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un document sur la participation des élèves au fonctionnement de l’établissement, il est indiqué que lorsque certaines propositions d’élèves ne peuvent pas être mises en œuvre (budget, sécurité, règlement…), l’équipe éducative doit toujours leur fournir une réponse argumentée expliquant clairement pourquoi leurs idées ne sont pas acceptées, afin de maintenir la confiance et de valoriser leur engagement."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Un guide institutionnel décrit comment gérer les conseils d’élèves : lorsqu’une idée ne peut pas être appliquée, on prend un temps pour présenter aux élèves les contraintes de l’établissement (règlement intérieur, contraintes budgétaires, normes de sécurité) qui empêchent la réalisation, de façon à ce qu’ils comprennent le cadre dans lequel s’inscrivent leurs propositions."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document pédagogique sur la conduite de débats en classe recommande, quand certaines idées proposées par les élèves ne sont pas retenues, de redonner la parole aux élèves concernés pour qu’ils puissent reformuler ou proposer d’autres idées plus réalistes, afin de maintenir leur implication dans le processus de décision."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un protocole de vie scolaire explique que, lorsqu’on écarte certaines idées issues d’un conseil d’élèves, il peut être utile d’ouvrir ensuite une discussion spécifique avec les élèves les plus silencieux pour vérifier qu’ils se sentent tout de même écoutés et recueillir leur avis, même si leurs propositions n’étaient pas au départ au centre du débat."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3Ld78Dag4nLgu6q4ALwCL43UHUr",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans un document sur la participation des élèves au fonctionnement de l’établissement, il est indiqué que lorsque certaines propositions d’élèves ne peuvent pas être mises en œuvre (budget, sécurité, règlement…), l’équipe éducative doit toujours leur fournir une réponse argumentée expliquant clairement pourquoi leurs idées ne sont pas acceptées, afin de maintenir la confiance et de valoriser leur engagement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Un guide institutionnel décrit comment gérer les conseils d’élèves : lorsqu’une idée ne peut pas être appliquée, on prend un temps pour présenter aux élèves les contraintes de l’établissement (règlement intérieur, contraintes budgétaires, normes de sécurité) qui empêchent la réalisation, de façon à ce qu’ils comprennent le cadre dans lequel s’inscrivent leurs propositions."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un document pédagogique sur la conduite de débats en classe recommande, quand certaines idées proposées par les élèves ne sont pas retenues, de redonner la parole aux élèves concernés pour qu’ils puissent reformuler ou proposer d’autres idées plus réalistes, afin de maintenir leur implication dans le processus de décision."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un protocole de vie scolaire explique que, lorsqu’on écarte certaines idées issues d’un conseil d’élèves, il peut être utile d’ouvrir ensuite une discussion spécifique avec les élèves les plus silencieux pour vérifier qu’ils se sentent tout de même écoutés et recueillir leur avis, même si leurs propositions n’étaient pas au départ au centre du débat."
+            }
+          ],
+          "cues": [
+            {
+              "option": 0,
+              "severity": "weak",
+              "cue": "Formulation plus générale et complète (« une réponse qui explique les raisons ») qui couvre aussi bien les contraintes que la transparence pédagogique, semblant mieux correspondre à une recommandation de principe dans un document de référence ; les autres options sont plus spécifiques ou tangentielles (silence des élèves, présentation de contraintes, relance de nouvelles idées)."
+            }
+          ],
+          "standsOut": true,
+          "probabilities": [
+            0.5,
+            0.25,
+            0.15,
+            0.1
+          ],
+          "guess": 0,
+          "reason": "Tous les choix peuvent s’inscrire dans un contexte éducatif ordinaire, mais la question porte sur ce qui doit se passer lorsque des idées ne sont pas retenues. L’option 0 décrit une exigence générale de retour explicatif, typique des documents institutionnels sur la participation des élèves ; l’option 1 ne parle que des contraintes de l’établissement (cas particulier d’une explication), l’option 2 ajoute une étape facultative (proposer d’autres idées) et l’option 3 s’éloigne du traitement direct des idées non retenues. D’où un avantage net mais non certain pour 0."
+        },
+        "usage": {
+          "prompt_tokens": 652,
+          "completion_tokens": 750,
+          "total_tokens": 1402,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 160,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.008315,
+        "inputHash": "7f4325f911aea4763968395f98309fa9a4fa791a891fb311367ce225e66d5179",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:35:85aecef166340640b146977e:screen:1:0"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Tous les choix peuvent s’inscrire dans un contexte éducatif ordinaire, mais la question porte sur ce qui doit se passer lorsque des idées ne sont pas retenues. L’option 0 décrit une exigence générale de retour explicatif, typique des documents institutionnels sur la participation des élèves ; l’option 1 ne parle que des contraintes de l’établissement (cas particulier d’une explication), l’option 2 ajoute une étape facultative (proposer d’autres idées) et l’option 3 s’éloigne du traitement direct des idées non retenues. D’où un avantage net mais non certain pour 0.",
+    "cues": [
+      {
+        "option": 0,
+        "severity": "weak",
+        "cue": "Formulation plus générale et complète (« une réponse qui explique les raisons ») qui couvre aussi bien les contraintes que la transparence pédagogique, semblant mieux correspondre à une recommandation de principe dans un document de référence ; les autres options sont plus spécifiques ou tangentielles (silence des élèves, présentation de contraintes, relance de nouvelles idées)."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Dans un document sur la participation des élèves au fonctionnement de l’établissement, il est indiqué que lorsque certaines propositions d’élèves ne peuvent pas être mises en œuvre (budget, sécurité, règlement…), l’équipe éducative doit toujours leur fournir une réponse argumentée expliquant clairement pourquoi leurs idées ne sont pas acceptées, afin de maintenir la confiance et de valoriser leur engagement."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Un guide institutionnel décrit comment gérer les conseils d’élèves : lorsqu’une idée ne peut pas être appliquée, on prend un temps pour présenter aux élèves les contraintes de l’établissement (règlement intérieur, contraintes budgétaires, normes de sécurité) qui empêchent la réalisation, de façon à ce qu’ils comprennent le cadre dans lequel s’inscrivent leurs propositions."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Un document pédagogique sur la conduite de débats en classe recommande, quand certaines idées proposées par les élèves ne sont pas retenues, de redonner la parole aux élèves concernés pour qu’ils puissent reformuler ou proposer d’autres idées plus réalistes, afin de maintenir leur implication dans le processus de décision."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Un protocole de vie scolaire explique que, lorsqu’on écarte certaines idées issues d’un conseil d’élèves, il peut être utile d’ouvrir ensuite une discussion spécifique avec les élèves les plus silencieux pour vérifier qu’ils se sentent tout de même écoutés et recueillir leur avis, même si leurs propositions n’étaient pas au départ au centre du débat."
+      }
+    ]
+  }
+}

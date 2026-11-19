@@ -1,0 +1,190 @@
+{
+  "question": {
+    "number": 7,
+    "kind": "response",
+    "question": "Quelle réponse convient à la situation ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "C",
+    "explanation": "Réponse C : La question est : « Est-ce que l'atelier de demain demande une inscription ? », c’est-à-dire une question fermée sur la nécessité de s’inscrire. La réponse « Oui, il faut t’inscrire avant ce soir. » répond exactement à cette demande : elle confirme par « Oui » que l’inscription est nécessaire et ajoute une précision temporelle pertinente (« avant ce soir »). C’est la seule option qui traite directement de l’inscription à l’atelier de demain. A : La question porte sur la nécessité d’une inscription : « Est-ce que l'atelier de demain demande une inscription ? ». On attend une réponse du type oui/non, éventuellement avec une précision sur les modalités. « À demain, alors ! » ne répond pas à la question sur l’inscription, mais suppose que la décision de participer est déjà prise et que la question de l’inscription est réglée. Quelqu’un qui comprend partiellement peut se focaliser sur « l'atelier de demain » et penser à une formule de clôture (« À demain ») liée à l’événement, sans remarquer que la question demande une information précise sur l’inscription, que cette option n’apporte pas. B : L’interlocuteur pose déjà une question précise : « Est-ce que l'atelier de demain demande une inscription ? ». On n’est plus au stade de l’accueil, mais dans une demande d’information ciblée. Répondre « Bonjour, je peux vous aider ? » revient à ignorer cette question et à recommencer l’échange comme si rien n’avait été demandé. Quelqu’un qui comprend mal peut repérer le ton poli de la situation et croire qu’une formule de service est adaptée, mais l’enregistrement montre qu’une demande d’aide vient déjà d’être formulée, ce qui rend cette réponse inappropriée. D : La question initiale concerne l’inscription à un atelier : « Est-ce que l'atelier de demain demande une inscription ? ». Répondre : « Désolé, je n’ai pas entendu ton prénom. » déplace le sujet vers l’identité de la personne, sans indiquer si une inscription est requise. Une personne qui comprend partiellement peut associer l’idée d’« inscription » au fait de donner son prénom et croire qu’il faut d’abord clarifier le nom, mais l’enregistrement ne mentionne aucun prénom ni problème d’audition préalable ; la question demande une information de règle (faut-il s’inscrire ?), pas une répétition du prénom.",
+    "transcript": "Question 7.\nEst-ce que l'atelier de demain demande une inscription ?\nA. À demain, alors ! B. Bonjour, je peux vous aider ? C. Oui, il faut t’inscrire avant ce soir. D. Désolé, je n’ai pas entendu ton prénom.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 7."
+      },
+      {
+        "voice": "female",
+        "text": "Est-ce que l'atelier de demain demande une inscription ?"
+      },
+      {
+        "voice": "male",
+        "text": "A. À demain, alors ! B. Bonjour, je peux vous aider ? C. Oui, il faut t’inscrire avant ce soir. D. Désolé, je n’ai pas entendu ton prénom."
+      }
+    ],
+    "audio": "q-07.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 32
+  },
+  "sourceHash": "325c3dca31acc4c9013698a5090eebac81b4745d32a1a800653e8df5a912051b",
+  "contentHash": "fef5ccdb83d8b327a51d5bf4d4d26bc3bdf12cfdceceae257d4ee0f5a92a4604",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzg9fqulCEUTlKUP9v4t8yaP0CiF",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Deux personnes sont dans une soirée. L’une se présente rapidement, mais il y a du bruit et l’autre n’a pas bien entendu. Elle réagit en disant : « Désolé, je n’ai pas entendu ton prénom. » pour lui demander de se représenter."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Deux collègues discutent et conviennent de se revoir le lendemain pour finir un dossier. L’un dit qu’il doit partir maintenant, et l’autre conclut la conversation par : « À demain, alors ! »."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un étudiant demande des renseignements sur un cours ou un atelier. On lui explique le fonctionnement et il demande s’il doit faire quelque chose rapidement. L’interlocuteur répond : « Oui, il faut t’inscrire avant ce soir. »."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un client entre dans un magasin ou un visiteur arrive à l’accueil d’un bâtiment. L’employé l’aborde poliment en disant : « Bonjour, je peux vous aider ? » pour offrir son assistance."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "La question est totalement générale (« Quelle réponse convient à la situation ? ») sans autre indice, et les quatre propositions sont toutes naturelles dans des situations ordinaires distinctes. Sans accès à l’enregistrement ni à un contexte écrit plus précis, aucun avantage objectif et déterminant ne se dégage entre les choix, ce qui impose une forte incertitude et un choix de probabilité uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 459,
+          "total_tokens": 1057,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 96,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0053375,
+        "inputHash": "7bcaf1501276b5b80f030bc4ef567739356ed1b278cd129c3727b65699b02eb7",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:6:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzgEHLV87VlrysHcT2u2FDnGc467",
+    "result": {
+      "supportedIndices": [
+        2
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule réponse qui répond directement à la question sur la nécessité d’une inscription pour l’atelier de demain est « Oui, il faut t’inscrire avant ce soir. » Les autres répliques ne traitent pas la demande d’inscription et sont donc inadaptées à la situation décrite.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que l'atelier de demain demande une inscription ?",
+            "À demain, alors !"
+          ],
+          "reason": "La question porte sur la nécessité d’une inscription : « Est-ce que l'atelier de demain demande une inscription ? ». On attend une réponse du type oui/non, éventuellement avec une précision sur les modalités. « À demain, alors ! » ne répond pas à la question sur l’inscription, mais suppose que la décision de participer est déjà prise et que la question de l’inscription est réglée. Quelqu’un qui comprend partiellement peut se focaliser sur « l'atelier de demain » et penser à une formule de clôture (« À demain ») liée à l’événement, sans remarquer que la question demande une information précise sur l’inscription, que cette option n’apporte pas.",
+          "misunderstanding": "scope_misinterpretation"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que l'atelier de demain demande une inscription ?",
+            "Bonjour, je peux vous aider ?"
+          ],
+          "reason": "L’interlocuteur pose déjà une question précise : « Est-ce que l'atelier de demain demande une inscription ? ». On n’est plus au stade de l’accueil, mais dans une demande d’information ciblée. Répondre « Bonjour, je peux vous aider ? » revient à ignorer cette question et à recommencer l’échange comme si rien n’avait été demandé. Quelqu’un qui comprend mal peut repérer le ton poli de la situation et croire qu’une formule de service est adaptée, mais l’enregistrement montre qu’une demande d’aide vient déjà d’être formulée, ce qui rend cette réponse inappropriée.",
+          "misunderstanding": "pragmatic_mismatch"
+        },
+        {
+          "index": 2,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "Est-ce que l'atelier de demain demande une inscription ?",
+            "Oui, il faut t’inscrire avant ce soir."
+          ],
+          "reason": "La question est : « Est-ce que l'atelier de demain demande une inscription ? », c’est-à-dire une question fermée sur la nécessité de s’inscrire. La réponse « Oui, il faut t’inscrire avant ce soir. » répond exactement à cette demande : elle confirme par « Oui » que l’inscription est nécessaire et ajoute une précision temporelle pertinente (« avant ce soir »). C’est la seule option qui traite directement de l’inscription à l’atelier de demain.",
+          "misunderstanding": null
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "Est-ce que l'atelier de demain demande une inscription ?",
+            "Désolé, je n’ai pas entendu ton prénom."
+          ],
+          "reason": "La question initiale concerne l’inscription à un atelier : « Est-ce que l'atelier de demain demande une inscription ? ». Répondre : « Désolé, je n’ai pas entendu ton prénom. » déplace le sujet vers l’identité de la personne, sans indiquer si une inscription est requise. Une personne qui comprend partiellement peut associer l’idée d’« inscription » au fait de donner son prénom et croire qu’il faut d’abord clarifier le nom, mais l’enregistrement ne mentionne aucun prénom ni problème d’audition préalable ; la question demande une information de règle (faut-il s’inscrire ?), pas une répétition du prénom.",
+          "misunderstanding": "condition_inferred"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 698,
+      "completion_tokens": 1320,
+      "total_tokens": 2018,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 501,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0140725,
+    "inputHash": "b9d3eec50902916a58c2028b99b98b3f3fb525807a210a5155e4cc5de16de1d1",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:6:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null
+}

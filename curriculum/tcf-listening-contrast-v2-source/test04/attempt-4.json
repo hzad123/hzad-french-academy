@@ -1,0 +1,244 @@
+{
+  "question": {
+    "number": 4,
+    "kind": "image",
+    "question": "Quelle phrase décrit correctement la scène ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "D",
+    "explanation": "Réponse D : L’image montre un enfant assis entre deux adultes avec un livre qu’il tient le bras tendu vers l’adulte situé à droite. Le mouvement du bras va de l’enfant vers l’adulte de droite, ce qui correspond exactement à « Il tend un livre à l’adulte assis à droite. ». A : On voit un enfant au centre avec un livre, assis entre deux adultes. Quelqu’un qui regarde vite peut croire qu’il lit, car il tient un livre. Mais l’image montre son bras tendu vers la droite et le regard n’est pas focalisé sur le livre comme dans une posture de lecture ; l’action principale représentée est le geste de donner, non de lire. B : On voit la main de l’adulte de droite vers l’enfant, et un livre entre eux. On pourrait croire, si l’on ne fait pas attention au sens du geste, que l’adulte donne (il « reçoit un livre de l’adulte »). En réalité, la posture du bras de l’enfant (allongé vers la droite) indique que c’est l’enfant qui tend le livre à l’adulte, donc l’enfant ne reçoit pas le livre, il le remet. C : L’enfant est tourné légèrement vers la droite et son bras est tendu vers l’adulte de droite, pas vers celui de gauche. Quelqu’un qui se fie seulement au fait qu’il est assis « entre » deux adultes pourrait mal mémoriser de quel côté il tend le livre et croire qu’il le montre à gauche, mais le geste représenté vise clairement la droite.",
+    "transcript": "Question 4.\nRegardez l’image et écoutez les propositions.\nA. Il lit son livre assis entre deux adultes. B. Il reçoit un livre de l’adulte assis à droite. C. Il montre son livre à l’adulte assis à gauche. D. Il tend un livre à l’adulte assis à droite.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 4."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Il lit son livre assis entre deux adultes. B. Il reçoit un livre de l’adulte assis à droite. C. Il montre son livre à l’adulte assis à gauche. D. Il tend un livre à l’adulte assis à droite."
+      }
+    ],
+    "audio": "q-04.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 34,
+    "image": "q-04.svg"
+  },
+  "sourceHash": "63b19f012143cbc1ee3ecc705062afd9c0d97bd6f7ba99bd3461e4e82846ee42",
+  "contentHash": "c35ac4f0ebb8ad9690f152a2fa59b19894dd32c2a2d000ba2be329da4146e636",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 1,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzfxDYTcOvNhgtG2Dd0cL0mOpm77",
+    "result": {
+      "question": "Que fait l’enfant placé au centre de l’image ?",
+      "choices": [
+        "Il tend un livre à l’adulte assis à droite.",
+        "Il reçoit un livre de l’adulte assis à droite.",
+        "Il montre son livre à l’adulte assis à gauche.",
+        "Il lit son livre assis entre deux adultes."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’enfant au centre est debout et tend son livre vers l’adulte assis à droite, dont le bras est allongé pour le recevoir. Il ne lit pas, ne reçoit pas le livre et ne se tourne pas vers l’adulte de gauche.",
+      "design": "Axe précis : l’action de l’enfant au centre par rapport au livre et aux adultes (donner, recevoir, montrer, lire). Les quatre réponses décrivent toutes des actions ordinaires et crédibles dans une scène de retour de livres, et répondent directement à la même question sur ce que fait l’enfant. Sans l’image, chacune pourrait sembler plausible : interaction avec l’adulte de droite (donner ou recevoir), interaction avec l’adulte de gauche (montrer), ou activité individuelle (lire). Seule l’observation fine permet de voir que l’enfant tend le livre à l’adulte de droite.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "L’option inverse les rôles de donneur et de receveur : on pourrait croire que l’adulte rend le livre à l’enfant en voyant leurs bras rapprochés, mais l’image montre que le livre part de l’enfant vers l’adulte, dans un contexte de retour de livres.",
+          "operation": "role_swap",
+          "anchors": [
+            "RETOUR DES LIVRES",
+            "l’enfant au centre tend le livre vers l’adulte de droite"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Cette option déplace simplement le destinataire : l’enfant pourrait sembler se tourner vers l’autre adulte, mais son geste est orienté vers la droite, et l’adulte de gauche ne tend pas le bras pour recevoir ou regarder le livre.",
+          "operation": "role_swap",
+          "anchors": [
+            "adulte assis à gauche immobile",
+            "bras tendu vers l’adulte de droite"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Cette réponse confond le fait de tenir un livre avec l’action de lire : la scène montre un enfant debout, bras allongé, en interaction avec l’adulte de droite, et non assis en train de lire tranquillement entre les deux adultes.",
+          "operation": "scope_shift",
+          "anchors": [
+            "enfant debout entre deux adultes",
+            "bras allongé tenant le livre vers la droite"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 2175,
+      "completion_tokens": 1062,
+      "total_tokens": 3237,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 522,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.01333875,
+    "inputHash": "fb6d4624821c7edbf729db232bfc4baab8c9df50ad227d71e2d9c8fd0ce73b05",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:3:14721af7be4c27b55696caf7:author:0:0"
+  },
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Ekzg9oLSxKcmiiqsfyp7My4PzCBSG",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une salle d’attente ou une salle de classe, un enfant assis au centre tient un livre ouvert et le tourne légèrement pour le montrer à l’adulte assis à sa gauche, afin de lui montrer une image ou une page particulière."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Sur un banc ou un canapé, un enfant est assis entre deux adultes et lit tranquillement son livre, concentré sur les pages, tandis que les deux adultes l’encadrent sans intervenir directement dans sa lecture."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Lors d’une distribution de livres dans une bibliothèque ou une classe, un enfant assis au centre tend les mains vers l’adulte assis à sa droite qui lui remet un livre, illustrant clairement qu’il le reçoit de cet adulte."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Dans un salon ou une salle de classe, un enfant assis au centre tient un livre et le tend vers l’adulte assis à sa droite pour le lui donner, par exemple pour qu’il le lise à voix haute ou le range."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Toutes les propositions décrivent de manière naturelle une scène plausible avec un enfant et des adultes assis de part et d’autre, sans indice textuel clair permettant de privilégier une action (montrer, lire, recevoir, tendre) plutôt qu’une autre. Sans accès à l’image ni autre indication, aucune option ne présente d’avantage de formulation, de précision ou de correction suffisant pour la distinguer des autres, d’où une forte incertitude et une répartition uniforme des probabilités."
+        },
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 452,
+          "total_tokens": 1063,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 66,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00528375,
+        "inputHash": "3dc42985b4cd29b4d582755f4554315bcde2feb3d0708ed71502df6dfd0f9fe4",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:3:14721af7be4c27b55696caf7:screen:1:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzgEQJspZGfBPnkLJbFchPniMeFd",
+    "result": {
+      "supportedIndices": [
+        3
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule phrase qui correspond exactement à la scène est : « Il tend un livre à l’adulte assis à droite. »",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit un enfant au centre avec un livre, assis entre deux adultes. Quelqu’un qui regarde vite peut croire qu’il lit, car il tient un livre. Mais l’image montre son bras tendu vers la droite et le regard n’est pas focalisé sur le livre comme dans une posture de lecture ; l’action principale représentée est le geste de donner, non de lire.",
+          "misunderstanding": "scope_of_action"
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "On voit la main de l’adulte de droite vers l’enfant, et un livre entre eux. On pourrait croire, si l’on ne fait pas attention au sens du geste, que l’adulte donne (il « reçoit un livre de l’adulte »). En réalité, la posture du bras de l’enfant (allongé vers la droite) indique que c’est l’enfant qui tend le livre à l’adulte, donc l’enfant ne reçoit pas le livre, il le remet.",
+          "misunderstanding": "role_confusion"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [],
+          "reason": "L’enfant est tourné légèrement vers la droite et son bras est tendu vers l’adulte de droite, pas vers celui de gauche. Quelqu’un qui se fie seulement au fait qu’il est assis « entre » deux adultes pourrait mal mémoriser de quel côté il tend le livre et croire qu’il le montre à gauche, mais le geste représenté vise clairement la droite.",
+          "misunderstanding": "left_right_confusion"
+        },
+        {
+          "index": 3,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [],
+          "reason": "L’image montre un enfant assis entre deux adultes avec un livre qu’il tient le bras tendu vers l’adulte situé à droite. Le mouvement du bras va de l’enfant vers l’adulte de droite, ce qui correspond exactement à « Il tend un livre à l’adulte assis à droite. ».",
+          "misunderstanding": null
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 742,
+      "completion_tokens": 510,
+      "total_tokens": 1252,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 5,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0060275,
+    "inputHash": "f368cff7e753e1ee6d32a077675f9da255145d13f9c95e7e39d6780ca8108ac2",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:3:3:14721af7be4c27b55696caf7:ground:1"
+  },
+  "feedback": null
+}

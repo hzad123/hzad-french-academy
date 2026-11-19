@@ -1,0 +1,189 @@
+{
+  "question": {
+    "number": 2,
+    "kind": "image",
+    "question": "Quelle description correspond à l’image ?",
+    "options": [
+      "Proposition A",
+      "Proposition B",
+      "Proposition C",
+      "Proposition D"
+    ],
+    "correct": "B",
+    "explanation": "Réponse B : L’image montre une patiente assise, orientée vers un écran sur lequel s’affiche clairement « N° APPELÉ 42 ». Elle semble attendre son tour et regarder cet affichage. La description « Une patiente consulte le numéro affiché. » correspond donc directement à la scène représentée, sans ajouter d’élément non visible. A : On voit une patiente assise dans une salle d’attente près d’un panneau « ACCUEIL », ce qui pourrait faire penser à des démarches administratives comme remplir un formulaire. Cependant, l’image ne montre aucun formulaire, ni stylo, ni document dans ses mains ou sur ses genoux. On ne voit que la patiente assise et l’écran d’affichage des numéros, donc la description d’une patiente qui complète un formulaire médical n’est pas soutenue par l’image. C : La présence du mot « ACCUEIL » peut faire penser à un guichet où l’on présente sa carte d’assurance. Cependant, la patiente n’est pas debout au guichet ni en interaction avec une personne ; elle est assise sur une rangée de sièges, sans carte visible dans la main. L’image ne montre aucun geste de présentation de document, donc cette description ajoute une action absente de la scène. D : Le contexte médical et l’affichage de numéro pourraient faire penser à la fin d’une consultation, puis au paiement d’une facture. Mais la patiente est simplement assise et regarde l’écran ; il n’y a ni comptoir de caisse, ni portefeuille, ni échange d’argent ou de document de facturation. Attribuer un paiement à cette situation dépasse ce que montre l’image.",
+    "transcript": "Question 2.\nRegardez l’image et écoutez les propositions.\nA. Une patiente complète un formulaire médical. B. Une patiente consulte le numéro affiché. C. Une patiente présente sa carte d’assurance. D. Une patiente règle sa facture médicale.",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 2."
+      },
+      {
+        "voice": "female",
+        "text": "Regardez l’image et écoutez les propositions."
+      },
+      {
+        "voice": "female",
+        "text": "A. Une patiente complète un formulaire médical. B. Une patiente consulte le numéro affiché. C. Une patiente présente sa carte d’assurance. D. Une patiente règle sa facture médicale."
+      }
+    ],
+    "audio": "q-02.mp3",
+    "audioSeconds": 19.749,
+    "slotSeconds": 32,
+    "image": "q-02.svg"
+  },
+  "sourceHash": "f2d128ce722bc7818c366e31a68bea7621a48d61ddcd695748a9b86b88ad82dd",
+  "contentHash": "7d2ff60c9260611fcf8956f9231db0b94307cfec665ee9e43ec794293beca993",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 0,
+  "pass": true,
+  "author": null,
+  "blindEdit": null,
+  "blind": [
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-EkzXMVA2a1N7gTTGI3otb5E9gLe9P",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans la salle d’accueil d’un cabinet médical, on voit une patiente au comptoir qui tend une petite carte plastique à la réceptionniste : c’est sa carte d’assurance maladie, présentée avant la consultation."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans une salle d’attente médicale, une patiente est assise avec un stylo, concentrée sur des feuilles posées sur un clipboard ou une table, en train de remplir un formulaire d’antécédents médicaux ou d’enregistrement."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "À l’accueil d’un cabinet, une patiente se tient devant un panneau ou un écran lumineux affichant un numéro de passage ; on la voit regarder fixement ce numéro pour vérifier si c’est son tour ou pour noter un numéro de téléphone affiché."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "À la réception d’un hôpital ou d’une clinique, une patiente tend une carte bancaire ou de l’argent à la personne au guichet, ou bien signe un terminal de paiement, ce qui illustre le règlement de sa facture médicale."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions décrivent des scènes banales et plausibles dans un contexte médical (accueil, formulaire, affichage de numéro, paiement), sans indice textuel clair permettant de privilégier l’une d’elles en l’absence de l’image ou de l’audio. Aucune option ne présente d’avantage de formulation, de précision ou de portée suffisant pour la démarquer nettement, d’où des probabilités réparties uniformément et un choix de réponse arbitraire parmi elles."
+        },
+        "usage": {
+          "prompt_tokens": 596,
+          "completion_tokens": 462,
+          "total_tokens": 1058,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 72,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.005365,
+        "inputHash": "b4c459a849e29686a1dba76e535b3728c0641b0b2abd8180cb88eed341651298",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:1:14721af7be4c27b55696caf7:screen:0:0"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-EkzXS7rlAeWWKMmKsK24K4FebronI",
+    "result": {
+      "supportedIndices": [
+        1
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "La seule description correspondant clairement à l’image est celle d’une patiente qui consulte le numéro affiché sur l’écran, où l’on voit « N° APPELÉ 42 ». Aucune action de remplissage de formulaire, de présentation de carte d’assurance ou de paiement n’est visible.",
+      "options": [
+        {
+          "index": 0,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "ACCUEIL"
+          ],
+          "reason": "On voit une patiente assise dans une salle d’attente près d’un panneau « ACCUEIL », ce qui pourrait faire penser à des démarches administratives comme remplir un formulaire. Cependant, l’image ne montre aucun formulaire, ni stylo, ni document dans ses mains ou sur ses genoux. On ne voit que la patiente assise et l’écran d’affichage des numéros, donc la description d’une patiente qui complète un formulaire médical n’est pas soutenue par l’image.",
+          "misunderstanding": "attribution"
+        },
+        {
+          "index": 1,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "N° APPELÉ\n42"
+          ],
+          "reason": "L’image montre une patiente assise, orientée vers un écran sur lequel s’affiche clairement « N° APPELÉ 42 ». Elle semble attendre son tour et regarder cet affichage. La description « Une patiente consulte le numéro affiché. » correspond donc directement à la scène représentée, sans ajouter d’élément non visible.",
+          "misunderstanding": null
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "ACCUEIL"
+          ],
+          "reason": "La présence du mot « ACCUEIL » peut faire penser à un guichet où l’on présente sa carte d’assurance. Cependant, la patiente n’est pas debout au guichet ni en interaction avec une personne ; elle est assise sur une rangée de sièges, sans carte visible dans la main. L’image ne montre aucun geste de présentation de document, donc cette description ajoute une action absente de la scène.",
+          "misunderstanding": "scope"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "N° APPELÉ\n42"
+          ],
+          "reason": "Le contexte médical et l’affichage de numéro pourraient faire penser à la fin d’une consultation, puis au paiement d’une facture. Mais la patiente est simplement assise et regarde l’écran ; il n’y a ni comptoir de caisse, ni portefeuille, ni échange d’argent ou de document de facturation. Attribuer un paiement à cette situation dépasse ce que montre l’image.",
+          "misunderstanding": "scope"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 727,
+      "completion_tokens": 763,
+      "total_tokens": 1490,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 188,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.00853875,
+    "inputHash": "5e776c95f945c76a22e4b35d373c12d560cfbfcf9869a3fd0a2fad4682e904d6",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:2:1:14721af7be4c27b55696caf7:ground:0"
+  },
+  "feedback": null,
+  "imageHash": "d31f96893248ba1412b01f4ab940d62889985cd50acf8bf60a89ccf0fbd3d664",
+  "designSeedHash": null
+}

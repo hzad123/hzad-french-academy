@@ -1,0 +1,918 @@
+{
+  "question": {
+    "number": 33,
+    "kind": "commentary",
+    "question": "Selon le document, quel élément est cité comme exemple de critère complémentaire à prendre en compte dans l’analyse du marché locatif, en plus du loyer médian ?",
+    "options": [
+      "Les charges supportées par les locataires",
+      "Les quartiers où les prix évoluent différemment",
+      "Les ménages qui restent exclus du marché",
+      "La taille des logements disponibles"
+    ],
+    "correct": "D",
+    "explanation": "Le document cite « la taille des logements disponibles » juste après avoir indiqué qu’il faut aussi regarder d’autres éléments en plus du loyer médian. C’est présenté comme une caractéristique du logement lui‑même, contrairement aux charges (un coût associé), aux quartiers (un critère spatial) ou aux ménages exclus (objet d’analyse sociale).",
+    "transcript": "Question 33.\nOn nous annonce que le loyer médian a légèrement baissé cette année. C'est une information importante, mais elle ne dit pas combien de familles trouvent effectivement un logement adapté à leurs revenus. Il faut aussi regarder les charges, la taille des logements disponibles et les quartiers où les prix évoluent autrement. Une médiane résume une distribution; elle ne peut remplacer l'analyse des ménages qui restent exclus du marché. Un prix moins élevé ne signifie pas toujours un accès plus facile.\nSelon le document, quel élément est cité comme exemple de critère complémentaire à prendre en compte dans l’analyse du marché locatif, en plus du loyer médian ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 33."
+      },
+      {
+        "voice": "female",
+        "text": "On nous annonce que le loyer médian a légèrement baissé cette année. C'est une information importante, mais elle ne dit pas combien de familles trouvent effectivement un logement adapté à leurs revenus. Il faut aussi regarder les charges, la taille des logements disponibles et les quartiers où les prix évoluent autrement. Une médiane résume une distribution; elle ne peut remplacer l'analyse des ménages qui restent exclus du marché. Un prix moins élevé ne signifie pas toujours un accès plus facile."
+      },
+      {
+        "voice": "female",
+        "text": "Selon le document, quel élément est cité comme exemple de critère complémentaire à prendre en compte dans l’analyse du marché locatif, en plus du loyer médian ?"
+      }
+    ],
+    "audio": "q-33.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 66
+  },
+  "rounds": 6,
+  "pass": false,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em3QqVIBiniBmymzbLf8RbteNPeUZ",
+    "result": {
+      "question": "Selon le document, quel élément est explicitement donné comme exemple de caractéristique des logements eux-mêmes à examiner en plus du loyer médian ?",
+      "choices": [
+        "La taille des logements disponibles",
+        "Les charges supportées par les locataires",
+        "Les quartiers où les prix évoluent différemment",
+        "Les ménages qui restent exclus du marché"
+      ],
+      "correctIndex": 0,
+      "explanation": "Le document cite « la taille des logements disponibles » juste après avoir indiqué qu’il faut aussi regarder d’autres éléments en plus du loyer médian. C’est présenté comme une caractéristique du logement lui‑même, contrairement aux charges (un coût associé), aux quartiers (un critère spatial) ou aux ménages exclus (objet d’analyse sociale).",
+      "design": "Focus on the specific recorded role of one element among several: which item is used as an example of a physical/structural characteristic of the dwellings themselves. All four options are real elements from the source and all are mentioned as things one might examine beyond the median rent, so without the audio each could plausibly be mistaken for a ‘caractéristique du logement’. The key is that only the size is framed as a property of the dwelling, while the others serve different analytic roles (cost item, spatial segmentation, subject of social analysis).",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Le candidat peut assimiler les charges à une caractéristique du logement, puisqu’elles sont listées parmi les éléments à regarder. En réalité, dans le document, elles jouent le rôle de poste de dépense complémentaire au loyer, non de propriété physique du logement comme la taille.",
+          "operation": "role_swap",
+          "anchors": [
+            "Il faut aussi regarder les charges, la taille des logements disponibles",
+            "les charges"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "L’auditeur peut croire que la localisation, via les quartiers, définit une caractéristique du logement. Mais dans le texte, les quartiers servent à montrer que les prix « évoluent autrement » selon les zones, c’est un critère géographique de variation des prix, pas une propriété intrinsèque du logement comme sa taille.",
+          "operation": "role_swap",
+          "anchors": [
+            "les quartiers où les prix évoluent autrement",
+            "Il faut aussi regarder les charges, la taille des logements disponibles et les quartiers où les prix évoluent autrement"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "On peut confondre l’objet de l’analyse (les ménages exclus) avec une caractéristique des logements à examiner. Le document présente au contraire ces ménages comme le sujet d’une analyse sociale que la médiane ne remplace pas, et non comme une propriété du logement lui‑même, contrairement à la taille des logements disponibles.",
+          "operation": "role_swap",
+          "anchors": [
+            "elle ne peut remplacer l'analyse des ménages qui restent exclus du marché",
+            "Une médiane résume une distribution; elle ne peut remplacer l'analyse des ménages qui restent exclus du marché"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 3808,
+      "completion_tokens": 2234,
+      "total_tokens": 6042,
+      "prompt_tokens_details": {
+        "cached_tokens": 3584,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1630,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0271,
+    "inputHash": "d272cd74186b2af697005b0831eb0b49ba74ee930741261a6d8cb3a2191777bc",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:32:85aecef166340640b146977e:author:5:1"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon le document, quel élément est explicitement donné comme exemple de caractéristique des logements eux-mêmes à examiner en plus du loyer médian ?",
+      "choices": [
+        "Les charges supportées par les locataires",
+        "Les quartiers où les prix évoluent différemment",
+        "Les ménages qui restent exclus du marché",
+        "La taille des logements disponibles"
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em3RCjCK8fwGuz19oZs2PYXmHTqRz",
+      "result": {
+        "question": "Selon le document, quel élément est cité comme exemple de critère complémentaire à prendre en compte dans l’analyse du marché locatif, en plus du loyer médian ?",
+        "choices": [
+          "Les charges supportées par les locataires",
+          "Les quartiers où les prix évoluent différemment",
+          "Les ménages qui restent exclus du marché",
+          "La taille des logements disponibles"
+        ],
+        "notes": "La mention restrictive sur les « caractéristiques des logements eux-mêmes » rendait l’option sur la taille des logements évidemment plus pertinente que les autres. La question a été reformulée autour d’un « critère complémentaire à prendre en compte dans l’analyse du marché locatif », ce qui rend les quatre propositions également plausibles comme exemples sans favoriser l’une d’elles."
+      },
+      "usage": {
+        "prompt_tokens": 655,
+        "completion_tokens": 313,
+        "total_tokens": 968,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 143,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00394875,
+      "inputHash": "37226258e284168fb9b5d7ccc241f9792d5811288b2bc7bb080e4cda21044f11",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:32:85aecef166340640b146977e:blind-edit:before:6"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "a658581761b81eebc5700271de9070e49e3d4f0a5d66241a1c3e39311a44d5d5",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix décrivent un reproche plausible, mais l’option 0 vise spécifiquement la limite technique d’un indicateur de loyer médian (absence des charges dans le calcul), ce qui cadre étroitement avec l’idée de reproche adressé à l’indicateur lui-même plutôt qu’à la situation globale du logement. Cela fournit un léger avantage par rapport aux autres formulations, d’où une probabilité plus élevée mais avec une incertitude notable.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "weak",
+            "cue": "Critique directement la construction technique de l’indicateur (il ignore un élément constitutif du coût du logement, les charges), ce qui correspond bien à l’expression « reproche à l’indicateur » plutôt qu’à une critique de tout autre aspect du marché ; formulation claire, ciblée et méthodologique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une émission de radio sur le logement, un économiste présente un nouvel indicateur de loyer médian diffusé par le ministère. La chroniqueuse réagit en expliquant que ce chiffre est trompeur pour les locataires, car il ne tient pas compte du montant réel des charges (chauffage, eau, charges de copropriété) qui s’ajoutent au loyer et pèsent lourdement sur le budget des ménages."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une chronique consacrée à la crise du logement, un journaliste annonce la publication d’un indicateur national de loyer médian censé mesurer la situation du marché. La chroniqueuse critique alors la portée sociale de cet indicateur en disant qu’il ne dit rien sur le nombre de familles qui arrivent concrètement à se loger décemment avec leurs revenus, et qu’il manque donc l’essentiel en termes d’accès au logement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une émission spécialisée sur l’immobilier, l’animateur présente un indicateur de loyer médian nouvellement mis en avant par les agences. La chroniqueuse précise que ce chiffre global est trompeur, parce qu’il ne distingue pas précisément les surfaces des logements (studios, T3, grandes maisons), et qu’on ne peut donc pas relier clairement le montant du loyer à la superficie réellement offerte."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Au cours d’un journal économique, on annonce la mise en place d’un indicateur de loyer médian pour suivre l’évolution du marché. La chroniqueuse explique que cet indicateur agrège les données à un niveau trop large (par ville ou par agglomération) et ne permet pas de comparer de façon fiable les écarts de loyers entre quartiers chers et quartiers populaires, ce qui limite beaucoup son intérêt pratique."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "198a06deb1c23198928dfd0709fea64a4ecee4a77ed1a34a283f8ac55ceb260c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent répondre naturellement à la question dans un contexte ordinaire, sans contradiction évidente. L’option 2 présente toutefois une légère avance : le contraste entre un indicateur de prix (loyer médian) et une analyse qualitative de ménages exclus est typique d’un discours insistant sur la complémentarité des approches plutôt que la substitution, ce qui cadre bien avec « ne peut pas être remplacé par ». Cette asymétrie me semble un peu plus saillante que pour les autres options, d’où une probabilité plus élevée mais encore très incertaine.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Formulation plus longue et nuancée, portant sur la ‘situation des ménages exclus du marché locatif’, ce qui ressemble à une précision sociologique souvent mise en avant comme complément et non substitut à un indicateur statistique comme le loyer médian."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur le marché locatif, un économiste explique : « Le loyer médian reste un indicateur central du niveau des loyers. Il ne peut pas être remplacé par une analyse de la taille des logements effectivement proposés à la location, car la surface ou le nombre de pièces ne donnent pas directement le niveau de prix auquel sont confrontés les ménages. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission de radio sur les inégalités territoriales, une urbaniste déclare : « Le loyer médian donne une mesure globale du prix du marché. Il ne peut pas être remplacé par une analyse des écarts de loyers entre les différents quartiers, car on a besoin d’un indicateur de niveau général, pas seulement de dispersion. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un documentaire sur la crise du logement, un sociologue affirme : « Le loyer médian reste un indicateur important des conditions du marché locatif. Il ne peut pas être remplacé par une analyse de la situation des ménages qui restent exclus du marché locatif, même si cette analyse est essentielle pour comprendre l’exclusion. Les deux approches sont complémentaires, pas substituables. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une conférence sur le pouvoir d’achat des locataires, une spécialiste précise : « Le loyer médian mesure le niveau des loyers nus. Il ne peut pas être remplacé par une analyse détaillée des charges supportées par les locataires, car les charges n’indiquent pas le prix de base du logement sur le marché. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d3bac16e126ff422df97f8eeacde318683929796d5d7babc4fe70a3b1ea4ff59",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le lien entre une médiane de loyer et la mesure d’écarts de loyers entre quartiers est méthodologiquement le plus direct et sert typiquement d’indicateur de référence pour comparer des niveaux de loyer ; les autres usages sont plausibles mais moins classiques ou moins directement reliés à la notion d’« indicateur de référence » telle que formulée.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "La médiane est typiquement un indicateur de position utilisé pour comparer des niveaux de loyer, ce qui correspond directement à « l’analyse des écarts de loyers entre les différents quartiers ». La formulation lie explicitement un indicateur de référence (médiane) à une comparaison d’écarts, ce qui est méthodologiquement cohérent et plus naturellement associé à la notion de médiane que les autres propositions."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un rapport sur le marché locatif explique qu’il utilise la médiane du loyer comme indicateur de référence pour analyser la taille des logements que les ménages peuvent effectivement trouver sur le marché (par exemple, comparer la surface des logements dont le loyer est proche de la médiane à celle des logements plus chers ou moins chers)."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une étude décrit comment la médiane du loyer hors charges sert de point de référence pour examiner la structure des charges additionnelles (eau, chauffage, etc.), en comparant les niveaux de charges autour de cette médiane à d’autres segments du marché."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document statistique sur le logement explique qu’il prend la médiane des loyers comme indicateur de référence pour mesurer et comparer les écarts de loyers entre différents quartiers, en montrant par exemple que certains quartiers sont au-dessus ou en dessous de cette médiane."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une analyse sur l’exclusion du marché locatif indique qu’elle utilise la médiane du loyer comme référence pour déterminer quels ménages sont exclus, en identifiant ceux dont les revenus ne permettent pas d’accéder à un logement dont le loyer se situe autour ou en dessous de cette médiane."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "a945e0f186802cd69c9a459e5d9698b55a24ca5e2710d6a1358335484bb31499",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Tous les choix peuvent correspondre à un contexte ordinaire, mais la réponse sur les charges locatives fait écho presque mot à mot à la formulation de la question (« en plus du loyer ») et renvoie au coût mensuel total du logement, élément central pour mesurer l’accessibilité ; cette adéquation de formulation et de portée lui donne un net avantage malgré l’absence du document sonore.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "L’énoncé insiste sur un élément financier « en plus du niveau du loyer » pour apprécier l’accès au logement ; la formulation « Les charges locatives à payer en plus du loyer » reprend littéralement cette idée, désigne un coût régulier qui complète directement le loyer mensuel, et s’aligne sur la manière habituelle de calculer le « loyer + charges » pour évaluer l’accessibilité d’un logement."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur les difficultés à se loger, un spécialiste explique qu’il ne faut pas seulement regarder le montant du loyer : il insiste aussi sur les sommes à avancer au départ, en disant par exemple : « Selon ce document, pour mesurer l’accès réel au logement, il faut tenir compte non seulement du loyer, mais aussi du montant du dépôt de garantie demandé à l’entrée. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’une émission consacrée à la politique du logement, un économiste commente un rapport officiel : « Selon ce document, pour apprécier réellement l’accès au logement, il ne suffit pas de regarder le niveau du loyer, il faut également considérer le niveau moyen des aides au logement, qui peuvent compenser une partie de cette dépense. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une chronique radio sur le budget logement des ménages, la journaliste explique que certains coûts sont souvent oubliés, en disant : « Selon le document, pour apprécier réellement l’accès au logement, il faut prendre en compte, en plus du niveau du loyer, les frais d’agence facturés à la signature du bail, qui peuvent représenter une somme importante. »"
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un débat sur le coût réel du logement, un intervenant commente une étude : « Selon le document, pour apprécier réellement l’accès au logement, on ne peut pas se limiter au niveau du loyer : il faut aussi intégrer les charges locatives à payer en plus du loyer, car elles pèsent chaque mois sur le budget des ménages. »"
+          }
+        ]
+      }
+    },
+    {
+      "signature": "703ac3fd001d4e1b27bc919fabcded1ad32823de013ec0e200058b2dd9713814",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La question vise l’usage principal de la «médiane de loyer indiquée» dans un document, sans mention d’exclusion, de suivi temporel ni de comparaison aux revenus. L’option 1 (index 1) décrit l’usage générique de la médiane comme mesure de référence qui résume une distribution, ce qui colle directement au terme «médiane» et au caractère principal demandé, d’où une probabilité nettement plus élevée que pour les trois autres options plus interprétatives.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation correspond exactement au rôle statistique générique d’une médiane («valeur de référence qui résume la répartition»), sans ajouter d’interprétation spécifique (exclusion, évolution temporelle, adéquation aux revenus) qui exigerait des précisions absentes de l’énoncé."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un rapport d’un observatoire du logement commente la médiane de loyer pour estimer quel pourcentage de ménages, compte tenu de leurs revenus, ne peut pas accéder au parc locatif car les loyers dépassent un certain seuil, et indique que cette médiane sert surtout à mesurer cette exclusion potentielle."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une fiche statistique explique différents indicateurs de loyers et précise que la médiane de loyer sert avant tout de valeur de référence synthétique, qui résume la répartition des loyers observés sur un territoire donné."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document de suivi du marché locatif présente, année par année, la médiane de loyer par quartier et indique qu’elle sert principalement à suivre l’évolution des niveaux de loyers dans le temps dans chaque zone."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une étude logement-revenus compare la médiane de loyer à la médiane des revenus des ménages, et précise que cette médiane de loyer est utilisée principalement pour apprécier si les loyers sont globalement adaptés au pouvoir d’achat des familles."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "399205a62bb08d014dc9fec0cac3109c16faa7d6cf333e08d2d0472ee99585c7",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Les quatre propositions sont plausibles dans un document sur le logement, mais l’option 1 présente l’adéquation la plus naturelle avec la formulation « un loyer plus bas ne suffit pas, à lui seul » : elle oppose précisément le loyer à la notion de « coût global du logement », ce qui est une mise en garde standard dans ce type de texte. Les autres conclusions (convergence durable, amélioration de l’accès, augmentation de la surface) sont plus indirectes et moins immédiatement reliées, dans la formulation même, à l’idée qu’une seule variable (le loyer) ne permet pas de conclure.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La notion de « coût global du logement » correspond directement à la mise en garde « un loyer plus bas ne suffit pas, à lui seul » : le contraste entre le prix du loyer et l’ensemble des autres coûts est naturellement formulé dans ce type de documents. La réponse 1 est rédigée de manière particulièrement nuancée et typique d’un texte économique ou statistique, sans s’appuyer sur un scénario spécifique (charges, transport, énergie…). Les autres options portent sur des phénomènes plus dérivés (convergence entre quartiers, facilité d’accès, surface), qui sont moins directement liés, textuellement, à l’idée que la seule information « loyer plus bas » est insuffisante."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage sur l’évolution des loyers à Paris, un économiste explique qu’un loyer qui baisse dans un quartier autrefois cher ne permet pas, à lui seul, de conclure à une convergence durable des niveaux de loyers entre les différents quartiers, car cette baisse peut être temporaire ou liée à des facteurs locaux."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission de radio sur le budget des ménages, une spécialiste précise qu’un loyer plus bas ne suffit pas pour conclure à une baisse réelle du coût global du logement pour les ménages, car il faut aussi tenir compte des charges, des frais de transport, de l’énergie, des impôts locaux, etc."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un débat sur la politique du logement, un intervenant indique qu’un loyer plus bas ne permet pas, à lui seul, d’affirmer qu’il y a une amélioration notable de la facilité d’accès des ménages au logement, car d’autres facteurs comme la disponibilité de logements, les conditions d’éligibilité ou les garanties exigées entrent en jeu."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une analyse sur l’habitat en zone urbaine, un urbaniste explique qu’un loyer plus bas ne permet pas forcément de conclure à une augmentation de la surface moyenne des logements accessibles aux ménages, car la baisse peut porter sur des logements de même ou plus petite surface, ou être compensée par d’autres coûts."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "4563cc962eecc21989281f86ab9cc141f714f9172c4d117f0ad26513aa00c3b8",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La deuxième option correspond exactement à l’usage fondamental de la médiane telle qu’on la présente habituellement dans un document explicatif : une valeur de référence au centre des loyers observés. Les trois autres sont des applications plus spécifiques ou indirectes (comparaison à des revenus, suivi par quartier, calcul de part de ménages), qui supposent des traitements additionnels non mentionnés dans la question. Cela donne à l’option 1 un net avantage, bien que les autres restent plausibles dans certains contextes.",
+        "cues": [
+          {
+            "option": 1,
+            "severity": "clear",
+            "cue": "La formulation « À donner une valeur de référence parmi les loyers observés » décrit directement la fonction générique de la médiane comme point de repère statistique. Les autres options impliquent des usages dérivés nécessitant des calculs ou croisements supplémentaires (avec les revenus, dans le temps, ou pour estimer une part de ménages). La question demande l’usage fait de la médiane mentionnée, sans parler de comparaisons aux revenus, de suivi temporel ou d’estimation de proportions, ce qui favorise la définition simple comme valeur de référence dans la distribution."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage d’économie sur le logement, un statisticien explique : « Nous utilisons la médiane des loyers pour comparer le coût des logements aux revenus des familles et voir si le budget logement dépasse un certain seuil. » La médiane sert d’indicateur pour évaluer l’adéquation loyers/revenus."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une présentation d’un rapport de l’INSEE sur les loyers, l’intervenant déclare : « La médiane des loyers donne une valeur de référence parmi les loyers observés : la moitié des locataires paie moins, l’autre moitié paie plus. » Il insiste sur son rôle de point de repère statistique dans la distribution des loyers."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une réunion municipale, un urbaniste dit : « Nous suivons la médiane des loyers d’année en année pour mesurer la hausse ou la baisse des loyers selon les quartiers. » La médiane sert alors d’indicateur synthétique pour suivre l’évolution locale des loyers."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une émission sur la précarité, une sociologue explique : « À partir de la médiane des loyers, nous pouvons estimer la part de ménages qui ne peuvent pas accéder à ces loyers, compte tenu de leurs revenus. » Elle l’utilise comme base pour calculer une proportion de ménages exclus du marché à ce niveau de prix."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "de811fc2238f88d9af5b85fa0422ac7cd657aea225c0693e794097804b69abcd",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Le libellé met l’accent sur un autre poste de dépense lié au logement à considérer en plus du loyer, ce qui correspond le mieux à une charge régulière et directement associée au logement, comme les charges mensuelles. Le dépôt de garantie et les frais de dossier sont des coûts ponctuels plutôt d’entrée dans le logement, et les déplacements quotidiens sont plus indirectement liés au logement. D’où une probabilité nettement plus élevée pour la réponse sur les charges mensuelles, tout en reconnaissant que les autres options restent concevables dans certains contextes.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation « montant des charges mensuelles du logement » désigne une dépense récurrente directement associée au logement, parallèlement au loyer. Le pluriel « poste de dépense lié au logement » et l’idée de quelque chose pouvant être « pris en compte » évoquent typiquement le couple loyer+charges, plus que des frais ponctuels (dépôt, frais de dossier) ou indirects (déplacements). De plus, la mention des « charges mensuelles » s’aligne naturellement avec la périodicité du loyer."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un conseiller budgétaire explique à un locataire comment est calculé le coût total d’une installation dans un nouveau logement : il mentionne le loyer et, en plus, précise que le montant du dépôt de garantie peut aussi être pris en compte dans le budget global de départ."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une réunion d’information sur la location, un animateur détaille les différentes dépenses à prévoir pour un logement : il parle du loyer et ajoute que les frais de dossier de l’agence peuvent également être pris en compte dans le calcul du coût d’accès au logement."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un travailleur social explique à un usager comment sera évalué son budget logement pour une aide : il indique que, en plus du loyer, le montant des charges mensuelles du logement peut être pris en compte comme poste de dépense régulier lié au logement."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Lors d’un atelier sur le choix d’un logement, un intervenant explique que, pour bien évaluer le coût global, on peut prendre en compte, en plus du loyer, le coût des déplacements quotidiens engendrés par la localisation du logement (trajets domicile-travail, école, etc.)."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "d872f721e297f7dae32ad02560e15c88f49d4ac62f733baf1dd044d868cdda86",
+      "feedback": {
+        "stage": "blind",
+        "reason": "L’option 0 colle le plus à une explication standard de la médiane telle qu’un document la présenterait (décrire une valeur centrale d’une distribution), sans introduire de contexte supplémentaire non mentionné dans la question, ce qui lui donne un léger avantage malgré la plausibilité générale des autres usages.",
+        "cues": [
+          {
+            "option": 0,
+            "severity": "clear",
+            "cue": "La formulation reprend très directement une définition générale de la médiane (« valeur centrale de la distribution des loyers ») et relie explicitement la médiane mentionnée au ‘loyer médian’, ce qui correspond bien au type de tournure attendue après « la médiane qui y est mentionnée », tandis que les autres réponses ajoutent des applications plus spécifiques (comparaison entre quartiers, taille des logements, estimation de nombres de ménages) ou changent de variable."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un extrait d’un rapport sur le marché locatif explique : « Nous utilisons ici la médiane, c’est-à-dire le loyer médian, qui représente la valeur centrale de la distribution des loyers. » À la question posée, on répondrait alors que la médiane sert à décrire le loyer médian comme valeur centrale de la distribution des loyers."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une émission de radio présente une étude urbaine : « Nous avons calculé le prix médian des loyers par quartier afin de comparer ces prix médians et de mettre en évidence les écarts entre zones. » Interrogé ensuite, l’animateur demande à quoi sert la médiane mentionnée, et l’on répond qu’elle sert à comparer les prix médians entre quartiers pour montrer des écarts."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Un document d’agence immobilière explique son indicateur de ‘taille médiane des logements disponibles’ : « Nous avons défini une taille médiane des logements sur le marché, qui nous sert de référence pour caractériser l’offre. » À la question sur l’usage de la médiane, on répond qu’elle sert à définir une taille médiane des logements utilisée comme référence."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un rapport statistique sur le logement explique : « À partir de la médiane de marché, nous estimons le nombre de ménages dont le loyer se situe en dessous de ce niveau médian. » Si l’animateur demande ensuite à quoi sert la médiane mentionnée, on répond qu’elle sert à estimer le nombre de ménages situés en dessous du niveau médian du marché."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "9e0618d3e74e0300304208dfc5afa910113896618ce93b30bb43eda07d4f818c",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options pourraient être évoquées comme limites, mais la critique selon laquelle un loyer médian masque les écarts entre quartiers correspond à une limite structurelle très typique de cet indicateur, ce qui lui donne un léger avantage comme intention probable de la question malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Parmi les limites proposées, le fait que le loyer médian ne reflète pas les écarts entre quartiers correspond très directement à une caractéristique classique des indicateurs de type médian (ils masquent les disparités internes), ce qui en fait une critique statistique naturelle et fréquente de ce type d’information."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans un reportage radio sur l’évolution des loyers, un économiste explique que le loyer médian communiqué par un observatoire ne donne pas la surface moyenne des logements correspondants, ce qui limite l’interprétation : on ne sait pas si ce montant concerne plutôt de petits studios ou de grands appartements."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Dans une émission consacrée à la crise du logement, une sociologue souligne que l’indicateur de loyer médian fourni par les organismes officiels ne dit pas combien de ménages réussissent effectivement à se loger avec un loyer adapté à leurs revenus, ce qui en limite la portée sociale."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un podcast sur les inégalités urbaines, un urbaniste indique que l’information sur le loyer médian est trompeuse car elle ne fait pas apparaître les écarts de loyer entre les quartiers d’une même ville, certains étant bien plus chers que d’autres malgré un même loyer médian global."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans une chronique économique, un journaliste explique que le chiffre de loyer médian publié par un observatoire n’intègre pas les charges (eau, chauffage, copropriété), ce qui constitue une limite importante pour évaluer le coût réel du logement pour les ménages."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "81a6c4fbae954d936f7cf7c29af37972f444499e13d26fe94b456cac21cd1ce5",
+      "feedback": {
+        "stage": "ground",
+        "assessment": {
+          "supportedIndices": [
+            3
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "summary": "Le document précise explicitement que l’indication du loyer médian ne peut pas se substituer à l’analyse des ménages exclus du marché locatif ; c’est donc l’information à laquelle elle ne permet pas de se dispenser.",
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Il faut aussi regarder [...] la taille des logements disponibles"
+              ],
+              "reason": "On pourrait relier « la taille des logements disponibles » à « la surface et le type de logements effectivement proposés » et en conclure que cette observation est une information dont on ne peut se dispenser. Cependant, le document ne parle que de la taille (surface) et ne mentionne jamais le « type » de logements. Surtout, il ne formule pas ici que la médiane « ne peut remplacer » cette observation ; il dit seulement qu’« il faut aussi regarder » ces éléments, alors qu’il réserve explicitement la formule d’irremplaçabilité à l’analyse des ménages exclus du marché.",
+              "misunderstanding": "surinterprétation_du_contenu"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "Il faut aussi regarder les charges"
+              ],
+              "reason": "L’auditeur entend que « les charges » doivent aussi être prises en compte et peut assimiler cela à « la prise en compte du montant total des charges liées au logement ». On peut donc croire que c’est précisément l’information qu’on ne peut pas se permettre d’ignorer. Mais le texte ne dit pas que la médiane ne peut pas remplacer cette prise en compte ; il énumère les charges comme un élément d’analyse complémentaire, sans utiliser la formule forte « elle ne peut remplacer » réservée à une autre information bien précise.",
+              "misunderstanding": "extension_de_portée"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "les quartiers où les prix évoluent autrement"
+              ],
+              "reason": "L’option reprend l’idée qu’il faut regarder « les quartiers où les prix évoluent autrement », ce qui peut être compris comme « le suivi des écarts d’évolution des loyers entre les différents quartiers ». On peut alors penser que cette observation est exactement l’information dont la médiane ne dispense pas. Toutefois, le document se limite à recommander de regarder ces quartiers, sans dire que la médiane ne peut pas se substituer à ce suivi. La seule information explicitement qualifiée comme irremplaçable est l’analyse des ménages exclus du marché.",
+              "misunderstanding": "généralisation_abusive"
+            },
+            {
+              "index": 3,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "Une médiane résume une distribution; elle ne peut remplacer l'analyse des ménages qui restent exclus du marché."
+              ],
+              "reason": "Le texte affirme clairement : « elle ne peut remplacer l'analyse des ménages qui restent exclus du marché ». L’expression reprend exactement l’idée de la question : de quelle autre information l’indication du loyer médian ne permet-elle pas de se dispenser ? L’option « L’analyse des ménages qui restent exclus du marché locatif » correspond mot à mot à cette formulation, c’est donc la seule réponse pleinement appuyée par le document.",
+              "misunderstanding": null
+            }
+          ]
+        },
+        "errors": [
+          "Missing/fabricated verbatim evidence at 0"
+        ]
+      }
+    },
+    {
+      "signature": "c3f61a362c034672cc6b8b645a84f1ce14bae3144f947bf14d927577d2886afc",
+      "feedback": {
+        "stage": "blind",
+        "reason": "La réponse 3 décrit de façon neutre et générale la fonction statistique classique de la médiane dans l’analyse de données (résumer la structure des loyers), sans lui prêter de pouvoir explicatif supplémentaire. Les autres options lui attribuent des usages plus interprétatifs ou inférentiels (exclusion, accès, estimation de proportions) qui vont au-delà de ce que la médiane fait directement. D’où une probabilité plus élevée pour l’option 3, malgré un certain niveau d’incertitude lié à l’absence du document sonore.",
+        "cues": [
+          {
+            "option": 3,
+            "severity": "clear",
+            "cue": "Formulation générique et statistiquement canonique du rôle de la médiane («résumer la structure des loyers sur l’ensemble du marché étudié»), directement alignée avec la définition usuelle d’un indicateur de tendance centrale dans une lecture de données, alors que les autres réponses ajoutent des interprétations spécifiques (exclusion, accessibilité, proportion de familles) qui dépassent le rôle descriptif standard de la médiane."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une émission de radio économique sur le logement, un statisticien explique au grand public que la médiane du loyer est un indicateur global utile pour se repérer sur le marché, mais qu’elle ne permet pas de voir précisément la situation des ménages les plus pauvres qui restent exclus du marché locatif formel."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un reportage sur les difficultés d’accès au logement, une urbaniste explique que la médiane des loyers est utilisée pour rapprocher le niveau typique des loyers de la question de l’accessibilité, par exemple en comparant la médiane avec les revenus médians pour juger si l’accès est plus ou moins facile."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une présentation d’une association de défense des locataires, l’intervenant affirme que l’usage de la médiane des loyers permet, selon eux, d’estimer quelle part des familles réussit à se loger sans dépasser un certain pourcentage de leurs revenus, et la présente comme un moyen indirect d’évaluer cette proportion."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Dans un cours de statistique appliquée au logement, l’enseignant explique que la médiane du loyer sert avant tout à résumer la structure des loyers sur l’ensemble d’un marché, en donnant une mesure centrale robuste qui synthétise l’information principale de la distribution."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "b68ee51ab1212fc0a8634643e2da4d617568a6c8ee236a66ba71726a18533980",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs réponses restent plausibles, mais l’option 2 se distingue par une mise en avant explicite des ménages exclus du marché, point que la médiane ne peut par construction pas couvrir, ce qui cadre particulièrement bien avec la notion d’« indicateur partiel » ; je la juge donc la plus probable malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "clear",
+            "cue": "Formulation plus longue et nuancée (« profil des ménages, y compris de ceux qui restent exclus du marché locatif ») qui met en avant une limite structurelle de la médiane (elle ne dit rien des ménages hors marché), ce qui correspond bien à l’idée d’« indicateur partiel » et dépasse une simple précision technique."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Un rapport sur le logement explique que la médiane du loyer donne une idée du niveau de loyer, mais ne peut pas se substituer à une étude précise des charges réelles (chauffage, eau, copropriété) que les locataires doivent en plus assumer, car celles-ci varient fortement d’un logement à l’autre."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une présentation statistique sur le marché locatif indique la médiane des loyers à l’échelle d’une ville, tout en précisant que cet indicateur ne remplace pas une analyse fine par quartier visant à comparer des secteurs où les prix augmentent plus vite qu’ailleurs."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une étude sociologique sur l’accès au logement, l’auteur présente la médiane des loyers, mais insiste sur le fait qu’elle ne remplace pas une analyse du profil des ménages (revenus, compositions, précarité), y compris ceux qui, faute de moyens, restent exclus du marché locatif et donc invisibles dans les loyers observés."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Un document technique sur le parc de logements rappelle que la médiane des loyers est utile mais ne dispense pas de vérifier la surface et la configuration (studio, T2, T3, etc.) des biens, car deux logements au même loyer peuvent être incomparables en taille et disposition."
+          }
+        ]
+      }
+    },
+    {
+      "signature": "f5826d073b4f8b9ca8155f9000b60ee64f905ce9906069f744f9f0f44ff67d69",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Plusieurs réponses peuvent servir de critère complémentaire, mais la mention des charges apparaît comme l’extension la plus directe et classique du loyer médian pour analyser le marché locatif, d’où une probabilité légèrement plus élevée malgré une incertitude réelle.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Parle des «charges supportées par les locataires», formulation très naturelle comme critère complémentaire au loyer médian pour mesurer le coût réel du logement, sans changer d’échelle d’analyse ni de type de variable, légèrement plus directement alignée avec «critère complémentaire… en plus du loyer médian» que les autres options."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Une économiste présente une étude sur le marché locatif dans une émission de radio. Après avoir expliqué le loyer médian par ville, elle ajoute qu’il faut aussi regarder des critères complémentaires, par exemple les quartiers où les prix évoluent différemment du reste de la ville, car cela permet d’identifier des zones en tension ou en déclin."
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Lors d’un podcast sur le logement, un analyste décrit l’usage du loyer médian pour évaluer le marché, puis précise que cela ne suffit pas. Il propose comme critère complémentaire la taille des logements disponibles (studios, T2, T3, etc.), pour distinguer un marché dominé par les petites surfaces d’un autre où les grandes surfaces sont plus nombreuses."
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans un reportage radio sur le coût du logement, un spécialiste explique qu’analyser uniquement le loyer médian est réducteur. Il indique qu’un critère complémentaire important est celui des charges supportées par les locataires (chauffage, entretien, copropriété), car elles influencent fortement le coût réel du logement."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une association est interviewée à la radio sur l’accès au logement. La porte‑parole explique que, au‑delà du loyer médian, un autre critère pour analyser le marché locatif est d’identifier les ménages qui restent exclus du marché (revenus trop faibles, refus de garanties), afin de mesurer l’ampleur des difficultés d’accès au logement."
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3RFhltRh9cXHG0622fUKQhk4NvK",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une émission de radio économique explique comment analyser le marché locatif : après avoir présenté le loyer médian, l’intervenant ajoute qu’il faut aussi considérer les charges supportées par les locataires (charges de copropriété, chauffage, eau), car elles peuvent fortement modifier le coût réel du logement."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans un reportage sur la crise du logement, un sociologue commente des données sur les loyers médians puis précise qu’il faut également tenir compte des ménages qui restent exclus du marché, car le loyer médian ne reflète pas la situation de ceux qui n’arrivent même pas à accéder à une location."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un urbaniste interviewé sur une radio locale présente les loyers médians d’une ville, puis ajoute qu’en complément, il faut observer les quartiers où les prix évoluent différemment, afin de comprendre les dynamiques de gentrification ou de déclin dans l’analyse du marché locatif."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un économiste du logement explique à l’antenne que, au-delà du loyer médian, il faut aussi tenir compte de la taille des logements disponibles (en m² ou en nombre de pièces) pour comparer correctement les marchés locatifs entre différents secteurs."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Tous les choix peuvent raisonnablement être présentés comme critères complémentaires au loyer médian dans une analyse du marché locatif ; sans accès au document source, aucun indice de formulation ne permet de privilégier de façon fiable une option plutôt qu’une autre, d’où une forte incertitude et une distribution uniforme."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 590,
+          "total_tokens": 1215,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 192,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00668125,
+        "inputHash": "14d860f3f8c8ee49b8c9f40f4eb958938406c7f0488d244f4c528b0a53d89274",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:32:85aecef166340640b146977e:screen:6:0"
+      }
+    },
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3RMxxiGG4lWBYjCzGWRXn7TKcQ6",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Un extrait d’un rapport d’observatoire de l’habitat explique que, pour analyser réellement la tension du marché locatif, il faut aller au-delà du loyer médian et regarder aussi quels ménages restent exclus du marché (par exemple les plus modestes), car cela renseigne sur l’accessibilité du parc privé."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Une présentation d’une agence d’urbanisme précise que l’analyse du marché locatif ne doit pas se limiter au loyer médian, mais intégrer par exemple la taille des logements disponibles (studios, T2, T3…), car elle influence la comparaison des niveaux de loyer entre secteurs."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un économiste du logement commente une étude en disant que, au-delà du loyer médian, il faut examiner d’autres critères comme les charges supportées par les locataires (chauffage, entretien, copropriété), afin d’évaluer le coût réel du logement pour les ménages."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Lors d’une réunion publique sur l’évolution des loyers, un intervenant explique que, en plus du loyer médian global, il faut prendre en compte d’autres critères, par exemple les quartiers où les prix évoluent différemment, pour mieux comprendre les disparités intra-urbaines."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.23,
+            0.23,
+            0.31,
+            0.23
+          ],
+          "guess": 2,
+          "reason": "Tous les choix peuvent répondre à la question, mais « les charges supportées par les locataires » correspond très typiquement à un critère complémentaire évoqué dans les analyses du marché locatif en plus du loyer médian, car il reflète le coût réel pour le ménage. L’avantage reste modéré, d’où une probabilité seulement légèrement supérieure aux autres options."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 582,
+          "total_tokens": 1207,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 163,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00660125,
+        "inputHash": "265165245bf672ce224aedff13c2d0f91b46da0ea7bd23bac6712c7f51129dd6",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:32:85aecef166340640b146977e:screen:6:1"
+      }
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em3RSUSU1uCRXyjcIpqBw4lwCl2AJ",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Une économiste présente une étude sur le marché locatif dans une émission de radio. Après avoir expliqué le loyer médian par ville, elle ajoute qu’il faut aussi regarder des critères complémentaires, par exemple les quartiers où les prix évoluent différemment du reste de la ville, car cela permet d’identifier des zones en tension ou en déclin."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Lors d’un podcast sur le logement, un analyste décrit l’usage du loyer médian pour évaluer le marché, puis précise que cela ne suffit pas. Il propose comme critère complémentaire la taille des logements disponibles (studios, T2, T3, etc.), pour distinguer un marché dominé par les petites surfaces d’un autre où les grandes surfaces sont plus nombreuses."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Dans un reportage radio sur le coût du logement, un spécialiste explique qu’analyser uniquement le loyer médian est réducteur. Il indique qu’un critère complémentaire important est celui des charges supportées par les locataires (chauffage, entretien, copropriété), car elles influencent fortement le coût réel du logement."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Une association est interviewée à la radio sur l’accès au logement. La porte‑parole explique que, au‑delà du loyer médian, un autre critère pour analyser le marché locatif est d’identifier les ménages qui restent exclus du marché (revenus trop faibles, refus de garanties), afin de mesurer l’ampleur des difficultés d’accès au logement."
+            }
+          ],
+          "cues": [
+            {
+              "option": 2,
+              "severity": "weak",
+              "cue": "Parle des «charges supportées par les locataires», formulation très naturelle comme critère complémentaire au loyer médian pour mesurer le coût réel du logement, sans changer d’échelle d’analyse ni de type de variable, légèrement plus directement alignée avec «critère complémentaire… en plus du loyer médian» que les autres options."
+            }
+          ],
+          "standsOut": false,
+          "probabilities": [
+            0.2,
+            0.2,
+            0.4,
+            0.2
+          ],
+          "guess": 2,
+          "reason": "Plusieurs réponses peuvent servir de critère complémentaire, mais la mention des charges apparaît comme l’extension la plus directe et classique du loyer médian pour analyser le marché locatif, d’où une probabilité légèrement plus élevée malgré une incertitude réelle."
+        },
+        "usage": {
+          "prompt_tokens": 625,
+          "completion_tokens": 677,
+          "total_tokens": 1302,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 150,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.00755125,
+        "inputHash": "0bba156713cdd8137b298cd35e17bc29449af592c7f2fa09fd133fac496cd1d5",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:4:32:85aecef166340640b146977e:screen:6:2"
+      }
+    }
+  ],
+  "feedback": {
+    "stage": "blind",
+    "reason": "Plusieurs réponses peuvent servir de critère complémentaire, mais la mention des charges apparaît comme l’extension la plus directe et classique du loyer médian pour analyser le marché locatif, d’où une probabilité légèrement plus élevée malgré une incertitude réelle.",
+    "cues": [
+      {
+        "option": 2,
+        "severity": "weak",
+        "cue": "Parle des «charges supportées par les locataires», formulation très naturelle comme critère complémentaire au loyer médian pour mesurer le coût réel du logement, sans changer d’échelle d’analyse ni de type de variable, légèrement plus directement alignée avec «critère complémentaire… en plus du loyer médian» que les autres options."
+      }
+    ],
+    "plausibility": [
+      {
+        "index": 0,
+        "credible": true,
+        "context": "Une économiste présente une étude sur le marché locatif dans une émission de radio. Après avoir expliqué le loyer médian par ville, elle ajoute qu’il faut aussi regarder des critères complémentaires, par exemple les quartiers où les prix évoluent différemment du reste de la ville, car cela permet d’identifier des zones en tension ou en déclin."
+      },
+      {
+        "index": 1,
+        "credible": true,
+        "context": "Lors d’un podcast sur le logement, un analyste décrit l’usage du loyer médian pour évaluer le marché, puis précise que cela ne suffit pas. Il propose comme critère complémentaire la taille des logements disponibles (studios, T2, T3, etc.), pour distinguer un marché dominé par les petites surfaces d’un autre où les grandes surfaces sont plus nombreuses."
+      },
+      {
+        "index": 2,
+        "credible": true,
+        "context": "Dans un reportage radio sur le coût du logement, un spécialiste explique qu’analyser uniquement le loyer médian est réducteur. Il indique qu’un critère complémentaire important est celui des charges supportées par les locataires (chauffage, entretien, copropriété), car elles influencent fortement le coût réel du logement."
+      },
+      {
+        "index": 3,
+        "credible": true,
+        "context": "Une association est interviewée à la radio sur l’accès au logement. La porte‑parole explique que, au‑delà du loyer médian, un autre critère pour analyser le marché locatif est d’identifier les ménages qui restent exclus du marché (revenus trop faibles, refus de garanties), afin de mesurer l’ampleur des difficultés d’accès au logement."
+      }
+    ]
+  }
+}

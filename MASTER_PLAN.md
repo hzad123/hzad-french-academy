@@ -330,3 +330,17 @@ validator are recorded in `docs/tcf-listening-twenty.md` and
 `curriculum/tcf-listening-20-paper-blueprint.json`. The blueprint is **not**
 a bank of 19 completed, playable tests; real French scripts, MP3s and visual
 assets must exist and pass validation before these tests are shown to students.
+
+### Listening01–06 answer plausibility —16November2026
+
+The owner reports that the newer varied topics/scenarios are working and must
+be preserved. Fix the shared generator so wording/common sense cannot reliably
+identify keys, especially in Q23–39. Require isolated blind evaluation, realistic
+source-based distractors, independent unique-answer grounding and complete-paper
+style/key checks. Measure a frozen sample across all six papers, separately
+reporting the186 written items and102 late items against the25% chance baseline.
+Retire the prior v4 owner-review exception for future generation. A replacement
+must pass actual content/media checks before activation; safe code tests alone
+do not resolve the issue. Preserve saved versions/results, scoring, clocks,
+access, credits and question variety. Implementation and current measurement
+status are tracked in `docs/listening-contrast-quality-v2.md` and PR#52.

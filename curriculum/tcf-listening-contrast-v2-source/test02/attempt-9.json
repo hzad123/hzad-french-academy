@@ -1,0 +1,466 @@
+{
+  "question": {
+    "number": 9,
+    "kind": "announcement",
+    "question": "D’après l’annonce, quel élément concernant le train pour Blois a changé ?",
+    "options": [
+      "Le quai de départ du train a changé.",
+      "L’heure de départ du train a changé.",
+      "Les arrêts desservis en cours de route ont changé.",
+      "La destination terminus du train a changé."
+    ],
+    "correct": "A",
+    "explanation": "Réponse A : L’annonce explique clairement que, habituellement, le train part du quai trois mais qu’« exceptionnellement » il partira du quai cinq, à cause de travaux. C’est donc bien le quai de départ qui a changé, et c’est le seul élément modifié mentionné pour ce train. B : L’annonce précise explicitement que « l’horaire de départ [...] reste inchangé », donc l’heure n’a pas changé. On pourrait se tromper en entendant seulement l’heure « onze heures quarante » et en croyant qu’on annonce un nouvel horaire, alors qu’on rappelle l’horaire habituel en insistant qu’il ne change pas. C : L’annonce ne mentionne absolument aucun changement concernant les arrêts desservis ; elle ne parle que des travaux sur le quai et du déplacement vers le quai cinq. Un auditeur peu attentif pourrait généraliser et penser que « s’il y a des travaux, tout le trajet change », mais aucun élément enregistré n’évoque une modification des arrêts. D : La destination « à destination de Blois » est donnée comme un fait stable, sans signaler de nouveau terminus ou de modification. Quelqu’un pourrait mal interpréter le terme « exceptionnellement » comme un changement plus global du train (y compris la destination), mais dans l’annonce ce terme ne qualifie que le quai de départ et rien n’indique que le terminus ait changé.",
+    "transcript": "Question 9.\nVotre attention, s'il vous plaît. En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq. L'horaire de départ, onze heures quarante, reste inchangé. Merci de vérifier les panneaux d'affichage.\nD’après l’annonce, quel élément concernant le train pour Blois a changé ?",
+    "segments": [
+      {
+        "voice": "female",
+        "text": "Question 9."
+      },
+      {
+        "voice": "female",
+        "text": "Votre attention, s'il vous plaît. En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq. L'horaire de départ, onze heures quarante, reste inchangé. Merci de vérifier les panneaux d'affichage."
+      },
+      {
+        "voice": "female",
+        "text": "D’après l’annonce, quel élément concernant le train pour Blois a changé ?"
+      }
+    ],
+    "audio": "q-09.mp3",
+    "audioSeconds": null,
+    "slotSeconds": 36
+  },
+  "sourceHash": "60abd45a7837629c69bd30398f933a862955ab843ca80469e0d3c29bc655c9f3",
+  "contentHash": "b000311fcc40bb8571b61ed34ab9bb85bd91ab7fd07f6eaee232af282e9de8a8",
+  "policy": "listening-comprehension-qc-v2",
+  "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+  "rounds": 2,
+  "pass": true,
+  "author": {
+    "stage": "author",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em0zzkBwoJqz3hzrSPRtsQO0Xf1v9",
+    "result": {
+      "question": "Selon l’annonce, quel aspect du train pour Blois est modifié ?",
+      "choices": [
+        "Le quai de départ du train est modifié.",
+        "L’horaire de départ du train est modifié.",
+        "La destination finale du train est modifiée.",
+        "Les arrêts intermédiaires du train sont modifiés."
+      ],
+      "correctIndex": 0,
+      "explanation": "L’annonce précise qu’en raison de travaux sur le quai trois, le train pour Blois partira « exceptionnellement du quai cinq ». Elle ajoute que « l’horaire de départ, onze heures quarante, reste inchangé ». Aucun changement de destination ni d’arrêts n’est mentionné. Seul le quai de départ est donc modifié.",
+      "design": "On cible un lien précis : parmi plusieurs aspects typiques d’une annonce ferroviaire (quai, horaire, destination, arrêts), lequel est présenté comme effectivement modifié. Tous sont des modifications réalistes dans ce contexte. Sans le document, on pourrait croire à un changement d’horaire, de terminus ou d’arrêts. Le fichier audio permet de distinguer que seuls les quais changent, tandis que l’horaire est explicitement dit « inchangé » et que la destination/les arrêts ne sont pas annoncés comme modifiés.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "reason": "Cette option inverse les rôles entre ce qui change et ce qui reste stable. L’horaire est bien mentionné, ce qui peut faire croire qu’il est concerné par la perturbation, mais le message précise au contraire qu’il « reste inchangé » ; c’est le quai qui est modifié, pas l’heure.",
+          "operation": "role_swap",
+          "anchors": [
+            "L'horaire de départ, onze heures quarante, reste inchangé",
+            "partira exceptionnellement du quai cinq"
+          ]
+        },
+        {
+          "index": 2,
+          "reason": "Le fait de rappeler la destination peut faire penser qu’elle a été modifiée, surtout dans un contexte de travaux. En réalité, la destination « Blois » est simplement indiquée, sans signaler de changement ; la seule modification annoncée porte sur le quai.",
+          "operation": "role_swap",
+          "anchors": [
+            "le train régional à destination de Blois",
+            "partira exceptionnellement du quai cinq"
+          ]
+        },
+        {
+          "index": 3,
+          "reason": "Dans les annonces de travaux, il est fréquent que les arrêts changent, ce qui rend cette interprétation plausible. Mais ici, les travaux sont situés sur un quai précis et la conséquence explicitement donnée est un changement de quai, sans aucune mention de modification des arrêts intermédiaires.",
+          "operation": "scope_shift",
+          "anchors": [
+            "En raison de travaux sur le quai trois",
+            "partira exceptionnellement du quai cinq"
+          ]
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 4379,
+      "completion_tokens": 1954,
+      "total_tokens": 6333,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1392,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.02501375,
+    "inputHash": "0d24104ab70a6a88e2e6cfa39fbc7868c594c9269894ad3198f4cb7f8af1599d",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:6103f288fb85e78951f8f219:author:1:0"
+  },
+  "blindEdit": {
+    "input": {
+      "question": "Selon l’annonce, quel aspect du train pour Blois est modifié ?",
+      "choices": [
+        "Le quai de départ du train est modifié.",
+        "L’horaire de départ du train est modifié.",
+        "Les arrêts intermédiaires du train sont modifiés.",
+        "La destination finale du train est modifiée."
+      ]
+    },
+    "receipt": {
+      "stage": "polish",
+      "policy": "listening-comprehension-qc-v2",
+      "policyHash": "885b110d793e69763c3e82e221762dd32b0ed653ca9651ed8ed2aea95631496b",
+      "model": "gpt-5.1-2025-11-13",
+      "responseId": "chatcmpl-Em10XTuL802k9ZdTnQc1hbOtI9DQE",
+      "result": {
+        "question": "D’après l’annonce, quel élément concernant le train pour Blois a changé ?",
+        "choices": [
+          "Le quai de départ du train a changé.",
+          "L’heure de départ du train a changé.",
+          "Les arrêts desservis en cours de route ont changé.",
+          "La destination terminus du train a changé."
+        ],
+        "notes": "L’énoncé et les choix sont reformulés de façon plus naturelle et symétrique, en gardant quatre types de modifications possibles (quai, horaire, arrêts intermédiaires, terminus) sans suggérer laquelle est la plus probable."
+      },
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 300,
+        "total_tokens": 949,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 167,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "costUsd": 0.00381125,
+      "inputHash": "8b39dbc7536874fa53991d3e961c0ed0efaf5af43609ebd59678c7625d238a35",
+      "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:6103f288fb85e78951f8f219:blind-edit:before:2"
+    }
+  },
+  "rejections": [
+    {
+      "signature": "2df4017c5a3d34702b51bfd9ede0a758b51f22898365d59a592dea7cfc49a4bb",
+      "feedback": {
+        "stage": "ground",
+        "assessment": {
+          "supportedIndices": [
+            3
+          ],
+          "ambiguous": false,
+          "questionSupported": true,
+          "summary": "L’annonce précise que seul le quai de départ change : le train pour Blois partira exceptionnellement du quai 5, l’horaire restant inchangé.",
+          "options": [
+            {
+              "index": 0,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "L'horaire de départ, onze heures quarante, reste inchangé."
+              ],
+              "reason": "La phrase indique explicitement que « l'horaire de départ … reste inchangé », donc l’horaire ne change pas. Un auditeur distrait peut entendre qu’il y a un changement pour ce train (travaux, quai différent) et en déduire à tort que c’est aussi l’horaire qui est modifié, sans prêter attention à « reste inchangé ».",
+              "misunderstanding": "ignoring_negation"
+            },
+            {
+              "index": 1,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq."
+              ],
+              "reason": "L’annonce ne parle que d’un changement de quai; rien n’indique une modification des gares desservies. Quelqu’un qui entend « en raison de travaux » peut généraliser à tort et penser que l’itinéraire ou les arrêts changent alors que seule la voie de départ est concernée.",
+              "misunderstanding": "overgeneralization"
+            },
+            {
+              "index": 2,
+              "supported": false,
+              "plausibleMisunderstanding": true,
+              "evidence": [
+                "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq."
+              ],
+              "reason": "Le message mentionne uniquement des travaux sur un quai et un changement de quai, sans aucune référence au type de train ou à un « remplacement de matériel ». Un auditeur peu familier avec le vocabulaire ferroviaire peut associer à tort « travaux » ou « exceptionnellement » à un changement de matériel roulant.",
+              "misunderstanding": "lexical_confusion"
+            },
+            {
+              "index": 3,
+              "supported": true,
+              "plausibleMisunderstanding": false,
+              "evidence": [
+                "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq.",
+                "L'horaire de départ, onze heures quarante, reste inchangé."
+              ],
+              "reason": "L’annonce précise que, pour le train régional à destination de Blois, le changement porte sur le quai de départ : il partira « exceptionnellement du quai cinq ». La phrase suivante confirme que seul le quai change, puisque « l'horaire de départ … reste inchangé ».",
+              "misunderstanding": null
+            }
+          ]
+        },
+        "errors": [
+          "Not exactly the independently supported marked answer",
+          "Support verdict inconsistent at 0",
+          "Support verdict inconsistent at 3",
+          "Distractor lacks a specific plausible misunderstanding at 3"
+        ]
+      }
+    },
+    {
+      "signature": "4d567a0a8632d95e3c79d5df32b172335a838aedd72b338d7f5a5c566e5e5f1e",
+      "feedback": {
+        "stage": "blind",
+        "reason": "Toutes les options peuvent correspondre à une annonce, mais la formulation « reste inchangé » est particulièrement typique pour l’heure de départ dans les messages de perturbation ferroviaire, ce qui donne à l’option 2 un avantage modéré malgré l’absence du document audio.",
+        "cues": [
+          {
+            "option": 2,
+            "severity": "weak",
+            "cue": "Dans les annonces ferroviaires, il est courant de préciser que l’heure de départ reste inchangée malgré d’autres modifications (« l’horaire reste inchangé »). Mentionner explicitement le maintien de l’horaire est plus fréquent et naturel que de souligner que le terminus, le quai ou le type de train restent les mêmes."
+          }
+        ],
+        "plausibility": [
+          {
+            "index": 0,
+            "credible": true,
+            "context": "Dans une gare, une annonce informe les voyageurs que, malgré des travaux sur la ligne, le trajet est légèrement modifié (durée, arrêts intermédiaires), mais que le train pour Blois aura toujours la gare de Blois comme terminus : « Malgré ces changements, la gare de Blois reste le terminus du train. »"
+          },
+          {
+            "index": 1,
+            "credible": true,
+            "context": "Une annonce en gare explique que plusieurs quais ont été modifiés en raison de travaux, mais que pour le train à destination de Blois, le quai ne change pas : « Pour Blois, le train partira comme d’habitude du quai numéro 3, ce point restant inchangé. »"
+          },
+          {
+            "index": 2,
+            "credible": true,
+            "context": "Dans une annonce, la SNCF signale que l’itinéraire et certains arrêts du train pour Blois sont modifiés, mais précise : « L’heure de départ prévue du train pour Blois reste inchangée. » Les voyageurs sont rassurés que l’horaire de départ ne change pas."
+          },
+          {
+            "index": 3,
+            "credible": true,
+            "context": "Une annonce informe que le parcours du train pour Blois est modifié (par exemple, suppression d’un arrêt, changement de durée), mais ajoute : « Le type de train utilisé sur ce trajet reste inchangé, il s’agit toujours d’un TER. »"
+          }
+        ]
+      }
+    }
+  ],
+  "blind": [
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em10cSb4csiYBB05lfxl2DYf2taaS",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, un haut‑parleur diffuse : \"Attention, en raison de travaux sur la voie, le train à destination de Blois partira finalement à 18h15 au lieu de 18h00.\" Un employé ou un voyageur résume ensuite : \"D’après l’annonce, l’heure de départ du train a changé.\""
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Annonce en gare : \"Le train initialement prévu pour Blois poursuit finalement jusqu’à Tours. Blois ne sera plus le terminus mais un arrêt intermédiaire.\" Après l’annonce, un agent explique : \"D’après l’annonce, la destination terminus du train a changé.\""
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Un message sonore indique : \"Attention, le train pour Blois partira finalement du quai 4 et non du quai 2.\" Un voyageur prévient ses amis au téléphone : \"D’après l’annonce, le quai de départ du train a changé.\""
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Annonce en gare : \"En raison de travaux, le train pour Blois ne marquera pas l’arrêt à Vendôme et Onzain. Il desservira uniquement Orléans et Blois.\" Un passager commente : \"D’après l’annonce, les arrêts desservis en cours de route ont changé.\""
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 0,
+          "reason": "Les quatre propositions correspondent à des modifications typiquement annoncées en gare (heure, terminus, quai, arrêts intermédiaires) et répondent directement à la question sans indice textuel clair permettant d’en privilégier une ; aucune différence manifeste de style, de portée ou de formulation ne donne un avantage décisif, d’où une forte incertitude et des probabilités uniformes malgré l’obligation de choisir un index de réponse."
+        },
+        "usage": {
+          "prompt_tokens": 610,
+          "completion_tokens": 528,
+          "total_tokens": 1138,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 100,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0060425,
+        "inputHash": "d23b909279d0179269015c515d5d51815e0b7b8ae141f95054200097b906f824",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:6103f288fb85e78951f8f219:screen:2:0"
+      }
+    },
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "receipt": {
+        "stage": "blind",
+        "policy": "listening-comprehension-qc-v2",
+        "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+        "model": "gpt-5.1-2025-11-13",
+        "responseId": "chatcmpl-Em10j8lyO8CY3L7VrFMSOYXwQ3I9H",
+        "result": {
+          "plausibility": [
+            {
+              "index": 0,
+              "credible": true,
+              "context": "Dans une gare, une annonce informe que, suite à des travaux ou à une réorganisation de la ligne, le train initialement prévu pour Blois et se terminant par exemple à Tours aura désormais pour terminus Blois uniquement, ou au contraire qu’il continuera au-delà de Blois jusqu’à une autre ville. L’agent explique que le « train pour Blois » a un nouveau terminus officiel."
+            },
+            {
+              "index": 1,
+              "credible": true,
+              "context": "Dans le hall d’une gare, un message sonore indique : « Attention s’il vous plaît, le train à destination de Blois partira finalement du quai 3 au lieu du quai 1. » L’annonce met clairement l’accent sur le changement de quai de départ pour le train en direction de Blois."
+            },
+            {
+              "index": 2,
+              "credible": true,
+              "context": "Une annonce en gare précise : « En raison d’un incident d’exploitation, le départ du train pour Blois est retardé de 15 minutes. » Le message signale explicitement que l’horaire de départ de ce train a été modifié par rapport à celui prévu sur les affichages."
+            },
+            {
+              "index": 3,
+              "credible": true,
+              "context": "Un message automatique informe : « Le train à destination de Blois ne desservira pas les gares intermédiaires de Vendôme et Onzain. » L’annonce porte sur les changements de desserte, c’est-à-dire les arrêts qui sont annulés ou ajoutés en cours de route pour le train vers Blois."
+            }
+          ],
+          "cues": [],
+          "standsOut": false,
+          "probabilities": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "guess": 1,
+          "reason": "Toutes les options décrivent des modifications typiquement annoncées en gare (terminus, quai, horaire, arrêts) et répondent directement à la question. Aucun indice textuel clair ne favorise un choix (longueur, précision, style ou portée), d’où une forte incertitude. Un choix doit néanmoins être proposé, le 1 est donné à titre de meilleure hypothèse par défaut, sans appui de cue déterminant."
+        },
+        "usage": {
+          "prompt_tokens": 610,
+          "completion_tokens": 537,
+          "total_tokens": 1147,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 75,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "costUsd": 0.0061325,
+        "inputHash": "7ec6c366f49f73011f8466dd40fba78682209bf41128e04281d10bee5079d424",
+        "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:6103f288fb85e78951f8f219:screen:2:1"
+      }
+    }
+  ],
+  "grounded": {
+    "stage": "ground",
+    "policy": "listening-comprehension-qc-v2",
+    "policyHash": "0b036566d02195cbfd7c197fdf97c9e4e7f4558449f5ce325e8572fe03423304",
+    "model": "gpt-5.1-2025-11-13",
+    "responseId": "chatcmpl-Em10rnuraJHPNL2YYRbZ0f4TmBR9A",
+    "result": {
+      "supportedIndices": [
+        0
+      ],
+      "ambiguous": false,
+      "questionSupported": true,
+      "summary": "L’annonce indique que seul le quai de départ du train pour Blois a changé ; l’horaire, les arrêts et la destination restent les mêmes.",
+      "options": [
+        {
+          "index": 0,
+          "supported": true,
+          "plausibleMisunderstanding": false,
+          "evidence": [
+            "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq."
+          ],
+          "reason": "L’annonce explique clairement que, habituellement, le train part du quai trois mais qu’« exceptionnellement » il partira du quai cinq, à cause de travaux. C’est donc bien le quai de départ qui a changé, et c’est le seul élément modifié mentionné pour ce train.",
+          "misunderstanding": null
+        },
+        {
+          "index": 1,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "L’annonce précise explicitement que « l’horaire de départ [...] reste inchangé », donc l’heure n’a pas changé. On pourrait se tromper en entendant seulement l’heure « onze heures quarante » et en croyant qu’on annonce un nouvel horaire, alors qu’on rappelle l’horaire habituel en insistant qu’il ne change pas.",
+          "misunderstanding": "ignorance_de_lexplicit"
+        },
+        {
+          "index": 2,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "En raison de travaux sur le quai trois, le train régional à destination de Blois partira exceptionnellement du quai cinq.",
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "L’annonce ne mentionne absolument aucun changement concernant les arrêts desservis ; elle ne parle que des travaux sur le quai et du déplacement vers le quai cinq. Un auditeur peu attentif pourrait généraliser et penser que « s’il y a des travaux, tout le trajet change », mais aucun élément enregistré n’évoque une modification des arrêts.",
+          "misunderstanding": "généralisation_abusive"
+        },
+        {
+          "index": 3,
+          "supported": false,
+          "plausibleMisunderstanding": true,
+          "evidence": [
+            "le train régional à destination de Blois",
+            "L'horaire de départ, onze heures quarante, reste inchangé."
+          ],
+          "reason": "La destination « à destination de Blois » est donnée comme un fait stable, sans signaler de nouveau terminus ou de modification. Quelqu’un pourrait mal interpréter le terme « exceptionnellement » comme un changement plus global du train (y compris la destination), mais dans l’annonce ce terme ne qualifie que le quai de départ et rien n’indique que le terminus ait changé.",
+          "misunderstanding": "mauvaise_portée_du_mot_exceptionnellement"
+        }
+      ]
+    },
+    "usage": {
+      "prompt_tokens": 706,
+      "completion_tokens": 626,
+      "total_tokens": 1332,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 30,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "costUsd": 0.0071425,
+    "inputHash": "7eabf6bd27d8b164c576e761644136d4d36b510fa1472fe0014e20b30a6e3428",
+    "evaluationId": "18f8e2dc2bfd16bbad1a7ab147059d28552c30a8a94b63c23117e8358eee5f5e:1:8:6103f288fb85e78951f8f219:ground:2"
+  },
+  "feedback": null
+}
