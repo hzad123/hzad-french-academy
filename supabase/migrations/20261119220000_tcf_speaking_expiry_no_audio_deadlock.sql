@@ -15,14 +15,10 @@ DECLARE
   -- At deadline, navigation wins over a slow/failed inference. Calls already
   -- reserved or dispatched remain in the ledger and finish independently.
   if a.pending is not null and now()<a.deadline then raise exception 'Check the pending examiner reply first';end if;$replace$;
-  reconcile_old text := $search$
-deadline=deadline+least(now()-c.started_at,interval '90 seconds'),pending=null$search$;
-  reconcile_new text := $replace$
-deadline=case when now()>=deadline then deadline else deadline+least(now()-c.started_at,interval '90 seconds') end,pending=null$replace$;
-  advance_old text := $search$
-update academy_tcf_speaking.attempts set phase=phase+1,deadline=now()+make_interval(secs=>case a.phase when 0 then 120 when 1 then 210 when 2 then 270 else 0 end) where id=a.id returning * into a;$search$;
-  advance_new text := $replace$
-update academy_tcf_speaking.attempts set phase=phase+1,deadline=now()+make_interval(secs=>case a.phase when 0 then 120 when 1 then 210 when 2 then 270 else 0 end),pending=null where id=a.id returning * into a;$replace$;
+  reconcile_old text := $search$deadline=deadline+least(now()-c.started_at,interval '90 seconds'),pending=null$search$;
+  reconcile_new text := $replace$deadline=case when now()>=deadline then deadline else deadline+least(now()-c.started_at,interval '90 seconds') end,pending=null$replace$;
+  advance_old text := $search$update academy_tcf_speaking.attempts set phase=phase+1,deadline=now()+make_interval(secs=>case a.phase when 0 then 120 when 1 then 210 when 2 then 270 else 0 end) where id=a.id returning * into a;$search$;
+  advance_new text := $replace$update academy_tcf_speaking.attempts set phase=phase+1,deadline=now()+make_interval(secs=>case a.phase when 0 then 120 when 1 then 210 when 2 then 270 else 0 end),pending=null where id=a.id returning * into a;$replace$;
 BEGIN
   SELECT pg_get_functiondef('public.academy_tcf_speaking_command(uuid,text,uuid,jsonb)'::regprocedure)
     INTO source_definition;
