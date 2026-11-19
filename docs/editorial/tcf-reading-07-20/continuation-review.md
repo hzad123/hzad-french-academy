@@ -31,3 +31,13 @@
 4. Confirm production preflight and historical attempts before applying the **unapplied** v4 migration; only then merge/release upon authorization.
 
 The reviewed changes are confined to the pending 14-bank migration and test/review artifacts. **No production database migration was applied, no existing student record was edited, and Tests 01–06 remain untouched.**
+
+## Resumed release-gate work after the interrupted 210-item review
+- Recovered the 210-item source/key review record and the previously synchronized fourteen-paper v4 migration on PR #75.
+- A second objective sweep caught **107 additional answer-position clues**: the correct answer was the only *shortest* choice. The prior regression only rejected the only *longest* correct choice. Correct-choice wording was revised and subsequently language-polished without changing the intended source-supported letters. A complete 210-item sweep now finds **0 uniquely shortest** and **0 uniquely longest** correct choices.
+- Added a new regression asserting both length extremes are rejected for every Q25–39. The original 210-item review record was updated to the exact current correct answer text and choice lengths, and every updated bank was synchronized to the guarded SQL publication migration.
+- Added `tests/tcf-reading-v4-rpc.test.mjs`: it creates the real reading schema using the historical migrations in a local PGlite database, keeps a previously started v3 attempt, rolls the new migration back once, applies it once, and exercises all fourteen v4 banks through the real authenticated `academy_tcf_reading_command` RPC. It verifies 39 correct choices/699 points and 15 intentionally incorrect advanced responses per paper, saved state and reopened results, old-attempt preservation and immutable-version reapplication rejection.
+- The first run of the new RPC test caught a **test-code bug** (`LETTERS.find` used on a string); fixed to `[...LETTERS].find` before further acceptance. Final CI on the latest reviewed bank snapshot must still complete successfully before merge.
+- **Editorial caution:** balancing answer length removes a mechanical guessing cue, but does not by itself guarantee difficult, plausible distractors. The key-accuracy record is not a substitute for independent passage-based difficulty calibration against real learners. Q25–38 remain comparatively more direct than the strongest v6 cases and must be assessed before release.
+
+**Release decision remains blocked.** Do not merge this draft PR or execute the unapplied v4 migration until its final review, RPC/build CI and v4 browser workflow pass on the *same* commit. Do not edit historical student attempts, auth, progress, wallet or Tests 01–06.
