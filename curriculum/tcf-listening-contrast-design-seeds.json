@@ -2351,43 +2351,43 @@
     "number": 34,
     "sourceHash": "e13cb46190f90ce255a112c8871fc0261f965f66dd5d13eddcefa9ccf2e0c804",
     "authored": {
-      "question": "Quel dispositif est envisagé pour les substitutions de produits ?",
+      "question": "Quelle formule d’accord est proposée ?",
       "choices": [
-        "Une liste de remplacements acceptés à l’avance dans des contrats saisonniers.",
-        "Un accord donné par la cantine au moment de chaque livraison.",
-        "Un choix entre plusieurs produits laissés disponibles chez les fournisseurs.",
-        "Une rotation des variétés décidée chaque semaine avec les consommateurs."
+        "Des contrats pour une saison.",
+        "Des commandes hebdomadaires.",
+        "Un accord pour l’année scolaire.",
+        "Des accords pour chaque livraison."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse correspond à la relation expressément décrite dans le document. Les autres options sont des alternatives voisines qui modifient un élément, son attribution ou sa circonstance.",
-      "design": "Editorial source-based answer-axis prototype; independent blind/source validation and the frozen cohort experiment remain mandatory.",
+      "explanation": "La réponse reprend la fréquence, la propriété ou le type d’accord expressément donné. Les distracteurs transposent la quantité, l’échelle temporelle ou un détail technique.",
+      "design": "Four professional peer values, with no uniquely wise conclusion. Editorial candidate only; blind, grounding and whole-test checks remain mandatory.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
-          "anchors": [
-            "des contrats saisonniers",
-            "une liste de substitutions acceptées à l’avance"
-          ],
-          "reason": "Déplace l’accord préalable sur les substitutions vers une décision lors de chaque livraison."
-        },
-        {
-          "index": 2,
           "operation": "scope_shift",
           "anchors": [
             "des contrats saisonniers",
             "une liste de substitutions acceptées à l’avance"
           ],
-          "reason": "Transforme la liste contractuelle convenue en choix effectué dans le stock disponible chez le fournisseur."
+          "reason": "Interprète les commandes stables souhaitées comme des commandes confirmées chaque semaine, périodicité non annoncée."
         },
         {
-          "index": 3,
-          "operation": "condition_transfer",
+          "index": 2,
+          "operation": "role_swap",
           "anchors": [
             "des contrats saisonniers",
             "une liste de substitutions acceptées à l’avance"
           ],
-          "reason": "Confond le souhait de variété des repas avec une décision hebdomadaire des consommateurs, mécanisme qui n’est pas proposé."
+          "reason": "Transfère le cadre temporel des cantines à l’accord, qui est défini par la saison."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "des contrats saisonniers",
+            "une liste de substitutions acceptées à l’avance"
+          ],
+          "reason": "Déplace l’accord et les substitutions acceptés à l’avance vers des accords conclus à chaque livraison."
         }
       ]
     }
@@ -2903,43 +2903,43 @@
     "number": 26,
     "sourceHash": "772eeccde5b44e9ad08ea2b346518402b5175fd855f2b017fdef2d6facdd8391",
     "authored": {
-      "question": "Quels facteurs sont cités en plus du type de sol ?",
+      "question": "Quelle propriété des racines est mentionnée ?",
       "choices": [
-        "Les cultures, le vent et la profondeur des racines.",
-        "La pente, l’ensoleillement et la densité des plantations.",
-        "Le vent, l’âge des cultures et la distance entre les plants.",
-        "La profondeur des racines, les engrais et le calendrier des récoltes."
+        "La profondeur.",
+        "Le diamètre moyen.",
+        "Leur densité.",
+        "Leur orientation dans le sol."
       ],
       "correctIndex": 0,
-      "explanation": "La réponse reprend le détail ou la fonction expressément énoncé dans l’enregistrement. Les autres propositions associent différemment des éléments voisins ou attribuent au document une précision qu’il ne donne pas.",
-      "design": "Editorial source-specific alternative family; not a blind or grounding evaluation. All independent checks remain mandatory.",
+      "explanation": "La réponse reprend la fréquence, la propriété ou le type d’accord expressément donné. Les distracteurs transposent la quantité, l’échelle temporelle ou un détail technique.",
+      "design": "Four professional peer values, with no uniquely wise conclusion. Editorial candidate only; blind, grounding and whole-test checks remain mandatory.",
       "distractorReasons": [
         {
           "index": 1,
-          "operation": "role_swap",
+          "operation": "scope_shift",
           "anchors": [
-            "Les cultures, l’exposition au vent",
-            "la profondeur des racines"
+            "la profondeur des racines",
+            "Les cultures, l’exposition au vent"
           ],
-          "reason": "Remplace la liste donnée par trois autres caractéristiques agricoles plausibles mais non citées."
+          "reason": "Substitue un diamètre à la profondeur, propriété explicitement citée pour les racines."
         },
         {
           "index": 2,
-          "operation": "scope_shift",
+          "operation": "role_swap",
           "anchors": [
-            "Les cultures, l’exposition au vent",
-            "la profondeur des racines"
+            "la profondeur des racines",
+            "Les cultures, l’exposition au vent"
           ],
-          "reason": "Conserve le vent mais substitue à la nature des cultures et à la profondeur des racines deux caractéristiques non énumérées."
+          "reason": "Transforme la propriété des racines donnée en exemple en densité, variable agricole plausible mais non énumérée."
         },
         {
           "index": 3,
-          "operation": "condition_transfer",
+          "operation": "time_swap",
           "anchors": [
-            "Les cultures, l’exposition au vent",
-            "la profondeur des racines"
+            "la profondeur des racines",
+            "Les cultures, l’exposition au vent"
           ],
-          "reason": "Conserve la profondeur des racines mais ajoute les engrais et le calendrier des récoltes, absents de l’énumération."
+          "reason": "Remplace la profondeur des racines par leur orientation, autre caractéristique non donnée dans le passage."
         }
       ]
     }
@@ -3492,6 +3492,52 @@
             "comme les périodes d’absence"
           ],
           "reason": "Déplace l’exemple vers les visites de proches plutôt que les absences des résidents."
+        }
+      ]
+    }
+  },
+  {
+    "test": 6,
+    "number": 23,
+    "sourceHash": "c0faf401a0de9aaecff9e3fa80f00aabe3960e4c2dc3f51741ec2b83d1ba582b",
+    "authored": {
+      "question": "Quelle organisation est proposée pour les produits locaux ?",
+      "choices": [
+        "Deux produits locaux par semaine.",
+        "Un menu complet hebdomadaire.",
+        "Un produit à chaque repas.",
+        "Deux repas locaux chaque mois."
+      ],
+      "correctIndex": 0,
+      "explanation": "La réponse reprend la fréquence, la propriété ou le type d’accord expressément donné. Les distracteurs transposent la quantité, l’échelle temporelle ou un détail technique.",
+      "design": "Four professional peer values, with no uniquely wise conclusion. Editorial candidate only; blind, grounding and whole-test checks remain mandatory.",
+      "distractorReasons": [
+        {
+          "index": 1,
+          "operation": "scope_shift",
+          "anchors": [
+            "sur un trimestre",
+            "avec deux produits locaux chaque semaine"
+          ],
+          "reason": "Transforme deux produits dans la semaine en un menu intégralement local."
+        },
+        {
+          "index": 2,
+          "operation": "role_swap",
+          "anchors": [
+            "sur un trimestre",
+            "avec deux produits locaux chaque semaine"
+          ],
+          "reason": "Déplace la fréquence de la semaine vers chaque repas et modifie la quantité annoncée."
+        },
+        {
+          "index": 3,
+          "operation": "time_swap",
+          "anchors": [
+            "sur un trimestre",
+            "avec deux produits locaux chaque semaine"
+          ],
+          "reason": "Conserve le nombre deux mais l’applique à des repas mensuels plutôt qu’à des produits chaque semaine."
         }
       ]
     }
