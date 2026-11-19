@@ -1,9 +1,8 @@
 import {makeListeningStore} from './store.js';
-import {estimateListeningPractice} from './scoring.js';
 import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const MEDIA='https://hzad123.github.io/hzad-french-academy/assets/tef-listening/tef-listening-2026-11-test01-v1/';
-export function wireTcfListening(root,client,{audioFactory=()=>new Audio(),assetBase=MEDIA}={}){
+export function wireTefListening(root,client,{audioFactory=()=>new Audio(),assetBase=MEDIA}={}){
  const area=root.querySelector('#hz-tef-listening'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
  const store=makeListeningStore(client);let catalog,attempt,selectedTestId='tef-listening-01',viewer,visible=false,busy=false,epoch=0,controller,timer,offset=0,pending,ready=false,needsAudio=false,player,unlockedAudio,audioKey='',preload,windowNotice;
  const now=()=>Date.now()+offset,remaining=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-now())/1000)):0;
@@ -51,8 +50,8 @@ export function wireTcfListening(root,client,{audioFactory=()=>new Audio(),asset
  }
  function resumeAudio(){if(elapsed()>=q().previewSeconds+q().audioSeconds){audioRecovery(false,'The recording has finished. Choose your answer.');return}if(!player){playCurrent();return}try{player.currentTime=Math.max(0,elapsed()-q().previewSeconds)}catch{}void player.play().then(()=>audioRecovery(false)).catch(()=>audioRecovery(true,'Allow audio playback in your browser, then press Play audio.'))}
  function render(){
-  clearInterval(timer);area.replaceChildren();const head=el('header',undefined,'hz-exam-hero');head.append(el('p','TEF CANADA · COMPRÉHENSION ORALE','hz-eyebrow'),el('h3',attempt?.paper?.title||selectedPaper()?.title||'TEF Listening'));area.append(head,button('← TEF/TCF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
-  if(!attempt){stopAudio();area.append(el('p','40 questions · 35 minutes · One listen per recording. Choose an answer, then Next. Submit once on question 40. You cannot return to earlier questions. The clock keeps running.'));
+  clearInterval(timer);area.replaceChildren();const head=el('header',undefined,'hz-exam-hero');head.append(el('p','TEF CANADA · COMPRÉHENSION ORALE','hz-eyebrow'),el('h3',attempt?.paper?.title||selectedPaper()?.title||'TEF Listening'));area.append(head,button('← TEF/TEF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
+  if(!attempt){stopAudio();area.append(el('p','40 questions · 40 minutes · One listen per recording. Choose an answer, then Next. Submit once on question 40. You cannot return to earlier questions. The clock keeps running.'));
    if(catalog.tests.length>1){
     const nav=el('nav',undefined,'hz-listening-test-selector');
     nav.setAttribute('aria-label','Listening tests');
