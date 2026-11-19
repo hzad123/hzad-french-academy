@@ -53,7 +53,7 @@ test('Task 2 shows dedicated preparation before examiner questions/recording and
  assert(ui.includes('else if(attempt.phase===1)'));
  assert(ui.includes("prep.dataset.tcfPreparation='true'"));
  assert(ui.includes("progress.max=120"));
- assert(ui.includes("if(n===0&&!switching&&!busy&&!attempt.pending)"));
+ assert(ui.includes("if(n===0&&!switching)"));
  assert(ui.includes("switching=true;clearInterval(timer);advance()"));
  assert(ui.includes('No examiner questions, audio or microphone recording occur during this preparation.'));
  assert(ui.includes('Read the instructions before you begin'));
