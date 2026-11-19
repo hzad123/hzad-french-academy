@@ -750,3 +750,37 @@
 
 #hzad-french-academy .hz-tef-speaking-score-section-b{margin-top:16px;padding-top:16px;border-top:1px solid #d4dfed}
 #hzad-french-academy .hz-tef-speaking-score-section-b .hz-tef-speaking-score-figure{background:#fffdfa}
+
+
+/* TCF Speaking — focused selector, separate saved-history tab and preflight. */
+#hzad-french-academy .hz-tcf-speaking-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 0;padding:6px;border-radius:15px;background:#f0f5fc;border:1px solid #dae5f4;width:fit-content;max-width:100%}
+#hzad-french-academy .hz-tcf-speaking-tabs .hz-tcf-speaking-tab{margin:0;padding:11px 17px;min-height:45px;background:transparent;color:#224776;border:0;box-shadow:none;border-radius:11px;font-size:15px;font-weight:750;white-space:normal}
+#hzad-french-academy .hz-tcf-speaking-tabs .hz-tcf-speaking-tab[aria-selected="true"]{background:#1e4a8e;color:#fff;box-shadow:0 2px 8px #16447622}
+#hzad-french-academy .hz-tcf-speaking-tabs .hz-tcf-speaking-tab:focus-visible,#hzad-french-academy .hz-tcf-speaking-panel .hz-btn:focus-visible{outline:3px solid #ed9d35;outline-offset:3px}
+#hzad-french-academy .hz-tcf-speaking-panel,#hzad-french-academy .hz-tcf-speaking-preflight{margin:15px 0 26px;padding:clamp(19px,3vw,29px);border:1px solid #d8e4f2;border-radius:18px;background:linear-gradient(145deg,#fff,#f9fbff);box-shadow:0 8px 25px #1539610c;max-width:1050px}
+#hzad-french-academy .hz-tcf-speaking-panel h4,#hzad-french-academy .hz-tcf-speaking-preflight h4{margin:7px 0 20px;font-size:clamp(20px,2.6vw,25px);color:#183a68;letter-spacing:-.02em}
+#hzad-french-academy .hz-tcf-speaking-eyebrow{display:inline-block;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.12em;color:#ad7021}
+#hzad-french-academy .hz-tcf-speaking-select-field{display:flex;flex-direction:column;gap:8px;max-width:640px;margin:0 0 17px}
+#hzad-french-academy .hz-tcf-speaking-label{font-size:14px;font-weight:750;color:#425e80}
+#hzad-french-academy .hz-tcf-speaking-select{box-sizing:border-box;width:100%;min-height:53px;padding:10px 14px;border:1px solid #c9d8e9;border-radius:11px;background:white;color:#18375d;font:inherit}
+#hzad-french-academy .hz-tcf-speaking-select-actions,#hzad-french-academy .hz-tcf-speaking-preflight-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#hzad-french-academy .hz-tcf-speaking-select-actions .hz-btn,#hzad-french-academy .hz-tcf-speaking-preflight-actions .hz-btn{margin:0;min-height:49px;padding:12px 22px}
+#hzad-french-academy .hz-tcf-speaking-hint{color:#637993;font-size:13px;line-height:1.65;margin:13px 0 0}
+#hzad-french-academy .hz-tcf-speaking-preflight>p{color:#4e6580;line-height:1.65}
+#hzad-french-academy .hz-tcf-speaking-timing{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:21px 0}
+#hzad-french-academy .hz-tcf-speaking-timing-item{display:flex;flex-direction:column;gap:7px;padding:16px 18px;border:1px solid #d8e4f3;border-radius:12px;background:#fff}
+#hzad-french-academy .hz-tcf-speaking-timing-item strong{color:#183b6a;font-size:16px}
+#hzad-french-academy .hz-tcf-speaking-timing-item span{color:#5e748d;font-size:14px;line-height:1.5}
+#hzad-french-academy .hz-tcf-speaking-timing-item.is-preparation{background:#fff9ee;border-color:#f0c98d;border-left:4px solid #e8972e}
+#hzad-french-academy .hz-tcf-speaking-prep-note{background:#eff5ff;border:1px solid #d7e5f9;border-radius:12px;padding:17px 19px;margin-bottom:20px;color:#214777}
+#hzad-french-academy .hz-tcf-speaking-prep-note p{margin:8px 0 0;line-height:1.6}
+#hzad-french-academy .hz-tcf-speaking-history{display:flex;flex-direction:column;gap:10px}
+#hzad-french-academy .hz-tcf-speaking-history-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:17px;padding:14px 17px;border:1px solid #dbe5f1;border-radius:12px;background:#fff}
+#hzad-french-academy .hz-tcf-speaking-history-meta{display:flex;flex-direction:column;min-width:0;gap:5px}
+#hzad-french-academy .hz-tcf-speaking-history-meta strong{color:#193d6e;font-size:16px}
+#hzad-french-academy .hz-tcf-speaking-history-meta span{color:#6b7e96;font-size:13px;line-height:1.4}
+#hzad-french-academy .hz-tcf-speaking-history-state{padding:6px 11px;border-radius:999px;font-weight:750;font-size:12px;white-space:nowrap;background:#eff4fd;color:#2b568b;border:1px solid #d4e1f5}
+#hzad-french-academy .hz-tcf-speaking-history-item .hz-btn{margin:0;min-height:40px;padding:10px 16px;font-size:14px}
+#hzad-french-academy .hz-tcf-speaking-empty{color:#637993}
+@media(max-width:700px){#hzad-french-academy .hz-tcf-speaking-timing{grid-template-columns:1fr}#hzad-french-academy .hz-tcf-speaking-history-item{grid-template-columns:minmax(0,1fr) auto}#hzad-french-academy .hz-tcf-speaking-history-item .hz-btn{grid-column:1/-1;width:100%}}
+@media(max-width:520px){#hzad-french-academy .hz-tcf-speaking-tabs{width:100%;box-sizing:border-box}#hzad-french-academy .hz-tcf-speaking-tabs .hz-tcf-speaking-tab{flex:1;min-width:0;font-size:13px;padding:11px 9px}#hzad-french-academy .hz-tcf-speaking-history-item{grid-template-columns:1fr;gap:10px}#hzad-french-academy .hz-tcf-speaking-preflight-actions .hz-btn,#hzad-french-academy .hz-tcf-speaking-select-actions .hz-btn{width:100%}#hzad-french-academy .hz-tcf-speaking-panel,#hzad-french-academy .hz-tcf-speaking-preflight{padding:17px}}
