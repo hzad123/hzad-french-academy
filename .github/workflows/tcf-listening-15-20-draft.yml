@@ -1,0 +1,37 @@
+name: Stage TCF Listening 15-20 written-choice draft (no publication)
+on:
+  push:
+    branches: [review/tcf-listening-15-20-quality-20261119]
+    paths:
+      - scripts/release/prepare-listening-15-20-v2-draft.mjs
+      - .github/workflows/tcf-listening-15-20-draft.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate draft candidates without changing production
+        run: node scripts/release/prepare-listening-15-20-v2-draft.mjs
+      - name: Check baseline of original source
+        run: node scripts/audit-listening-15-20-baseline.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcf-listening-15-20-review-candidates
+          path: |
+            work/tcf-listening-15-20-v2/
+            reports/tcf-listening-15-20-baseline.json
+            supabase/exams/tcf-listening-test15-v2.json
+            supabase/exams/tcf-listening-test16-v2.json
+            supabase/exams/tcf-listening-test17-v2.json
+            supabase/exams/tcf-listening-test18-v2.json
+            supabase/exams/tcf-listening-test19-v2.json
+            supabase/exams/tcf-listening-test20-v2.json
+          retention-days: 30
