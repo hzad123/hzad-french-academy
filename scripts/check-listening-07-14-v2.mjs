@@ -43,7 +43,7 @@ for(let n=7;n<=14;n++){
    assert.equal(new Set(q.options.map(s=>s.trim().toLowerCase())).size,4);
    assert(q.options.every(s=>s.trim().length>=18),'Empty or trivial alternative '+id+' Q'+q.number);
    const cs=choiceStats(q);if(cs.correctLongest)longest++;if(cs.correctShortest)shortest++;
-   const text=q.options['ABCD'.indexOf(q.correct)].normalize('NFKC').toLowerCase().replace(/\\s+/gu,' ').trim();
+   const text=q.options['ABCD'.indexOf(q.correct)].normalize('NFKC').toLowerCase().replace(/\s+/gu,' ').trim();
    correctAnswerCopies.set(text,(correctAnswerCopies.get(text)||0)+1);
    if(cs.ratio>1.5)ratios.push({q:q.number,ratio:Math.round(cs.ratio*100)/100});
   }
