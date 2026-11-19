@@ -4,7 +4,7 @@ import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 const letters='ABCD', papers=[], rows=[], texts=new Map(), mistakes=[];
-function norm(s){return s.normalize('NFKC').toLocaleLowerCase('fr').replace(/[^\\p{L}\\p{N}]+/gu,' ').trim()}
+function norm(s){return s.normalize('NFKC').toLocaleLowerCase('fr').replace(/[^\p{L}\p{N}]+/gu,' ').trim()}
 function tokens(s){return norm(s).split(' ').filter(w=>w.length>3)}
 for(let n=15;n<=20;n++){
  const id=String(n).padStart(2,'0'), file='supabase/exams/tcf-listening-test'+id+'.json';
