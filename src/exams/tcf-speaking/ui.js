@@ -107,17 +107,20 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    intro.append(el('span','TCF SPEAKING · TEST '+selected.id.slice(-2),'hz-tcf-speaking-eyebrow'),
     el('h4','Read the instructions before you begin'),
     el('p','Your exam has not started. Take as much time as you need to read these instructions.'));
-   const schedule=el('div',undefined,'hz-tcf-speaking-timing');
+   // TCF has three tasks, not four. Task 2's preparation and exchange
+   // are one task, even though the server implements two timed phases.
+   const schedule=el('div',undefined,'hz-tcf-speaking-timing hz-tcf-speaking-three-tasks');
    const steps=[
-    ['Task 1 · Interview','2 minutes of speaking · No preparation'],
-    ['Task 2 · Preparation','2 full minutes to prepare your questions · No microphone'],
-    ['Task 2 · Conversation','3 minutes 30 seconds of speaking, after the preparation countdown'],
-    ['Task 3 · Opinion','4 minutes 30 seconds of speaking · No preparation']
+    ['Task 1 · Interview',['2 minutes speaking','No preparation']],
+    ['Task 2 · Information gathering',['2 minutes preparation (no microphone)','Then 3 minutes 30 seconds speaking']],
+    ['Task 3 · Opinion',['4 minutes 30 seconds speaking','No preparation']]
    ];
-   for(const [title,detail] of steps){
+   for(const [title,details] of steps){
     const item=el('div',undefined,'hz-tcf-speaking-timing-item');
-    if(title==='Task 2 · Preparation')item.classList.add('is-preparation');
-    item.append(el('strong',title),el('span',detail));schedule.append(item);
+    if(title.startsWith('Task 2'))item.classList.add('is-preparation');
+    item.append(el('strong',title));
+    for(const detail of details)item.append(el('span',detail));
+    schedule.append(item);
    }
    intro.append(schedule);
    const notice=el('div',undefined,'hz-tcf-speaking-prep-note');
