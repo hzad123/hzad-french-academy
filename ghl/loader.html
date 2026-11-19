@@ -1,43 +1,21 @@
 <!-- HZad French Academy - GoHighLevel Custom HTML loader.
-     Paste this complete block ONCE to enable automatic versioned updates
-     to the hosted academy assets after each GitHub Pages publication. -->
+     Keep a backup of the previous HTML before replacing it.
+     Static assets deploy from the development branch via GitHub Pages. -->
 <div id="hzad-academy-host">
   <p id="hzad-loading" role="status" style="font:16px system-ui,sans-serif;padding:24px;color:#183153">Loading HZad French Academy…</p>
 </div>
+<link rel="stylesheet" href="https://hzad123.github.io/hzad-french-academy/academy.css">
 <script>
 (function () {
   var host = document.getElementById('hzad-academy-host');
   if (!host || host.dataset.hzadLoaderStarted === 'true') return;
   host.dataset.hzadLoaderStarted = 'true';
-  var base = 'https://hzad123.github.io/hzad-french-academy/';
-  function loadAssets(version) {
-    var suffix = '?v=' + encodeURIComponent(version);
-    host.dataset.hzadAssetVersion = version;
-    var style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = base + 'academy.css' + suffix;
-    document.head.appendChild(style);
-    var script = document.createElement('script');
-    script.src = base + 'academy.js' + suffix;
-    script.async = true;
-    script.onerror = function () {
-      host.textContent = 'Unable to load HZad French Academy. Please refresh the page or contact support.';
-    };
-    document.head.appendChild(script);
-  }
-  // Read the tiny published revision marker, never a cached full app bundle.
-  // If cross-origin fetch is blocked, a unique request URL still guarantees
-  // the most recent JavaScript and CSS instead of a stale browser cache.
-  fetch(base + 'BUILD_COMMIT.txt?check=' + Date.now(), {cache: 'no-store'})
-    .then(function (response) {
-      if (!response.ok) throw new Error('Revision unavailable');
-      return response.text();
-    })
-    .then(function (revision) {
-      revision = revision.trim();
-      if (!/^[0-9a-f]{40}$/.test(revision)) throw new Error('Invalid revision');
-      loadAssets(revision);
-    })
-    .catch(function () { loadAssets('refresh-' + Date.now()); });
+  var script = document.createElement('script');
+  script.src = 'https://hzad123.github.io/hzad-french-academy/academy.js';
+  script.async = true;
+  script.onerror = function () {
+    host.textContent = 'Unable to load HZad French Academy. Please refresh the page or contact support.';
+  };
+  document.head.appendChild(script);
 })();
 </script>
