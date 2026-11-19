@@ -1,0 +1,28 @@
+name: Verify TEF Listening Test01 original audio and exam format
+on:
+  push:
+    branches: [feature/tef-listening-test01-20261119]
+    paths:
+      - .github/workflows/tef-listening-test01-qa.yml
+      - scripts/check-tef-listening-test01.mjs
+      - supabase/exams/tef-listening-test01.json
+      - assets/tef-listening/tef-listening-2026-11-test01-v1/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - name: Verify original 40 TEF questions, 4 illustrated choices and 40 audio source hashes
+        run: node scripts/check-tef-listening-test01.mjs
+      - name: Check engine, build and regressions
+        run: |
+          npm test
+          npm run build
