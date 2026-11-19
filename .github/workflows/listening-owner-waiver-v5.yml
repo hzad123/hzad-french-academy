@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: read
 concurrency:
   group: listening-owner-waiver-v5-media
   cancel-in-progress: true
@@ -24,6 +25,15 @@ jobs:
           python-version: '3.11'
       - name: Install repository dependencies
         run: npm install --no-package-lock
+      - name: Recover previously verified offline audio and partial manifest
+        # Previous attempt completed Tests01-04 and most of Test05. The
+        # only failure was Test05 Q19 exceeding its fixed response window.
+        uses: actions/download-artifact@v4
+        with:
+          name: owner-waived-tcf-listening-six-v5
+          run-id: 44617388341
+          github-token: ${{ github.token }}
+          path: .
       - name: Prepare six immutable banks from independently grounded v5 and v4 receipts
         run: |
           node scripts/release/prepare-listening-owner-waiver-v5.mjs
