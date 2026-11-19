@@ -9,7 +9,7 @@ permissions:
   contents: write
 concurrency:
   group: listening-owner-waiver-v5-media
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   record:
     runs-on: ubuntu-latest
@@ -54,12 +54,12 @@ jobs:
           git add assets/tcf-listening/tcf-listening-2026-11-test0?-v5
           git add supabase/exams/tcf-listening-test0?-v5.json
           git add curriculum/tcf-listening-owner-waiver-v5
-          git fetch origin fix/listening-six-blind-cues-v5
-          git rebase origin/fix/listening-six-blind-cues-v5
           if ! git diff --cached --quiet; then
             git commit -m "Record six owner-waived listening v5 papers with 234 independently grounded keys"
-            git push origin HEAD:fix/listening-six-blind-cues-v5
           fi
+          git fetch origin fix/listening-six-blind-cues-v5
+          git rebase origin/fix/listening-six-blind-cues-v5
+          git push origin HEAD:fix/listening-six-blind-cues-v5
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -67,4 +67,6 @@ jobs:
           path: |
             work/listening-owner-waiver-v5/summary.json
             supabase/exams/tcf-listening-test0?-v5.json
+            curriculum/tcf-listening-owner-waiver-v5/
+            assets/tcf-listening/tcf-listening-2026-11-test0?-v5/
           retention-days: 30
