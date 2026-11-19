@@ -55,6 +55,7 @@ jobs:
           fi
       - name: Check browser syntax and regression tests
         run: |
+          node scripts/check-tef-listening-test01.mjs
           node --check src/exams/tef-listening/ui.js
           node --check src/exams/tef-listening/store.js
           npm test
@@ -79,5 +80,6 @@ jobs:
           path: |
             work/tef-listening-test01/authored.json
             supabase/exams/tef-listening-test01.json
-            assets/tef-listening/tef-listening-2026-11-test01-v1/manifest.json
+            assets/tef-listening/tef-listening-2026-11-test01-v1/
+            supabase/migrations/*_tef_listening_test01.sql
           retention-days: 30
