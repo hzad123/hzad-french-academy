@@ -89,7 +89,7 @@ test('14 new TCF Reading banks: real authenticated RPC start, answer, resume and
    // Deliberately wrong answers for every advanced question; verify server marks none correct.
    let b=await cmd(bob,'start',randomUUID(),{testId:paper.id,version:VERSION});
    for(const item of paper.questions.slice(24)){
-    const wrong=LETTERS.find(letter=>letter!==item.correct);
+    const wrong=[...LETTERS].find(letter=>letter!==item.correct);
     b=await cmd(bob,'answer',b.id,{revision:b.revision,number:item.number,choice:wrong});
    }
    b=await cmd(bob,'submit',b.id,{revision:b.revision});
