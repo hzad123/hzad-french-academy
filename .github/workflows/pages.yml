@@ -81,7 +81,7 @@ jobs:
           exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify published three-task speaking UI and matching styles
+      - name: Verify published TCF speaking instructions, scorecards and corrections
         run: |
           node --input-type=module <<'NODE'
           import {readFileSync} from 'node:fs';
@@ -90,15 +90,22 @@ jobs:
           let last='';
           for(let i=0;i<10;i++){
             try{
-              const urls=['BUILD_COMMIT.txt','academy.js','academy.css'].map(p=>base+p+'?revision='+encodeURIComponent(expected));
+              const urls=['BUILD_COMMIT.txt','academy.js','academy-app.js','academy.css'].map(p=>base+p+'?revision='+encodeURIComponent(expected));
               const responses=await Promise.all(urls.map(u=>fetch(u,{headers:{'Cache-Control':'no-cache'}})));
               if(responses.every(r=>r.ok)){
-                const [revision,js,css]=await Promise.all(responses.map(r=>r.text()));
+                const [revision,bootstrap,js,css]=await Promise.all(responses.map(r=>r.text()));
                 if(revision.trim()===expected&&
+                   bootstrap.includes('BUILD_COMMIT.txt')&&
+                   bootstrap.includes('academy-app.js')&&
                    js.includes('hz-tcf-speaking-three-tasks')&&
                    css.includes('hz-tcf-speaking-three-tasks')&&
+                   js.includes('hz-tcf-speaking-scoreboard')&&
+                   js.includes('hz-tcf-speaking-correction-card')&&
+                   css.includes('hz-tcf-speaking-score-figures')&&
+                   css.includes('hz-tcf-speaking-original')&&
+                   css.includes('hz-tcf-speaking-better')&&
                    !css.includes('.hz-tcf-speaking-timing-item.is-preparation')){
-                  console.log('Verified live Pages revision '+expected+' with three uniform speaking cards.');
+                  console.log('Verified live Pages revision '+expected+' with three tasks, large scorecards and red-green corrections.');
                   process.exit(0);
                 }
                 last='Unexpected revision or stale speaking assets';

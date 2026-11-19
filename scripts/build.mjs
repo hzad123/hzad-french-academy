@@ -1,7 +1,11 @@
 import {build} from 'esbuild';
 import {readFile,mkdir,writeFile,cp} from 'node:fs/promises';
 await mkdir('dist',{recursive:true});
-const browser=await build({entryPoints:['src/entry.js'],bundle:true,format:'iife',platform:'browser',target:['es2020'],outfile:'dist/academy.js',minify:true,metafile:true});
+const browser=await build({entryPoints:['src/entry.js'],bundle:true,format:'iife',platform:'browser',target:['es2020'],outfile:'dist/academy-app.js',minify:true,metafile:true});
+// The existing GHL embed still requests academy.js. Keep that URL stable as
+// a tiny manifest-aware bootstrap; put the actual compiled app behind an
+// immutable per-release query parameter to avoid stale browser caches.
+await writeFile('dist/academy.js',await readFile('src/bootstrap.js','utf8'));
 if(Object.keys(browser.metafile.inputs).some(path=>path.startsWith('supabase/')))throw Error('Server-only question keys or privileged modules entered the browser bundle.');
 const version=process.env.GITHUB_SHA||Date.now().toString(36);
 const css=await readFile('src/styles/academy.css','utf8');
