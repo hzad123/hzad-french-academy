@@ -1,0 +1,51 @@
+name: Review TCF Listening 07-14 source-grounded v2
+on:
+  push:
+    branches: [review/tcf-listening-07-14-v2]
+    paths:
+      - .github/workflows/tcf-listening-07-14-v2.yml
+      - scripts/check-listening-07-14-v2.mjs
+      - scripts/release/prepare-listening-07-14-v2.mjs
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tcf-listening-07-14-v2-editorial
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install repository development dependencies
+        run: npm install --no-package-lock
+      - name: Author eight new listening v2 banks from preserved recordings
+        run: node scripts/release/prepare-listening-07-14-v2.mjs
+      - name: Check eight-source integrity, answer keys and option-guessing patterns
+        run: node scripts/check-listening-07-14-v2.mjs
+      - name: Run existing regression tests and academy build
+        run: |
+          npm test
+          npm run build
+      - name: Commit eight reviewed banks with exact source recordings
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tcf-listening-test{07..14}-v2.json
+          git add assets/tcf-listening/tcf-listening-2026-11-test{07..14}-v2
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage eight independently source-matched Listening v2 banks and media"
+            git fetch origin review/tcf-listening-07-14-v2
+            git rebase origin/review/tcf-listening-07-14-v2
+            git push origin HEAD:review/tcf-listening-07-14-v2
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcf-listening-07-14-v2-review
+          path: work/tcf-listening-07-14-v2/
+          retention-days: 30

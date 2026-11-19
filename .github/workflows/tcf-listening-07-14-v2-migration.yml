@@ -1,0 +1,52 @@
+name: Stage TCF Listening 07-14 v2 publication migration
+on:
+  push:
+    branches: [review/tcf-listening-07-14-v2]
+    paths:
+      - .github/workflows/tcf-listening-07-14-v2-migration.yml
+      - scripts/release/write-listening-07-14-v2-migration.mjs
+      - supabase/exams/tcf-listening-test*-v2.json
+permissions:
+  contents: write
+concurrency:
+  group: tcf-listening-07-14-v2-migration
+  cancel-in-progress: false
+jobs:
+  migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - run: npm install --no-package-lock
+      - name: Independently check all 312 original audio clips and revised choices
+        run: node scripts/check-listening-07-14-v2.mjs
+      - name: Create one guarded batch migration using the Supabase CLI
+        run: |
+          count=$(find supabase/migrations -maxdepth 1 -name '*_tcf_listening_07_14_source_v2.sql' | wc -l)
+          if [ "$count" -gt 0 ]; then
+            echo 'Existing migration found; reuse without creating a second one.'
+            exit 0
+          fi
+          supabase migration new tcf_listening_07_14_source_v2
+          migration=$(find supabase/migrations -maxdepth 1 -type f -name '*_tcf_listening_07_14_source_v2.sql' | head -n 1)
+          test -n "$migration"
+          node scripts/release/write-listening-07-14-v2-migration.mjs "$migration"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$migration"
+          git commit -m "Stage 07–14 immutable publication with prior exam and wallet protection"
+          git fetch origin review/tcf-listening-07-14-v2
+          git rebase origin/review/tcf-listening-07-14-v2
+          git push origin HEAD:review/tcf-listening-07-14-v2
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcf-listening-07-14-v2-publication-plan
+          path: supabase/migrations/*_tcf_listening_07_14_source_v2.sql
+          retention-days: 30
