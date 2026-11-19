@@ -1,13 +1,14 @@
 import {makeSpeakingStore} from './store.js';
 import {createSpeakingRecorder} from './recorder.js';
+import {createFrenchVoicePlayer,examinerVoiceNeedsTap} from '../tef-speaking/voice.js';
 import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeakingRecorder}={}){
  const area=root.querySelector('#hz-tcf-speaking'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeSpeakingStore(client,fetcher);let selectedTestId, catalog,attempt,recorder,timer,pollTimer,controller,cancelSpeech,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0;
+ const store=makeSpeakingStore(client,fetcher);let selectedTestId, catalog,attempt,recorder,timer,pollTimer,controller,voicePlayer,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0;
  const left=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-offset)/1000)):0;
  const accept=value=>{attempt=value;offset=Date.parse(value.serverNow)-Date.now()};
- function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);cancelSpeech?.();globalThis.speechSynthesis?.cancel();capture=null;bootKey=null;answerDeadline=0;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
+ function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);voicePlayer?.dispose?.();voicePlayer=null;capture=null;bootKey=null;answerDeadline=0;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();catalog=null;attempt=null;viewer=null;selectedTestId=null}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset();if(session?.user?.id)viewer=session.user.id});
@@ -27,20 +28,56 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   try{await work(controller.signal,()=>visible&&ticket===epoch)}catch(e){if(visible&&ticket===epoch){let recovered=false;if(attempt)try{recovered=await reconcile(controller.signal);render()}catch{}if(!recovered)status(e.message)}}finally{if(ticket===epoch){busy=false;controls();if(attempt?.pending)schedulePoll();else if(!capture)void beginAnswer()}}}
  async function open(id){root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;area.classList.remove('hz-hidden');chooser.classList.add('hz-hidden');status('Opening TCF speaking…');await run(async(signal,current)=>{catalog=await store.catalog(signal);if(!current())return;if(id)accept(await store.read(id,signal));else attempt=null;pollCount=0;if(current())render()})}
  root.addEventListener('hzad-open-tcf-speaking',()=>{void open()});
- function speak(text){cancelSpeech?.();globalThis.speechSynthesis?.cancel();if(!text||!globalThis.speechSynthesis||!globalThis.SpeechSynthesisUtterance)return Promise.resolve();return new Promise(resolve=>{let done=false;const finish=()=>{if(done)return;done=true;clearTimeout(timeout);resolve()};const timeout=setTimeout(finish,Math.min(30000,Math.max(4000,text.length*100)));cancelSpeech=finish;const voice=new SpeechSynthesisUtterance(text);voice.lang='fr-CA';voice.onend=finish;voice.onerror=finish;globalThis.speechSynthesis.speak(voice)})}
+ function voice(){if(!voicePlayer)voicePlayer=createFrenchVoicePlayer();return voicePlayer}
+ function speak(text){return voice().speak(text)}
  function key(){return attempt?.id+':'+attempt?.phase+':'+(completed().filter(c=>c.phase===attempt.phase).at(-1)?.id||'opening')}
- async function beginAnswer(){
+ async function beginAnswer(fromTap=false,skipVoice=false){
   if(!visible||busy||!attempt||attempt.pending||capture||![0,2,3].includes(attempt.phase)||bootKey===key())return;
   if(!left()){void advance();return}
+  if(examinerVoiceNeedsTap()&&!fromTap){
+   status('Sur iPhone/iPad, appuyez sur « Écouter l’interlocuteur » pour démarrer la conversation.');
+   return;
+  }
   const current=key(),ticket=epoch,answerTicket=++answerEpoch;bootKey=current;
-  try{await microphone().prepare();if(ticket!==epoch||answerTicket!==answerEpoch||current!==key())return;const same=completed().filter(c=>c.phase===attempt.phase);const question=same.length?same.at(-1).result.reply:attempt.test.phases[attempt.phase].opening;
-   status(question?'Examiner speaking…':'The examiner is listening. Continue your opinion.');await speak(question);
-   if(ticket!==epoch||answerTicket!==answerEpoch||current!==key()||busy)return;
-   if(attempt.phase===3){accept(await store.send({kind:'begin_monologue',id:attempt.id}));if(ticket!==epoch||answerTicket!==answerEpoch)return}
-   if(!left()){void advance();return}const seconds=attempt.phase===3?left():Math.min(30,left());await microphone().start(seconds);answerDeadline=Date.now()+seconds*1000;
-  }catch{if(ticket===epoch&&answerTicket===answerEpoch){bootKey=null;status('Microphone could not start. Allow microphone access in your browser, then press Submit response to try again.')}}
+  const same=completed().filter(c=>c.phase===attempt.phase);
+  const question=same.length?same.at(-1).result.reply:attempt.test.phases[attempt.phase].opening;
+  try{
+   // On an iOS tap, invoke speech synchronously before awaiting microphone.
+   let played=true;
+   if(fromTap&&!skipVoice&&question){
+    status('Interlocuteur en train de parler…');
+    played=await speak(question);
+    if(ticket!==epoch||answerTicket!==answerEpoch||current!==key()||busy)return;
+    if(!played){
+     bootKey=null;
+     status('La lecture a été bloquée. Réessayez « Écouter l’interlocuteur » ou choisissez « Enregistrer sans voix ».');
+     return;
+    }
+   }
+   await microphone().prepare();
+   if(ticket!==epoch||answerTicket!==answerEpoch||current!==key())return;
+   if(!fromTap&&!skipVoice&&question){
+    status('Examiner speaking…');
+    played=await speak(question);
+    if(ticket!==epoch||answerTicket!==answerEpoch||current!==key()||busy)return;
+    if(!played)status('Lecture bloquée. Vous pouvez lire la question affichée.');
+   }
+   if(attempt.phase===3){
+    accept(await store.send({kind:'begin_monologue',id:attempt.id}));
+    if(ticket!==epoch||answerTicket!==answerEpoch)return;
+   }
+   if(!left()){void advance();return}
+   const seconds=attempt.phase===3?left():Math.min(30,left());
+   await microphone().start(seconds);answerDeadline=Date.now()+seconds*1000;
+   status('● Enregistrement en cours. Parlez maintenant.');
+  }catch{
+   if(ticket===epoch&&answerTicket===answerEpoch){
+    bootKey=null;
+    status('Le microphone ne démarre pas. Vérifiez l’accès au microphone, puis réessayez.');
+   }
+  }
  }
- function advance(){if(busy||!attempt||attempt.pending||attempt.phase>=4)return;answerEpoch++;cancelSpeech?.();globalThis.speechSynthesis?.cancel();recorder?.stop();bootKey=null;void run(async(signal,current)=>{accept(await store.send({kind:'advance',id:attempt.id},signal));if(current())render()})}
+ function advance(){if(busy||!attempt||attempt.pending||attempt.phase>=4)return;answerEpoch++;voicePlayer?.stop?.();recorder?.stop();bootKey=null;void run(async(signal,current)=>{accept(await store.send({kind:'advance',id:attempt.id},signal));if(current())render()})}
  async function submit(manual=false,readyAudio){
   if(!visible||busy||!attempt||attempt.pending||![0,2,3].includes(attempt.phase))return;
   const audio=capture?.audio||readyAudio||recorder?.stop();answerDeadline=0;
@@ -92,6 +129,10 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
      if(question&&!same.length){const p=el('p','Examiner: '+question);p.lang='fr';block.append(p)}
      block.append(el('p',index===3?'Speak continuously for up to 4 minutes 30 seconds. Submit response ends your monologue early; the timer submits it automatically at the end.':'Submit response saves your answer and moves to the next task. Every 30 seconds, audio is saved automatically so you can continue speaking with the examiner.'));
      block.append(el('p',`${turn?.credits??'—'} AI credits per submitted response.`,'hz-small'),button('Submit response',()=>{void submit(true)},!canPay(turn?.credits)));
+     if(examinerVoiceNeedsTap()){
+      block.append(button('🔊 Écouter l’interlocuteur puis répondre',()=>{void beginAnswer(true)},!canPay(turn?.credits)));
+      block.append(button('Enregistrer sans voix (texte affiché)',()=>{void beginAnswer(true,true)},!canPay(turn?.credits)));
+     }
     }
     const liveStatus=el('p',undefined,'hz-speaking-status');liveStatus.setAttribute('role','status');block.append(liveStatus);
     tick();
