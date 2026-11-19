@@ -171,17 +171,17 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   const tefMark=el('span','TEF','hz-tef-hub-mark');tefMark.setAttribute('aria-hidden','true');
   const tefHeading=el('div',undefined,'hz-tef-hub-heading');
   tefHeading.append(el('span','TEF CANADA','hz-tef-hub-eyebrow'),el('h4','TEF Mock Tests'),el('p','Practice the TEF Canada exam with original mock papers.'));
-  const tefBadge=el('span','Reading, Writing & Speaking available','hz-tef-coming-soon');
+  const tefBadge=el('span','Reading, Listening, Writing & Speaking','hz-tef-coming-soon');
   tefHead.append(tefMark,tefHeading,tefBadge);
   tefHub.append(tefHead);
-  const tefFoot=el('p','Choose a module to practise. TEF Reading Test 01 is available now; additional reading tests will follow.','hz-tef-hub-foot');
+  const tefFoot=el('p','Choose a module to practise. TEF Reading and Listening Test 01 are available; more papers will follow.','hz-tef-hub-foot');
   tefHub.append(tefFoot);
   const tefGrid=el('div',undefined,'hz-tcf-module-grid hz-tef-module-grid');
   for(const option of [
     {name:'Writing',icon:'✎',detail:'20 original tests · AI feedback',event:'hzad-open-tef-writing'},
     {name:'Reading',icon:'▤',detail:'1 original visual test · 40 questions · 60 minutes',event:'hzad-open-tef-reading'},
     {name:'Speaking',icon:'◉',detail:'20 tests · AI conversation & feedback',event:'hzad-open-tef-speaking'},
-    {name:'Listening',icon:'♫',detail:'Coming soon'}
+    {name:'Listening',icon:'♫',detail:'Test 01 · 40 questions · 40 minutes',event:'hzad-open-tef-listening'}
   ]){
     const tile=el('button',undefined,'hz-tcf-module-card hz-tef-module-card'+(option.event?'':' hz-tef-module-unavailable'));
     tile.type='button';if(option.event){tile.addEventListener('click',()=>root.dispatchEvent(new CustomEvent(option.event)));tile.setAttribute('aria-label','Open TEF '+option.name+' tests')}
