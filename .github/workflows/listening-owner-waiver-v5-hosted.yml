@@ -3,6 +3,7 @@ on:
   push:
     branches: [development]
     paths:
+      - .github/workflows/listening-owner-waiver-v5-hosted.yml
       - supabase/exams/tcf-listening-test0?-v5.json
       - assets/tcf-listening/tcf-listening-2026-11-test0?-v5/**
       - supabase/migrations/*_tcf_listening_01_06_owner_waiver_v5.sql
@@ -19,7 +20,12 @@ jobs:
         with:
           node-version: '22'
       - name: Install audio verification tool
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            timeout 150s sudo apt-get update -qq
+            timeout 150s sudo apt-get install -y -qq ffmpeg
+          fi
+          ffprobe -version | head -n 1
       - name: Verify local owner-waived six-paper keys and media
         run: node scripts/check-listening-six-release.mjs --require-replacements
       - name: Wait for exact GitHub Pages commit and verify all 271 hosted assets
