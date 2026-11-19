@@ -17,3 +17,4 @@ await build({entryPoints:['src/achievements/verify-entry.js'],bundle:true,format
 await writeFile('dist/certificates/index.html','<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verify an HZad Certificate</title><link rel="stylesheet" href="../academy.css"></head><body><main id="hzad-french-academy"><div class="hz-shell"><section class="hz-panel" id="certificate-verification"><a class="hz-global-back" href="https://www.teftcf.hzadeducation.org/hzadfrenchacademy">← Back to academy</a><h1>HZad French Academy</h1><p>Verify an HZad course-completion certificate using its ID and printed holder name.</p></section></div></main><script src="./verify.js"></script></body></html>');
 
 await cp('assets/tcf-listening','dist/assets/tcf-listening',{recursive:true});
+await cp('assets/tef-listening','dist/assets/tef-listening',{recursive:true});
