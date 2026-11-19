@@ -1,6 +1,6 @@
 import {makeTefSpeakingStore} from './store.js';
 import {createSpeakingRecorder} from '../tcf-speaking/recorder.js';
-import {createFrenchVoicePlayer} from './voice.js';
+import {createFrenchVoicePlayer,examinerVoiceNeedsTap} from './voice.js';
 import {tefMicrophoneControls} from './mic-state.js';
 import {recordView} from '../../ui/navigation.js';
 
@@ -390,6 +390,10 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    const start=button('Activer le microphone',()=>{void startMicrophoneManually()},!canPay('turn'),true);
    start.dataset.tefStartMic='true';
    micActions.append(send,start);area.append(micActions);
+   if(examinerVoiceNeedsTap())area.append(button(
+    '🔊 Écouter l’interlocuteur puis répondre',
+    ()=>{void beginAnswer(true)},!canPay('turn'),true
+   ));
   }
   area.append(historyBlock(attempt.phase));
   syncMicControls();
@@ -486,13 +490,18 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    }
   }
  }
- async function beginAnswer(){
+ async function beginAnswer(fromTap=false){
   if(!visible||busy||!active()||attempt.pending||capture||micStarting||
      recorder?.isRecording()||!remaining()||!canPay('turn'))return;
+  if(examinerVoiceNeedsTap()&&!fromTap){
+   status('Sur iPhone/iPad, appuyez sur « Écouter l’interlocuteur puis répondre » pour entendre sa voix.');
+   return;
+  }
   const key=recordingKey();if(bootKey===key)return;
   const ticket=epoch,answerTicket=++recordEpoch;bootKey=key;
   try{
-   await recorderInstance().prepare();
+   // On a mobile tap, speaking MUST happen before the first await.
+   if(!fromTap)await recorderInstance().prepare();
    if(ticket!==epoch||answerTicket!==recordEpoch||!active()||key!==recordingKey()||
       recorder?.isRecording()||micStarting)return;
    const section=attempt.test.sections[sectionFor(attempt.phase)];
@@ -502,7 +511,11 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    const spoken=await voiceInstance().speak(said);
    if(ticket!==epoch||answerTicket!==recordEpoch||!visible||busy)return;
    examinerSpeaking=false;syncMicControls();
-   if(!spoken)status('Voix indisponible : lisez la réponse affichée, puis parlez.');
+   if(!spoken){
+    bootKey=null;
+    status('Lecture audio bloquée. Appuyez à nouveau sur « Écouter l’interlocuteur », ou activez le microphone pour répondre au texte affiché.',true);
+    if(fromTap)return;
+   }
    if(!remaining()){void advance();return}
    if(recorder?.isRecording()||micStarting)return;
    micStarting=true;syncMicControls();
