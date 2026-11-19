@@ -117,7 +117,6 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    ];
    for(const [title,details] of steps){
     const item=el('div',undefined,'hz-tcf-speaking-timing-item');
-    if(title.startsWith('Task 2'))item.classList.add('is-preparation');
     item.append(el('strong',title));
     for(const detail of details)item.append(el('span',detail));
     schedule.append(item);
