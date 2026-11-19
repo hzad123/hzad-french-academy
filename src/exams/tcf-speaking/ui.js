@@ -5,10 +5,10 @@ import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeakingRecorder}={}){
  const area=root.querySelector('#hz-tcf-speaking'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeSpeakingStore(client,fetcher);let selectedTestId, catalog,attempt,recorder,timer,pollTimer,controller,voicePlayer,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0,preflight=false,catalogTab='tests',lastVisiblePhase=null;
+ const store=makeSpeakingStore(client,fetcher);let selectedTestId, catalog,attempt,recorder,timer,pollTimer,controller,voicePlayer,epoch=0,visible=false,busy=false,viewer,offset=0,bootKey=null,capture=null,pollCount=0,answerDeadline=0,answerEpoch=0,preflight=false,catalogTab='tests',lastVisiblePhase=null,expiryInFlight=false,expiryTries=0,expiryGraceAt=0,expiryRetry=null;
  const left=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-Date.now()-offset)/1000)):0;
  const accept=value=>{attempt=value;offset=Date.parse(value.serverNow)-Date.now()};
- function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);voicePlayer?.dispose?.();voicePlayer=null;capture=null;bootKey=null;answerDeadline=0;lastVisiblePhase=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
+ function clear(){epoch++;answerEpoch++;visible=false;busy=false;controller?.abort();recorder?.dispose();recorder=null;clearInterval(timer);clearTimeout(pollTimer);clearTimeout(expiryRetry);expiryInFlight=false;expiryTries=0;expiryGraceAt=0;voicePlayer?.dispose?.();voicePlayer=null;capture=null;bootKey=null;answerDeadline=0;lastVisiblePhase=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();catalog=null;attempt=null;viewer=null;selectedTestId=null;preflight=false;catalogTab='tests'}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset();if(session?.user?.id)viewer=session.user.id});
@@ -21,11 +21,34 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   accept(await store.read(attempt.id,signal));
   if(capture){const saved=attempt.calls.find(c=>c.id===capture.callId);
    if(saved?.status==='completed'){const advance=capture.advanceAfter;capture=null;if(advance&&attempt.phase<4)accept(await store.send({kind:'advance',id:attempt.id},signal));return true}
-   if(saved?.status==='failed')capture.callId=crypto.randomUUID();
+   if(saved?.status==='failed'){
+    // A failed provider turn must not hold the exam past the deadline.
+    if(!left())capture=null;
+    else capture.callId=crypto.randomUUID();
+   }
   }return false;
  }
  async function run(work){if(busy)return;busy=true;const ticket=epoch;controller=new AbortController();controls();
-  try{await work(controller.signal,()=>visible&&ticket===epoch)}catch(e){if(visible&&ticket===epoch){let recovered=false;if(attempt)try{recovered=await reconcile(controller.signal);render()}catch{}if(!recovered)status(e.message)}}finally{if(ticket===epoch){busy=false;controls();if(attempt?.pending)schedulePoll();else if(!capture)void beginAnswer()}}}
+  try{await work(controller.signal,()=>visible&&ticket===epoch)}
+  catch(e){
+   if(visible&&ticket===epoch){
+    // 48 kHz phone audio can lose energy when downsampled to WAV.
+    // Never leave a rejected buffer locked as the active capture.
+    if(capture&&/too quiet|audible speech|recording too quiet/i.test(e.message||'')){
+     capture=null;bootKey=null;
+    }
+    let recovered=false;
+    if(attempt)try{recovered=await reconcile(controller.signal);render()}catch{}
+    if(!recovered)status(e.message);
+   }
+  }finally{
+   if(ticket===epoch){
+    busy=false;controls();
+    if(attempt?.phase<4&&!left())expireTask();
+    else if(attempt?.pending)schedulePoll();
+    else if(!capture)void beginAnswer();
+   }
+  }
  async function open(id){root.dispatchEvent(new CustomEvent('hzad-route-reset'));visible=true;area.classList.remove('hz-hidden');chooser.classList.add('hz-hidden');status('Opening TCF speaking…');await run(async(signal,current)=>{catalog=await store.catalog(signal);if(!current())return;if(id)accept(await store.read(id,signal));else{attempt=null;preflight=false;catalogTab='tests'}pollCount=0;if(current())render()})}
  root.addEventListener('hzad-open-tcf-speaking',()=>{void open()});
  function voice(){if(!voicePlayer)voicePlayer=createFrenchVoicePlayer();return voicePlayer}
@@ -69,11 +92,64 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    }
   }
  }
- function advance(){if(busy||!attempt||attempt.pending||attempt.phase>=4)return;answerEpoch++;voicePlayer?.stop?.();recorder?.stop();bootKey=null;void run(async(signal,current)=>{accept(await store.send({kind:'advance',id:attempt.id},signal));if(current())render()})}
+ // Do not wait for speech detection or examiner inference when time runs out.
+ function expireTask(){
+  if(!visible||!attempt||attempt.phase>=4||left()>0||expiryInFlight)return;
+  // Give a final WAV a brief opportunity to upload/lock, without waiting for
+  // AI transcription. In-flight calls remain in the server's credit ledger.
+  if(capture?.audio&&busy){
+   if(!expiryGraceAt)expiryGraceAt=Date.now();
+   if(Date.now()-expiryGraceAt<(attempt.phase===3?3500:1500)){
+    status('Time is up. Saving the final recording and moving on…');
+    clearTimeout(expiryRetry);expiryRetry=setTimeout(expireTask,200);return;
+   }
+  }
+  if(expiryTries>=6){
+   status('Time has ended, but the server could not advance. Reconnect and continue this saved test.');
+   if(!area.querySelector('[data-tcf-retry-expiry]')){
+    const action=button('Continue to the next task',()=>{expiryTries=0;expireTask()});
+    action.dataset.tcfRetryExpiry='true';area.append(action);
+   }
+   return;
+  }
+  expiryInFlight=true;expiryTries++;
+  const attemptId=attempt.id,ticket=++epoch;
+  answerEpoch++;voicePlayer?.stop?.();recorder?.stop();bootKey=null;answerDeadline=0;
+  capture=null;clearInterval(timer);clearTimeout(expiryRetry);
+  // Disown old UI responses; do not abort an already-uploaded WAV.
+  busy=true;controls();status('Time finished. Moving to the next task…');
+  void (async()=>{
+   try{
+    const next=await store.send({kind:'advance',id:attemptId});
+    if(ticket!==epoch||!visible||attempt?.id!==attemptId)return;
+    accept(next);expiryInFlight=false;expiryTries=0;expiryGraceAt=0;
+    busy=false;render();void beginAnswer();
+   }catch{
+    if(ticket!==epoch||!visible)return;
+    expiryInFlight=false;busy=false;
+    expiryRetry=setTimeout(expireTask,900);
+   }
+  })();
+ }
+ function advance(){
+  if(!attempt||attempt.phase>=4)return;
+  if(!left()){expireTask();return}
+  if(busy||attempt.pending)return;
+  answerEpoch++;voicePlayer?.stop?.();recorder?.stop();bootKey=null;
+  void run(async(signal,current)=>{
+   const next=await store.send({kind:'advance',id:attempt.id},signal);
+   if(current()){accept(next);render()}
+  });
+ }
  async function submit(manual=false,readyAudio){
   if(!visible||busy||!attempt||attempt.pending||![0,2,3].includes(attempt.phase))return;
   const audio=capture?.audio||readyAudio||recorder?.stop();answerDeadline=0;
-  if(!audio){if(!left()){advance();return}bootKey=null;status('No response is ready. Check your microphone and speak before submitting.');if(manual)void beginAnswer();return}
+  if(!audio){
+   if(!left()){expireTask();return}
+   bootKey=null;
+   status('No usable speech in that recording. The microphone is restarting automatically.');
+   void beginAnswer(false,true);return;
+  }
   if(!capture)capture={kind:'turn',id:attempt.id,phase:attempt.phase,callId:crypto.randomUUID(),audio,expectedCredits:catalog.activities['tcf-speaking-turn'].credits,advanceAfter:!left()||manual||attempt.phase===3};
   if(manual)capture.advanceAfter=true;
   status('Submitting your response…');pollCount=0;
@@ -229,8 +305,8 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   const refresh=()=>{
    const n=left();remainingText.textContent='Preparation · '+Math.floor(n/60)+':'+String(n%60).padStart(2,'0');
    progress.value=Math.min(120,n);
-   if(n===0&&!switching&&!busy&&!attempt.pending){
-    switching=true;clearInterval(timer);advance();
+   if(n===0&&!switching){
+    switching=true;clearInterval(timer);expireTask();
    }
   };
   refresh();timer=setInterval(refresh,250);
@@ -247,7 +323,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    if(index===attempt.phase){
     const clock=el('strong');block.append(clock);let expiring=false;
     const tick=()=>{const remaining=left();clock.textContent=attempt.pending?'Examiner processing…':`${index===1?'Preparation':index===3?'Task 3 ·':'Task'} ${Math.floor(remaining/60)}:${String(remaining%60).padStart(2,'0')} remaining`+(recorder?.isRecording()&&answerDeadline?(index===3?' · Recording continuously':` · Response ${Math.max(0,Math.ceil((answerDeadline-Date.now())/1000))}s`):'');
-     if(!remaining&&!busy&&!attempt.pending&&!expiring&&!capture){expiring=true;clearInterval(timer);if(index===1)advance();else void submit(false)}};timer=setInterval(tick,250);
+     if(!remaining&&!expiring){expiring=true;clearInterval(timer);expireTask()}};timer=setInterval(tick,250);
     if(index===1)block.append(el('p','Prepare your questions. The role-play begins automatically when preparation ends.'));
     else if(attempt.pending){block.append(el('p','Your response is being processed. It will not be sent twice.'),button('Check saved reply',()=>{pollCount=0;void run(async(signal,current)=>{await reconcile(signal);if(current())render()})}))}
     else{
