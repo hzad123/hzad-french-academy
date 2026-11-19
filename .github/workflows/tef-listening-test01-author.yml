@@ -1,0 +1,85 @@
+name: Author TEF Listening Test01 (40 questions, draft assets)
+on:
+  push:
+    branches: [feature/tef-listening-test01-20261119]
+    paths:
+      - .github/workflows/tef-listening-test01-author.yml
+      - curriculum/tef-listening-test01-authored.mjs
+      - scripts/release/prepare-tef-listening-test01.mjs
+      - scripts/release/render-tef-listening-test01.py
+      - scripts/release/write-tef-listening-test01-migration.mjs
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tef-listening-test01-author
+  cancel-in-progress: false
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - name: Dependencies and offline audio tools
+        run: |
+          npm install --no-package-lock
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            timeout 150s sudo apt-get update -qq
+            timeout 150s sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Download pinned French voices
+        run: |
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Produce 40 independently authored questions and four illustration sheets
+        run: node scripts/release/prepare-tef-listening-test01.mjs
+      - name: Generate, decode and time-check all 40 French recordings
+        run: python scripts/release/render-tef-listening-test01.py --models "$RUNNER_TEMP/models"
+      - name: Generate initial isolated Supabase migration (do not apply)
+        run: |
+          count=$(find supabase/migrations -maxdepth 1 -name '*_tef_listening_test01.sql' | wc -l)
+          if [ "$count" -eq 0 ]; then
+            supabase migration new tef_listening_test01
+            migration=$(find supabase/migrations -maxdepth 1 -name '*_tef_listening_test01.sql' | head -n 1)
+            node scripts/release/write-tef-listening-test01-migration.mjs "$migration"
+          fi
+      - name: Check browser syntax and regression tests
+        run: |
+          node scripts/check-tef-listening-test01.mjs
+          node --check src/exams/tef-listening/ui.js
+          node --check src/exams/tef-listening/store.js
+          npm test
+          npm run build
+      - name: Save immutable draft assets and SQL on review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test01.json
+          git add assets/tef-listening/tef-listening-2026-11-test01-v1
+          git add supabase/migrations/*_tef_listening_test01.sql
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage TEF Listening Test01 with 40 verified recordings and secure exam migration"
+            git fetch origin feature/tef-listening-test01-20261119
+            git rebase origin/feature/tef-listening-test01-20261119
+            git push origin HEAD:feature/tef-listening-test01-20261119
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-test01-authoring
+          path: |
+            work/tef-listening-test01/authored.json
+            supabase/exams/tef-listening-test01.json
+            assets/tef-listening/tef-listening-2026-11-test01-v1/
+            supabase/migrations/*_tef_listening_test01.sql
+          retention-days: 30
