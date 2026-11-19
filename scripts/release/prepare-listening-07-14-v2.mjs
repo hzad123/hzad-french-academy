@@ -285,9 +285,42 @@ function bestAnswer(q,originalAnswer,forms,wrong,numero){
  return options.reduce((a,b)=>Math.abs(a.length-middle)<Math.abs(b.length-middle)?a:b).text;
 }
 
+function reviewedSlot(q,numero,sourceCorrect){
+ if(q.number===25){
+  const correct=[
+   'Concilier les événements de quartier avec les inquiétudes liées aux œuvres prêtées.',
+   'Concilier des formations adaptées avec les contraintes d’horaires des salariés.',
+   'Concilier l’assistance numérique avec les difficultés des personnes peu équipées.',
+   'Concilier les nouvelles aides énergétiques avec les contraintes des ménages modestes.',
+   'Concilier les activités scientifiques avec les limites des données recueillies.',
+   'Concilier les visites touristiques avec les besoins des résidents près des sentiers.',
+   'Concilier des activités sportives adaptées avec l’accès des publics handicapés.',
+   'Concilier les nouveaux itinéraires avec la protection des habitats naturels.'
+  ][numero-7];
+  const wrong=[
+   'Donner la priorité à la fréquentation avant d’examiner les effets du projet sur les habitants.',
+   'Limiter la nouvelle initiative aux personnes qui la fréquentent déjà régulièrement.',
+   'Reporter la décision concernant le projet jusqu’à la fin de la saison en cours.'
+  ];
+  return {correct,wrong};
+ }
+ if(q.number===32){
+  const service=from(sourceCorrect,/concernant (.+?)\./u,'service');
+  const correct='Pour '+service+', présenter les hypothèses et les incertitudes des prévisions.';
+  const wrong=[
+   'Pour '+service+', annoncer une moyenne sans préciser les hypothèses retenues.',
+   'Pour '+service+', accorder la même fiabilité à toutes les prévisions disponibles.',
+   'Pour '+service+', publier un chiffre précis sans détailler ses limites.'
+  ];
+  return {correct,wrong};
+ }
+ return null;
+}
 function balanceOptions(q,numero){
- const original=q.options['ABCD'.indexOf(q.correct)],{short,wrong}=variants(q.number,original);
- const improved=bestAnswer(q,original,answerForms(q.number,original,short,q),wrong,numero);
+ const original=q.options['ABCD'.indexOf(q.correct)],design=reviewedSlot(q,numero,original);
+ const generated=design||variants(q.number,original);
+ const wrong=generated.wrong;
+ const improved=design?design.correct:bestAnswer(q,original,answerForms(q.number,original,generated.short,q),wrong,numero);
  // The key's role remains unchanged. No auto-generated stem or audio change.
  const copy=structuredClone(q),key='ABCD'.indexOf(copy.correct);
  const rem=[...wrong];
