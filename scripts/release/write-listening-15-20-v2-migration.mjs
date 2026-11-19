@@ -29,7 +29,8 @@ const sql=`-- TCF Listening Tests 15–20, complete immutable v2 first publicati
 -- Owner requested next batch after 01–06. This release proposes corrected written
 -- distractors while retaining the same original correct answer positions,
 -- complete source-matched recordings (Q25 rerecorded), illustrations and 35-minute response slots.
--- Original keys are retained from v1. No independent blind-answer quality benchmark is claimed.\n-- Gate only after all complete media, independent editorial review and hosted byte verification.
+-- Original keys are retained from v1. No independent blind-answer quality benchmark is claimed.
+-- Gate only after all complete media, independent editorial review and hosted byte verification.
 -- Verify all 361 hosted media/metadata files BEFORE applying this transaction.
 do $publish_six$
 declare
@@ -75,7 +76,10 @@ begin
      or new.q->>'image' is distinct from old.q->>'image'
      or (new.n<=8 and new.q->'options' is distinct from old.q->'options')
   ) then raise exception 'Audio, key or historical timing changed: %',paper->>'id';end if;
-  if (paper->'questions'->24->'segments') is not distinct from (previous->'questions'->24->'segments')\n    or (paper->'questions'->24->>'question') is not distinct from (previous->'questions'->24->>'question')\n    then raise exception 'Expected corrected Q25 source/recording missing: %',paper->>'id'; end if;\n  select content into existing from academy_tcf_listening.papers
+  if (paper->'questions'->24->'segments') is not distinct from (previous->'questions'->24->'segments')
+    or (paper->'questions'->24->>'question') is not distinct from (previous->'questions'->24->>'question')
+    then raise exception 'Expected corrected Q25 source/recording missing: %',paper->>'id'; end if;
+  select content into existing from academy_tcf_listening.papers
    where id=paper->>'id' and version=paper->>'version';
   if found and existing is distinct from paper then
    raise exception 'Refusing to overwrite immutable v2 bank: %',paper->>'id';end if;
