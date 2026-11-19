@@ -1,0 +1,71 @@
+name: Validate TCF Reading v6 UI
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/tcf-reading-v6-ui.yml'
+      - 'scripts/check-tcf-reading-v6-ui.py'
+      - 'tests/fixtures/tcf-reading.html'
+      - 'tests/fixtures/tcf-reading-v6-*.json'
+      - 'supabase/exams/tcf-reading-v6/*.json'
+      - 'supabase/migrations/*reading*.sql'
+      - 'supabase/migrations/20261029_academy_learning.sql'
+      - 'supabase/migrations/20261105001000_ai_learning.sql'
+      - 'src/exams/tcf-reading/**'
+      - 'src/exams/ui.js'
+      - 'src/ui/template.js'
+      - 'src/ui/navigation.js'
+      - 'src/styles/academy.css'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+jobs:
+  reading-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TCF_READING_V6_ARTIFACTS: /tmp/tcf-reading-v6-ui
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install application dependencies
+        run: npm install --no-package-lock
+      - name: Build production artifacts locally
+        run: npm run build
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright==1.62.0
+          python -m playwright install --with-deps chromium
+      - name: Check all six papers on desktop and mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$TCF_READING_V6_ARTIFACTS"
+          python -m http.server 8765 --bind 127.0.0.1 >"$TCF_READING_V6_ARTIFACTS/http-server.log" 2>&1 &
+          tcf_fixture_server_pid=$!
+          trap 'kill "$tcf_fixture_server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl --silent --fail 'http://127.0.0.1:8765/tests/fixtures/tcf-reading.html?bank=v6' >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl --silent --show-error --fail 'http://127.0.0.1:8765/tests/fixtures/tcf-reading.html?bank=v6' >/dev/null
+          python scripts/check-tcf-reading-v6-ui.py 2>&1 | tee "$TCF_READING_V6_ARTIFACTS/ui.log"
+      - name: Upload validation screenshots and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcf-reading-v6-ui
+          path: /tmp/tcf-reading-v6-ui/
+          if-no-files-found: warn
+          retention-days: 14
