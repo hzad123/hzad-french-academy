@@ -321,7 +321,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    const progress=['Section A','Section A terminée','Section B','Terminé'][row.phase]||'En cours';
    const state=el('span',progress,'hz-tef-speaking-history-state'+(row.phase===3?' is-complete':''));
    item.append(info,state,button(row.phase===3?'Voir les résultats':'Reprendre le test',
-    ()=>{void open(row.id)},false,true));
+    ()=>{voiceInstance().unlock();void open(row.id)},false,true));
    history.append(item);
   }
   area.append(history);
@@ -346,7 +346,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   intro.append(note);
   intro.append(el('p','Le microphone est vérifié avant le démarrage. Les réponses enregistrées et les évaluations consomment des crédits IA uniquement lorsque vous les envoyez.'));
   const actions=el('div',undefined,'hz-tef-speaking-preflight-actions');
-  actions.append(button('Démarrer la section A · 5 min',()=>{void startTest()},!canPay('turn')),
+  actions.append(button('Démarrer la section A · 5 min',()=>{voiceInstance().unlock();void startTest()},!canPay('turn')),
    button('Retour aux tests',()=>{preflight=false;render()},false,true));
   intro.append(actions);
   area.append(intro);
@@ -493,15 +493,11 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
  async function beginAnswer(fromTap=false){
   if(!visible||busy||!active()||attempt.pending||capture||micStarting||
      recorder?.isRecording()||!remaining()||!canPay('turn'))return;
-  if(examinerVoiceNeedsTap()&&!fromTap){
-   status('Sur iPhone/iPad, appuyez sur « Écouter l’interlocuteur puis répondre » pour entendre sa voix.');
-   return;
-  }
   const key=recordingKey();if(bootKey===key)return;
   const ticket=epoch,answerTicket=++recordEpoch;bootKey=key;
   try{
    // On a mobile tap, speaking MUST happen before the first await.
-   if(!fromTap)await recorderInstance().prepare();
+   if(!fromTap&&!examinerVoiceNeedsTap())await recorderInstance().prepare();
    if(ticket!==epoch||answerTicket!==recordEpoch||!active()||key!==recordingKey()||
       recorder?.isRecording()||micStarting)return;
    const section=attempt.test.sections[sectionFor(attempt.phase)];
@@ -513,8 +509,8 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    examinerSpeaking=false;syncMicControls();
    if(!spoken){
     bootKey=null;
-    status('Lecture audio bloquée. Appuyez à nouveau sur « Écouter l’interlocuteur », ou activez le microphone pour répondre au texte affiché.',true);
-    if(fromTap)return;
+    status('Voix automatique bloquée. Réécoutez l’interlocuteur, ou démarrez le microphone et répondez au texte affiché.',true);
+    return;
    }
    if(!remaining()){void advance();return}
    if(recorder?.isRecording()||micStarting)return;
