@@ -226,15 +226,15 @@ function answerForms(n,c,short,q){
  let medium=short;
  switch(n){
  case 9:medium='La nouvelle mesure annoncée est '+lower(c).replace(/\.$/,'')+'.';break;
- case 10:medium='Le rendez-vous pour '+one(/plus tard à (.+?) à cause/u,'activité')+' est décalé car une réunion finit plus tard.';break;
+ case 10:medium='Le rendez-vous de '+one(/plus tard à (.+?) à cause/u,'activité')+' est repoussé à cause d’une réunion prolongée.';break;
  case 11:medium='Pour '+one(/pour (.+?) avant jeudi/u,'événement')+', le formulaire doit être rempli en ligne avant jeudi.';break;
  case 12:medium='Montrer à l’accueil le message de confirmation de '+one(/pour (.+?) à l’accueil/u,'activité')+'.';break;
  case 13:medium='La séance de '+one(/pour (.+?) commence/u,'activité')+' passe de quatorze à quinze heures.';break;
  case 14:medium='Conserver '+one(/Conserver (.+?) et envoyer/u,'activité')+' et envoyer la démonstration plus tard.';break;
  case 15:medium='La mesure présentée à '+one(/Dans (.+?), la nouvelle mesure/u,'lieu')+' répond au besoin sans lever toutes les difficultés.';break;
  case 16:medium='Répartir les permanences de '+one(/accueil pour (.+?) toute la journée/u,'service')+' pour maintenir l’accueil continu.';break;
- case 17:medium='Les usagers ayant des difficultés à accéder aux services habituels de '+one(/obstacles dans (.+?)\./u,'lieu')+'.';break;
- case 18:medium='Elle demande un autre créneau pour '+one(/prévue pour (.+?)\./u,'événement')+' car elle travaille à l’heure prévue.';break;
+ case 17:medium='Les visiteurs de '+one(/obstacles dans (.+?)\./u,'lieu')+' qui peinent à accéder au service ordinaire.';break;
+ case 18:medium='Le créneau de '+one(/prévue pour (.+?)\./u,'événement')+' chevauche ses horaires de travail.';break;
  case 19:medium='Limiter le groupe pendant '+one(/pendant (.+?)\./u,'événement')+' afin que chacun puisse poser des questions.';break;
  case 20:medium='Elle souhaite comprendre comment le projet tient compte de '+one(/précisions sur (.+?)\./u,'préoccupation')+'.';break;
  case 21:medium='Répartir les bénévoles de '+one(/pour (.+?)\./u,'événement')+' selon les créneaux où ils sont libres.';break;
@@ -245,7 +245,7 @@ function answerForms(n,c,short,q){
  case 26:medium='Les premiers effets de '+one(/La nouvelle mesure, (.+?), doit/u,'mesure')+' doivent être vérifiés dans la durée.';break;
  case 27:medium='Réorganiser les horaires de '+one(/Adapter les horaires de (.+?) sans/u,'service')+' sans supprimer les créneaux du soir.';break;
  case 28:medium='Les équipements de '+one(/Concevoir (.+?) avant/u,'installation')+' ont été choisis avant la consultation des futurs usagers.';break;
- case 29:medium='L’un veut mesurer '+one(/cet indicateur : (.+?); l’autre/u,'indicateur')+' ; l’autre veut aussi écouter les témoignages.';break;
+ case 29:medium='L’un veut mesurer '+one(/cet indicateur : (.+?); l’autre/u,'indicateur')+' ; l’autre demande des récits.';break;
  case 30:medium='Préserver l’histoire du lieu de '+one(/lieu accueillant (.+?) tout en/u,'activité')+' tout en y proposant de nouveaux usages.';break;
  case 31:{
   const recording=q.segments.map(s=>s.text).join(' ');
@@ -258,10 +258,10 @@ function answerForms(n,c,short,q){
  case 33:medium='La hausse de fréquentation à '+one(/dans (.+?) ne suffit/u,'lieu')+' ne démontre pas à elle seule un bénéfice durable.';break;
  case 34:medium='Faire tester '+one(/Faire tester (.+?) par/u,'service')+' par divers publics, avec une aide humaine conservée.';break;
  case 35:medium='Les résultats techniques de '+one(/installée dans (.+?) garantit/u,'lieu')+' suffiraient même si les usages réels diffèrent.';break;
- case 36:medium='Des échanges volontaires et réciproques pendant '+one(/à (.+?)\./u,'activité')+' créent des liens durables.';break;
- case 37:medium='Confronter les récits sur '+one(/concernant (.+?) aux/u,'service')+' aux faits et aux documents vérifiables.';break;
- case 38:medium='Le succès de '+one(/Une initiative comme (.+?) peut/u,'initiative')+' peut accroître les contraintes pour les usagers.';break;
- case 39:medium='Garantir des moyens durables et suivre '+one(/suivre (.+?) pour poursuivre/u,'indicateur')+' pour assurer la continuité.';break;
+ case 36:medium='Le volontariat et les échanges réciproques pendant '+one(/à (.+?)\./u,'activité')+' renforcent les liens.';break;
+ case 37:medium='Comparer les récits sur '+one(/concernant (.+?) aux/u,'service')+' aux faits vérifiables.';break;
+ case 38:medium='Le succès de '+one(/Une initiative comme (.+?) peut/u,'initiative')+' peut créer des difficultés aux usagers.';break;
+ case 39:medium='Assurer des moyens durables et suivre '+one(/suivre (.+?) pour poursuivre/u,'indicateur')+' sur la durée.';break;
  default:throw Error('Unexpected question '+n);
  }
  return [...new Set([short,fix(medium),fix(c)])];
