@@ -321,7 +321,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
    const progress=['Section A','Section A terminée','Section B','Terminé'][row.phase]||'En cours';
    const state=el('span',progress,'hz-tef-speaking-history-state'+(row.phase===3?' is-complete':''));
    item.append(info,state,button(row.phase===3?'Voir les résultats':'Reprendre le test',
-    ()=>{voiceInstance().unlock();void open(row.id)},false,true));
+    ()=>{void open(row.id);voiceInstance().unlock()},false,true));
    history.append(item);
   }
   area.append(history);
