@@ -3,7 +3,7 @@
 import {readFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {choiceStats,sourceHash} from '../lib/listening-quality.mjs';
+import {choiceStats,sourceHash} from './lib/listening-quality.mjs';
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const read=async f=>JSON.parse(await readFile(f,'utf8'));
 const totals={questions:0,correctLongestWritten:0,correctShortestWritten:0,rerecordedQ25:0,audioFilesChecked:0,imageFilesChecked:0,perPaper:[]};
