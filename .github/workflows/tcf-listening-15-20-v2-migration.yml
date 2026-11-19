@@ -1,0 +1,52 @@
+name: Stage TCF Listening 15-20 v2 protected migration (do not publish)
+on:
+  push:
+    branches: [review/tcf-listening-15-20-quality-20261119]
+    paths:
+      - .github/workflows/tcf-listening-15-20-v2-migration.yml
+      - scripts/release/write-listening-15-20-v2-migration.mjs
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tcf-listening-15-20-v2-staging
+  cancel-in-progress: false
+jobs:
+  stage-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - run: npm install --no-package-lock
+      - name: Gate on all 234 source, media, image and timing invariants
+        run: node scripts/check-listening-15-20-v2-draft.mjs
+      - name: Generate guarded SQL using Supabase CLI; stage only
+        run: |
+          count=$(find supabase/migrations -maxdepth 1 -name '*_tcf_listening_15_20_source_v2.sql' | wc -l)
+          if [ "$count" -gt 0 ]; then
+            echo "Reusing existing immutable migration"
+            exit 0
+          fi
+          supabase migration new tcf_listening_15_20_source_v2
+          migration=$(find supabase/migrations -maxdepth 1 -type f -name '*_tcf_listening_15_20_source_v2.sql' | head -n 1)
+          test -n "$migration"
+          node scripts/release/write-listening-15-20-v2-migration.mjs "$migration"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$migration"
+          git commit -m "Stage immutable Listening 15-20 v2 migration with student-history protection"
+          git fetch origin review/tcf-listening-15-20-quality-20261119
+          git rebase origin/review/tcf-listening-15-20-quality-20261119
+          git push origin HEAD:review/tcf-listening-15-20-quality-20261119
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: listening-15-20-v2-migration-staging
+          path: supabase/migrations/*_tcf_listening_15_20_source_v2.sql
+          retention-days: 30
