@@ -28,7 +28,7 @@ export function createSpeakingHandler({authenticate,db,provider}){return async r
   if(!provider.ready())return reply({error:'Speaking examiner is unavailable'},503);
   let recordingSeconds;
   if(input.kind==='turn'){
-   recordingSeconds=inspectAudio(input.audio,attempt.phase===3?270:30).seconds;
+   recordingSeconds=inspectAudio(input.audio,attempt.phase===3?270:30,{minimumRms:.0007}).seconds;
    if(![0,2,3].includes(attempt.phase))return reply({error:'This speaking task is not active'},409);
    const used=attempt.calls.filter(c=>c.id!==input.callId&&c.kind==='turn'&&c.phase===attempt.phase&&c.status==='completed').reduce((n,c)=>n+(c.result?.seconds||0),0);
    if(used+recordingSeconds>attemptTest(attempt).phases[attempt.phase].seconds+.01)return reply({error:'Recorded speaking time for this task is complete'},409);

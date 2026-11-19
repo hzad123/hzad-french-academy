@@ -7,7 +7,7 @@ export function createSpeakingRecorder({onLimit=()=>{},onStatus=()=>{}}={}){
   const samples=new Float32Array(frames);let at=0;for(const chunk of chunks){samples.set(chunk,at);at+=chunk.length}chunks=[];
   if(frames/context.sampleRate<.5){onStatus('Speak for at least one second before submitting.');data=null;return null}
   let energy=0;for(const x of samples)energy+=x*x;
-  if(Math.sqrt(energy/samples.length)<.003){onStatus('No audible speech detected. Check your microphone and try again.');data=null;return null}
+  if(Math.sqrt(energy/samples.length)<.0007){onStatus('Very low microphone level. The test will continue and will retry recording automatically while time remains.');data=null;return null}
   data=audioBase64(encodeWav(samples,context.sampleRate));return data;
  }
  async function prepare(){
@@ -22,7 +22,7 @@ export function createSpeakingRecorder({onLimit=()=>{},onStatus=()=>{}}={}){
   // Resume within the start/submit gesture, before permission or network waits.
   context=new AudioContext();const activeContext=context,resumed=context.resume();onStatus('Allow microphone access to begin.');
   try{
-   stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true}});
+   stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:false,autoGainControl:true}});
    if(disposed){stream.getTracks().forEach(t=>t.stop());throw Error('Microphone closed.')}
    await resumed;source=context.createMediaStreamSource(stream);processor=context.createScriptProcessor(4096,1,1);gain=context.createGain();gain.gain.value=0;
    processor.onaudioprocess=event=>{
