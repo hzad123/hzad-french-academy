@@ -63,7 +63,7 @@ test('Invalid marker is rejected rather than interpolated into asset URLs',async
 test('The hosted release job checks the real TCF feedback, not just a successful build',()=>{
  const workflow=readFileSync('.github/workflows/pages.yml','utf8');
  assert(workflow.includes("js.includes('hz-tcf-speaking-scoreboard')"));
- assert(workflow.includes("js.includes('Your French · Corrections and better expressions')"));
+ assert(workflow.includes("js.includes('hz-tcf-speaking-correction-card')"));
  assert(workflow.includes("css.includes('hz-tcf-speaking-score-figures')"));
  assert(workflow.includes("css.includes('hz-tcf-speaking-original')"));
  assert(workflow.includes("css.includes('hz-tcf-speaking-better')"));
