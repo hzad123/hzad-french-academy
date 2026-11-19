@@ -69,7 +69,7 @@ for(let n=1;n<=6;n++){
  requireTrue(next.questions.reduce((v,q)=>v+q.slotSeconds,0)===2100,'Total listening clock changed');
  const folder=join(root,'test'+label);await make(folder);
  await writeFile(join(folder,'bank.json'),JSON.stringify(next,null,2)+'\n');
- await writeFile(join(folder,'evidence.json'),JSON.stringify({test:next.id,version:next.version,sourceVersion:old.version,
+ await writeFile(join(folder,'evidence.json'),JSON.stringify({test:next.id,version:next.version,source:base+'-v4.json',sourceVersion:old.version,
   oldGrounded,strictGrounded,proofs:records,oldPaperHash:hash(old.questions.map(contentHash)),newPaperHash:hash(next.questions.map(contentHash)),
   ownerWaiver:'Blind guessability gates waived by the user. All keys retain verified independent source grounding.'},null,2)+'\n');
  const imgDir=join(folder,'images');await make(imgDir);
