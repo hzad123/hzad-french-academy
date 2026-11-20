@@ -67,7 +67,9 @@ export function validatePapers(papers,{requireSemantic=true,checkQuality=true}={
   let points=0;
   for(let i=0;i<(paper.questions||[]).length;i++){
    const q=paper.questions[i],at=paper.id+' Q'+(i+1);
-   if(q.number!==i+1||q.options?.length!==4||new Set(q.options.map(normalized)).size!==4||!('ABCD'.includes(q.correct)||''))issues.push(at+': invalid question/choices');
+   const labels=q.media?.kind==='offers'||q.media?.kind==='chart-grid';
+   const distinct=labels?new Set(q.options).size===4:new Set(q.options.map(normalized)).size===4;
+   if(q.number!==i+1||q.options?.length!==4||!distinct||!('ABCD'.includes(q.correct)||''))issues.push(at+': invalid question/choices');
    if(requireSemantic&&(!q.semantic?.concept||!q.semantic?.evidence))issues.push(at+': missing editorial semantic fingerprint');
    if(checkQuality)for(const issue of checkAnswerQuality(q))issues.push(at+': '+issue);
    if(i<7&&!['notice','illustration'].includes(q.media?.kind))issues.push(at+': missing opening illustration');
