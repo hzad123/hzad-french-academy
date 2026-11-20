@@ -42,6 +42,7 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
   // The Next click is a user gesture: begin the preloaded next clip NOW, before
   // the asynchronous server advance. Otherwise browsers can block delayed play().
   const upcoming=attempt.paper.questions[attempt.currentQuestion];
+  clearInterval(timer); // Prevent the old question tick from stopping the new clip.
   const audio=preload||audioFactory();
   preload=null;player?.pause();player=null;audioKey='';
   audio.controls=false;audio.playbackRate=1;audio.preload='auto';
@@ -50,7 +51,7 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
   const queued={audio,number:upcoming.number,attemptId:attempt.id,failed:false};
   queuedPlayback=queued;
   void audio.play().catch(()=>{
-   if(queuedPlayback===queued){
+   if(queuedPlayback===queued||player===audio){
     queued.failed=true;
     if(attempt?.currentQuestion===upcoming.number)audioRecovery(true,'Press Play audio to allow playback. The exam clock continues.');
    }
