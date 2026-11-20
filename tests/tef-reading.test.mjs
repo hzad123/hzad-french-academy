@@ -122,7 +122,8 @@ test('TEF Test 02 has original content, 40 balanced unique keys, visual sequence
   if(i>=19&&i<=21){assert.equal(q.media.kind,'chart-grid');assert.equal(q.media.series.length,4);for(const v of q.media.series)assert.equal(v.length,5)}
   if(i>=22&&i<=31)assert.equal(q.section,'email');
   if(i>=32)assert.equal(q.section,'long');
-  assert.notEqual(q.passage,paper.questions[i].passage,'Test02 repeats Test01 Q'+(i+1));
+  if(q.passage)assert.notEqual(q.passage,paper.questions[i].passage,'Test02 repeats Test01 Q'+(i+1));
+  else assert.notDeepEqual(q.media,paper.questions[i].media,'Test02 repeats Test01 visual Q'+(i+1));
  }
  assert.deepEqual(JSON.parse(sql02.split('$tef02$')[1]),paper02);
  assert(!sql02.includes('delete from academy_tef_reading'));
