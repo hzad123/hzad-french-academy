@@ -88,3 +88,14 @@ test('Answer-only length guessing is not a reliable shortcut for the six late se
  }
  assert(guessed<=26,'Length-only guessing appears systematically useful: '+guessed+'/108');
 });
+
+test('Correct-option editorial anchors remain aligned with current source text',()=>{
+ const first=papers[0],second=papers[1];
+ const key=q=>q.options['ABCD'.indexOf(q.correct)];
+ assert.match(key(first.questions[8]),/après/i,'Test01 Q9 follows chronological order');
+ assert.match(key(first.questions[28]),/formulaire|courriel/i,'Test01 Q29 online contact during phone outage');
+ assert.match(key(second.questions[3]),/réparation.*usage inapproprié/i,'Test02 Q4 repair liability');
+ assert.match(key(second.questions[22]),/autorisation signée/i,'Test02 Q23 proxy collection');
+ assert.match(key(second.questions[28]),/échanges autour de textes du quotidien/i,'Test02 Q29 volunteers must facilitate everyday reading');
+ assert.match(key(second.questions[38]),/correspondances/i,'Test02 Q39 train schedule impact');
+});
