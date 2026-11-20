@@ -94,15 +94,18 @@ export function validatePapers(papers,{requireSemantic=true,checkQuality=true}={
  * Never publishes an unvalidated fallback; if no new acceptable draft is produced,
  * it fails closed and requires editorial intervention. It does NOT invoke an AI.
  */
-export async function generateDistinct({generate,existing=[],maxAttempts=6}){
+export async function generateDistinct({generate,existing=[],maxAttempts=6,review}){
  if(typeof generate!=='function')throw Error('A content generator callback is required');
+ if(typeof review!=='function')throw Error('Independent blind and source-aware AI review required before accepting generated TEF Reading questions');
  const failures=[];
  for(let attempt=0;attempt<maxAttempts;attempt++){
   const candidate=await generate({attempt,feedback:failures.slice(-5)});
   if(!candidate||!candidate.options||candidate.options.length!==4||!candidate.semantic?.concept||!candidate.semantic?.evidence)throw Error('Generator supplied an invalid question or missing semantic intent/evidence');
   const conflicts=existing.flatMap(q=>assessPair(q,candidate));
-  if(!conflicts.length)return {question:candidate,retries:attempt};
-  failures.push(...conflicts);
+  if(conflicts.length){failures.push(...conflicts);continue;}
+  const proof=await review(candidate);
+  if(proof?.pass===true&&proof.blind?.id?.startsWith('chatcmpl-')&&proof.ground?.id?.startsWith('chatcmpl-')&&proof.blind.id!==proof.ground.id)return {question:candidate,retries:attempt,review:proof};
+  failures.push('Independent blind/source review rejected candidate: '+(proof?.reason||'missing receipts'));
  }
- throw new Error('Publication blocked: generated question remains duplicative after '+maxAttempts+' attempts: '+failures.slice(-4).join(', '));
+ throw new Error('Publication blocked: question failed duplicate or independent AI quality validation after '+maxAttempts+' attempts: '+failures.slice(-4).join(', '));
 }
