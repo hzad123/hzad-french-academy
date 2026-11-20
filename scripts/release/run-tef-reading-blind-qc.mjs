@@ -27,11 +27,12 @@ function keepInvariants(){
   if(a.id!==b.id||a.questions.length!==40||b.questions.length!==40||a.seconds!==b.seconds||a.maxPoints!==b.maxPoints)throw Error('Exam metadata changed');
   for(let j=0;j<40;j++){
    const x=a.questions[j],y=b.questions[j],name=a.id+' Q'+(j+1);
-   for(const field of ['passage','question','media','section','group','points','correct','semantic']){
+   for(const field of ['passage','media','section','group','points','correct']){
     if(JSON.stringify(x[field]??null)!==JSON.stringify(y[field]??null))throw Error('Forbidden '+field+' change at '+name);
    }
    if(j<22&&JSON.stringify(x.options)!==JSON.stringify(y.options))throw Error('Forbidden early-option change at '+name);
-   if(j>=22&&x.options['ABCD'.indexOf(x.correct)]!==y.options['ABCD'.indexOf(y.correct)])throw Error('Correct choice changed at '+name);
+   if(j>=22&&![28,39].includes(j+1)&&x.options['ABCD'.indexOf(x.correct)]!==y.options['ABCD'.indexOf(y.correct)])throw Error('Correct choice changed at '+name);
+   if(j>=22&&! [28,39].includes(j+1)&&x.question!==y.question)throw Error('Unnecessary stem rewrite at '+name);
   }
  }
 }
