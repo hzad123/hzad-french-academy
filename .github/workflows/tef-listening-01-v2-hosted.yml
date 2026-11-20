@@ -1,0 +1,32 @@
+name: Verify hosted TEF Listening grouped Test01 v2 before activation
+on:
+  push:
+    branches: [development]
+    paths:
+      - .github/workflows/tef-listening-01-v2-hosted.yml
+      - scripts/release/check-tef-listening-test01-v2-hosted.py
+      - supabase/exams/tef-listening-test01-v2.json
+      - assets/tef-listening/tef-listening-2026-11-test01-v2/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-package-lock
+      - name: Validate 36 source-matched long recordings and four group pairs
+        run: node scripts/check-tef-listening-test01-v2.mjs
+      - name: Verify exact deployed revision and all 43 static files
+        run: python scripts/release/check-tef-listening-test01-v2-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-01-v2-hosted-integrity
+          path: work/tef-listening-test01/v2-hosted-verified.json
+          retention-days: 30
