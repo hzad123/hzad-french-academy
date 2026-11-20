@@ -10,8 +10,8 @@ const revisedFiles=['tef-reading-test01-v3.json','tef-reading-test02-v3.json',..
 const original=await Promise.all(originalFiles.map(async f=>JSON.parse(await readFile('supabase/exams/'+f,'utf8'))));
 const revised=await Promise.all(revisedFiles.map(async f=>JSON.parse(await readFile('supabase/exams/'+f,'utf8'))));
 const letters='ABCD',pilot=process.argv.includes('--pilot');
-const sampleNumbers=pilot?[28,39]:[23,25,28,29,32,34,38,39];
-const targets=pilot?[28,39]:Array.from({length:18},(_,i)=>i+23);
+const sampleNumbers=pilot?[28,29,38,39]:[23,25,28,29,32,34,38,39];
+const targets=pilot?[28,29,38,39]:Array.from({length:18},(_,i)=>i+23);
 let price=0,reqCount=0;const maxUsd=Number(process.env.TEF_READING_QC_MAX_USD||'20');
 const sha=x=>createHash('sha256').update(x).digest('hex');
 const canonical=x=>String(x||'').normalize('NFKC').replace(/[’‘]/g,"'").replace(/\\s+/g,' ').trim().toLocaleLowerCase('fr');
@@ -31,8 +31,8 @@ function keepInvariants(){
     if(JSON.stringify(x[field]??null)!==JSON.stringify(y[field]??null))throw Error('Forbidden '+field+' change at '+name);
    }
    if(j<22&&JSON.stringify(x.options)!==JSON.stringify(y.options))throw Error('Forbidden early-option change at '+name);
-   if(j>=22&&![28,39].includes(j+1)&&x.options['ABCD'.indexOf(x.correct)]!==y.options['ABCD'.indexOf(y.correct)])throw Error('Correct choice changed at '+name);
-   if(j>=22&&! [28,39].includes(j+1)&&x.question!==y.question)throw Error('Unnecessary stem rewrite at '+name);
+   if(j>=22&&![28,29,38,39].includes(j+1)&&x.options['ABCD'.indexOf(x.correct)]!==y.options['ABCD'.indexOf(y.correct)])throw Error('Correct choice changed at '+name);
+   if(j>=22&&! [28,29,38,39].includes(j+1)&&x.question!==y.question)throw Error('Unnecessary stem rewrite at '+name);
   }
  }
 }
