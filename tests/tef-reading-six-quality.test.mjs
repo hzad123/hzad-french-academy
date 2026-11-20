@@ -71,3 +71,20 @@ test('Semantic duplicate detection ignores number changes and answer order, and 
  assert.equal(result.retries,1);assert.equal(calls,2);
  await assert.rejects(()=>generateDistinct({existing:[example],maxAttempts:2,generate:async()=>renamed}),/Publication blocked/);
 });
+
+test('Answer-only length guessing is not a reliable shortcut for the six late sections',()=>{
+ let guessed=0;
+ for(const p of papers){
+  let total=0,late=0;
+  for(const q of p.questions.filter(x=>x.number>=23)){
+   const counts=q.options.map(x=>x.trim().split(/\s+/).length),maximum=Math.max(...counts);
+   const winners=counts.map((x,i)=>x===maximum?i:-1).filter(i=>i>=0);
+   const key='ABCD'.indexOf(q.correct);
+   if(winners.length===1&&winners[0]===key){total++;if(q.number>=33)late++}
+  }
+  assert(total<=6,p.id+' reveals too many answers by length: '+total+'/18');
+  assert(late<=2,p.id+' reveals too many advanced answers by length: '+late+'/8');
+  guessed+=total;
+ }
+ assert(guessed<=26,'Length-only guessing appears systematically useful: '+guessed+'/108');
+});
