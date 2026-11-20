@@ -58,7 +58,8 @@ test('Model calls keep blind and source grounding isolated and never send correc
  assert(proof.pass);assert.deepEqual(Object.keys(calls[0].inp),['question','choices']);
  assert.deepEqual(Object.keys(calls[1].inp),['source','question','choices']);
  assert(!calls[0].inp.source);assert(!calls[1].inp.correct);
- await assert.rejects(()=>reviewQuestion(q,{blindReviewer:async()=>blind(false),groundReviewer:async()=>{throw Error('Should not invoke source reviewer')}}).then(x=>{assert(!x.pass)}),{name:'AssertionError'}).catch(()=>{});
+ const rejected=await reviewQuestion(q,{blindReviewer:async()=>blind(false),groundReviewer:async()=>{throw Error('Source reviewer called after blind rejection')}});
+ assert.equal(rejected.pass,false);assert.equal(rejected.reason,'blind');
 });
 test('Generator revises on blind failure, retains the original passage and fails closed after retries',async()=>{
  const q=structuredClone(after[0].questions[38]);q.correct='A';
