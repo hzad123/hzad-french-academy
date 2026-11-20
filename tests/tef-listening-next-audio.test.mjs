@@ -11,7 +11,7 @@ test('TEF Next starts the preloaded clip synchronously before an asynchronous se
  assert(start>=0&&end>start);
  const next=src.slice(start,end);
  const playing=next.indexOf('void audio.play()');
- const remote=next.indexOf('await store.next(');
+ const remote=next.lastIndexOf('await store.next(');
  assert(playing>=0&&remote>playing,'Next must call audio.play() before any awaited RPC');
  assert(next.indexOf('clearInterval(timer)')<playing,'Old question tick must stop before next audio starts');
  assert(next.includes('const audio=preload||audioFactory()'),'Preload the next MP3');
@@ -28,7 +28,7 @@ test('TEF player adopts already playing clip without seeking or replaying it',()
  assert(playback.includes('if(!queued){'),'Do not play again if already playing');
  assert(!playback.includes('if(elapsed()<item.previewSeconds'),'Do not hold audio behind extra preview');
  assert(!playback.includes('at-item.previewSeconds'),'No preview offset in audio position');
- assert(src.includes('if(elapsed()>=q().audioSeconds)'),'Recovery window uses real audio duration');
+ assert(src.includes('if(elapsed()>=(officialPreview()?q().previewSeconds:0)+q().audioSeconds)'),'Recovery includes v2 reading time while retaining v1 immediate playback');
 });
 
 test('TEF keeps its 40-question secure exam and timing unchanged',()=>{
