@@ -1,0 +1,35 @@
+name: TEF Reading independent blind and passage-grounded QC
+on:
+  push:
+    branches: [fix/tef-reading-six-blind-distractors-20261120]
+    paths:
+      - '.github/workflows/tef-reading-blind-qc.yml'
+      - 'scripts/release/run-tef-reading-blind-qc.mjs'
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: tef-reading-editorial-qc
+  cancel-in-progress: true
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independent blinded pilot and passage checks (not a publication gate yet)
+        env:
+          TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
+          TEF_READING_QC_MAX_USD: '10'
+          TEF_READING_QC_WORKERS: '3'
+        run: node scripts/release/run-tef-reading-blind-qc.mjs --pilot
+      - name: Preserve verifiable model responses and summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tef-reading-blind-qc-evidence
+          path: work/tef-reading-blind-qc
+          retention-days: 30
