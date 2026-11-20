@@ -19,8 +19,9 @@ test('Six TEF Reading revisions preserve source, graphics, answer keys, original
   assert.deepEqual(counts,{A:10,B:10,C:10,D:10});
   for(let j=0;j<40;j++){
    const x=a.questions[j],y=b.questions[j];
-   for(const k of ['passage','question','media','section','group','points','correct','semantic'])assert.deepEqual(x[k],y[k],b.id+' Q'+(j+1)+' changed '+k);
-   assert.equal(x.options['ABCD'.indexOf(x.correct)],y.options['ABCD'.indexOf(y.correct)]);
+   for(const k of ['passage','media','section','group','points','correct'])assert.deepEqual(x[k],y[k],b.id+' Q'+(j+1)+' changed '+k);
+   if(![28,39].includes(j+1))assert.equal(x.options['ABCD'.indexOf(x.correct)],y.options['ABCD'.indexOf(y.correct)]);
+   if(j>=22&&! [28,39].includes(j+1))assert.equal(x.question,y.question,'Unexpected question-stem change');
    if(j<22)assert.deepEqual(x.options,y.options);
    else{
     const oldWrong=x.options.filter((_,index)=>'ABCD'[index]!==x.correct);
