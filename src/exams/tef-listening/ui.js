@@ -4,7 +4,7 @@ const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefine
 const MEDIA='https://hzad123.github.io/hzad-french-academy/assets/tef-listening/tef-listening-2026-11-test01-v1/';
 export function wireTefListening(root,client,{audioFactory=()=>new Audio(),assetBase=MEDIA}={}){
  const area=root.querySelector('#hz-tef-listening'),chooser=root.querySelector('#hz-course-chooser');if(!area)return;
- const store=makeListeningStore(client);let catalog,attempt,selectedTestId='tef-listening-01',viewer,visible=false,busy=false,epoch=0,controller,timer,offset=0,pending,ready=false,needsAudio=false,player,unlockedAudio,audioKey='',preload,windowNotice;
+ const store=makeListeningStore(client);let catalog,attempt,selectedTestId='tef-listening-01',viewer,visible=false,busy=false,epoch=0,controller,timer,offset=0,pending,ready=false,needsAudio=false,player,unlockedAudio,audioKey='',preload,windowNotice,queuedPlayback=null;
  const now=()=>Date.now()+offset,remaining=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-now())/1000)):0;
  const q=()=>attempt?.paper.questions[(attempt.currentQuestion||1)-1];
  const elapsed=()=>Math.max(0,(now()-Date.parse(attempt.questionStartedAt))/1000);
@@ -18,7 +18,10 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
  };
  const selectedPaper=()=>catalog?.tests.find(p=>p.id===selectedTestId)||catalog?.tests[0];
  const testLabel=id=>'Test '+(id?.match(/(\d{2})$/)?.[1]||'01');
- function stopAudio(){player?.pause();player=null;preload?.pause();preload=null;audioKey=''}
+ function stopAudio(){
+  player?.pause();player=null;preload?.pause();preload=null;
+  queuedPlayback?.audio.pause();queuedPlayback=null;audioKey='';
+ }
  function clear(){epoch++;visible=false;busy=false;controller?.abort();clearInterval(timer);stopAudio();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();catalog=null;attempt=null;selectedTestId='tef-listening-01';pending=null;viewer=null;ready=false;unlockedAudio=null}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);
@@ -34,21 +37,60 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
  function begin(){stopAudio();void run(async(signal,current)=>{const next=await store.startNew(crypto.randomUUID(),selectedPaper(),signal);if(current()){receive(next);render()}})}
  function saveChoice(){if(!pending)return;void run(async(signal,current)=>{const p={...pending};const next=await store.answer(p.id,p.revision,p.number,p.choice,signal);if(current()){receive(next);render();status('Answer saved.')}})}
  function choose(number,choice){if(busy||pending||!remaining()||now()>=Date.parse(attempt.questionEndsAt))return;pending={id:attempt.id,revision:attempt.revision,number,choice};saveChoice()}
- function nextQuestion(){if(pending||attempt.currentQuestion>=40)return;void run(async(signal,current)=>{const next=await store.next(attempt.id,attempt.revision,attempt.currentQuestion,signal);if(current()){receive(next);render();area.querySelector('.hz-reading-question')?.scrollIntoView({block:'start'})}})}
+ function nextQuestion(){
+  if(busy||pending||attempt.currentQuestion>=40)return;
+  // The Next click is a user gesture: begin the preloaded next clip NOW, before
+  // the asynchronous server advance. Otherwise browsers can block delayed play().
+  const upcoming=attempt.paper.questions[attempt.currentQuestion];
+  const audio=preload||audioFactory();
+  preload=null;player?.pause();player=null;audioKey='';
+  audio.controls=false;audio.playbackRate=1;audio.preload='auto';
+  if(!audio.src||!audio.src.endsWith('/'+encodeURIComponent(upcoming.audio)))audio.src=media('audio',upcoming.audio);
+  audio.currentTime=0;
+  const queued={audio,number:upcoming.number,attemptId:attempt.id,failed:false};
+  queuedPlayback=queued;
+  void audio.play().catch(()=>{
+   if(queuedPlayback===queued){
+    queued.failed=true;
+    if(attempt?.currentQuestion===upcoming.number)audioRecovery(true,'Press Play audio to allow playback. The exam clock continues.');
+   }
+  });
+  void run(async(signal,current)=>{
+   const next=await store.next(attempt.id,attempt.revision,attempt.currentQuestion,signal);
+   if(current()){receive(next);render();area.querySelector('.hz-reading-question')?.scrollIntoView({block:'start'})}
+  });
+ }
  function finish(){if(pending||attempt.currentQuestion!==40)return;void run(async(signal,current)=>{const next=await store.submit(attempt.id,attempt.revision,signal);if(current()){receive(next);render();area.querySelector('.hz-reading-answer-sheet')?.scrollIntoView({block:'start'})}})}
  function audioRecovery(show,message){needsAudio=show;const recovery=area.querySelector('[data-listening-audio-recovery]');if(recovery)recovery.hidden=!show;if(message)status(message,show)}
  function playCurrent(){
-  if(attempt?.status!=='active')return;const item=q(),key=attempt.id+':'+item.number;if(key===audioKey)return;stopAudio();audioKey=key;audioRecovery(false);
-  if(elapsed()<item.previewSeconds||elapsed()>=item.previewSeconds+item.audioSeconds)return;
-  const audio=unlockedAudio||(unlockedAudio=audioFactory());player=audio;audio.controls=false;audio.playbackRate=1;audio.preload='auto';audio.src=media('audio',item.audio);
-  let starting=false;
-  const start=async()=>{if(starting||audioKey!==key||!visible)return;starting=true;const at=elapsed();if(at>=item.previewSeconds+item.audioSeconds){audio.pause();return}audio.currentTime=Math.max(0,at-item.previewSeconds);try{await audio.play();if(player!==audio||!visible)audio.pause();else if(audioKey===key)audioRecovery(false)}catch{if(audioKey===key&&visible)audioRecovery(true,'Press Play audio to allow playback. The exam clock continues.')}};
-  audio.addEventListener('loadedmetadata',()=>{void start()},{once:true});
+  if(attempt?.status!=='active')return;
+  const item=q(),key=attempt.id+':'+item.number;
+  if(key===audioKey)return;
+  const queued=queuedPlayback?.attemptId===attempt.id&&queuedPlayback.number===item.number?queuedPlayback:null;
+  if(queued)queuedPlayback=null; // Preserve the audio already started by the Next click.
+  stopAudio();audioKey=key;audioRecovery(false);
+  if(elapsed()>=item.audioSeconds&&!queued)return;
+  const audio=queued?.audio||(unlockedAudio||(unlockedAudio=audioFactory()));
+  player=audio;audio.controls=false;audio.playbackRate=1;audio.preload='auto';
+  if(!queued)audio.src=media('audio',item.audio);
+  if(queued?.failed)audioRecovery(true,'Press Play audio to allow playback. The exam clock continues.');
   audio.addEventListener('error',()=>{if(audioKey===key&&visible)audioRecovery(true,'Audio could not load. Check your connection and press Play audio. Your clock continues.')});
-  if(audio.readyState>=1)void start();
-  const next=attempt.paper.questions[item.number];if(next){preload=audioFactory();preload.preload='auto';preload.src=media('audio',next.audio);preload.load?.()}
+  if(!queued){
+   let starting=false;
+   const start=async()=>{
+    if(starting||audioKey!==key||!visible)return;starting=true;
+    const at=elapsed();if(at>=item.audioSeconds){audio.pause();return}
+    audio.currentTime=Math.max(0,at);
+    try{await audio.play();if(player!==audio||!visible)audio.pause();else if(audioKey===key)audioRecovery(false)}
+    catch{if(audioKey===key&&visible)audioRecovery(true,'Press Play audio to allow playback. The exam clock continues.')}
+   };
+   audio.addEventListener('loadedmetadata',()=>{void start()},{once:true});
+   if(audio.readyState>=1)void start();
+  }
+  const next=attempt.paper.questions[item.number];
+  if(next){preload=audioFactory();preload.preload='auto';preload.src=media('audio',next.audio);preload.load?.()}
  }
- function resumeAudio(){if(elapsed()>=q().previewSeconds+q().audioSeconds){audioRecovery(false,'The recording has finished. Choose your answer.');return}if(!player){playCurrent();return}try{player.currentTime=Math.max(0,elapsed()-q().previewSeconds)}catch{}void player.play().then(()=>audioRecovery(false)).catch(()=>audioRecovery(true,'Allow audio playback in your browser, then press Play audio.'))}
+ function resumeAudio(){if(elapsed()>=q().audioSeconds){audioRecovery(false,'The recording has finished. Choose your answer.');return}if(!player){playCurrent();return}try{player.currentTime=Math.max(0,elapsed())}catch{}void player.play().then(()=>audioRecovery(false)).catch(()=>audioRecovery(true,'Allow audio playback in your browser, then press Play audio.'))}
  function render(){
   clearInterval(timer);area.replaceChildren();const head=el('header',undefined,'hz-exam-hero');head.append(el('p','TEF CANADA · COMPRÉHENSION ORALE','hz-eyebrow'),el('h3',attempt?.paper?.title||selectedPaper()?.title||'TEF Listening'));area.append(head,button('← TEF/TEF AI Tests',()=>root.dispatchEvent(new CustomEvent('hzad-open-exams')),false,true));
   if(!attempt){stopAudio();area.append(el('p','40 questions · 40 minutes · One listen per recording. Choose an answer, then Next. Submit once on question 40. You cannot return to earlier questions. The clock keeps running.'));
@@ -80,9 +122,9 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
   const recovery=el('div');recovery.dataset.listeningAudioRecovery='true';recovery.hidden=!needsAudio;recovery.append(button('Play audio',resumeAudio,false,true));area.append(recovery);
   if(pending){area.append(el('p','Your choice is waiting to be saved.'),button('Retry saving answer',()=>{pending.revision=attempt.revision;saveChoice()}),button('Use saved answer',()=>{pending=null;render()},false,true))}
   area.append(item.number<40?button('Next',nextQuestion,!!pending):button('Submit test',finish,!!pending));
-  const tick=()=>{const left=remaining(),questionLeft=Math.max(0,Math.ceil((Date.parse(attempt.questionEndsAt)-now())/1000));clock.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} remaining`;questionClock.textContent=item.number<40?`Auto-advance in ${questionLeft}s`:'Final question';legend.textContent=item.question; if(elapsed()<item.previewSeconds){questionClock.textContent='Lecture des choix : '+Math.max(0,Math.ceil(item.previewSeconds-elapsed()))+'s';}else if(!audioKey && elapsed()<item.previewSeconds+item.audioSeconds){playCurrent();}
+  const tick=()=>{const left=remaining(),questionLeft=Math.max(0,Math.ceil((Date.parse(attempt.questionEndsAt)-now())/1000));clock.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} remaining`;questionClock.textContent=item.number<40?`Auto-advance in ${questionLeft}s`:'Final question';legend.textContent=item.question;if(!audioKey && elapsed()<item.audioSeconds)playCurrent();
    if(!left||!questionLeft){area.querySelectorAll('input').forEach(n=>n.disabled=true);if(!busy){clearInterval(timer);void run(async(signal,current)=>{const saved=await store.read(attempt.id,signal);if(current()){receive(saved);render()}})}}};
-  tick();timer=setInterval(tick,250);if(elapsed()>=item.previewSeconds)playCurrent();
+  tick();timer=setInterval(tick,250);playCurrent();
  }
  function renderResults(){
   const result=attempt.result,sheet=el('section',undefined,'hz-reading-answer-sheet');sheet.append(el('h4','Your marked answer sheet'),el('strong',`${result.correct}/40 correct`,'hz-reading-score'),el('p',`${result.unanswered} unanswered · Practice accuracy ${result.percentage}%`));
