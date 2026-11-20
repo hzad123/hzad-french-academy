@@ -1,0 +1,62 @@
+name: Author TEF Listening Test01 v2 longer grouped recordings
+on:
+  push:
+    branches: [fix/tef-listening-01-realistic-grouped-audio-v2]
+    paths:
+      - .github/workflows/tef-listening-01-v2-audio.yml
+      - curriculum/tef-listening-test01-v2-spoken.mjs
+      - scripts/release/prepare-tef-listening-test01-v2.mjs
+      - scripts/release/render-tef-listening-test01-v2.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tef-listening-01-v2-audio
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install offline French voice and FFmpeg
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            timeout 150s sudo apt-get update -qq
+            timeout 150s sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Get SHA-pinned French voice models
+        run: |
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Create 40-question v2 bank with 36 meaningful listening texts
+        run: node scripts/release/prepare-tef-listening-test01-v2.mjs
+      - name: Render 36 source-matched French clips and measure actual durations
+        run: python scripts/release/render-tef-listening-test01-v2.py --models "$RUNNER_TEMP/models"
+      - name: Stage immutable audio and bank, not production
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test01-v2.json
+          git add assets/tef-listening/tef-listening-2026-11-test01-v2
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage 36 longer audio files for grouped TEF Listening Test01 v2"
+            git fetch origin fix/tef-listening-01-realistic-grouped-audio-v2
+            git rebase origin/fix/tef-listening-01-realistic-grouped-audio-v2
+            git push origin HEAD:fix/tef-listening-01-realistic-grouped-audio-v2
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-01-v2-media-evidence
+          path: |
+            supabase/exams/tef-listening-test01-v2.json
+            assets/tef-listening/tef-listening-2026-11-test01-v2/manifest.json
+          retention-days: 30
