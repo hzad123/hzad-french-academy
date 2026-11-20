@@ -2,9 +2,20 @@ const NS='http://www.w3.org/2000/svg';
 const html=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!==undefined)n.textContent=txt;if(cls)n.className=cls;return n};
 function shape(tag,attrs={},txt){const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(txt!==undefined)e.textContent=txt;return e}
 function illustration(scene){
- const svg=shape('svg',{viewBox:'0 0 640 230',role:'img','aria-label':scene==='garden'?'Illustration de jardin collectif avec plantes et arrosoir':'Illustration de forum associatif avec stands et visiteurs',class:'hz-tef-illustration'});
+ const svg=shape('svg',{viewBox:'0 0 640 230',role:'img','aria-label':({garden:'Illustration de jardin collectif avec plantes et arrosoir',fair:'Illustration de forum associatif avec stands et visiteurs',workshop:'Illustration d’un atelier de réparation avec outils et appareils',festival:'Illustration d’un festival en plein air avec scène et public'})[scene]||'Illustration',class:'hz-tef-illustration'});
  svg.append(shape('rect',{x:0,y:0,width:640,height:230,rx:18,fill:scene==='garden'?'#eaf9ed':'#eaf3fc'}));
- if(scene==='garden'){
+ if(scene==='workshop'){
+  svg.append(shape('rect',{x:30,y:145,width:580,height:30,rx:6,fill:'#c49765'}),shape('rect',{x:50,y:175,width:25,height:42,fill:'#7f6447'}),shape('rect',{x:565,y:175,width:25,height:42,fill:'#7f6447'}));
+  for(const [x,c] of [[155,'#5594b1'],[305,'#d8a54c'],[458,'#64a784']]){
+   svg.append(shape('rect',{x:x-44,y:55,width:88,height:90,rx:10,fill:c}),shape('circle',{cx:x,y:98,r:23,fill:'#edf5f8'}),shape('circle',{cx:x,y:98,r:9,fill:'#a1b8c7'}));
+  }
+  svg.append(shape('path',{d:'M250 181 l38 -20 l23 10 l-38 20 Z',fill:'#5b7085'}),shape('circle',{cx:290,cy:168,r:7,fill:'#c4d9e3'}));
+ }else if(scene==='festival'){
+  svg.append(shape('rect',{x:100,y:100,width:440,height:100,rx:8,fill:'#365a87'}),shape('path',{d:'M80 105 L320 25 L560 105 Z',fill:'#d89743'}));
+  for(const x of [170,320,470])svg.append(shape('circle',{cx:x,cy:86,r:16,fill:'#f4d178'}),shape('line',{x1:x,y1:105,x2:x,y2:175,stroke:'#f3e2bf','stroke-width':5}));
+  svg.append(shape('rect',{x:154,y:148,width:340,height:15,rx:6,fill:'#aac3df'}));
+  for(const x of [80,130,190,270,350,430,510,570])svg.append(shape('circle',{cx:x,cy:205,r:16,fill:'#567c89'}));
+ }else if(scene==='garden'){
   svg.append(shape('circle',{cx:530,cy:53,r:27,fill:'#f4ca58'}),shape('path',{d:'M0 186 Q140 164 320 183 T640 178 V230 H0Z',fill:'#a6d7ab'}));
   for(const x of [58,142,245,347,448,540]){
    svg.append(shape('line',{x1:x,y1:192,x2:x,y2:103,stroke:'#39824b','stroke-width':8,'stroke-linecap':'round'}));

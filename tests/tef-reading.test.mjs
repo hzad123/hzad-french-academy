@@ -103,3 +103,57 @@ test('TEF Reading store uses the authenticated private-bank RPC only',async()=>{
  await store.answer(alice,1,20,'A');
  assert.deepEqual(calls,[{name:'academy_tef_reading_command',args:{p_action:'answer',p_id:alice,p_payload:{revision:1,number:20,choice:'A'}}}]);
 });
+
+const paper02=JSON.parse(await readFile('supabase/exams/tef-reading-test02.json','utf8'));
+const sql02=await readFile('supabase/migrations/20261119235500_tef_reading_test02.sql','utf8');
+
+test('TEF Test 02 has original content, 40 balanced unique keys, visual sequence and immutable publication',()=>{
+ assert.equal(paper02.id,'tef-reading-02');assert.equal(paper02.seconds,3600);
+ assert.equal(paper02.questions.length,40);assert.equal(paper02.maxPoints,40);
+ const keyCounts=Object.fromEntries('ABCD'.split('').map(c=>[c,paper02.questions.filter(q=>q.correct===c).length]));
+ assert.deepEqual(keyCounts,{A:10,B:10,C:10,D:10});
+ for(let i=0;i<40;i++){
+  const q=paper02.questions[i];assert.equal(q.number,i+1);assert.equal(q.points,1);
+  assert.equal(q.options.length,4);assert.equal(new Set(q.options).size,4);
+  assert.equal(typeof q.question,'string');assert(q.question.length>15);
+  assert(q.explanation.length>35);assert(/^[ABCD]$/.test(q.correct));
+  if(i<7)assert(['notice','illustration'].includes(q.media.kind));
+  if(i>=17&&i<=18){assert.equal(q.media.kind,'offers');assert.equal(q.media.items.length,4)}
+  if(i>=19&&i<=21){assert.equal(q.media.kind,'chart-grid');assert.equal(q.media.series.length,4);for(const v of q.media.series)assert.equal(v.length,5)}
+  if(i>=22&&i<=31)assert.equal(q.section,'email');
+  if(i>=32)assert.equal(q.section,'long');
+  if(q.passage)assert.notEqual(q.passage,paper.questions[i].passage,'Test02 repeats Test01 Q'+(i+1));
+  else assert.notDeepEqual(q.media,paper.questions[i].media,'Test02 repeats Test01 visual Q'+(i+1));
+ }
+ assert.deepEqual(JSON.parse(sql02.split('$tef02$')[1]),paper02);
+ assert(!sql02.includes('delete from academy_tef_reading'));
+ assert(!sql02.includes('academy_tcf_reading'));
+});
+
+test('two TEF reading papers appear in catalog; Test02 starts and scores securely without overwriting Test01',async()=>{
+ const {db,query,command}=await database();
+ try{
+  await db.exec(sql);await db.exec(sql02);
+  const catalog=await command(alice,'catalog');
+  assert.equal(catalog.tests.length,2);
+  assert.deepEqual(catalog.tests.map(x=>x.id),['tef-reading-01','tef-reading-02']);
+  const identity02={testId:paper02.id,version:paper02.version};
+  let a=await command(alice,'start',crypto.randomUUID(),identity02);
+  assert.equal(a.testId,'tef-reading-02');
+  assert.equal(a.paper.questions.length,40);
+  assert(!JSON.stringify(a.paper).includes('"correct"'));
+  assert(!JSON.stringify(a.paper).includes('"explanation"'));
+  await assert.rejects(()=>command(bob,'read',a.id),/not found/i);
+  for(const q of paper02.questions)a=await command(alice,'answer',a.id,{revision:a.revision,number:q.number,choice:q.correct});
+  a=await command(alice,'submit',a.id,{revision:a.revision});
+  assert.equal(a.result.correct,40);assert.equal(a.result.points,40);assert.equal(a.result.total,40);
+  assert.equal(a.result.rows.length,40);
+  const firstId=a.id;
+  let b=await command(alice,'start',crypto.randomUUID(),{testId:paper.id,version:paper.version});
+  assert.equal(b.testId,'tef-reading-01');
+  b=await command(alice,'submit',b.id,{revision:b.revision});
+  assert.equal(b.result.total,40);assert.equal(b.result.correct,0);
+  assert.equal((await command(alice,'read',firstId)).result.correct,40);
+  await assert.rejects(()=>command(alice,'start',crypto.randomUUID(),{testId:'tef-reading-99',version:'fabricated'}),/paper changed/i);
+ }finally{await db.close()}
+});
