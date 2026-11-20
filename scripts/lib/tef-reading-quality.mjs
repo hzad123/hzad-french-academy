@@ -99,7 +99,7 @@ export async function generateDistinct({generate,existing=[],maxAttempts=6}){
  const failures=[];
  for(let attempt=0;attempt<maxAttempts;attempt++){
   const candidate=await generate({attempt,feedback:failures.slice(-5)});
-  if(!candidate||!candidate.options||candidate.options.length!==4)throw Error('Generator supplied invalid question');
+  if(!candidate||!candidate.options||candidate.options.length!==4||!candidate.semantic?.concept||!candidate.semantic?.evidence)throw Error('Generator supplied an invalid question or missing semantic intent/evidence');
   const conflicts=existing.flatMap(q=>assessPair(q,candidate));
   if(!conflicts.length)return {question:candidate,retries:attempt};
   failures.push(...conflicts);
