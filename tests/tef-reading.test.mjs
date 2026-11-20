@@ -157,3 +157,61 @@ test('two TEF reading papers appear in catalog; Test02 starts and scores securel
   await assert.rejects(()=>command(alice,'start',crypto.randomUUID(),{testId:'tef-reading-99',version:'fabricated'}),/paper changed/i);
  }finally{await db.close()}
 });
+
+const sqlCurrent=await readFile('supabase/migrations/20261120173000_tef_reading_stable_current_catalog.sql','utf8');
+const sqlSix=await readFile('supabase/migrations/20261120230000_tef_reading_six_papers.sql','utf8');
+const sixBanks=await Promise.all([
+ 'tef-reading-test01-v2.json','tef-reading-test02-v2.json',
+ ...[3,4,5,6].map(i=>'tef-reading-test0'+i+'.json')
+].map(async f=>JSON.parse(await readFile('supabase/exams/'+f,'utf8'))));
+
+test('TEF Reading start returns the selected paper even when another paper is active; old results remain immutable',async()=>{
+ const {db,query,command}=await database();
+ try {
+  await db.exec(sql);await db.exec(sql02);
+  let historic=await command(alice,'start',crypto.randomUUID(),identity);
+  historic=await command(alice,'answer',historic.id,{revision:historic.revision,number:1,choice:paper.questions[0].correct});
+  await db.exec(sqlCurrent);await db.exec(sqlSix);
+  const catalog=await command(alice,'catalog');
+  assert.equal(catalog.tests.length,6);
+  assert.deepEqual(catalog.tests.map(x=>x.id),sixBanks.map(x=>x.id));
+  assert.deepEqual(catalog.tests.map(x=>x.version),sixBanks.map(x=>x.version));
+  assert(!JSON.stringify(catalog).includes('"correct"'));
+  const active=[];
+  for(const bank of sixBanks){
+   const next=await command(alice,'start',crypto.randomUUID(),{testId:bank.id,version:bank.version});
+   assert.equal(next.testId,bank.id);
+   assert.equal(next.version,bank.version);
+   assert.equal(next.paper.questions.length,40);
+   assert(!JSON.stringify(next.paper).includes('"correct"'));
+   assert(!JSON.stringify(next.paper).includes('"explanation"'));
+   assert(!JSON.stringify(next.paper).includes('"semantic"'),'Editorial intent/evidence must remain server-private');
+   assert(!JSON.stringify(next.paper).includes('"evidence"'));
+   assert.deepEqual(Object.keys(next.paper.questions[0]).sort(),['number','points','passage','question','options','media','section','group'].sort());
+   active.push(next);
+  }
+  assert.equal(new Set(active.map(x=>x.id)).size,6);
+  assert.equal((await query("select count(*)::int n from academy_tef_reading.attempts where user_id=$1 and status='active'",[alice]))[0].n,7);
+  const again=await command(alice,'start',crypto.randomUUID(),{testId:sixBanks[1].id,version:sixBanks[1].version});
+  assert.equal(again.id,active[1].id,'Must resume only the requested paper');
+  const old=await command(alice,'read',historic.id);
+  assert.equal(old.testId,'tef-reading-01');
+  assert.equal(old.version,identity.version);
+  assert.equal(old.answers[1],paper.questions[0].correct);
+  await assert.rejects(()=>command(bob,'read',active[0].id),/not found/i);
+  await assert.rejects(()=>command(alice,'start',crypto.randomUUID(),{testId:sixBanks[1].id,version:paper02.version}),/paper changed/i);
+  const last=sixBanks[5];
+  let a=active[5];
+  for(const item of last.questions)a=await command(alice,'answer',a.id,{revision:a.revision,number:item.number,choice:item.correct});
+  a=await command(alice,'submit',a.id,{revision:a.revision});
+  assert.equal(a.result.total,40);assert.equal(a.result.correct,40);
+  assert.equal(a.result.points,40);assert.equal(a.result.unanswered,0);
+  const saved=await command(alice,'read',a.id);
+  assert.deepEqual(saved.result,a.result);
+  historic=await command(alice,'submit',historic.id,{revision:historic.revision});
+  assert.equal(historic.result.total,40);assert.equal(historic.result.correct,1);
+  assert.equal((await command(alice,'read',a.id)).result.correct,40);
+  const collision={...last,id:'tef-reading-07',version:'invalid-duplicate-version'};
+  await assert.rejects(()=>query('insert into academy_tef_reading.papers(id,version,content) values($1,$2,$3)',[collision.id,collision.version,collision]),/duplicate or semantically repeated/i);
+ }finally{await db.close()}
+});
