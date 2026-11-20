@@ -67,9 +67,11 @@ test('Semantic duplicate detection ignores number changes and answer order, and 
  assert(assessPair(example,renamed).length>0);
  let calls=0;
  const unique={...example,passage:'Les chercheurs ont choisi de comparer le comportement de trois alliages dans un four industriel en ajustant séparément les températures.',question:'Quel paramètre varie entre les essais ?',semantic:{concept:'industrial-alloys-heat-conditions',evidence:'vary-one-temperature'},options:['La température du four','Le fabricant de la machine','Le pays du laboratoire','La longueur du rapport']};
- const result=await generateDistinct({existing:[example],maxAttempts:3,generate:async()=>++calls===1?renamed:unique});
+ const reviewer=async()=>({pass:true,blind:{id:'chatcmpl-unit-blind'},ground:{id:'chatcmpl-unit-ground'}});
+ const result=await generateDistinct({existing:[example],maxAttempts:3,generate:async()=>++calls===1?renamed:unique,review:reviewer});
  assert.equal(result.retries,1);assert.equal(calls,2);
- await assert.rejects(()=>generateDistinct({existing:[example],maxAttempts:2,generate:async()=>renamed}),/Publication blocked/);
+ await assert.rejects(()=>generateDistinct({existing:[example],maxAttempts:2,generate:async()=>renamed,review:reviewer}),/Publication blocked/);
+ await assert.rejects(()=>generateDistinct({existing:[],generate:async()=>unique}),/Independent blind and source-aware AI review required/);
 });
 
 test('Answer-only length guessing is not a reliable shortcut for the six late sections',()=>{
