@@ -32,7 +32,7 @@ export function groundGate(question,receipt,{permutation=[0,1,2,3]}={}){
  return {pass:one&&options&&anchored,reason:{one,options,anchored,target,supported:r.supportedIndices}};
 }
 function preserve(original,next){
- const stable=['number','passage','media','section','group','points','semantic'];
+ const stable=['number','passage','media','section','group','points'];
  return stable.every(f=>JSON.stringify(original[f]??null)===JSON.stringify(next[f]??null));
 }
 export async function reviewQuestion(question,{blindReviewer,groundReviewer,shuffle=x=>x}){
