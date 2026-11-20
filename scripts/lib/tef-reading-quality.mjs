@@ -7,8 +7,9 @@ const tokens=x=>normalized(x).split(' ').filter(t=>t.length>2&&!stop.has(t)&&t!=
 const jaccard=(a,b)=>{const A=new Set(a),B=new Set(b);if(!A.size||!B.size)return 0;let common=0;for(const t of A)if(B.has(t))common++;return common/(A.size+B.size-common)};
 const ngrams=(a,n=3)=>{const out=[];for(let i=0;i+n<=a.length;i++)out.push(a.slice(i,i+n).join(' '));return out};
 const hash=x=>createHash('sha256').update(x).digest('hex');
+const oneSeriesShape=s=>{const lo=Math.min(...s),hi=Math.max(...s),den=(hi-lo)||1;return s.map(x=>Math.round((x-lo)/den*100)/100).join(',')};
 function seriesShape(series){
- return series.map(s=>{const lo=Math.min(...s),hi=Math.max(...s),den=(hi-lo)||1;return s.map(x=>Math.round((x-lo)/den*100)/100).join(',')}).sort().join('|');
+ return series.map(oneSeriesShape).sort().join('|');
 }
 function fingerprint(q){
  return {
@@ -42,7 +43,11 @@ export function assessPair(a,b){
  if(A.passage&&A.passage===B.passage)failures.push('same passage');
  if(A.question===B.question && A.options===B.options)failures.push('identical question plus options');
  if(A.passage&&A.options===B.options && A.passage===B.passage)failures.push('same answer exercise');
- if(a.media?.kind==='chart-grid'&&b.media?.kind==='chart-grid'&&A.media===B.media)failures.push('same scale-independent graph shapes');
+ if(a.media?.kind==='chart-grid'&&b.media?.kind==='chart-grid'){
+  if(A.media===B.media)failures.push('same scale-independent graph grid');
+  const aa=new Set(a.media.series.map(oneSeriesShape)),bb=new Set(b.media.series.map(oneSeriesShape));
+  for(const line of aa)if(bb.has(line)){failures.push('reused individual graph shape after numerical rescaling');break}
+ }
  if(a.media?.kind==='offers'&&b.media?.kind==='offers'&&A.media===B.media)failures.push('same offer visuals');
  const contextOverlap=jaccard(A.tok,B.tok);
  const shingleOverlap=jaccard(A.shingle,B.shingle);
