@@ -26,6 +26,19 @@ jobs:
           TEF_READING_QC_MAX_USD: '10'
           TEF_READING_QC_WORKERS: '3'
         run: node scripts/release/run-tef-reading-blind-qc.mjs --pilot
+      - name: Attempt independent AI rewriting of source-specific pilot questions
+        env:
+          TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
+          TEF_READING_QC_MAX_USD: '15'
+          TEF_READING_QC_WORKERS: '3'
+        run: node scripts/release/repair-tef-reading-with-ai.mjs --pilot
+      - name: Preserve authored revisions and reviewer receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tef-reading-author-qc-evidence
+          path: work/tef-reading-author-qc
+          retention-days: 30
       - name: Preserve verifiable model responses and summary
         if: always()
         uses: actions/upload-artifact@v4
