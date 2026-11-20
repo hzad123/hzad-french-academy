@@ -34,7 +34,7 @@ function orderFor(arr){
  for(let i=3;i>0;i--){const j=parseInt(seed.slice((3-i)*8,(4-i)*8),16)%(i+1);[order[i],order[j]]=[order[j],order[i]]}
  return order;
 }
-async function process([pi,qn]){
+async function reviewItem([pi,qn]){
  const paper=docs[pi],original=paper.questions[qn-1],correct=labels.indexOf(original.correct);
  const existing=docs.filter((_,i)=>i!==pi).flatMap(x=>x.questions);
  const edits=[];
@@ -63,7 +63,7 @@ const selected=pilot?[28,39]:Array.from({length:18},(_,i)=>i+23);
 const pairs=docs.flatMap((p,pi)=>selected.map(n=>[pi,n]));
 let cursor=0;
 await mkdir(work,{recursive:true});
-await Promise.all(Array.from({length:workers},async()=>{while(cursor<pairs.length)await process(pairs[cursor++]);}));
+await Promise.all(Array.from({length:workers},async()=>{while(cursor<pairs.length)await reviewItem(pairs[cursor++]);}));
 for(let i=0;i<docs.length;i++)await writeFile(work+'/'+repoFiles[i],JSON.stringify(docs[i],null,2)+'\n');
 const summary={mode:pilot?'pilot':'full',accepted:results.length,attempted:pairs.length,blocked:errors.length,
  requests,estimatedUsd:Math.round(expense*100)/100,
