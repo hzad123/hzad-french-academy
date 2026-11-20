@@ -185,6 +185,9 @@ test('TEF Reading start returns the selected paper even when another paper is ac
    assert.equal(next.paper.questions.length,40);
    assert(!JSON.stringify(next.paper).includes('"correct"'));
    assert(!JSON.stringify(next.paper).includes('"explanation"'));
+   assert(!JSON.stringify(next.paper).includes('"semantic"'),'Editorial intent/evidence must remain server-private');
+   assert(!JSON.stringify(next.paper).includes('"evidence"'));
+   assert.deepEqual(Object.keys(next.paper.questions[0]).sort(),['number','points','passage','question','options','media','section','group'].sort());
    active.push(next);
   }
   assert.equal(new Set(active.map(x=>x.id)).size,6);
