@@ -45,8 +45,9 @@ def render(models):
    minimum=(12 if q["number"]<=4 else 18 if q["number"]<=20 else 34 if q["number"]<=22 else 60 if q["number"]<=30 else 30)
    post=30 if 23<=q["number"]<=28 else 15 if q["number"]>=13 else 10
    if seconds<minimum:raise RuntimeError(f"Recording too SHORT: {seconds:.2f}s vs {minimum}s minimum")
-   if seconds+q["previewSeconds"]+post>q["slotSeconds"]:
-    raise RuntimeError(f"TEF Q{q['number']}: {seconds:.2f}s audio needs more time than fixed {q['slotSeconds']}s slot")
+   # Final question slots are allocated AFTER measuring real WAV/MP3 duration.
+   # Do not shorten an original spoken passage to satisfy an arbitrary estimate.
+   q["_neededSlot"]=int(__import__("math").ceil(seconds+q["previewSeconds"]+post+2))
    shutil.copyfile(clip,target);q["audioSeconds"]=round(seconds,3)
    subprocess.run(["ffmpeg","-v","error","-xerror","-i",str(target),"-f","null","-"],check=True,stderr=subprocess.PIPE)
    entries.append({"file":q["audio"],"sha256":sha(target),"sourceHash":source_hash(q),"seconds":q["audioSeconds"]})
@@ -59,6 +60,17 @@ def render(models):
  if not source.exists():raise RuntimeError("Existing verified headphone check missing")
  shutil.copyfile(source,ASSETS/"audio/audio-check.mp3")
  if len(entries)!=36:raise RuntimeError('Expected 36 unique recordings')
+ # Keep official reading/answer windows, and retain a strict 40-minute total.
+ active=[q for q in paper["questions"] if q["slotSeconds"]>0]
+ needed=sum(q["_neededSlot"] for q in active)
+ if needed>2400:
+  print("::error::Actual audio + required reading/answer windows exceed 40 minutes: "+str(needed)+"s",flush=True)
+  for q in active:print(f"Q{q['number']}: {q['audioSeconds']}s audio; {q['_neededSlot']}s required",flush=True)
+  raise RuntimeError("40-minute paper does not fit; revise spoken scripts, not playback speed")
+ surplus=2400-needed
+ for i,q in enumerate(active):
+  q["slotSeconds"]=q.pop("_neededSlot")+surplus//len(active)+(1 if i<surplus%len(active) else 0)
+ print(f"Real voice recordings require {needed}s including reading/response; distributed {surplus}s remainder evenly.",flush=True)
  if sum(q["slotSeconds"] for q in paper["questions"])!=2400:raise RuntimeError("Exam clock mismatch")
  save(ASSETS/"manifest.json",{"version":paper["version"],"state":"MEDIA_VERIFIED_EDITORIAL_REVIEW_PENDING","files":entries,"seconds":2400,"previewPolicy":"5-20 seconds before each recording; interviews share two question choices"})
  save(BANK,paper)
