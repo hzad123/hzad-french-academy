@@ -20,12 +20,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Independent blinded pilot and passage checks (not a publication gate yet)
-        env:
-          TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
-          TEF_READING_QC_MAX_USD: '10'
-          TEF_READING_QC_WORKERS: '3'
-        run: node scripts/release/run-tef-reading-blind-qc.mjs --pilot
+      # Two separate baseline pilot runs have already been recorded. Re-run the
+      # independently gated authoring experiment only, without wasting AI tokens.
       - name: Attempt independent AI rewriting of source-specific pilot questions
         env:
           TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
