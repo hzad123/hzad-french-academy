@@ -64,7 +64,7 @@ begin
   end if;
  end if;
  return jsonb_build_object('id',a.id,'testId',a.test_id,'version',a.version,'status',a.status,'answers',a.answers,'revision',a.revision,'startedAt',a.started_at,'deadline',a.deadline,'submittedAt',a.submitted_at,'serverNow',now(),
- 'paper',jsonb_build_object('id',a.test_id,'version',a.version,'title',paper->>'title','seconds',paper->'seconds','questions',(select jsonb_agg(q-'correct'-'explanation' order by (q->>'number')::int) from jsonb_array_elements(paper->'questions') q)),
+ 'paper',jsonb_build_object('id',a.test_id,'version',a.version,'title',paper->>'title','seconds',paper->'seconds','questions',(select jsonb_agg(jsonb_build_object('number',q->'number','points',q->'points','passage',q->'passage','question',q->'question','options',q->'options','media',q->'media','section',q->'section','group',q->'group') order by (q->>'number')::int) from jsonb_array_elements(paper->'questions') q)),
  'result',a.result);
 end;$$;
 
