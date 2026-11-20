@@ -41,7 +41,8 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
   if(busy||pending||attempt.currentQuestion>=40)return;
   // The Next click is a user gesture: begin the preloaded next clip NOW, before
   // the asynchronous server advance. Otherwise browsers can block delayed play().
-  const upcoming=attempt.paper.questions[attempt.currentQuestion];
+  const current=q();const nextIndex=(current.groupEnd&&current.groupEnd>current.number)?current.groupEnd:current.number;
+  const upcoming=attempt.paper.questions[nextIndex];
   clearInterval(timer); // Prevent the old question tick from stopping the new clip.
   const audio=preload||audioFactory();
   preload=null;player?.pause();player=null;audioKey='';
@@ -88,7 +89,7 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
    audio.addEventListener('loadedmetadata',()=>{void start()},{once:true});
    if(audio.readyState>=1)void start();
   }
-  const next=attempt.paper.questions[item.number];
+  const next=attempt.paper.questions[(item.groupEnd&&item.groupEnd>item.number)?item.groupEnd:item.number];
   if(next){preload=audioFactory();preload.preload='auto';preload.src=media('audio',next.audio);preload.load?.()}
  }
  function resumeAudio(){if(elapsed()>=q().audioSeconds){audioRecovery(false,'The recording has finished. Choose your answer.');return}if(!player){playCurrent();return}try{player.currentTime=Math.max(0,elapsed())}catch{}void player.play().then(()=>audioRecovery(false)).catch(()=>audioRecovery(true,'Allow audio playback in your browser, then press Play audio.'))}
@@ -117,13 +118,34 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
  }
  function renderQuestion(){
   const item=q(),bar=el('div',undefined,'hz-reading-toolbar'),clock=el('strong'),questionClock=el('span');clock.setAttribute('aria-label','Listening time remaining');questionClock.setAttribute('aria-label','Current question time remaining');bar.append(el('span',`${Object.keys(attempt.answers).length}/40 answers saved`),clock,questionClock);area.append(bar);
-  const card=el('section',undefined,'hz-reading-question');card.lang='fr';card.append(el('h4',`Question ${item.number} sur 40`),el('p','Écoutez l’enregistrement. Une seule écoute.','hz-small'));
+  const card=el('section',undefined,'hz-reading-question');card.lang='fr';card.append(el('h4',item.groupEnd>item.number?`Questions ${item.number}–${item.groupEnd} sur 40`:`Question ${item.number} sur 40`),el('p','Écoutez l’enregistrement. Une seule écoute.','hz-small'));
   if(item.image){const image=el('img');image.src=media('images',item.image);image.alt=`Illustration de la question ${item.number}`;image.className='hz-listening-image';card.append(image)}
-  const fieldset=el('fieldset'),legend=el('legend');fieldset.append(legend);item.options.forEach((text,i)=>{const letter=String.fromCharCode(65+i),label=el('label',undefined,'hz-reading-option'),input=el('input');input.type='radio';input.name='listening-'+item.number;input.value=letter;input.checked=(pending?.number===item.number?pending.choice:attempt.answers[item.number])===letter;input.dataset.locked=String(!!pending||!remaining()||now()>=Date.parse(attempt.questionEndsAt));input.onchange=()=>choose(item.number,letter);label.append(input,el('span',item.kind==='picture'?'Dessin '+letter:letter+'. '+text));fieldset.append(label)});card.append(fieldset);area.append(card);
+  const paired=item.groupEnd>item.number;
+  const visibleQuestions=paired?[item,attempt.paper.questions[item.groupEnd-1]]:[item];
+  // On a shared recording, BOTH questions and all eight choices stay on screen
+  // throughout the one and only playback. Do not make the second answer wait.
+  for(const current of visibleQuestions){
+   const block=el('div',undefined,'hz-listening-question-block');
+   if(paired)block.append(el('h5','Question '+current.number+' sur 40'));
+   const fieldset=el('fieldset'),legend=el('legend',current.question);
+   fieldset.append(legend);
+   current.options.forEach((text,i)=>{
+    const letter=String.fromCharCode(65+i),label=el('label',undefined,'hz-reading-option'),input=el('input');
+    input.type='radio';input.name='listening-'+current.number;input.value=letter;
+    input.checked=(pending?.number===current.number?pending.choice:attempt.answers[current.number])===letter;
+    input.dataset.locked=String(!!pending||!remaining()||now()>=Date.parse(attempt.questionEndsAt));
+    input.onchange=()=>choose(current.number,letter);
+    label.append(input,el('span',current.kind==='picture'?'Dessin '+letter:letter+'. '+text));
+    fieldset.append(label);
+   });
+   block.append(fieldset);card.append(block);
+  }
+  if(paired)card.insertBefore(el('p','Un seul enregistrement pour les questions '+item.number+' et '+item.groupEnd+'. Répondez aux deux questions pendant la même écoute.','hz-small'),card.firstChild.nextSibling);
+  area.append(card);
   const recovery=el('div');recovery.dataset.listeningAudioRecovery='true';recovery.hidden=!needsAudio;recovery.append(button('Play audio',resumeAudio,false,true));area.append(recovery);
   if(pending){area.append(el('p','Your choice is waiting to be saved.'),button('Retry saving answer',()=>{pending.revision=attempt.revision;saveChoice()}),button('Use saved answer',()=>{pending=null;render()},false,true))}
-  area.append(item.number<40?button('Next',nextQuestion,!!pending):button('Submit test',finish,!!pending));
-  const tick=()=>{const left=remaining(),questionLeft=Math.max(0,Math.ceil((Date.parse(attempt.questionEndsAt)-now())/1000));clock.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} remaining`;questionClock.textContent=item.number<40?`Auto-advance in ${questionLeft}s`:'Final question';legend.textContent=item.question;if(!audioKey && elapsed()<item.audioSeconds)playCurrent();
+  area.append(item.number<40?button(paired?'Next recording':'Next',nextQuestion,!!pending):button('Submit test',finish,!!pending));
+  const tick=()=>{const left=remaining(),questionLeft=Math.max(0,Math.ceil((Date.parse(attempt.questionEndsAt)-now())/1000));clock.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} remaining`;questionClock.textContent=item.number<40?`Auto-advance in ${questionLeft}s`:'Final question';if(!audioKey && elapsed()<item.audioSeconds)playCurrent();
    if(!left||!questionLeft){area.querySelectorAll('input').forEach(n=>n.disabled=true);if(!busy){clearInterval(timer);void run(async(signal,current)=>{const saved=await store.read(attempt.id,signal);if(current()){receive(saved);render()}})}}};
   tick();timer=setInterval(tick,250);playCurrent();
  }
