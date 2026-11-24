@@ -35,3 +35,6 @@ Minimum oral MP3 lengths: questions 1–4 >=12s, 5–20 >=18s, 21–22 >=34s, pa
 
 ## Draft iteration checkpoint
 The six scripts and 240 question drafts are undergoing editorial/timing QA. The published v3 bank is unchanged. Do not activate without real hosted audio and verified test start permissions.
+
+## Audio measurement checkpoint
+All 240 draft question records exist; 216 independently recorded clips must be measured. No publication is authorized from this checkpoint.
