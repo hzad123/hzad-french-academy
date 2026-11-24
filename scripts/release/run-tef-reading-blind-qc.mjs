@@ -8,10 +8,11 @@ if(!url||!url.startsWith('https://'))throw Error('Private TEF Reading QC endpoin
 const originalFiles=['tef-reading-test01-v2.json','tef-reading-test02-v2.json',...[3,4,5,6].map(i=>'tef-reading-test0'+i+'.json')];
 const revisedFiles=['tef-reading-test01-v3.json','tef-reading-test02-v3.json',...[3,4,5,6].map(i=>'tef-reading-test0'+i+'-v2.json')];
 const original=await Promise.all(originalFiles.map(async f=>JSON.parse(await readFile('supabase/exams/'+f,'utf8'))));
-const revised=await Promise.all(revisedFiles.map(async f=>JSON.parse(await readFile('supabase/exams/'+f,'utf8'))));
+const revisedRoot=process.env.TEF_READING_CANDIDATE_DIR||'supabase/exams';
+const revised=await Promise.all(revisedFiles.map(async f=>JSON.parse(await readFile(revisedRoot+'/'+f,'utf8'))));
 const letters='ABCD',pilot=process.argv.includes('--pilot');
-const sampleNumbers=pilot?[28,29,38,39]:[23,25,28,29,32,34,38,39];
-const targets=pilot?[28,29,38,39]:Array.from({length:18},(_,i)=>i+23);
+const sampleNumbers=pilot?[28,39]:[23,25,28,29,32,34,38,39];
+const targets=pilot?[28,39]:Array.from({length:18},(_,i)=>i+23);
 let price=0,reqCount=0;const maxUsd=Number(process.env.TEF_READING_QC_MAX_USD||'20');
 const sha=x=>createHash('sha256').update(x).digest('hex');
 const canonical=x=>String(x||'').normalize('NFKC').replace(/[’‘]/g,"'").replace(/\\s+/g,' ').trim().toLocaleLowerCase('fr');
@@ -116,4 +117,8 @@ await writeFile(root+'/summary.json',JSON.stringify(summary,null,2)+'\n');
 await writeFile(root+'/receipts.json',JSON.stringify(rows,null,2)+'\n');
 console.log('TEF_QC_SUMMARY '+JSON.stringify(summary));
 if(errors.length||rows.length!==jobs.length)process.exitCode=2;
-if(!pilot&&summary.newAll.passed!==summary.newAll.sample)process.exitCode=1;
+if(summary.newAll.passed!==summary.newAll.sample)process.exitCode=1;
+// Require a material blind-accuracy improvement in the matched sample, not
+// artificial per-item guess probabilities or answer-position manipulation.
+if(summary.blindBefore.sample!==summary.blindAfterSameSample.sample ||
+   summary.blindAfterSameSample.accuracy>=summary.blindBefore.accuracy)process.exitCode=1;
