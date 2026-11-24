@@ -34,6 +34,13 @@ jobs:
           TEF_READING_QC_MAX_USD: '15'
           TEF_READING_QC_WORKERS: '3'
         run: node scripts/release/repair-tef-reading-with-ai.mjs --pilot
+      - name: Independently benchmark approved pilot against original questions
+        env:
+          TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
+          TEF_READING_CANDIDATE_DIR: work/tef-reading-author-qc
+          TEF_READING_QC_MAX_USD: '12'
+          TEF_READING_QC_WORKERS: '3'
+        run: node scripts/release/run-tef-reading-blind-qc.mjs --pilot
       - name: Preserve authored revisions and reviewer receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -55,13 +62,18 @@ jobs:
           } catch(err) {
             report={error:'No author-review summary was generated',details:String(err)};
           }
-          const status=report.blocked===0&&report.accepted===12?'Pilot authoring passed':'Pilot authoring NOT approved';
+          let benchmark=null;
+          try{benchmark=JSON.parse(await readFile('work/tef-reading-blind-qc/summary.json','utf8'));}catch{}
+          const status=report.blocked===0&&report.accepted===12&&benchmark?.newAll?.passed===12&&benchmark?.blindAfterSameSample?.accuracy<benchmark?.blindBefore?.accuracy?'Pilot benchmark passed':'Pilot NOT approved';
           const body=['## TEF Reading independent authoring pilot', '', '**'+status+'**',
             'Workflow: '+process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID,
             '', 'Attempted: '+(report.attempted??'unavailable'),
             'Accepted: '+(report.accepted??'unavailable'),
             'Blocked: '+(report.blocked??'unavailable'),
             'Estimated USD: '+(report.estimatedUsd??'unavailable'),
+            '', 'Matched blind accuracy BEFORE: '+(benchmark?.blindBefore?.accuracy??'unavailable'),
+            'Matched blind accuracy AFTER: '+(benchmark?.blindAfterSameSample?.accuracy??'unavailable'),
+            'Reviewer approvals: '+(benchmark?.newAll?.passed??'unavailable')+'/'+(benchmark?.newAll?.sample??'unavailable'),
             '', 'Per test: `'+JSON.stringify(report.perTest??[])+'`',
             '', 'Errors (truncated):',
             '```json',JSON.stringify(report.errors??[report.error??'unknown']).slice(0,6000),'```',
