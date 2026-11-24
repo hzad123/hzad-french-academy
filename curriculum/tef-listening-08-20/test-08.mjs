@@ -1,4 +1,4 @@
-/* Original Test 08 source; editorial option revisions preserve the measured recording scripts. */
+/* Original Test 08 source; final option review retains original measured audio. */
 export const clips = [
   {
     "start": 1,
@@ -133,11 +133,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Que ne pourra-t-on plus faire sur place ?",
-        "correct": "S’inscrire à la course.",
+        "correct": "S’inscrire sur place à la course.",
         "wrong": [
-          "Retirer son dossard le samedi.",
-          "Déposer un vêtement avant le départ.",
-          "Présenter un numéro de réservation."
+          "Retirer son dossard.",
+          "Déposer des vêtements à la consigne.",
+          "Présenter son numéro de réservation."
         ],
         "explanation": "Le retrait des dossards est maintenu ; seules les inscriptions sur place cessent."
       }
@@ -150,11 +150,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Qu’est-ce qui sera différent ce soir ?",
-        "correct": "La position de l’écran dans la cour.",
+        "correct": "La disposition de l’espace de projection.",
         "wrong": [
-          "Le moment où commence la projection dans la cour.",
-          "L’accès à la cour pour les personnes déjà munies d’un billet.",
-          "Le film que les spectateurs pourront découvrir ce soir."
+          "L’heure de début du film.",
+          "L’entrée utilisée pour rejoindre la cour.",
+          "Le programme annoncé pour la soirée."
         ],
         "explanation": "Le déplacement de l’écran entraîne une nouvelle orientation des chaises."
       }
@@ -218,11 +218,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Pourquoi faut-il prévoir vingt minutes ?",
-        "correct": "Pour vérifier l’ajustement des lunettes.",
+        "correct": "Vérifier l’ajustement des nouvelles lunettes.",
         "wrong": [
-          "Pour comparer plusieurs montures avant le montage des verres.",
-          "Pour contrôler l’évolution de sa correction depuis la commande.",
-          "Pour recevoir des conseils sur l’entretien des verres progressifs."
+          "Comparer plusieurs montures.",
+          "Contrôler l’évolution de sa correction.",
+          "Recevoir des conseils pour entretenir les verres progressifs."
         ],
         "explanation": "L’opticien doit vérifier le positionnement et la vision à différentes distances."
       }
@@ -235,11 +235,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle priorité cette personne défend-elle ?",
-        "correct": "Faciliter l’accès aux fontaines.",
+        "correct": "Installer des fontaines à proximité des vestiaires.",
         "wrong": [
-          "Distribuer des gourdes réutilisables dans les vestiaires.",
-          "Installer des distributeurs de bouteilles près des salles.",
-          "Organiser une campagne sur les déchets produits par les abonnés."
+          "Distribuer des gourdes réutilisables.",
+          "Vendre des bouteilles près des salles.",
+          "Afficher des informations sur les déchets dans les espaces communs."
         ],
         "explanation": "Elle conditionne la suppression des bouteilles à un accès pratique à l’eau."
       }
@@ -286,11 +286,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle solution propose-t-elle pour les places inutilisées ?",
-        "correct": "Simplifier les annulations avant la représentation.",
+        "correct": "Faciliter l’annulation des places réservées.",
         "wrong": [
-          "Instaurer un prix symbolique pour chaque réservation.",
-          "Accorder un accès prioritaire aux réservations anciennes.",
-          "Limiter la réservation aux dernières heures avant le spectacle."
+          "Instaurer un prix symbolique.",
+          "Réattribuer les places après le début du spectacle.",
+          "Limiter la réservation anticipée aux spectateurs réguliers."
         ],
         "explanation": "Le rappel avec annulation permettrait de réattribuer les places."
       }
@@ -303,10 +303,10 @@ export const clips = [
     "questions": [
       {
         "stem": "Quel critère devrait orienter le choix ?",
-        "correct": "Le coût d’entretien à long terme.",
+        "correct": "Le coût d’entretien sur plusieurs saisons.",
         "wrong": [
-          "Le prix d’achat rapporté à la surface à couvrir.",
-          "La possibilité de conserver un aspect uniforme au fil du temps.",
+          "Le prix d’achat du matériau.",
+          "La stabilité de son aspect au fil du temps.",
           "La durée de démontage et de stockage entre les saisons."
         ],
         "explanation": "L’intervenant privilégie l’évaluation du vieillissement et des dépenses dans le temps."
@@ -371,11 +371,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quel enjeu la chronique met-elle principalement en avant ?",
-        "correct": "Reconstituer le contexte des enregistrements conservés.",
+        "correct": "Identifier le contexte des enregistrements anciens.",
         "wrong": [
-          "Améliorer les techniques de numérisation des cassettes.",
-          "Classer les fichiers selon la qualité de leur son.",
-          "Sélectionner les documents destinés à des expositions."
+          "Améliorer leur numérisation.",
+          "Classer les fichiers selon la qualité sonore.",
+          "Sélectionner des archives pour les prochaines expositions."
         ],
         "explanation": "Le travail avec les habitants vise à retrouver les personnes, dates et circonstances."
       }
@@ -407,8 +407,8 @@ export const clips = [
         "stem": "Pourquoi l’équipe a-t-elle comparé plusieurs réglages ?",
         "correct": "Concilier la circulation et la protection des insectes.",
         "wrong": [
-          "Déterminer les conditions permettant de supprimer certains points lumineux.",
-          "Établir un réglage commun aux quartiers bordés de végétation.",
+          "Réduire la consommation électrique.",
+          "Établir un réglage commun à plusieurs quartiers.",
           "Comparer les effets des lampes sur la fréquentation nocturne du chemin."
         ],
         "explanation": "L’étude cherche un compromis entre usage du chemin et réduction des effets sur les insectes."
@@ -417,9 +417,9 @@ export const clips = [
         "stem": "Pourquoi observer également les insectes loin des lampes ?",
         "correct": "Distinguer un déplacement d’un changement d’activité.",
         "wrong": [
-          "Vérifier si les insectes éloignés réagissent davantage à la couleur des lampes.",
-          "Déterminer jusqu’à quelle distance les lampadaires attirent les insectes.",
-          "Comparer la répartition des espèces dans les différents secteurs éclairés."
+          "Délimiter la zone d’attraction des lampes.",
+          "Mesurer la sensibilité des espèces à leur couleur.",
+          "Comparer la répartition des insectes autour des points lumineux."
         ],
         "explanation": "Une baisse autour des lampes peut indiquer un simple déplacement plutôt qu’un retour au comportement habituel."
       }
@@ -432,11 +432,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle limite l’artisane a-t-elle constatée dans sa méthode initiale ?",
-        "correct": "Ils savaient imiter les gestes, mais pas les adapter.",
+        "correct": "Ils reproduisaient les gestes sans savoir les adapter.",
         "wrong": [
-          "Ils comprenaient les variations du bois sans pouvoir réaliser les gestes correspondants.",
-          "Ils maîtrisaient les gestes isolés, mais peinaient à les enchaîner.",
-          "Ils obtenaient des résultats trop irréguliers même avec des pièces de bois semblables."
+          "Ils maîtrisaient mal les gestes.",
+          "Ils enchaînaient difficilement les différentes étapes.",
+          "Ils obtenaient des résultats irréguliers avec des pièces de bois semblables."
         ],
         "explanation": "L’imitation réussissait avec des conditions prévisibles, mais pas lorsque la matière variait."
       },
@@ -459,21 +459,21 @@ export const clips = [
     "questions": [
       {
         "stem": "Quel défaut présentait l’indicateur initial ?",
-        "correct": "Il confondait des issues différentes.",
+        "correct": "Il confondait des motifs de clôture différents.",
         "wrong": [
-          "Il rendait difficile le suivi des dossiers confiés à plusieurs services.",
-          "Il mesurait le nombre de démarches entamées plutôt que leur clôture.",
-          "Il variait selon les méthodes de collecte propres à chaque permanence."
+          "Il négligeait les dossiers transférés.",
+          "Il comptait les démarches entamées.",
+          "Il variait selon les méthodes de collecte de chaque permanence."
         ],
         "explanation": "Les dossiers résolus et abandonnés étaient tous comptés comme clos."
       },
       {
         "stem": "Pourquoi conserver temporairement l’ancien indicateur ?",
-        "correct": "Pour expliquer la transition entre les deux méthodes.",
+        "correct": "Pour expliquer le passage à la nouvelle méthode.",
         "wrong": [
-          "Pour suivre les effets des permanences communes sur le nombre de dossiers.",
-          "Pour identifier les catégories de demandes responsables de la baisse du taux de clôture.",
-          "Pour déterminer quelle part des anciens dossiers devrait être réexaminée."
+          "Pour suivre les permanences communes.",
+          "Pour identifier les demandes les plus complexes.",
+          "Pour déterminer quels dossiers antérieurs auraient dû être réexaminés."
         ],
         "explanation": "La présentation parallèle permet aux financeurs de comprendre la baisse apparente."
       }
@@ -488,19 +488,19 @@ export const clips = [
         "stem": "Qu’apportent les observations sur la fréquentation des cours ?",
         "correct": "Elles révèlent un effet du piétinement sur l’infiltration.",
         "wrong": [
-          "Elles mettent en évidence un défaut de revêtement commun aux écoles étudiées.",
-          "Elles attribuent les difficultés d’infiltration à la répartition des plantations.",
-          "Elles montrent que l’entretien initial des sols explique leur tassement."
+          "Elles montrent les limites des revêtements.",
+          "Elles relient l’humidité à la disposition des plantations.",
+          "Elles attribuent le tassement des sols à un entretien insuffisant."
         ],
         "explanation": "Le piétinement peut tasser les surfaces et réduire leur capacité d’infiltration."
       },
       {
         "stem": "Pourquoi l’équipe préfère-t-elle une méthode de diagnostic ?",
-        "correct": "Pour adapter les travaux à la cause identifiée.",
+        "correct": "Pour choisir les travaux d’après la cause du problème.",
         "wrong": [
-          "Pour comparer les coûts de remplacement des différents matériaux perméables.",
-          "Pour déterminer quelles pratiques d’entretien peuvent être adoptées partout.",
-          "Pour établir une méthode unique de circulation dans les cours rénovées."
+          "Pour comparer le coût des revêtements.",
+          "Pour définir une méthode commune d’entretien.",
+          "Pour établir une organisation de la circulation valable dans toutes les écoles."
         ],
         "explanation": "Des causes différentes exigent des solutions différentes ; un guide unique serait trop général."
       }
@@ -530,11 +530,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle conclusion guide la formation proposée ?",
-        "correct": "La conduite de la consultation influence la qualité de l’échange.",
+        "correct": "Les pratiques du soignant influencent la qualité de l’échange.",
         "wrong": [
-          "La durée de la consultation dépend principalement du mode d’intervention de l’interprète.",
-          "La préparation des patients réduit davantage les difficultés que celle des soignants.",
-          "Le recours à des questions ciblées facilite la communication lors d’une traduction à distance."
+          "L’interprète ralentit les consultations.",
+          "La préparation des patients limite les incompréhensions.",
+          "Les questions fermées facilitent la communication lors d’une traduction à distance."
         ],
         "explanation": "La présence de l’interprète ne suffit pas si le professionnel conduit mal l’échange."
       }
@@ -547,11 +547,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle logique préside au nouveau cahier des charges ?",
-        "correct": "Standardiser certains éléments sans exclure le sur-mesure.",
+        "correct": "Standardiser des éléments en conservant certaines adaptations.",
         "wrong": [
-          "Adapter les dimensions des futurs panneaux à chaque nouvelle exposition.",
-          "Réutiliser les parcours d’exposition en changeant la présentation des œuvres.",
-          "Concevoir des éléments spécifiques qui pourraient être réemployés tels quels."
+          "Uniformiser les parcours.",
+          "Adapter les dimensions à chaque exposition.",
+          "Concevoir des panneaux spécifiques pour les réutiliser dans des expositions ultérieures."
         ],
         "explanation": "La standardisation des éléments de base laisse place au sur-mesure lorsqu’il est utile."
       }
@@ -564,11 +564,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Que souhaitent améliorer les auteurs de l’enquête ?",
-        "correct": "Les critères d’évaluation des réparations.",
+        "correct": "Les critères d’évaluation des réparations effectuées.",
         "wrong": [
-          "La comparaison des délais selon la nature des pannes.",
+          "La comparaison des délais.",
           "La présentation des prix des pièces et de la main-d’œuvre.",
-          "Le suivi des engagements pris au moment d’établir un devis."
+          "Le suivi des engagements figurant dans les devis."
         ],
         "explanation": "Ils proposent de considérer le diagnostic et la durabilité en plus du délai."
       }
@@ -581,11 +581,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Pourquoi les géographes conservent-ils des appellations minoritaires ?",
-        "correct": "Elles éclairent des usages anciens.",
+        "correct": "Elles renseignent sur des pratiques anciennes.",
         "wrong": [
-          "Elles désignent des itinéraires que les visiteurs connaissent mal.",
-          "Elles signalent des erreurs de localisation sur les cartes actuelles.",
-          "Elles reflètent des changements de tracé liés aux activités locales."
+          "Elles corrigent les cartes.",
+          "Elles facilitent l’orientation des visiteurs.",
+          "Elles signalent les changements de tracé liés aux activités locales."
         ],
         "explanation": "Une variante rare peut éclairer l’histoire d’une pratique locale."
       }
@@ -598,11 +598,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quel principe a remplacé l’organisation initiale ?",
-        "correct": "Un même projet réalisé selon différentes modalités.",
+        "correct": "Un projet commun avec plusieurs modalités de réalisation.",
         "wrong": [
-          "Des groupes constitués selon les outils que chacun maîtrise le mieux.",
-          "Des objets distincts offrant à chacun une difficulté équivalente.",
-          "Un modèle de réalisation commun accompagné d’un niveau d’assistance prédéfini."
+          "Des groupes par niveau.",
+          "Des objets distincts de difficulté comparable.",
+          "Un modèle commun avec un degré d’assistance fixé à l’inscription."
         ],
         "explanation": "Les participants réalisent un projet commun en choisissant les modalités et l’aide."
       }
@@ -615,11 +615,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quelle leçon la fédération tire-t-elle de l’essai ?",
-        "correct": "Adapter le dispositif aux habitudes du quartier.",
+        "correct": "Adapter la gestion de la fournée aux habitudes locales.",
         "wrong": [
-          "Moduler le nombre de produits réservés selon l’heure de retrait.",
-          "Réserver les précommandes aux clients qui achètent en fin de journée.",
-          "Ajuster la production à la fréquentation moyenne des boutiques résidentielles."
+          "Uniformiser les horaires de retrait.",
+          "Moduler la production d’après les commandes reçues.",
+          "Réserver les ventes sans précommande aux zones les moins fréquentées."
         ],
         "explanation": "Les habitudes diffèrent entre secteurs, d’où le choix de dispositifs distincts."
       }
@@ -632,11 +632,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Pourquoi les chercheurs complètent-ils les données de déplacement ?",
-        "correct": "Une halte prolongée peut avoir plusieurs explications.",
+        "correct": "La durée d’une halte peut avoir plusieurs explications.",
         "wrong": [
-          "La durée du trajet entre deux sites renseigne sur les ressources disponibles.",
-          "La météo influence surtout les données transmises par les balises.",
-          "Les indices alimentaires permettent d’évaluer la durée optimale de chaque halte."
+          "Les balises sous-estiment certaines haltes.",
+          "Les conditions météo perturbent la transmission des données.",
+          "La durée du trajet entre deux sites permet d’en évaluer les ressources."
         ],
         "explanation": "Une halte longue peut être choisie ou imposée par les conditions de déplacement."
       }
@@ -649,11 +649,11 @@ export const clips = [
     "questions": [
       {
         "stem": "Quel objectif motive la nouvelle organisation ?",
-        "correct": "Diversifier les usagers tout en répondant aux besoins spécifiques.",
+        "correct": "Élargir l’accès aux machines en tenant compte des projets.",
         "wrong": [
-          "Augmenter la fréquence de rotation des machines grâce à des séances plus courtes.",
-          "Répartir les créneaux selon le degré de préparation des différents projets.",
-          "Réduire le nombre d’annulations en privilégiant les réservations de dernière minute."
+          "Accélérer leur rotation.",
+          "Attribuer les créneaux selon la préparation des projets.",
+          "Réduire les annulations en favorisant les réservations de dernière minute."
         ],
         "explanation": "La limite et les exceptions cherchent à équilibrer l’accès et les besoins réels."
       }
