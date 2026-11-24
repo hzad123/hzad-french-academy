@@ -51,6 +51,8 @@ test('Blind reviewer flags conspicuous answers, and grounded reviewer requires e
  const q=structuredClone(after[0].questions[38]);q.correct='A';
  assert(groundGate(q,ground(q)).pass);
  assert(!groundGate(q,{...ground(q),result:{...ground(q).result,ambiguous:true}}).pass);
+ const noCorrectQuote=structuredClone(ground(q));noCorrectQuote.result.options[0].quotes=[];
+ assert(!groundGate(q,noCorrectQuote).pass,'Correct answer must have exact supporting source evidence');
 });
 test('Model calls keep blind and source grounding isolated and never send correct answer to the second reviewer',async()=>{
  const q=structuredClone(after[0].questions[38]);q.correct='A';
