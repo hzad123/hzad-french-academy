@@ -1074,22 +1074,22 @@
   },
   {
     "number": 15,
-    "grounded": false,
+    "grounded": true,
     "strong": false,
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enoza9YmV9TS2JZWbvg2E2twvB3Sd",
+      "id": "chatcmpl-Enp8wgQhBfGiaMgb0AZtymz9tLiz5",
       "usage": {
-        "prompt_tokens": 360,
-        "completion_tokens": 2720,
-        "total_tokens": 3080,
+        "prompt_tokens": 364,
+        "completion_tokens": 2135,
+        "total_tokens": 2499,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 2113,
+          "reasoning_tokens": 1348,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -1097,17 +1097,16 @@
       },
       "result": {
         "supportedIndices": [
-          1,
           2
         ],
-        "ambiguous": true,
-        "questionSupported": false,
+        "ambiguous": false,
+        "questionSupported": true,
         "options": [
           {
             "index": 0,
             "supported": false,
             "plausible": false,
-            "reason": "« tant que » introduirait une relation temporelle/conditionnelle (ils évalueraient tant que les conditions ne sont pas garanties), alors que le texte juxtapose deux faits sans notion de durée ou de condition explicite.",
+            "reason": "\"par conséquent\" exprime une conséquence. Dans : \"Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public, par conséquent les conditions techniques ne sont pas encore entièrement garanties.\", on ferait des \"conditions techniques\" la conséquence de l'évaluation du jury, ce qui est illogique dans le contexte où l'évaluation et les conditions techniques sont deux paramètres parallèles du projet.",
             "quotes": [
               "Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
               "les conditions techniques ne sont pas encore entièrement garanties"
@@ -1115,11 +1114,11 @@
           },
           {
             "index": 1,
-            "supported": true,
+            "supported": false,
             "plausible": true,
-            "reason": "Avec « car », on comprend que les membres du jury doivent évaluer la maturité du projet précisément parce que « les conditions techniques ne sont pas encore entièrement garanties » ; établir ce lien de cause est une interprétation naturelle des deux propositions juxtaposées.",
+            "reason": "\"puisque\" introduit une cause ou une justification. Cela donnerait : \"... doivent évaluer si le projet est suffisamment abouti ..., puisque les conditions techniques ne sont pas encore entièrement garanties.\" Or, le texte présente plutôt deux difficultés simultanées du projet (maturité artistique et garanties techniques) qu’un lien de cause à effet entre elles. Rien n’indique que l'absence de garanties techniques soit la raison pour laquelle le jury doit évaluer le degré d'aboutissement ; le jury devrait de toute façon faire cette évaluation.",
             "quotes": [
-              "Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
+              "doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
               "les conditions techniques ne sont pas encore entièrement garanties"
             ]
           },
@@ -1127,7 +1126,7 @@
             "index": 2,
             "supported": true,
             "plausible": true,
-            "reason": "Avec « bien que », la phrase exprime une concession : ils doivent évaluer la possibilité d’une présentation au public, même si « les conditions techniques ne sont pas encore entièrement garanties ». Cette lecture est tout aussi cohérente avec le contraste implicite entre ambition artistique et contraintes matérielles.",
+            "reason": "\"alors que\" peut marquer l'opposition ou la concession (\"bien que\"). La phrase devient : \"Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public, alors que les conditions techniques ne sont pas encore entièrement garanties.\" Cela exprime bien l'idée que le jury doit quand même statuer sur la maturité du projet, malgré le fait que les conditions techniques ne soient pas encore assurées, ce qui correspond au contraste implicite dans le passage.",
             "quotes": [
               "Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
               "les conditions techniques ne sont pas encore entièrement garanties"
@@ -1136,15 +1135,15 @@
           {
             "index": 3,
             "supported": false,
-            "plausible": false,
-            "reason": "« de sorte que » marque normalement un but ou une conséquence ; cela donnerait l’idée absurde que le fait d’évaluer a pour but ou pour résultat que « les conditions techniques ne sont pas encore entièrement garanties », ce qui ne correspond pas au sens du passage.",
+            "plausible": true,
+            "reason": "\"dès lors que\" est généralement temporel ou causal (\"à partir du moment où\", \"étant donné que\"). Dans : \"... doivent évaluer ... dès lors que les conditions techniques ne sont pas encore entièrement garanties.\", on comprendrait que l'absence de garanties techniques déclenche ou justifie l'évaluation. Comme pour \"puisque\", cela impose un lien causal ou conditionnel qui n'est pas suggéré par le texte, qui juxtapose plutôt deux difficultés concomitantes.",
             "quotes": [
-              "Les membres du jury doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
+              "doivent évaluer si le projet est suffisamment abouti pour être présenté au public",
               "les conditions techniques ne sont pas encore entièrement garanties"
             ]
           }
         ],
-        "summary": "Le texte ne tranche pas clairement entre une relation de cause (« car ») et une relation de concession (« bien que ») entre l’évaluation du jury et l’absence de garanties techniques. Les deux connecteurs sont défendables, ce qui rend la question ambiguë et empêche d’identifier une seule bonne réponse."
+        "summary": "Le passage met en parallèle deux difficultés du projet (maturité artistique et conditions techniques) et suggère que le jury doit évaluer le projet malgré l’absence de garanties techniques, ce qui correspond à un lien concessif exprimé correctement par « alors que » et non par un connecteur causal ou consécutif."
       }
     },
     "blind": null,
@@ -3450,17 +3449,17 @@
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enp45vC8DbQrM4pbla4lqQh7eRfcE",
+      "id": "chatcmpl-Enp9qshbPPFa2vvhKqIU7zWWNbZOG",
       "usage": {
-        "prompt_tokens": 684,
-        "completion_tokens": 1846,
-        "total_tokens": 2530,
+        "prompt_tokens": 711,
+        "completion_tokens": 1572,
+        "total_tokens": 2283,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 998,
+          "reasoning_tokens": 824,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -3468,7 +3467,7 @@
       },
       "result": {
         "supportedIndices": [
-          1
+          2
         ],
         "ambiguous": false,
         "questionSupported": true,
@@ -3477,30 +3476,29 @@
             "index": 0,
             "supported": false,
             "plausible": true,
-            "reason": "Le texte montre au contraire que Léa prend des décisions majeures, et pas seulement en arrière-plan : elle tranche sur les conditions d’accès et sur la présentation des documents, ce qui contredit l’idée que les modalités seraient surtout négociées entre Milo et Mme Sorel avec une Léa secondaire.",
+            "reason": "Le texte montre que Milo fait une proposition et que Léa tranche elle‑même sur les délais et les modalités d’accès ; il n’est jamais dit que Milo et Mme Sorel négocient ensemble puis que Léa se contente d’appliquer leur accord.",
             "quotes": [
-              "« Milo avait d’abord proposé un accès immédiat accompagné d’un pseudonyme, mais Léa avait tranché : un délai de trente ans et un verrou d’accès réservé aux chercheurs. »",
-              "« Elle décida que, par défaut, l’image du document manuscrit s’afficherait toujours avant la transcription »"
+              "« Elle avait accepté qu’on les numérise, à condition qu’elles ne soient consultables en ligne qu’après sa mort. »",
+              "« Milo avait d’abord proposé un accès immédiat accompagné d’un pseudonyme, mais Léa avait tranché : un délai de trente ans et un verrou d’accès réservé aux chercheurs. »"
             ]
           },
           {
             "index": 1,
-            "supported": true,
+            "supported": false,
             "plausible": true,
-            "reason": "Milo apparaît comme l’initiateur technique du projet (fondateur de la start‑up, algorithme, logiciel), tandis que les règles d’accès et de présentation sont effectivement fixées par Léa, qui tranche sur le délai et les restrictions d’accès, ainsi que sur l’ordre d’affichage manuscrit/transcription.",
+            "reason": "Cette option contredit le fait que Milo ne fait que proposer tandis que Léa prend les décisions finales sur l’accès et la consultation ; elle ne se limite pas à la logistique, mais définit les règles d’accès et même l’interface d’affichage.",
             "quotes": [
-              "« Milo, fondateur d’une jeune start‑up, aligner soigneusement les carnets »",
-              "« Avec ces écritures, notre algorithme apprendra à lire les manuscrits »",
               "« Milo avait d’abord proposé un accès immédiat accompagné d’un pseudonyme, mais Léa avait tranché : un délai de trente ans et un verrou d’accès réservé aux chercheurs. »",
               "« Elle décida que, par défaut, l’image du document manuscrit s’afficherait toujours avant la transcription »"
             ]
           },
           {
             "index": 2,
-            "supported": false,
+            "supported": true,
             "plausible": true,
-            "reason": "Léa ne se contente pas d’appliquer des choix techniques fixés par Milo : elle impose ses propres décisions sur les conditions d’accès (délai, public restreint) et sur l’interface de consultation. Cela dépasse largement une simple exécution des choix de Milo.",
+            "reason": "Le récit indique clairement que Milo propose une solution technique (accès immédiat avec pseudonyme), mais que c’est Léa qui, en dernier ressort, fixe les règles concrètes d’accès (délai de trente ans, accès réservé aux chercheurs) et de consultation (affichage prioritaire de l’image manuscrite). Cela suggère que le véritable pouvoir de décision en matière d’accès et d’affichage appartient à Léa.",
             "quotes": [
+              "« Milo avait d’abord proposé un accès immédiat accompagné d’un pseudonyme »",
               "« mais Léa avait tranché : un délai de trente ans et un verrou d’accès réservé aux chercheurs. »",
               "« Elle décida que, par défaut, l’image du document manuscrit s’afficherait toujours avant la transcription »"
             ]
@@ -3509,77 +3507,76 @@
             "index": 3,
             "supported": false,
             "plausible": true,
-            "reason": "Mme Sorel pose bien une condition, mais le cadre principal est ensuite redéfini par Léa (délai chiffré, public restreint, modalité d’affichage). Le texte ne dit pas que « les exigences des anciens donateurs » imposent l’essentiel du cadre ; au contraire, on voit Léa ajuster et préciser ce cadre au-delà de la demande de Mme Sorel.",
+            "reason": "Le texte montre l’inverse de ce qui est affirmé : Léa ne délègue pas la conception de l’interface à Milo, puisqu’elle décide elle‑même de la manière dont les documents s’affichent. Le texte ne mentionne pas non plus qu’elle se limiterait à un simple cadre juridique général.",
             "quotes": [
-              "« Elle avait accepté qu’on les numérise, à condition qu’elles ne soient consultables en ligne qu’après sa mort. »",
-              "« Milo avait d’abord proposé un accès immédiat accompagné d’un pseudonyme, mais Léa avait tranché : un délai de trente ans et un verrou d’accès réservé aux chercheurs. »",
               "« Elle décida que, par défaut, l’image du document manuscrit s’afficherait toujours avant la transcription »"
             ]
           }
         ],
-        "summary": "L’organisation concrète du projet suggère que Milo initie l’aspect technique, mais que Léa détient le pouvoir de décision sur les règles d’accès et la présentation des documents, ce qui correspond à la réponse 2."
+        "summary": "Les éléments du texte montrent que Milo fait des propositions techniques, mais que Léa prend les décisions finales sur les règles d’accès et l’interface de consultation ; seule l’option 3 (index 2) reflète correctement cette répartition du pouvoir de décision."
       }
     },
     "blind": {
       "stage": "blind",
       "model": "gpt-5-mini-2025-08-07",
-      "id": "chatcmpl-Enp4KZMuFDT5leYMIY9oOJQrl0LAp",
+      "id": "chatcmpl-EnpA45UHMHIiF9H05g24NaUlLk0mQ",
       "usage": {
-        "prompt_tokens": 363,
-        "completion_tokens": 866,
-        "total_tokens": 1229,
+        "prompt_tokens": 390,
+        "completion_tokens": 636,
+        "total_tokens": 1026,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 384,
+          "reasoning_tokens": 192,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
       "result": {
-        "guess": 1,
+        "guess": 2,
         "probabilities": [
           0.05,
-          0.55,
-          0.2,
-          0.2
+          0.15,
+          0.7,
+          0.1
         ],
-        "confident": false,
+        "confident": true,
         "cues": [
-          "verbe 'initie' + 'laisse' suggère délégation opérationnelle",
-          "options 2 et 3 présentent Léa en rôle subordonné",
-          "option 0 change le focus vers des donateurs externes (moins centré sur Léa/Milo)"
+          "«formule des propositions techniques» vs «fixe en dernier ressort»",
+          "distinction entre rôle technique et pouvoir décisionnel final",
+          "options 0 et 1 grant full authority to one actor, less nuanced",
+          "option 3 introduces Mme Sorel, an external actor not mentioned in question"
         ],
-        "reason": "L'option 1 décrit une répartition claire et concrète du pouvoir: Milo est à l'origine, mais délègue à Léa la définition des règles d'accès et de présentation — une lecture courante de «organisation concrète» qui distingue initiation et décisions opérationnelles. Les autres options présentent Léa soit comme simple exécutante (option 2), soit comme marginale au profit d'une tierce personne (option 3), ou invoquent un facteur externe dominant (option 0). Sans le texte, l'interprétation reste incertaine, d'où une probabilité majoritaire mais modérée.",
+        "reason": "The question asks about the real distribution of decision-making power. Option 2 explicitly separates technical input (Milo) from final authority (Léa), matching a common interpretation that one party proposes while the other retains ultimate control. The other options either give sole control to one person without nuance (0 and 1) or introduce a third party (Mme Sorel) not referenced in the prompt, making them less likely.",
         "plausibility": [
           {
             "index": 0,
             "credible": false,
-            "reason": "Focalise sur des contraintes externes (donateurs) plutôt que sur la répartition interne entre Léa et Milo — moins directement liée à la question."
+            "reason": "Claims Léa only defines a legal framework and fully delegates interface design to Milo; less nuanced and grants full authority to Milo, which is unlikely given question's focus on distribution."
           },
           {
             "index": 1,
-            "credible": true,
-            "reason": "Présente une répartition opérationnelle plausible : Milo initie et délègue à Léa la définition des règles, ce qui répond directement à la question sur le pouvoir de décision réel."
+            "credible": false,
+            "reason": "States Milo is originator of access choices and Léa only handles scanning logistics; this strips Léa of decision power entirely and seems less balanced than wording in prompt."
           },
           {
             "index": 2,
             "credible": true,
-            "reason": "Cohérente si le texte montre que Milo prend les décisions techniques et Léa met en œuvre — plausible alternative où Léa a moins de pouvoir."
+            "reason": "Makes a clear, plausible split: Milo handles technical proposals while Léa retains final decision-making on access rules, matching common interpretations of 'répartition réelle du pouvoir'."
           },
           {
             "index": 3,
-            "credible": true,
-            "reason": "Possible si une tierce personne (Mme Sorel) joue un rôle décisif et relègue Léa au second plan — une autre plausible répartition du pouvoir."
+            "credible": false,
+            "reason": "Introduces Mme Sorel as a primary negotiator before Léa applies decisions; adds an external actor not mentioned and shifts dynamic in an unsupported way."
           }
         ]
       },
-      "expected": 1
+      "expected": 2
     },
-    "expected": 1
+    "expected": 2
   },
   {
     "number": 37,
@@ -3588,17 +3585,17 @@
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enp3o4LvDL1Xr0z4pofaCedhI10Bz",
+      "id": "chatcmpl-Enp9ZkeMO4VFGvnJduQirUf8lcuGY",
       "usage": {
-        "prompt_tokens": 745,
-        "completion_tokens": 1694,
-        "total_tokens": 2439,
+        "prompt_tokens": 754,
+        "completion_tokens": 1811,
+        "total_tokens": 2565,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 888,
+          "reasoning_tokens": 940,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -3615,128 +3612,132 @@
             "index": 0,
             "supported": false,
             "plausible": true,
-            "reason": "Claire ne considère pas le résumé en langage courant comme un « détail secondaire » : au contraire, « Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage », et elle critique justement le fait de se limiter à « icônes colorées ».",
+            "reason": "Le directeur considère bien le consentement comme un outil de couverture des usages imprévus, mais Claire estime précisément que ce dispositif est trompeur et insuffisamment explicite. Elle ne veut pas seulement une légère simplification : elle craint une « illusion de maîtrise » et réclame des explications supplémentaires claires en langage courant.",
             "quotes": [
+              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
               "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
-              "au‑delà des icônes colorées"
+              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus."
             ]
           },
           {
             "index": 1,
             "supported": false,
             "plausible": true,
-            "reason": "C’est le directeur, pas Claire, qui se focalise sur les retombées scientifiques et financières : « Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers. » Rien n’indique qu’il en souligne une quelconque valeur pédagogique pour les malades, et Claire se préoccupe surtout de l’illusion de maîtrise et des explications données aux patients.",
+            "reason": "Claire ne considère pas le consentement comme un simple geste symbolique sans usages concrets ; au contraire, elle craint que les patients ne modifient pas leurs choix malgré des conséquences bien réelles. De plus, le directeur ne souhaite pas limiter l’usage aux seules recherches académiques : il vise aussi des partenariats financiers et des usages imprévus.",
             "quotes": [
+              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
+              "Elle savait que rares étaient les patients qui reviendraient modifier leurs choix",
               "Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers.",
-              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise."
+              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus."
             ]
           },
           {
             "index": 2,
             "supported": false,
             "plausible": true,
-            "reason": "Claire ne partage pas une confiance dans la capacité des patients à revenir modifier leurs choix : « Elle savait que rares étaient les patients qui reviendraient modifier leurs choix ». L’énoncé attribue au contraire à Claire la conviction inverse.",
+            "reason": "Rien n’indique que le directeur ait peur de trop détailler les usages pour ne pas effrayer les patients ; le texte dit seulement qu’il voit dans le consentement dynamique une couverture suffisante pour des usages imprévus. Quant à Claire, elle ne veut pas multiplier les options techniques, mais au contraire ajouter des résumés clairs en langage courant.",
             "quotes": [
-              "Elle savait que rares étaient les patients qui reviendraient modifier leurs choix, même si l’interface le permettait en théorie."
+              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus.",
+              "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage."
             ]
           },
           {
             "index": 3,
             "supported": true,
             "plausible": true,
-            "reason": "Le directeur voit le consentement dynamique comme un moyen de couvrir des usages futurs tout en visant publications et partenariats : « Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers. Pour lui, un consentement “dynamic” suffisait à couvrir les usages imprévus. » Claire, elle, doute que ce mécanisme suffise et exige des explications concrètes et accessibles : « redoutait que ce dispositif ne produise qu’une illusion de maîtrise », « Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage. » et « aucun texte ne dispensait l’hôpital d’expliquer concrètement, au‑delà des icônes colorées… »",
+            "reason": "Le directeur voit le consentement dynamique comme une couverture globale permettant de développer publications et partenariats, puisqu’il en \"compte déjà\" les bénéfices et estime ce consentement suffisant pour les usages imprévus. Claire, elle, craint une illusion de maîtrise et exige des explications claires et concrètes, au-delà du seul dispositif d’interface.",
             "quotes": [
               "Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers.",
               "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus.",
               "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
               "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
-              "aucun texte ne dispensait l’hôpital d’expliquer concrètement, au‑delà des icônes colorées"
+              "Claire souligna qu’aucun texte ne dispensait l’hôpital d’expliquer concrètement, au‑delà des icônes colorées, ce que signifiait céder des années de dossiers médicaux."
             ]
           }
         ],
-        "summary": "Une seule réponse est nettement étayée : le directeur voit le consentement dynamique comme une couverture pour des usages futurs liés aux publications et partenariats, tandis que Claire le juge insuffisant sans explications concrètes et accessibles pour les patients."
+        "summary": "L’option 3 est la seule fidèle au texte : le directeur voit le consentement dynamique comme une protection générale facilitant publications et partenariats, tandis que Claire dénonce une illusion de maîtrise et réclame des explications claires dépassant le simple dispositif technique."
       }
     },
     "blind": {
       "stage": "blind",
       "model": "gpt-5-mini-2025-08-07",
-      "id": "chatcmpl-Enp426Foyo9L0v5eZz7n75Osgixkm",
+      "id": "chatcmpl-Enp9mrLPYUBcsciAsMvHJ1aBoUdWa",
       "usage": {
-        "prompt_tokens": 420,
-        "completion_tokens": 705,
-        "total_tokens": 1125,
+        "prompt_tokens": 429,
+        "completion_tokens": 869,
+        "total_tokens": 1298,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 192,
+          "reasoning_tokens": 384,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
       "result": {
-        "guess": 0,
+        "guess": 3,
         "probabilities": [
-          0.75,
+          0.08,
           0.05,
-          0.1,
-          0.1
+          0.07,
+          0.8
         ],
         "confident": true,
         "cues": [
-          "contraste directeur vs Claire",
-          "directeur: couvrir usages futurs/publications/partenariats",
-          "Claire: doute, besoin d'explications concrètes et accessibles",
-          "autres options contiennent extrêmes ou inversions peu plausibles"
+          "opposition director vs Claire framed as institutional vs patient-centered concerns",
+          "option 4 uses terms 'protection', 'publications', 'partenariats' suggesting institutional motive",
+          "phrasing 'illusion de maîtrise' and 'explications claires' matches typical patient-advocate worry",
+          "other options contain less plausible or internally inconsistent preferences for Claire"
         ],
-        "reason": "L'option 0 décrit un contraste raisonnable et nuancé — le directeur voyant le 'consentement dynamique' comme un moyen pratique pour les usages futurs (publications/partenariats) tandis que Claire exprime des réserves et demande des explications concrètes et accessibles pour les patients. Les autres options contiennent éléments peu plausibles : attribuer à Claire un souci prioritaire des retombées financières (option 1) ou prétendre qu'ils partagent une même confiance excessive dans le comportement des patients (option 2), ou dire qu'ils minimisent le résumé en langage courant (option 3) sont moins compatibles avec un énoncé scolaire typique qui met en contraste prudence éthique/communication et intérêt institutionnel.",
+        "reason": "Option 4 (index 3) reads like the most balanced and realistic characterization: the director is depicted with institutional incentives (protecting the organization to enable publications and partnerships), while Claire expresses a skeptical, patient-centered stance emphasizing the need for clear explanations beyond a mere interface/device. The other choices contain cues that make them less likely (e.g., Claire preferring technical options over plain-language summaries, or treating consent as merely symbolic), so option 4 is the most plausible intended answer.",
         "plausibility": [
           {
             "index": 0,
-            "credible": true,
-            "reason": "Formulation nuancée et équilibrée, reprend des éléments typiques de débats sur le consentement dynamique (intérêt institutionnel vs nécessité d'explications accessibles)."
+            "credible": false,
+            "reason": "Both actors portrayed as seeing it mainly as a legal tool seems less nuanced; Claire's tiny preference to 'simplify slightly' is weak and unlikely to contrast strongly with a director in the way the question implies."
           },
           {
             "index": 1,
             "credible": false,
-            "reason": "Inversion improbable: attribue à Claire un accent sur retombées financières, ce qui semble contradictoire avec la mention d'un doute et d'exigence d'explications concrètes."
+            "reason": "It claims the director avoids detailing uses to not frighten patients while Claire prefers more technical interface options instead of plain-language summaries — this characterization of Claire is counterintuitive and unevenly specific."
           },
           {
             "index": 2,
             "credible": false,
-            "reason": "Affirme une confiance partagée dans la capacité des patients à modifier régulièrement leurs choix — formulation trop optimiste et homogène, peu vraisemblable dans un texte nuançant positions."
+            "reason": "Portraying Claire as seeing the consent as mainly symbolic and the director restricting it to academic research is unlikely: it inverts typical roles (director vs patient advocate) and feels implausibly narrow."
           },
           {
             "index": 3,
-            "credible": false,
-            "reason": "Affirme que les deux considèrent le résumé en langage courant comme secondaire, ce qui semble contraire à la préoccupation habituelle pour l'accessibilité dans ce type de question."
+            "credible": true,
+            "reason": "Matches common-sense roles and vocabulary: institutional motive for broader protection/publication versus patient advocate concern about illusion of control and need for clear explanations."
           }
         ]
       },
-      "expected": 0
+      "expected": 3
     },
     "expected": 3
   },
   {
     "number": 38,
     "grounded": true,
-    "strong": true,
+    "strong": false,
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enp4QRCP2rOf3dI9Uhm19A7BizNpg",
+      "id": "chatcmpl-Enp8ifHVt1Tg1RCxOvGeeu1aKYDR5",
       "usage": {
         "prompt_tokens": 778,
-        "completion_tokens": 2150,
-        "total_tokens": 2928,
+        "completion_tokens": 1712,
+        "total_tokens": 2490,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1253,
+          "reasoning_tokens": 844,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -3744,16 +3745,37 @@
       },
       "result": {
         "supportedIndices": [
-          0
+          2
         ],
         "ambiguous": false,
         "questionSupported": true,
         "options": [
           {
             "index": 0,
+            "supported": false,
+            "plausible": true,
+            "reason": "Cette option inverse les positions du texte et ajoute une motivation non mentionnée. Dans le passage, c’est Claire qui redoute « une illusion de maîtrise », pas le directeur, et rien n’indique qu’elle voie le consentement dynamic comme un moyen de « simplifier à l’extrême les choix proposés ». Le directeur, au contraire, est enthousiaste et non inquiet.",
+            "quotes": [
+              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
+              "Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers."
+            ]
+          },
+          {
+            "index": 1,
+            "supported": false,
+            "plausible": true,
+            "reason": "Cette option renverse également les rôles. Claire ne considère pas que l’interface suffise à rendre les patients maîtres de leurs données, elle insiste au contraire sur la nécessité d’explications claires. C’est elle, pas le directeur, qui veut « un résumé clair, en langage courant ». Le directeur se satisfait du seul consentement dynamic.",
+            "quotes": [
+              "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
+              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
+              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus."
+            ]
+          },
+          {
+            "index": 2,
             "supported": true,
             "plausible": true,
-            "reason": "Le texte montre que Claire considère le consentement « dynamic » comme insuffisant sans explications supplémentaires, tandis que le directeur le voit comme suffisant pour couvrir des usages futurs imprévus. Claire « insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage » et « souligna qu’aucun texte ne dispensait l’hôpital d’expliquer concrètement… », alors que « pour lui, un consentement ‘dynamic’ suffisait à couvrir les usages imprévus ». Cela correspond à l’idée d’un simple cadre formel à compléter versus une validation globale suffisante.",
+            "reason": "Cette option reflète précisément le désaccord décrit. Pour Claire, le consentement dynamic n’est qu’un cadre formel qui doit être complété par des explications concrètes et détaillées aux patients (« résumé clair », « au‑delà des icônes », « aucun texte ne dispensait… d’expliquer concrètement »). À l’inverse, le directeur considère que ce consentement suffit à légitimer même des usages ultérieurs imprévus (« suffisait à couvrir les usages imprévus »), ce qui correspond à l’idée de validation globale suffisante.",
             "quotes": [
               "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
               "Claire souligna qu’aucun texte ne dispensait l’hôpital d’expliquer concrètement, au‑delà des icônes colorées, ce que signifiait céder des années de dossiers médicaux.",
@@ -3761,51 +3783,28 @@
             ]
           },
           {
-            "index": 1,
-            "supported": false,
-            "plausible": true,
-            "reason": "Cette option inverse les positions : dans le texte, ce n’est pas le directeur mais Claire qui craint « une illusion de maîtrise » pour les patients (« Claire, juriste…, redoutait que ce dispositif ne produise qu’une illusion de maîtrise »). De plus, rien n’indique qu’elle voit le consentement comme un moyen de « simplifier à l’extrême les choix proposés » ; elle demande au contraire davantage d’explications.",
-            "quotes": [
-              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
-              "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage."
-            ]
-          },
-          {
-            "index": 2,
-            "supported": false,
-            "plausible": true,
-            "reason": "Cette option renverse entièrement les rôles attribués par le texte. Claire ne considère pas que l’interface suffise à rendre les patients maîtres de leurs données ; au contraire, elle craint une « illusion de maîtrise » et demande des résumés clairs. Le directeur, lui, ne réclame pas de résumés en langage courant ; il se contente du consentement « dynamic » qu’il juge suffisant pour couvrir les usages imprévus.",
-            "quotes": [
-              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
-              "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
-              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus."
-            ]
-          },
-          {
             "index": 3,
             "supported": false,
             "plausible": true,
-            "reason": "Rien dans le texte ne dit que Claire veut d’abord protéger juridiquement l’hôpital dans ses partenariats industriels ; elle se concentre sur l’information des patients (« résumé clair », « expliquer concrètement »). C’est au contraire le directeur qui se projette vers « les futures publications scientifiques et les partenariats financiers ». Il ne met pas en avant la possibilité pour les patients de modifier facilement leurs préférences, alors que Claire sait que « rares étaient les patients qui reviendraient modifier leurs choix ».",
+            "reason": "Rien dans le texte n’indique que Claire veuille d’abord protéger juridiquement l’hôpital dans ses partenariats industriels : elle est surtout préoccupée par l’illusion de maîtrise et la clarté des explications aux patients. De même, le directeur est tourné vers « futures publications » et « partenariats financiers », pas vers la garantie offerte aux patients de modifier leurs choix.",
             "quotes": [
-              "Dans un bureau voisin, Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
+              "Claire, juriste de l’hôpital, redoutait que ce dispositif ne produise qu’une illusion de maîtrise.",
               "Elle insistait pour qu’un résumé clair, en langage courant, accompagne chaque catégorie de partage.",
-              "Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers.",
-              "Pour lui, un consentement « dynamic » suffisait à couvrir les usages imprévus.",
-              "Elle savait que rares étaient les patients qui reviendraient modifier leurs choix, même si l’interface le permettait en théorie."
+              "Le directeur, lui, comptait déjà les futures publications scientifiques et les partenariats financiers."
             ]
           }
         ],
-        "summary": "Le désaccord porte sur la portée du consentement « dynamic » : le directeur estime qu’il suffit à légitimer même des usages imprévus des données, alors que Claire considère qu’il ne dispense pas l’hôpital de donner des explications claires et détaillées aux patients. Seule l’option 0 reflète fidèlement cette opposition."
+        "summary": "Le désaccord porte sur la suffisance du consentement dynamic : le directeur le voit comme une validation globale couvrant même les usages imprévus, tandis que Claire le considère comme un simple cadre formel devant impérativement être complété par des explications claires et concrètes aux patients."
       }
     },
     "blind": {
       "stage": "blind",
       "model": "gpt-5-mini-2025-08-07",
-      "id": "chatcmpl-Enp4hoJw3O92IvSp2An0Jt5XBrmVj",
+      "id": "chatcmpl-Enp8w5qEwJWmZhztzVFoFfSmlQKts",
       "usage": {
         "prompt_tokens": 453,
-        "completion_tokens": 849,
-        "total_tokens": 1302,
+        "completion_tokens": 828,
+        "total_tokens": 1281,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
@@ -3818,46 +3817,46 @@
         }
       },
       "result": {
-        "guess": 1,
+        "guess": 3,
         "probabilities": [
-          0.05,
-          0.6,
-          0.25,
-          0.1
+          0.15,
+          0.15,
+          0.15,
+          0.55
         ],
-        "confident": true,
+        "confident": false,
         "cues": [
-          "opposition explicite entre cadre formel et validation globale",
-          "formulation « doit être complété par » vs « validation globale suffisante »",
-          "mention d’« usages ultérieurs imprévus » qui souligne un enjeu fréquent du consentement dynamique"
+          "référence à une interface interactive",
+          "opposition claire entre suffire/enough vs nécessité d'ajouts",
+          "options 1 et 2 mentionnent thèmes plus spécifiques (juridique/illusion) qui pourraient be more context-dependent"
         ],
-        "reason": "Parmi les propositions, l’option 1 et 3 évoquent des détails plus spécifiques (interface interactive, simplification extrême) qui paraissent moins représentatifs d’un désaccord « précis » sur le rôle conceptuel du consentement dynamique. L’option 2 exprime clairement un conflit typique : Claire considère ce dispositif comme essentiellement formel et insuffisant sans explications complémentaires, tandis que le directeur le conçoit comme une validation générale permettant l’exploitation, y compris pour usages futurs — ce contraste capture précisément un désaccord sur le rôle normatif et limitatif du consentement dynamique. L’option 4 focalise sur enjeux juridiques/administratifs (protection de l’hôpital vs possibilité de modifier), moins vraisemblable comme le « rôle » central en discussion ici.",
+        "reason": "Option 3 frames the disagreement as whether the mere presence of an interactive interface makes patients truly masters of their data (Claire) versus the director's insistence on adding clear plain-language summaries. This formulation is a straightforward, common-sense locus of debate about 'dynamic consent' (interface vs meaningful comprehension). The other options introduce more specific elements (legal protection in industrial partnerships, 'illusion of control', or treating the consent as a formal validation covering future uses) that could be correct but feel either more specialized or more strongly charged; without the passage I judge option 3 the likeliest neutral summary of a practical disagreement about the role of dynamic consent.",
         "plausibility": [
           {
             "index": 0,
-            "credible": false,
-            "reason": "Présuppose que Claire surestime une interface seule; formulation semble moins vraisemblable comme point central du désaccord sur le rôle conceptuel du consentement dynamique."
+            "credible": true,
+            "reason": "Plausible: debate could focus on institutional legal protection versus patient control, but this option is quite specific (industrial partnerships) and thus would be a clearer giveaway if present in the passage."
           },
           {
             "index": 1,
             "credible": true,
-            "reason": "Expose un contraste net et conceptuel entre voir le consentement comme formel/incomplet et le voir comme validation globale — correspond bien à la question sur le rôle précis du consentement « dynamic »."
+            "reason": "Plausible: positions about whether dynamic consent is merely a formal tool or an adequate blanket validation for future uses are common in discussions, but this presents a strong asymmetry (Claire cautious, director permissive) that might be less neutral."
           },
           {
             "index": 2,
             "credible": true,
-            "reason": "Aussi plausible: oppose simplification excessive et illusion de maîtrise, un désaccord crédible ; toutefois moins axé sur le rôle juridique/organisationnel que l’option 2."
+            "reason": "Plausible: concern about oversimplification and 'illusion of control' is a known critique; however, the phrasing is somewhat normative and might reflect an interpretative stance rather than a precise factual disagreement."
           },
           {
             "index": 3,
-            "credible": false,
-            "reason": "Focalisation sur protection juridique de l’hôpital vs facilité de modification par les patients paraît plus accessoire et moins directement centré sur la définition du rôle du consentement dynamique."
+            "credible": true,
+            "reason": "Plausible and chosen: captures a concrete, modest disagreement (interface alone vs need for clear summaries) that is likely to appear in a discussion of dynamic consent without assuming extra context."
           }
         ]
       },
       "expected": 1
     },
-    "expected": 0
+    "expected": 2
   },
   {
     "number": 39,

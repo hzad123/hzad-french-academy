@@ -613,22 +613,22 @@
   },
   {
     "number": 9,
-    "grounded": false,
+    "grounded": true,
     "strong": false,
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enoy9hTC7haCSLkfkZ1W5bBoPoYQr",
+      "id": "chatcmpl-Enp7tGrBeETgtBFDQEzvtwdNir7tw",
       "usage": {
         "prompt_tokens": 366,
-        "completion_tokens": 2448,
-        "total_tokens": 2814,
+        "completion_tokens": 2062,
+        "total_tokens": 2428,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1493,
+          "reasoning_tokens": 1242,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -636,7 +636,7 @@
       },
       "result": {
         "supportedIndices": [
-          3
+          2
         ],
         "ambiguous": false,
         "questionSupported": true,
@@ -645,51 +645,47 @@
             "index": 0,
             "supported": false,
             "plausible": true,
-            "reason": "« même si » introduit une concession, marquant que le fait évoqué dans la subordonnée est sans incidence sur la principale. Or ici, le fait que Mme Duarte n’ait pas encore reçu son relevé d’informations est précisément la raison pour laquelle on maintient l’offre pendant dix jours, avant qu’elle n’expire : il s’agit d’un lien causal, non concessif. La suite (« Passé ce délai, il nous sera impossible… ») renforce l’idée d’une limite fixée en raison de l’absence d’informations, pas malgré celle-ci.",
+            "reason": "« même si » introduit une concession (« même si vous n'avez pas encore reçu… ») plutôt qu’une cause. Le courriel explique la limitation de dix jours par le fait que le relevé n’est pas encore reçu, ce qui appelle une conjonction causale comme « puisque ». De plus, la suite « Passé ce délai, il nous sera impossible… » découle d’une justification, non d’une concession.",
             "quotes": [
               "« Nous maintiendrons cette proposition de renouvellement pendant dix jours, ________ vous n'avez pas encore reçu votre relevé d'informations définitif. »",
-              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise et de plafonds d'indemnisation.",
-              "une offre dont elle ne maîtrisait pas encore tous les paramètres."
+              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise et de plafonds d'indemnisation."
             ]
           },
           {
             "index": 1,
             "supported": false,
             "plausible": false,
-            "reason": "« Pour que » exprime le but et exige normalement le subjonctif (« pour que vous n’ayez pas encore reçu » serait de toute façon sémantiquement aberrant). Ici, le verbe est à l’indicatif (« vous n'avez pas encore reçu ») et le contenu de la subordonnée décrit un fait déjà avéré, non un objectif à atteindre. La relation sémantique n’est donc pas finalisée mais explicative/causale.",
+            "reason": "« pour que » exprime le but et exige le subjonctif : on attendrait « pour que vous n’ayez pas encore reçu… », ce qui est à la fois agrammatical ici et absurde (ils ne maintiennent pas l’offre dans le but que le relevé ne soit pas reçu). La structure et le sens du passage excluent cette conjonction finale.",
             "quotes": [
-              "vous n'avez pas encore reçu votre relevé d'informations définitif.",
-              "Nous maintiendrons cette proposition de renouvellement pendant dix jours"
+              "« Nous maintiendrons cette proposition de renouvellement pendant dix jours, ________ vous n'avez pas encore reçu votre relevé d'informations définitif. »"
             ]
           },
           {
             "index": 2,
-            "supported": false,
+            "supported": true,
             "plausible": true,
-            "reason": "« Tant que » exprime la simultanéité dans la durée (« aussi longtemps que »). On dirait plutôt « Nous maintiendrons cette proposition tant que vous n’aurez pas reçu… », sans préciser une durée chiffrée. L’association de « pendant dix jours » avec « tant que » crée une incohérence : soit l’offre dure précisément dix jours, soit elle dure aussi longtemps que le document n’est pas reçu, ce qui peut être plus ou moins que dix jours. De plus, la phrase semble vouloir expliquer la limite de dix jours par l’absence actuelle du relevé, ce qui appelle une cause (« puisque »), pas une condition durative.",
+            "reason": "« puisque » exprime une cause connue : l’assureur maintient la proposition pendant dix jours parce que la cliente n’a pas encore reçu son relevé. Cela s’accorde avec l’idée d’un délai limité, renforcée par « Passé ce délai, il nous sera impossible de garantir… ». La phrase devient naturelle : « pendant dix jours, puisque vous n'avez pas encore reçu votre relevé… ».",
             "quotes": [
-              "pendant dix jours",
-              "vous n'avez pas encore reçu votre relevé d'informations définitif.",
-              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise"
+              "« Nous maintiendrons cette proposition de renouvellement pendant dix jours, ________ vous n'avez pas encore reçu votre relevé d'informations définitif. »",
+              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise et de plafonds d'indemnisation."
             ]
           },
           {
             "index": 3,
-            "supported": true,
+            "supported": false,
             "plausible": true,
-            "reason": "« Puisque » introduit une cause fondée sur un fait connu du locuteur et de l’interlocuteur. Ici, le conseiller motive la décision de maintenir l’offre pendant dix jours par le fait que Mme Duarte n’a pas encore reçu son relevé d’informations définitif. Cela correspond exactement au lien logique attendu : la durée limitée de validité est fixée en raison de l’absence d’informations complètes. Le reste du passage montre que Mme Duarte ne maîtrise pas tous les paramètres, ce qui concorde avec cette justification causale.",
+            "reason": "« tant que » marque normalement la durée conditionnelle (« aussi longtemps que »). Combiné avec « pendant dix jours », cela créerait une tension logique : soit la durée est fixe (« pendant dix jours »), soit elle dépend de la non-réception du relevé (« tant que vous n'avez pas encore reçu… »). Le texte insiste sur un délai précis suivi d’une conséquence, ce qui correspond mieux à une relation causale qu’à une condition de durée.",
             "quotes": [
-              "« Nous maintiendrons cette proposition de renouvellement pendant dix jours, ________ vous n'avez pas encore reçu votre relevé d'informations définitif.",
-              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise et de plafonds d'indemnisation.",
-              "Mme Duarte hésitait à accepter une offre dont elle ne maîtrisait pas encore tous les paramètres."
+              "« Nous maintiendrons cette proposition de renouvellement pendant dix jours, ________ vous n'avez pas encore reçu votre relevé d'informations définitif. »",
+              "Passé ce délai, il nous sera impossible de garantir le même niveau de franchise et de plafonds d'indemnisation."
             ]
           }
         ],
-        "summary": "Le seul mot qui complète correctement le blanc, en respectant la grammaire et le sens (relation causale fondée sur un fait connu), est « puisque » (option 3). Les autres choix ne rendent pas adéquatement le lien logique entre la durée de maintien de l’offre et l’absence actuelle du relevé d’informations."
+        "summary": "La conjonction qui complète correctement la phrase est « puisque » (indice 2), car le passage justifie la durée de dix jours par le fait que Mme Duarte n’a pas encore reçu son relevé d’informations, avant de préciser qu’au-delà de ce délai les mêmes conditions ne seront plus garanties."
       }
     },
     "blind": null,
-    "expected": 0
+    "expected": 2
   },
   {
     "number": 10,
@@ -921,22 +917,22 @@
   },
   {
     "number": 13,
-    "grounded": false,
+    "grounded": true,
     "strong": false,
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-EnoyRUETa8OK8Mp1O0MYjE6vX70gb",
+      "id": "chatcmpl-Enp8E2fcCqLQ8ECxe6YELzQJweSe5",
       "usage": {
-        "prompt_tokens": 386,
-        "completion_tokens": 2807,
-        "total_tokens": 3193,
+        "prompt_tokens": 385,
+        "completion_tokens": 1332,
+        "total_tokens": 1717,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1975,
+          "reasoning_tokens": 681,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -944,38 +940,37 @@
       },
       "result": {
         "supportedIndices": [
-          2,
           3
         ],
-        "ambiguous": true,
-        "questionSupported": false,
+        "ambiguous": false,
+        "questionSupported": true,
         "options": [
           {
             "index": 0,
             "supported": false,
-            "plausible": true,
-            "reason": "\"désormais\" marque un changement dans le temps («à partir de maintenant»), ce qui ne correspond pas à un courrier déjà envoyé et relu : «le courrier évoquait simplement…» décrit un contenu fixe, non une nouvelle habitude. L'idée d'un avant/après n'est nulle part indiquée.",
+            "plausible": false,
+            "reason": "« Désormais » marque un changement temporel ou de situation (à partir de maintenant), ce qui ne correspond pas au lien logique recherché. Ici, on ajoute une précision sur le contenu du courrier, on ne situe pas l’action dans le temps.",
             "quotes": [
-              "Julien relut la lettre de son assureur",
-              "le courrier évoquait simplement"
+              "la prime augmenterait de 18 % pour la prochaine échéance",
+              "le courrier évoquait simplement une « réévaluation globale du risque sur le littoral »"
             ]
           },
           {
             "index": 1,
             "supported": false,
-            "plausible": true,
-            "reason": "\"d'abord\" annonce normalement une énumération (d'abord… puis/ensuite…), qui n'apparaît pas dans la suite du passage. Ici, on n'a qu'un seul grief développé, sans deuxième point explicitement annoncé, donc l'emploi de «d'abord» serait rhétoriquement inachevé.",
+            "plausible": false,
+            "reason": "« D’abord » introduit en général le premier élément d’une énumération (souvent suivi de « ensuite », « puis »). Ici, il n’y a pas de série annoncée ; on a plutôt un ajout explicatif unique après un point-virgule.",
             "quotes": [
-              "Il avait beau relire le paragraphe consacré aux « événements climatiques majeurs », il n'y trouvait rien qui justifie une telle hausse ; ________ (2), le courrier évoquait simplement"
+              "il n'y trouvait rien qui justifie une telle hausse ; ________ (2), le courrier évoquait simplement"
             ]
           },
           {
             "index": 2,
-            "supported": true,
-            "plausible": true,
-            "reason": "\"tout au plus\" («au mieux», «au plus», marquant une limitation) s'accorde très bien avec la tournure restrictive «évoquait simplement» et la plainte de Julien : il ne trouve rien qui justifie la hausse, et «au mieux», la lettre se contente d'une justification très générale. Le lien logique de limitation est clairement compatible avec : «il n'y trouvait rien qui justifie une telle hausse ; … le courrier évoquait simplement une \"réévaluation globale…\"».",
+            "supported": false,
+            "plausible": false,
+            "reason": "« Par conséquent » exprime une conséquence logique. Or le fait que Julien ne trouve rien dans le paragraphe ne peut pas avoir pour conséquence que « le courrier évoquait simplement une réévaluation » : cette évocation fait déjà partie du même courrier. On décrit un autre aspect du courrier, pas une conséquence.",
             "quotes": [
-              "il n'y trouvait rien qui justifie une telle hausse ;",
+              "Il avait beau relire le paragraphe consacré aux « événements climatiques majeurs », il n'y trouvait rien qui justifie une telle hausse ;",
               "le courrier évoquait simplement une « réévaluation globale du risque sur le littoral »"
             ]
           },
@@ -983,18 +978,17 @@
             "index": 3,
             "supported": true,
             "plausible": true,
-            "reason": "\"en outre\" («de plus», «par ailleurs») est aussi cohérent : Julien énumère deux constats négatifs sur le courrier. D'une part, le paragraphe sur les événements climatiques ne donne aucune justification : «il n'y trouvait rien qui justifie une telle hausse» ; d'autre part, et c'est un grief supplémentaire, «le courrier évoquait simplement une \"réévaluation globale du risque\"». Introduire ce second constat par «en outre» (comme on dirait «de plus, le courrier se contentait de…») est grammatical et sémantiquement naturel. Le texte n'exclut pas cette lecture additive.",
+            "reason": "« En outre » signifie « de plus, par ailleurs » et sert à ajouter un élément d’information. Après avoir indiqué que Julien ne trouve aucune justification dans le paragraphe, on ajoute que, de plus, la lettre se contente de mentionner une réévaluation globale : il s’agit bien d’un ajout explicatif cohérent après le point-virgule.",
             "quotes": [
-              "il n'y trouvait rien qui justifie une telle hausse ;",
-              "le courrier évoquait simplement une « réévaluation globale du risque sur le littoral » appliquée à l'ensemble du portefeuille de contrats."
+              "il n'y trouvait rien qui justifie une telle hausse ; ________ (2), le courrier évoquait simplement une « réévaluation globale du risque sur le littoral »"
             ]
           }
         ],
-        "summary": "Deux adverbes s'insèrent de manière grammaticale et sémantique plausible dans le blanc (2) : «tout au plus», qui renforce l'idée de limitation déjà portée par «simplement», et «en outre», qui introduit le second grief comme un ajout au premier. Les autres options sont grammaticalement des adverbes mais ne cadrent pas avec la logique du passage. Comme au moins deux choix (indices 2 et 3) sont défendables sur la base du texte, la question est ambiguë et ne soutient pas une seule réponse unique."
+        "summary": "Seul « en outre » fonctionne comme adverbe de liaison logique approprié, ajoutant une précision au constat précédent ; les autres adverbes n’expriment ni le bon type de relation (conséquence ou temporalité) ni une énumération pertinente."
       }
     },
     "blind": null,
-    "expected": 2
+    "expected": 3
   },
   {
     "number": 14,
@@ -3457,17 +3451,17 @@
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enp3xa3hvuj4psWR0DKS30wDi5zT0",
+      "id": "chatcmpl-Enp9G341QvdacsmFoKaSMVUJLy4B7",
       "usage": {
-        "prompt_tokens": 729,
-        "completion_tokens": 2232,
-        "total_tokens": 2961,
+        "prompt_tokens": 713,
+        "completion_tokens": 2003,
+        "total_tokens": 2716,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1362,
+          "reasoning_tokens": 1050,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -3475,7 +3469,7 @@
       },
       "result": {
         "supportedIndices": [
-          2
+          1
         ],
         "ambiguous": false,
         "questionSupported": true,
@@ -3484,108 +3478,110 @@
             "index": 0,
             "supported": false,
             "plausible": true,
-            "reason": "C’est l’apiculteur, et non la biologiste, qui présente le miel comme ressource locale et outil pédagogique. Par ailleurs, il ne met pas « d’abord » en avant l’aspect économique plutôt que pédagogique : les deux sont mentionnés ensemble.",
+            "reason": "La biologiste affirme explicitement que le nombre de ruches est déjà trop élevé, mais l’apiculteur ne partage pas ce diagnostic et ne critique jamais la quantité actuelle de ruches ; au contraire, il les défend. Il n’est donc pas dit qu’ils partagent l’idée d’un nombre « déjà excessif ». De plus, rien n’indique qu’ils divergeraient seulement sur la manière de communiquer ce constat au public.",
             "quotes": [
-              "« après qu’un apiculteur urbain a présenté le miel comme une nouvelle ressource locale et « un formidable outil pédagogique » pour les écoles voisines. »"
+              "les études recommandent « trois colonies par kilomètre carré », alors que le secteur en compte déjà « au moins douze »",
+              "Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages",
+              "L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité »"
             ]
           },
           {
             "index": 1,
-            "supported": false,
+            "supported": true,
             "plausible": true,
-            "reason": "La biologiste ne juge pas l’impact des ruches limité : elle alerte sur un excès de colonies et un péril pour les pollinisateurs sauvages. Inversement, ce n’est pas l’apiculteur qui alerte sur la saturation ; il valorise ses ruches et rassure sur l’absence d’incidents.",
+            "reason": "Le contraste porte bien sur l’évaluation écologique des ruches : la biologiste alerte sur un risque pour les pollinisateurs sauvages, tandis que l’apiculteur présente au contraire ses abeilles comme un signe positif pour la biodiversité. Ils s’opposent donc sur les risques écologiques, exactement comme formulé dans la proposition.",
             "quotes": [
-              "« les études recommandent « trois colonies par kilomètre carré », alors que le secteur en compte déjà « au moins douze » »",
-              "« Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages en raréfiant les ressources florales. »",
-              "« L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité » et qu’aucun incident grave n’a été signalé depuis dix ans sur ses autres toits. »",
-              "« les alertes scientifiques sur la saturation du milieu »"
+              "Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages en raréfiant les ressources florales.",
+              "L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité »"
             ]
           },
           {
             "index": 2,
-            "supported": true,
+            "supported": false,
             "plausible": true,
-            "reason": "La biologiste met clairement l’accent sur la protection des pollinisateurs sauvages menacés par la multiplication des ruches. L’apiculteur, lui, ne parle pas de mesures concrètes de protection mais de ses abeilles comme « sentinelles de la biodiversité », ce qui relève surtout d’une mise en avant symbolique de leur rôle.",
+            "reason": "L’« outil pédagogique » est mentionné dans la présentation initiale de l’apiculteur aux copropriétaires, pas comme point d’accord entre la biologiste et lui. La biologiste ne parle jamais de dimension pédagogique. Quant aux « conséquences sanitaires pour les riverains », elles sont exprimées par un habitant allergique, non par la biologiste, alors que l’« absence d’incident grave » est avancée par l’apiculteur. On ne peut donc pas dire qu’ils s’accordent sur l’aspect pédagogique ni qu’ils débattent entre eux des conséquences sanitaires.",
             "quotes": [
-              "« Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages en raréfiant les ressources florales. »",
-              "« L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité » »"
+              "un apiculteur urbain a présenté le miel comme une nouvelle ressource locale et « un formidable outil pédagogique »",
+              "Un habitant souffrant d’allergies sévères redoute d’augmenter le risque de piqûres",
+              "L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité » et qu’aucun incident grave n’a été signalé depuis dix ans"
             ]
           },
           {
             "index": 3,
             "supported": false,
             "plausible": true,
-            "reason": "C’est la mairie, pas la biologiste, qui insiste sur la communication autour de la « ville verte ». De plus, l’apiculteur ne réclame nulle part des mesures plus strictes pour protéger les pollinisateurs sauvages ; il défend au contraire son dispositif en soulignant l’absence d’incidents.",
+            "reason": "La biologiste ne minimise absolument pas l’enjeu écologique : elle insiste au contraire sur la recommandation de limiter le nombre de colonies et sur un « péril » pour les pollinisateurs sauvages. Seul l’apiculteur mentionne l’absence d’« incident grave », et cela concerne plutôt la sécurité/ santé que l’écologie. Ils ne « recentrent » donc pas ensemble le débat sur ce point, ni ne minimisent l’enjeu écologique.",
             "quotes": [
-              "« La mairie, qui recense déjà une centaine de ruches dans le quartier, y voit une opération de communication bienvenue autour de la « ville verte ». »",
-              "« Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages »",
-              "« L’apiculteur réplique que ses abeilles, en butinant, servent de « sentinelles de la biodiversité » et qu’aucun incident grave n’a été signalé depuis dix ans sur ses autres toits. »"
+              "les études recommandent « trois colonies par kilomètre carré », alors que le secteur en compte déjà « au moins douze »",
+              "Selon elle, la multiplication des ruches domestiques met en péril les pollinisateurs sauvages",
+              "qu’aucun incident grave n’a été signalé depuis dix ans sur ses autres toits"
             ]
           }
         ],
-        "summary": "La biologiste met l’accent sur les risques que la multiplication des ruches fait peser sur les pollinisateurs sauvages, tandis que l’apiculteur insiste sur l’image positive de ses ruches comme « sentinelles de la biodiversité ». Seule la réponse 3 (index 2) correspond à ces positions."
+        "summary": "Une seule réponse est étayée par le texte : la biologiste et l’apiculteur s’opposent sur l’évaluation des risques écologiques des ruches, l’une parlant de péril pour les pollinisateurs sauvages, l’autre présentant ses abeilles comme des sentinelles positives de la biodiversité (choix 1)."
       }
     },
     "blind": {
       "stage": "blind",
       "model": "gpt-5-mini-2025-08-07",
-      "id": "chatcmpl-Enp4J2drychFhbOJLt1AfsWok19jx",
+      "id": "chatcmpl-Enp9WvjbdVwWTVJzdTLf4QD8fZN6B",
       "usage": {
-        "prompt_tokens": 411,
-        "completion_tokens": 726,
-        "total_tokens": 1137,
+        "prompt_tokens": 395,
+        "completion_tokens": 595,
+        "total_tokens": 990,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 256,
+          "reasoning_tokens": 192,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
       "result": {
-        "guess": 0,
+        "guess": 1,
         "probabilities": [
-          0.6,
-          0.15,
+          0.05,
+          0.75,
           0.1,
-          0.15
+          0.1
         ],
-        "confident": false,
+        "confident": true,
         "cues": [
-          "option 1 contrasts protection of wild pollinators with symbolic 'sentinelles de la biodiversité'",
-          "other options mix roles (pédagogique/économique, saturation, 'ville verte'/protection) with less natural phrasing",
-          "presence of a quoted phrase ('sentinelles de la biodiversité') is a typical exam clue"
+          "opposition sur l'évaluation des risques",
+          "biologiste = mise en péril des pollinisateurs sauvages",
+          "apiculteur = abeilles comme indicateur positif de biodiversité",
+          "mot « contraste » signale points de vue contradictoires"
         ],
-        "reason": "Option 1 presents a clear, balanced contrast between a scientist emphasizing protection of wild pollinators and a beekeeper highlighting the symbolic value of hives as 'sentinels'—a plausible summary of two voices in a text about biodiversity. The quoted expression in that choice reads like something taken from a passage and makes the option more likely. However, without the original text this is an inference, so confidence is limited.",
+        "reason": "La question demande ce que révèle le contraste entre les interventions : l'option 1 (index 1) exprime clairement une opposition sur l'évaluation des risques écologiques — la biologiste alerte sur la mise en péril des pollinisateurs sauvages tandis que l'apiculteur présente ses abeilles de façon positive comme témoin de biodiversité. Les autres options présentent soit un accord inhabituel (options 0 et 2) soit une divergence sur la communication plutôt que sur l'évaluation des risques (option 3), donc elles semblent moins adaptées au mot « contraste » mettant en avant une opposition de diagnostics.",
         "plausibility": [
           {
             "index": 0,
-            "credible": true,
-            "reason": "Clear, natural contrast and contains a likely quoted phrase ('sentinelles de la biodiversité') that exam items often reuse; both parts are thematically coherent."
+            "credible": false,
+            "reason": "Présente un accord minimalisant l'enjeu — peu cohérent avec l'idée de contraste entre interventions d'acteurs aux intérêts différents."
           },
           {
             "index": 1,
             "credible": true,
-            "reason": "Plausible alternative: scientists framing hives pedagogically and beekeepers promoting economic value is realistic, but the wording seems less specific and less like a direct quote."
+            "reason": "Correspond directement à une opposition sur l'évaluation des risques écologiques et reprend des formulations typiques (mise en péril vs indicateur positif)."
           },
           {
             "index": 2,
             "credible": false,
-            "reason": "Less likely because it attributes a minimising view to the biologist and an alarmist view to the beekeeper; this role reversal is possible but feels less natural without textual evidence."
+            "reason": "Accorde les interlocuteurs sur l'aspect pédagogique mais les oppose sur un point secondaire (santé des riverains) — moins plausible au vu du terme « contraste ». "
           },
           {
             "index": 3,
-            "credible": true,
-            "reason": "Also plausible: a biologist focusing on communication ('ville verte') and a beekeeper asking for stronger protection. However, the 'ville verte' phrasing feels more like a policy angle than a biodiversity-focused biologist's primary emphasis."
+            "credible": false,
+            "reason": "Parle d'accord sur l'excès de ruches et divergence sur la communication — semble plus spécifique et moins directement lié à une opposition écologique typique entre biologiste et apiculteur."
           }
         ]
       },
-      "expected": 0
+      "expected": 1
     },
-    "expected": 2
+    "expected": 1
   },
   {
     "number": 37,
@@ -3727,21 +3723,21 @@
   {
     "number": 38,
     "grounded": true,
-    "strong": true,
+    "strong": false,
     "ground": {
       "stage": "ground",
       "model": "gpt-5.1-2025-11-13",
-      "id": "chatcmpl-Enp4aqfdK0WcJChgXbZ3v1dFatlok",
+      "id": "chatcmpl-Enp9MVc6e01mA2lNzItRKB3bPhlYH",
       "usage": {
-        "prompt_tokens": 685,
-        "completion_tokens": 1807,
-        "total_tokens": 2492,
+        "prompt_tokens": 761,
+        "completion_tokens": 2430,
+        "total_tokens": 3191,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 1138,
+          "reasoning_tokens": 1432,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
@@ -3758,102 +3754,108 @@
             "index": 0,
             "supported": true,
             "plausible": true,
-            "reason": "En montrant à Lamine un carnet de commandes rempli pour six mois tout en reconnaissant que les salaires sont serrés au début, Élodie met en avant la continuité du travail et accepte une rémunération modeste comme faisant partie du métier. Cela indique qu’elle valorise la stabilité de l’activité professionnelle plutôt que des gains immédiats élevés.",
+            "reason": "Le texte indique explicitement qu’Élodie accepte les sacrifices financiers de début de carrière au nom de la transmission, que la chambre de métiers met surtout en avant un discours positif d’« excellence », et que les parents comparent cette voie de manière peu favorable aux études universitaires. Cela correspond point par point à l’option 1.",
             "quotes": [
-              "« lui montre le carnet de commandes rempli pour les six prochains mois »",
-              "« tout en soulignant que les salaires restent « serrés » les premières années »"
+              "Élodie, consciente de ces doutes, lui montre le carnet de commandes rempli pour les six prochains mois, tout en soulignant que les salaires restent « serrés » les premières années.",
+              "Pour elle, la transmission justifie ces sacrifices temporaires ;",
+              "La chambre de métiers vante ces apprentissages comme une « voie d’excellence » menant à l’indépendance,",
+              "pour les parents de Lamine, qui comparent avec les débouchés d’un diplôme universitaire, l’équation est moins évidente."
             ]
           },
           {
             "index": 1,
             "supported": false,
             "plausible": true,
-            "reason": "La reconnaissance institutionnelle est évoquée à propos de la chambre de métiers, mais rien n’indique qu’Élodie fonde sa propre idée de la réussite sur cette reconnaissance ou sur les diplômes. Au contraire, le texte insiste pour elle sur la transmission du savoir-faire.",
+            "reason": "Le texte ne dit pas qu’Élodie et la chambre de métiers présentent ensemble des « renoncements lourds et durables » : au contraire, la chambre de métiers adopte un discours très valorisant (« voie d’excellence ») sans insister sur les sacrifices, et Élodie parle de sacrifices « temporaires ». Les parents, eux, ne mettent nulle part en avant la dimension passionnelle du métier artisanal, mais comparent surtout les débouchés avec ceux de l’université.",
             "quotes": [
-              "« La chambre de métiers vante ces apprentissages comme une « voie d’excellence » »",
-              "« Pour elle, la transmission justifie ces sacrifices temporaires »"
+              "La chambre de métiers vante ces apprentissages comme une « voie d’excellence » menant à l’indépendance,",
+              "Pour elle, la transmission justifie ces sacrifices temporaires ;",
+              "pour les parents de Lamine, qui comparent avec les débouchés d’un diplôme universitaire, l’équation est moins évidente."
             ]
           },
           {
             "index": 2,
             "supported": false,
             "plausible": true,
-            "reason": "Élodie ne partage pas explicitement les inquiétudes des parents ; elle accepte Lamine comme apprenti et cherche plutôt à le rassurer en lui montrant les commandes à venir, tout en étant lucide sur les salaires. Elle ne le dissuade pas de choisir ce métier rare.",
+            "reason": "Élodie ne juge pas ces sacrifices inacceptables : le texte précise au contraire que « la transmission justifie ces sacrifices temporaires ». La chambre de métiers n’est jamais présentée comme critiquant ces sacrifices, mais comme vantant la voie. Les parents ne déclarent pas non plus ces sacrifices inacceptables, ils trouvent seulement que « l’équation est moins évidente ». Enfin, rien ne dit que Lamine veuille à tout prix s’engager dans cette voie : il « hésitait entre un bac général et cette voie manuelle ». ",
             "quotes": [
-              "« elle a accepté Lamine »",
-              "« Élodie, consciente de ces doutes, lui montre le carnet de commandes rempli pour les six prochains mois »",
-              "« Pour elle, la transmission justifie ces sacrifices temporaires ; pour les parents de Lamine ... l’équation est moins évidente. »"
+              "Pour elle, la transmission justifie ces sacrifices temporaires ;",
+              "La chambre de métiers vante ces apprentissages comme une « voie d’excellence » menant à l’indépendance,",
+              "l’équation est moins évidente.",
+              "qui hésitait entre un bac général et cette voie manuelle."
             ]
           },
           {
             "index": 3,
             "supported": false,
             "plausible": true,
-            "reason": "Aucun élément ne suggère qu’Élodie considère l’apprentissage comme un simple tremplin vers des études universitaires. Au contraire, son attachement à la transmission du métier et à son atelier laisse entendre qu’elle voit cette voie comme une fin en soi, un accomplissement professionnel.",
+            "reason": "Élodie ne minimise pas les sacrifices : elle les nomme et souligne que « les salaires restent “serrés” les premières années ». La chambre de métiers, elle, n’insiste pas sur la dureté financière, mais présente la formation comme une « voie d’excellence ». Les parents sont préoccupés par les débouchés comparés à l’université, pas décrits comme insistant spécifiquement sur la dureté financière des premières années.",
             "quotes": [
-              "« Élodie, maître-verrier depuis vingt ans »",
-              "« Pour elle, la transmission justifie ces sacrifices temporaires »"
+              "tout en soulignant que les salaires restent « serrés » les premières années.",
+              "Pour elle, la transmission justifie ces sacrifices temporaires ;",
+              "La chambre de métiers vante ces apprentissages comme une « voie d’excellence » menant à l’indépendance,",
+              "pour les parents de Lamine, qui comparent avec les débouchés d’un diplôme universitaire, l’équation est moins évidente."
             ]
           }
         ],
-        "summary": "L’épisode du carnet de commandes montre qu’Élodie conçoit la réussite professionnelle comme le fait de disposer d’un travail stable et continu, même si les débuts sont financièrement modestes, d’où le soutien exclusif à l’option 0."
+        "summary": "Élodie assume et justifie les sacrifices financiers de début de carrière au nom de la transmission d’un métier rare, alors que la chambre de métiers les occulte derrière un discours d’« excellence » et que les parents, comparant avec l’université, jugent ce choix moins évidemment avantageux. Seule l’option 1 restitue correctement ces nuances."
       }
     },
     "blind": {
       "stage": "blind",
       "model": "gpt-5-mini-2025-08-07",
-      "id": "chatcmpl-Enp4o93WNpkpbp3fNrzCHP7JKB7Yu",
+      "id": "chatcmpl-Enp9fWKCf1siGFFlDqXGfTvTA73uw",
       "usage": {
-        "prompt_tokens": 369,
-        "completion_tokens": 675,
-        "total_tokens": 1044,
+        "prompt_tokens": 445,
+        "completion_tokens": 777,
+        "total_tokens": 1222,
         "prompt_tokens_details": {
           "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
-          "reasoning_tokens": 192,
+          "reasoning_tokens": 256,
           "audio_tokens": 0,
           "accepted_prediction_tokens": 0,
           "rejected_prediction_tokens": 0
         }
       },
       "result": {
-        "guess": 3,
+        "guess": 0,
         "probabilities": [
-          0.15,
-          0.05,
+          0.75,
           0.1,
-          0.7
+          0.08,
+          0.07
         ],
-        "confident": false,
+        "confident": true,
         "cues": [
-          "mention de « carnet de commandes » suggère importance des commandes/stabilité",
-          "option 4 évoque continuité et rémunération modeste, thème courant pour réussite artisanale",
-          "options 2 et 3 sont plus spécifiques et semblent moins directement liés au carnet",
-          "option 1 mentions institutions précises (chambre de métiers), possible but more explicit"
+          "terme « temporaires » atténue la portée",
+          "formulation d'Élodie minimise la durée/gravité",
+          "oppositions typiques : institution vs famille",
+          "options 2–4 présentent divergences plus lourdes"
         ],
-        "reason": "A 'carnet de commandes' naturally highlights the flow et la régularité des commandes et donc la stabilité d'activité ; cela correspond le mieux à l'idée de 'réussite professionnelle' centrée sur la continuité du travail même avec une rémunération modeste. Les autres options sont either more specific (institutional recognition, advising someone else, or using apprenticeship as a stepping stone) and feel less directly tied to an episode focused on a carnet de commandes.",
+        "reason": "Le libellé « sacrifices temporaires » contient une atténuation évidente qui tend à minimiser l'importance ou la durée des sacrifices — ce qui correspond à l'option 1 affirmant qu'Élodie minimise presque l'existence de ces sacrifices. Les autres options proposent des lectures plus fortes (sacrifices lourds et durables ; inacceptables ; acceptables au nom de la transmission) qui ne concordent pas avec l'emploi du mot « temporaires ». De plus, l'opposition entre l'atténuation d'Élodie et l'insistance sur la dureté financière de la chambre des métiers et des parents est une opposition logique et fréquente dans ce type de contraste.",
         "plausibility": [
           {
             "index": 0,
             "credible": true,
-            "reason": "Institutional recognition is a plausible conception of success, but this option mentions specific institutions (chambre de métiers, diplomas) which the question does not hint at; less directly tied to a carnet de commandes."
+            "reason": "L'emploi explicite de « temporaires » sert d'atténuation ; il est naturel de lire cela comme une minimisation face à des voix qui soulignent la difficulté financière."
           },
           {
             "index": 1,
             "credible": false,
-            "reason": "Seeing apprenticeship merely as a step toward theoretical university studies is unlikely to be revealed by a carnet de commandes episode and is an odd, specific claim."
+            "reason": "Propose que Élodie et la chambre présentent les sacrifices comme lourds et durables — contradictoire avec l'adjectif « temporaires » qui atténue leur gravité/durée."
           },
           {
             "index": 2,
             "credible": false,
-            "reason": "Advising Lamine not to pursue a rare trade concerns advice to another person rather than how Élodie conceives her own success; also off-topic relative to a carnet de commandes."
+            "reason": "Affirme qu'Élodie juge les sacrifices inacceptables à long terme ; cela contredit l'idée de « temporaires » et semble reprendre une position plus radicale non suggérée par la formulation."
           },
           {
             "index": 3,
-            "credible": true,
-            "reason": "Emphasizing stability and continued orders (even with modest initial pay) is directly suggested by the image of a carnet de commandes and aligns well with common-sense interpretations of professional success in artisanal contexts."
+            "credible": false,
+            "reason": "Combine plusieurs lectures spécifiques (acceptables pour transmission ; chambre efface derrière « excellence » ; parents préfèrent l'université) qui paraissent trop détaillées et sans signalage direct dans la formulation « sacrifices temporaires »."
           }
         ]
       },
