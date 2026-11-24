@@ -57,31 +57,31 @@ const imageSets={
    [['🏕️','🧳','⛺','🌳'],['Magasin de sport','Hall d’hôtel','Location de camping','Réservation de parc']]
   ],
   '04':[
-   [['🥖','🐠','🛠️','🍇'],['Atelier de boulangerie','Aquarium','Réparation de scooter','Visite viticole']],
-   [['🎼','🐠','🩺','🎭'],['Salle de musique','Aquarium marin','Centre de santé','Salle de théâtre']],
-   [['🏍️','🚲','🔧','⛽'],['Atelier de motos','Station de vélos','Garage de réparation','Station-service']],
-   [['🏞️','🍷','🏭','🌻'],['Parc naturel','Centre viticole','Usine agroalimentaire','Jardin botanique']]
+   [['🥐','🍳','🛒','🥖'],['Atelier de boulangerie','Aquarium','Réparation de scooter','Visite viticole']],
+   [['🧪','🐠','🦴','🏊'],['Salle de musique','Aquarium marin','Centre de santé','Salle de théâtre']],
+   [['🚲','🚴','🛴','⛽'],['Atelier de motos','Station de vélos','Garage de réparation','Station-service']],
+   [['🍇','🦇','🌿','🧀'],['Parc naturel','Centre viticole','Usine agroalimentaire','Jardin botanique']]
   ],
   '05':[
-   [['👓','💊','🎨','📚'],['Opticien','Pharmacie','Atelier de peinture','Librairie']],
-   [['📮','🏦','🚂','🛳️'],['Bureau de poste','Banque','Gare','Terminal de ferry']],
-   [['💒','🏢','🎟️','🏨'],['Service des mariages','Bureau du logement','Billeterie','Accueil d’hôtel']],
-   [['🧵','👞','🧼','🪴'],['Atelier textile','Cordonnerie','Pressing','Pépinière']]
+   [['👓','📷','💊','👗'],['Opticien','Pharmacie','Atelier de peinture','Librairie']],
+   [['🏦','🚂','📮','✈️'],['Bureau de poste','Banque','Gare','Terminal de ferry']],
+   [['⚖️','🎟️','🎓','💒'],['Service des mariages','Bureau du logement','Billeterie','Accueil d’hôtel']],
+   [['🎨','🧵','🥣','🧽'],['Atelier textile','Cordonnerie','Pressing','Pépinière']]
   ],
   '06':[
-   [['🛥️','🚌','✈️','🚇'],['Guichet du port','Gare routière','Aéroport','Métro']],
-   [['👗','🪡','🎨','📦'],['Boutique de vêtements','Atelier de couture','Galerie','Centre de livraison']],
-   [['🎥','🏟️','🎺','🎪'],['Cinéma','Stade','Salle de musique','Chapiteau']],
-   [['🧀','🐟','🥬','🍞'],['Fromagerie','Poissonnerie','Marché maraîcher','Boulangerie']]
+   [['🛠️','🏺','🔥','🏬'],['Guichet du port','Gare routière','Aéroport','Métro']],
+   [['👗','👞','🪑','🛏️'],['Boutique de vêtements','Atelier de couture','Galerie','Centre de livraison']],
+   [['🏟️','🪑','🎺','🎥'],['Cinéma','Stade','Salle de musique','Chapiteau']],
+   [['🍞','🧀','🥬','🍇'],['Fromagerie','Poissonnerie','Marché maraîcher','Boulangerie']]
   ],
   '07':[
-   [['🎙️','🗞️','📸','🎧'],['Studio de radio','Rédaction','Studio photo','Magasin audio']],
+   [['🗞️','📸','🎧','🎙️'],['Studio de radio','Rédaction','Studio photo','Magasin audio']],
    [['🏋️','🏊','🏃','🧗'],['Salle de sport','Piscine','Stade','Salle d’escalade']],
-   [['🗣️','📚','🎓','🧮'],['École de langues','Bibliothèque','Université','Cours de mathématiques']],
-   [['🖼️','⌚','📱','🧵'],['Galerie','Horlogerie','Réparation de téléphones','Atelier textile']]
+   [['📚','🗣️','🎓','🧮'],['École de langues','Bibliothèque','Université','Cours de mathématiques']],
+   [['🖼️','🧵','⌚','📱'],['Galerie','Horlogerie','Réparation de téléphones','Atelier textile']]
   ]
 };
-const icons=imageSets[nn].map(x=>x[0]),titleSets=imageSets[nn].map(x=>x[1]);
+const icons=imageSets[nn].map(x=>x[0]),titleSets=paper.questions.slice(0,4).map(q=>q.options);
 const escapes=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 for(let n=1;n<=4;n++){
  const x=icons[n-1],t=titleSets[n-1];
