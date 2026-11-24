@@ -1,20 +1,20 @@
-name: Render TEF Listening Test02 measured original audio
+name: Render TEF Listening Tests 03-07 measured original audio
 on:
   push:
     branches: [feature/tef-listening-tests-02-07-original-banks]
     paths:
       - .github/workflows/tef-listening-01-v2-audio.yml
-      - curriculum/tef-listening-test02-original-q21-40.mjs
   workflow_dispatch:
 permissions:
   contents: write
-concurrency:
-  group: tef-listening-batch-02-07-render
-  cancel-in-progress: false
 jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        number: [3,4,5,6,7]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,26 +34,26 @@ jobs:
           fi
           mkdir -p "$RUNNER_TEMP/models"
           python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
-      - name: Render exact original Test02 bank, or fail if timings cannot fit
+      - name: Render 36 actual audio recordings for independent Test ${{ matrix.number }}
+        env:
+          TEST_NO: ${{ matrix.number }}
         run: |
-          node scripts/release/prepare-tef-listening-original-batch.mjs 2
-          python scripts/release/render-tef-listening-batch-02-07.py --bank tef-listening-test02-v1.json --models "$RUNNER_TEMP/models"
-      - name: Stage source-matched measured audio on draft branch only
+          node scripts/release/prepare-tef-listening-original-batch.mjs "$TEST_NO"
+          python scripts/release/render-tef-listening-batch-02-07.py --bank "tef-listening-test0${TEST_NO}-v1.json" --models "$RUNNER_TEMP/models"
+      - name: Stage only the measured test on an isolated unpublished branch
+        env:
+          TEST_NO: ${{ matrix.number }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add supabase/exams/tef-listening-test02-v1.json assets/tef-listening/tef-listening-2026-11-test02-v1/
-          if ! git diff --cached --quiet; then
-            git commit -m "Stage measured TEF Listening Test02 original audio (unpublished)"
-            git fetch origin feature/tef-listening-tests-02-07-original-banks
-            git rebase origin/feature/tef-listening-tests-02-07-original-banks
-            git push origin HEAD:feature/tef-listening-tests-02-07-original-banks
-          fi
+          git add "supabase/exams/tef-listening-test0${TEST_NO}-v1.json" "assets/tef-listening/tef-listening-2026-11-test0${TEST_NO}-v1/"
+          git commit -m "Stage measured original TEF Listening Test0${TEST_NO} audio (unpublished)"
+          git push origin HEAD:"refs/heads/feature/tef-listening-test0${TEST_NO}-measured-audio"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tef-listening-test02-original-audio-evidence
+          name: tef-listening-test0${{ matrix.number }}-audio-evidence
           path: |
-            supabase/exams/tef-listening-test02-v1.json
-            assets/tef-listening/tef-listening-2026-11-test02-v1/manifest.json
+            supabase/exams/tef-listening-test0${{ matrix.number }}-v1.json
+            assets/tef-listening/tef-listening-2026-11-test0${{ matrix.number }}-v1/manifest.json
           retention-days: 30
