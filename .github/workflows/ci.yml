@@ -25,7 +25,7 @@ jobs:
 
 
   tef_batch_prepare:
-    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'PREPARE TEF 02-07') && github.repository == 'hzad123/hzad-french-academy'
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -66,7 +66,8 @@ jobs:
 
 
   tef_batch_render:
-    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'Stage 240 authored TEF Listening') && github.repository == 'hzad123/hzad-french-academy'
+    needs: tef_batch_prepare
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
     strategy:
@@ -118,10 +119,13 @@ jobs:
           fi
 
   tef_batch_media_validate:
-    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'VALIDATE TEF 02-07 MEDIA') && github.repository == 'hzad123/hzad-french-academy'
+    needs: tef_batch_render
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -129,7 +133,8 @@ jobs:
         run: node scripts/check-tef-listening-02-07-measured.mjs
 
   tef_batch_independent_qc:
-    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'REVIEW TEF 02-07') && github.repository == 'hzad123/hzad-french-academy'
+    needs: tef_batch_media_validate
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
       id-token: write
