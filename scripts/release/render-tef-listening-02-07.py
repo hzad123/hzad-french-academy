@@ -22,7 +22,7 @@ def render(models):
   if sha(models/(name+".onnx"))!=expected:raise RuntimeError("Pinned French voice hash mismatch")
   loaded[voice]=(PiperVoice.load(str(models/(name+".onnx"))),speaker)
  ASSETS.joinpath("audio").mkdir(parents=True,exist_ok=True)
- entries=[]
+ entries=[];too_short=[]
  for q in paper["questions"]:
   if q["slotSeconds"]==0:continue  # pair uses same audio
   target=ASSETS/"audio"/q["audio"]
@@ -44,7 +44,7 @@ def render(models):
    seconds=duration(clip)
    minimum=(12 if q["number"]<=4 else 18 if q["number"]<=20 else 34 if q["number"]<=22 else 105 if q["number"]<=28 else 100 if q["number"]==29 else 30)
    post=30 if 23<=q["number"]<=28 else 15 if q["number"]>=13 else 10
-   if seconds<minimum:raise RuntimeError(f"Recording too SHORT: {seconds:.2f}s vs {minimum}s minimum")
+   if seconds<minimum:too_short.append((q["number"],round(seconds,2),minimum))
    # Final question slots are allocated AFTER measuring real WAV/MP3 duration.
    # Do not shorten an original spoken passage to satisfy an arbitrary estimate.
    q["_neededSlot"]=int(__import__("math").ceil(seconds+q["previewSeconds"]+post))
@@ -60,13 +60,16 @@ def render(models):
  if not source.exists():raise RuntimeError("Existing verified headphone check missing")
  shutil.copyfile(source,ASSETS/"audio/audio-check.mp3")
  if len(entries)!=36:raise RuntimeError('Expected 36 unique recordings')
+ if too_short:print("::error::Audio clips below minimum:",too_short,flush=True)
  # Keep official reading/answer windows, and retain a strict 40-minute total.
  active=[q for q in paper["questions"] if q["slotSeconds"]>0]
  needed=sum(q["_neededSlot"] for q in active)
+ print(f"::notice::TEF {paper['id']} measured total required {needed}s including reading and answering; target 2400s; short clips {len(too_short)}.",flush=True)
  if needed>2400:
   print("::error::Actual audio + required reading/answer windows exceed 40 minutes: "+str(needed)+"s",flush=True)
   for q in active:print(f"Q{q['number']}: {q['audioSeconds']}s audio; {q['_neededSlot']}s required",flush=True)
   raise RuntimeError("40-minute paper does not fit; revise spoken scripts, not playback speed")
+ if too_short:raise RuntimeError("Recording durations below benchmark; revise substantive text")
  surplus=2400-needed
  # Excess time is not silently spread as extra response time.
  # No more than one second per recording is allowed for codec rounding.
