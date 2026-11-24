@@ -22,3 +22,44 @@ jobs:
           name: a0-student-preview
           path: dist/
           retention-days: 7
+
+  tef_v3_render:
+    if: github.event_name == 'pull_request' && github.head_ref == 'fix/tef-listening-01-v3-audio-timing-audit' && github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install offline French speech generator
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Render immutable measured v3 audio and bank
+        run: |
+          node scripts/release/prepare-tef-listening-test01-v3.mjs
+          python scripts/release/render-tef-listening-test01-v3.py --models "$RUNNER_TEMP/models"
+          node scripts/check-tef-listening-test01-v3.mjs
+      - name: Commit staged media to same review branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test01-v3.json assets/tef-listening/tef-listening-2026-11-test01-v3
+          if ! git diff --cached --quiet; then
+            git commit -m "Render and verify TEF Test01 v3 36 recorded passages"
+            git push origin HEAD:fix/tef-listening-01-v3-audio-timing-audit
+          fi
