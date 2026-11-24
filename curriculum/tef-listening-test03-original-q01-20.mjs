@@ -89,7 +89,7 @@ transcript:`— Les enfants cultivent désormais un petit jardin dans la cour de
 — Vous avez une inquiétude ?
 — Oui, la surveillance pendant les pauses. Je ne voudrais pas que les plus jeunes manipulent les outils sans adulte. On peut très bien garder le projet, avec des créneaux encadrés et des outils rangés après chaque séance. Ce n'est pas l'activité de jardinage que je remets en cause, mais son organisation quotidienne.`,
 question:"Quelle réserve cette personne exprime-t-elle ?",
-options:["Le potager prendrait trop de place dans la cour.","Les activités devraient se limiter aux cours de sciences.","Les outils pourraient être utilisés sans encadrement.","Les enfants n'apprendraient pas les bonnes techniques."],correct:"D",
+options:["Le potager prendrait trop de place dans la cour.","Les activités devraient se limiter aux cours de sciences.","Les outils pourraient être utilisés sans encadrement.","Les enfants n'apprendraient pas les bonnes techniques."],correct:"C",
 explanation:"Elle veut un encadrement pour l'utilisation des outils."
 },
 {
@@ -122,7 +122,7 @@ transcript:`— Le nouveau kiosque d'échange de livres est très fréquenté, m
 — Vous voulez ajouter d'autres étagères ?
 — Pas nécessairement. Nous pourrions proposer un thème différent chaque mois, inviter les habitants à déposer un livre sur ce sujet et changer la présentation. Cela donnerait envie d'explorer des auteurs qu'on ne connaît pas. Le problème n'est pas vraiment le nombre de livres, c'est la diversité des découvertes possibles.`,
 question:"Quelle initiative cette personne propose-t-elle ?",
-options:["Augmenter le nombre de rayonnages disponibles.","Limiter les dépôts aux auteurs de la région.","Remplacer les livres anciens à chaque arrivée.","Renouveler les sélections selon des thèmes successifs."],correct:"B",
+options:["Augmenter le nombre de rayonnages disponibles.","Limiter les dépôts aux auteurs de la région.","Remplacer les livres anciens à chaque arrivée.","Renouveler les sélections selon des thèmes successifs."],correct:"D",
 explanation:"Elle suggère de changer régulièrement le thème de sélection, pas seulement les étagères."
 },
 {
@@ -130,7 +130,7 @@ transcript:`— Avec le nouveau pass famille du musée, on peut venir trois fois
 — Ce n'est pas moins cher qu'avant, pourtant.
 — C'est vrai, mais ce qui m'intéresse est de pouvoir passer une heure lorsqu'on est libre, plutôt que de tout prévoir des semaines à l'avance. Avec de jeunes enfants, on ne sait pas toujours quand une sortie sera possible. Je préfère cette souplesse à une petite réduction qui imposerait une date fixe.`,
 question:"Quel avantage le visiteur privilégie-t-il ?",
-options:["Une réduction importante sur les visites guidées.","La possibilité de venir plusieurs fois sans réservation rigide.","L'accès aux expositions temporaires sans supplément.","La présence de nouvelles activités pour les tout-petits."],correct:"C",
+options:["Une réduction importante sur les visites guidées.","La possibilité de venir plusieurs fois sans réservation rigide.","L'accès aux expositions temporaires sans supplément.","La présence de nouvelles activités pour les tout-petits."],correct:"B",
 explanation:"Le visiteur préfère la souplesse des dates à une réduction de prix."
 },
 {
