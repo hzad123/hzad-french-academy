@@ -8,7 +8,7 @@ transcript:`— Bonjour, j'ai réservé deux places pour l'atelier de poterie de
 — Donc nous ne repartons pas avec nos bols samedi ?
 — Non, vous pourrez revenir le vendredi suivant à l'accueil ou demander un envoi, dont les frais ne sont pas inclus.`,
 question:"Dans quel lieu se déroule cet échange ?",
-options:["Dans un atelier de fabrication de meubles.","Dans un magasin de fournitures scolaires.","Dans un atelier de poterie et de céramique.","Dans un service de réparation d'appareils."],correct:"C",
+options:["Dans un atelier de fabrication de meubles.","Dans un magasin de fournitures scolaires.","Dans un atelier de poterie.","Dans un service de réparation d'appareils."],correct:"C",
 explanation:"Le façonnage, l'émail et la cuisson désignent un atelier de poterie."
 },
 {
@@ -41,25 +41,25 @@ explanation:"La préparation d'un bar, des écailles et des arêtes révèle un 
 {
 transcript:`Attention, annonce à l'attention des voyageurs du train régional pour Saint-Malo. Le départ de seize heures vingt est maintenu et la composition du train ne change pas. En raison de travaux sur la signalisation, les voitures seront toutefois accessibles depuis la zone C et non depuis la zone A indiquée sur certains billets. Les agents présents sur le quai pourront orienter les passagers qui ont besoin d'assistance. Nous vous invitons à rejoindre cette zone avant l'arrivée du train.`,
 question:"Quel changement concerne le train annoncé ?",
-options:["La composition des voitures sera différente.","Les passagers doivent rejoindre une autre zone du quai.","L'arrivée du train a été avancée de quelques minutes.","Les voyageurs doivent demander de nouveaux billets."],correct:"B",
+options:["La composition des voitures sera différente.","Le train sera accessible depuis une autre zone.","L'arrivée du train a été avancée de quelques minutes.","Les voyageurs doivent demander de nouveaux billets."],correct:"B",
 explanation:"L'annonce conserve l'horaire et les voitures, mais déplace l'accès vers la zone C."
 },
 {
 transcript:`La piscine municipale informe ses usagers que le bassin sportif restera ouvert toute la matinée de jeudi. De dix heures à onze heures, le couloir situé contre les grandes fenêtres sera réservé à une séance de natation adaptée. Les autres couloirs pourront être utilisés normalement, à condition de respecter le sens de circulation affiché. Les leçons pour enfants prévues dans le petit bassin ne sont pas concernées. L'accueil remercie les nageurs de faciliter l'accès aux personnes inscrites à cette activité.`,
 question:"Quelle restriction temporaire est annoncée ?",
-options:["Le bassin sportif ferme pendant une heure.","Les cours pour enfants changent de bassin.","L'entrée principale devient inaccessible.","Un seul couloir est réservé à une activité."],correct:"D",
+options:["Le bassin sportif ferme pendant une heure.","Les cours pour enfants changent de bassin.","L'entrée principale devient inaccessible.","Un couloir sera réservé à une séance."],correct:"D",
 explanation:"La séance adaptée occupe uniquement un couloir pendant une heure."
 },
 {
 transcript:`Le festival des lettres annonce un changement pour la lecture publique prévue demain à onze heures. Les rafales de vent attendues rendent l'installation de la scène du parc incertaine. La rencontre avec les deux autrices aura finalement lieu dans la salle des fêtes, à côté de la mairie. L'horaire reste identique et les réservations déjà effectuées demeurent valables. Les personnes ayant demandé une place accessible sont invitées à emprunter l'entrée latérale. La séance de dédicaces prévue en fin d'après-midi ne change pas.`,
 question:"Que doivent retenir les personnes ayant réservé la lecture ?",
-options:["Elles doivent se rendre à un autre lieu à la même heure.","Elles pourront assister à une séance ajoutée le soir.","Elles doivent refaire leur réservation pour la salle.","Elles verront une seule autrice au lieu de deux."],correct:"A",
+options:["La séance aura lieu ailleurs, à l'heure prévue.","Elles pourront assister à une séance ajoutée le soir.","Elles doivent refaire leur réservation pour la salle.","Elles verront une seule autrice au lieu de deux."],correct:"A",
 explanation:"Seul le lieu de la lecture change, pas son horaire ni la validité des réservations."
 },
 {
 transcript:`En raison de la visite de contrôle des câbles, le téléphérique du Mont-Argent ouvrira dimanche à neuf heures trente au lieu de huit heures. Les billets datés du dimanche restent valables toute la journée, mais les départs annoncés avant neuf heures trente sont supprimés. Les visiteurs qui doivent rejoindre une randonnée accompagnée pourront prendre une navette terrestre gratuite jusqu'au point de rendez-vous. Le dernier trajet du soir, lui, n'est pas modifié.`,
 question:"Quelle conséquence la visite de contrôle entraîne-t-elle ?",
-options:["Le dernier départ du soir est avancé.","La navette terrestre devient obligatoire pour tous.","L'ouverture du téléphérique est retardée.","Les billets du dimanche doivent être échangés."],correct:"C",
+options:["Le dernier départ du soir est avancé.","Une navette terrestre remplace certains trajets.","L'ouverture du téléphérique est retardée.","Les billets du dimanche doivent être échangés."],correct:"C",
 explanation:"Le téléphérique ouvre une heure et demie plus tard que prévu."
 },
 {
@@ -71,19 +71,19 @@ explanation:"Le paiement est enregistré; seule la pièce d'identité doit être
 {
 transcript:`Bonsoir, ici l'atelier des vents. Votre clarinette est réparée: la fuite qui affectait le registre grave a été corrigée et l'instrument a été testé ce matin. Vous pouvez venir le récupérer dès demain. J'ai toutefois remarqué que les clés pourraient bénéficier d'un polissage. Cette prestation est facultative et demanderait deux jours supplémentaires. Je n'ai rien engagé sans votre accord. Merci de nous dire si vous souhaitez ce travail supplémentaire, sinon nous vous rendrons l'instrument dans son état actuel, parfaitement jouable.`,
 question:"Que propose le réparateur ?",
-options:["De remplacer le mécanisme principal avant le retrait.","De repousser obligatoirement la livraison de deux jours.","De reprendre une réparation qui n'a pas fonctionné.","D'effectuer une finition facultative avec l'accord du client."],correct:"D",
+options:["De remplacer le mécanisme principal avant le retrait.","De repousser obligatoirement la livraison de deux jours.","De reprendre une réparation qui n'a pas fonctionné.","De polir les clés avec l'accord du propriétaire."],correct:"D",
 explanation:"La réparation est terminée; un polissage facultatif reste proposé."
 },
 {
 transcript:`Bonjour, vous êtes inscrite à la course des remparts de dimanche. Les dossards seront distribués samedi au gymnase de dix heures à dix-huit heures. Un retrait reste possible le dimanche matin, mais uniquement pour les coureurs ayant signalé une arrivée tardive lors de l'inscription. Il faut apporter la confirmation envoyée par courrier électronique. Les bénévoles ne pourront pas imprimer les justificatifs sur place. Nous vous conseillons donc de préparer le document avant de vous déplacer.`,
 question:"Quelle démarche est recommandée à la participante ?",
-options:["Modifier son inscription avant la course.","Télécharger un nouveau certificat médical.","Préparer sa confirmation pour le retrait du dossard.","Se présenter uniquement le dimanche matin."],correct:"C",
+options:["Modifier son inscription avant la course.","Télécharger un nouveau certificat médical.","Apporter sa confirmation pour retirer le dossard.","Se présenter avec le dossard déjà imprimé."],correct:"C",
 explanation:"Le message demande la confirmation d'inscription pour retirer le dossard."
 },
 {
 transcript:`Bonjour, service des consignes automatiques. Nous vous informons que les casiers du secteur est seront indisponibles vendredi entre huit et quatorze heures en raison d'une mise à jour. Si votre colis y est actuellement conservé, son délai de retrait sera automatiquement prolongé de vingt-quatre heures. Le code reçu par SMS restera le même. Vous n'avez pas besoin de contacter l'expéditeur ni de demander un nouveau numéro. Les autres casiers du bâtiment fonctionneront normalement.`,
 question:"Que se passe-t-il pour les colis déjà déposés dans le secteur concerné ?",
-options:["Ils sont transférés vers le secteur ouest.","Leur délai de retrait est prolongé automatiquement.","Le destinataire doit solliciter un nouveau code.","L'expéditeur doit confirmer leur conservation."],correct:"B",
+options:["Ils sont transférés vers le secteur ouest.","Le délai de retrait est prolongé sans démarche.","Le destinataire doit solliciter un nouveau code.","L'expéditeur doit confirmer leur conservation."],correct:"B",
 explanation:"La maintenance entraîne automatiquement un délai supplémentaire sans changement de code."
 },
 {
@@ -99,7 +99,7 @@ transcript:`— Au café, on nous propose désormais un gobelet réutilisable, e
 — Vous l'utilisez à chaque fois ?
 — Pas vraiment. Quand la file est longue, il faut demander au serveur comment le rendre, parfois laisser une petite consigne, et les gens derrière s'impatientent. Le dispositif fonctionnerait mieux si le retour était clairement indiqué et accessible sans refaire toute la queue. Je ne demande pas de supprimer les gobelets réutilisables; au contraire, j'aimerais qu'ils deviennent la solution la plus simple.`,
 question:"Quelle amélioration cette personne souhaite-t-elle ?",
-options:["Un parcours plus pratique pour rendre les gobelets.","Un prix plus bas pour les boissons à emporter.","Un choix de gobelets réutilisables plus important.","Une obligation d'apporter son propre contenant."],correct:"A",
+options:["Un retour des gobelets plus facile à utiliser.","Un prix plus bas pour les boissons à emporter.","Un choix de gobelets réutilisables plus important.","Une obligation d'apporter son propre contenant."],correct:"A",
 explanation:"La personne réclame un retour accessible sans refaire la queue."
 },
 {
@@ -107,7 +107,7 @@ transcript:`— L'école voudrait avancer le déjeuner des élèves de vingt min
 — Donc vous êtes favorable au changement ?
 — Oui, à condition de revoir l'arrivée des autocars. Les enfants qui habitent loin n'ont pas forcément le temps de prendre une collation avant le cours, et une modification isolée du repas ne règlera rien. Il faudrait que la direction consulte aussi les chauffeurs et les familles. Le changement peut avoir un sens, mais il doit s'inscrire dans l'ensemble de la journée.`,
 question:"À quelle condition la personne accepte-t-elle la proposition ?",
-options:["Si les parents prennent en charge le transport.","Si le déjeuner devient moins long pour tous.","Si l'organisation des transports est aussi revue.","Si les cours du matin sont raccourcis."],correct:"C",
+options:["Si les parents prennent en charge le transport.","Si la pause du midi reste identique dans les classes.","Si les transports sont aussi adaptés.","Si les cours du matin sont raccourcis."],correct:"C",
 explanation:"Elle insiste sur la coordination avec les arrivées en autocar et la journée scolaire."
 },
 {
@@ -124,7 +124,7 @@ transcript:`— Depuis qu'on a mis en place les bacs de compost, les voisins par
 — Il manque des collectes ?
 — Non, les collectes sont régulières. Le problème, c'est que certains déposent des sacs soi-disant biodégradables qui ne conviennent pas au système, ou mélangent les déchets de cuisine avec du plastique. À mon avis, il vaut mieux consacrer un peu de temps à l'explication des consignes que multiplier immédiatement le nombre de bacs.`,
 question:"Quelle priorité la personne défend-elle ?",
-options:["Renforcer la fréquence des collectes du quartier.","Remplacer les bacs par un service à domicile.","Mettre en place des sacs fournis par la mairie.","Mieux expliquer le tri avant d'augmenter les équipements."],correct:"D",
+options:["Renforcer la fréquence des collectes du quartier.","Remplacer les bacs par un service à domicile.","Mettre en place des sacs fournis par la mairie.","Revoir les consignes de tri avant d'ajouter des bacs."],correct:"D",
 explanation:"Elle précise que les collectes fonctionnent; les erreurs de tri doivent être corrigées."
 },
 {
@@ -142,7 +142,7 @@ transcript:`— On parle de construire trois nouvelles fontaines publiques cet �
 — Vous préféreriez arrêter le projet ?
 — Je commencerais plutôt par réparer les équipements en panne et publier les dates d'entretien. Sinon, on risque de financer des installations visibles le jour de l'inauguration mais inutilisables quelques mois plus tard. Ensuite, pourquoi pas de nouvelles fontaines dans les quartiers qui en manquent.`,
 question:"Quelle action cette personne préconise-t-elle d'abord ?",
-options:["Étudier uniquement les quartiers sans fontaine.","Faire payer l'entretien aux usagers réguliers.","Remettre en service les fontaines existantes.","Installer de nouveaux points d'eau au centre."],correct:"C",
+options:["Installer les nouvelles fontaines dans les quartiers mal desservis.","Faire payer l'entretien aux usagers réguliers.","Remettre en service les fontaines existantes.","Installer de nouveaux points d'eau au centre."],correct:"C",
 explanation:"Elle propose de réparer les fontaines en panne avant d'en créer d'autres."
 },
 {
@@ -151,7 +151,7 @@ transcript:`— La ville veut tirer au sort les membres d'un jury citoyen pour d
 — Vous voulez des indemnités ?
 — Parfois une aide à la garde ou au déplacement suffit. Sans ces moyens pratiques, le tirage au sort donnera une impression de diversité, mais ceux qui pourront réellement participer appartiendront encore aux mêmes catégories. Le principe est bon, les conditions de participation doivent suivre.`,
 question:"Quelle limite potentielle est soulignée ?",
-options:["Le jury pourrait manquer de sujets à examiner.","Le tirage au sort favoriserait automatiquement les élus.","Les citoyens engagés seraient exclus de toute consultation.","Certaines personnes sélectionnées ne pourraient pas participer."],correct:"D",
+options:["Le jury pourrait manquer de sujets à examiner.","Le tirage au sort favoriserait automatiquement les élus.","Les citoyens engagés seraient exclus de toute consultation.","Certains citoyens tirés au sort resteraient absents."],correct:"D",
 explanation:"Sans soutien matériel, des personnes tirées au sort ne pourront pas assister aux réunions."
 }
 ];
