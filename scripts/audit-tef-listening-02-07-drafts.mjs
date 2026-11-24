@@ -10,9 +10,12 @@ const grams=(s,n=5)=>{let w=normalize(s).split(' '),out=new Set();for(let i=0;i<
 const ext=s=>s.match(/\b(toujours|jamais|necessairement|systematiquement|exclusivement|automatiquement|integralement|seulement|uniquement|tous|aucun)\b/gi)||[];
 const flag=[];
 for(const id of ids){
- const {clips}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'.mjs');
+ const {clips:authoredClips}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'.mjs');
+ const {sourceOverrides}=await import('../curriculum/tef-listening-02-07/editorial-source-overrides.mjs');
+ const clips=authoredClips.map(clip=>({...clip,...(sourceOverrides[id]?.[clip.start]||{})}));
  const {additions}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'-additions.mjs');
- const selection=selectOriginalAddenda(clips,additions,reference);
+ const actualAdditions={...additions};for(const [n,v] of Object.entries(sourceOverrides[id]||{}))actualAdditions[n]=v.addendum||'';
+ const selection=selectOriginalAddenda(clips,actualAdditions,reference);
  assert.equal(clips.length,36,'Missing authored sources Test'+id);
  const recorded=new Set(),keys={A:0,B:0,C:0,D:0},qstats=[],sources=[];
  const expected=Array.from({length:40},(_,i)=>i+1).filter(i=>!second.has(i));
@@ -21,7 +24,7 @@ for(const id of ids){
  assert.equal(bank.questions.length,40);assert.equal(bank.seconds,2400);assert.equal(bank.id,'tef-listening-'+pad(id));
  const orig=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
  for(const clip of clips){
-   const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(clip.start)?(additions[clip.start]||''):'')).trim();
+   const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(clip.start)?(actualAdditions[clip.start]||''):'')).trim();
    const nw=fullScript.split(/\s+/).length, min=clip.start<=4?43:clip.start<=12?53:clip.start<=20?62:clip.start<=22?85:clip.start<=28?270:clip.start===29?260:84;
    if(nw<min)flag.push({test:id,question:clip.start,category:'short_source',details:nw+' words; threshold '+min});
    const ident=normalize(clip.topic);
