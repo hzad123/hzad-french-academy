@@ -77,7 +77,7 @@ explanation:"Les images demandent localisation, date et confrontation avec les m
 {
 transcript:entretienExport,
 question:"Quel risque l'expert associe-t-il à la multiplication des marchés ?",
-options:["Les clients exigent automatiquement une baisse des prix dans chaque pays.","Les commandes deviennent impossibles à suivre après la première livraison.","Les entreprises perdent nécessairement leurs clients nationaux.","Les démarches et coûts peuvent croître plus vite que les bénéfices."],correct:"B",
+options:["Les clients exigent automatiquement une baisse des prix dans chaque pays.","Les démarches et coûts peuvent croître plus vite que les bénéfices.","Les entreprises perdent nécessairement leurs clients nationaux.","Les commandes deviennent impossibles à suivre après la première livraison."],correct:"B",
 explanation:"Chaque marché demande des efforts qui peuvent ne pas améliorer les marges."
 },
 {
@@ -89,13 +89,13 @@ explanation:"L'expert recommande scénarios, clauses et outils compris plutôt q
 {
 transcript:entretienTextile,
 question:"Pourquoi la chercheuse refuse-t-elle de juger le procédé sur l'eau seule ?",
-options:["Elle examine aussi l'énergie et les résidus liés à la teinture.","L'eau utilisée ne peut pas être mesurée pendant les essais.","Les pigments fonctionnent de manière identique sur tous les tissus.","Les vêtements déteignent surtout avant leur première utilisation."],correct:"B",
+options:["Elle examine aussi l'énergie et les résidus liés à la teinture.","L'eau utilisée ne peut pas être mesurée pendant les essais.","Les pigments fonctionnent de manière identique sur tous les tissus.","Les vêtements déteignent surtout avant leur première utilisation."],correct:"A",
 explanation:"Elle compare plusieurs impacts environnementaux, pas seulement l'eau consommée."
 },
 {
 transcript:entretienTextile,
 question:"Quel problème apparaît avec certains tissus après plusieurs lavages ?",
-options:["Les machines ne peuvent plus reproduire la même température.","Les coutures doivent être remplacées lors de la teinture.","La couleur perd trop vite de son intensité.","Les pigments se transforment en fibres supplémentaires."],correct:"A",
+options:["Les machines ne peuvent plus reproduire la même température.","Les coutures doivent être remplacées lors de la teinture.","La couleur perd trop vite de son intensité.","Les pigments se transforment en fibres supplémentaires."],correct:"C",
 explanation:"La tenue des couleurs n'est pas suffisante sur certaines fibres."
 },
 {
@@ -107,7 +107,7 @@ explanation:"Les matières mélangées peuvent rendre un chargement difficile à
 {
 transcript:reportageFilets,
 question:"Quelle mesure doit précéder l'installation de nouveaux points de collecte ?",
-options:["L'interdiction de déposer les filets de petite taille.","L'évaluation des transports et des capacités de traitement.","La fixation d'un objectif unique de tonnage régional.","Le remplacement des équipements des pêcheurs partenaires."],correct:"A",
+options:["L'interdiction de déposer les filets de petite taille.","L'évaluation des transports et des capacités de traitement.","La fixation d'un objectif unique de tonnage régional.","Le remplacement des équipements des pêcheurs partenaires."],correct:"B",
 explanation:"La coopérative veut mesurer les distances de transport et les capacités avant de se développer."
 },
 {
@@ -119,7 +119,7 @@ explanation:"L'assemblage local peut masquer une chaîne de composants internati
 {
 transcript:`Une urbaniste analyse un plan municipal visant à remplacer les camionnettes de livraison par des véhicules électriques. Cette mesure réduit certaines émissions à l'usage, mais elle ne règle pas les problèmes de congestion si le nombre de trajets continue d'augmenter. La chercheuse propose d'étudier aussi des livraisons regroupées, des horaires adaptés et des points de retrait accessibles. Elle ne nie pas l'intérêt des véhicules électriques. Elle souligne seulement que modifier le moteur et réduire la nécessité de circuler sont deux objectifs différents, qui peuvent se compléter.`,
 question:"Quelle limite d'un simple changement de motorisation est signalée ?",
-options:["Les véhicules électriques ne peuvent pas transporter de charges.","La congestion peut persister si les trajets restent nombreux.","Les commerces doivent toujours augmenter leurs stocks.","Les nouveaux véhicules imposent des livraisons nocturnes."],correct:"C",
+options:["Les véhicules électriques ne peuvent pas transporter de charges.","La congestion peut persister si les trajets restent nombreux.","Les commerces doivent toujours augmenter leurs stocks.","Les nouveaux véhicules imposent des livraisons nocturnes."],correct:"B",
 explanation:"L'électrification ne réduit pas nécessairement le nombre de déplacements."
 },
 {
@@ -131,7 +131,7 @@ explanation:"La climatologue privilégie des analyses longues et probabilistes."
 {
 transcript:`Une juriste spécialisée dans les marchés publics analyse les conditions de transparence des appels d'offres. Publier un cahier des charges ne suffit pas si les critères de sélection restent flous ou changent après l'arrivée des candidatures. Elle recommande de rendre les critères mesurables et connus à l'avance, tout en protégeant les informations commerciales réellement confidentielles. Pour elle, la transparence ne signifie pas afficher chaque document en public; elle signifie permettre de comprendre comment les décisions sont prises et de les contester lorsqu'une règle n'a pas été respectée.`,
 question:"Quel principe la juriste met-elle en avant ?",
-options:["Faire dépendre l'attribution du nombre de candidatures reçues.","Modifier les critères lorsque les offres semblent trop proches.","Publier intégralement chaque document confidentiel des entreprises.","Définir à l'avance des critères de décision vérifiables."],correct:"B",
+options:["Faire dépendre l'attribution du nombre de candidatures reçues.","Modifier les critères lorsque les offres semblent trop proches.","Publier intégralement chaque document confidentiel des entreprises.","Définir à l'avance des critères de décision vérifiables."],correct:"D",
 explanation:"Les critères d'attribution doivent être prévisibles et vérifiables."
 },
 {
@@ -143,13 +143,13 @@ explanation:"La réparation dépend aussi des pièces et informations accessible
 {
 transcript:`Une biochimiste étudie des emballages présentés comme biodégradables. Certains se décomposent rapidement dans des installations industrielles contrôlées, mais très lentement dans un compost de jardin ou dans la mer. Le mot « biodégradable » doit donc être associé à des conditions précises. La chercheuse examine aussi les effets de la collecte et du transport vers les installations adaptées. Elle conseille de ne pas confondre une propriété démontrée en laboratoire avec la manière dont un produit sera réellement éliminé après usage.`,
 question:"Pourquoi l'indication « biodégradable » peut-elle être trompeuse ?",
-options:["La décomposition dépend des conditions de traitement effectives.","Les emballages utilisent toujours des matières identiques.","Les installations industrielles ne permettent aucun contrôle.","Les produits ne peuvent pas être collectés séparément."],correct:"D",
+options:["La décomposition dépend des conditions de traitement effectives.","Les emballages utilisent toujours des matières identiques.","Les installations industrielles ne permettent aucun contrôle.","Les produits ne peuvent pas être collectés séparément."],correct:"A",
 explanation:"La dégradation varie selon le milieu; le laboratoire ne reproduit pas tous les usages."
 },
 {
 transcript:`Une spécialiste des assurances compare les modèles de risque de catastrophe avec les observations des collectivités locales. Les modèles permettent de simuler de nombreux scénarios, mais leur précision dépend des données sur les bâtiments, les sols et les protections existantes. Dans une petite vallée, une digue rénovée ou un nouveau lotissement peut modifier les conséquences d'une crue sans apparaître immédiatement dans une base de données nationale. La chercheuse recommande d'actualiser les informations locales et de publier l'incertitude plutôt que de traiter la prime calculée comme une mesure parfaite du danger.`,
 question:"Pourquoi les modèles doivent-ils intégrer des données locales récentes ?",
-options:["Les primes ne peuvent pas être calculées à partir de scénarios.","Les bâtiments anciens ont nécessairement les mêmes caractéristiques.","Les assureurs ne disposent pas d'informations sur le climat national.","Les modifications locales peuvent changer les conséquences d'un événement."],correct:"C",
+options:["Les primes ne peuvent pas être calculées à partir de scénarios.","Les bâtiments anciens ont nécessairement les mêmes caractéristiques.","Les assureurs ne disposent pas d'informations sur le climat national.","Les modifications locales peuvent changer les conséquences d'un événement."],correct:"D",
 explanation:"Les digues et bâtiments nouveaux peuvent modifier les risques mesurés."
 },
 {
@@ -161,13 +161,13 @@ explanation:"Il refuse les analogies mécaniques et privilégie les enseignement
 {
 transcript:`Un ingénieur décrit la maintenance d'équipements installés au large des côtes. Les interventions dépendent des fenêtres météorologiques pendant lesquelles les navires peuvent approcher sans danger. Reporter une réparation a un coût, mais intervenir dans de mauvaises conditions peut exposer les techniciens à des risques graves. L'entreprise utilise donc des seuils de vent et de houle, accompagnés d'une évaluation de la criticité de chaque panne. L'ingénieur souligne qu'une maintenance efficace ne signifie pas intervenir toujours au plus vite: il faut tenir compte des risques humains et de la disponibilité future des équipements.`,
 question:"Quel compromis détermine les interventions de maintenance ?",
-options:["L'augmentation du nombre de techniciens disponibles à bord.","La durée des contrats conclus avec les sous-traitants.","La préférence des clients pour les périodes de haute production.","Le coût du retard comparé aux conditions de sécurité."],correct:"B",
+options:["L'augmentation du nombre de techniciens disponibles à bord.","Le coût du retard comparé aux conditions de sécurité.","La préférence des clients pour les périodes de haute production.","La durée des contrats conclus avec les sous-traitants."],correct:"B",
 explanation:"La décision confronte coût du report et sécurité des interventions."
 },
 {
 transcript:`Un spécialiste des chaînes d'approvisionnement explique pourquoi un stock très réduit peut sembler efficace tant que toutes les livraisons arrivent à l'heure. Lorsqu'un fournisseur rencontre une difficulté, l'absence de réserve peut toutefois interrompre la production entière. À l'inverse, des stocks énormes immobilisent de l'argent et peuvent devenir inutilisables. Le chercheur propose d'identifier les composants les plus critiques et de maintenir pour eux des marges adaptées, plutôt qu'appliquer le même principe à toutes les pièces. L'objectif n'est ni le stock minimal à tout prix ni l'accumulation sans limite, mais une organisation capable d'absorber certains imprévus.`,
 question:"Quelle stratégie le spécialiste préconise-t-il ?",
-options:["Supprimer les réserves dès que les livraisons sont régulières.","Créer des stocks identiques pour tous les composants.","Constituer des marges ciblées pour les éléments essentiels.","Remplacer les fournisseurs dès qu'un retard survient."],correct:"D",
+options:["Supprimer les réserves dès que les livraisons sont régulières.","Créer des stocks identiques pour tous les composants.","Constituer des marges ciblées pour les éléments essentiels.","Remplacer les fournisseurs dès qu'un retard survient."],correct:"C",
 explanation:"Il recommande des réserves ajustées aux composants critiques."
 }
 ];
