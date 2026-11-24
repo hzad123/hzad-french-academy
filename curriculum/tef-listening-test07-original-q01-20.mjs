@@ -89,7 +89,7 @@ transcript:`— Les vidéos de trente secondes permettent de comprendre rapideme
 — Vous pensez qu'elles remplacent un article ?
 — Pas toujours. Un extrait peut montrer une phrase spectaculaire sans expliquer la question posée juste avant. Pour les sujets complexes, j'aimerais que chaque vidéo renvoie clairement au contexte complet. Le problème n'est pas la brièveté en soi, mais ce qu'on laisse croire quand on retire les éléments qui changent le sens.`,
 question:"Quelle réserve est exprimée sur les vidéos courtes ?",
-options:["Elles exigent une connexion trop rapide pour certains publics.","Elles utilisent des images plus anciennes que les articles.","Elles présentent des sujets qui n'intéressent pas les jeunes.","Elles peuvent isoler des propos de leur contexte."],correct:"D",
+options:["Elles exigent une connexion trop rapide pour certains publics.","Elles utilisent des images plus anciennes que les articles.","Elles peuvent isoler des propos de leur contexte.","Elles présentent des sujets qui n'intéressent pas les jeunes."],correct:"C",
 explanation:"L'intervenant critique l'absence de contexte d'un extrait, non le format court."
 },
 {
@@ -97,7 +97,7 @@ transcript:`— Je suis des cours de prise de parole en public. Plusieurs collè
 — Ce n'est pas votre priorité ?
 — J'aimerais surtout recevoir des commentaires précis après chaque intervention. Savoir que j'ai « réussi » ne m'aide pas à comprendre pourquoi mon exemple était confus ou pourquoi le public a décroché. Des observations concrètes sur le rythme et l'organisation me permettraient de m'améliorer entre deux séances.`,
 question:"Quel élément de la formation l'intervenant valorise-t-il ?",
-options:["La quantité d'interventions enregistrées.","Des retours détaillés permettant de progresser.","La réputation de l'organisme qui délivre le certificat.","Le classement des participants après chaque cours."],correct:"B",
+options:["Des retours détaillés permettant de progresser.","La quantité d'interventions enregistrées.","La réputation de l'organisme qui délivre le certificat.","Le classement des participants après chaque cours."],correct:"A",
 explanation:"Il privilégie des commentaires précis sur ses prestations."
 },
 {
@@ -121,7 +121,7 @@ transcript:`— Je suis malentendant et j'écoute souvent des balados grâce à 
 — Les textes complets vous suffisent ?
 — Pas toujours. Quand les intervenants se coupent la parole, une transcription brute est difficile à suivre. J'aimerais pouvoir consulter aussi un résumé structuré qui distingue les arguments sans les déformer. Je ne demande pas de remplacer le texte intégral, mais de rendre les échanges plus faciles à comprendre et à retrouver.`,
 question:"Quelle aide supplémentaire le participant souhaite-t-il ?",
-options:["Une version audio plus rapide de l'émission.","Une traduction automatique dans plusieurs langues.","Un système qui supprime toutes les hésitations du texte.","Un résumé organisé en complément de la transcription."],correct:"A",
+options:["Une version audio plus rapide de l'émission.","Une traduction automatique dans plusieurs langues.","Un système qui supprime toutes les hésitations du texte.","Un résumé organisé en complément de la transcription."],correct:"D",
 explanation:"Il souhaite un résumé structuré sans supprimer la transcription complète."
 },
 {
@@ -129,7 +129,7 @@ transcript:`— La région crée un fonds d'aide aux courts métrages. Les proje
 — Cela vous convient ?
 — Oui, mais j'aimerais connaître les critères avant le dépôt des dossiers. Sans cela, les candidats risquent de penser que les décisions dépendent de relations personnelles. Un jury peut conserver son jugement artistique tout en expliquant les objectifs du fonds et la façon dont les projets seront évalués. La transparence ne signifie pas que tous les dossiers se valent.`,
 question:"Quelle amélioration de la sélection est demandée ?",
-options:["Réserver le financement aux réalisateurs déjà connus.","Publier les critères de décision avant les candidatures.","Remplacer le jury par un vote des spectateurs.","Financer un nombre fixe de projets dans chaque commune."],correct:"C",
+options:["Réserver le financement aux réalisateurs déjà connus.","Publier les critères de décision avant les candidatures.","Remplacer le jury par un vote des spectateurs.","Financer un nombre fixe de projets dans chaque commune."],correct:"B",
 explanation:"L'intervenant veut que les critères d'évaluation soient connus à l'avance."
 },
 {
