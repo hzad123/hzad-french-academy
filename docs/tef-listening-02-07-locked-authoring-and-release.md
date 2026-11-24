@@ -32,3 +32,6 @@ Minimum oral MP3 lengths: questions 1–4 >=12s, 5–20 >=18s, 21–22 >=34s, pa
 9. Stage media before DB. Confirm GitHub Pages exact deployed SHA and hosted file hashes per version; only then apply one immutable migration that publishes fully verified 02–07 versions.
 
 **Publication status:** This is an authoring contract, not evidence that any of the six papers is complete. Do not publish outlines, placeholder questions, machine-repeated dialogue or unreviewed audio.
+
+## Draft iteration checkpoint
+The six scripts and 240 question drafts are undergoing editorial/timing QA. The published v3 bank is unchanged. Do not activate without real hosted audio and verified test start permissions.
