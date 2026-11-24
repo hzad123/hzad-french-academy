@@ -82,15 +82,30 @@ function illustration(scene){
  }
  return svg;
 }
-function graph(values,index,media){
+// All four alternatives in a question must have the same, data-driven scale.
+export function tefChartScale(series){
+ const values=series.flat();
+ const low=Math.min(0,...values),high=Math.max(0,...values);
+ const span=high-low||1;
+ const raw=span*1.1/4;
+ const magnitude=10**Math.floor(Math.log10(raw));
+ const step=([1,2,2.5,5,10].find(n=>n*magnitude>=raw)||10)*magnitude;
+ const min=Math.floor((low<0?low-span*.05:0)/step)*step;
+ const max=Math.ceil((high>0?high+span*.05:low===0?1:0)/step)*step;
+ const ticks=Array.from({length:Math.round((max-min)/step)+1},(_,i)=>Number((min+i*step).toPrecision(12)));
+ return {min,max,ticks};
+}
+function graph(values,index,media,scale){
  const svg=shape('svg',{viewBox:'0 0 415 245',role:'img','aria-label':'Graphique '+(index+1)+' : valeurs de '+values.join(', '),class:'hz-tef-chart'});
- const x=i=>48+i*82,y=v=>196-v*4.6;
+ const x=i=>62+i*322/Math.max(1,values.length-1),y=v=>196-(v-scale.min)/(scale.max-scale.min)*150;
+ const format=new Intl.NumberFormat('fr-CA',{maximumSignificantDigits:8});
  svg.append(shape('text',{x:207,y:20,'text-anchor':'middle','font-size':16,'font-weight':700,fill:'#163b61'},'Graphique '+(index+1)));
- for(const v of [0,10,20,30]){const yy=y(v);svg.append(shape('line',{x1:45,y1:yy,x2:390,y2:yy,stroke:'#dbe4ed','stroke-width':1}),shape('text',{x:35,y:yy+4,'text-anchor':'end','font-size':11,fill:'#53677c'},v))}
- svg.append(shape('line',{x1:45,y1:196,x2:390,y2:196,stroke:'#627e96','stroke-width':1.5}));
- for(let i=0;i<5;i++)svg.append(shape('text',{x:x(i),y:216,'text-anchor':'middle','font-size':11,fill:'#506781'},media.years?.[i]||String(i+1)));
- svg.append(shape('polyline',{points:values.map((v,i)=>x(i)+','+y(v)).join(' '),fill:'none',stroke:['#167e8f','#ba5b64','#6f60bd','#b98929'][index],'stroke-width':3.2,'stroke-linecap':'round','stroke-linejoin':'round'}));
- for(let i=0;i<5;i++)svg.append(shape('circle',{cx:x(i),cy:y(values[i]),r:4,fill:['#167e8f','#ba5b64','#6f60bd','#b98929'][index]}));
+ for(const v of scale.ticks){const yy=y(v);svg.append(shape('line',{x1:58,y1:yy,x2:390,y2:yy,stroke:'#dbe4ed','stroke-width':1}),shape('text',{x:49,y:yy+4,'text-anchor':'end','font-size':11,fill:'#53677c'},format.format(v)))}
+ svg.append(shape('line',{x1:58,y1:y(0),x2:390,y2:y(0),stroke:'#627e96','stroke-width':1.5}));
+ for(let i=0;i<values.length;i++)svg.append(shape('text',{x:x(i),y:216,'text-anchor':'middle','font-size':11,fill:'#506781'},media.years?.[i]||String(i+1)));
+ const color=['#167e8f','#ba5b64','#6f60bd','#b98929'][index];
+ svg.append(shape('polyline',{points:values.map((v,i)=>x(i)+','+y(v)).join(' '),fill:'none',stroke:color,'stroke-width':3.2,'stroke-linecap':'round','stroke-linejoin':'round'}));
+ for(let i=0;i<values.length;i++)svg.append(shape('circle',{cx:x(i),cy:y(values[i]),r:4,fill:color}));
  return svg;
 }
 export function renderTefMedia(media){
@@ -108,7 +123,8 @@ export function renderTefMedia(media){
  }else if(media.kind==='chart-grid'){
   wrap.append(html('h5',media.heading),html('p',media.unit||'Valeurs annuelles','hz-small'));
   const grid=html('div',undefined,'hz-tef-chart-grid');
-  for(const [i,values] of media.series.entries())grid.append(graph(values,i,media));
+  const scale=tefChartScale(media.series);
+  for(const [i,values] of media.series.entries())grid.append(graph(values,i,media,scale));
   wrap.append(grid);
  }
  return wrap;
