@@ -18,7 +18,7 @@ test('TEF interview and report share one recording and show both questions simul
  assert(src.includes("const next=attempt.paper.questions[(item.groupEnd&&item.groupEnd>item.number)?item.groupEnd:item.number]"));
 });
 test('TEF new version honours pre-audio reading window without breaking historical v1 audio',()=>{
- assert(src.includes("const officialPreview=()=>attempt?.version==='tef-listening-2026-11-test01-v2'"));
+ assert(src.includes("const officialPreview=()=>/^tef-listening-2026-11-test01-v(?:2|3)$/.test(attempt?.version||'');"));
  assert(src.includes("if(officialPreview()&&elapsed()<item.previewSeconds)return"));
  assert(src.includes("if(!officialPreview()||elapsed()>=item.previewSeconds)playCurrent()"));
  assert(src.includes("if(officialPreview())"));
