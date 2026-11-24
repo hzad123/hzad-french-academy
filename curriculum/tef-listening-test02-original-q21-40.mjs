@@ -45,7 +45,7 @@ export const questions02b=[
 {
 transcript:`Au pied d'une falaise, des archéologues ont découvert des traces de vie qui remontent à plusieurs siècles. Cette trouvaille attire déjà les visiteurs, et la commune imagine un parcours de découverte. Mais les chercheurs demandent de la prudence. Une partie des vestiges est exposée à l'humidité et aux variations de température. Ouvrir trop rapidement le site pourrait accélérer leur dégradation. La directrice des fouilles ne s'oppose pas au tourisme; elle propose d'abord un relevé complet, puis une présentation de reproductions dans un espace couvert. Les élus devront choisir entre un accès immédiat et une valorisation progressive qui laisse le temps d'étudier les objets.`,
 question:"Quelle tension principale le chroniqueur présente-t-il ?",
-options:["Le coût des recherches et la durée de formation des archéologues.","L'envie d'ouvrir le site et la nécessité de préserver les vestiges.","La compétition entre les communes pour attirer les spécialistes.","Le choix entre une exposition locale et un prêt à un musée."],correct:"B",
+options:["Le coût des recherches et la durée de formation des archéologues.","L'ouverture du site face au risque de dégradation.","La compétition entre les communes pour attirer les spécialistes.","Le choix entre une exposition locale et un prêt à un musée."],correct:"B",
 explanation:"L'enjeu est de concilier l'intérêt public et la conservation de découvertes fragiles."
 },
 {
@@ -57,7 +57,7 @@ explanation:"Le chroniqueur souligne que réussir une manoeuvre n'assure pas une
 {
 transcript:entretienManuscrits,
 question:"Quel bénéfice de la numérisation la conservatrice met-elle principalement en avant ?",
-options:["Elle facilite la comparaison de documents auparavant difficiles à réunir.","Elle élimine le besoin d'étudier les reliures des manuscrits.","Elle assure que chaque transcription proposée soit définitive.","Elle rend possible la photographie de tous les volumes sans risque."],correct:"A",
+options:["Elle facilite la comparaison de manuscrits dispersés.","Elle élimine le besoin d'étudier les reliures des manuscrits.","Elle assure que chaque transcription proposée soit définitive.","Elle permet de photographier des volumes sans préparation spécifique."],correct:"A",
 explanation:"La conservatrice souligne la comparaison de manuscrits dispersés et le repérage de détails."
 },
 {
@@ -87,7 +87,7 @@ explanation:"Un prix imposé pour une récolte imprévisible peut fragiliser le 
 {
 transcript:entretienApprovisionnement,
 question:"Quelle attente le fournisseur exprime-t-il plus particulièrement ?",
-options:["Disposer plus tôt d'indications fiables sur les quantités envisagées.","Pouvoir supprimer les commandes pendant les périodes de pluie.","Recevoir un paiement plus rapide pour chaque livraison effectuée.","Conserver le même assortiment pendant la totalité de la saison."],correct:"A",
+options:["Connaître plus tôt les quantités qui seront commandées.","Pouvoir supprimer les commandes pendant les périodes de pluie.","Recevoir un paiement plus rapide pour chaque livraison effectuée.","Conserver le même assortiment pendant la totalité de la saison."],correct:"A",
 explanation:"Il demande une anticipation des volumes et critique les annulations imprévues."
 },
 {
@@ -99,7 +99,7 @@ explanation:"La consultation a révélé que les besoins étaient surtout concen
 {
 transcript:reportageGarde,
 question:"Quel changement l'équipe envisage-t-elle avant d'élargir le service ?",
-options:["Supprimer l'aide municipale au fonctionnement.","Réduire les journées d'accueil les moins fréquentées.","Assouplir les réservations pour les familles aux plannings tardifs.","Réserver les places souples aux parents ayant adhéré depuis un an."],correct:"C",
+options:["Supprimer l'aide municipale au fonctionnement.","Réduire les journées d'accueil les moins fréquentées.","Permettre des réservations plus proches de la date.","Réserver les places souples aux parents ayant adhéré depuis un an."],correct:"C",
 explanation:"La coopérative souhaite tester une réserve de places pouvant être réservées plus tard."
 },
 {
@@ -111,7 +111,7 @@ explanation:"Elle veut conserver les enregistrements et signaler les modificatio
 {
 transcript:`Une économiste examine un nouveau tarif de l'eau destiné à décourager le gaspillage. Les premiers mètres cubes seraient vendus à prix réduit, puis le tarif augmenterait avec la consommation. Ce système paraît équitable si l'on suppose que les ménages qui consomment davantage disposent de plus de moyens. Mais une famille nombreuse ou un logement mal isolé sur le plan hydraulique peut utiliser beaucoup d'eau sans être particulièrement riche. La chercheuse recommande donc d'analyser les besoins essentiels et l'état des bâtiments avant de conclure qu'un tarif progressif récompense toujours les comportements responsables. Une grille simple à lire n'est pas nécessairement simple à justifier.`,
 question:"Quelle réserve l'économiste formule-t-elle ?",
-options:["Un tarif progressif ne modifie jamais les habitudes de consommation.","Les familles nombreuses devraient payer le même montant que les autres.","Une forte consommation ne traduit pas nécessairement un usage excessif.","Les premières quantités d'eau devraient être plus chères pour tous."],correct:"C",
+options:["Un tarif progressif affecte peu les ménages aux usages variables.","Les familles nombreuses devraient payer le même montant que les autres.","Une forte consommation ne traduit pas nécessairement un usage excessif.","Le tarif initial devrait être modulé selon la taille du logement."],correct:"C",
 explanation:"Les besoins des familles et les fuites peuvent expliquer de gros volumes sans gaspillage."
 },
 {
@@ -135,7 +135,7 @@ explanation:"Il demande une enquête transparente et un dialogue avant de décid
 {
 transcript:`Une architecte présente une résidence construite autour d'une cuisine commune, d'un atelier et d'un jardin partagé. Le projet promet de réduire certains coûts en mutualisant les équipements. Après plusieurs mois, les habitants soulignent aussi des tensions: certains utilisent fréquemment les espaces, d'autres contribuent financièrement mais y vont rarement. L'architecte recommande de ne pas confondre partage et disponibilité permanente. Des règles de réservation, des responsabilités d'entretien et des zones privées clairement définies sont nécessaires. Elle estime que le modèle est intéressant, non parce qu'il supprime les conflits, mais parce qu'il permet de les traiter ouvertement.`,
 question:"Quelle condition l'architecte juge-t-elle importante pour ce type d'habitat ?",
-options:["Rendre l'utilisation des espaces communs identique pour tous.","Réduire la taille des logements au profit des ateliers.","Définir clairement les usages et les obligations des résidents.","Attribuer l'entretien exclusivement aux habitants les plus présents."],correct:"C",
+options:["Faire dépendre l'accès des espaces communs des contributions.","Réduire la taille des logements au profit des ateliers.","Définir clairement les usages et les obligations des résidents.","Confier la gestion des locaux à des responsables désignés."],correct:"C",
 explanation:"L'architecte préconise des règles explicites de réservation et d'entretien."
 },
 {
@@ -147,13 +147,13 @@ explanation:"La production dépend de facteurs environnementaux variables selon 
 {
 transcript:`Un spécialiste du tourisme régional analyse un projet de liaison ferroviaire directe vers une vallée préservée. Les habitants espèrent que le train remplacera une partie des voitures, mais craignent aussi qu'il attire davantage de visiteurs lors des week-ends les plus fréquentés. Le plan initial prévoit de nombreux départs rapides sans examiner les capacités des sentiers et des hébergements. L'expert recommande une stratégie plus large: coordonner les horaires avec les transports locaux, mesurer la fréquentation et protéger les zones les plus fragiles. Il souligne que le transport collectif peut réduire l'impact d'un déplacement individuel tout en augmentant le nombre total de déplacements.`,
 question:"Quelle contradiction le spécialiste met-il en évidence ?",
-options:["Un train direct réduit toujours les capacités des hébergements.","Une offre collective peut diminuer l'usage de la voiture tout en attirant plus de visiteurs.","Les horaires rapides ne sont utiles qu'aux touristes déjà motorisés.","Les sentiers protégés demandent nécessairement de nouvelles routes."],correct:"B",
+options:["La liaison directe détourne des visiteurs des hébergements ruraux.","Le train réduit les trajets en voiture mais attire plus de visiteurs.","La réduction des temps de trajet favoriserait les visites courtes.","Les sentiers protégés demandent nécessairement de nouvelles routes."],correct:"B",
 explanation:"Le train peut réduire l'impact par trajet, mais augmenter la fréquentation totale."
 },
 {
 transcript:`Une spécialiste de l'analyse sensorielle compare deux méthodes de contrôle des aliments. Les appareils mesurent précisément l'acidité et certains composés aromatiques. Les dégustateurs, eux, peuvent repérer une impression d'amertume ou une texture inhabituelle, mais leurs avis varient selon les habitudes et le contexte. La chercheuse refuse d'opposer les deux approches. Un chiffre de laboratoire peut expliquer une sensation sans prédire à lui seul l'acceptation d'un produit par les consommateurs. De même, l'enthousiasme d'un petit groupe de dégustateurs ne garantit pas la stabilité d'une recette. Elle recommande de croiser mesures, dégustations répétées et conditions de fabrication.`,
 question:"Quel principe guide l'évaluation proposée ?",
-options:["Remplacer la dégustation par des appareils plus sensibles.","Conserver uniquement les préférences exprimées par les consommateurs.","Analyser les recettes uniquement après leur mise en vente.","Combiner mesures objectives et appréciations sensorielles."],correct:"D",
+options:["Remplacer la dégustation par des appareils plus sensibles.","Privilégier les dégustations réalisées dans des conditions réelles.","N'utiliser les mesures chimiques que si les avis divergent.","Combiner mesures objectives et appréciations sensorielles."],correct:"D",
 explanation:"Les mesures et les perceptions apportent des informations différentes, à comparer."
 },
 {
