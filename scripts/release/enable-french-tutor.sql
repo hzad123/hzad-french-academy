@@ -61,13 +61,14 @@ begin
  select jsonb_object_agg(kind,jsonb_build_object('enabled',enabled and credits is not null and ceiling_microcad is not null and model is not null,'credits',credits)) into catalog from academy_ai.activities;
  select coalesce(jsonb_agg(to_jsonb(h) order by h."createdAt" desc),'[]') into history from (
   select id,kind,level,status,credits,conversation_id as "conversationId",created_at as "createdAt",result
-  from academy_ai.requests where user_id=u and created_at>now()-interval '90 days' order by created_at desc,id desc limit 20
+  from academy_ai.requests where user_id=u and kind<>'tutor' and created_at>now()-interval '90 days' order by created_at desc,id desc limit 20
  )h;
  return jsonb_build_object('enabled',cfg.enabled and (cfg.allowed_users is null or u=any(cfg.allowed_users)) and cfg.included_credits is not null and (cfg.global_cap_microcad is null or cfg.global_cap_microcad>cfg.spent_microcad+cfg.reserved_microcad),
  'testingCad',case when w.testing_budget_microcad>0 then w.cap_microcad/1000000.0 else null end,'includedCad',cfg.student_cap_microcad/1000000.0,'topUpUrl',cfg.topup_url,
  'wallet',case when w.user_id is null then null else jsonb_build_object('available',case when w.expires_at>now() then w.available else 0 end,'reserved',w.reserved,'expiresAt',w.expires_at,'funding',case when w.testing_budget_microcad>0 then 'testing' when w.purchased_budget_microcad>0 then 'paid' else 'included' end,
  'capCad',w.cap_microcad/1000000.0,'budgetAvailable',w.spent_microcad+w.reserved_microcad<w.cap_microcad) end,'activities',catalog,'history',history,
  'conversations',(select coalesce(jsonb_agg(to_jsonb(c)),'[]') from (select id,level,scenario,updated_at as "updatedAt",jsonb_array_length(messages)/2 as turns from academy_ai.conversations where user_id=u and scenario<>'tutor' and updated_at>now()-interval '90 days' order by updated_at desc limit 5)c),
+ 'tutorHistory',(select coalesce(jsonb_agg(to_jsonb(h) order by h."createdAt" desc),'[]') from (select id,kind,level,status,credits,conversation_id as "conversationId",created_at as "createdAt",result from academy_ai.requests where user_id=u and kind='tutor' and created_at>now()-interval '90 days' order by created_at desc,id desc limit 20)h),
  'tutorConversations',(select coalesce(jsonb_agg(to_jsonb(c)),'[]') from (select id,level,scenario,updated_at as "updatedAt",jsonb_array_length(messages)/2 as turns from academy_ai.conversations where user_id=u and scenario='tutor' and updated_at>now()-interval '90 days' order by updated_at desc limit 10)c));
 end;$function$
 ;
