@@ -27,9 +27,10 @@ for(let t=2;t<=7;t++){
   const entry=manifest.files.find(x=>x.file===q.audio);assert(entry,'Missing manifest recording '+q.audio);
   const body=await readFile(root+'/audio/'+q.audio);
   assert.equal(sha(body),entry.sha256,'Audio digest mismatch Q'+n);
-  const segmentsHash=sha(JSON.stringify(q.segments,Object.keys(q.segments?.[0]||{}).sort())); // sourceHash verified below via stable sorted JSON
-  const trueSourceHash=sha(JSON.stringify(q.segments.map(x=>({text:x.text,voice:x.voice}))));
-  assert(entry.sourceHash&&entry.sourceHash.length===64,'Missing source-to-MP3 evidence Q'+n);
+  // Match Python json.dumps(...,ensure_ascii=False,sort_keys=True)
+  // so every MP3 is tied to the precise rendered French text and voices.
+  const canonical='['+q.segments.map(x=>'{"text": '+JSON.stringify(x.text)+', "voice": '+JSON.stringify(x.voice)+'}').join(', ')+']';
+  assert.equal(entry.sourceHash,sha(canonical),'Audio was generated from a different transcript Q'+n);
   const min=n<=4?12:n<=20?18:n<=22?34:n<=28?105:n===29?100:30;
   const max=n<=4?33:n<=20?39:n<=22?62:n<=28?137:n===29?135:66;
   assert(q.audioSeconds>=min&&q.audioSeconds<=max,'Recording length outside approved style band Q'+n+': '+q.audioSeconds);
