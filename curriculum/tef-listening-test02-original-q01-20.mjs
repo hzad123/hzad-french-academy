@@ -7,36 +7,36 @@ transcript:`— Bonjour, j'ai réservé deux places pour l'atelier de poterie de
 — La séance comprend le façonnage. Nous appliquons l'émail mardi, puis les pièces restent trois jours au four et sur les étagères de refroidissement.
 — Donc nous ne repartons pas avec nos bols samedi ?
 — Non, vous pourrez revenir le vendredi suivant à l'accueil ou demander un envoi, dont les frais ne sont pas inclus.`,
-question:"Que précise l'employée au sujet des objets fabriqués ?",
-options:["Ils doivent être décorés par les participants après le cours.","Ils seront livrés sans supplément aux participants inscrits.","Ils seront récupérables plusieurs jours après l'atelier.","Ils ne seront conservés que jusqu'au samedi suivant."],correct:"C",
-explanation:"Le façonnage a lieu samedi, mais la finition et la cuisson imposent un retrait le vendredi suivant."
+question:"Dans quel lieu se déroule cet échange ?",
+options:["Dans un atelier de fabrication de meubles.","Dans un magasin de fournitures scolaires.","Dans un atelier de poterie et de céramique.","Dans un service de réparation d'appareils."],correct:"C",
+explanation:"Le façonnage, l'émail et la cuisson désignent un atelier de poterie."
 },
 {
 transcript:`— Bonjour, je pars pour l'île de Bréhat. Est-ce que mon billet couvre aussi la navette qui traverse la baie ?
 — Il couvre la traversée principale, pas la navette du port nord. Vous devrez acheter un second titre sur place.
 — Et si je prends la correspondance de quinze heures ?
 — Il faut d'abord faire valider votre billet principal à cette borne. Sinon, même avec une réservation, l'agent à bord ne pourra pas vous laisser embarquer.`,
-question:"Que doit faire le passager avant la traversée principale ?",
-options:["Faire valider le billet qu'il possède déjà.","Réserver une seconde place au guichet central.","Présenter le reçu d'une navette complémentaire.","Changer son billet pour une autre traversée."],correct:"A",
-explanation:"L'agent indique que la validation à la borne est nécessaire avant l'embarquement."
+question:"Où se déroule cette conversation ?",
+options:["Au terminal d'une liaison maritime.","Dans le hall d'un aéroport régional.","Au comptoir d'une station de ski.","À l'accueil d'un autocar de tourisme."],correct:"A",
+explanation:"Le billet de traversée et la navette du port renvoient au terminal d'une liaison maritime."
 },
 {
 transcript:`— Excusez-moi, où se déroule l'observation des étoiles ? Je croyais que le rendez-vous était dans la coupole.
 — Ce soir, les télescopes sont installés dans le jardin, près du vieux cadran solaire. La coupole accueille uniquement une exposition.
 — Même avec ce vent ?
 — Nous déciderons à vingt heures si l'observation est possible. En attendant, vous pouvez assister à la présentation du ciel dans la salle de conférence.`,
-question:"Où les visiteurs doivent-ils se présenter pour observer le ciel, si la météo le permet ?",
-options:["Dans la coupole ouverte au public.","Dans la salle de conférence du bâtiment.","Près du centre d'accueil des visiteurs.","Dans le jardin, à côté du cadran solaire."],correct:"D",
-explanation:"Le lieu prévu pour les télescopes est le jardin, la coupole n'accueillant que l'exposition."
+question:"Quelle image correspond à la situation présentée ?",
+options:["Des visiteurs attendent une projection dans un cinéma.","Une classe se retrouve dans un laboratoire de chimie.","Des touristes regardent une exposition de sculptures.","Des personnes observent le ciel avec des télescopes."],correct:"D",
+explanation:"Le dialogue concerne une soirée d'observation avec télescopes dans le jardin."
 },
 {
 transcript:`— Bonjour, j'organise un dîner et j'aimerais préparer ce bar au four. Est-ce que vous pouvez enlever les écailles et les arêtes ?
 — Je peux l'écailler et le vider. En revanche, si je retire toutes les arêtes, il faudra le lever en filets.
 — Je souhaite le cuire entier.
 — Dans ce cas, je laisse l'arête centrale et je prépare le poisson pour une cuisson entière. Je peux aussi garder la tête si vous le préférez.`,
-question:"Comment le poissonnier préparera-t-il finalement le poisson ?",
-options:["En filets complètement désarêtés.","Entier, nettoyé mais avec l'arête centrale.","En portions déjà assaisonnées pour le four.","Sans tête ni peau, prêt à être poêlé."],correct:"B",
-explanation:"La cliente veut une cuisson entière; le poissonnier conserve donc l'arête centrale."
+question:"Quelle image correspond à ce dialogue ?",
+options:["Un employé sert des clients dans une boulangerie.","Un poissonnier prépare la commande d'une cliente.","Un vendeur conseille un achat dans une boucherie.","Un commerçant emballe des fruits au marché."],correct:"B",
+explanation:"La préparation d'un bar, des écailles et des arêtes révèle un étal de poissonnerie."
 },
 {
 transcript:`Attention, annonce à l'attention des voyageurs du train régional pour Saint-Malo. Le départ de seize heures vingt est maintenu et la composition du train ne change pas. En raison de travaux sur la signalisation, les voitures seront toutefois accessibles depuis la zone C et non depuis la zone A indiquée sur certains billets. Les agents présents sur le quai pourront orienter les passagers qui ont besoin d'assistance. Nous vous invitons à rejoindre cette zone avant l'arrivée du train.`,
