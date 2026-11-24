@@ -1,0 +1,44 @@
+name: Verify hosted TEF Listening 08
+on:
+  pull_request:
+    branches: [development]
+jobs:
+  verify:
+    if: github.head_ref == 'feature/tef-listening-08-hosted-verification' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify deployed media bytes and production revision
+        run: |
+          python - <<'PY'
+          import json, hashlib, pathlib, urllib.request, time, concurrent.futures
+          base='https://hzad123.github.io/hzad-french-academy/'
+          p=pathlib.Path('assets/tef-listening/tef-listening-2026-11-test08-v1')
+          expected=[x for x in p.rglob('*') if x.is_file()]
+          assert len(expected)==43, len(expected)
+          def sha(b):return hashlib.sha256(b).hexdigest()
+          def get(path):
+              req=urllib.request.Request(base+str(path)+'?verify=08',headers={'Cache-Control':'no-cache','User-Agent':'HZad-TEF-host-verification'})
+              with urllib.request.urlopen(req,timeout=30) as r:return r.read()
+          def check(path):
+              actual=get(path)
+              assert sha(actual)==sha(path.read_bytes()),str(path)
+              return str(path)
+          for i in range(18):
+              try:
+                  before=get('BUILD_COMMIT.txt').decode().strip()
+                  assert len(before)==40,repr(before)
+                  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex: passed=list(ex.map(check,expected))
+                  after=get('BUILD_COMMIT.txt').decode().strip()
+                  assert before==after,'Deployment changed during verification'
+                  print('HOSTED_REVISION='+after)
+                  print('VERIFIED_FILES='+str(len(passed)))
+                  break
+              except Exception as e:
+                  print('Attempt',i+1,repr(e),flush=True)
+                  if i==17:raise
+                  time.sleep(10)
+          PY
