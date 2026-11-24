@@ -38,3 +38,6 @@ The six scripts and 240 question drafts are undergoing editorial/timing QA. The 
 
 ## Audio measurement checkpoint
 All 240 draft question records exist; 216 independently recorded clips must be measured. No publication is authorized from this checkpoint.
+
+## Measured audio retest, Nov 24
+First measurement: Test04 report Q29 96.77s vs 100s minimum; Test06 total 2414s vs 2400s maximum. Edits add original ecological evidence to Q29 and omit complete optional spoken blocks in Test06. Both require a fresh waveform-and-clock audit before activation.
