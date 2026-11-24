@@ -23,6 +23,13 @@ async function review(q){const {choices,expected}=permute(q);const ground=await 
 async function pool(items,fn,n=3){const out=[];let i=0;await Promise.all(Array.from({length:n},async()=>{while(i<items.length){const j=i++;out[j]=await fn(items[j],j);}}));return out;}
 const pairs=[12,14,16,23,25,27,29,31,33,35,37,39];
 const pairOK=qs=>pairs.every(n=>{const a=qs.find(q=>q.number===n),b=qs.find(q=>q.number===n+1);return !a||!b||a.passage===b.passage&&a.group===b.group;});
+let questions;let oldReviews=null;
+try {
+ const old=JSON.parse(await readFile('supabase/exams/tef-reading-test'+pad(test)+'-v1.json','utf8'));
+ if(old.questions.length===40&&old.questions.every((q,i)=>structural(q,i+1))&&pairOK(old.questions))questions=old.questions;
+ if(questions){try{const rs=JSON.parse(await readFile('docs/tef-reading-batch-14-20/'+pad(test)+'-reviews.json','utf8'));if(rs.length===40)oldReviews=rs;}catch{}}
+}catch{}
+if(!questions){
 const authored=await pool(blocks,async([start,end,spec])=>{
  let saved;try{saved=JSON.parse(await readFile(root+'/block-'+start+'.json','utf8')).result.questions;}catch{}
  if(saved?.length===end-start+1&&saved.every((q,i)=>structural(q,start+i))&&pairOK(saved))return saved;
@@ -41,20 +48,24 @@ const authored=await pool(blocks,async([start,end,spec])=>{
  }
  await writeFile(root+'/block-'+start+'.json',JSON.stringify({result:{questions:result}},null,2));return result;
 },2);
-let questions=authored.flat();
-let oldReviews=null;
-try{const old=JSON.parse(await readFile('supabase/exams/tef-reading-test'+pad(test)+'-v1.json','utf8'));const rs=JSON.parse(await readFile('docs/tef-reading-batch-14-20/'+pad(test)+'-reviews.json','utf8'));if(old.questions.length===40&&old.questions.every((q,i)=>structural(q,i+1))&&pairOK(old.questions)&&rs.length===40){questions=old.questions;oldReviews=rs;}}catch{}
+
+ questions=authored.flat();
+}
 if(!pairOK(questions))throw Error('Mismatched pair');
+for(const n of pairs){if(!questions[n-1].group){questions[n-1].group='tef-'+test+'-'+n;questions[n].group=questions[n-1].group;}}
 const paper={id:'tef-reading-'+pad(test),version:'tef-reading-2026-11-original-'+pad(test)+'-v1',title:'TEF Canada · Compréhension écrite · Test '+pad(test),seconds:3600,maxPoints:40,questions};
 await writeFile(root+'/paper.json',JSON.stringify(paper,null,2));
-let reviews=oldReviews||await pool(questions,review,4);
+const safeReview=async q=>{try{return await review(q);}catch(e){console.error('Review error for Q'+q.number,String(e));return {number:q.number,grounded:false,strong:false,reviewError:String(e)};}};
+let reviews=oldReviews||await pool(questions,safeReview,3);
+await writeFile(root+'/reviews.json',JSON.stringify(reviews,null,2));
 for(let attempt=0;attempt<4;attempt++){
  const failing=reviews.filter(r=>!r.grounded||r.strong&&r.number>=36&&r.number<=39);
  if(!failing.length)break;
- await pool(failing,async r=>{const q=questions[r.number-1];if(q.number<=22){const b=await call('generate',{test,start:q.number,end:q.number,spec:shared+' Repair this specific item only: '+JSON.stringify(q)+' Reviewer: '+JSON.stringify(r.ground.result)+' Keep the exact existing passage, group and media, correct any answer ambiguity and return one question.'});const next=b.result.questions?.[0];if(structural(next,q.number)&&JSON.stringify(next.media??null)===JSON.stringify(q.media??null)&&next.passage===q.passage&&next.group===q.group){questions[q.number-1]=next;reviews[q.number-1]=await review(next);}return;}const a=await call('author',{source:q.passage,question:q.question,choices:q.options,correctIndex:'ABCD'.indexOf(q.correct),number:q.number,semantic:q.semantic,feedback:JSON.stringify({ground:r.ground.result,blind:r.blind?.result}).slice(0,2700)});const x=a.result;const next={...q,question:x.question,options:x.choices,correct:'ABCD'[x.correctIndex],explanation:x.explanation,semantic:x.semantic};if(structural(next,q.number)){questions[q.number-1]=next;reviews[q.number-1]=await review(next);}},3);
+ await pool(failing,async r=>{const q=questions[r.number-1];try{if(r.reviewError){const fresh=await safeReview(q);reviews[q.number-1]=fresh;if(fresh.grounded||fresh.reviewError)return;r=fresh;}if(q.number<=22){const b=await call('generate',{test,start:q.number,end:q.number,spec:'Return JSON {questions:[one question with same schema]}. Repair this specific French reading item only: '+JSON.stringify(q)+' Reviewer: '+JSON.stringify(r.ground?.result??{error:r.reviewError}).slice(0,2500)+' Keep the exact existing passage, group and media; correct any answer ambiguity and return one question.'});const next=b.result.questions?.[0];if(structural(next,q.number)&&JSON.stringify(next.media??null)===JSON.stringify(q.media??null)&&next.passage===q.passage&&next.group===q.group){const check=await safeReview(next);if(check.grounded||!r.grounded&&!check.reviewError){questions[q.number-1]=next;reviews[q.number-1]=check;}}return;}const a=await call('author',{source:q.passage,question:q.question,choices:q.options,correctIndex:'ABCD'.indexOf(q.correct),number:q.number,semantic:q.semantic,feedback:JSON.stringify({ground:r.ground?.result,blind:r.blind?.result}).slice(0,2700)});const x=a.result;const next={...q,question:x.question,options:x.choices,correct:'ABCD'[x.correctIndex],explanation:x.explanation,semantic:x.semantic};if(structural(next,q.number)){const check=await safeReview(next);if(check.grounded||!r.grounded&&!check.reviewError){questions[q.number-1]=next;reviews[q.number-1]=check;}}}catch(e){console.error('Repair error for Q'+q.number,String(e));}},3);
+ await writeFile(root+'/reviews.json',JSON.stringify(reviews,null,2));
  await writeFile(root+'/paper.json',JSON.stringify(paper,null,2));
 }
 const advanced=reviews.filter(r=>r.number>=36&&r.number<=39);
-const summary={test,questions:questions.length,grounded:reviews.filter(r=>r.grounded).length,advancedStrong:advanced.filter(r=>r.strong).length,advancedBlindCorrect:advanced.filter(r=>r.blind.result.guess===r.blind.expected).length,failed:reviews.filter(r=>!r.grounded||r.strong&&r.number>=36&&r.number<=39).map(r=>r.number)};
+const summary={test,questions:questions.length,grounded:reviews.filter(r=>r.grounded).length,advancedStrong:advanced.filter(r=>r.strong).length,advancedBlindCorrect:advanced.filter(r=>r.blind?.result?.guess===r.blind?.expected&&r.blind!=null).length,failed:reviews.filter(r=>!r.grounded||r.strong&&r.number>=36&&r.number<=39).map(r=>r.number)};
 await writeFile(root+'/reviews.json',JSON.stringify(reviews,null,2));await writeFile(root+'/summary.json',JSON.stringify(summary,null,2));console.log('TEF_BATCH_SUMMARY '+JSON.stringify(summary));
 if(summary.failed.length)process.exitCode=1;
