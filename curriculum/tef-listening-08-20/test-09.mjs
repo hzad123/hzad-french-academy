@@ -1,4 +1,4 @@
-/* Original Test 09: full authored French sources; measured media and QA required. */
+/* Original Test 09: source awaiting measured audio and editorial review. */
 export const clips = [
   {
     "start": 1,
@@ -71,23 +71,23 @@ export const clips = [
   },
   {
     "start": 4,
-    "topic": "atelier de fabrication de pain au levain",
-    "script": "— La pâte colle beaucoup aux mains. Je dois rajouter de la farine ?\n— Humidifie plutôt tes doigts. Regarde comment je replie la pâte sans la déchirer.\n— Et après cette étape, on met les pains au four ?\n— Non, laisse-les lever dans les paniers pendant une heure. Tu verras que leur volume va augmenter avant la cuisson.",
+    "topic": "réglage d’une machine à coudre le cuir",
+    "script": "— L’aiguille traverse mal les deux épaisseurs. Je sens que la machine force.\n— Pour ce type de cuir, il vous faut une aiguille plus épaisse et un fil solide. Réduisez aussi la vitesse.\n— Est-ce que je peux découdre et recommencer ?\n— Évitez de faire de nouveaux trous au même endroit. Entraînez-vous d’abord sur cette chute, puis reprenez la couture du sac.",
     "questions": [
       {
-        "stem": "Dans quel atelier se déroule cet échange ?",
-        "correct": "Un atelier de fabrication de pain.",
+        "stem": "Quelle activité est en cours ?",
+        "correct": "Assembler un sac en cuir à la machine.",
         "wrong": [
-          "Un atelier de modelage de l’argile.",
-          "Un atelier de préparation de pâtes fraîches.",
-          "Un atelier de décoration de gâteaux."
+          "Réparer la semelle d’une chaussure.",
+          "Broder un motif sur une veste.",
+          "Poser une fermeture sur un rideau."
         ],
-        "explanation": "Le levage des pains dans les paniers précède la cuisson.",
+        "explanation": "L’aiguille et le fil adaptés au cuir servent à assembler le sac.",
         "illustrationIcons": [
-          "🍞",
-          "🏺",
-          "🍝",
-          "🎂"
+          "👜",
+          "👞",
+          "🧥",
+          "🪟"
         ]
       }
     ]
