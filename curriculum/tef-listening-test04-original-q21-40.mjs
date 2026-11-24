@@ -59,19 +59,19 @@ explanation:"Ils veulent des mesures comparables et répétées afin d'évaluer 
 {
 transcript:`Dans une grotte préhistorique, la respiration des visiteurs modifie légèrement l'humidité et la concentration de gaz dans l'air. Les peintures murales n'en souffrent pas forcément après une visite isolée, mais l'accumulation de passages peut favoriser des transformations lentes. L'équipe scientifique enregistre les conditions avant, pendant et après les visites. Elle ne recommande pas une fermeture définitive; elle propose de limiter la taille des groupes, de ménager des périodes de repos et de présenter des reproductions pour les personnes qui ne peuvent pas entrer. Le défi est d'ouvrir le patrimoine tout en protégeant ce qui le rend précieux.`,
 question:"Quelle solution la chronique présente-t-elle ?",
-options:["Déplacer les peintures vers un musée équipé.","Autoriser davantage de visiteurs durant les jours secs.","Remplacer les relevés scientifiques par l'avis des guides.","Organiser des visites limitées et surveiller les conditions de conservation."],correct:"D",
+options:["Protéger les peintures derrière des vitrages adaptés à l'humidité.","Réserver l'accès aux visiteurs accompagnés d'un spécialiste.","Suivre uniquement l'état des parois photographiées chaque semaine.","Limiter les groupes et mesurer les conditions de conservation."],correct:"D",
 explanation:"Des groupes restreints et un suivi scientifique réduisent les risques liés aux visites."
 },
 {
 transcript:entretienIrrigation,
 question:"Pourquoi l'agronome refuse-t-elle de se fier à la seule image satellite ?",
-options:["L'apparence de la culture ne renseigne pas directement sur toute l'humidité du sol.","Les images arrivent après la fin des périodes où l'arrosage est possible.","Les capteurs orbitaux mesurent uniquement la température de l'air.","La couverture des satellites exclut certaines exploitations agricoles."],correct:"A",
+options:["L'image seule ne révèle pas toutes les réserves d'eau dans le sol.","Les images récentes arrivent après les périodes utiles pour arroser.","Le signal satellitaire reflète surtout les traitements agricoles.","La couverture des satellites ignore les cultures les plus basses."],correct:"A",
 explanation:"L'image doit être croisée avec l'humidité du sol et la météo."
 },
 {
 transcript:entretienIrrigation,
 question:"Quelle difficulté concerne particulièrement les petites fermes ?",
-options:["L'interdiction d'utiliser des capteurs partagés.","L'absence de données météorologiques pour leurs parcelles.","Le coût des outils et le temps nécessaire pour interpréter les données.","La nécessité de cultiver plusieurs espèces au même endroit."],correct:"C",
+options:["La connexion nécessaire aux capteurs reste difficile à maintenir.","Les données météorologiques sont moins nombreuses près des fermes.","Les coûts et l'interprétation des données pèsent davantage sur elles.","La diversité de leurs cultures impose des relevés plus fréquents."],correct:"C",
 explanation:"L'agronome souligne les coûts et le temps d'analyse, notamment dans les petites fermes."
 },
 {
@@ -83,7 +83,7 @@ explanation:"La lecture doit être évaluée en compréhension et autonomie, pas
 {
 transcript:entretienLecture,
 question:"Quelle limite organisationnelle l'école a-t-elle rencontrée ?",
-options:["Les élèves plus âgés refusent d'aider les plus jeunes.","Les familles ne disposent pas des livres demandés.","Les enseignants ne peuvent pas mener de lecture individuelle.","Les créneaux communs et le suivi demandent du temps de préparation."],correct:"D",
+options:["Les plus âgés auraient moins de temps pour leur propre lecture.","Les familles demandent des activités hors des horaires scolaires.","Les séances collectives remplaceraient le suivi des élèves plus jeunes.","Les horaires communs et le suivi demandent une organisation importante."],correct:"D",
 explanation:"L'organisation des horaires et du suivi a nécessité de réduire la fréquence."
 },
 {
@@ -101,7 +101,7 @@ explanation:"L'attribution initiale peut favoriser ceux qui détiennent déjà d
 {
 transcript:reportageSemences,
 question:"Pourquoi les bénévoles demandent-ils des informations détaillées sur chaque lot ?",
-options:["Pour fixer un prix de vente compatible avec les catalogues.","Pour suivre la provenance et les conditions de reproduction des plantes.","Pour classer les jardiniers selon leurs années d'expérience.","Pour prévoir les dates de floraison des cultures voisines."],correct:"B",
+options:["Pour vérifier la valeur des graines avant de permettre leur échange.","Pour suivre la provenance des variétés et leur mode de reproduction.","Pour classer les variétés selon le nombre de jardiniers intéressés.","Pour planifier les dates de semis des exploitations participantes."],correct:"B",
 explanation:"Les fiches documentent provenance, culture et reproduction pour préserver les variétés."
 },
 {
@@ -113,7 +113,7 @@ explanation:"L'association privilégie le suivi et la fiabilité avant la quanti
 {
 transcript:`Une chercheuse en nutrition note que les recommandations alimentaires supposent parfois que chaque famille puisse acheter des produits frais à proximité. Or, le prix, les horaires de travail et l'absence de transport influencent les choix autant que les connaissances. Une personne peut connaître parfaitement les conseils de santé et avoir peu de possibilités de les appliquer. La chercheuse ne propose pas d'abandonner l'éducation nutritionnelle. Elle demande de l'accompagner de mesures sur l'accès aux commerces et les contraintes quotidiennes. Pour comprendre les habitudes, il faut regarder l'environnement dans lequel les décisions sont prises. Pour vérifier ce point, son équipe suivra les trajets d'achat des familles au cours de plusieurs semaines, sans déduire leurs préférences à partir d'un seul questionnaire rempli à l'école.`,
 question:"Quelle distinction la chercheuse souhaite-t-elle rappeler ?",
-options:["Les connaissances nutritionnelles ne suffisent pas lorsque l'accès est limité.","Une alimentation équilibrée dépend surtout de la volonté individuelle.","Les recommandations alimentaires sont plus utiles aux familles avec enfants.","Les commerces de proximité proposent rarement des produits frais."],correct:"A",
+options:["Connaître les conseils n'assure pas l'accès aux produits recommandés.","Les familles ont besoin de recommandations différentes selon leur revenu.","Les commerces de proximité vendent surtout des aliments peu variés.","Les choix alimentaires relèvent principalement des habitudes familiales."],correct:"A",
 explanation:"Elle distingue savoir quoi manger et pouvoir réellement y accéder."
 },
 {
@@ -131,7 +131,7 @@ explanation:"Les analyses doivent être interprétées selon l'utilisation et le
 {
 transcript:`Une historienne étudie les cinémas itinérants qui sillonnaient autrefois les villages. Les témoignages évoquent des soirées attendues avec enthousiasme, mais les documents comptables montrent des difficultés d'organisation: transport des bobines, électricité parfois instable et déplacements coûteux. La chercheuse explique que ces séances jouaient un rôle culturel essentiel sans être nécessairement faciles à maintenir. Elle se méfie des récits qui présentent leur disparition comme la conséquence d'un seul progrès technique. Le développement de la télévision, les nouvelles routes et les changements des loisirs ont transformé ensemble les habitudes. Elle souhaite également interroger les anciens projectionnistes, dont les souvenirs décrivent les décisions prises face aux pannes et aux imprévus, au-delà des seules recettes figurant dans les registres.`,
 question:"Quelle idée l'historienne remet-elle en cause ?",
-options:["La disparition du cinéma itinérant s'expliquerait par une cause unique.","Les cinémas de village rencontraient des difficultés de transport.","Les séances permettaient des rencontres entre habitants.","Les habitudes de loisirs ont évolué sur plusieurs décennies."],correct:"A",
+options:["La fin des cinémas itinérants aurait une explication unique.","Les transports difficiles expliqueraient la fragilité de ces séances.","Les réunions autour des films auraient décliné avant la télévision.","Les habitants auraient remplacé le cinéma par d'autres loisirs."],correct:"A",
 explanation:"La disparition est liée à plusieurs transformations, pas à un seul facteur."
 },
 {
@@ -143,7 +143,7 @@ explanation:"Le jeu libre développe négociation, création et résolution de c
 {
 transcript:`Un écologue discute d'un classement qui attribue à chaque commune un score de biodiversité. Un nombre unique permet de communiquer rapidement, mais il peut masquer la présence d'espèces rares ou le mauvais état d'un habitat particulier. Deux territoires peuvent obtenir une moyenne proche tout en nécessitant des actions très différentes. Le chercheur conseille de publier le détail des espèces, les méthodes de comptage et l'évolution dans le temps. Il ne veut pas supprimer les indicateurs: il souhaite qu'ils servent de point de départ plutôt que de verdict définitif. Un exemple sera présenté lors d'une réunion publique: deux sites portant le même score peuvent demander des investissements très différents selon la vulnérabilité de leurs habitats particuliers.`,
 question:"Quelle limite l'écologue attribue-t-il au score global ?",
-options:["Il ne peut être calculé pour les grandes communes.","Il peut dissimuler des enjeux écologiques différents.","Il est toujours plus élevé dans les territoires peu habités.","Il remplace les enquêtes sur les espèces migratrices."],correct:"B",
+options:["Le score global dépend trop de la taille de la population communale.","Un chiffre unique cache des situations écologiques différentes.","Le calcul accorde trop de poids aux espèces observées en été.","La moyenne reflète mal les conditions de mesure des chercheurs."],correct:"B",
 explanation:"Le score masque les espèces rares et les différences entre habitats."
 },
 {
@@ -155,7 +155,7 @@ explanation:"Une indemnisation mal structurée peut décourager l'adaptation."
 {
 transcript:`Une responsable de restauration scolaire explique pourquoi il est difficile d'évaluer le gaspillage alimentaire. Peser toutes les poubelles donne un chiffre global, mais ne montre pas si les enfants n'aiment pas un plat, reçoivent des portions trop grandes ou disposent de trop peu de temps pour déjeuner. Les équipes observent donc les retours par type de repas et discutent avec les élèves. La responsable estime qu'une diminution de la masse des déchets n'est pas forcément une bonne nouvelle si les portions servies ont été simplement réduites en dessous des besoins. L'objectif reste de nourrir correctement tout en évitant les pertes inutiles. Les équipes compareront également les portions choisies par les élèves aux quantités effectivement consommées, ce qui devrait permettre de séparer les erreurs de service des préférences alimentaires.`,
 question:"Pourquoi un poids total de déchets ne suffit-il pas ?",
-options:["Il ne révèle pas les causes et peut cacher une réduction excessive des portions.","Il exige du personnel plus qualifié que les autres méthodes.","Il est mesuré seulement les jours où la fréquentation est faible.","Il empêche de comparer les prix des menus entre établissements."],correct:"A",
+options:["Le poids cache les causes et parfois l'effet de portions réduites.","La quantité mesurée dépend beaucoup des jours de fréquentation.","Le relevé ne différencie pas les restes servis et non servis.","Les déchets pesés comprennent les emballages des fournisseurs."],correct:"A",
 explanation:"La quantité seule n'explique pas les déchets et doit être interprétée avec les besoins."
 },
 {
