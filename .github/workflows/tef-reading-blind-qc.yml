@@ -4,14 +4,14 @@ on:
     branches: [fix/tef-reading-six-blind-distractors-20261120]
     paths:
       - '.github/workflows/tef-reading-blind-qc.yml'
-      - 'scripts/release/generate-tef-reading-07-13.mjs'
+      - 'scripts/release/generate-tef-reading-14-20.mjs'
 permissions:
   contents: read
   id-token: write
   actions: read
   pull-requests: write
 concurrency:
-  group: tef-reading-new-batch
+  group: tef-reading-final-batch
   cancel-in-progress: true
 jobs:
   generate:
@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       max-parallel: 7
       matrix:
-        test: [7, 8, 9, 10, 11, 12, 13]
+        test: [14, 15, 16, 17, 18, 19, 20]
     runs-on: ubuntu-latest
     timeout-minutes: 75
     steps:
@@ -27,23 +27,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Restore successful blocks from first run
-        uses: actions/download-artifact@v4
-        with:
-          name: tef-reading-paper-${{ matrix.test }}
-          path: work/tef-reading-batch
-          run-id: 45452291231
-          github-token: ${{ github.token }}
       - name: Author, verify and refine paper
         env:
           TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
-        run: node scripts/release/generate-tef-reading-07-13.mjs ${{ matrix.test }}
+        run: node scripts/release/generate-tef-reading-14-20.mjs ${{ matrix.test }}
       - name: Retain drafts and evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tef-reading-paper-${{ matrix.test }}
-          path: work/tef-reading-batch
+          name: tef-reading-final-paper-${{ matrix.test }}
+          path: work/tef-reading-final
           retention-days: 30
   collect:
     if: always()
@@ -58,28 +51,28 @@ jobs:
           ref: fix/tef-reading-six-blind-distractors-20261120
       - uses: actions/download-artifact@v4
         with:
-          pattern: tef-reading-paper-*
-          path: work/tef-reading-batch
+          pattern: tef-reading-final-paper-*
+          path: work/tef-reading-final
           merge-multiple: true
       - name: Preserve draft files and independently verifiable review results
         run: |
-          mkdir -p docs/tef-reading-batch-07-13
-          for d in work/tef-reading-batch/*; do
+          mkdir -p docs/tef-reading-batch-14-20
+          for d in work/tef-reading-final/*; do
             if [ -d "$d" ]; then
               n=$(basename "$d")
               if [ -f "$d/paper.json" ]; then cp "$d/paper.json" "supabase/exams/tef-reading-test${n}-v1.json"; fi
-              if [ -f "$d/summary.json" ]; then cp "$d/summary.json" "docs/tef-reading-batch-07-13/${n}-summary.json"; fi
-              if [ -f "$d/reviews.json" ]; then cp "$d/reviews.json" "docs/tef-reading-batch-07-13/${n}-reviews.json"; fi
+              if [ -f "$d/summary.json" ]; then cp "$d/summary.json" "docs/tef-reading-batch-14-20/${n}-summary.json"; fi
+              if [ -f "$d/reviews.json" ]; then cp "$d/reviews.json" "docs/tef-reading-batch-14-20/${n}-reviews.json"; fi
             fi
           done
-          git add supabase/exams/ docs/tef-reading-batch-07-13/
+          git add supabase/exams/ docs/tef-reading-batch-14-20/
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
-          if ! git diff --cached --quiet; then git commit -m "Preserve new TEF 07–13 authoring and independent review evidence"; git push; fi
+          if ! git diff --cached --quiet; then git commit -m "Preserve new TEF 14–20 authoring and independent review evidence"; git push; fi
       - name: Report actual audit results
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          printf '## TEF Reading 07–13 generation results\n\nRun: %s/%s/actions/runs/%s\n\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > /tmp/result.md
-          for f in docs/tef-reading-batch-07-13/*-summary.json; do if [ -f "$f" ]; then printf '\n```json\n' >> /tmp/result.md; cat "$f" >> /tmp/result.md; printf '\n```\n' >> /tmp/result.md; fi; done
+          printf '## TEF Reading 14–20 generation results\n\nRun: %s/%s/actions/runs/%s\n\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > /tmp/result.md
+          for f in docs/tef-reading-batch-14-20/*-summary.json; do if [ -f "$f" ]; then printf '\n```json\n' >> /tmp/result.md; cat "$f" >> /tmp/result.md; printf '\n```\n' >> /tmp/result.md; fi; done
           gh pr comment 95 --body-file /tmp/result.md
