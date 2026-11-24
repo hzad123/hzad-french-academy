@@ -27,20 +27,24 @@ function balancedKeys(testNumber){
 function escapeXml(str){return str.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
 function svgFor(q){
  const icons=q.illustrationIcons;
- assert.equal(icons?.length,4,'Four original illustrated scene icons required');
+ assert.equal(icons?.length,4,'Four original pictured scenes required');
  const bg=['#e4f1f9','#fff0e4','#eaf5e8','#f0eafb'];
  const stroke=['#3f7896','#9d6b47','#54764a','#7756a1'];
  const cards=q.options.map((label,i)=>{
   const x=(i%2)*396+28,y=Math.floor(i/2)*240+24;
-  const clean=escapeXml(label.length>74?label.slice(0,71)+'…':label);
+  // This is a PICTURE question: never print the choice's answer text in
+  // the illustration. Use four distinct visual scenes, labeled A–D only.
   return '<rect x="'+x+'" y="'+y+'" width="375" height="220" rx="18" fill="'+bg[i]+'" stroke="'+stroke[i]+'" stroke-width="2"/>'+
-  '<circle cx="'+(x+72)+'" cy="'+(y+83)+'" r="49" fill="#fff"/>'+
-  '<text x="'+(x+72)+'" y="'+(y+99)+'" font-size="53" text-anchor="middle">'+escapeXml(icons[i])+'</text>'+
-  '<text x="'+(x+150)+'" y="'+(y+68)+'" font-size="29" font-weight="bold" fill="'+stroke[i]+'">'+String.fromCharCode(65+i)+'</text>'+
-  '<foreignObject x="'+(x+150)+'" y="'+(y+92)+'" width="204" height="111"><div xmlns="http://www.w3.org/1999/xhtml" style="font:17px Arial,sans-serif;color:#243448;overflow-wrap:break-word;line-height:1.35">'+clean+'</div></foreignObject>';
+  '<rect x="'+(x+23)+'" y="'+(y+26)+'" width="329" height="169" rx="13" fill="#ffffff" opacity=".7"/>'+
+  '<path d="M '+(x+44)+' '+(y+166)+' Q '+(x+185)+' '+(y+146)+' '+(x+326)+' '+(y+166)+'" stroke="'+stroke[i]+'" opacity=".33" stroke-width="4" fill="none"/>'+
+  '<circle cx="'+(x+185)+'" cy="'+(y+105)+'" r="80" fill="'+bg[i]+'" opacity=".75"/>'+
+  '<text x="'+(x+185)+'" y="'+(y+132)+'" font-size="87" text-anchor="middle">'+escapeXml(icons[i])+'</text>'+
+  '<rect x="'+(x+20)+'" y="'+(y+15)+'" width="44" height="40" rx="9" fill="'+stroke[i]+'"/>'+
+  '<text x="'+(x+42)+'" y="'+(y+43)+'" text-anchor="middle" fill="#fff" font-size="24" font-family="Arial" font-weight="700">'+String.fromCharCode(65+i)+'</text>';
  }).join('');
- return '<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" role="img" aria-label="Quatre scènes originales A à D"><rect width="820" height="520" fill="#fff"/>'+cards+'</svg>\n';
+ return '<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" role="img" aria-label="Quatre scènes illustrées A, B, C et D"><rect width="820" height="520" fill="#fff"/>'+cards+'</svg>\n';
 }
+
 const testNo=Number(process.argv[2]);
 assert(Number.isInteger(testNo)&&testNo>=2&&testNo<=7,'Pass test number 02..07');
 const {clips:authoredClips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'.mjs').href);
