@@ -1,8 +1,10 @@
+import {selectOriginalAddenda} from './lib/select-tef-listening-additions.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const ids=[2,3,4,5,6,7], pad=x=>String(x).padStart(2,'0');
 const starts=new Set([23,25,27,29]), second=new Set([24,26,28,30]);
 const all=[],reports=[];
+const reference=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
 const normalize=s=>s.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 const grams=(s,n=5)=>{let w=normalize(s).split(' '),out=new Set();for(let i=0;i<=w.length-n;i++)out.add(w.slice(i,i+n).join(' '));return out};
 const ext=s=>s.match(/\b(toujours|jamais|necessairement|systematiquement|exclusivement|automatiquement|integralement|seulement|uniquement|tous|aucun)\b/gi)||[];
@@ -10,6 +12,7 @@ const flag=[];
 for(const id of ids){
  const {clips}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'.mjs');
  const {additions}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'-additions.mjs');
+ const selection=selectOriginalAddenda(clips,additions,reference);
  assert.equal(clips.length,36,'Missing authored sources Test'+id);
  const recorded=new Set(),keys={A:0,B:0,C:0,D:0},qstats=[],sources=[];
  const expected=Array.from({length:40},(_,i)=>i+1).filter(i=>!second.has(i));
@@ -18,7 +21,7 @@ for(const id of ids){
  assert.equal(bank.questions.length,40);assert.equal(bank.seconds,2400);assert.equal(bank.id,'tef-listening-'+pad(id));
  const orig=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
  for(const clip of clips){
-   const fullScript=(clip.script.trim()+'\n'+(additions[clip.start]||'')).trim();
+   const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(clip.start)?(additions[clip.start]||''):'')).trim();
    const nw=fullScript.split(/\s+/).length, min=clip.start<=4?43:clip.start<=12?53:clip.start<=20?62:clip.start<=22?85:clip.start<=28?270:clip.start===29?260:84;
    if(nw<min)flag.push({test:id,question:clip.start,category:'short_source',details:nw+' words; threshold '+min});
    const ident=normalize(clip.topic);
