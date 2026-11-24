@@ -6,7 +6,7 @@ export const wording={
 3:{correct:"Au guichet d’une base de loisirs nautiques.",wrong:["À l’accueil d’une piscine de plein air.","Au départ d’une excursion en montagne.","À un atelier de location de cycles."]}
 },
 3:{
-3:{correct:"À l’entrée d’une tour historique ouverte aux visites.",wrong:["Au comptoir d’une gare patrimoniale.","Dans l’espace de vente d’une horlogerie.","À l’accueil d’un parc de loisirs."]},
+3:{correct:"À l’accueil d’une tour historique.",wrong:["Au comptoir d’une gare patrimoniale.","Dans l’espace de vente d’une horlogerie.","À l’accueil d’un parc de loisirs."]},
 7:{correct:"La permanence est déplacée à vendredi.",wrong:["Les dossiers seront examinés à distance mercredi.","Les inscrits doivent choisir un nouvel organisme.","Les entretiens du mercredi commenceront plus tôt."]},
 10:{correct:"Pour changer l’appareil apporté à l’atelier.",wrong:["Pour confirmer l’horaire de l’atelier de samedi.","Pour demander la réparation du grille-pain sous garantie.","Pour récupérer les tournevis prêtés auparavant."]},
 20:{correct:"Clarifier les responsabilités liées au matériel prêté.",wrong:["Partager les équipements selon les dates de tournoi.","Répartir les achats de matériel entre les clubs.","Limiter chaque prêt à des associations expérimentées."]},
