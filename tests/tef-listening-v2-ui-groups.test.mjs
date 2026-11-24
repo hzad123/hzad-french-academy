@@ -18,7 +18,7 @@ test('TEF interview and report share one recording and show both questions simul
  assert(src.includes("const next=attempt.paper.questions[(item.groupEnd&&item.groupEnd>item.number)?item.groupEnd:item.number]"));
 });
 test('TEF new version honours pre-audio reading window without breaking historical v1 audio',()=>{
- assert(src.includes("const officialPreview=()=>/^tef-listening-2026-11-test01-v(?:2|3)$/.test(attempt?.version||'');"));
+ assert(src.includes("const officialPreview=()=>/^tef-listening-2026-11-test01-v(?:2|3)$/.test(attempt?.version||'')||/^tef-listening-2026-11-test0[2-7]-v1$/.test(attempt?.version||'');"));
  assert(src.includes("if(officialPreview()&&elapsed()<item.previewSeconds)return"));
  assert(src.includes("if(!officialPreview()||elapsed()>=item.previewSeconds)playCurrent()"));
  assert(src.includes("if(officialPreview())"));
@@ -27,4 +27,10 @@ test('TEF new version honours pre-audio reading window without breaking historic
  assert.equal(v2.questions[24].previewSeconds,20);
  assert.equal(v2.questions[26].previewSeconds,20);
  assert.equal(v2.questions[28].previewSeconds,10);
+});
+
+test('TEF tests 02–07 retain reading countdown and dynamic isolated audio URLs',()=>{
+ assert(src.includes("/^tef-listening-2026-11-test0[2-7]-v1$/"));
+ assert(src.includes("encodeURIComponent(version)"));
+ assert(src.includes("if(officialPreview()&&elapsed()<item.previewSeconds)return"));
 });

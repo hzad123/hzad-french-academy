@@ -22,3 +22,158 @@ jobs:
           name: a0-student-preview
           path: dist/
           retention-days: 7
+
+
+  tef_batch_prepare:
+    if: false # Source stage finished; manual re-enable only on actual source/audio changes.
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate six immutable original unpublished banks
+        run: |
+          for t in 2 3 4 5 6 7; do
+            node scripts/release/prepare-tef-listening-02-07.mjs "$t"
+          done
+          node scripts/audit-tef-listening-02-07-drafts.mjs
+          node scripts/audit-tef-listening-02-07-blind-style.mjs
+      - name: Stage six banks and new visual/audio-check assets without activation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test0?-v1.json
+          git add -f work/tef-listening-02-07/draft-quality.json work/tef-listening-02-07/blind-style-benchmark.json
+          git add assets/tef-listening/tef-listening-2026-11-test0?-v1
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage 240 authored TEF Listening questions and original visual panels"
+            git fetch origin feature/tef-listening-tests-02-07-original-batch
+            git rebase origin/feature/tef-listening-tests-02-07-original-batch
+            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-02-07-draft-quality
+          path: work/tef-listening-02-07/draft-quality.json
+          retention-days: 30
+
+
+  tef_batch_render:
+    needs: tef_batch_prepare
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        test: [2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install hash-pinned offline French voices and audio integrity tools
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Render and measure all 36 recordings for Test ${{ matrix.test }}
+        run: python scripts/release/render-tef-listening-02-07.py --models "$RUNNER_TEMP/models" --test "${{ matrix.test }}"
+      - name: Stage source-matched audio and immutable paper (never production)
+        run: |
+          t=$(printf "%02d" "${{ matrix.test }}")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "supabase/exams/tef-listening-test$t-v1.json"
+          git add "assets/tef-listening/tef-listening-2026-11-test$t-v1"
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage measured TEF Listening Test$t media (unpublished)"
+            for retry in 1 2 3 4 5 6 7 8; do
+              git fetch origin feature/tef-listening-tests-02-07-original-batch
+              git rebase origin/feature/tef-listening-tests-02-07-original-batch
+              if git push origin HEAD:feature/tef-listening-tests-02-07-original-batch; then
+                exit 0
+              fi
+            done
+            echo "::error::Could not safely rebase this independent media package"
+            exit 1
+          fi
+
+  tef_batch_media_validate:
+    if: github.event_name == 'pull_request' && github.head_ref == 'feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check all 240 questions and exact source/bytes/slot contracts
+        run: node scripts/check-tef-listening-02-07-measured.mjs
+
+  tef_batch_independent_qc:
+    needs: tef_batch_media_validate
+    if: false # Existing private QC OIDC is scoped to TCF v5 workflow, not this TEF PR; fail closed until correctly authorized && github.repository == 'hzad123/hzad-french-academy'
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify private QC gateway before paid evaluation
+        env:
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+        run: |
+          node --input-type=module -e "import {githubOidcFetch} from './scripts/lib/listening-github-oidc.mjs';const r=await githubOidcFetch()(process.env.LISTENING_QC_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stage:'health'})});if(!r.ok)throw Error('Private QC unavailable '+r.status);const d=await r.json();if(!d.ready)throw Error('Private QC not ready');console.log('Scoped signed QA gateway verified')"
+      - name: Blind answer prediction and transcript-first grounding of all 240 items
+        env:
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+          MAX_QC_USD: '100'
+          QC_WORKERS: '8'
+        run: node scripts/run-tef-listening-02-07-independent-qc.mjs
+      - name: Preserve independent editorial evidence even when quality fails
+        if: always()
+        run: |
+          mkdir -p curriculum/tef-listening-02-07/independent-review
+          find work/tef-listening-02-07/model-qc -maxdepth 1 -type f -name '*.json' -exec cp -t curriculum/tef-listening-02-07/independent-review {} + || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add curriculum/tef-listening-02-07/independent-review
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve actual independent 240-question TEF blind and grounding verdicts"
+            git fetch origin feature/tef-listening-tests-02-07-original-batch
+            git rebase origin/feature/tef-listening-tests-02-07-original-batch
+            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-02-07-240-question-independent-review
+          path: work/tef-listening-02-07/model-qc
+          retention-days: 30
