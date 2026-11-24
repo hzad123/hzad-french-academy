@@ -54,13 +54,13 @@ export const questions05b=[
 {
 transcript:`Un essai clinique présente des résultats encourageants pour un nouveau traitement. Après quelques mois, les participants du groupe traité ressentent moins de symptômes que ceux du groupe témoin. Cependant, l'étude doit encore vérifier la durée de cet effet et les conséquences indésirables possibles. La responsable refuse de transformer une amélioration précoce en promesse de guérison définitive. Elle rappelle que les analyses prévues à la fin de l'essai pourront modifier la compréhension des premiers chiffres. Les résultats provisoires sont utiles pour orienter la recherche, mais ils ne remplacent pas les conclusions attendues après un suivi complet.`,
 question:"Pourquoi la responsable reste-t-elle prudente ?",
-options:["La sélection des participants n'a pas été achevée.","Le groupe témoin n'a reçu aucune forme de suivi.","La durée des bénéfices et les effets indésirables restent à évaluer.","Le traitement n'a montré aucune différence entre les groupes."],correct:"C",
+options:["La sélection ne tient pas encore compte de certains groupes d'âge.","Les premiers résultats ne comprennent pas de groupe de comparaison.","Le suivi doit confirmer la durée des effets et les risques possibles.","Les symptômes se sont améliorés avant le début des traitements."],correct:"C",
 explanation:"Les résultats sont provisoires et nécessitent un suivi plus long."
 },
 {
 transcript:`Une cartographie de santé publique montre que certains quartiers consultent beaucoup moins souvent que les autres pour des examens de prévention. La carte attire l'attention des responsables, mais ne permet pas, à elle seule, d'en établir la cause. Les horaires des centres, les difficultés de transport ou les habitudes de prise de rendez-vous pourraient jouer un rôle différent selon les lieux. Une épidémiologiste recommande de confronter les chiffres avec les témoignages et l'organisation des services. Elle estime qu'une zone moins fréquentée mérite une enquête, mais qu'on ne doit pas conclure automatiquement que ses habitants se désintéressent de leur santé.`,
 question:"Quelle erreur d'interprétation l'épidémiologiste veut-elle éviter ?",
-options:["Attribuer directement les écarts de consultation à l'attitude des habitants.","Comparer les chiffres de quartiers qui ont des populations différentes.","Publier une carte avant que toutes les communes aient été examinées.","Interroger les habitants à propos des difficultés de déplacement."],correct:"A",
+options:["Une faible fréquentation ne prouve pas un manque d'intérêt pour la santé.","Les différences de population rendent toute comparaison impossible.","La carte classe les quartiers sans intégrer leur densité résidentielle.","Les témoignages sont recueillis auprès des seuls patients réguliers."],correct:"A",
 explanation:"Les écarts peuvent refléter des obstacles d'accès plutôt qu'un manque d'intérêt."
 },
 {
@@ -72,31 +72,31 @@ explanation:"La directrice décrit plusieurs causes logistiques locales possible
 {
 transcript:entretienLivraisons,
 question:"Quelle stratégie de communication la directrice privilégie-t-elle ?",
-options:["Annoncer immédiatement une date exacte pour chaque livraison.","Présenter séparément les informations confirmées et incertaines.","Éviter les mises à jour tant qu'aucune livraison n'est arrivée.","Publier la répartition de chaque médicament entre les patients."],correct:"B",
+options:["Donner une date de livraison précise même si elle peut changer.","Séparer les informations confirmées des dates encore estimées.","Attendre que l'ensemble du stock soit connu avant d'informer les services.","Publier aux patients le détail des stocks de chaque unité de soins."],correct:"B",
 explanation:"Elle préfère des mises à jour honnêtes et des prévisions nuancées."
 },
 {
 transcript:entretienWearables,
 question:"Quelle condition rend le consentement des salariés réellement libre ?",
-options:["Recevoir un appareil identique à celui de ses collègues.","Pouvoir refuser sans craindre de conséquences professionnelles.","Obtenir un résumé hebdomadaire des résultats de son équipe.","Signer le formulaire dans les locaux de l'entreprise."],correct:"B",
+options:["Recevoir un dispositif identique et un accès personnel à ses données.","Pouvoir refuser sans craindre d'effets sur sa situation professionnelle.","Obtenir un compte rendu dont l'employeur ne voit que les moyennes.","Signer l'accord en présence d'un représentant indépendant."],correct:"B",
 explanation:"Le refus doit être possible sans pression liée au travail."
 },
 {
 transcript:entretienWearables,
 question:"Pourquoi les statistiques anonymisées peuvent-elles encore poser problème ?",
-options:["Elles ne contiennent pas les mesures individuelles les plus récentes.","Elles sont calculées à partir d'appareils aux usages différents.","Une donnée particulière peut rendre quelqu'un reconnaissable dans une petite équipe.","Les personnes choisissent des objectifs qui varient selon leur âge."],correct:"C",
+options:["Les chiffres ne couvrent pas tous les salariés suivis par le programme.","Les appareils employés ne sont pas toujours comparables entre eux.","Une donnée inhabituelle peut désigner une personne dans une petite équipe.","Les objectifs déclarés changent selon la composition des groupes."],correct:"C",
 explanation:"Une petite équipe peut permettre d'identifier indirectement certaines personnes."
 },
 {
 transcript:entretienMediation,
 question:"Pourquoi la médiatrice demande-t-elle des exemples concrets ?",
-options:["Pour limiter le nombre d'intervenants autorisés à participer.","Pour éviter que les règles de secours soient évoquées.","Pour vérifier que les habitants connaissent toutes les décisions.","Pour préciser les besoins réels derrière les positions générales."],correct:"D",
+options:["Pour limiter les interventions à ceux qui utilisent régulièrement la place.","Pour distinguer les règles de sécurité des demandes des commerçants.","Pour déterminer quels groupes disposent déjà d'un accord formel.","Pour préciser les besoins concrets derrière les positions exprimées."],correct:"D",
 explanation:"Elle veut passer d'opinions générales à des situations observables."
 },
 {
 transcript:entretienMediation,
 question:"Quelle condition aide, selon elle, à maintenir un accord dans le temps ?",
-options:["Prévoir un suivi des effets et la possibilité d'ajuster les mesures.","Confier sa gestion au groupe le plus représenté.","Faire signer un engagement sans fixer de période d'essai.","Interdire toute modification après l'annonce officielle."],correct:"A",
+options:["Prévoir une phase d'essai et revoir l'accord à partir des résultats.","Confier le suivi aux représentants qui ont accepté les premières règles.","Faire signer les engagements avant d'organiser leur mise en oeuvre.","Garder les mêmes horaires après la fin de la période d'essai."],correct:"A",
 explanation:"Elle propose une phase d'essai, un suivi et des ajustements."
 },
 {
@@ -108,7 +108,7 @@ explanation:"Les rendez-vous sont remplis alors que des douleurs récentes néce
 {
 transcript:reportageDentaire,
 question:"Pourquoi la troisième journée mensuelle n'est-elle pas encore décidée ?",
-options:["Les communes ne souhaitent plus soutenir le dispositif.","L'équipe veut vérifier les moyens humains, matériels et le suivi des soins.","Le nombre de consultations a déjà commencé à diminuer.","Les associations demandent la suppression des inscriptions numériques."],correct:"B",
+options:["Vérifier d'abord les délais de déplacement des professionnels de santé.","Évaluer les moyens disponibles et la continuité des soins proposés.","Obtenir une participation plus forte des communes les plus éloignées.","Modifier le système de réservation pour les visites d'urgence."],correct:"B",
 explanation:"La responsable veut mesurer les moyens disponibles et les effets avant d'étendre la tournée."
 },
 {
@@ -144,13 +144,13 @@ explanation:"Un retard de plusieurs secondes peut gêner les interventions et qu
 {
 transcript:`Une psychologue étudie la durée du sommeil dans différents groupes d'âge. Les moyennes publiées aident à décrire de grandes tendances, mais les besoins varient selon les individus et leur contexte. Deux personnes dormant le même nombre d'heures peuvent présenter des niveaux de fatigue très différents. La chercheuse met en garde contre une lecture trop mécanique des chiffres: être légèrement au-dessous d'une moyenne ne signifie pas nécessairement avoir un problème, pas plus qu'être au-dessus ne garantit un sommeil réparateur. Elle invite à examiner la qualité du repos, les habitudes et les éventuels symptômes avec un professionnel lorsque cela est nécessaire. Les équipes de recherche relèveront aussi l'heure de coucher, les interruptions nocturnes et le rythme de travail, pour éviter de réduire toutes les expériences à un unique nombre d'heures.`,
 question:"Quelle réserve accompagne les moyennes de sommeil ?",
-options:["Les besoins individuels ne se déduisent pas d'une moyenne collective.","Les participants aux études dorment tous à des heures fixes.","La durée du sommeil n'a jamais de lien avec la fatigue.","Les différences entre âges ne peuvent pas être mesurées."],correct:"A",
+options:["Une moyenne ne reflète pas forcément les besoins de chaque personne.","Les données proviennent surtout de personnes ayant un rythme fixe.","La durée du sommeil varie moins que la qualité des réveils nocturnes.","Les comparaisons entre âges masquent les habitudes de travail."],correct:"A",
 explanation:"Les moyennes ne déterminent pas les besoins ou la qualité du sommeil d'une personne."
 },
 {
 transcript:`Un responsable des secours compare deux projets d'organisation des ambulances. Concentrer les équipes dans quelques grands centres peut faciliter l'accès au matériel spécialisé, mais rallonger les délais dans des villages éloignés. Répartir davantage de véhicules sur le territoire réduit certains trajets, au prix d'équipes plus petites et d'un entretien plus compliqué. Le responsable refuse donc de juger le dispositif sur un seul temps moyen de réponse. Il propose d'examiner séparément les zones isolées, la gravité des interventions et la disponibilité réelle des équipes à différents moments de la journée. Le service prévoit des simulations en période de forte demande, afin de vérifier ce qui se passe lorsque plusieurs véhicules sont déjà mobilisés et que des appels surviennent simultanément dans différents villages.`,
 question:"Pourquoi le responsable rejette-t-il un temps moyen unique ?",
-options:["Il dépend du nombre de patients transportés chaque année.","Il reflète surtout le temps consacré au retour des ambulances.","Il ne décrit pas assez les écarts entre territoires et situations.","Il est difficile à comparer avec les dépenses de matériel."],correct:"C",
+options:["Le chiffre ne distingue pas les appels selon leur ancienneté.","La moyenne tient compte des retours plutôt que des départs.","Elle masque les écarts entre territoires et types d'urgence.","Elle décrit mieux les dépenses que la disponibilité des équipes."],correct:"C",
 explanation:"La moyenne masque les délais des zones isolées et les différences selon les urgences."
 },
 {
@@ -162,13 +162,13 @@ explanation:"La mesure doit être interprétée avec stockage, quantités et pub
 {
 transcript:`Une responsable municipale évalue le respect des espaces sans tabac autour des écoles. Les panneaux d'interdiction sont visibles, mais certains visiteurs ne comprennent pas où commence exactement la zone concernée. Les agents hésitent alors entre information et sanction. La responsable recommande de clarifier les limites au sol, de former le personnel et de communiquer la règle aux familles. Elle ne considère pas les amendes comme inutiles; elle estime simplement qu'une mesure appliquée de façon différente selon les lieux risque de perdre sa légitimité. La cohérence de l'application fait partie du dispositif. Des entretiens avec les personnels d'accueil aideront à repérer les situations mal comprises, afin de revoir les explications avant de renforcer les contrôles prévus dans les zones concernées.`,
 question:"Quelle amélioration la responsable souhaite-t-elle ?",
-options:["Définir clairement les espaces concernés et les modalités d'application.","Supprimer les panneaux et confier toute la décision aux agents.","Réserver les sanctions aux personnes travaillant dans les écoles.","Limiter l'interdiction à l'intérieur des bâtiments scolaires."],correct:"A",
+options:["Clarifier les limites des zones et la manière d'appliquer la règle.","Adapter les horaires d'interdiction aux déplacements des familles.","Confier les décisions de contrôle au personnel de chaque établissement.","Déplacer les panneaux à l'intérieur de l'ensemble des écoles."],correct:"A",
 explanation:"Elle réclame une signalisation claire et une application cohérente."
 },
 {
 transcript:`Une spécialiste des communications de santé analyse une campagne qui multiplie les chiffres alarmants pour encourager la prévention. Elle observe que certains publics se sentent concernés, tandis que d'autres perçoivent le message comme une exagération et deviennent moins confiants. Les équipes décident alors de présenter les données avec leurs incertitudes, d'expliquer les actions concrètes disponibles et de laisser davantage de place aux questions. La spécialiste estime qu'un message efficace ne se réduit pas à attirer l'attention: il doit permettre aux personnes de comprendre ce qu'elles peuvent faire sans leur donner l'impression d'être manipulées. Les nouvelles versions de la campagne seront testées auprès de publics différents, y compris des personnes sceptiques, et leur compréhension sera suivie plusieurs semaines après la première diffusion.`,
 question:"Pourquoi la campagne a-t-elle été révisée ?",
-options:["Les statistiques n'avaient pas été recueillies par des chercheurs.","Les messages alarmants pouvaient affaiblir la confiance de certains publics.","Le public souhaitait recevoir davantage de chiffres sans explication.","Les moyens de prévention proposés avaient été abandonnés."],correct:"B",
+options:["Les données n'étaient pas présentées avec assez de détails techniques.","Le ton alarmant a pu diminuer la confiance d'une partie du public.","Les mesures de prévention proposées n'étaient plus applicables.","L'enquête initiale ne couvrait pas les quartiers les plus exposés."],correct:"B",
 explanation:"Le ton alarmant pouvait susciter méfiance; la révision apporte contexte et mesures concrètes."
 }
 ];
