@@ -17,7 +17,6 @@ import {wireTefReading} from './exams/tef-reading/ui.js';
 import {wireTcfWriting} from './exams/tcf-writing/ui.js';
 import {wireTefWriting} from './exams/tef-writing/ui.js';
 import {wireTefSpeaking} from './exams/tef-speaking/ui.js';
-import {wireExamAudioAdmin} from './exams/audio-admin.js';
 import {wireRewardInitialization} from './achievements/ui.js';
 import {mountVerification} from './achievements/verification.js';
 import {wireNavigation,recordView} from './ui/navigation.js';
@@ -132,7 +131,6 @@ export function mountAcademy(host,createClient){
   wireTefReading(root,client);
   wireTcfListening(root,client);
   wireTefListening(root,client);
-  wireExamAudioAdmin(root,client);
   wireRewardInitialization(root,client);
   mountVerification($('hz-auth'));
   const footer=root.querySelector('.hz-foot');
