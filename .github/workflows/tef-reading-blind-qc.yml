@@ -1,79 +1,77 @@
-name: TEF Reading independent blind and passage-grounded QC
+name: TEF Reading generation and independent QC
 on:
   push:
     branches: [fix/tef-reading-six-blind-distractors-20261120]
     paths:
       - '.github/workflows/tef-reading-blind-qc.yml'
-      - 'scripts/release/run-tef-reading-blind-qc.mjs'
-      - 'scripts/release/stage-tef-reading-editorial-pilot.mjs'
-      - 'scripts/release/tef-reading-advanced-36-39.json'
-      - 'scripts/release/run-tef-reading-advanced-qc.mjs'
-      - 'scripts/release/repair-tef-reading-with-ai.mjs'
-      - 'scripts/lib/tef-reading-ai-quality.mjs'
-      - 'tests/tef-reading-ai-quality.test.mjs'
+      - 'scripts/release/generate-tef-reading-07-13.mjs'
 permissions:
   contents: read
   id-token: write
-  issues: write
   pull-requests: write
 concurrency:
-  group: tef-reading-editorial-qc
-  cancel-in-progress: true
+  group: tef-reading-new-batch
+  cancel-in-progress: false
 jobs:
-  review:
+  generate:
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        test: [7, 8, 9, 10, 11, 12, 13]
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate quality control regression tests
-        run: node --test tests/tef-reading-ai-quality.test.mjs
-      - name: Independently review Q36–39 across all six tests
+      - name: Author, verify and refine paper
         env:
           TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
-          TEF_READING_QC_MAX_USD: '12'
-          TEF_READING_QC_WORKERS: '3'
-        run: node scripts/release/run-tef-reading-advanced-qc.mjs --pilot
-      - name: Publish auditable pilot outcome in PR #95
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          node --input-type=module <<'NODE'
-          import {readFile} from 'node:fs/promises';
-          import {writeFile} from 'node:fs/promises';
-          let report;
-          try {
-            report=JSON.parse(await readFile('work/tef-reading-advanced-qc/summary.json','utf8'));
-          } catch(err) {
-            report={error:'No author-review summary was generated',details:String(err)};
-          }
-          let benchmark=null;
-          try{benchmark=JSON.parse(await readFile('work/tef-reading-advanced-qc/summary.json','utf8'));}catch{}
-          const status=benchmark?.completed===48&&benchmark?.newAll?.passed===24&&benchmark?.groundPassed===24&&benchmark?.blindAfterSameSample?.accuracy<=0.40&&benchmark?.blindBefore?.accuracy-benchmark?.blindAfterSameSample?.accuracy>=0.15?'Pilot benchmark passed':'Pilot NOT approved';
-          const body=['## TEF Reading independent advanced Q36–39 audit', '', '**'+status+'**',
-            'Workflow: '+process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID,
-            '', 'Attempted: '+(report.completed??'unavailable'),
-            'Accepted: '+(report.newAll?.passed??'unavailable'),
-            'Blocked: '+((report.newAll?.sample-report.newAll?.passed)||report.missing||0),
-            'Estimated USD: '+(report.estimatedUsd??'unavailable'),
-            '', 'Matched blind accuracy BEFORE: '+(benchmark?.blindBefore?.accuracy??'unavailable'),
-            'Matched blind accuracy AFTER: '+(benchmark?.blindAfterSameSample?.accuracy??'unavailable'),
-            'Reviewer approvals: '+(benchmark?.newAll?.passed??'unavailable')+'/'+(benchmark?.newAll?.sample??'unavailable'),
-            '', 'Per test: `'+JSON.stringify(report.byTest??[])+'`',
-            '', 'Errors (truncated):',
-            '```json',JSON.stringify(report.errors??[report.error??'unknown']).slice(0,6000),'```',
-            '', 'This audit covers the 24 targeted questions only. All other questions must remain unchanged.'
-          ].join('\n');
-          await writeFile('/tmp/tef-reading-review-comment.md',body);
-          NODE
-          gh pr comment 95 --repo "${GITHUB_REPOSITORY}" --body-file /tmp/tef-reading-review-comment.md
-      - name: Preserve verifiable model responses and summary
+        run: node scripts/release/generate-tef-reading-07-13.mjs ${{ matrix.test }}
+      - name: Retain drafts and evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tef-reading-blind-qc-evidence
-          path: work/tef-reading-advanced-qc
+          name: tef-reading-paper-${{ matrix.test }}
+          path: work/tef-reading-batch
           retention-days: 30
+  collect:
+    if: always()
+    needs: generate
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/tef-reading-six-blind-distractors-20261120
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: tef-reading-paper-*
+          path: work/tef-reading-batch
+          merge-multiple: true
+      - name: Preserve draft files and independently verifiable review results
+        run: |
+          mkdir -p docs/tef-reading-batch-07-13
+          for d in work/tef-reading-batch/*; do
+            if [ -d "$d" ]; then
+              n=$(basename "$d")
+              if [ -f "$d/paper.json" ]; then cp "$d/paper.json" "supabase/exams/tef-reading-test${n}-v1.json"; fi
+              if [ -f "$d/summary.json" ]; then cp "$d/summary.json" "docs/tef-reading-batch-07-13/${n}-summary.json"; fi
+              if [ -f "$d/reviews.json" ]; then cp "$d/reviews.json" "docs/tef-reading-batch-07-13/${n}-reviews.json"; fi
+            fi
+          done
+          git add supabase/exams/ docs/tef-reading-batch-07-13/
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          if ! git diff --cached --quiet; then git commit -m "Preserve new TEF 07–13 authoring and independent review evidence"; git push; fi
+      - name: Report actual audit results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '## TEF Reading 07–13 generation results\n\nRun: %s/%s/actions/runs/%s\n\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > /tmp/result.md
+          for f in docs/tef-reading-batch-07-13/*-summary.json; do if [ -f "$f" ]; then printf '\n```json\n' >> /tmp/result.md; cat "$f" >> /tmp/result.md; printf '\n```\n' >> /tmp/result.md; fi; done
+          gh pr comment 95 --body-file /tmp/result.md
