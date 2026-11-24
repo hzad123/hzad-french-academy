@@ -75,7 +75,7 @@ explanation:"Elle préfère des mises à jour honnêtes et des prévisions nuanc
 {
 transcript:entretienWearables,
 question:"Quelle condition rend le consentement des salariés réellement libre ?",
-options:["Pouvoir refuser sans craindre de conséquences professionnelles.","Recevoir un appareil identique à celui de ses collègues.","Obtenir un résumé hebdomadaire des résultats de son équipe.","Signer le formulaire dans les locaux de l'entreprise."],correct:"B",
+options:["Recevoir un appareil identique à celui de ses collègues.","Pouvoir refuser sans craindre de conséquences professionnelles.","Obtenir un résumé hebdomadaire des résultats de son équipe.","Signer le formulaire dans les locaux de l'entreprise."],correct:"B",
 explanation:"Le refus doit être possible sans pression liée au travail."
 },
 {
@@ -87,7 +87,7 @@ explanation:"Une petite équipe peut permettre d'identifier indirectement certai
 {
 transcript:entretienMediation,
 question:"Pourquoi la médiatrice demande-t-elle des exemples concrets ?",
-options:["Pour limiter le nombre d'intervenants autorisés à participer.","Pour éviter que les règles de secours soient évoquées.","Pour vérifier que les habitants connaissent toutes les décisions.","Pour préciser les besoins réels derrière les positions générales."],correct:"B",
+options:["Pour limiter le nombre d'intervenants autorisés à participer.","Pour éviter que les règles de secours soient évoquées.","Pour vérifier que les habitants connaissent toutes les décisions.","Pour préciser les besoins réels derrière les positions générales."],correct:"D",
 explanation:"Elle veut passer d'opinions générales à des situations observables."
 },
 {
@@ -105,7 +105,7 @@ explanation:"Les rendez-vous sont remplis alors que des douleurs récentes néce
 {
 transcript:reportageDentaire,
 question:"Pourquoi la troisième journée mensuelle n'est-elle pas encore décidée ?",
-options:["Les communes ne souhaitent plus soutenir le dispositif.","L'équipe veut vérifier les moyens humains, matériels et le suivi des soins.","Le nombre de consultations a déjà commencé à diminuer.","Les associations demandent la suppression des inscriptions numériques."],correct:"C",
+options:["Les communes ne souhaitent plus soutenir le dispositif.","L'équipe veut vérifier les moyens humains, matériels et le suivi des soins.","Le nombre de consultations a déjà commencé à diminuer.","Les associations demandent la suppression des inscriptions numériques."],correct:"B",
 explanation:"La responsable veut mesurer les moyens disponibles et les effets avant d'étendre la tournée."
 },
 {
@@ -117,7 +117,7 @@ explanation:"Une faible prévalence peut rendre les faux positifs nombreux parmi
 {
 transcript:`Une éthicienne compare plusieurs systèmes d'inscription au don d'organes. Dans certains pays, les personnes sont présumées consentantes sauf si elles expriment un refus; ailleurs, il faut confirmer volontairement son accord. Elle note que modifier le choix proposé par défaut peut influencer les décisions, mais ne suffit pas à établir ce que chacun souhaite réellement. L'information donnée aux familles, la facilité d'exprimer son refus et la confiance dans les institutions restent essentielles. Elle recommande de mesurer la compréhension du système, plutôt que de juger son succès uniquement au nombre d'inscriptions enregistrées.`,
 question:"Quelle précaution la spécialiste recommande-t-elle ?",
-options:["Conserver le même mécanisme d'inscription dans tous les pays.","Évaluer si les personnes comprennent et peuvent exercer leur choix.","Écarter les familles des discussions sur les décisions individuelles.","Remplacer les explications par une procédure de refus automatisée."],correct:"D",
+options:["Conserver le même mécanisme d'inscription dans tous les pays.","Évaluer si les personnes comprennent et peuvent exercer leur choix.","Écarter les familles des discussions sur les décisions individuelles.","Remplacer les explications par une procédure de refus automatisée."],correct:"B",
 explanation:"Le choix par défaut n'assure pas un consentement compris; la compréhension compte."
 },
 {
@@ -129,7 +129,7 @@ explanation:"Le volume de rendez-vous ne prouve pas que les démarches ont about
 {
 transcript:`Un historien de la médecine étudie des pratiques abandonnées depuis plusieurs décennies. Il explique que certaines ont disparu parce que des recherches ont montré leur inefficacité, tandis que d'autres étaient liées à des conditions matérielles qui ont changé. Les étudier ne signifie pas vouloir les réintroduire. Elles permettent de comprendre comment les professionnels raisonnaient et quelles informations leur manquaient. L'historien met en garde contre deux attitudes opposées: considérer toute méthode ancienne comme absurde ou supposer qu'elle était meilleure parce qu'elle appartenait au passé. Le contexte doit être étudié avant de juger.`,
 question:"Quelle approche l'historien défend-il ?",
-options:["Comparer les pratiques anciennes à leurs conditions de l'époque.","Retenir les méthodes qui semblent simples à reproduire aujourd'hui.","Classer les traitements selon leur ancienneté historique.","Recommander les pratiques disparues lorsque les sources sont nombreuses."],correct:"B",
+options:["Classer les traitements selon leur ancienneté historique.","Retenir les méthodes qui semblent simples à reproduire aujourd'hui.","Comparer les pratiques anciennes à leurs conditions de l'époque.","Recommander les pratiques disparues lorsque les sources sont nombreuses."],correct:"C",
 explanation:"Il demande d'étudier les méthodes dans leur contexte, sans nostalgie ni rejet automatique."
 },
 {
