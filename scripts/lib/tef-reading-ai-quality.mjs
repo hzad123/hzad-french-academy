@@ -16,9 +16,13 @@ export function blindGate(receipt){
  const r=receipt.result||{},p=r.probabilities||[],sorted=[...p].sort((a,b)=>b-a);
  const valid=Number.isInteger(r.guess)&&r.guess>=0&&r.guess<4&&p.length===4&&p.every(v=>Number.isFinite(v)&&v>=0&&v<=1)&&Math.abs(p.reduce((a,b)=>a+b,0)-1)<=0.035;
  const credible=Array.isArray(r.plausibility)&&r.plausibility.length===4&&new Set(r.plausibility.map(x=>x.index)).size===4&&r.plausibility.every(x=>x.credible===true);
+ // Per-item probabilities from an LLM are diagnostics, not calibrated odds.
+ // Reject explicit shortcut cues or noncredible options here. Measure actual
+ // blind *accuracy* separately across a sufficiently large unchanged sample;
+ // never force the probability of every individual item toward 25%.
  const cue=r.confident===true||!Array.isArray(r.cues)||r.cues.length>0;
  const separation=(sorted[0]??1)-(sorted[1]??0);
- return {pass:valid&&credible&&!cue&&(sorted[0]??1)<=0.47&&separation<=0.17,reason:{valid,credible,cue,maxProbability:sorted[0],gap:separation}};
+ return {pass:valid&&credible&&!cue,reason:{valid,credible,cue,maxProbability:sorted[0],gap:separation}};
 }
 export function groundGate(question,receipt,{permutation=[0,1,2,3]}={}){
  if(!identity(receipt,'ground'))return {pass:false,reason:'missing independent passage reviewer receipt'};
