@@ -50,7 +50,7 @@ export const questions03b=[
 {
 transcript:`Les ballons météorologiques mesurent la température, l'humidité et le vent à différentes altitudes. Ils complètent les observations faites depuis le sol et améliorent certains calculs de prévision. Pourtant, leur parcours dépend des courants atmosphériques et ne couvre pas uniformément chaque région. Un prévisionniste explique qu'une mesure très précise à un endroit ne suffit pas à décrire ce qui se passe dans une vallée voisine. Les scientifiques combinent donc les ballons avec des satellites et des stations terrestres. Ce croisement est particulièrement important pendant les changements rapides de saison, lorsque de faibles différences locales peuvent modifier l'évolution des nuages.`,
 question:"Quelle limite des ballons météorologiques est soulignée ?",
-options:["Leur trajectoire ne fournit pas une couverture identique partout.","Ils mesurent mal l'humidité au-dessus des reliefs.","Leurs données ne peuvent pas être comparées aux satellites.","Ils sont utilisés seulement durant les périodes de tempête."],correct:"A",
+options:["Le parcours des ballons laisse certaines régions moins observées.","Leurs mesures d'humidité varient trop près des reliefs montagneux.","Leurs relevés sont moins précis que les observations des satellites.","Leur altitude empêche de suivre les nuages pendant les changements saisonniers."],correct:"A",
 explanation:"Les courants rendent la couverture géographique irrégulière."
 },
 {
@@ -68,13 +68,13 @@ explanation:"Consentir à la photographie n'implique pas nécessairement consent
 {
 transcript:entretienPhotographe,
 question:"Pourquoi la photographe conserve-t-elle les notes liées aux images ?",
-options:["Pour établir l'ordre exact dans lequel chaque image a été prise.","Pour préparer une sélection de portraits destinés aux galeries.","Pour vérifier que les sujets ont reçu la même information.","Pour préciser le contexte de production et les limites documentaires."],correct:"D",
+options:["Pour reconstituer les dates et les lieux précis de chaque prise de vue.","Pour classer les portraits selon leurs possibilités d'exposition publique.","Pour vérifier a posteriori les accords donnés par les personnes photographiées.","Pour retrouver le contexte et les limites de ce que montrent les images."],correct:"D",
 explanation:"Les notes permettent de comprendre les circonstances et ce que l'image ne prouve pas."
 },
 {
 transcript:entretienCanaux,
 question:"Comment l'historienne explique-t-elle deux dates de fin différentes ?",
-options:["Les lettres des bateliers auraient été rédigées longtemps après les faits.","Les registres municipaux auraient été volontairement falsifiés.","La réception administrative ne prouve pas que le canal était déjà pleinement utilisable.","La navigation a commencé avant les travaux officiels de construction."],correct:"C",
+options:["Les bateliers auraient décrit des événements survenus bien après le chantier.","La mairie aurait employé un vocabulaire technique volontairement trompeur.","La réception des travaux ne signifie pas que le canal fonctionnait déjà.","La navigation aurait été possible avant l'achèvement administratif des travaux."],correct:"C",
 explanation:"Les archives communales et les lettres décrivent des réalités différentes d'un même chantier."
 },
 {
@@ -86,13 +86,13 @@ explanation:"Elle cherche ce que chaque source mesure plutôt que d'en choisir u
 {
 transcript:entretienPrevention,
 question:"Pourquoi les carnets remplis par les sportifs posent-ils un problème d'interprétation ?",
-options:["Les entraîneurs en changent régulièrement les consignes de remplissage.","Les déclarations peuvent varier selon l'intérêt des athlètes à signaler des douleurs.","Les résultats d'entraînement ne sont pas inscrits avec assez de précision.","La fréquence des exercices est identique dans des clubs très différents."],correct:"B",
+options:["Les entraîneurs peuvent modifier les consignes au fil des saisons.","Certains athlètes ne signalent pas leurs douleurs avec la même franchise.","Les carnets d'entraînement omettent des paramètres de performance importants.","Les clubs ne pratiquent pas les mêmes exercices aux mêmes fréquences."],correct:"B",
 explanation:"Certains sportifs minimisent les douleurs pour rester sélectionnés, d'autres en signalent davantage."
 },
 {
 transcript:entretienPrevention,
 question:"Pourquoi la chercheuse se méfie-t-elle des comparaisons simples entre clubs ?",
-options:["La plupart des clubs ont cessé de suivre les exercices proposés.","Les programmes d'échauffement ont des objectifs médicaux incompatibles.","Les équipes étudiées ne pratiquent pas les mêmes sports collectifs.","D'autres différences d'encadrement peuvent contribuer aux résultats observés."],correct:"D",
+options:["Les clubs auraient adopté des programmes de prévention de durée différente.","Les critères médicaux de suivi pourraient varier selon les équipes étudiées.","Les blessures recensées pourraient concerner des activités sportives différentes.","Les différences de matériel et d'encadrement influencent aussi les résultats."],correct:"D",
 explanation:"La qualité de l'encadrement et du matériel peut accompagner le programme."
 },
 {
@@ -104,19 +104,19 @@ explanation:"Les grandes séances donnaient trop de place aux personnes les plus
 {
 transcript:reportageTheatre,
 question:"Quelle dimension sera prise en compte pour évaluer le projet ?",
-options:["Les échanges et relations qui naîtront entre les participants.","Le nombre de scènes directement reprises des témoignages.","La vente de billets par rapport aux autres spectacles.","La sélection des participants pour une tournée régionale."],correct:"A",
+options:["Les relations et les échanges qui se prolongeront entre les participants.","Le nombre de témoignages retranscrits dans le texte final du spectacle.","La quantité de billets vendus par rapport aux représentations précédentes.","Le recrutement de nouveaux acteurs pour une éventuelle tournée future."],correct:"A",
 explanation:"La compagnie regarde les apprentissages et les liens après la représentation, pas uniquement les ventes."
 },
 {
 transcript:`Un géographe critique les classements qui attribuent à chaque quartier un seul chiffre de « facilité de marche ». Certains indices comptent les commerces et les arrêts de transport à proximité, mais ignorent la présence d'escaliers, les temps d'attente aux passages piétons ou la sécurité ressentie après la tombée de la nuit. Deux rues voisines peuvent ainsi obtenir le même score alors que l'une reste difficile à parcourir avec une poussette. Le chercheur ne rejette pas les indicateurs; il propose d'y ajouter des observations sur le terrain et de distinguer les profils des usagers avant d'en tirer des décisions d'aménagement. Le chercheur prévoit aussi des parcours réalisés avec des habitants dont les habitudes et les capacités de déplacement diffèrent, afin d'éviter une moyenne trompeuse.`,
 question:"Quelle limite des indices de marche est mise en évidence ?",
-options:["Ils donnent des résultats différents à chaque nouvelle enquête.","Ils sous-estiment la concentration des commerces en centre-ville.","Ils ne permettent aucune comparaison entre quartiers voisins.","Ils peuvent masquer des obstacles concrets rencontrés par les usagers."],correct:"D",
+options:["Le classement varie trop selon la date de chaque observation de terrain.","Il sous-estime l'accès à certains commerces dans les rues résidentielles.","Il empêche de comparer précisément deux quartiers de taille similaire.","Il peut masquer des obstacles réels pour certains profils de marcheurs."],correct:"D",
 explanation:"Le chiffre unique peut cacher des différences d'accessibilité sur le terrain."
 },
 {
 transcript:`Une écologue mesure la pollution lumineuse dans des zones où les communes ont récemment changé l'éclairage public. Les capteurs détectent une baisse de la lumière dans les rues principales après minuit, mais les insectes étudiés ne reviennent pas immédiatement. La chercheuse précise que les effets dépendent également des jardins privés, des enseignes et de la période de reproduction. Elle refuse de présenter l'extinction d'une partie des lampadaires comme une solution suffisante, tout en reconnaissant qu'elle peut être utile. Elle recommande d'observer plusieurs saisons et de coordonner des sources lumineuses qui relèvent de propriétaires différents. Des observations supplémentaires seront menées en dehors des périodes touristiques, car l'éclairage des commerces ne varie pas de la même manière selon les saisons.`,
 question:"Pourquoi l'écologue ne conclut-elle pas au succès immédiat des mesures ?",
-options:["Les lampadaires éteints servent encore à éclairer certaines zones.","D'autres sources de lumière et facteurs saisonniers influencent les espèces.","Les capteurs sont incapables de mesurer la baisse de luminosité.","Les insectes réagissent seulement lorsque les rues sont désertes."],correct:"B",
+options:["Les rues éclairées indirectement pourraient fausser les relevés des capteurs.","D'autres lumières et les saisons pèsent également sur les espèces suivies.","Les instruments sont trop sensibles pour comparer deux zones différentes.","Les insectes seraient surtout influencés par la fréquentation nocturne."],correct:"B",
 explanation:"Les résultats dépendent de plusieurs sources lumineuses et de la saison."
 },
 {
@@ -128,19 +128,19 @@ explanation:"Elle croise les sources tout en reconnaissant leurs finalités diff
 {
 transcript:`Une chercheuse en achats publics étudie les efforts d'une administration pour travailler avec davantage de petites entreprises. La diversification des fournisseurs peut réduire la dépendance à un seul prestataire et ouvrir le marché. Toutefois, un grand nombre de contrats très courts augmente le travail de suivi, et les petites entreprises doivent parfois consacrer beaucoup de temps à répondre à des appels d'offres complexes. La chercheuse recommande donc des lots de taille adaptée et des documents simplifiés, sans supprimer les exigences de contrôle. Pour elle, une concurrence réelle suppose de rendre la participation possible, pas seulement d'annoncer davantage de candidatures. Le rapport examinera le temps nécessaire aux candidats pour préparer une offre, pas uniquement le nombre final de propositions reçues par l'administration.`,
 question:"Quelle mesure la chercheuse défend-elle ?",
-options:["Supprimer les procédures de contrôle pour attirer les fournisseurs.","Adapter les lots et les démarches aux capacités des petites structures.","Limiter les candidatures aux entreprises déjà connues.","Attribuer les marchés les plus importants à un seul partenaire."],correct:"B",
+options:["Réduire certaines vérifications pour accélérer l'attribution des marchés.","Adapter les démarches et la taille des lots aux petits fournisseurs.","Réserver une part des contrats aux entreprises déjà présentes localement.","Regrouper davantage les lots pour limiter le travail administratif."],correct:"B",
 explanation:"Elle veut des lots et dossiers accessibles aux petites entreprises tout en conservant les contrôles."
 },
 {
 transcript:`Après de fortes inondations, une région a installé des logements modulaires pour héberger rapidement les familles déplacées. L'architecte chargée de l'évaluation souligne leur intérêt: ils peuvent être assemblés vite et réutilisés ailleurs. Mais certains habitants y vivent désormais bien plus longtemps que prévu. Les espaces extérieurs, l'isolation acoustique et les services de proximité deviennent alors aussi importants que la rapidité de montage. L'architecte ne rejette pas la solution d'urgence. Elle demande que les projets prévoient dès le départ la possibilité d'une occupation prolongée, même si l'objectif reste un retour à un logement permanent. Une consultation des familles permettra de distinguer les difficultés liées aux modules eux-mêmes de celles qui proviennent de l'absence de services de proximité.`,
 question:"Quelle faiblesse du dispositif apparaît avec le temps ?",
-options:["Le logement provisoire peut devenir durable sans équipements adaptés.","Le montage rapide empêche de réutiliser les modules ailleurs.","Les occupants préfèrent toujours les logements les plus grands.","Les familles ne peuvent pas y accéder pendant les premières semaines."],correct:"A",
+options:["Une solution provisoire peut durer sans offrir des conditions adaptées.","Le réemploi des modules coûte plus cher que leur premier assemblage.","Les occupants sont moins satisfaits lorsque les modules restent mobiles.","Les familles doivent attendre la construction de services provisoires."],correct:"A",
 explanation:"La durée réelle d'occupation rend nécessaires des équipements pensés pour plus longtemps."
 },
 {
 transcript:`Un ingénieur chargé d'une base scientifique isolée en Antarctique explique que les priorités de maintenance changent au fil des saisons. Pendant l'été, l'équipe peut recevoir des pièces et faire appel à des spécialistes. En hiver, le mauvais temps rend ces interventions extérieures difficiles. Les techniciens vérifient donc en avance les éléments dont la défaillance mettrait en danger le chauffage, la communication ou l'eau potable. Ils conservent aussi des composants simples qui peuvent servir à plusieurs équipements. L'ingénieur souligne qu'une réparation très rapide n'est pas toujours le meilleur choix si elle utilise une pièce rare dont une installation vitale pourrait avoir besoin plus tard. Les responsables consignent chaque utilisation d'une pièce de rechange rare, afin de garder la possibilité de réparer les installations les plus importantes pendant l'hiver.`,
 question:"Comment l'équipe décide-t-elle des réparations prioritaires ?",
-options:["En suivant l'ordre chronologique de toutes les pannes signalées.","En réparant d'abord les appareils qui coûtent le moins cher.","En donnant priorité aux fonctions essentielles et aux pièces disponibles.","En remplaçant systématiquement les systèmes les plus anciens."],correct:"C",
+options:["Suivre l'ordre des réparations déclarées pendant la saison d'hiver.","Remplacer les systèmes dont les pièces de rechange coûtent le moins.","Protéger les fonctions vitales et conserver les composants nécessaires.","Commencer par les équipements les plus anciens de la base isolée."],correct:"C",
 explanation:"L'équipe protège les fonctions vitales et la réserve de composants."
 },
 {
@@ -152,7 +152,7 @@ explanation:"Il accepte certaines variations mais contrôle celles qui menacent 
 {
 transcript:`Un historien revient sur les projets de réouverture d'anciennes lignes de tramway. Les photographies anciennes montrent des rues animées et des voitures presque absentes, ce qui nourrit une certaine nostalgie. Mais l'historien rappelle que ces réseaux fonctionnaient dans des villes moins étendues, avec des emplois et des habitudes de déplacement différentes. Il ne nie pas l'intérêt d'un transport collectif moderne. Il demande seulement d'étudier les besoins actuels plutôt que de déduire la pertinence d'un projet de son charme historique. Les archives peuvent éclairer des choix, mais elles ne sont pas des plans prêts à être reproduits. Pour éclairer le débat actuel, l'équipe étudiera aussi les contraintes de voirie qui ont disparu et celles qui sont apparues avec les nouveaux quartiers.`,
 question:"Quelle erreur de raisonnement l'historien critique-t-il ?",
-options:["Comparer les coûts de plusieurs modes de transport actuels.","Refuser d'examiner les pratiques anciennes des usagers.","Considérer les réseaux historiques comme directement transposables.","Privilégier les besoins présents plutôt que les habitudes passées."],correct:"C",
+options:["Comparer les investissements actuels aux coûts d'exploitation passés.","Rejeter les archives de transport au profit des besoins récents.","Supposer que les anciens tramways s'adapteraient directement à la ville.","Privilégier le réseau le moins coûteux au détriment de l'histoire."],correct:"C",
 explanation:"Il critique l'idée que les anciens réseaux seraient automatiquement adaptés au contexte actuel."
 },
 {
@@ -164,7 +164,7 @@ explanation:"Les couleurs et les valeurs absolues sans population peuvent trompe
 {
 transcript:`Une statisticienne présente les résultats d'une enquête sur les transports. Dans le premier questionnaire, les usagers du train répondent beaucoup plus souvent que les automobilistes. Le résultat donne l'impression que la majorité de la population préfère le rail. Après une campagne de relance ciblée sur les personnes qui n'avaient pas répondu, l'écart se réduit fortement. La chercheuse explique qu'un échantillon nombreux ne corrige pas automatiquement un biais de participation. Avant de généraliser un résultat, il faut comprendre qui a répondu, qui s'est absenté et si ces deux groupes diffèrent sur le sujet étudié. La prochaine enquête contactera également les personnes ayant abandonné le questionnaire, afin de préciser les raisons possibles de leur absence et de limiter ce biais.`,
 question:"Quelle erreur l'enquête illustre-t-elle ?",
-options:["Confondre de nombreuses réponses avec un échantillon représentatif.","Utiliser des questions différentes selon les moyens de transport.","Comparer un questionnaire ancien à un nouvel itinéraire.","Accorder trop de poids aux usagers des voitures particulières."],correct:"A",
+options:["Prendre un grand nombre de réponses pour un échantillon représentatif.","Comparer deux groupes dont les questionnaires avaient des thèmes différents.","Utiliser des réponses recueillies avant le changement du réseau de train.","Accorder un poids disproportionné aux personnes utilisant leur voiture."],correct:"A",
 explanation:"La non-réponse sélective peut fausser le résultat malgré le nombre de réponses."
 }
 ];
