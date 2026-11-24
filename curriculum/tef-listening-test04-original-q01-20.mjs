@@ -51,7 +51,7 @@ explanation:"Le lieu est déplacé vers le bâtiment B, sans changement d'heure.
 {
 transcript:`Les organisateurs de la compétition de natation annoncent une modification de l'accueil des spectateurs dimanche. La tribune ouest ayant atteint sa capacité maximale, les nouveaux arrivants seront orientés vers l'entrée du côté du gymnase. Les participants et leurs entraîneurs utiliseront toujours l'entrée habituelle. Les billets déjà achetés restent valables et aucune place numérotée n'est modifiée. Le service d'accueil demande aux familles d'éviter les passages réservés aux nageurs.`,
 question:"À qui le changement d'accès s'applique-t-il ?",
-options:["Aux nageurs inscrits aux épreuves de dimanche.","Aux spectateurs arrivant après la répartition des places.","Aux entraîneurs qui accompagnent plusieurs équipes.","Aux familles possédant un billet à place numérotée."],correct:"C",
+options:["Aux nageurs inscrits aux épreuves de dimanche.","Aux spectateurs arrivant après la répartition des places.","Aux entraîneurs qui accompagnent plusieurs équipes.","Aux familles possédant un billet à place numérotée."],correct:"B",
 explanation:"La nouvelle orientation concerne les nouveaux spectateurs, pas les nageurs ni entraîneurs."
 },
 {
@@ -81,7 +81,7 @@ explanation:"La réservation est acceptée mais l'accord d'accès doit être sig
 {
 transcript:`Bonjour, service de billetterie du concert. Suite à une modification du plan de salle, votre place au deuxième rang a été déplacée vers le quatrième rang. Nous pouvons vous proposer une place à prix légèrement inférieur, avec remboursement de la différence, ou vous rendre la totalité du billet si vous ne souhaitez plus venir. La date et l'horaire du spectacle ne changent pas. Aucun frais administratif ne sera retenu. Merci de confirmer l'option que vous préférez avant mercredi soir.`,
 question:"Quelle compensation est proposée au spectateur ?",
-options:["Un billet pour un autre concert de la saison.","Un remboursement partiel s'il accepte la nouvelle place.","Une invitation gratuite à la répétition générale.","Le remboursement des frais de transport engagés."],correct:"B",
+options:["Un billet pour un autre concert de la saison.","Le remboursement des frais de transport engagés.","Une invitation gratuite à la répétition générale.","Un remboursement partiel s'il accepte la nouvelle place."],correct:"D",
 explanation:"La nouvelle place coûte moins cher et la différence peut être remboursée."
 },
 {
@@ -89,7 +89,7 @@ transcript:`— La commune prévoit de nouveaux jardins collectifs. Je suis trè
 — Vous avez une inquiétude ?
 — Oui, notre été est souvent sec. Si chacun utilise son propre tuyau sans compter, les dépenses d'eau peuvent vite devenir importantes. Je proposerais des cuves de récupération d'eau de pluie et des horaires d'arrosage expliqués dès l'inscription. Le jardin doit rester un projet écologique dans sa manière de fonctionner, pas seulement dans sa présentation.`,
 question:"Quelle condition cette personne souhaite-t-elle ajouter au projet ?",
-options:["Installer une clôture autour de chaque parcelle.","Réserver les jardins aux familles ayant des enfants.","Financer les équipements par une cotisation élevée.","Prévoir une organisation économe de l'arrosage."],correct:"B",
+options:["Installer une clôture autour de chaque parcelle.","Prévoir une organisation économe de l'arrosage.","Financer les équipements par une cotisation élevée.","Réserver les jardins aux familles ayant des enfants."],correct:"B",
 explanation:"Elle souhaite des cuves et des règles d'arrosage afin de limiter la consommation."
 },
 {
@@ -105,7 +105,7 @@ transcript:`— Les cafés de la place demandent à agrandir leurs terrasses sur
 — Cela rendrait le quartier plus vivant, non ?
 — Peut-être, mais certains passages sont déjà étroits pour les poussettes et les fauteuils roulants. Je ne suis pas contre les terrasses. J'aimerais simplement qu'on mesure l'espace qui reste réellement pour circuler, y compris quand les serveurs passent entre les tables. Le nombre de chaises ne doit pas être le seul critère pour décider.`,
 question:"Quelle priorité cette personne met-elle en avant ?",
-options:["La possibilité de livrer les cafés plus tôt dans la journée.","La création de terrasses en dehors du centre-ville.","Le maintien des habitudes des riverains pendant l'été.","La circulation des piétons malgré les terrasses."],correct:"D",
+options:["La possibilité de livrer les cafés plus tôt dans la journée.","La circulation des piétons malgré les terrasses.","Le maintien des habitudes des riverains pendant l'été.","La création de terrasses en dehors du centre-ville."],correct:"C",
 explanation:"Elle veut préserver un espace de passage accessible aux piétons."
 },
 {
@@ -121,7 +121,7 @@ transcript:`— Notre entreprise veut que chaque apprenti passe un examen techni
 — Vous trouvez cela utile ?
 — Les connaissances de base sont importantes, bien sûr. Mais après quelques semaines, certains jeunes savent les questions par coeur et restent incapables d'identifier un problème réel. Je préférerais leur attribuer un mentor qui les observe et leur explique les gestes, puis vérifier leurs progrès dans des situations concrètes. Le certificat ne doit pas devenir un substitut à l'apprentissage.`,
 question:"Quel moyen d'évaluation cette personne privilégie-t-elle ?",
-options:["Un examen écrit après chaque période de formation.","Une évaluation à partir de situations professionnelles réelles.","Une certification externe avant toute présence en atelier.","Un contrôle du nombre d'heures consacrées aux cours."],correct:"C",
+options:["Un examen écrit après chaque période de formation.","Une évaluation à partir de situations professionnelles réelles.","Une certification externe avant toute présence en atelier.","Un contrôle du nombre d'heures consacrées aux cours."],correct:"B",
 explanation:"Elle préfère un mentorat suivi d'une observation concrète des compétences."
 },
 {
@@ -129,7 +129,7 @@ transcript:`— L'association de danse veut proposer un tarif unique très faibl
 — C'est plutôt généreux, non ?
 — Oui, mais certains habitants pourraient quand même le trouver cher, tandis que d'autres pourraient payer un peu plus pour soutenir l'activité. Je proposerais une grille de prix selon les ressources, avec une inscription discrète pour éviter de mettre les gens mal à l'aise. L'objectif est d'accueillir différents publics sans rendre l'association dépendante d'un seul financement.`,
 question:"Quel changement est proposé ?",
-options:["Limiter les cours gratuits aux enfants.","Fixer les mêmes frais pour toutes les familles.","Réserver les réductions aux nouveaux participants.","Adapter la participation financière aux moyens de chacun."],correct:"B",
+options:["Limiter les cours gratuits aux enfants.","Adapter la participation financière aux moyens de chacun.","Réserver les réductions aux nouveaux participants.","Fixer les mêmes frais pour toutes les familles."],correct:"B",
 explanation:"La personne défend des tarifs modulés selon les ressources."
 },
 {
