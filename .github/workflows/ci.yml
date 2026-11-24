@@ -22,3 +22,35 @@ jobs:
           name: a0-student-preview
           path: dist/
           retention-days: 7
+
+  tef_v3_migration:
+    if: github.event_name == 'pull_request' && github.head_ref == 'fix/tef-listening-01-v3-audio-timing-audit' && github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/tef-listening-01-v3-audio-timing-audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - name: Generate exact versioned migration and verify data
+        run: |
+          node scripts/check-tef-listening-test01-v3.mjs
+          if ! find supabase/migrations -maxdepth 1 -name '*_tef_listening_01_audio_timing_v3.sql' | grep -q .; then
+            supabase migration new tef_listening_01_audio_timing_v3
+          fi
+          migration=$(find supabase/migrations -maxdepth 1 -name '*_tef_listening_01_audio_timing_v3.sql' | head -n 1)
+          node scripts/release/write-tef-listening-01-audio-timing-v3-migration.mjs "$migration"
+          test -s "$migration"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$migration"
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage immutable validated TEF Listening Test01 v3 migration"
+            git push origin HEAD:fix/tef-listening-01-v3-audio-timing-audit
+          fi
