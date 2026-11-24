@@ -2,11 +2,11 @@
 // the published Test01 spoken-length profile. Never truncate speech mid-sentence,
 // pad silence, or modify playback speed. The MP3 renderer remains the final gate.
 const words=s=>(s||'').trim().split(/\s+/).filter(Boolean).length;
-export function selectOriginalAddenda(clips,additions,reference){
+export function selectOriginalAddenda(clips,additions,reference,{targetDelta=0}={}){
  const refMap=new Map(reference.questions.filter(q=>q.slotSeconds>0).map(q=>[q.number,words(q.transcript)]));
  const items=clips.map(clip=>({start:clip.start,base:words(clip.script),extra:words(additions[clip.start]),reference:refMap.get(clip.start)}));
  if(items.some(x=>!Number.isInteger(x.reference)))throw Error('Missing published benchmark recording');
- const target=items.reduce((s,x)=>s+x.reference-x.base,0);
+ const target=items.reduce((s,x)=>s+x.reference-x.base,0)+targetDelta;
  if(target<0)throw Error('Source bank longer than reference even before editorial review');
  // Knapsack with a cost for deviating from reference by clip. The global target
  // is near-equal spoken length, not manufactured extra response time.
