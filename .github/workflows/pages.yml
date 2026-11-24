@@ -115,3 +115,13 @@ jobs:
           }
           throw Error('Unable to confirm production Pages freshness: '+last);
           NODE
+
+      - name: Verify all 43 hosted TEF Listening v3 files against release SHA
+        run: |
+          python scripts/release/check-tef-listening-test01-v3-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-v3-hosted-verification
+          path: work/tef-listening-test01/v3-hosted-verified.json
+          retention-days: 30
