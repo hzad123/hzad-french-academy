@@ -62,7 +62,12 @@ for(const clip of clips){
   const index=keyPositions[number-1], options=choicesOf(item,index);
   let q={number,kind,question:item.stem,options,correct:String.fromCharCode(65+index),explanation:item.explanation,transcript:clip.script.trim(),segments,audio:'q-'+pad(n)+'.mp3',audioSeconds:0,slotSeconds:0,previewSeconds:previews(number)};
   if(isPair){q.groupStart=n;q.groupEnd=n+1}
-  if(n<=4){q.image='q-'+pad(n)+'.svg';q.illustrationIcons=item.illustrationIcons}
+  if(n<=4){
+   const originalIcons=item.illustrationIcons;
+   assert.equal(originalIcons?.length,4,'Four subject-specific scene illustrations required');
+   const shifted=[...originalIcons.slice(1)];shifted.splice(index,0,originalIcons[0]);
+   q.image='q-'+pad(n)+'.svg';q.illustrationIcons=shifted;
+  }
   questions.push(q);
   keys[q.correct]=(keys[q.correct]||0)+1;
  }
