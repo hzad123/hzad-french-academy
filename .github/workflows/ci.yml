@@ -69,8 +69,13 @@ jobs:
     if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'Stage 240 authored TEF Listening') && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        test: [2, 3, 4, 5, 6, 7]
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:
@@ -81,7 +86,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install hash-pinned French voices and audio integrity tools
+      - name: Install hash-pinned offline French voices and audio integrity tools
         run: |
           python -m pip install --disable-pip-version-check piper-tts==1.8.0
           if ! command -v ffmpeg >/dev/null 2>&1; then
@@ -90,32 +95,38 @@ jobs:
           fi
           mkdir -p "$RUNNER_TEMP/models"
           python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
-      - name: Measure all 216 spoken recordings, fail on any under-length or clock mismatch
+      - name: Render and measure all 36 recordings for Test ${{ matrix.test }}
+        run: python scripts/release/render-tef-listening-02-07.py --models "$RUNNER_TEMP/models" --test "${{ matrix.test }}"
+      - name: Stage source-matched audio and immutable paper (never production)
         run: |
-          failure=0
-          for t in 2 3 4 5 6 7; do
-            echo "::group::TEF Listening Test $t real MP3 duration validation"
-            python scripts/release/render-tef-listening-02-07.py --models "$RUNNER_TEMP/models" --test "$t" || failure=1
-            echo "::endgroup::"
-          done
-          if [ "$failure" -ne 0 ]; then
-            echo "::error::One or more of the six TEF Listening papers failed measured duration; no release or media commit"
-            exit 1
-          fi
-      - name: Check all six MP3 hashes, immutable grouped timing and question schemas
-        run: node scripts/check-tef-listening-02-07-measured.mjs
-      - name: Record six measured audio banks on unpublished review branch
-        run: |
+          t=$(printf "%02d" "${{ matrix.test }}")
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add supabase/exams/tef-listening-test0?-v1.json assets/tef-listening/tef-listening-2026-11-test0?-v1
+          git add "supabase/exams/tef-listening-test$t-v1.json"
+          git add "assets/tef-listening/tef-listening-2026-11-test$t-v1"
           if ! git diff --cached --quiet; then
-            git commit -m "Stage 216 measured original TEF Listening audio recordings"
-            git fetch origin feature/tef-listening-tests-02-07-original-batch
-            git rebase origin/feature/tef-listening-tests-02-07-original-batch
-            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+            git commit -m "Stage measured TEF Listening Test$t media (unpublished)"
+            for retry in 1 2 3 4 5 6 7 8; do
+              git fetch origin feature/tef-listening-tests-02-07-original-batch
+              git rebase origin/feature/tef-listening-tests-02-07-original-batch
+              if git push origin HEAD:feature/tef-listening-tests-02-07-original-batch; then
+                exit 0
+              fi
+            done
+            echo "::error::Could not safely rebase this independent media package"
+            exit 1
           fi
 
+  tef_batch_media_validate:
+    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'VALIDATE TEF 02-07 MEDIA') && github.repository == 'hzad123/hzad-french-academy'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check all 240 questions and exact source/bytes/slot contracts
+        run: node scripts/check-tef-listening-02-07-measured.mjs
 
   tef_batch_independent_qc:
     if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'REVIEW TEF 02-07') && github.repository == 'hzad123/hzad-french-academy'
