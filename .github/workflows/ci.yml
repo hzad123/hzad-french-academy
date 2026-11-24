@@ -22,3 +22,42 @@ jobs:
           name: a0-student-preview
           path: dist/
           retention-days: 7
+
+
+  tef_batch_prepare:
+    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate six immutable original unpublished banks
+        run: |
+          for t in 2 3 4 5 6 7; do
+            node scripts/release/prepare-tef-listening-02-07.mjs "$t"
+          done
+          node scripts/audit-tef-listening-02-07-drafts.mjs
+      - name: Stage six banks and new visual/audio-check assets without activation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test0?-v1.json
+          git add assets/tef-listening/tef-listening-2026-11-test0?-v1
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage 240 authored TEF Listening questions and original visual panels"
+            git fetch origin feature/tef-listening-tests-02-07-original-batch
+            git rebase origin/feature/tef-listening-tests-02-07-original-batch
+            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-02-07-draft-quality
+          path: work/tef-listening-02-07/draft-quality.json
+          retention-days: 30
