@@ -62,3 +62,53 @@ jobs:
           name: tef-02-07-draft-quality
           path: work/tef-listening-02-07/draft-quality.json
           retention-days: 30
+
+
+  tef_batch_render:
+    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'Stage 240 authored TEF Listening') && github.repository == 'hzad123/hzad-french-academy'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install hash-pinned French voices and audio integrity tools
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Measure all 216 spoken recordings, fail on any under-length or clock mismatch
+        run: |
+          failure=0
+          for t in 2 3 4 5 6 7; do
+            echo "::group::TEF Listening Test $t real MP3 duration validation"
+            python scripts/release/render-tef-listening-02-07.py --models "$RUNNER_TEMP/models" --test "$t" || failure=1
+            echo "::endgroup::"
+          done
+          if [ "$failure" -ne 0 ]; then
+            echo "::error::One or more of the six TEF Listening papers failed measured duration; no release or media commit"
+            exit 1
+          fi
+      - name: Record six measured audio banks on unpublished review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/exams/tef-listening-test0?-v1.json assets/tef-listening/tef-listening-2026-11-test0?-v1
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage 216 measured original TEF Listening audio recordings"
+            git fetch origin feature/tef-listening-tests-02-07-original-batch
+            git rebase origin/feature/tef-listening-tests-02-07-original-batch
+            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+          fi
