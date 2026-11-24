@@ -121,7 +121,7 @@ transcript:`— Les étiquettes d'allergènes sur les emballages sont parfois di
 — Vous imaginez une liste plus longue ?
 — Pas nécessairement. Si l'on ajoute des avertissements identiques partout, les consommateurs ne distinguent plus les risques précis. Je préférerais des informations hiérarchisées, avec les ingrédients concernés faciles à repérer et des explications complémentaires accessibles à ceux qui en ont besoin. L'objectif est de mieux informer, pas de multiplier les mots.`,
 question:"Quelle amélioration de l'étiquetage est souhaitée ?",
-options:["Utiliser une même mise en garde sur tous les produits.","Mettre les informations essentielles plus en évidence.","Réduire la taille des listes d'ingrédients.","Remplacer les étiquettes par un simple symbole."],correct:"A",
+options:["Mettre les informations essentielles plus en évidence.","Utiliser une même mise en garde sur tous les produits.","Réduire la taille des listes d'ingrédients.","Remplacer les étiquettes par un simple symbole."],correct:"A",
 explanation:"La personne souhaite hiérarchiser clairement les informations importantes."
 },
 {
@@ -129,7 +129,7 @@ transcript:`— Hier, j'ai reçu une alerte météo qui concernait tout le dépa
 — Vous n'appréciez pas les alertes ?
 — Si, mais elles seraient plus utiles si elles indiquaient précisément les secteurs touchés et les gestes adaptés. Quand on reçoit sans cesse un message très général, on finit par le lire moins attentivement. Il faut trouver un équilibre entre prévenir assez tôt et éviter des consignes qui ne correspondent pas à la situation locale.`,
 question:"Quelle évolution des messages d'alerte est proposée ?",
-options:["Diffuser les consignes uniquement à la radio.","Émettre davantage de messages sans indication géographique.","Réserver les alertes aux zones déjà touchées.","Préciser les lieux concernés et les actions à entreprendre."],correct:"B",
+options:["Diffuser les consignes uniquement à la radio.","Préciser les lieux concernés et les actions à entreprendre.","Réserver les alertes aux zones déjà touchées.","Émettre davantage de messages sans indication géographique."],correct:"B",
 explanation:"La personne demande des alertes ciblées selon la zone et la conduite à tenir."
 },
 {
