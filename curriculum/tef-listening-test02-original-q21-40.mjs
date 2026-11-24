@@ -111,7 +111,7 @@ explanation:"Elle veut conserver les enregistrements et signaler les modificatio
 {
 transcript:`Une économiste examine un nouveau tarif de l'eau destiné à décourager le gaspillage. Les premiers mètres cubes seraient vendus à prix réduit, puis le tarif augmenterait avec la consommation. Ce système paraît équitable si l'on suppose que les ménages qui consomment davantage disposent de plus de moyens. Mais une famille nombreuse ou un logement mal isolé sur le plan hydraulique peut utiliser beaucoup d'eau sans être particulièrement riche. La chercheuse recommande donc d'analyser les besoins essentiels et l'état des bâtiments avant de conclure qu'un tarif progressif récompense toujours les comportements responsables. Une grille simple à lire n'est pas nécessairement simple à justifier.`,
 question:"Quelle réserve l'économiste formule-t-elle ?",
-options:["Un tarif progressif ne modifie jamais les habitudes de consommation.","Une forte consommation ne traduit pas nécessairement un usage excessif.","Les familles nombreuses devraient payer le même montant que les autres.","Les premières quantités d'eau devraient être plus chères pour tous."],correct:"B",
+options:["Un tarif progressif ne modifie jamais les habitudes de consommation.","Les familles nombreuses devraient payer le même montant que les autres.","Une forte consommation ne traduit pas nécessairement un usage excessif.","Les premières quantités d'eau devraient être plus chères pour tous."],correct:"C",
 explanation:"Les besoins des familles et les fuites peuvent expliquer de gros volumes sans gaspillage."
 },
 {
