@@ -44,12 +44,14 @@ export async function reviewQuestion(question,{blindReviewer,groundReviewer,shuf
  const blindInput={question:question.question,choices:sequence.map(i=>question.options[i])};
  const blind=await blindReviewer(blindInput); // NEVER include source, key, explanation or metadata.
  const b=blindGate(blind);
- if(!b.pass)return {pass:false,reason:'blind',blind,b,contentDigest:contentDigest(question)};
+ // Always perform the independent passage check. Otherwise a failed blind
+ // review hides ambiguity and weak evidence from the authoring repair loop.
  const groundInput={source:question.passage,question:question.question,choices:sequence.map(i=>question.options[i])};
  const ground=await groundReviewer(groundInput); // NEVER include key, explanation or blind verdict.
  if(ground.id===blind.id)throw Error('Same receipt used for both AI reviewers');
  const g=groundGate(question,ground,{permutation:sequence});
- return {pass:g.pass,reason:g.pass?'approved':'ground',blind,ground,b,g,contentDigest:contentDigest(question)};
+ const pass=b.pass&&g.pass;
+ return {pass,reason:pass?'approved':!b.pass&&!g.pass?'blind+ground':!b.pass?'blind':'ground',blind,ground,b,g,contentDigest:contentDigest(question)};
 }
 /**
  * Regenerates automatically when weak distractors, source ambiguity, or semantic
