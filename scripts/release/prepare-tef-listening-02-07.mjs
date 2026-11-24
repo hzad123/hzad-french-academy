@@ -44,6 +44,7 @@ const testNo=Number(process.argv[2]);
 assert(Number.isInteger(testNo)&&testNo>=2&&testNo<=7,'Pass test number 02..07');
 const {clips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'.mjs').href);
 assert.equal(clips.length,36,'36 original recording sources per paper');
+const {additions}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'-additions.mjs').href);
 const keyPositions=balancedKeys(testNo), keys={},seen=new Set(), questions=[];
 for(const clip of clips){
  const n=clip.start,kind=expectedKinds(n),isPair=starts.includes(n);
@@ -52,7 +53,8 @@ for(const clip of clips){
  seen.add(clip.topic.toLocaleLowerCase('fr'));
  assert.equal(clip.questions.length,isPair?2:1,'Paired count mismatch Q'+n);
  assert(typeof clip.script==='string'&&clip.script.trim().length>145,'Substantial authored oral script required Q'+n);
- const pieces=clip.script.trim().split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
+ const fullScript=(clip.script.trim()+'\n'+(additions[n]||'')).trim();
+ const pieces=fullScript.split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
  const segments=pieces.map((text,i)=>({voice:i%2?'male':'female',text}));
  for(let offset=0;offset<clip.questions.length;offset++){
   const number=n+offset, item=clip.questions[offset],kindActual=expectedKinds(number);
@@ -60,7 +62,7 @@ for(const clip of clips){
   assert(item.stem&&item.correct&&item.explanation&&item.wrong,'Full original question fields required '+number);
   assert(item.correct.length>=15,'Answer too short Q'+number);
   const index=keyPositions[number-1], options=choicesOf(item,index);
-  let q={number,kind,question:item.stem,options,correct:String.fromCharCode(65+index),explanation:item.explanation,transcript:clip.script.trim(),segments,audio:'q-'+pad(n)+'.mp3',audioSeconds:0,slotSeconds:second.has(number)?0:1,previewSeconds:previews(number)};
+  let q={number,kind,question:item.stem,options,correct:String.fromCharCode(65+index),explanation:item.explanation,transcript:fullScript,segments,audio:'q-'+pad(n)+'.mp3',audioSeconds:0,slotSeconds:second.has(number)?0:1,previewSeconds:previews(number)};
   if(isPair){q.groupStart=n;q.groupEnd=n+1}
   if(n<=4){
    const originalIcons=item.illustrationIcons;
@@ -87,4 +89,4 @@ const v3='assets/tef-listening/tef-listening-2026-11-test01-v3';
 await cp(v3+'/audio/audio-check.mp3',base+'/audio/audio-check.mp3');
 await cp(v3+'/AUDIO-LICENSES.md',base+'/AUDIO-LICENSES.md');
 await writeFile('supabase/exams/tef-listening-test'+pad(testNo)+'-v1.json',JSON.stringify(paper,null,2)+'\n');
-console.log(JSON.stringify({testNo,version,questions:40,recordings:36,topics:seen.size,keys,sourceWords:clips.reduce((a,c)=>a+c.script.split(/\s+/).length,0)},null,2));
+console.log(JSON.stringify({testNo,version,questions:40,recordings:36,topics:seen.size,keys,sourceWords:clips.reduce((a,c)=>a+(c.script+' '+(additions[c.start]||'')).split(/\s+/).length,0)},null,2));
