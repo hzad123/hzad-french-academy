@@ -2,7 +2,7 @@
 // This does NOT claim independent AI/human semantic review; it requires it.
 import {readFile,readdir,stat} from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import {overlaps,choiceStats,sourceHash,keyPattern,sha256,normalize} from './lib/listening-quality.mjs';
+import {overlaps,choiceStats,sourceHash,keyPattern,sha256,normalize,reviewHash,reviewStatus,reviewCriteria} from './lib/listening-quality.mjs';
 import {validateDraft,previewSeconds,responseSeconds,minimumAudioSeconds,normalizeSource,PAIRED_STARTS,PAIRED_SECONDS} from '../curriculum/tef-listening-02-07-authoring-contract.mjs';
 const baseline=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
 const tests=[],allSources=[],allQuestions=[];
@@ -68,6 +68,18 @@ for(let n=2;n<=7;n++){
   assert(entry.distractorsPlausibleWithoutListening===true,'Distractor plausibility not verified');
   assert(entry.pairedAnswerLeakageAbsent===true,'Pair answer leakage not verified');
   assert(entry.sourceHash===sourceHash(q.segments),'Evidence stale after source edits');
+  assert(entry.contentHash===reviewHash(q),'Review must match complete final question and answer choices');
+  const audioRecord=manifest.files.find(x=>x.file===q.audio);
+  assert(audioRecord&&entry.audioHash===audioRecord.sha256,'Review must match final rendered MP3 bytes');
+  const imageHash=q.image?sha256(await readFile(base+'/images/'+q.image)):null;
+  assert((entry.imageHash||null)===imageHash,'Review must match final original picture bytes');
+  assert(entry.independentOfAuthor===true,'Independent reviewer confirmation required');
+  assert(typeof entry.blindReason==='string'&&entry.blindReason.trim().length>=25,'Blind prediction needs a written reason');
+  const blindAt=Date.parse(entry.blindPredictedAt||''),audioAt=Date.parse(entry.transcriptAndAudioReviewedAt||'');
+  assert(Number.isFinite(blindAt)&&Number.isFinite(audioAt)&&blindAt<audioAt,'Blind prediction must be recorded before full-media review');
+  const reviewed=reviewStatus(q,version,audioRecord.sha256,imageHash,review.questions);
+  assert(reviewed.ok,'Comprehensive French semantic, distractor, and source-grounded review failed '+nn+'/'+q.number+': '+reviewed.missing.join(','));
+  assert(reviewCriteria.every(c=>entry.checks?.[c]===true),'Missing independent quality dimensions '+nn+'/'+q.number);
   if(entry.blindPredictedLetter===q.correct)blindCorrect++;
  }
  assert(blindCorrect<=14,'Blind guessing exceeds 35% Test '+nn+': '+blindCorrect+'/40');
