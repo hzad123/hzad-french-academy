@@ -112,3 +112,50 @@ jobs:
             git rebase origin/feature/tef-listening-tests-02-07-original-batch
             git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
           fi
+
+
+  tef_batch_independent_qc:
+    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'REVIEW TEF 02-07') && github.repository == 'hzad123/hzad-french-academy'
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/tef-listening-tests-02-07-original-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify private QC gateway before paid evaluation
+        env:
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+        run: |
+          node --input-type=module -e "import {githubOidcFetch} from './scripts/lib/listening-github-oidc.mjs';const r=await githubOidcFetch()(process.env.LISTENING_QC_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stage:'health'})});if(!r.ok)throw Error('Private QC unavailable '+r.status);const d=await r.json();if(!d.ready)throw Error('Private QC not ready');console.log('Scoped signed QA gateway verified')"
+      - name: Blind answer prediction and transcript-first grounding of all 240 items
+        env:
+          LISTENING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-listening-oidc
+          MAX_QC_USD: '100'
+          QC_WORKERS: '8'
+        run: node scripts/run-tef-listening-02-07-independent-qc.mjs
+      - name: Preserve independent editorial evidence even when quality fails
+        if: always()
+        run: |
+          mkdir -p curriculum/tef-listening-02-07/independent-review
+          find work/tef-listening-02-07/model-qc -maxdepth 1 -type f -name '*.json' -exec cp -t curriculum/tef-listening-02-07/independent-review {} + || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add curriculum/tef-listening-02-07/independent-review
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve actual independent 240-question TEF blind and grounding verdicts"
+            git fetch origin feature/tef-listening-tests-02-07-original-batch
+            git rebase origin/feature/tef-listening-tests-02-07-original-batch
+            git push origin HEAD:feature/tef-listening-tests-02-07-original-batch
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-02-07-240-question-independent-review
+          path: work/tef-listening-02-07/model-qc
+          retention-days: 30
