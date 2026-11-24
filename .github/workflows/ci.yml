@@ -25,7 +25,7 @@ jobs:
 
 
   tef_batch_prepare:
-    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && github.repository == 'hzad123/hzad-french-academy'
+    if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-batch' && startsWith(github.event.head_commit.message, 'PREPARE TEF 02-07') && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
     runs-on: ubuntu-latest
