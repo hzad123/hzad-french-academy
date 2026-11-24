@@ -24,7 +24,7 @@ jobs:
           retention-days: 7
 
 
-  tef02_04_authoring:
+  tef02_07_authoring:
     if: github.ref == 'refs/heads/feature/tef-listening-tests-02-07-original-banks' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -36,16 +36,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare Test02 original 40-question editorial draft
+      - name: Prepare all six original 40-question editorial drafts
         run: |
-          node scripts/release/prepare-tef-listening-original-batch.mjs 2
-          node scripts/release/prepare-tef-listening-original-batch.mjs 3
-          node scripts/release/prepare-tef-listening-original-batch.mjs 4
+          for number in 2 3 4 5 6 7; do
+            node scripts/release/prepare-tef-listening-original-batch.mjs "$number"
+          done
       - name: Stage draft bank and four original illustrations
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add supabase/exams/tef-listening-test0{2,3,4}-v1.json assets/tef-listening/tef-listening-2026-11-test0{2,3,4}-v1/
+          git add supabase/exams/tef-listening-test0{2,3,4,5,6,7}-v1.json assets/tef-listening/tef-listening-2026-11-test0{2,3,4,5,6,7}-v1/
           if ! git diff --cached --quiet; then
             git commit -m "Stage unpublished original TEF Listening Test02 editorial bank and illustrations"
             git fetch origin feature/tef-listening-tests-02-07-original-banks
