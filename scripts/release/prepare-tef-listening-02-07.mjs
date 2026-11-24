@@ -53,7 +53,7 @@ const {wording:followup}=await import(pathToFileURL(process.cwd()+'/curriculum/t
 const referenceBank=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
 const actualAdditions={...additions};
 for(const [number,override] of Object.entries(sourceOverrides[testNo]||{}))actualAdditions[number]=override.addendum||'';
-const selection=selectOriginalAddenda(clips,actualAdditions,referenceBank);
+const selection=selectOriginalAddenda(clips,actualAdditions,referenceBank,{targetDelta:testNo===6?-55:0});
 const keyPositions=balancedKeys(testNo), keys={},seen=new Set(), questions=[];
 for(const clip of clips){
  const n=clip.start,kind=expectedKinds(n),isPair=starts.includes(n);
@@ -62,7 +62,7 @@ for(const clip of clips){
  seen.add(clip.topic.toLocaleLowerCase('fr'));
  assert.equal(clip.questions.length,isPair?2:1,'Paired count mismatch Q'+n);
  assert(typeof clip.script==='string'&&clip.script.trim().length>145,'Substantial authored oral script required Q'+n);
- const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(n)?(actualAdditions[n]||''):'')).trim();
+ const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(n)?(actualAdditions[n]||''):'')+(testNo===4&&n===29?'\nLes relevés porteront également sur les périodes les plus sèches, afin de distinguer une amélioration passagère du retour durable des équilibres écologiques.':'')).trim();
  const pieces=fullScript.split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
  const segments=pieces.map((text,i)=>({voice:i%2?'male':'female',text}));
  for(let offset=0;offset<clip.questions.length;offset++){
