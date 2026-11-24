@@ -43,13 +43,17 @@ function svgFor(q){
 }
 const testNo=Number(process.argv[2]);
 assert(Number.isInteger(testNo)&&testNo>=2&&testNo<=7,'Pass test number 02..07');
-const {clips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'.mjs').href);
+const {clips:authoredClips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'.mjs').href);
+const {sourceOverrides}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-source-overrides.mjs').href);
+const clips=authoredClips.map(clip=>({...clip,...(sourceOverrides[testNo]?.[clip.start]||{})}));
 assert.equal(clips.length,36,'36 original recording sources per paper');
 const {additions}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'-additions.mjs').href);
 const {wording}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-wording.mjs').href);
 const {wording:followup}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-distractors-followup.mjs').href);
 const referenceBank=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
-const selection=selectOriginalAddenda(clips,additions,referenceBank);
+const actualAdditions={...additions};
+for(const [number,override] of Object.entries(sourceOverrides[testNo]||{}))actualAdditions[number]=override.addendum||'';
+const selection=selectOriginalAddenda(clips,actualAdditions,referenceBank);
 const keyPositions=balancedKeys(testNo), keys={},seen=new Set(), questions=[];
 for(const clip of clips){
  const n=clip.start,kind=expectedKinds(n),isPair=starts.includes(n);
@@ -58,7 +62,7 @@ for(const clip of clips){
  seen.add(clip.topic.toLocaleLowerCase('fr'));
  assert.equal(clip.questions.length,isPair?2:1,'Paired count mismatch Q'+n);
  assert(typeof clip.script==='string'&&clip.script.trim().length>145,'Substantial authored oral script required Q'+n);
- const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(n)?(additions[n]||''):'')).trim();
+ const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(n)?(actualAdditions[n]||''):'')).trim();
  const pieces=fullScript.split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
  const segments=pieces.map((text,i)=>({voice:i%2?'male':'female',text}));
  for(let offset=0;offset<clip.questions.length;offset++){
