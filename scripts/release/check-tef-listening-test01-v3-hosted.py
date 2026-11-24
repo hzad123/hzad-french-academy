@@ -25,8 +25,8 @@ def run(commit,attempts):
  if len(paths)!=43 or len(set(paths))!=43:raise RuntimeError("Expected 43 unique hosted files")
  for turn in range(attempts):
   try:
-   with urlopen(PAGES+"?deployment="+commit,timeout=25) as r:html=r.read().decode()
-   if commit in html:break
+   with urlopen(PAGES+"BUILD_COMMIT.txt?release="+commit,timeout=25) as r:live_commit=r.read().decode().strip()
+   if live_commit==commit:break
   except Exception:pass
   if turn==attempts-1:raise RuntimeError("Exact GitHub Pages revision not yet deployed")
   time.sleep(15)
