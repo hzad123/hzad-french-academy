@@ -8,6 +8,7 @@ import {wireA0} from './learning/dashboard-integration.js';
 import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
 import {wireAiLearning} from './ai/ui.js';
+import {wireFrenchTutor} from './ai/french-tutor.js';
 import {wireExams} from './exams/ui.js';
 import {wireTcfSpeaking} from './exams/tcf-speaking/ui.js';
 import {wireTcfListening} from './exams/tcf-listening/ui.js';
@@ -122,6 +123,7 @@ export function mountAcademy(host,createClient){
   wirePlacement(root,client);
   wireTracker(root,client);
   wireAiLearning(root,client);
+  wireFrenchTutor(root,client);
   wireExams(root,client);
   wireTcfWriting(root,client);
   wireTefWriting(root,client);
