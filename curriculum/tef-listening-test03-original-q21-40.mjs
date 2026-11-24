@@ -51,13 +51,13 @@ explanation:"Les courants rendent la couverture géographique irrégulière."
 {
 transcript:`Une banque de graines conserve des variétés végétales menacées de disparition. Le froid ralentit leur vieillissement, mais il ne suffit pas de placer toutes les semences dans un congélateur. Les spécialistes testent régulièrement la germination et renouvellent certains échantillons avant qu'ils perdent leur capacité à produire une plante. Ils documentent aussi l'origine des graines, car deux lots portant le même nom peuvent provenir de milieux très différents. Le responsable met en garde contre une idée simpliste: conserver des semences est une assurance, mais cela ne remplace pas la protection des plantes et de leurs habitats naturels.`,
 question:"Pourquoi les scientifiques réexaminent-ils les échantillons conservés ?",
-options:["Pour réorganiser les collections par provenance géographique.","Pour évaluer la valeur commerciale des variétés anciennes.","Pour vérifier qu'ils restent capables de germer.","Pour déterminer quelles espèces seront vendues aux jardiniers."],correct:"B",
+options:["Pour réorganiser les collections par provenance géographique.","Pour évaluer la valeur commerciale des variétés anciennes.","Pour vérifier qu'ils restent capables de germer.","Pour déterminer quelles espèces seront vendues aux jardiniers."],correct:"C",
 explanation:"Des contrôles de germination permettent de renouveler les lots à temps."
 },
 {
 transcript:entretienPhotographe,
 question:"Qu'est-ce que la photographe distingue à propos de l'autorisation ?",
-options:["Un accord oral doit toujours être remplacé par un formulaire écrit.","Une personne peut accepter la prise de vue sans prévoir ses usages futurs.","Une image prise dans la rue appartient nécessairement à l'artiste.","Une exposition rend inutile toute discussion avec les personnes photographiées."],correct:"C",
+options:["Un accord oral doit toujours être remplacé par un formulaire écrit.","Une personne peut accepter la prise de vue sans prévoir ses usages futurs.","Une image prise dans la rue appartient nécessairement à l'artiste.","Une exposition rend inutile toute discussion avec les personnes photographiées."],correct:"B",
 explanation:"Consentir à la photographie n'implique pas nécessairement consentir à toutes ses utilisations futures."
 },
 {
@@ -81,31 +81,31 @@ explanation:"Elle cherche ce que chaque source mesure plutôt que d'en choisir u
 {
 transcript:entretienPrevention,
 question:"Pourquoi les carnets remplis par les sportifs posent-ils un problème d'interprétation ?",
-options:["Les entraîneurs en changent régulièrement les consignes de remplissage.","Les déclarations peuvent varier selon l'intérêt des athlètes à signaler des douleurs.","Les résultats d'entraînement ne sont pas inscrits avec assez de précision.","La fréquence des exercices est identique dans des clubs très différents."],correct:"C",
+options:["Les entraîneurs en changent régulièrement les consignes de remplissage.","Les déclarations peuvent varier selon l'intérêt des athlètes à signaler des douleurs.","Les résultats d'entraînement ne sont pas inscrits avec assez de précision.","La fréquence des exercices est identique dans des clubs très différents."],correct:"B",
 explanation:"Certains sportifs minimisent les douleurs pour rester sélectionnés, d'autres en signalent davantage."
 },
 {
 transcript:entretienPrevention,
 question:"Pourquoi la chercheuse se méfie-t-elle des comparaisons simples entre clubs ?",
-options:["La plupart des clubs ont cessé de suivre les exercices proposés.","Les programmes d'échauffement ont des objectifs médicaux incompatibles.","Les équipes étudiées ne pratiquent pas les mêmes sports collectifs.","D'autres différences d'encadrement peuvent contribuer aux résultats observés."],correct:"B",
+options:["La plupart des clubs ont cessé de suivre les exercices proposés.","Les programmes d'échauffement ont des objectifs médicaux incompatibles.","Les équipes étudiées ne pratiquent pas les mêmes sports collectifs.","D'autres différences d'encadrement peuvent contribuer aux résultats observés."],correct:"D",
 explanation:"La qualité de l'encadrement et du matériel peut accompagner le programme."
 },
 {
 transcript:reportageTheatre,
 question:"Pourquoi la compagnie a-t-elle réduit la taille des groupes de répétition ?",
-options:["Pour conserver davantage de places lors des représentations.","Pour réduire le budget des intervenants extérieurs.","Pour faciliter la parole de participants moins assurés.","Pour réserver les exercices à ceux ayant déjà joué."],correct:"D",
+options:["Pour conserver davantage de places lors des représentations.","Pour réduire le budget des intervenants extérieurs.","Pour faciliter la parole de participants moins assurés.","Pour réserver les exercices à ceux ayant déjà joué."],correct:"C",
 explanation:"Les grandes séances donnaient trop de place aux personnes les plus à l'aise."
 },
 {
 transcript:reportageTheatre,
 question:"Quelle dimension sera prise en compte pour évaluer le projet ?",
-options:["Les échanges et relations qui naîtront entre les participants.","Le nombre de scènes directement reprises des témoignages.","La vente de billets par rapport aux autres spectacles.","La sélection des participants pour une tournée régionale."],correct:"B",
+options:["Les échanges et relations qui naîtront entre les participants.","Le nombre de scènes directement reprises des témoignages.","La vente de billets par rapport aux autres spectacles.","La sélection des participants pour une tournée régionale."],correct:"A",
 explanation:"La compagnie regarde les apprentissages et les liens après la représentation, pas uniquement les ventes."
 },
 {
 transcript:`Un géographe critique les classements qui attribuent à chaque quartier un seul chiffre de « facilité de marche ». Certains indices comptent les commerces et les arrêts de transport à proximité, mais ignorent la présence d'escaliers, les temps d'attente aux passages piétons ou la sécurité ressentie après la tombée de la nuit. Deux rues voisines peuvent ainsi obtenir le même score alors que l'une reste difficile à parcourir avec une poussette. Le chercheur ne rejette pas les indicateurs; il propose d'y ajouter des observations sur le terrain et de distinguer les profils des usagers avant d'en tirer des décisions d'aménagement.`,
 question:"Quelle limite des indices de marche est mise en évidence ?",
-options:["Ils donnent des résultats différents à chaque nouvelle enquête.","Ils sous-estiment la concentration des commerces en centre-ville.","Ils ne permettent aucune comparaison entre quartiers voisins.","Ils peuvent masquer des obstacles concrets rencontrés par les usagers."],correct:"A",
+options:["Ils donnent des résultats différents à chaque nouvelle enquête.","Ils sous-estiment la concentration des commerces en centre-ville.","Ils ne permettent aucune comparaison entre quartiers voisins.","Ils peuvent masquer des obstacles concrets rencontrés par les usagers."],correct:"D",
 explanation:"Le chiffre unique peut cacher des différences d'accessibilité sur le terrain."
 },
 {
@@ -123,7 +123,7 @@ explanation:"Elle croise les sources tout en reconnaissant leurs finalités diff
 {
 transcript:`Une chercheuse en achats publics étudie les efforts d'une administration pour travailler avec davantage de petites entreprises. La diversification des fournisseurs peut réduire la dépendance à un seul prestataire et ouvrir le marché. Toutefois, un grand nombre de contrats très courts augmente le travail de suivi, et les petites entreprises doivent parfois consacrer beaucoup de temps à répondre à des appels d'offres complexes. La chercheuse recommande donc des lots de taille adaptée et des documents simplifiés, sans supprimer les exigences de contrôle. Pour elle, une concurrence réelle suppose de rendre la participation possible, pas seulement d'annoncer davantage de candidatures.`,
 question:"Quelle mesure la chercheuse défend-elle ?",
-options:["Supprimer les procédures de contrôle pour attirer les fournisseurs.","Attribuer les marchés les plus importants à un seul partenaire.","Limiter les candidatures aux entreprises déjà connues.","Adapter les lots et les démarches aux capacités des petites structures."],correct:"C",
+options:["Supprimer les procédures de contrôle pour attirer les fournisseurs.","Adapter les lots et les démarches aux capacités des petites structures.","Limiter les candidatures aux entreprises déjà connues.","Attribuer les marchés les plus importants à un seul partenaire."],correct:"B",
 explanation:"Elle veut des lots et dossiers accessibles aux petites entreprises tout en conservant les contrôles."
 },
 {
@@ -141,13 +141,13 @@ explanation:"L'équipe protège les fonctions vitales et la réserve de composan
 {
 transcript:`Un cuisinier spécialisé dans la fermentation explique pourquoi deux lots de légumes préparés avec les mêmes ingrédients ne développent pas exactement le même goût. La température, la taille des morceaux et la microflore naturelle influencent le résultat. Certains clients apprécient cette variation artisanale, mais un restaurant doit aussi garantir la sécurité et une qualité suffisamment stable. Le cuisinier suit donc l'acidité, conserve des relevés et ajuste les conditions de préparation. Il ne cherche pas à effacer toute différence sensorielle: il distingue la diversité acceptable d'une variation qui annoncerait un produit défectueux.`,
 question:"Quelle distinction le cuisinier fait-il ?",
-options:["La différence entre produits vendus en restaurant et en magasin.","Le choix entre une fermentation courte et une fermentation longue.","L'intérêt du goût artisanal par rapport aux recettes industrielles.","La variabilité du goût et les écarts incompatibles avec la qualité."],correct:"C",
+options:["La différence entre produits vendus en restaurant et en magasin.","Le choix entre une fermentation courte et une fermentation longue.","L'intérêt du goût artisanal par rapport aux recettes industrielles.","La variabilité du goût et les écarts incompatibles avec la qualité."],correct:"D",
 explanation:"Il accepte certaines variations mais contrôle celles qui menacent la qualité."
 },
 {
 transcript:`Un historien revient sur les projets de réouverture d'anciennes lignes de tramway. Les photographies anciennes montrent des rues animées et des voitures presque absentes, ce qui nourrit une certaine nostalgie. Mais l'historien rappelle que ces réseaux fonctionnaient dans des villes moins étendues, avec des emplois et des habitudes de déplacement différentes. Il ne nie pas l'intérêt d'un transport collectif moderne. Il demande seulement d'étudier les besoins actuels plutôt que de déduire la pertinence d'un projet de son charme historique. Les archives peuvent éclairer des choix, mais elles ne sont pas des plans prêts à être reproduits.`,
 question:"Quelle erreur de raisonnement l'historien critique-t-il ?",
-options:["Comparer les coûts de plusieurs modes de transport actuels.","Refuser d'examiner les pratiques anciennes des usagers.","Considérer les réseaux historiques comme directement transposables.","Privilégier les besoins présents plutôt que les habitudes passées."],correct:"B",
+options:["Comparer les coûts de plusieurs modes de transport actuels.","Refuser d'examiner les pratiques anciennes des usagers.","Considérer les réseaux historiques comme directement transposables.","Privilégier les besoins présents plutôt que les habitudes passées."],correct:"C",
 explanation:"Il critique l'idée que les anciens réseaux seraient automatiquement adaptés au contexte actuel."
 },
 {
