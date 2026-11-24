@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   id-token: write
+  issues: write
 concurrency:
   group: tef-reading-editorial-qc
   cancel-in-progress: true
@@ -40,6 +41,35 @@ jobs:
           name: tef-reading-author-qc-evidence
           path: work/tef-reading-author-qc
           retention-days: 30
+      - name: Publish auditable pilot outcome in PR #95
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFile} from 'node:fs/promises';
+          import {writeFile} from 'node:fs/promises';
+          let report;
+          try {
+            report=JSON.parse(await readFile('work/tef-reading-author-qc/summary.json','utf8'));
+          } catch(err) {
+            report={error:'No author-review summary was generated',details:String(err)};
+          }
+          const status=report.blocked===0&&report.accepted===12?'Pilot authoring passed':'Pilot authoring NOT approved';
+          const body=['## TEF Reading independent authoring pilot', '', '**'+status+'**',
+            'Workflow: '+process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID,
+            '', 'Attempted: '+(report.attempted??'unavailable'),
+            'Accepted: '+(report.accepted??'unavailable'),
+            'Blocked: '+(report.blocked??'unavailable'),
+            'Estimated USD: '+(report.estimatedUsd??'unavailable'),
+            '', 'Per test: `'+JSON.stringify(report.perTest??[])+'`',
+            '', 'Errors (truncated):',
+            '```json',JSON.stringify(report.errors??[report.error??'unknown']).slice(0,6000),'```',
+            '', 'This report is an authoring pilot, not a blind before/after benchmark or production approval.'
+          ].join('\n');
+          await writeFile('/tmp/tef-reading-review-comment.md',body);
+          NODE
+          gh pr comment 95 --repo "${GITHUB_REPOSITORY}" --body-file /tmp/tef-reading-review-comment.md
       - name: Preserve verifiable model responses and summary
         if: always()
         uses: actions/upload-artifact@v4
