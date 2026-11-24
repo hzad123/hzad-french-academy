@@ -24,7 +24,7 @@ jobs:
           retention-days: 7
 
   tef_v3_render:
-    if: github.ref == 'refs/heads/fix/tef-listening-01-v3-audio-timing-audit' && github.repository == 'hzad123/hzad-french-academy'
+    if: github.ref == 'refs/heads/feature/tef-listening-v3-render' && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: fix/tef-listening-01-v3-audio-timing-audit
+          ref: feature/tef-listening-v3-render
           persist-credentials: true
       - uses: actions/setup-node@v4
         with:
@@ -61,5 +61,5 @@ jobs:
           git add supabase/exams/tef-listening-test01-v3.json assets/tef-listening/tef-listening-2026-11-test01-v3
           if ! git diff --cached --quiet; then
             git commit -m "Render and verify TEF Test01 v3 36 recorded passages"
-            git push origin HEAD:fix/tef-listening-01-v3-audio-timing-audit
+            git push origin HEAD:feature/tef-listening-v3-render
           fi
