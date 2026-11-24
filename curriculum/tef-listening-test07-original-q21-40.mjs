@@ -66,7 +66,7 @@ explanation:"La captation correspond à une représentation datée, pas à toute
 {
 transcript:entretienVerification,
 question:"Pourquoi deux témoignages concordants ne suffisent-ils pas toujours ?",
-options:["Ils peuvent dépendre de la même rumeur initiale.","Ils proviennent généralement du même service public.","Ils sont souvent recueillis après une publication médiatique.","Ils décrivent toujours des détails impossibles à dater."],correct:"C",
+options:["Ils peuvent dépendre de la même rumeur initiale.","Ils proviennent généralement du même service public.","Ils sont souvent recueillis après une publication médiatique.","Ils décrivent toujours des détails impossibles à dater."],correct:"A",
 explanation:"Deux récits peuvent ne pas être indépendants et répéter une seule source."
 },
 {
@@ -90,7 +90,7 @@ explanation:"Les situations réelles ajoutent motivations, échanges et supports
 {
 transcript:entretienSousTitres,
 question:"Pourquoi la traductrice évite-t-elle une approche strictement littérale ?",
-options:["Les sous-titres doivent conserver exactement toutes les hésitations.","Un même mot change de langue selon le contexte de tournage.","Les documentaires n'utilisent pas de vocabulaire régional stable.","Une traduction mot à mot peut déformer l'intention ou le registre."],correct:"C",
+options:["Les sous-titres doivent conserver exactement toutes les hésitations.","Un même mot change de langue selon le contexte de tournage.","Les documentaires n'utilisent pas de vocabulaire régional stable.","Une traduction mot à mot peut déformer l'intention ou le registre."],correct:"D",
 explanation:"Le sens et la relation entre locuteurs dépassent les mots."
 },
 {
@@ -102,7 +102,7 @@ explanation:"Le sous-titre doit rester lisible sur une courte période."
 {
 transcript:reportageObservatoire,
 question:"Pourquoi l'association propose-t-elle deux types de séance ?",
-options:["Pour séparer les élèves selon leur expérience en astronomie.","Pour réduire le nombre de personnes nécessaires à l'animation.","Pour offrir un programme utile même lorsque le ciel est couvert.","Pour remplacer durablement les observations par des cours théoriques."],correct:"D",
+options:["Pour séparer les élèves selon leur expérience en astronomie.","Pour réduire le nombre de personnes nécessaires à l'animation.","Pour offrir un programme utile même lorsque le ciel est couvert.","Pour remplacer durablement les observations par des cours théoriques."],correct:"C",
 explanation:"Le direct dépend des nuages; les images archivées permettent une autre séance."
 },
 {
@@ -114,25 +114,25 @@ explanation:"La provenance des images archivées doit être annoncée clairement
 {
 transcript:`Une sociologue des médias observe que les rédactions suivent de près les clics, le temps de lecture et les partages. Ces mesures renseignent sur l'intérêt immédiat de certains sujets, mais elles ne disent pas tout de leur importance publique. Une enquête complexe peut être peu lue au départ et produire des effets importants plusieurs semaines plus tard. La chercheuse ne propose pas d'ignorer les statistiques. Elle recommande de les confronter aux objectifs éditoriaux et de distinguer la popularité d'un article de sa contribution au débat collectif. Le risque apparaît lorsque les chiffres deviennent à eux seuls la définition de ce qui mérite d'être publié.`,
 question:"Quelle limite des indicateurs d'audience la sociologue rappelle-t-elle ?",
-options:["Ils dépendent exclusivement de la longueur des articles.","Ils ne mesurent pas directement l'importance collective d'une information.","Ils empêchent d'évaluer les lectures sur de longues périodes.","Ils sont incompatibles avec les enquêtes de terrain."],correct:"D",
+options:["Ils dépendent exclusivement de la longueur des articles.","Ils ne mesurent pas directement l'importance collective d'une information.","Ils empêchent d'évaluer les lectures sur de longues périodes.","Ils sont incompatibles avec les enquêtes de terrain."],correct:"B",
 explanation:"La popularité immédiate ne reflète pas toujours l'importance publique."
 },
 {
 transcript:`Un ingénieur du son compare le doublage et les sous-titres pour un film étranger. Le doublage permet de suivre plus facilement l'image, mais modifie les voix originales et exige un mélange sonore qui respecte l'ambiance. Les sous-titres conservent les voix, tout en demandant un effort de lecture pendant les scènes rapides. L'ingénieur insiste sur l'absence de solution universelle. Le choix dépend aussi du genre du film, de la qualité de la traduction et des besoins d'accessibilité du public. Il recommande de tester chaque version dans des conditions d'écoute proches de celles d'une salle de cinéma.`,
 question:"Quelle idée l'ingénieur rejette-t-il ?",
-options:["Le besoin de tester la qualité sonore dans une salle.","L'intérêt de conserver les voix originales pour certains spectateurs.","L'existence d'une méthode de traduction idéale pour tous les films.","La nécessité d'équilibrer les dialogues avec les autres sons."],correct:"B",
+options:["Le besoin de tester la qualité sonore dans une salle.","L'intérêt de conserver les voix originales pour certains spectateurs.","L'existence d'une méthode de traduction idéale pour tous les films.","La nécessité d'équilibrer les dialogues avec les autres sons."],correct:"C",
 explanation:"Il refuse l'idée d'un doublage ou sous-titrage universellement supérieur."
 },
 {
 transcript:`Une éditrice scientifique décrit la pression qui s'exerce sur les revues lorsque des résultats attirent soudain l'attention des médias. Publier rapidement peut faciliter le débat, mais l'examen par les pairs sert à vérifier la méthode et les limites de l'étude. Une réponse tardive n'est pas toujours une garantie de rigueur, pas plus qu'une publication rapide n'est automatiquement mauvaise. L'éditrice recommande des délais transparents et une distinction claire entre prépublication, article évalué et correction ultérieure. Pour elle, le problème principal vient des attentes de certitude attachées à des travaux encore en discussion.`,
 question:"Quelle précaution éditoriale est recommandée ?",
-options:["Faire examiner les articles par un seul spécialiste pressé.","Supprimer les prépublications avant l'accord des médias.","Reporter toute discussion scientifique jusqu'à la fin des débats.","Distinguer clairement les degrés de vérification des publications."],correct:"C",
+options:["Faire examiner les articles par un seul spécialiste pressé.","Supprimer les prépublications avant l'accord des médias.","Reporter toute discussion scientifique jusqu'à la fin des débats.","Distinguer clairement les degrés de vérification des publications."],correct:"D",
 explanation:"Elle veut signaler la différence entre prépublication, étude évaluée et correction."
 },
 {
 transcript:`Une juriste étudie les vidéos qui réutilisent des extraits d'oeuvres musicales ou audiovisuelles. Certains créateurs ajoutent une critique ou une parodie originale, tandis que d'autres publient presque entièrement le travail d'autrui. Les règles de rémunération et d'autorisation varient selon les usages. La juriste souligne qu'une simple mention du nom de l'auteur ne remplace pas nécessairement une autorisation, et qu'un système de suppression automatique peut aussi bloquer des utilisations légitimes. Elle recommande des voies de contestation claires et des mécanismes qui tiennent compte de la contribution réelle de chaque partie.`,
 question:"Quelle difficulté la juriste veut-elle résoudre ?",
-options:["Interdire aux créateurs de citer les oeuvres déjà publiées.","Équilibrer droits des auteurs et réutilisations pouvant être légitimes.","Rendre tous les contenus accessibles sans autorisation préalable.","Remplacer chaque extrait de musique par une description écrite."],correct:"D",
+options:["Interdire aux créateurs de citer les oeuvres déjà publiées.","Équilibrer droits des auteurs et réutilisations pouvant être légitimes.","Rendre tous les contenus accessibles sans autorisation préalable.","Remplacer chaque extrait de musique par une description écrite."],correct:"B",
 explanation:"Elle veut reconnaître les droits tout en évitant de bloquer des usages légitimes."
 },
 {
@@ -144,31 +144,31 @@ explanation:"Le résultat d'un outil en ligne ne constitue pas un diagnostic com
 {
 transcript:`Une historienne examine les archives d'une région industrielle et remarque que certains groupes apparaissent rarement dans les documents officiels. Les absences peuvent résulter des pratiques administratives de l'époque: les dossiers consignaient surtout les propriétaires, les responsables ou les personnes soumises à une procédure. L'historienne utilise alors des objets, des journaux locaux et des récits familiaux pour compléter ce qui est conservé. Elle met en garde contre la tentation de remplir les vides avec des suppositions séduisantes. Reconnaître qu'une archive est partielle n'autorise pas à inventer une histoire; cela oblige à préciser l'origine et les limites de chaque élément.`,
 question:"Quelle méthode l'historienne défend-elle ?",
-options:["Se fier aux dossiers officiels même lorsque certaines personnes manquent.","Ignorer les sources familiales tant qu'une autorité ne les confirme pas.","Croiser des traces diverses sans inventer ce que les archives taisent.","Considérer les absences comme une preuve des intentions des administrations."],correct:"B",
+options:["Se fier aux dossiers officiels même lorsque certaines personnes manquent.","Ignorer les sources familiales tant qu'une autorité ne les confirme pas.","Croiser des traces diverses sans inventer ce que les archives taisent.","Considérer les absences comme une preuve des intentions des administrations."],correct:"C",
 explanation:"Elle croise d'autres sources tout en signalant ce qui reste inconnu."
 },
 {
 transcript:`Un économiste analyse des services numériques gratuits pour l'utilisateur. Leur financement peut venir de la publicité, de commissions ou de la valorisation de données. Le prix affiché, égal à zéro, ne décrit donc pas forcément le coût réel supporté par les usagers, notamment en temps, en attention ou en informations personnelles. Le chercheur refuse d'en conclure que tout service gratuit est mauvais. Il demande de rendre visibles les modes de financement et les alternatives proposées. Pour comparer deux plateformes, il faut examiner ce qui est échangé, pas seulement ce qui est payé à l'inscription.`,
 question:"Quelle idée l'économiste souligne-t-il ?",
-options:["Les services gratuits demandent toujours des données médicales.","Une plateforme gratuite ne peut pas investir dans la qualité.","Un service payé par publicité ne peut pas être utile.","Un prix nul peut masquer d'autres formes de contrepartie."],correct:"A",
+options:["Les services gratuits demandent toujours des données médicales.","Une plateforme gratuite ne peut pas investir dans la qualité.","Un service payé par publicité ne peut pas être utile.","Un prix nul peut masquer d'autres formes de contrepartie."],correct:"D",
 explanation:"La gratuité monétaire peut être compensée par attention, publicité ou données."
 },
 {
 transcript:`Une spécialiste de l'accessibilité teste des sites avec des personnes qui utilisent un lecteur d'écran. Une page peut respecter plusieurs règles techniques tout en restant difficile à comprendre: les boutons portent parfois des noms peu clairs et l'ordre de lecture ne correspond pas au parcours attendu. La chercheuse recommande des essais sur des tâches concrètes, comme réserver un billet ou trouver un document. Elle ne rejette pas les normes, indispensables pour repérer les erreurs de base. Elle explique qu'une conformité déclarée ne prouve pas à elle seule qu'un service soit réellement utilisable.`,
 question:"Quelle vérification la chercheuse juge-t-elle nécessaire ?",
-options:["Mesurer le nombre de lignes de code de chaque page.","Tester des démarches réelles avec les utilisateurs concernés.","Choisir automatiquement le site qui affiche le plus de boutons.","Supprimer les règles de conformité lorsque le site est moderne."],correct:"C",
+options:["Mesurer le nombre de lignes de code de chaque page.","Tester des démarches réelles avec les utilisateurs concernés.","Choisir automatiquement le site qui affiche le plus de boutons.","Supprimer les règles de conformité lorsque le site est moderne."],correct:"B",
 explanation:"Il faut évaluer de vrais parcours avec des utilisateurs de lecteurs d'écran."
 },
 {
 transcript:`Une communicante scientifique présente les risques d'une tempête prévue plusieurs jours à l'avance. Les modèles indiquent des scénarios, mais l'emplacement précis des pluies les plus fortes peut encore varier. Elle recommande d'exprimer cette incertitude sans attendre une certitude impossible pour prévenir les habitants. À l'inverse, annoncer un chiffre unique comme une promesse pourrait nuire à la confiance si la situation évolue. Le public a besoin de connaître la gamme des risques et les gestes utiles, pas seulement la valeur la plus spectaculaire d'une carte.`,
 question:"Quelle façon de communiquer la prévision est recommandée ?",
-options:["Reporter toute annonce jusqu'à la veille de la tempête.","Choisir le scénario le plus grave comme unique message.","Publier uniquement la moyenne des pluies attendues.","Expliquer les scénarios possibles et les mesures de précaution."],correct:"B",
+options:["Reporter toute annonce jusqu'à la veille de la tempête.","Choisir le scénario le plus grave comme unique message.","Publier uniquement la moyenne des pluies attendues.","Expliquer les scénarios possibles et les mesures de précaution."],correct:"D",
 explanation:"La communicante veut présenter l'incertitude et les actions disponibles."
 },
 {
 transcript:`Une chercheuse en éducation distingue la mémorisation d'une formule et son utilisation dans une situation nouvelle. Des élèves peuvent réciter correctement une règle et se tromper lorsque le problème change légèrement de présentation. Elle ne propose pas d'abandonner l'apprentissage par coeur, qui fournit parfois des repères utiles. Elle recommande toutefois des exercices où l'on doit expliquer un raisonnement, comparer deux démarches et reconnaître les conditions dans lesquelles une formule s'applique. Réussir une répétition identique ne garantit pas que le savoir soit transférable.`,
 question:"Quelle limite d'une évaluation fondée sur la récitation est évoquée ?",
-options:["Les élèves retiennent trop peu de vocabulaire technique.","La formule peut être oubliée dès que l'enseignant la répète.","Une règle connue peut rester mal appliquée dans un contexte différent.","La répétition empêche d'obtenir une réponse juste à l'examen."],correct:"D",
+options:["Les élèves retiennent trop peu de vocabulaire technique.","La formule peut être oubliée dès que l'enseignant la répète.","Une règle connue peut rester mal appliquée dans un contexte différent.","La répétition empêche d'obtenir une réponse juste à l'examen."],correct:"C",
 explanation:"La mémorisation seule ne garantit pas le transfert à un problème nouveau."
 }
 ];
