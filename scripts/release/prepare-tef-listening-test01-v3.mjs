@@ -1,4 +1,5 @@
 import {scripts,sharedPairs} from '../../curriculum/tef-listening-test01-v3-spoken.mjs';
+import {improvedDistractors} from '../../curriculum/tef-listening-test01-v3-distractors.mjs';
 import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const original=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v2.json','utf8'));
@@ -17,6 +18,12 @@ const firstBySecond=new Map(sharedPairs.map(([a,b])=>[b,a]));
 const names=new Set();
 for(const q of paper.questions){
  const n=q.number,first=firstBySecond.get(n)||n;
+ if(improvedDistractors[n]){
+  const proposed=improvedDistractors[n];
+  assert.equal(proposed.length,4,'Exactly four choices required at '+n);
+  assert.equal(proposed[q.correct.charCodeAt(0)-65],q.options[q.correct.charCodeAt(0)-65],'Do not mutate correct response at '+n);
+  q.options=proposed;
+ }
  const transcript=byNumber.get(first);
  assert(transcript&&transcript.trim().length>100,'Missing source '+n);
  q.transcript=transcript.trim();
