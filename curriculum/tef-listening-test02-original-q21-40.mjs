@@ -51,7 +51,7 @@ explanation:"L'enjeu est de concilier l'intérêt public et la conservation de d
 {
 transcript:`Un centre de formation aéronautique utilise depuis peu un simulateur qui reproduit des situations météorologiques rares. Les stagiaires peuvent ainsi s'entraîner à réagir à une panne sans exposer personne au danger. Les responsables rappellent toutefois que la maîtrise technique n'est pas le seul objectif. Dans un cockpit, les décisions doivent être partagées et les informations échangées clairement. Or, un stagiaire peut réussir un exercice isolé tout en communiquant mal avec son collègue. Le centre prévoit donc des séances où les instructeurs évaluent non seulement la manoeuvre, mais aussi les questions posées, les hésitations signalées et la manière dont les responsabilités sont réparties.`,
 question:"Quelle limite d'une formation fondée uniquement sur le simulateur individuel est soulignée ?",
-options:["Elle risque de négliger la coopération entre membres de l'équipage.","Elle empêche de s'exercer à des conditions météorologiques extrêmes.","Elle réduit la possibilité de répéter une manoeuvre difficile.","Elle nécessite trop de matériel pour reproduire les pannes courantes."],correct:"C",
+options:["Elle risque de négliger la coopération entre membres de l'équipage.","Elle empêche de s'exercer à des conditions météorologiques extrêmes.","Elle réduit la possibilité de répéter une manoeuvre difficile.","Elle nécessite trop de matériel pour reproduire les pannes courantes."],correct:"A",
 explanation:"Le chroniqueur souligne que réussir une manoeuvre n'assure pas une bonne communication entre collègues."
 },
 {
@@ -93,19 +93,19 @@ explanation:"Il demande une anticipation des volumes et critique les annulations
 {
 transcript:reportageGarde,
 question:"Pourquoi la coopérative a-t-elle choisi de fermer à vingt-trois heures ?",
-options:["Les locaux ne peuvent pas accueillir d'enfants plus tard.","La majorité des familles n'a pas besoin d'une ouverture jusqu'à minuit.","La réglementation municipale interdit le travail de nuit.","Les professionnels refusent toute intervention après vingt-deux heures."],correct:"A",
+options:["Les locaux ne peuvent pas accueillir d'enfants plus tard.","La majorité des familles n'a pas besoin d'une ouverture jusqu'à minuit.","La réglementation municipale interdit le travail de nuit.","Les professionnels refusent toute intervention après vingt-deux heures."],correct:"B",
 explanation:"La consultation a révélé que les besoins étaient surtout concentrés avant vingt-trois heures."
 },
 {
 transcript:reportageGarde,
 question:"Quel changement l'équipe envisage-t-elle avant d'élargir le service ?",
-options:["Supprimer l'aide municipale au fonctionnement.","Réduire les journées d'accueil les moins fréquentées.","Assouplir les réservations pour les familles aux plannings tardifs.","Réserver les places souples aux parents ayant adhéré depuis un an."],correct:"B",
+options:["Supprimer l'aide municipale au fonctionnement.","Réduire les journées d'accueil les moins fréquentées.","Assouplir les réservations pour les familles aux plannings tardifs.","Réserver les places souples aux parents ayant adhéré depuis un an."],correct:"C",
 explanation:"La coopérative souhaite tester une réserve de places pouvant être réservées plus tard."
 },
 {
 transcript:`Une historienne enregistre les récits d'anciens habitants pour reconstituer la vie d'un quartier portuaire. Elle observe que les transcriptions rédigées effacent souvent les hésitations, les silences ou les reprises de phrase. Pourtant, ces détails peuvent signaler un souvenir fragile ou une difficulté à attribuer un événement à la bonne période. Elle ne propose pas de conserver toutes les erreurs de langage dans les textes destinés au public. En revanche, elle demande de garder les fichiers sonores et d'indiquer clairement les passages réorganisés. Ainsi, un lecteur pourra profiter d'un récit fluide sans confondre le travail de montage avec les mots exacts d'un témoin.`,
 question:"Quelle distinction l'historienne souhaite-t-elle préserver ?",
-options:["La différence entre la parole enregistrée et le récit édité.","La différence entre les habitants récents et les témoins anciens.","La différence entre l'histoire officielle et les souvenirs personnels.","La différence entre les entretiens publiés et ceux restés privés."],correct:"C",
+options:["La différence entre la parole enregistrée et le récit édité.","La différence entre les habitants récents et les témoins anciens.","La différence entre l'histoire officielle et les souvenirs personnels.","La différence entre les entretiens publiés et ceux restés privés."],correct:"A",
 explanation:"Elle veut conserver les enregistrements et signaler les modifications éditoriales."
 },
 {
@@ -117,25 +117,25 @@ explanation:"Les besoins des familles et les fuites peuvent expliquer de gros vo
 {
 transcript:`Un écologue s'inquiète de la disparition des abeilles sauvages dans les zones agricoles. Plusieurs communes ont réagi en installant des ruches d'abeilles domestiques. La démarche attire l'attention sur les pollinisateurs, mais elle ne résout pas le problème principal: les espèces sauvages ont besoin de sites de nidification variés et de fleurs à différentes saisons. Dans certains milieux, une multiplication excessive de ruches peut même accentuer la concurrence pour les ressources. Le chercheur ne souhaite pas interdire l'apiculture. Il conseille plutôt de restaurer les haies, de laisser certaines parcelles fleurir et de mesurer les effets avant d'étendre les installations.`,
 question:"Pourquoi le chercheur juge-t-il les nouvelles ruches insuffisantes ?",
-options:["Elles coûtent davantage à entretenir que les espaces fleuris.","Elles ne garantissent pas la reproduction des espèces sauvages.","Elles nécessitent une surveillance permanente des exploitants.","Elles risquent de limiter la vente de produits apicoles locaux."],correct:"A",
+options:["Elles coûtent davantage à entretenir que les espaces fleuris.","Elles ne garantissent pas la reproduction des espèces sauvages.","Elles nécessitent une surveillance permanente des exploitants.","Elles risquent de limiter la vente de produits apicoles locaux."],correct:"B",
 explanation:"Les ruches domestiques n'apportent pas directement les habitats variés nécessaires aux abeilles sauvages."
 },
 {
 transcript:`Une programmatrice musicale compare ses choix à ceux d'un outil de recommandation. L'algorithme détecte les chansons proches de celles qu'un auditeur aime déjà et évite parfois de proposer une oeuvre qui pourrait le dérouter. La programmatrice estime que cette prudence favorise une écoute agréable, mais qu'elle peut enfermer l'auditeur dans des habitudes. À l'inverse, une sélection entièrement fondée sur la surprise risque de perdre son public. Elle construit donc ses listes autour de quelques repères familiers, entre lesquels elle insère des découvertes plus exigeantes. Son critère de réussite n'est pas seulement le nombre d'écoutes, mais la capacité à éveiller une curiosité durable.`,
 question:"Quelle logique guide le travail de la programmatrice ?",
-options:["Écarter les titres familiers pour renouveler totalement l'écoute.","Reproduire la sélection algorithmique en ajoutant plus de morceaux.","Privilégier les titres qui génèrent le plus d'écoutes immédiates.","Associer des repères connus à des découvertes moins attendues."],correct:"C",
+options:["Écarter les titres familiers pour renouveler totalement l'écoute.","Reproduire la sélection algorithmique en ajoutant plus de morceaux.","Privilégier les titres qui génèrent le plus d'écoutes immédiates.","Associer des repères connus à des découvertes moins attendues."],correct:"D",
 explanation:"Elle combine familiarité et surprise pour susciter une curiosité durable."
 },
 {
 transcript:`Un chercheur étudie l'origine d'une peinture conservée dans une collection privée. Les documents juridiques indiquent qu'elle a été acquise il y a plusieurs décennies conformément aux règles alors en vigueur. Cependant, de nouvelles archives montrent que son précédent propriétaire avait probablement subi des pressions pour la vendre. Le chercheur insiste sur une différence: la légalité d'une transaction ne répond pas toujours à toutes les questions éthiques qu'elle soulève. Il invite les responsables de la collection à publier les documents, consulter les héritiers concernés et examiner plusieurs solutions, sans annoncer à l'avance la restitution comme seule issue possible.`,
 question:"Quelle démarche le chercheur préconise-t-il ?",
-options:["Annuler immédiatement la transaction ancienne sans examen complémentaire.","Rendre les documents publics et discuter avec les parties concernées.","Considérer la légalité ancienne comme une réponse définitive.","Attendre une décision judiciaire avant toute publication des archives."],correct:"D",
+options:["Annuler immédiatement la transaction ancienne sans examen complémentaire.","Rendre les documents publics et discuter avec les parties concernées.","Considérer la légalité ancienne comme une réponse définitive.","Attendre une décision judiciaire avant toute publication des archives."],correct:"B",
 explanation:"Il demande une enquête transparente et un dialogue avant de décider de la suite."
 },
 {
 transcript:`Une architecte présente une résidence construite autour d'une cuisine commune, d'un atelier et d'un jardin partagé. Le projet promet de réduire certains coûts en mutualisant les équipements. Après plusieurs mois, les habitants soulignent aussi des tensions: certains utilisent fréquemment les espaces, d'autres contribuent financièrement mais y vont rarement. L'architecte recommande de ne pas confondre partage et disponibilité permanente. Des règles de réservation, des responsabilités d'entretien et des zones privées clairement définies sont nécessaires. Elle estime que le modèle est intéressant, non parce qu'il supprime les conflits, mais parce qu'il permet de les traiter ouvertement.`,
 question:"Quelle condition l'architecte juge-t-elle importante pour ce type d'habitat ?",
-options:["Rendre l'utilisation des espaces communs identique pour tous.","Réduire la taille des logements au profit des ateliers.","Définir clairement les usages et les obligations des résidents.","Attribuer l'entretien exclusivement aux habitants les plus présents."],correct:"B",
+options:["Rendre l'utilisation des espaces communs identique pour tous.","Réduire la taille des logements au profit des ateliers.","Définir clairement les usages et les obligations des résidents.","Attribuer l'entretien exclusivement aux habitants les plus présents."],correct:"C",
 explanation:"L'architecte préconise des règles explicites de réservation et d'entretien."
 },
 {
@@ -147,7 +147,7 @@ explanation:"La production dépend de facteurs environnementaux variables selon 
 {
 transcript:`Un spécialiste du tourisme régional analyse un projet de liaison ferroviaire directe vers une vallée préservée. Les habitants espèrent que le train remplacera une partie des voitures, mais craignent aussi qu'il attire davantage de visiteurs lors des week-ends les plus fréquentés. Le plan initial prévoit de nombreux départs rapides sans examiner les capacités des sentiers et des hébergements. L'expert recommande une stratégie plus large: coordonner les horaires avec les transports locaux, mesurer la fréquentation et protéger les zones les plus fragiles. Il souligne que le transport collectif peut réduire l'impact d'un déplacement individuel tout en augmentant le nombre total de déplacements.`,
 question:"Quelle contradiction le spécialiste met-il en évidence ?",
-options:["Un train direct réduit toujours les capacités des hébergements.","Une offre collective peut diminuer l'usage de la voiture tout en attirant plus de visiteurs.","Les horaires rapides ne sont utiles qu'aux touristes déjà motorisés.","Les sentiers protégés demandent nécessairement de nouvelles routes."],correct:"C",
+options:["Un train direct réduit toujours les capacités des hébergements.","Une offre collective peut diminuer l'usage de la voiture tout en attirant plus de visiteurs.","Les horaires rapides ne sont utiles qu'aux touristes déjà motorisés.","Les sentiers protégés demandent nécessairement de nouvelles routes."],correct:"B",
 explanation:"Le train peut réduire l'impact par trajet, mais augmenter la fréquentation totale."
 },
 {
@@ -159,7 +159,7 @@ explanation:"Les mesures et les perceptions apportent des informations différen
 {
 transcript:`Une interprète travaille sur des entretiens enregistrés avec des personnes qui parlent plusieurs variétés régionales du français. Certaines expressions ont un sens littéral, mais leur emploi renvoie aussi à une forme d'humour ou à un rapport particulier entre les interlocuteurs. Traduire chaque mot avec exactitude peut alors donner une phrase grammaticalement correcte qui manque pourtant l'intention. L'interprète consulte les locuteurs lorsque c'est possible et fournit parfois une brève note culturelle. Elle met cependant en garde contre l'excès d'explications: une traduction chargée de commentaires peut interrompre l'échange. Son objectif est de restituer la relation entre les personnes autant que leurs mots.`,
 question:"Quelle difficulté l'interprète cherche-t-elle surtout à résoudre ?",
-options:["L'impossibilité de trouver un équivalent grammatical aux expressions régionales.","Le manque d'enregistrements suffisamment clairs pour établir les mots.","La restitution des intentions et du contexte au-delà du sens littéral.","La nécessité de transformer toutes les expressions en français standard."],correct:"B",
+options:["L'impossibilité de trouver un équivalent grammatical aux expressions régionales.","Le manque d'enregistrements suffisamment clairs pour établir les mots.","La restitution des intentions et du contexte au-delà du sens littéral.","La nécessité de transformer toutes les expressions en français standard."],correct:"C",
 explanation:"Le problème est de traduire les sous-entendus et la relation sans se limiter aux mots."
 }
 ];
