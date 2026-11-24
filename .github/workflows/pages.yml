@@ -125,3 +125,13 @@ jobs:
           name: tef-listening-v3-hosted-verification
           path: work/tef-listening-test01/v3-hosted-verified.json
           retention-days: 30
+
+      - name: Verify all 258 hosted TEF Listening Tests 02-07 media assets against release SHA
+        run: |
+          python scripts/release/check-tef-listening-02-07-hosted.py --commit "$GITHUB_SHA" --attempts 18
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tef-listening-02-07-hosted-verification
+          path: work/tef-listening-02-07/hosted-verified.json
+          retention-days: 30
