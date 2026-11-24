@@ -47,6 +47,7 @@ const {clips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listenin
 assert.equal(clips.length,36,'36 original recording sources per paper');
 const {additions}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'-additions.mjs').href);
 const {wording}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-wording.mjs').href);
+const {wording:followup}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-distractors-followup.mjs').href);
 const referenceBank=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
 const selection=selectOriginalAddenda(clips,additions,referenceBank);
 const keyPositions=balancedKeys(testNo), keys={},seen=new Set(), questions=[];
@@ -61,7 +62,7 @@ for(const clip of clips){
  const pieces=fullScript.split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
  const segments=pieces.map((text,i)=>({voice:i%2?'male':'female',text}));
  for(let offset=0;offset<clip.questions.length;offset++){
-  const number=n+offset, originalItem=clip.questions[offset], item={...originalItem,...(wording[testNo]?.[number]||{})},kindActual=expectedKinds(number);
+  const number=n+offset, originalItem=clip.questions[offset], item={...originalItem,...(wording[testNo]?.[number]||{}),...(followup[testNo]?.[number]||{})},kindActual=expectedKinds(number);
   assert(kindActual===kind,'Kind mismatch '+number);
   assert(item.stem&&item.correct&&item.explanation&&item.wrong,'Full original question fields required '+number);
   assert(item.correct.length>=15,'Answer too short Q'+number);
