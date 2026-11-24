@@ -5,6 +5,9 @@ on:
     paths:
       - '.github/workflows/tef-reading-blind-qc.yml'
       - 'scripts/release/run-tef-reading-blind-qc.mjs'
+      - 'scripts/release/repair-tef-reading-with-ai.mjs'
+      - 'scripts/lib/tef-reading-ai-quality.mjs'
+      - 'tests/tef-reading-ai-quality.test.mjs'
 permissions:
   contents: read
   id-token: write
@@ -20,6 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate quality control regression tests
+        run: node --test tests/tef-reading-ai-quality.test.mjs
       # Two separate baseline pilot runs have already been recorded. Re-run the
       # independently gated authoring experiment only, without wasting AI tokens.
       - name: Attempt independent AI rewriting of source-specific pilot questions
