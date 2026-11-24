@@ -32,7 +32,9 @@ export function groundGate(question,receipt,{permutation=[0,1,2,3]}={}){
  const options=Array.isArray(r.options)&&r.options.length===4&&new Set(r.options.map(x=>x.index)).size===4&&r.options.every(x=>Number.isInteger(x.index)&&x.index>=0&&x.index<4&&x.supported===(x.index===target)&&x.plausible===true&&typeof x.reason==='string'&&x.reason.length>=15);
  const normalize=s=>String(s||'').normalize('NFKC').replace(/[’‘]/g,"'").replace(/\s+/g,' ').trim().toLocaleLowerCase('fr');
  const quotes=r.options?.flatMap(x=>x.quotes??[])||[];
- const anchored=quotes.length>0&&quotes.every(q=>typeof q==='string'&&q.length>=5&&normalize(question.passage).includes(normalize(q)));
+ const correctEvidence=r.options?.find(x=>x.index===target)?.quotes;
+ const anchored=Array.isArray(correctEvidence)&&correctEvidence.length>0
+   &&quotes.every(q=>typeof q==='string'&&q.length>=5&&normalize(question.passage).includes(normalize(q)));
  return {pass:one&&options&&anchored,reason:{one,options,anchored,target,supported:r.supportedIndices}};
 }
 function preserve(original,next){
