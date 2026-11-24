@@ -12,7 +12,7 @@ append(22,`— Revenons à l'accessibilité. Certains commerçants disent que l'
 append(23,`— Cette approche individualisée signifie-t-elle que vous abandonnez les séances collectives ?
 — Non, les ateliers communs restent utiles, notamment pour reconnaître les tentatives de fraude ou comprendre les démarches administratives. Simplement, ils ne constituent plus le point de départ obligatoire pour tout le monde.
 — Et comment faites-vous avec les participants les plus hésitants ?
-— Nous les encourageons d'abord à décrire ce qu'ils souhaitent accomplir, même s'ils ne connaissent aucun terme informatique. Ensuite, nous les guidons sans prendre systématiquement la souris à leur place. Ce détail est essentiel : une démarche réussie par le bénévole ne prouve pas que la personne saura la refaire.
+— Nous les encourageons d'abord à décrire ce qu'ils souhaitent accomplir, même s'ils ne connaissent aucun terme informatique. Ensuite, nous les guidons sans prendre systématiquement la souris à leur place. 
 — Vous mesurez donc davantage l'autonomie que la vitesse ?
 — Exactement. Les progrès peuvent sembler modestes, mais ils ont souvent des effets durables.`);
 append(24,`— Les élus préfèrent pourtant disposer d'un indicateur facile à comparer. Que leur répondez-vous ?
@@ -21,5 +21,5 @@ append(24,`— Les élus préfèrent pourtant disposer d'un indicateur facile à
 — Oui, mais en prenant soin de ne pas interroger uniquement les personnes les plus mécontentes. Nous cherchons des observations à différentes heures et auprès d'habitants dont les habitudes varient.
 — Et si les mesures de circulation ne produisent pas les effets attendus ?
 — Nous devons accepter de les adapter. La recherche ne fournit pas un plan valable partout, elle aide les collectivités à tester des réponses et à vérifier leurs conséquences, y compris les effets imprévus dans les rues voisines.`);
-append(25,`Cette expérience attire désormais l'attention des communes voisines, qui souhaiteraient mettre en place des dispositifs semblables. Les responsables du projet rappellent toutefois qu'il ne suffit pas de rouvrir un bâtiment pour rendre des services accessibles. Il faut former les agents, maintenir les permanences et prévoir des dépenses régulières d'entretien.
+append(25,`Les responsables du projet rappellent toutefois qu'il ne suffit pas de rouvrir un bâtiment pour rendre des services accessibles. Il faut former les agents, maintenir les permanences et prévoir des dépenses régulières d'entretien.
 Une association locale propose d'aider les habitants à préparer leurs dossiers avant les rendez-vous, tandis qu'un groupe de bénévoles envisage d'accompagner ceux qui ne peuvent pas se déplacer. Ces propositions seront examinées progressivement. La municipalité souhaite avant tout éviter que l'affluence actuelle, très encourageante, masque les difficultés des usagers les moins autonomes. Elle publiera un bilan après une année complète de fonctionnement, en tenant compte des coûts, de la qualité de l'accueil et de la diversité des publics concernés.`);
