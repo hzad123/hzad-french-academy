@@ -6,6 +6,7 @@ on:
       - 'curriculum/tef-listening-08-20/**'
       - 'scripts/release/*tef-listening-08-20*'
       - 'scripts/check-tef-listening-08-20-measured.mjs'
+      - 'scripts/check-tef-listening-source-match.mjs'
       - '.github/workflows/tef-listening-08-20.yml'
 jobs:
   measure:
@@ -38,14 +39,24 @@ jobs:
           python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
       - name: Build and measure authored papers
         run: |
+          tests=()
           for source in curriculum/tef-listening-08-20/test-[0-9][0-9].mjs; do
             t=$(basename "$source" .mjs)
             t=${t#test-}
+            tests+=("$t")
+            # An already measured paper is reusable only when its checked bank matches
+            # the complete current authored source (transcripts, questions, choices, explanations).
+            if node scripts/check-tef-listening-source-match.mjs "$t" && node scripts/check-tef-listening-08-20-measured.mjs "$t"; then
+              echo "Test $t already has exact, validated media"
+              continue
+            fi
             node scripts/release/prepare-tef-listening-08-20.mjs "$t"
             python scripts/release/render-tef-listening-08-20.py --models "$RUNNER_TEMP/models" --test "$t"
+            node scripts/check-tef-listening-source-match.mjs "$t"
             node scripts/check-tef-listening-08-20-measured.mjs "$t"
             git add "supabase/exams/tef-listening-test$t-v1.json" "assets/tef-listening/tef-listening-2026-11-test$t-v1"
           done
+          node scripts/check-tef-listening-08-20-measured.mjs "${tests[@]}"
       - name: Stage verified media, never activate production
         run: |
           git config user.name "github-actions[bot]"
