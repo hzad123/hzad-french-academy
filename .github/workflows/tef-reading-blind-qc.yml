@@ -8,10 +8,11 @@ on:
 permissions:
   contents: read
   id-token: write
+  actions: read
   pull-requests: write
 concurrency:
   group: tef-reading-new-batch
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   generate:
     strategy:
@@ -26,6 +27,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Restore successful blocks from first run
+        uses: actions/download-artifact@v4
+        with:
+          name: tef-reading-paper-${{ matrix.test }}
+          path: work/tef-reading-batch
+          run-id: 45452291231
+          github-token: ${{ github.token }}
       - name: Author, verify and refine paper
         env:
           TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
