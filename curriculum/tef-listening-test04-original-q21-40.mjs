@@ -82,25 +82,25 @@ explanation:"La lecture doit être évaluée en compréhension et autonomie, pas
 {
 transcript:entretienLecture,
 question:"Quelle limite organisationnelle l'école a-t-elle rencontrée ?",
-options:["Les élèves plus âgés refusent d'aider les plus jeunes.","Les familles ne disposent pas des livres demandés.","Les enseignants ne peuvent pas mener de lecture individuelle.","Les créneaux communs et le suivi demandent du temps de préparation."],correct:"A",
+options:["Les élèves plus âgés refusent d'aider les plus jeunes.","Les familles ne disposent pas des livres demandés.","Les enseignants ne peuvent pas mener de lecture individuelle.","Les créneaux communs et le suivi demandent du temps de préparation."],correct:"D",
 explanation:"L'organisation des horaires et du suivi a nécessité de réduire la fréquence."
 },
 {
 transcript:entretienPeche,
 question:"Pourquoi l'expert évite-t-il de traiter un témoignage local comme une preuve générale ?",
-options:["Parce que les pêcheurs n'ont pas accès aux données sur les stocks.","Parce que les pêcheurs utilisent des bateaux trop différents pour être comparés.","Parce qu'une observation ponctuelle ne représente pas nécessairement tout le stock.","Parce que les mesures scientifiques seraient parfaitement complètes."],correct:"D",
+options:["Parce que les pêcheurs n'ont pas accès aux données sur les stocks.","Parce que les pêcheurs utilisent des bateaux trop différents pour être comparés.","Parce qu'une observation ponctuelle ne représente pas nécessairement tout le stock.","Parce que les mesures scientifiques seraient parfaitement complètes."],correct:"C",
 explanation:"L'expert précise qu'un témoignage local ne suffit pas à décrire le stock entier."
 },
 {
 transcript:entretienPeche,
 question:"Quelle préoccupation sociale accompagne les quotas individualisés ?",
-options:["La possibilité de modifier les horaires d'arrivée dans les ports.","La fiabilité de la mesure des espèces à grande profondeur.","Le coût de la formation scientifique des équipages.","Le risque de favoriser les entreprises déjà bien établies."],correct:"C",
+options:["La possibilité de modifier les horaires d'arrivée dans les ports.","La fiabilité de la mesure des espèces à grande profondeur.","Le coût de la formation scientifique des équipages.","Le risque de favoriser les entreprises déjà bien établies."],correct:"D",
 explanation:"L'attribution initiale peut favoriser ceux qui détiennent déjà de gros volumes."
 },
 {
 transcript:reportageSemences,
 question:"Pourquoi les bénévoles demandent-ils des informations détaillées sur chaque lot ?",
-options:["Pour fixer un prix de vente compatible avec les catalogues.","Pour suivre la provenance et les conditions de reproduction des plantes.","Pour classer les jardiniers selon leurs années d'expérience.","Pour prévoir les dates de floraison des cultures voisines."],correct:"A",
+options:["Pour fixer un prix de vente compatible avec les catalogues.","Pour suivre la provenance et les conditions de reproduction des plantes.","Pour classer les jardiniers selon leurs années d'expérience.","Pour prévoir les dates de floraison des cultures voisines."],correct:"B",
 explanation:"Les fiches documentent provenance, culture et reproduction pour préserver les variétés."
 },
 {
@@ -112,7 +112,7 @@ explanation:"L'association privilégie le suivi et la fiabilité avant la quanti
 {
 transcript:`Une chercheuse en nutrition note que les recommandations alimentaires supposent parfois que chaque famille puisse acheter des produits frais à proximité. Or, le prix, les horaires de travail et l'absence de transport influencent les choix autant que les connaissances. Une personne peut connaître parfaitement les conseils de santé et avoir peu de possibilités de les appliquer. La chercheuse ne propose pas d'abandonner l'éducation nutritionnelle. Elle demande de l'accompagner de mesures sur l'accès aux commerces et les contraintes quotidiennes. Pour comprendre les habitudes, il faut regarder l'environnement dans lequel les décisions sont prises.`,
 question:"Quelle distinction la chercheuse souhaite-t-elle rappeler ?",
-options:["Les recommandations alimentaires sont plus utiles aux familles avec enfants.","Une alimentation équilibrée dépend surtout de la volonté individuelle.","Les connaissances nutritionnelles ne suffisent pas lorsque l'accès est limité.","Les commerces de proximité proposent rarement des produits frais."],correct:"C",
+options:["Les connaissances nutritionnelles ne suffisent pas lorsque l'accès est limité.","Une alimentation équilibrée dépend surtout de la volonté individuelle.","Les recommandations alimentaires sont plus utiles aux familles avec enfants.","Les commerces de proximité proposent rarement des produits frais."],correct:"A",
 explanation:"Elle distingue savoir quoi manger et pouvoir réellement y accéder."
 },
 {
@@ -136,13 +136,13 @@ explanation:"La disparition est liée à plusieurs transformations, pas à un se
 {
 transcript:`Une psychologue étudie le jeu libre chez les enfants. Certaines écoles souhaitent remplacer une partie de ces moments par des activités très organisées, avec des objectifs mesurables à chaque séance. La chercheuse reconnaît que les activités encadrées ont leur utilité, mais rappelle que les enfants apprennent aussi à négocier des règles, inventer des rôles et résoudre des désaccords quand aucun adulte ne décide du déroulement. Ces compétences sont difficiles à résumer dans une note. Elle suggère d'observer les interactions plutôt que d'assimiler l'absence de consigne formelle à une absence d'apprentissage.`,
 question:"Quelle forme d'apprentissage la chercheuse valorise-t-elle ?",
-options:["La répétition d'exercices structurés jusqu'à leur maîtrise.","L'acquisition de connaissances mesurées après chaque séance.","Les progrès obtenus en appliquant les règles fixées par l'adulte.","Les compétences développées dans les interactions spontanées."],correct:"B",
+options:["La répétition d'exercices structurés jusqu'à leur maîtrise.","L'acquisition de connaissances mesurées après chaque séance.","Les progrès obtenus en appliquant les règles fixées par l'adulte.","Les compétences développées dans les interactions spontanées."],correct:"D",
 explanation:"Le jeu libre développe négociation, création et résolution de conflits."
 },
 {
 transcript:`Un écologue discute d'un classement qui attribue à chaque commune un score de biodiversité. Un nombre unique permet de communiquer rapidement, mais il peut masquer la présence d'espèces rares ou le mauvais état d'un habitat particulier. Deux territoires peuvent obtenir une moyenne proche tout en nécessitant des actions très différentes. Le chercheur conseille de publier le détail des espèces, les méthodes de comptage et l'évolution dans le temps. Il ne veut pas supprimer les indicateurs: il souhaite qu'ils servent de point de départ plutôt que de verdict définitif.`,
 question:"Quelle limite l'écologue attribue-t-il au score global ?",
-options:["Il ne peut être calculé pour les grandes communes.","Il remplace les enquêtes sur les espèces migratrices.","Il est toujours plus élevé dans les territoires peu habités.","Il peut dissimuler des enjeux écologiques différents."],correct:"D",
+options:["Il ne peut être calculé pour les grandes communes.","Il peut dissimuler des enjeux écologiques différents.","Il est toujours plus élevé dans les territoires peu habités.","Il remplace les enquêtes sur les espèces migratrices."],correct:"B",
 explanation:"Le score masque les espèces rares et les différences entre habitats."
 },
 {
@@ -154,13 +154,13 @@ explanation:"Une indemnisation mal structurée peut décourager l'adaptation."
 {
 transcript:`Une responsable de restauration scolaire explique pourquoi il est difficile d'évaluer le gaspillage alimentaire. Peser toutes les poubelles donne un chiffre global, mais ne montre pas si les enfants n'aiment pas un plat, reçoivent des portions trop grandes ou disposent de trop peu de temps pour déjeuner. Les équipes observent donc les retours par type de repas et discutent avec les élèves. La responsable estime qu'une diminution de la masse des déchets n'est pas forcément une bonne nouvelle si les portions servies ont été simplement réduites en dessous des besoins. L'objectif reste de nourrir correctement tout en évitant les pertes inutiles.`,
 question:"Pourquoi un poids total de déchets ne suffit-il pas ?",
-options:["Il ne révèle pas les causes et peut cacher une réduction excessive des portions.","Il exige du personnel plus qualifié que les autres méthodes.","Il est mesuré seulement les jours où la fréquentation est faible.","Il empêche de comparer les prix des menus entre établissements."],correct:"D",
+options:["Il ne révèle pas les causes et peut cacher une réduction excessive des portions.","Il exige du personnel plus qualifié que les autres méthodes.","Il est mesuré seulement les jours où la fréquentation est faible.","Il empêche de comparer les prix des menus entre établissements."],correct:"A",
 explanation:"La quantité seule n'explique pas les déchets et doit être interprétée avec les besoins."
 },
 {
 transcript:`Une linguiste étudie les noms des villages, des prés et des cours d'eau. Plusieurs appellations anciennes désignent des marais qui ont été asséchés depuis longtemps ou des espèces d'arbres devenues rares dans la région. Ces traces linguistiques peuvent aider à imaginer des paysages passés, mais il serait imprudent d'en déduire exactement l'état écologique d'un lieu à une date précise. Les noms peuvent voyager, changer de sens ou être réinterprétés. La chercheuse confronte donc les mots aux cartes anciennes et aux indices retrouvés dans le sol.`,
 question:"Comment la linguiste utilise-t-elle les noms anciens ?",
-options:["Comme des descriptions exactes de chaque paysage historique.","Comme des preuves suffisantes de la présence d'une espèce.","Comme des indices à comparer avec d'autres sources.","Comme des mots ayant conservé partout leur sens initial."],correct:"B",
+options:["Comme des descriptions exactes de chaque paysage historique.","Comme des preuves suffisantes de la présence d'une espèce.","Comme des indices à comparer avec d'autres sources.","Comme des mots ayant conservé partout leur sens initial."],correct:"C",
 explanation:"La toponymie donne des indices à croiser, pas des preuves absolues."
 },
 {
