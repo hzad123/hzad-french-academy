@@ -24,6 +24,6 @@ jobs:
           curl -fsSL "$base/BUILD_COMMIT.txt?check=$GITHUB_RUN_ID" -o /tmp/academy-revision
           printf 'LIVE_REVISION='; cat /tmp/academy-revision; echo
           curl -fsSL "$base/academy-app.js?check=$GITHUB_RUN_ID" -o /tmp/academy-app.js
-          node --input-type=module -e "import {readFileSync} from 'node:fs';const s=readFileSync('/tmp/academy-app.js','utf8');console.log(JSON.stringify({oldAxis:s.includes('196-')&&s.includes('*4.6'),hasNewAxis:s.includes('maximumSignificantDigits:8'),hasTeFDropdown:s.includes('hz-tef-dropdown'),hasOldAdmin:s.includes('Continue generating exam audio')}))"
+          node --input-type=module -e "import {readFileSync} from 'node:fs';const s=readFileSync('/tmp/academy-app.js','utf8');console.log(JSON.stringify({oldAxis:s.includes('196-')&&s.includes('*4.6'),hasNewAxis:s.includes('maximumSignificantDigits:8'),hasTutor:s.includes('HZad French Tutor')&&s.includes('academy-french-tutor'),hasTeFDropdown:s.includes('hz-tef-dropdown'),hasOldAdmin:s.includes('Continue generating exam audio')}))"
           curl -fsSL 'https://teftcf.hzadeducation.org/hzadfrenchacademy' -o /tmp/ghl.html || true
           if [ -f /tmp/ghl.html ]; then grep -oE 'https://[^" <>]+/academy(-app)?\\.js[^" <>]*' /tmp/ghl.html | head -10 || true; fi
