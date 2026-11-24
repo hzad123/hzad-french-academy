@@ -48,7 +48,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add supabase/exams/tef-listening-test0?-v1.json
-          git add work/tef-listening-02-07/draft-quality.json
+          git add -f work/tef-listening-02-07/draft-quality.json
           git add assets/tef-listening/tef-listening-2026-11-test0?-v1
           if ! git diff --cached --quiet; then
             git commit -m "Stage 240 authored TEF Listening questions and original visual panels"
