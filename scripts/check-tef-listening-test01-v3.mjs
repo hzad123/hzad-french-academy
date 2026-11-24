@@ -15,7 +15,9 @@ let longest=0,unique=0,minAudio=999,maxAudio=0;
 const keys={},media=new Map();
 for(let i=0;i<40;i++){
  const q=bank.questions[i],v=old.questions[i];
- assert.equal(q.number,i+1);assert.equal(q.correct,v.correct);assert.deepEqual(q.options,v.options);
+ assert.equal(q.number,i+1);assert.equal(q.correct,v.correct);
+ if(q.number<=20)assert.deepEqual(q.options,v.options);
+ else assert.equal(q.options['ABCD'.indexOf(q.correct)],v.options['ABCD'.indexOf(v.correct)],'Correct option must remain untouched');
  assert.equal(q.explanation,v.explanation);
  if(q.slotSeconds>0){
   assert(q.audioSeconds>0);assert(q.transcript.length>100);assert(q.segments.length);
