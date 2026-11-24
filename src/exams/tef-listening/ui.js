@@ -8,7 +8,7 @@ export function wireTefListening(root,client,{audioFactory=()=>new Audio(),asset
  const now=()=>Date.now()+offset,remaining=()=>attempt?Math.max(0,Math.ceil((Date.parse(attempt.deadline)-now())/1000)):0;
  const q=()=>attempt?.paper.questions[(attempt.currentQuestion||1)-1];
  const elapsed=()=>Math.max(0,(now()-Date.parse(attempt.questionStartedAt))/1000);
- const officialPreview=()=>/^tef-listening-2026-11-test01-v(?:2|3)$/.test(attempt?.version||'')||/^tef-listening-2026-11-test0[2-7]-v1$/.test(attempt?.version||'');
+ const officialPreview=()=>/^tef-listening-2026-11-test01-v(?:2|3)$/.test(attempt?.version||'')||/^tef-listening-2026-11-test(?:0[2-9]|1[0-9]|20)-v1$/.test(attempt?.version||'');
  const media=(folder,file)=>{
   // Test01 retains its existing assets; newer published versions use isolated folders.
   const version=attempt?.version;
