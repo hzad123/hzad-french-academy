@@ -39,19 +39,19 @@ explanation:"Le moulage et l'affinage désignent une fromagerie."
 {
 transcript:`À l'aéroport régional, un épais brouillard empêche les navettes d'emprunter l'accès habituel au terminal sud. À partir de six heures, les véhicules déposeront les passagers devant le hall central, où un passage couvert permet de rejoindre les comptoirs d'enregistrement. Les heures de départ des navettes restent identiques. Les voyageurs utilisant l'assistance mobilité pourront demander un accompagnement aux agents présents près du nouvel arrêt. Les informations sur les vols seront communiquées séparément par les compagnies aériennes.`,
 question:"Quelle conséquence du brouillard est annoncée ?",
-options:["Les départs des navettes commencent plus tard.","Les passagers doivent réserver un autre terminal.","Le point de dépose des navettes est déplacé.","Les comptoirs d'enregistrement ferment provisoirement."],correct:"B",
+options:["Le point de dépose des navettes est déplacé.","Les passagers doivent réserver un autre terminal.","Les départs des navettes commencent plus tard.","Les comptoirs d'enregistrement ferment provisoirement."],correct:"A",
 explanation:"Le brouillard impose une dépose au hall central au lieu du terminal sud."
 },
 {
 transcript:`Le barrage de la vallée accueille normalement des visites techniques chaque mercredi. Cette semaine, une maintenance de la salle des turbines interdit temporairement l'accès à cette partie de l'installation. Le parcours extérieur et l'exposition sur l'énergie hydraulique restent ouverts. Les personnes ayant réservé une visite complète peuvent participer au parcours réduit ou demander un changement de date, sans frais. Les responsables rappellent que la production d'électricité n'est pas interrompue par cette opération.`,
 question:"Quelle partie de la visite est indisponible ?",
-options:["L'exposition sur l'histoire de la vallée.","Le parcours extérieur le long du barrage.","La salle où se trouvent les turbines.","Le hall d'accueil des visiteurs."],correct:"C",
+options:["L'exposition sur l'histoire de la vallée.","La salle où se trouvent les turbines.","Le parcours extérieur le long du barrage.","Le hall d'accueil des visiteurs."],correct:"B",
 explanation:"La maintenance ferme la salle des turbines, pas le reste du site."
 },
 {
 transcript:`Le festival maritime informe le public que le défilé des bateaux traditionnels partira samedi du quai des Forges plutôt que du quai de la Mairie. Le nouvel emplacement permet d'éviter la zone utilisée par les services de secours. Le début du défilé reste fixé à quatorze heures, et les spectateurs n'ont pas à modifier leur billet. Les associations de marins organiseront toujours une présentation des équipages une heure avant le départ. Des panneaux indiqueront le chemin depuis l'arrêt du tram.`,
 question:"Quelle information change pour le défilé ?",
-options:["Le lieu de départ des bateaux.","L'heure de présentation des équipages.","Le tarif appliqué aux spectateurs.","Le parcours de la ligne de tram."],correct:"B",
+options:["Le lieu de départ des bateaux.","L'heure de présentation des équipages.","Le tarif appliqué aux spectateurs.","Le parcours de la ligne de tram."],correct:"A",
 explanation:"Le départ est déplacé du quai de la Mairie au quai des Forges."
 },
 {
@@ -63,7 +63,7 @@ explanation:"Les contrôles vétérinaires retardent l'ouverture de la vente."
 {
 transcript:`Bonjour, service de location de matériel pour travaux. Nous avons enregistré le retour de votre ponceuse. La caution sera libérée dès que le technicien aura contrôlé le câble, les accessoires et l'état général de l'appareil. Cette vérification ne devrait pas prendre plus de deux jours ouvrables. Si une anomalie apparaît, nous vous contacterons avant toute retenue. La facture définitive sera envoyée par courrier électronique, sans nécessité de passer à nouveau en magasin.`,
 question:"Pourquoi la caution n'est-elle pas encore rendue ?",
-options:["Le matériel doit d'abord être inspecté.","Le client doit revenir signer un document.","Les accessoires ont été facturés séparément.","Le loueur attend une nouvelle réservation."],correct:"A",
+options:["Les accessoires ont été facturés séparément.","Le client doit revenir signer un document.","Le matériel doit d'abord être inspecté.","Le loueur attend une nouvelle réservation."],correct:"C",
 explanation:"La caution attend le contrôle de l'état du matériel."
 },
 {
@@ -75,7 +75,7 @@ explanation:"Le luthier demande l'accord pour travailler sur le chevalet."
 {
 transcript:`Bonjour, école de voile du port. La sortie de dimanche est confirmée, mais le numéro de téléphone d'urgence associé à votre inscription ne semble plus actif. Merci de transmettre un nouveau contact avant vendredi, afin que l'équipe puisse joindre une personne en cas de besoin. Le certificat d'aptitude que vous nous avez déjà envoyé reste valable. Les participants recevront la décision finale concernant la météo samedi soir, mais aucune nouvelle inscription n'est nécessaire.`,
 question:"Quelle information doit être mise à jour ?",
-options:["La taille du gilet de sauvetage réservé.","Le contact à appeler en cas d'urgence.","La date du certificat d'aptitude.","Le choix du parcours maritime."],correct:"A",
+options:["La taille du gilet de sauvetage réservé.","Le contact à appeler en cas d'urgence.","La date du certificat d'aptitude.","Le choix du parcours maritime."],correct:"B",
 explanation:"L'école demande un numéro d'urgence valable."
 },
 {
@@ -105,7 +105,7 @@ transcript:`— La mairie veut publier un tableau des prix des produits alimenta
 — Cela pourrait aider à comparer.
 — Oui, mais il faudrait indiquer la qualité, l'origine et les quantités. Un prix par paquet n'est pas comparable avec un prix au kilo, et des tomates cultivées à des périodes différentes ne coûtent pas toujours la même chose. Je ne suis pas contre la transparence; je veux des informations qui permettent une comparaison juste.`,
 question:"Quelle condition la personne pose-t-elle à la publication des prix ?",
-options:["La présentation de données comparables et contextualisées.","Le classement des commerçants uniquement par montant.","L'exclusion des produits dont le prix varie selon la saison.","La publication des tarifs une fois par année."],correct:"B",
+options:["La présentation de données comparables et contextualisées.","Le classement des commerçants uniquement par montant.","L'exclusion des produits dont le prix varie selon la saison.","La publication des tarifs une fois par année."],correct:"A",
 explanation:"Elle veut des unités et des contextes comparables."
 },
 {
@@ -113,7 +113,7 @@ transcript:`— Dans notre village, certains veulent ajouter des arrêts au car 
 — Vous n'êtes pas d'accord ?
 — Je comprends l'idée, mais le trajet devient déjà très long. Si le car arrive régulièrement en retard au lycée, les familles ne lui feront plus confiance. Je préférerais garantir les horaires avec quelques arrêts bien placés, puis organiser des correspondances locales pour les secteurs éloignés. Une offre étendue n'est utile que si elle reste fiable.`,
 question:"Quelle priorité la personne défend-elle ?",
-options:["Desservir davantage d'arrêts, même avec un trajet plus long.","Remplacer le car par plusieurs véhicules privés.","Réduire la fréquence du service pendant les vacances.","Assurer des horaires fiables avant d'étendre les arrêts."],correct:"A",
+options:["Desservir davantage d'arrêts, même avec un trajet plus long.","Assurer des horaires fiables avant d'étendre les arrêts.","Réduire la fréquence du service pendant les vacances.","Remplacer le car par plusieurs véhicules privés."],correct:"B",
 explanation:"Elle privilégie la fiabilité des horaires."
 },
 {
