@@ -1,7 +1,7 @@
 name: Build and test
 on:
   push:
-    branches: [main, development, "feature/**"]
+    branches: [main, development, "feature/**", "fix/tef-listening-01-v3-audio-timing-audit"]
   pull_request:
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
           retention-days: 7
 
   tef_v3_render:
-    if: github.event_name == 'pull_request' && github.head_ref == 'fix/tef-listening-01-v3-audio-timing-audit' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.ref == 'refs/heads/fix/tef-listening-01-v3-audio-timing-audit' && github.repository == 'hzad123/hzad-french-academy'
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: fix/tef-listening-01-v3-audio-timing-audit
           persist-credentials: true
       - uses: actions/setup-node@v4
         with:
