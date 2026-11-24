@@ -29,7 +29,7 @@ export function createTutorHandler({authenticate,db,provider}){
     if(id){if(!uuid(id))throw Error('Invalid request');const r=await db.userRpc(token,'academy_ai_request',{p_id:id});if(r.kind!=='tutor')throw Error('Invalid request');return reply(r)}
     if(conversation){if(!uuid(conversation))throw Error('Invalid conversation');const r=await db.userRpc(token,'academy_ai_conversation',{p_id:conversation});if(r.scenario!=='tutor')throw Error('Invalid conversation');return reply(r)}
     const s=await db.userRpc(token,'academy_ai_state',{});
-    return reply({enabled:!!s.enabled&&provider.ready()&&!!s.activities?.tutor?.enabled,credits:s.activities?.tutor?.credits,wallet:s.wallet,topUpUrl:s.topUpUrl,conversations:s.tutorConversations||[],history:(s.history||[]).filter(r=>r.kind==='tutor')});
+    return reply({enabled:!!s.enabled&&provider.ready()&&!!s.activities?.tutor?.enabled,credits:s.activities?.tutor?.credits,wallet:s.wallet,topUpUrl:s.topUpUrl,conversations:s.tutorConversations||[],history:s.tutorHistory||[]});
    }
    let input;try{input=validateTutorInput(await readBody(req))}catch{return reply({error:'Enter a valid message (up to 2,000 characters).'},400)}
    if(!provider.ready())return reply({error:'HZad French Tutor is temporarily unavailable.'},503);
