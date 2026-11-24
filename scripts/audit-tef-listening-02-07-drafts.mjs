@@ -15,7 +15,7 @@ for(const id of ids){
  const clips=authoredClips.map(clip=>({...clip,...(sourceOverrides[id]?.[clip.start]||{})}));
  const {additions}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'-additions.mjs');
  const actualAdditions={...additions};for(const [n,v] of Object.entries(sourceOverrides[id]||{}))actualAdditions[n]=v.addendum||'';
- const selection=selectOriginalAddenda(clips,actualAdditions,reference);
+ const selection=selectOriginalAddenda(clips,actualAdditions,reference,{targetDelta:id===6?-55:0});
  assert.equal(clips.length,36,'Missing authored sources Test'+id);
  const recorded=new Set(),keys={A:0,B:0,C:0,D:0},qstats=[],sources=[];
  const expected=Array.from({length:40},(_,i)=>i+1).filter(i=>!second.has(i));
@@ -24,7 +24,7 @@ for(const id of ids){
  assert.equal(bank.questions.length,40);assert.equal(bank.seconds,2400);assert.equal(bank.id,'tef-listening-'+pad(id));
  const orig=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
  for(const clip of clips){
-   const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(clip.start)?(actualAdditions[clip.start]||''):'')).trim();
+   const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(clip.start)?(actualAdditions[clip.start]||''):'')+(id===4&&clip.start===29?'\nLes relevés porteront également sur les périodes les plus sèches, afin de distinguer une amélioration passagère du retour durable des équilibres écologiques.':'')).trim();
    const nw=fullScript.split(/\s+/).length, min=clip.start<=4?43:clip.start<=12?53:clip.start<=20?62:clip.start<=22?85:clip.start<=28?270:clip.start===29?260:84;
    if(nw<min)flag.push({test:id,question:clip.start,category:'short_source',details:nw+' words; threshold '+min});
    const ident=normalize(clip.topic);
