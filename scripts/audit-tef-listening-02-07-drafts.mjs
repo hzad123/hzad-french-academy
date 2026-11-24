@@ -9,6 +9,7 @@ const ext=s=>s.match(/\b(toujours|jamais|necessairement|systematiquement|exclusi
 const flag=[];
 for(const id of ids){
  const {clips}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'.mjs');
+ const {additions}=await import('../curriculum/tef-listening-02-07/test-'+pad(id)+'-additions.mjs');
  assert.equal(clips.length,36,'Missing authored sources Test'+id);
  const recorded=new Set(),keys={A:0,B:0,C:0,D:0},qstats=[],sources=[];
  const expected=Array.from({length:40},(_,i)=>i+1).filter(i=>!second.has(i));
@@ -17,12 +18,13 @@ for(const id of ids){
  assert.equal(bank.questions.length,40);assert.equal(bank.seconds,2400);assert.equal(bank.id,'tef-listening-'+pad(id));
  const orig=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
  for(const clip of clips){
-   const nw=clip.script.trim().split(/\s+/).length, min=clip.start<=4?43:clip.start<=12?53:clip.start<=20?62:clip.start<=22?85:clip.start<=28?270:clip.start===29?260:84;
+   const fullScript=(clip.script.trim()+'\n'+(additions[clip.start]||'')).trim();
+   const nw=fullScript.split(/\s+/).length, min=clip.start<=4?43:clip.start<=12?53:clip.start<=20?62:clip.start<=22?85:clip.start<=28?270:clip.start===29?260:84;
    if(nw<min)flag.push({test:id,question:clip.start,category:'short_source',details:nw+' words; threshold '+min});
    const ident=normalize(clip.topic);
    if(recorded.has(ident))throw Error('Duplicate topic in test '+id+': '+ident);
    recorded.add(ident);
-   sources.push({test:id,n:clip.start,topic:clip.topic,script:clip.script,words:nw,grams:grams(clip.script)});
+   sources.push({test:id,n:clip.start,topic:clip.topic,script:fullScript,words:nw,grams:grams(fullScript)});
  }
  for(const q of bank.questions){
   const lens=q.options.map(x=>x.length), i='ABCD'.indexOf(q.correct),mn=Math.min(...lens),mx=Math.max(...lens);
