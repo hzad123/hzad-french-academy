@@ -59,13 +59,13 @@ export const questions07b=[
 {
 transcript:`Un chroniqueur analyse un graphique circulant sur les réseaux sociaux. Les valeurs présentées sont exactes, mais l'axe vertical commence à quatre-vingts plutôt qu'à zéro, ce qui donne à une faible variation l'apparence d'une hausse spectaculaire. Le titre ne précise pas non plus que les données portent sur une courte période. L'auteur du graphique n'a pas nécessairement inventé de chiffre; il a choisi une présentation qui oriente fortement l'interprétation. Le chroniqueur recommande de consulter les unités, l'échelle et l'étendue temporelle avant de tirer une conclusion générale.`,
 question:"Pourquoi le graphique peut-il tromper sans présenter de chiffres faux ?",
-options:["Il mélange des périodes dont les données sont incompatibles.","Le choix de l'échelle amplifie visuellement une petite variation.","Il attribue les observations à un organisme inexistant.","Les valeurs ont été arrondies à des unités différentes."],correct:"B",
+options:["Le titre réunit des périodes qui n'ont pas la même durée.","Le choix de l'échelle accentue une variation pourtant modeste.","Les chiffres sont exprimés dans des unités différentes selon les années.","L'ordre des catégories change entre les deux versions du graphique."],correct:"B",
 explanation:"Un axe tronqué exagère l'impression de variation."
 },
 {
 transcript:`Une chronique sur les enregistrements de spectacles explique la difficulté de décrire une représentation sur une plateforme d'archives. Une même pièce change selon les acteurs, le public et le lieu, tandis qu'une fiche numérique exige des champs relativement stables. Les archivistes doivent indiquer la date, la distribution et les conditions de captation, sans laisser croire que la vidéo représente toutes les versions possibles de l'oeuvre. Ils conservent également les programmes et les notes de mise en scène. La difficulté n'est pas de choisir un titre, mais de documenter ce qui rend une représentation particulière.`,
 question:"Quelle limite d'une simple fiche de catalogue est soulignée ?",
-options:["Elle empêche de retrouver le titre d'une pièce jouée plusieurs fois.","Elle ne peut contenir les noms des personnes ayant joué un rôle.","Elle rend inutiles les programmes imprimés d'une représentation.","Elle risque de masquer les particularités d'une version de spectacle."],correct:"D",
+options:["La fiche ne permet pas de suivre le parcours de chaque artiste.","Elle ne conserve pas les informations sur les versions enregistrées.","Elle classe les spectacles selon leur accueil dans le public.","Elle risque d'effacer les particularités d'une représentation donnée."],correct:"D",
 explanation:"La captation correspond à une représentation datée, pas à toutes les versions."
 },
 {
@@ -83,7 +83,7 @@ explanation:"La rédaction marque les corrections avec leur date et leur motif."
 {
 transcript:entretienAttention,
 question:"Quelle distinction la chercheuse fait-elle au sujet du multitâche ?",
-options:["Le travail sur écran fait toujours diminuer la mémoire.","Certaines tâches deviennent plus faciles lorsqu'elles sont simultanées.","Une alternance rapide d'actions diffère de l'exécution simultanée d'activités exigeantes.","La familiarité avec les exercices supprime les effets des interruptions."],correct:"C",
+options:["Les écrans changeraient durablement la mémoire de tous les utilisateurs.","Les tâches deviennent plus simples lorsqu'on les exécute simultanément.","Passer vite d'une tâche à l'autre diffère d'en faire deux en même temps.","Les habitudes d'exercice empêchent les interruptions de perturber l'attention."],correct:"C",
 explanation:"Elle distingue alternance rapide et simultanéité de deux tâches exigeantes."
 },
 {
@@ -95,7 +95,7 @@ explanation:"Les situations réelles ajoutent motivations, échanges et supports
 {
 transcript:entretienSousTitres,
 question:"Pourquoi la traductrice évite-t-elle une approche strictement littérale ?",
-options:["Les sous-titres doivent conserver exactement toutes les hésitations.","Un même mot change de langue selon le contexte de tournage.","Les documentaires n'utilisent pas de vocabulaire régional stable.","Une traduction mot à mot peut déformer l'intention ou le registre."],correct:"D",
+options:["Les sous-titres doivent restituer chaque hésitation de l'interlocuteur.","Une expression régionale change de sens selon le lieu de tournage.","La longueur d'un documentaire rend les mots régionaux moins stables.","Le mot à mot peut effacer une intention ou un registre particulier."],correct:"D",
 explanation:"Le sens et la relation entre locuteurs dépassent les mots."
 },
 {
@@ -119,7 +119,7 @@ explanation:"La provenance des images archivées doit être annoncée clairement
 {
 transcript:`Une sociologue des médias observe que les rédactions suivent de près les clics, le temps de lecture et les partages. Ces mesures renseignent sur l'intérêt immédiat de certains sujets, mais elles ne disent pas tout de leur importance publique. Une enquête complexe peut être peu lue au départ et produire des effets importants plusieurs semaines plus tard. La chercheuse ne propose pas d'ignorer les statistiques. Elle recommande de les confronter aux objectifs éditoriaux et de distinguer la popularité d'un article de sa contribution au débat collectif. Le risque apparaît lorsque les chiffres deviennent à eux seuls la définition de ce qui mérite d'être publié. Elle proposera aux rédactions de discuter régulièrement d'articles qui ont eu peu de lecteurs mais ont permis de corriger une information ou d'ouvrir un débat local important.`,
 question:"Quelle limite des indicateurs d'audience la sociologue rappelle-t-elle ?",
-options:["Ils dépendent exclusivement de la longueur des articles.","Ils ne mesurent pas directement l'importance collective d'une information.","Ils empêchent d'évaluer les lectures sur de longues périodes.","Ils sont incompatibles avec les enquêtes de terrain."],correct:"B",
+options:["Les clics ne distinguent pas les articles publiés de ceux mis à jour.","Le succès immédiat ne reflète pas forcément l'intérêt public.","Le temps de lecture varie davantage selon la longueur des enquêtes.","Les partages mesurent surtout la popularité des sujets culturels."],correct:"B",
 explanation:"La popularité immédiate ne reflète pas toujours l'importance publique."
 },
 {
@@ -131,13 +131,13 @@ explanation:"Il refuse l'idée d'un doublage ou sous-titrage universellement sup
 {
 transcript:`Une éditrice scientifique décrit la pression qui s'exerce sur les revues lorsque des résultats attirent soudain l'attention des médias. Publier rapidement peut faciliter le débat, mais l'examen par les pairs sert à vérifier la méthode et les limites de l'étude. Une réponse tardive n'est pas toujours une garantie de rigueur, pas plus qu'une publication rapide n'est automatiquement mauvaise. L'éditrice recommande des délais transparents et une distinction claire entre prépublication, article évalué et correction ultérieure. Pour elle, le problème principal vient des attentes de certitude attachées à des travaux encore en discussion. Le comité conservera également une trace des questions soulevées pendant l'évaluation, afin que les lecteurs puissent distinguer une limite discutée d'une erreur découverte seulement après publication.`,
 question:"Quelle précaution éditoriale est recommandée ?",
-options:["Faire examiner les articles par un seul spécialiste pressé.","Supprimer les prépublications avant l'accord des médias.","Reporter toute discussion scientifique jusqu'à la fin des débats.","Distinguer clairement les degrés de vérification des publications."],correct:"D",
+options:["Indiquer le domaine des spécialistes qui relisent chaque texte.","Éviter les prépublications lorsqu'une étude intéresse les médias.","Repousser toute critique jusqu'à la parution de l'article définitif.","Identifier clairement le degré de vérification des publications."],correct:"D",
 explanation:"Elle veut signaler la différence entre prépublication, étude évaluée et correction."
 },
 {
 transcript:`Une juriste étudie les vidéos qui réutilisent des extraits d'oeuvres musicales ou audiovisuelles. Certains créateurs ajoutent une critique ou une parodie originale, tandis que d'autres publient presque entièrement le travail d'autrui. Les règles de rémunération et d'autorisation varient selon les usages. La juriste souligne qu'une simple mention du nom de l'auteur ne remplace pas nécessairement une autorisation, et qu'un système de suppression automatique peut aussi bloquer des utilisations légitimes. Elle recommande des voies de contestation claires et des mécanismes qui tiennent compte de la contribution réelle de chaque partie. Les créateurs pourront préciser l'intention de leur réutilisation lorsqu'ils contestent une suppression. Cette information aidera à examiner la situation sans supposer automatiquement que toute citation est un usage permis.`,
 question:"Quelle difficulté la juriste veut-elle résoudre ?",
-options:["Interdire aux créateurs de citer les oeuvres déjà publiées.","Équilibrer droits des auteurs et réutilisations pouvant être légitimes.","Rendre tous les contenus accessibles sans autorisation préalable.","Remplacer chaque extrait de musique par une description écrite."],correct:"B",
+options:["Empêcher les reprises qui citent explicitement le nom des créateurs.","Concilier le droit d'auteur avec certaines réutilisations légitimes.","Autoriser automatiquement toutes les reprises non commerciales.","Limiter les recours aux créateurs ayant produit une oeuvre originale."],correct:"B",
 explanation:"Elle veut reconnaître les droits tout en évitant de bloquer des usages légitimes."
 },
 {
@@ -167,13 +167,13 @@ explanation:"Il faut évaluer de vrais parcours avec des utilisateurs de lecteur
 {
 transcript:`Une communicante scientifique présente les risques d'une tempête prévue plusieurs jours à l'avance. Les modèles indiquent des scénarios, mais l'emplacement précis des pluies les plus fortes peut encore varier. Elle recommande d'exprimer cette incertitude sans attendre une certitude impossible pour prévenir les habitants. À l'inverse, annoncer un chiffre unique comme une promesse pourrait nuire à la confiance si la situation évolue. Le public a besoin de connaître la gamme des risques et les gestes utiles, pas seulement la valeur la plus spectaculaire d'une carte. La prochaine version du bulletin montrera plusieurs scénarios plausibles sur une même carte, accompagnés de consignes pratiques qui restent pertinentes même si la trajectoire des pluies évolue.`,
 question:"Quelle façon de communiquer la prévision est recommandée ?",
-options:["Reporter toute annonce jusqu'à la veille de la tempête.","Choisir le scénario le plus grave comme unique message.","Publier uniquement la moyenne des pluies attendues.","Expliquer les scénarios possibles et les mesures de précaution."],correct:"D",
+options:["Attendre que la trajectoire de la tempête soit connue précisément.","Diffuser le scénario considéré comme le plus préoccupant.","Donner la valeur moyenne des pluies dans les secteurs exposés.","Présenter les scénarios envisageables et les actions à prendre."],correct:"D",
 explanation:"La communicante veut présenter l'incertitude et les actions disponibles."
 },
 {
 transcript:`Une chercheuse en éducation distingue la mémorisation d'une formule et son utilisation dans une situation nouvelle. Des élèves peuvent réciter correctement une règle et se tromper lorsque le problème change légèrement de présentation. Elle ne propose pas d'abandonner l'apprentissage par coeur, qui fournit parfois des repères utiles. Elle recommande toutefois des exercices où l'on doit expliquer un raisonnement, comparer deux démarches et reconnaître les conditions dans lesquelles une formule s'applique. Réussir une répétition identique ne garantit pas que le savoir soit transférable. Les enseignants suivront notamment les explications données devant un exercice nouveau, car une réponse juste obtenue par hasard ne montre pas nécessairement que le raisonnement a été compris.`,
 question:"Quelle limite d'une évaluation fondée sur la récitation est évoquée ?",
-options:["Les élèves retiennent trop peu de vocabulaire technique.","La formule peut être oubliée dès que l'enseignant la répète.","Une règle connue peut rester mal appliquée dans un contexte différent.","La répétition empêche d'obtenir une réponse juste à l'examen."],correct:"C",
+options:["La récitation aide peu à mémoriser le vocabulaire d'un sujet.","Les formules deviennent plus difficiles à répéter après un exercice.","Connaître une règle n'assure pas son application à un problème nouveau.","La répétition des réponses réduit la réussite aux épreuves finales."],correct:"C",
 explanation:"La mémorisation seule ne garantit pas le transfert à un problème nouveau."
 }
 ];
