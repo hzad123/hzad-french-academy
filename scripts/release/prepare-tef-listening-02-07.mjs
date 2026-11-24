@@ -60,7 +60,7 @@ for(const clip of clips){
   assert(item.stem&&item.correct&&item.explanation&&item.wrong,'Full original question fields required '+number);
   assert(item.correct.length>=15,'Answer too short Q'+number);
   const index=keyPositions[number-1], options=choicesOf(item,index);
-  let q={number,kind,question:item.stem,options,correct:String.fromCharCode(65+index),explanation:item.explanation,transcript:clip.script.trim(),segments,audio:'q-'+pad(n)+'.mp3',audioSeconds:0,slotSeconds:0,previewSeconds:previews(number)};
+  let q={number,kind,question:item.stem,options,correct:String.fromCharCode(65+index),explanation:item.explanation,transcript:clip.script.trim(),segments,audio:'q-'+pad(n)+'.mp3',audioSeconds:0,slotSeconds:second.has(number)?0:1,previewSeconds:previews(number)};
   if(isPair){q.groupStart=n;q.groupEnd=n+1}
   if(n<=4){
    const originalIcons=item.illustrationIcons;
