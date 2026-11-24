@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/tef-reading-blind-qc.yml'
       - 'scripts/release/run-tef-reading-blind-qc.mjs'
+      - 'scripts/release/stage-tef-reading-editorial-pilot.mjs'
       - 'scripts/release/repair-tef-reading-with-ai.mjs'
       - 'scripts/lib/tef-reading-ai-quality.mjs'
       - 'tests/tef-reading-ai-quality.test.mjs'
@@ -12,6 +13,7 @@ permissions:
   contents: read
   id-token: write
   issues: write
+  pull-requests: write
 concurrency:
   group: tef-reading-editorial-qc
   cancel-in-progress: true
@@ -26,18 +28,12 @@ jobs:
           node-version: '22'
       - name: Validate quality control regression tests
         run: node --test tests/tef-reading-ai-quality.test.mjs
-      # Two separate baseline pilot runs have already been recorded. Re-run the
-      # independently gated authoring experiment only, without wasting AI tokens.
-      - name: Attempt independent AI rewriting of source-specific pilot questions
+      - name: Stage 24 editorial candidates
+        run: node scripts/release/stage-tef-reading-editorial-pilot.mjs
+      - name: Independently benchmark editorial pilot against original questions
         env:
           TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
-          TEF_READING_QC_MAX_USD: '15'
-          TEF_READING_QC_WORKERS: '3'
-        run: node scripts/release/repair-tef-reading-with-ai.mjs --pilot
-      - name: Independently benchmark approved pilot against original questions
-        env:
-          TEF_READING_QC_URL: https://ogntvgvzmjrnppcullsj.supabase.co/functions/v1/academy-tef-reading-qc
-          TEF_READING_CANDIDATE_DIR: work/tef-reading-author-qc
+          TEF_READING_CANDIDATE_DIR: work/tef-reading-editorial-pilot
           TEF_READING_QC_MAX_USD: '12'
           TEF_READING_QC_WORKERS: '3'
         run: node scripts/release/run-tef-reading-blind-qc.mjs --pilot
@@ -46,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tef-reading-author-qc-evidence
-          path: work/tef-reading-author-qc
+          path: work/tef-reading-editorial-pilot
           retention-days: 30
       - name: Publish auditable pilot outcome in PR #95
         if: always()
@@ -58,26 +54,26 @@ jobs:
           import {writeFile} from 'node:fs/promises';
           let report;
           try {
-            report=JSON.parse(await readFile('work/tef-reading-author-qc/summary.json','utf8'));
+            report=JSON.parse(await readFile('work/tef-reading-blind-qc/summary.json','utf8'));
           } catch(err) {
             report={error:'No author-review summary was generated',details:String(err)};
           }
           let benchmark=null;
           try{benchmark=JSON.parse(await readFile('work/tef-reading-blind-qc/summary.json','utf8'));}catch{}
-          const status=report.blocked===0&&report.accepted===12&&benchmark?.newAll?.passed===12&&benchmark?.blindAfterSameSample?.accuracy<benchmark?.blindBefore?.accuracy?'Pilot benchmark passed':'Pilot NOT approved';
-          const body=['## TEF Reading independent authoring pilot', '', '**'+status+'**',
+          const status=benchmark?.completed===48&&benchmark?.newAll?.passed===24&&benchmark?.groundPassed===24&&benchmark?.blindAfterSameSample?.accuracy<=0.40&&benchmark?.blindBefore?.accuracy-benchmark?.blindAfterSameSample?.accuracy>=0.15?'Pilot benchmark passed':'Pilot NOT approved';
+          const body=['## TEF Reading independent editorial pilot', '', '**'+status+'**',
             'Workflow: '+process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID,
-            '', 'Attempted: '+(report.attempted??'unavailable'),
-            'Accepted: '+(report.accepted??'unavailable'),
-            'Blocked: '+(report.blocked??'unavailable'),
+            '', 'Attempted: '+(report.completed??'unavailable'),
+            'Accepted: '+(report.newAll?.passed??'unavailable'),
+            'Blocked: '+(report.missing??'unavailable'),
             'Estimated USD: '+(report.estimatedUsd??'unavailable'),
             '', 'Matched blind accuracy BEFORE: '+(benchmark?.blindBefore?.accuracy??'unavailable'),
             'Matched blind accuracy AFTER: '+(benchmark?.blindAfterSameSample?.accuracy??'unavailable'),
             'Reviewer approvals: '+(benchmark?.newAll?.passed??'unavailable')+'/'+(benchmark?.newAll?.sample??'unavailable'),
-            '', 'Per test: `'+JSON.stringify(report.perTest??[])+'`',
+            '', 'Per test: `'+JSON.stringify(report.byTest??[])+'`',
             '', 'Errors (truncated):',
             '```json',JSON.stringify(report.errors??[report.error??'unknown']).slice(0,6000),'```',
-            '', 'This report is an authoring pilot, not a blind before/after benchmark or production approval.'
+            '', 'This is a 24-question matched diagnostic only, not full production approval.'
           ].join('\n');
           await writeFile('/tmp/tef-reading-review-comment.md',body);
           NODE
