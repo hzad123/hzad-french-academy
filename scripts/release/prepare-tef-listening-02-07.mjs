@@ -1,3 +1,4 @@
+import {selectOriginalAddenda} from '../lib/select-tef-listening-additions.mjs';
 import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
@@ -46,6 +47,8 @@ const {clips}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listenin
 assert.equal(clips.length,36,'36 original recording sources per paper');
 const {additions}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/test-'+pad(testNo)+'-additions.mjs').href);
 const {wording}=await import(pathToFileURL(process.cwd()+'/curriculum/tef-listening-02-07/editorial-wording.mjs').href);
+const referenceBank=JSON.parse(await readFile('supabase/exams/tef-listening-test01-v3.json','utf8'));
+const selection=selectOriginalAddenda(clips,additions,referenceBank);
 const keyPositions=balancedKeys(testNo), keys={},seen=new Set(), questions=[];
 for(const clip of clips){
  const n=clip.start,kind=expectedKinds(n),isPair=starts.includes(n);
@@ -54,7 +57,7 @@ for(const clip of clips){
  seen.add(clip.topic.toLocaleLowerCase('fr'));
  assert.equal(clip.questions.length,isPair?2:1,'Paired count mismatch Q'+n);
  assert(typeof clip.script==='string'&&clip.script.trim().length>145,'Substantial authored oral script required Q'+n);
- const fullScript=(clip.script.trim()+'\n'+(additions[n]||'')).trim();
+ const fullScript=(clip.script.trim()+'\n'+(selection.picked.has(n)?(additions[n]||''):'')).trim();
  const pieces=fullScript.split(/(?=—\s)/u).map(t=>t.replace(/^—\s*/u,'').trim()).filter(Boolean);
  const segments=pieces.map((text,i)=>({voice:i%2?'male':'female',text}));
  for(let offset=0;offset<clip.questions.length;offset++){
@@ -90,4 +93,4 @@ const v3='assets/tef-listening/tef-listening-2026-11-test01-v3';
 await cp(v3+'/audio/audio-check.mp3',base+'/audio/audio-check.mp3');
 await cp(v3+'/AUDIO-LICENSES.md',base+'/AUDIO-LICENSES.md');
 await writeFile('supabase/exams/tef-listening-test'+pad(testNo)+'-v1.json',JSON.stringify(paper,null,2)+'\n');
-console.log(JSON.stringify({testNo,version,questions:40,recordings:36,topics:seen.size,keys,sourceWords:clips.reduce((a,c)=>a+(c.script+' '+(additions[c.start]||'')).split(/\s+/).length,0)},null,2));
+console.log(JSON.stringify({selection:{selected:selection.selected,totalWords:selection.totalWords,referenceWords:selection.referenceWords},testNo,version,questions:40,recordings:36,topics:seen.size,keys,sourceWords:clips.reduce((a,c)=>a+(c.script+' '+(additions[c.start]||'')).split(/\s+/).length,0)},null,2));
