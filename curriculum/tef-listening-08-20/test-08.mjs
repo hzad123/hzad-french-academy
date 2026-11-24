@@ -1,0 +1,679 @@
+/* Original Test 08 source; final option review retains original measured audio. */
+export const clips = [
+  {
+    "start": 1,
+    "topic": "affûtage de patins",
+    "script": "— Je glisse bien en ligne droite, mais dès que je tourne, mon pied droit dérape.\n— Posez les deux patins sur le comptoir. Je vais contrôler les lames et leur courbure.\n— Vous pouvez les préparer avant mon entraînement de ce soir ?\n— Oui, venez les reprendre à seize heures. Je vous montrerai aussi comment les sécher.\n— Merci. J'ai remarqué de petites traces de rouille près du talon.",
+    "questions": [
+      {
+        "stem": "Où a lieu la conversation ?",
+        "correct": "Dans un atelier d’entretien de patins.",
+        "wrong": [
+          "Dans un magasin de chaussures de randonnée.",
+          "À l’accueil d’un cours de danse.",
+          "Dans un atelier de réparation de skis."
+        ],
+        "explanation": "Le contrôle et la préparation des lames concernent des patins.",
+        "illustrationIcons": [
+          "⛸️",
+          "🥾",
+          "🩰",
+          "🎿"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 2,
+    "topic": "encadrement d’une gravure",
+    "script": "— Je voudrais accrocher cette gravure sans l’abîmer. Elle appartenait à ma grand-mère.\n— Le verre ordinaire risque de la décolorer si elle reçoit du soleil. Je vous conseille ce verre filtrant.\n— Et pour la bordure, un cadre clair serait-il possible ?\n— Bien sûr. On peut aussi choisir un passe-partout en carton sans acide.\n— Je voudrais également pouvoir retirer la gravure plus tard, sans aucune colle.",
+    "questions": [
+      {
+        "stem": "Quelle prestation est recherchée ?",
+        "correct": "La mise sous cadre d’une œuvre.",
+        "wrong": [
+          "La restauration d’un meuble ancien.",
+          "La reproduction d’une photographie.",
+          "La fabrication d’un vitrail décoratif."
+        ],
+        "explanation": "Le verre filtrant et le passe-partout servent à encadrer une gravure.",
+        "illustrationIcons": [
+          "🖼️",
+          "🪑",
+          "📷",
+          "🪟"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 3,
+    "topic": "balance et alimentation d’un lapin",
+    "script": "— Depuis trois jours, mon lapin laisse une partie de son foin.\n— Mettez-le doucement sur la balance. A-t-il continué à boire normalement ?\n— Oui, mais il mâche plus lentement qu’avant.\n— Je vais regarder ses dents. Chez les lapins, une gêne dentaire peut expliquer ce changement. Ensuite nous parlerons de son alimentation.\n— Il a pourtant conservé son poids depuis la dernière consultation.",
+    "questions": [
+      {
+        "stem": "Où se trouvent ces personnes ?",
+        "correct": "Dans un cabinet vétérinaire.",
+        "wrong": [
+          "Dans un magasin de jardinage.",
+          "Dans une animalerie spécialisée.",
+          "Dans un laboratoire alimentaire."
+        ],
+        "explanation": "L’examen des dents et la pesée constituent une consultation vétérinaire.",
+        "illustrationIcons": [
+          "🐇",
+          "🌱",
+          "🐠",
+          "🔬"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 4,
+    "topic": "montage d’un mobile en céramique",
+    "script": "— Les trois petites pièces sont cuites. Est-ce que je peux déjà les suspendre ?\n— Attendez qu’elles soient froides. Ensuite, il faudra passer le fil par chaque trou.\n— Je voudrais les disposer à des hauteurs différentes.\n— C’est une bonne idée. Faites un essai d’équilibre avant de fermer les nœuds, sinon l’ensemble penchera.\n— Le fil transparent devrait être assez solide pour porter les trois pièces.",
+    "questions": [
+      {
+        "stem": "Quelle activité pratiquent-ils ?",
+        "correct": "Assembler une décoration suspendue en céramique.",
+        "wrong": [
+          "Accrocher des lampes dans une salle.",
+          "Réaliser un collier en métal.",
+          "Installer un rideau décoratif."
+        ],
+        "explanation": "Les pièces cuites sont suspendues à des fils et équilibrées.",
+        "illustrationIcons": [
+          "🏺",
+          "💡",
+          "📿",
+          "🪟"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 5,
+    "topic": "consigne de stockage dans un marché",
+    "script": "À l’attention des exposants du marché couvert : à compter de lundi, les caisses vides devront être déposées dans la réserve située derrière les chambres froides. Le passage central doit rester dégagé pendant les heures d’ouverture. Les produits frais pourront toujours être stockés dans les armoires habituelles. Le gardien remettra à chaque commerçant un badge d’accès à la réserve. Les horaires de livraison ne sont pas modifiés.\nLes badges seront distribués dimanche à partir de quinze heures.",
+    "questions": [
+      {
+        "stem": "Quelle nouveauté concerne les exposants ?",
+        "correct": "Un emplacement réservé aux caisses vides.",
+        "wrong": [
+          "Un nouvel horaire pour les livraisons.",
+          "Une autre zone pour les produits frais.",
+          "Une nouvelle entrée destinée aux clients."
+        ],
+        "explanation": "La réserve est imposée pour les caisses vides, sans modification des livraisons."
+      }
+    ]
+  },
+  {
+    "start": 6,
+    "topic": "borne de recharge hors service",
+    "script": "Les automobilistes qui utilisent le parking des Tisserands sont informés que la borne électrique numéro quatre est indisponible jusqu’à mercredi inclus. Les trois autres bornes fonctionnent normalement. Il n’est pas nécessaire de déplacer un véhicule déjà branché à une autre borne. Pour faciliter la rotation, nous vous demandons cependant de libérer votre place une fois la recharge achevée. Le tarif du stationnement reste inchangé.\nUn plan des bornes disponibles est affiché près de la sortie.",
+    "questions": [
+      {
+        "stem": "Que demande-t-on aux automobilistes ?",
+        "correct": "De quitter la place lorsque la recharge est terminée.",
+        "wrong": [
+          "De transférer les voitures branchées vers la borne quatre.",
+          "De régler la recharge à un guichet temporaire.",
+          "De réserver une place avant mercredi."
+        ],
+        "explanation": "La consigne de rotation consiste à libérer la place après recharge."
+      }
+    ]
+  },
+  {
+    "start": 7,
+    "topic": "retrait de dossards sportifs",
+    "script": "Les participants à la course des remparts pourront retirer leur dossard dès vendredi à la salle des fêtes. Le samedi matin, le retrait restera possible au même endroit jusqu’à huit heures. En revanche, les inscriptions sur place ne seront plus acceptées. Pensez à vous munir du numéro envoyé lors de votre réservation. Un espace sera prévu pour déposer les vêtements que vous souhaitez récupérer après l’arrivée.\nLes bénévoles seront reconnaissables à leur veste verte devant la salle.",
+    "questions": [
+      {
+        "stem": "Que ne pourra-t-on plus faire sur place ?",
+        "correct": "S’inscrire sur place à la course.",
+        "wrong": [
+          "Retirer son dossard.",
+          "Déposer des vêtements à la consigne.",
+          "Présenter son numéro de réservation."
+        ],
+        "explanation": "Le retrait des dossards est maintenu ; seules les inscriptions sur place cessent."
+      }
+    ]
+  },
+  {
+    "start": 8,
+    "topic": "projection de film en plein air",
+    "script": "La projection prévue ce soir dans la cour du château aura bien lieu malgré le vent annoncé. Pour des raisons techniques, l’écran sera installé contre le mur du jardin plutôt qu’au milieu de la cour. Les chaises seront orientées en conséquence et les billets restent valables. L’entrée se fera par le portail habituel à partir de vingt heures. Nous vous recommandons d’apporter un vêtement chaud.\nUne petite buvette sera ouverte dans le jardin avant le début du film.",
+    "questions": [
+      {
+        "stem": "Qu’est-ce qui sera différent ce soir ?",
+        "correct": "La disposition de l’espace de projection.",
+        "wrong": [
+          "L’heure de début du film.",
+          "L’entrée utilisée pour rejoindre la cour.",
+          "Le programme annoncé pour la soirée."
+        ],
+        "explanation": "Le déplacement de l’écran entraîne une nouvelle orientation des chaises."
+      }
+    ]
+  },
+  {
+    "start": 9,
+    "topic": "prêt d’un instrument de musique",
+    "script": "Bonjour, c’est le conservatoire. Vous deviez rendre le violoncelle mardi prochain, mais votre professeur nous a indiqué que vous participiez à un concert le jeudi suivant. Nous pouvons prolonger le prêt jusqu’au vendredi, sans supplément. Il faut simplement signer un avenant avant mardi. Passez au secrétariat avec votre carte d’élève ; l’instrument, lui, peut rester chez vous jusqu’à la nouvelle date.\nVous pouvez venir pendant la pause de midi, le bureau restera ouvert.",
+    "questions": [
+      {
+        "stem": "Que doit faire l’élève avant mardi ?",
+        "correct": "Signer un document prolongeant le prêt.",
+        "wrong": [
+          "Rapporter le violoncelle au secrétariat.",
+          "Confirmer sa présence au concert du jeudi.",
+          "Demander une nouvelle carte au professeur."
+        ],
+        "explanation": "La prolongation est accordée sous réserve de la signature d’un avenant."
+      }
+    ]
+  },
+  {
+    "start": 10,
+    "topic": "récupération d’un colis volumineux",
+    "script": "Bonjour Madame Benali, ici le dépôt de la rue des Ormes. Votre colis est bien arrivé. Le livreur a indiqué qu’il ne pourrait pas le déposer devant votre appartement sans autorisation écrite, car il est particulièrement volumineux. Nous pouvons organiser une nouvelle livraison jeudi après-midi ou vous le laisser au dépôt jusqu’à samedi. Appelez-nous pour nous dire quelle solution vous convient. Le transport supplémentaire ne vous sera pas facturé.\nLe dépôt ferme à dix-neuf heures et dispose d’une zone de chargement.",
+    "questions": [
+      {
+        "stem": "Pourquoi le dépôt laisse-t-il ce message ?",
+        "correct": "Pour faire choisir un mode de récupération du colis.",
+        "wrong": [
+          "Pour demander le règlement d’un supplément de transport.",
+          "Pour signaler que le colis est resté chez l’expéditeur.",
+          "Pour annoncer que le colis sera livré sans autorisation."
+        ],
+        "explanation": "Deux solutions sont proposées : une livraison reprogrammée ou un retrait."
+      }
+    ]
+  },
+  {
+    "start": 11,
+    "topic": "réservation d’une visite tactile",
+    "script": "Bonjour Monsieur Colin, je vous rappelle au sujet de votre réservation au musée. La visite tactile de dimanche est complète, mais nous avons une place disponible samedi à onze heures. Vous aviez demandé à venir avec une accompagnatrice : cette personne pourra participer sans réservation supplémentaire. Pour confirmer, répondez à notre message avant demain soir. Si samedi ne vous convient pas, nous maintiendrons votre demande pour la prochaine session de dimanche.\nNous fournirons les gants et le matériel de découverte sur place.",
+    "questions": [
+      {
+        "stem": "Quelle possibilité le musée offre-t-il ?",
+        "correct": "Participer à la visite avec son accompagnatrice le samedi.",
+        "wrong": [
+          "Réserver une deuxième place pour le dimanche déjà complet.",
+          "Transformer la visite en un parcours individuel permanent.",
+          "Choisir une nouvelle date sans confirmer sa présence."
+        ],
+        "explanation": "Une place est proposée samedi et l’accompagnatrice est admise."
+      }
+    ]
+  },
+  {
+    "start": 12,
+    "topic": "essayage de lunettes progressives",
+    "script": "Bonjour, c’est votre opticien. Les verres progressifs que vous avez commandés sont arrivés et nous avons terminé leur montage. Avant de les emporter, il faudra vérifier la hauteur de la monture et vous faire essayer les lunettes en regardant à plusieurs distances. Prévoyez donc une vingtaine de minutes lors de votre passage. Si vous ne pouvez venir qu’à la fermeture, téléphonez-nous pour fixer un rendez-vous.\nNous avons conservé l’étui que vous nous aviez confié lors de votre commande.",
+    "questions": [
+      {
+        "stem": "Pourquoi faut-il prévoir vingt minutes ?",
+        "correct": "Vérifier l’ajustement des nouvelles lunettes.",
+        "wrong": [
+          "Comparer plusieurs montures.",
+          "Contrôler l’évolution de sa correction.",
+          "Recevoir des conseils pour entretenir les verres progressifs."
+        ],
+        "explanation": "L’opticien doit vérifier le positionnement et la vision à différentes distances."
+      }
+    ]
+  },
+  {
+    "start": 13,
+    "topic": "fontaines d’eau dans les salles de sport",
+    "script": "Je ne suis pas contre les gourdes réutilisables, au contraire. Mais dans notre salle, la seule fontaine est à l’étage et les gens doivent quitter leur séance pour la remplir. Si on supprime la vente de petites bouteilles, il faut d’abord rendre l’eau facilement accessible. Une fontaine près de chaque vestiaire serait plus utile qu’une campagne d’affiches expliquant aux clients comment réduire leurs déchets.\nPendant les heures de pointe, il y a même une file devant la fontaine.",
+    "questions": [
+      {
+        "stem": "Quelle priorité cette personne défend-elle ?",
+        "correct": "Installer des fontaines à proximité des vestiaires.",
+        "wrong": [
+          "Distribuer des gourdes réutilisables.",
+          "Vendre des bouteilles près des salles.",
+          "Afficher des informations sur les déchets dans les espaces communs."
+        ],
+        "explanation": "Elle conditionne la suppression des bouteilles à un accès pratique à l’eau."
+      }
+    ]
+  },
+  {
+    "start": 14,
+    "topic": "bibliothèque d’objets de cuisine",
+    "script": "Dans une cuisine, on utilise certains appareils deux ou trois fois par an. Je serais donc ravie de pouvoir emprunter une sorbetière ou un appareil à raclette. Toutefois, les retours doivent être contrôlés : s’il manque une petite pièce, l’appareil devient inutilisable pour le suivant. À mon avis, le personnel devrait vérifier avec l’emprunteur que tout est là, au départ comme au retour.\nLa première fois, une employée pourrait montrer comment remettre correctement les accessoires dans leur boîte.",
+    "questions": [
+      {
+        "stem": "Quelle mesure lui paraît indispensable ?",
+        "correct": "Contrôler les accessoires à chaque prêt et retour.",
+        "wrong": [
+          "Concentrer les prêts sur les appareils faciles à entretenir.",
+          "Montrer aux emprunteurs comment réparer les petites pièces.",
+          "Prévoir des accessoires de rechange pour les appareils les plus utilisés."
+        ],
+        "explanation": "Elle insiste sur la vérification partagée de l’ensemble des pièces."
+      }
+    ]
+  },
+  {
+    "start": 15,
+    "topic": "jardins de pluie dans les rues",
+    "script": "Les nouveaux jardins de pluie peuvent absorber une partie de l’eau qui ruisselle sur la chaussée. Je trouve l’idée excellente, surtout dans les rues où les bouches d’égout débordent. Cependant, il faut prévoir un entretien adapté et ne pas planter partout les mêmes végétaux. La terre et l’ensoleillement varient beaucoup d’un quartier à l’autre. On devrait choisir les plantes après avoir observé chaque emplacement.\nLes plantes qui supportent les périodes sèches ne conviennent pas forcément aux zones souvent inondées.",
+    "questions": [
+      {
+        "stem": "À quoi cette personne accorde-t-elle de l’importance ?",
+        "correct": "Adapter les plantations aux conditions de chaque lieu.",
+        "wrong": [
+          "Uniformiser les végétaux pour faciliter leur remplacement.",
+          "Concentrer les aménagements dans les rues ensoleillées.",
+          "Privilégier l’entretien des égouts aux nouvelles plantations."
+        ],
+        "explanation": "Elle préconise de tenir compte du sol et de l’exposition de chaque emplacement."
+      }
+    ]
+  },
+  {
+    "start": 16,
+    "topic": "billetterie des spectacles amateurs",
+    "script": "Dans notre petite salle, certains spectateurs réservent leur place plusieurs semaines à l’avance mais ne viennent finalement pas. Comme les billets sont gratuits, ils ne pensent pas toujours à prévenir. Je préférerais qu’on leur envoie un rappel et un bouton d’annulation facile à utiliser, plutôt que de rendre les réservations payantes. On pourrait ensuite proposer les places libérées aux personnes qui attendent à l’entrée.\nUn rappel la veille laisserait suffisamment de temps pour réattribuer les billets disponibles.",
+    "questions": [
+      {
+        "stem": "Quelle solution propose-t-elle pour les places inutilisées ?",
+        "correct": "Faciliter l’annulation des places réservées.",
+        "wrong": [
+          "Instaurer un prix symbolique.",
+          "Réattribuer les places après le début du spectacle.",
+          "Limiter la réservation anticipée aux spectateurs réguliers."
+        ],
+        "explanation": "Le rappel avec annulation permettrait de réattribuer les places."
+      }
+    ]
+  },
+  {
+    "start": 17,
+    "topic": "choix de matériaux pour les terrasses",
+    "script": "On parle beaucoup des terrasses en bois dans la rue commerçante. Personnellement, je ne crois pas que le bois soit systématiquement le meilleur choix. Il faut regarder comment le matériau vieillit, combien de fois il doit être traité et s’il peut être réparé sur place. Un revêtement un peu plus coûteux à l’achat peut revenir moins cher après plusieurs saisons.\nJ’aimerais que les commerçants puissent comparer ces données avant de donner leur avis.",
+    "questions": [
+      {
+        "stem": "Quel critère devrait orienter le choix ?",
+        "correct": "Le coût d’entretien sur plusieurs saisons.",
+        "wrong": [
+          "Le prix d’achat du matériau.",
+          "La stabilité de son aspect au fil du temps.",
+          "La durée de démontage et de stockage entre les saisons."
+        ],
+        "explanation": "L’intervenant privilégie l’évaluation du vieillissement et des dépenses dans le temps."
+      }
+    ]
+  },
+  {
+    "start": 18,
+    "topic": "horaires des cours de musique pour adultes",
+    "script": "J’ai repris le piano à quarante ans, et ce qui me décourage n’est pas la difficulté des morceaux. C’est plutôt l’organisation des cours : lorsque je suis en déplacement professionnel, je perds ma séance. Je ne demande pas de suivre tout à distance, car le professeur doit voir ma posture. En revanche, il serait intéressant de pouvoir échanger occasionnellement un créneau avec un autre adulte.\nUne simple liste des créneaux échangeables pourrait être affichée sur le portail du conservatoire.",
+    "questions": [
+      {
+        "stem": "Quel changement cette personne souhaite-t-elle ?",
+        "correct": "Pouvoir intervertir certains horaires de cours.",
+        "wrong": [
+          "Remplacer les leçons individuelles par des vidéos.",
+          "Choisir des morceaux adaptés aux déplacements.",
+          "Suivre les cours en groupe avec des adultes."
+        ],
+        "explanation": "L’échange occasionnel de créneaux permettrait de conserver les cours en présence."
+      }
+    ]
+  },
+  {
+    "start": 19,
+    "topic": "bourse aux graines dans une école",
+    "script": "L’idée de faire échanger des graines entre les familles me plaît, mais il faut aller au-delà de l’événement du printemps. Les élèves pourraient noter quelles graines ont germé et dans quelles conditions. En septembre, ils compareraient les résultats et expliqueraient les différences. Ainsi, l’échange deviendrait un projet d’observation sur plusieurs mois, même si toutes les plantes ne réussissent pas.\nLes enfants pourraient aussi conserver des photos datées de leurs expériences et en discuter ensemble.",
+    "questions": [
+      {
+        "stem": "Comment enrichirait-elle cette activité ?",
+        "correct": "En suivant et comparant la croissance des plantes.",
+        "wrong": [
+          "En sélectionnant les graines qui germent le plus vite.",
+          "En réservant les échanges aux familles expérimentées.",
+          "En organisant une vente des plantes à la rentrée."
+        ],
+        "explanation": "Elle veut prolonger l’échange par des observations et des comparaisons."
+      }
+    ]
+  },
+  {
+    "start": 20,
+    "topic": "panneaux indicateurs dans une gare",
+    "script": "Quand on ne connaît pas la gare, on cherche d’abord son quai. Les panneaux actuels affichent beaucoup d’informations à la fois et on s’arrête au milieu du passage pour les lire. À mon sens, il faudrait séparer les indications de direction des informations commerciales. Les commerces resteraient signalés, mais un voyageur pressé pourrait repérer immédiatement le chemin vers les trains.\nLes personnes qui viennent simplement chercher un proche pourraient suivre les mêmes indications.",
+    "questions": [
+      {
+        "stem": "Quelle modification préconise-t-elle ?",
+        "correct": "Séparer la signalétique des quais et des commerces.",
+        "wrong": [
+          "Regrouper les horaires de départ et les services dans chaque secteur.",
+          "Rapprocher les indications commerciales des points de correspondance.",
+          "Prévoir des panneaux plus détaillés à proximité des entrées."
+        ],
+        "explanation": "Elle veut faciliter le repérage des directions en isolant ces indications."
+      }
+    ]
+  },
+  {
+    "start": 21,
+    "topic": "conservation des archives sonores locales",
+    "script": "Dans notre chronique culturelle, nous rencontrons aujourd’hui une archiviste qui collecte les enregistrements de fêtes et de réunions de village. Elle souligne que la difficulté ne tient pas seulement au mauvais état des cassettes. Une fois le son numérisé, on ne sait souvent plus qui parle, où se déroule la scène ni à quelle date. L’équipe organise donc des séances d’écoute avec d’anciens habitants. Leurs souvenirs permettent de restituer des noms et des circonstances, parfois de rectifier une indication inscrite sur une boîte. Le fichier reste évidemment le même, mais sa valeur documentaire change beaucoup. L’archiviste précise que les identifications incertaines sont notées comme telles : un souvenir plausible ne devient pas automatiquement une certitude historique.",
+    "questions": [
+      {
+        "stem": "Quel enjeu la chronique met-elle principalement en avant ?",
+        "correct": "Identifier le contexte des enregistrements anciens.",
+        "wrong": [
+          "Améliorer leur numérisation.",
+          "Classer les fichiers selon la qualité sonore.",
+          "Sélectionner des archives pour les prochaines expositions."
+        ],
+        "explanation": "Le travail avec les habitants vise à retrouver les personnes, dates et circonstances."
+      }
+    ]
+  },
+  {
+    "start": 22,
+    "topic": "récupération de chaleur des eaux usées",
+    "script": "Ce matin, notre rubrique innovation s’intéresse à un équipement installé sous une laverie collective. L’eau chaude qui s’écoule des machines traverse un échangeur et contribue à préchauffer l’eau propre destinée au lavage suivant. Le dispositif ne mélange jamais les deux circuits. Selon l’ingénieure du projet, le rendement dépend moins du nombre total de machines que de la régularité de leur utilisation : si les cycles sont trop espacés, la chaleur disponible ne correspond pas aux besoins. Les premiers essais ont donc porté sur une laverie où les machines tournent toute la journée. L’équipe étudie maintenant un système de stockage intermédiaire, qui pourrait rendre l’installation intéressante dans des bâtiments dont les horaires sont plus irréguliers.",
+    "questions": [
+      {
+        "stem": "Quel obstacle l’équipe souhaite-t-elle surmonter ?",
+        "correct": "Le décalage entre la chaleur récupérée et les besoins.",
+        "wrong": [
+          "L’insuffisance de la température des machines récentes.",
+          "La contamination de l’eau propre par les eaux usées.",
+          "La nécessité de remplacer toutes les machines existantes."
+        ],
+        "explanation": "Le stockage envisagé vise à compenser l’irrégularité des cycles."
+      }
+    ]
+  },
+  {
+    "start": 23,
+    "topic": "réduction des nuisances lumineuses pour les insectes",
+    "script": "— Votre équipe a étudié l’éclairage d’un chemin qui longe une prairie. Pourquoi ne pas simplement supprimer les lampadaires ?\n— Parce que le chemin relie deux quartiers et reste fréquenté après la tombée de la nuit. Nous avons cherché à réduire l’impact écologique sans rendre le trajet inutilisable. Au départ, la municipalité envisageait de baisser uniformément la puissance de chaque lampe. Nous avons proposé de comparer plusieurs réglages.\n— Qu’avez-vous observé ?\n— Avec une lumière dirigée vers le sol, une partie des insectes était moins attirée par les lampes, même lorsque la chaussée restait suffisamment éclairée. Le phénomène dépendait aussi de la couleur de la lumière. Des lampes plus chaudes ont attiré moins d’individus que certaines lampes blanches, mais cela ne signifie pas que toutes les espèces réagissent de la même manière.\n— Est-ce que vous recommandez le même dispositif dans toute la ville ?\n— Non. Nous avons trouvé une combinaison prometteuse pour ce chemin. Sur une place minérale, les enjeux peuvent être différents ; près d’un cours d’eau, il faudra prendre d’autres espèces en compte. Ce qui nous intéresse maintenant est de mesurer non seulement le nombre d’insectes autour des lampes, mais également leur activité loin des points lumineux. Une baisse locale des captures pourrait en effet correspondre à un déplacement des insectes plutôt qu’à un véritable retour à leur comportement habituel.\n— Votre étude n’est donc pas terminée ?\n— Nous disposons de résultats encourageants, mais une saison sèche ou particulièrement froide peut modifier les populations. Il faudra répéter les observations dans le temps. Les réglages adoptés sont réversibles, ce qui permet de poursuivre les essais sans immobiliser la commune dans une solution définitive.\n— Et si la fréquentation du chemin augmente après les travaux ?\n— Nous relèverons aussi le passage des piétons pour savoir si les conditions d’observation ont changé.",
+    "questions": [
+      {
+        "stem": "Pourquoi l’équipe a-t-elle comparé plusieurs réglages ?",
+        "correct": "Concilier la circulation et la protection des insectes.",
+        "wrong": [
+          "Réduire la consommation électrique.",
+          "Établir un réglage commun à plusieurs quartiers.",
+          "Comparer les effets des lampes sur la fréquentation nocturne du chemin."
+        ],
+        "explanation": "L’étude cherche un compromis entre usage du chemin et réduction des effets sur les insectes."
+      },
+      {
+        "stem": "Pourquoi observer également les insectes loin des lampes ?",
+        "correct": "Distinguer un déplacement d’un changement d’activité.",
+        "wrong": [
+          "Délimiter la zone d’attraction des lampes.",
+          "Mesurer la sensibilité des espèces à leur couleur.",
+          "Comparer la répartition des insectes autour des points lumineux."
+        ],
+        "explanation": "Une baisse autour des lampes peut indiquer un simple déplacement plutôt qu’un retour au comportement habituel."
+      }
+    ]
+  },
+  {
+    "start": 25,
+    "topic": "transmission des gestes de fabrication des instruments",
+    "script": "— Vous fabriquez des instruments à vent depuis plus de trente ans. Votre atelier accueille désormais des apprentis d’autres régions. Qu’est-ce qui vous a amenée à modifier votre manière d’enseigner ?\n— J’ai longtemps cru que la meilleure solution consistait à faire répéter exactement mes gestes. Les jeunes réussissaient à produire des pièces conformes, mais dès que le bois se comportait autrement que prévu, certains ne savaient pas comment réagir. Or la matière n’est jamais parfaitement régulière. Il faut apprendre à interpréter ce qu’on entend et ce qu’on ressent en travaillant.\n— Comment transmettez-vous cela concrètement ?\n— Nous commençons avec deux pièces de bois qui paraissent très semblables. Je demande aux apprentis de prédire le résultat avant de les travailler. Après chaque étape, ils notent ce qui les a surpris. Je leur montre ensuite mes propres observations, y compris les erreurs que j’ai faites. L’objectif n’est pas de multiplier les méthodes pour le plaisir, mais de comprendre ce qui justifie le choix d’un geste.\n— Est-ce que cette approche prend plus de temps ?\n— Au début, certainement. Certains clients se demandaient même pourquoi un instrument d’exercice prenait plusieurs jours. Mais une fois les principes acquis, les apprentis ont moins besoin de demander une validation pour chaque détail. Ils peuvent expliquer leur choix et repérer plus tôt un problème.\n— Est-ce que vous envisagez de remplacer une partie de cet apprentissage par des vidéos ?\n— Nous filmons déjà les étapes difficiles. Les vidéos sont précieuses pour revenir sur une opération. En revanche, elles ne donnent pas la résistance de la matière sous les doigts. Le travail en atelier reste nécessaire. Je ne vois pas ces supports comme une concurrence mais comme une façon de mieux préparer les moments où nous travaillons ensemble.\n— Les apprentis tiennent-ils un carnet ?\n— Oui, ils y dessinent notamment la forme des copeaux et les variations qu’ils ont remarquées pendant leur travail.",
+    "questions": [
+      {
+        "stem": "Quelle limite l’artisane a-t-elle constatée dans sa méthode initiale ?",
+        "correct": "Ils reproduisaient les gestes sans savoir les adapter.",
+        "wrong": [
+          "Ils maîtrisaient mal les gestes.",
+          "Ils enchaînaient difficilement les différentes étapes.",
+          "Ils obtenaient des résultats irréguliers avec des pièces de bois semblables."
+        ],
+        "explanation": "L’imitation réussissait avec des conditions prévisibles, mais pas lorsque la matière variait."
+      },
+      {
+        "stem": "Quelle place réserve-t-elle aux vidéos ?",
+        "correct": "Un support de révision complémentaire au travail manuel.",
+        "wrong": [
+          "Un moyen de contrôler les apprentis sans être présente.",
+          "Un remplacement progressif des premières séances d’atelier.",
+          "Un outil réservé aux opérations déjà parfaitement maîtrisées."
+        ],
+        "explanation": "Les vidéos permettent de revoir des étapes, sans remplacer la perception tactile."
+      }
+    ]
+  },
+  {
+    "start": 27,
+    "topic": "évaluation des services de médiation administrative",
+    "script": "— Votre association aide les habitants à résoudre des difficultés administratives. Vous avez récemment changé la façon de mesurer vos résultats. Qu’est-ce qui n’allait pas avec les anciens indicateurs ?\n— Nous comptions surtout les dossiers clos. Cet indicateur était facile à produire et utile pour suivre notre charge de travail, mais il cachait des situations très différentes. Un dossier pouvait être fermé parce qu’une erreur avait été corrigée ou parce que la personne avait renoncé à sa démarche. Les deux étaient enregistrés de la même manière.\n— Comment faites-vous aujourd’hui ?\n— Nous distinguons la résolution du problème, l’interruption de la démarche et le transfert vers un autre organisme. Nous demandons aussi, quand c’est possible, si la personne a compris les prochaines étapes. Il ne s’agit pas de vérifier ses connaissances comme à un examen, mais de savoir si notre intervention lui a donné les moyens de poursuivre seule.\n— Les résultats sont-ils devenus moins bons ?\n— À première vue, oui. Le taux de dossiers résolus est inférieur à l’ancien taux de clôture. Mais ce chiffre est plus utile pour décider où concentrer nos efforts. Par exemple, nous avons découvert qu’un même type de demande était souvent transféré plusieurs fois. Nous avons organisé des permanences communes avec un autre service pour éviter cette succession de rendez-vous.\n— Vos financeurs ont-ils accepté cette évolution ?\n— Ils étaient d’abord préoccupés par la baisse apparente. Nous avons donc conservé l’ancien indicateur pendant une période de transition et présenté les deux séries côte à côte. Ce qui compte maintenant est de ne pas confondre les progrès d’organisation avec les progrès réellement vécus par les habitants. Les nouvelles données sont plus exigeantes à recueillir, mais elles nous permettent de discuter des difficultés au lieu de les masquer.\n— Les habitants voient-ils les données publiées ?\n— Oui, sous forme de tableaux anonymes accompagnés d’exemples. Cela permet de discuter publiquement des difficultés sans exposer les situations personnelles. Nous souhaitons également leur donner la possibilité de suggérer des améliorations à la permanence.",
+    "questions": [
+      {
+        "stem": "Quel défaut présentait l’indicateur initial ?",
+        "correct": "Il confondait des motifs de clôture différents.",
+        "wrong": [
+          "Il négligeait les dossiers transférés.",
+          "Il comptait les démarches entamées.",
+          "Il variait selon les méthodes de collecte de chaque permanence."
+        ],
+        "explanation": "Les dossiers résolus et abandonnés étaient tous comptés comme clos."
+      },
+      {
+        "stem": "Pourquoi conserver temporairement l’ancien indicateur ?",
+        "correct": "Pour expliquer le passage à la nouvelle méthode.",
+        "wrong": [
+          "Pour suivre les permanences communes.",
+          "Pour identifier les demandes les plus complexes.",
+          "Pour déterminer quels dossiers antérieurs auraient dû être réexaminés."
+        ],
+        "explanation": "La présentation parallèle permet aux financeurs de comprendre la baisse apparente."
+      }
+    ]
+  },
+  {
+    "start": 29,
+    "topic": "restauration des sols de cours d’école",
+    "script": "Dans plusieurs écoles de la région, la cour a été transformée pour permettre à l’eau de pluie de pénétrer dans le sol. Le premier bilan, établi après deux ans, révèle des effets contrastés. Dans certaines écoles, les flaques ont presque disparu après les averses, tandis que dans d’autres, les zones les plus fréquentées restent humides longtemps. Les spécialistes avaient d’abord attribué ces différences au choix des revêtements. Mais les observations montrent que les habitudes d’utilisation jouent aussi un rôle. Près des entrées, où les enfants se rassemblent plusieurs fois par jour, le sol peut se tasser rapidement. Même un matériau initialement perméable laisse alors passer moins d’eau. Les chercheurs ont proposé de protéger les surfaces plantées pendant les périodes de reprise et de déplacer certains points de rassemblement. Ils ont également installé de petites zones d’essai : les unes reçoivent un entretien régulier, les autres servent de référence pour comparer les effets de cet entretien. L’équipe insiste sur le fait qu’une cour peut être bien conçue et mal fonctionner si son usage n’a pas été anticipé. À l’inverse, il serait imprudent d’attribuer toute difficulté aux comportements des élèves : dans une école, la faible épaisseur de la couche drainante limite clairement l’infiltration, indépendamment du piétinement. Les recommandations finales distingueront donc les adaptations de conception, les pratiques d’entretien et l’organisation de la circulation. Plusieurs communes ont demandé un guide de travaux unique, mais les chercheurs préfèrent proposer une méthode de diagnostic avant d’indiquer des solutions. Il faut d’abord savoir d’où vient le problème, plutôt que de financer systématiquement un remplacement du revêtement.\nDes enseignants ont également signalé que la répartition des activités changeait selon la météo. Ces observations seront rapprochées des mesures d’humidité recueillies dans chaque secteur.",
+    "questions": [
+      {
+        "stem": "Qu’apportent les observations sur la fréquentation des cours ?",
+        "correct": "Elles révèlent un effet du piétinement sur l’infiltration.",
+        "wrong": [
+          "Elles montrent les limites des revêtements.",
+          "Elles relient l’humidité à la disposition des plantations.",
+          "Elles attribuent le tassement des sols à un entretien insuffisant."
+        ],
+        "explanation": "Le piétinement peut tasser les surfaces et réduire leur capacité d’infiltration."
+      },
+      {
+        "stem": "Pourquoi l’équipe préfère-t-elle une méthode de diagnostic ?",
+        "correct": "Pour choisir les travaux d’après la cause du problème.",
+        "wrong": [
+          "Pour comparer le coût des revêtements.",
+          "Pour définir une méthode commune d’entretien.",
+          "Pour établir une organisation de la circulation valable dans toutes les écoles."
+        ],
+        "explanation": "Des causes différentes exigent des solutions différentes ; un guide unique serait trop général."
+      }
+    ]
+  },
+  {
+    "start": 31,
+    "topic": "publication de cartes de bruit ferroviaire",
+    "script": "La publication d’une nouvelle carte du bruit ferroviaire a suscité des réactions dans les communes traversées par la ligne. Certains élus se sont étonnés que deux rues à distance comparable des rails apparaissent dans des catégories différentes. L’organisme chargé de la carte précise que les valeurs intègrent la fréquence des passages, le type de train et la configuration des bâtiments. Il rappelle néanmoins que cette représentation repose sur une modélisation : une mesure ponctuelle prise devant une maison ne permet pas, à elle seule, de confirmer ou d’infirmer la valeur annuelle. Le document doit surtout orienter les secteurs où des investigations complémentaires seraient pertinentes.\nLes mesures complémentaires pourront porter sur les façades et sur différents moments de la journée, en fonction de la question examinée.",
+    "questions": [
+      {
+        "stem": "Quel usage de la carte l’organisme privilégie-t-il ?",
+        "correct": "Repérer les zones à examiner plus précisément.",
+        "wrong": [
+          "Certifier le niveau de bruit devant chaque habitation.",
+          "Classer les communes selon le nombre de trains.",
+          "Déterminer immédiatement les travaux à financer."
+        ],
+        "explanation": "La carte sert à cibler les investigations, pas à certifier chaque exposition individuelle."
+      }
+    ]
+  },
+  {
+    "start": 32,
+    "topic": "adaptation des services de traduction hospitalière",
+    "script": "Une étude menée dans trois établissements de santé s’est intéressée aux consultations utilisant un interprète à distance. Les patients interrogés apprécient généralement de pouvoir être compris sans attendre qu’un interprète se déplace. Toutefois, les chercheurs ont observé que certains professionnels, rassurés par la présence du service, avaient tendance à accélérer leur débit ou à parler directement à l’interprète. Cela compliquait parfois l’échange, même lorsque la traduction était fidèle. Le programme de formation proposé aux soignants porte donc sur leur manière de conduire la consultation : s’adresser au patient, laisser le temps de répondre et vérifier la compréhension sans transformer l’entretien en une succession de questions fermées.\nCes gestes sont utiles également lorsque la consultation porte sur un sujet médical complexe et qu’il faut reprendre plusieurs fois une information.",
+    "questions": [
+      {
+        "stem": "Quelle conclusion guide la formation proposée ?",
+        "correct": "Les pratiques du soignant influencent la qualité de l’échange.",
+        "wrong": [
+          "L’interprète ralentit les consultations.",
+          "La préparation des patients limite les incompréhensions.",
+          "Les questions fermées facilitent la communication lors d’une traduction à distance."
+        ],
+        "explanation": "La présence de l’interprète ne suffit pas si le professionnel conduit mal l’échange."
+      }
+    ]
+  },
+  {
+    "start": 33,
+    "topic": "remise en circulation de matériaux d’exposition",
+    "script": "Les scénographes d’un réseau de musées cherchent à réutiliser les cloisons fabriquées pour les expositions temporaires. Jusqu’ici, le démontage produisait beaucoup de panneaux en bon état, mais leurs dimensions correspondaient rarement au projet suivant. Le nouveau cahier des charges impose quelques formats communs dès la conception. Certains artistes craignaient une uniformisation des parcours. Les premiers prototypes montrent toutefois que les panneaux standardisés peuvent être assemblés, habillés ou espacés de manières très différentes. Le réseau n’envisage pas de supprimer les éléments spécifiques ; il souhaite simplement réserver la fabrication sur mesure aux situations où elle apporte réellement quelque chose à la présentation des œuvres.\nLes premières structures ont été démontées puis remontées par des équipes qui n’avaient pas participé à leur construction, afin de tester leur facilité d’utilisation.",
+    "questions": [
+      {
+        "stem": "Quelle logique préside au nouveau cahier des charges ?",
+        "correct": "Standardiser des éléments en conservant certaines adaptations.",
+        "wrong": [
+          "Uniformiser les parcours.",
+          "Adapter les dimensions à chaque exposition.",
+          "Concevoir des panneaux spécifiques pour les réutiliser dans des expositions ultérieures."
+        ],
+        "explanation": "La standardisation des éléments de base laisse place au sur-mesure lorsqu’il est utile."
+      }
+    ]
+  },
+  {
+    "start": 34,
+    "topic": "enquête sur la qualité des réparations domestiques",
+    "script": "Une enquête de consommateurs a comparé des interventions réalisées sur des appareils ménagers. Les enquêteurs avaient demandé des devis identiques, puis relevé le temps nécessaire à la remise en fonctionnement. En recontactant les clients plusieurs mois après, ils ont découvert que la rapidité initiale n’était pas toujours associée à une réparation durable. Certains appareils étaient retombés en panne après le changement d’une pièce qui n’était que la conséquence du défaut principal. Les auteurs recommandent donc de distinguer le délai de prise en charge, le diagnostic et la tenue de la réparation. Leur objectif n’est pas de décourager les interventions rapides, mais de faire apparaître ce que les comparaisons de tarifs et de délais laissent dans l’ombre.\nLe suivi à plusieurs mois ne figurait d’ailleurs pas dans la première version de l’enquête, centrée sur l’expérience immédiate.",
+    "questions": [
+      {
+        "stem": "Que souhaitent améliorer les auteurs de l’enquête ?",
+        "correct": "Les critères d’évaluation des réparations effectuées.",
+        "wrong": [
+          "La comparaison des délais.",
+          "La présentation des prix des pièces et de la main-d’œuvre.",
+          "Le suivi des engagements figurant dans les devis."
+        ],
+        "explanation": "Ils proposent de considérer le diagnostic et la durabilité en plus du délai."
+      }
+    ]
+  },
+  {
+    "start": 35,
+    "topic": "collecte participative des noms de chemins",
+    "script": "Dans une vallée, des habitants proposent de signaler les anciens noms de chemins qui ne figurent plus sur les cartes. Les géographes chargés de l’opération ont constaté que plusieurs appellations peuvent désigner le même lieu, selon l’activité ou la génération des personnes interrogées. Plutôt que de retenir automatiquement le nom cité le plus souvent, ils conservent les variantes et les associent à leur contexte d’usage. Le futur outil cartographique permettra de rechercher un chemin par plusieurs noms. Une appellation très peu fréquente pourra ainsi présenter un intérêt particulier si elle renseigne sur une pratique ancienne, même si elle n’est plus employée aujourd’hui pour s’orienter.\nLes enregistrements seront déposés aux archives locales avec l’accord des personnes interrogées et seront accessibles aux chercheurs.",
+    "questions": [
+      {
+        "stem": "Pourquoi les géographes conservent-ils des appellations minoritaires ?",
+        "correct": "Elles renseignent sur des pratiques anciennes.",
+        "wrong": [
+          "Elles corrigent les cartes.",
+          "Elles facilitent l’orientation des visiteurs.",
+          "Elles signalent les changements de tracé liés aux activités locales."
+        ],
+        "explanation": "Une variante rare peut éclairer l’histoire d’une pratique locale."
+      }
+    ]
+  },
+  {
+    "start": 36,
+    "topic": "organisation des ateliers de couture inclusive",
+    "script": "Un atelier de couture a ouvert des séances destinées à des personnes ayant des capacités motrices différentes. Les responsables avaient initialement conçu un modèle de trousse simplifié pour les participants qui rencontraient des difficultés. Ils ont constaté que plusieurs personnes préféraient fabriquer le même objet que leurs voisins, quitte à utiliser un dispositif de guidage ou à répartir autrement les étapes. Désormais, l’atelier propose un projet commun avec plusieurs modes de réalisation. Le choix ne dépend pas d’une catégorie attribuée à l’inscription : chacun peut essayer différents outils, en changer et décider du degré d’assistance souhaité. Les animateurs évaluent leur matériel en demandant aux participants quelles décisions ils ont pu prendre eux-mêmes.\nCertains outils ont été fabriqués à partir de pièces faciles à régler sur place.",
+    "questions": [
+      {
+        "stem": "Quel principe a remplacé l’organisation initiale ?",
+        "correct": "Un projet commun avec plusieurs modalités de réalisation.",
+        "wrong": [
+          "Des groupes par niveau.",
+          "Des objets distincts de difficulté comparable.",
+          "Un modèle commun avec un degré d’assistance fixé à l’inscription."
+        ],
+        "explanation": "Les participants réalisent un projet commun en choisissant les modalités et l’aide."
+      }
+    ]
+  },
+  {
+    "start": 37,
+    "topic": "effet des horaires sur le gaspillage des boulangeries",
+    "script": "Une fédération de boulangers expérimente un système de précommande pour la dernière fournée de la journée. Son but est de réduire les quantités invendues sans supprimer les possibilités d’achat en fin d’après-midi. Au cours du premier mois, les ventes tardives ont augmenté dans les boutiques situées près des bureaux, mais pas dans les quartiers résidentiels. Les responsables se sont alors aperçus que les clients résidant à proximité préféraient souvent décider de leur achat au dernier moment. Plutôt que généraliser les précommandes, la fédération envisage des dispositifs différents selon le profil de clientèle : réservation ferme dans certains secteurs, petits volumes disponibles sans réservation dans d’autres.\nLes commerçants pourront noter les quantités restantes à la fermeture, en distinguant les produits réservés des autres.",
+    "questions": [
+      {
+        "stem": "Quelle leçon la fédération tire-t-elle de l’essai ?",
+        "correct": "Adapter la gestion de la fournée aux habitudes locales.",
+        "wrong": [
+          "Uniformiser les horaires de retrait.",
+          "Moduler la production d’après les commandes reçues.",
+          "Réserver les ventes sans précommande aux zones les moins fréquentées."
+        ],
+        "explanation": "Les habitudes diffèrent entre secteurs, d’où le choix de dispositifs distincts."
+      }
+    ]
+  },
+  {
+    "start": 38,
+    "topic": "interprétation des données de mobilité des oiseaux",
+    "script": "Des ornithologues ont équipé plusieurs oiseaux migrateurs de balises permettant de suivre leurs déplacements. Pendant une période de mauvais temps, certains individus ont prolongé leur halte sur un site agricole. L’équipe s’interroge sur le rôle de ce site, car un séjour prolongé ne traduit pas nécessairement un environnement favorable : il peut aussi résulter de conditions empêchant les oiseaux de poursuivre leur route. Les chercheurs compareront donc la durée des haltes avec les conditions météorologiques et les indices disponibles sur l’alimentation. Ils souhaitent éviter qu’un indicateur de fréquentation, pris isolément, serve à définir l’intérêt écologique d’un lieu.\nL’étude portera également sur plusieurs périodes de migration, car les besoins énergétiques varient selon les conditions rencontrées.",
+    "questions": [
+      {
+        "stem": "Pourquoi les chercheurs complètent-ils les données de déplacement ?",
+        "correct": "La durée d’une halte peut avoir plusieurs explications.",
+        "wrong": [
+          "Les balises sous-estiment certaines haltes.",
+          "Les conditions météo perturbent la transmission des données.",
+          "La durée du trajet entre deux sites permet d’en évaluer les ressources."
+        ],
+        "explanation": "Une halte longue peut être choisie ou imposée par les conditions de déplacement."
+      }
+    ]
+  },
+  {
+    "start": 39,
+    "topic": "gestion de l’accès à des ateliers de prototypage",
+    "script": "Dans un centre de prototypage, les créneaux des machines les plus demandées étaient attribués dans l’ordre des réservations. Les responsables ont constaté que des usagers expérimentés réservaient plusieurs séances par précaution, quitte à annuler tardivement. Les nouveaux venus, qui hésitaient à estimer la durée de leur travail, trouvaient difficilement une place. Le centre a instauré une limite de réservations simultanées tout en laissant la possibilité de demander un créneau supplémentaire lorsqu’un projet l’exige. Une permanence aide aussi les usagers à préparer leur passage. Le bilan sera établi en examinant non seulement le taux d’occupation des machines, mais la diversité des personnes ayant pu s’en servir.\nLes responsables recueilleront les demandes non satisfaites, y compris celles des personnes qui n’ont finalement effectué aucune réservation.",
+    "questions": [
+      {
+        "stem": "Quel objectif motive la nouvelle organisation ?",
+        "correct": "Élargir l’accès aux machines en tenant compte des projets.",
+        "wrong": [
+          "Accélérer leur rotation.",
+          "Attribuer les créneaux selon la préparation des projets.",
+          "Réduire les annulations en favorisant les réservations de dernière minute."
+        ],
+        "explanation": "La limite et les exceptions cherchent à équilibrer l’accès et les besoins réels."
+      }
+    ]
+  },
+  {
+    "start": 40,
+    "topic": "évaluation de l’efficacité de messages de prévention routière",
+    "script": "Une équipe a testé deux messages destinés aux automobilistes près d’un passage à niveau. Le premier insistait sur les conséquences d’un franchissement imprudent ; le second rappelait un geste concret à accomplir lorsqu’une file de voitures se forme. Les entretiens indiquaient que le premier message marquait davantage les esprits, mais les observations sur place suggéraient que le second modifiait plus souvent la manière dont les conducteurs s’arrêtaient. Les chercheurs soulignent que les deux mesures ne sont pas incompatibles : un message peut être mémorisé sans influencer le comportement au moment critique. Ils recommandent donc de définir l’indicateur de réussite en fonction de l’effet recherché, plutôt que de retenir automatiquement le message le mieux rappelé lors d’un entretien.",
+    "questions": [
+      {
+        "stem": "Quelle distinction est centrale dans cette étude ?",
+        "correct": "La mémorisation d’un message et son effet sur le comportement.",
+        "wrong": [
+          "La perception de la gravité d’un risque et l’évaluation de sa fréquence.",
+          "Les comportements déclarés lors d’un entretien et ceux relevés sur le terrain.",
+          "La compréhension d’une consigne et la précision de sa formulation."
+        ],
+        "explanation": "Le message le mieux mémorisé n’est pas nécessairement celui qui modifie le comportement."
+      }
+    ]
+  }
+];
