@@ -3,7 +3,7 @@ import {mountRecorder} from './audio.js';
 import {recordHome,recordView} from '../ui/navigation.js';
 const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
 const trainers={
- pronunciation:['mic','Pronunciation trainer','Speak with clearer French pronunciation.',['Listen to a native-style practice example','Record your own voice','Get feedback on sounds, rhythm and liaison'],'review','Speak & improve'],
+ pronunciation:['mic','Pronunciation trainer','Speak with clearer French pronunciation.',['Listen to a French practice example','Record your own voice','Get feedback on sounds, rhythm and liaison'],'review','Speak & improve'],
  conversation:['chat','Conversation simulator','Build confidence in everyday conversations.',['Practise realistic situations','Reply by typing or recording','Get corrections and suggested replies'],'reply','Start practising'],
  writing:['pen','Writing trainer','Make your French writing more natural and accurate.',['Get a corrected version of your text','Understand grammar and word-choice errors','Apply practical improvement tips'],'review','Review your writing']
 };
@@ -146,7 +146,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     if(item.status==='completed'){
      state.tab=item.kind;state.level=item.level;state.result={kind:item.kind,data:item.result};
      if(item.kind==='conversation'&&item.conversationId){void open('conversation',{level:item.level,conversationId:item.conversationId});return}render();
-    }else if(item.status!=='failed'){state.pending={id:item.id,kind:item.kind};render()}
+    }else if(item.status!=='failed'){state.tab=item.kind;state.level=item.level;state.pending={id:item.id,kind:item.kind};render()}
    },true);row.classList.add('hz-studio-history-row');row.disabled=item.status==='failed';row.dataset.locked=String(item.status==='failed');rows.append(row);
   }
   if(!entries.length)rows.append(el('p','Your feedback will appear here after your first activity.','hz-studio-empty'));
