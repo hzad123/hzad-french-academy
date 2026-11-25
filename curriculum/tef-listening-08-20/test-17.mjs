@@ -1,4 +1,4 @@
-/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
+/* Original TEF paper with targeted measured-audio corrections. */
 export const clips = [
   {
     "start": 1,
@@ -509,7 +509,7 @@ export const clips = [
   {
     "start": 31,
     "topic": "effets de la standardisation des pièces de réparation",
-    "script": "Des fabricants de petits appareils ont étudié la possibilité d’utiliser certaines pièces identiques dans plusieurs modèles. Cette démarche pourrait simplifier la gestion des stocks des réparateurs et prolonger la durée de disponibilité des composants. Cependant, les essais ont montré qu’une pièce de même dimension n’est pas toujours interchangeable : les contraintes électriques ou thermiques peuvent être différentes. Les fabricants envisagent donc d’établir des familles de compatibilité précises plutôt qu’une liste unique. Ils souhaitent également rendre ces informations accessibles aux professionnels indépendants. Le projet sera évalué en comparant les délais de réparation et les incidents liés à des montages inadaptés. La standardisation n’est ainsi considérée comme utile que si elle s’accompagne d’une documentation fiable permettant de choisir la bonne pièce dans chaque situation.",
+    "script": "Des fabricants de petits appareils ont étudié la possibilité d’utiliser certaines pièces identiques dans plusieurs modèles. Cette démarche pourrait simplifier la gestion des stocks des réparateurs et prolonger la durée de disponibilité des composants. Cependant, les essais ont montré qu’une pièce de même dimension n’est pas toujours interchangeable : les contraintes électriques ou thermiques peuvent être différentes. Les fabricants envisagent donc d’établir des familles de compatibilité précises plutôt qu’une liste unique. Ils souhaitent également rendre ces informations accessibles aux professionnels indépendants. Le projet sera évalué en comparant les délais de réparation et les incidents liés à des montages inadaptés. La standardisation n’est ainsi considérée comme utile que si elle s’accompagne d’une documentation fiable permettant de choisir la bonne pièce dans chaque situation. Les fabricants devront préciser comment reconnaître les différentes versions d'un composant. Cette indication sera particulièrement utile lorsque les références imprimées sur les appareils sont devenues difficiles à lire.",
     "questions": [
       {
         "stem": "Quelle condition rendrait la standardisation utile ?",

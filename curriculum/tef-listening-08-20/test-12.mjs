@@ -1,4 +1,4 @@
-/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
+/* Original TEF paper with targeted measured-audio corrections. */
 export const clips = [
   {
     "start": 1,
@@ -509,7 +509,7 @@ export const clips = [
   {
     "start": 31,
     "topic": "choix d’un système de surveillance des fuites dans les réseaux d’eau",
-    "script": "Une collectivité a équipé son réseau de distribution d’eau de capteurs enregistrant les variations de débit pendant la nuit. Les premiers seuils d’alerte étaient identiques dans tous les secteurs. Or certains quartiers comprennent des établissements qui utilisent de l’eau à des horaires inhabituels, comme des cuisines centrales ou des ateliers. Une hausse nocturne du débit pouvait donc correspondre à une activité ordinaire plutôt qu’à une fuite. Les responsables ont établi des profils de consommation propres aux secteurs et souhaitent examiner les changements par rapport à ces profils. Les alertes seront ensuite confrontées à des observations sur place. Le dispositif ne vise pas à déterminer automatiquement l’emplacement exact d’une fuite, mais à orienter les équipes vers les zones où une recherche serait justifiée.",
+    "script": "Une collectivité a équipé son réseau de distribution d’eau de capteurs enregistrant les variations de débit pendant la nuit. Les premiers seuils d’alerte étaient identiques dans tous les secteurs. Or certains quartiers comprennent des établissements qui utilisent de l’eau à des horaires inhabituels, comme des cuisines centrales ou des ateliers. Une hausse nocturne du débit pouvait donc correspondre à une activité ordinaire plutôt qu’à une fuite. Les responsables ont établi des profils de consommation propres aux secteurs et souhaitent examiner les changements par rapport à ces profils. Les alertes seront ensuite confrontées à des observations sur place. Le dispositif ne vise pas à déterminer automatiquement l’emplacement exact d’une fuite, mais à orienter les équipes vers les zones où une recherche serait justifiée. Ces profils seront réexaminés lorsqu'un nouvel établissement ouvre ou que les usages du quartier évoluent. Un seuil pertinent aujourd'hui pourrait devenir inadapté dans quelques années.",
     "questions": [
       {
         "stem": "Pourquoi les seuils d’alerte ont-ils été revus ?",

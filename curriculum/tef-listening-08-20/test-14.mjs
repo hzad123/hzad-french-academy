@@ -1,4 +1,4 @@
-/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
+/* Original TEF paper with targeted measured-audio corrections. */
 export const clips = [
   {
     "start": 1,
@@ -509,7 +509,7 @@ export const clips = [
   {
     "start": 31,
     "topic": "évaluation des modalités de consultation des habitants sur les projets d’éclairage public",
-    "script": "Une collectivité a consulté les habitants au sujet du remplacement de l’éclairage d’une rue. Les réponses au premier questionnaire demandaient souvent un éclairage plus important. Les techniciens ont organisé ensuite une visite nocturne avec plusieurs configurations expérimentales. Certains participants ont découvert qu’une meilleure orientation de la lumière rendait les passages plus visibles sans augmenter fortement l’intensité. Les responsables souhaitent donc distinguer les demandes formulées à partir d’une situation existante des préférences exprimées après avoir observé des solutions concrètes. Ils ne considèrent pas la première consultation comme inutile : elle permettait d’identifier les difficultés perçues. Les essais complètent cette information en montrant comment différentes modifications peuvent répondre à un même problème.",
+    "script": "Une collectivité a consulté les habitants au sujet du remplacement de l’éclairage d’une rue. Les réponses au premier questionnaire demandaient souvent un éclairage plus important. Les techniciens ont organisé ensuite une visite nocturne avec plusieurs configurations expérimentales. Certains participants ont découvert qu’une meilleure orientation de la lumière rendait les passages plus visibles sans augmenter fortement l’intensité. Les responsables souhaitent donc distinguer les demandes formulées à partir d’une situation existante des préférences exprimées après avoir observé des solutions concrètes. Ils ne considèrent pas la première consultation comme inutile : elle permettait d’identifier les difficultés perçues. Les essais complètent cette information en montrant comment différentes modifications peuvent répondre à un même problème. Les techniciens ont aussi noté les zones où la lumière se réfléchissait sur les façades et les vitrines. Les habitants ont pu comparer la visibilité des trottoirs en se déplaçant plutôt qu'en restant à un point fixe. Ces observations compléteront les mesures réalisées avec les instruments.",
     "questions": [
       {
         "stem": "Quel apport particulier ont eu les essais nocturnes ?",
