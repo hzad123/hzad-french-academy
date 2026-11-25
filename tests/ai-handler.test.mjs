@@ -91,7 +91,7 @@ test('pronunciation provider receives audio evidence, bounded output and a fixed
 test('writing/conversation outputs are bounded and malformed feedback fails before settlement',()=>{
  assert.deepEqual(validateOutput('writing',writing),writing);
  assert.throws(()=>validateOutput('writing',{...writing,correctedText:'x'.repeat(7000)}));assert.throws(()=>validateOutput('pronunciation',{heardText:'Bonjour.'}));
- assert.throws(()=>validateOutput('conversation',{reply:'Bonjour',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:Array(4).fill('Oui')}));
+ assert.equal(validateOutput('conversation',{reply:'Bonjour',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:Array(4).fill('Oui')}).suggestedReplies.length,3);assert.throws(()=>validateOutput('conversation',{reply:' '}));
  const messages=buildMessages({kind:'conversation',level:'A0',scenario:'cafe',text:'Un café.'},[{role:'user',content:'Bonjour'},{role:'assistant',content:'Bienvenue'}]);assert.equal(messages.length,4);assert.match(messages[0].content,/level A0/);
 });
 test('provider context stays bounded while retaining the introduction and latest conversation messages',()=>{
@@ -111,4 +111,12 @@ test('spoken conversation transcribes independently and never accepts silent spe
  const heard="Pourquoi tu m’a demandé ça ? euh je veux travailler à Montréal";const calls=[];
  const provider=createOpenAiProvider({key:'test',fetcher:async(url,opts)=>{calls.push({url,body:opts.body});if(url.endsWith('/transcriptions'))return new Response(JSON.stringify({text:heard}));return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({reply:'Vous souhaitez travailler à Montréal, très bien.',englishHelp:'You want to work in Montreal.',transcript:'invented polished text',corrections:[{original:'tu m’a demandé',corrected:'tu m’as demandé',explanation:'Add s.'}],suggestedReplies:['Je cherche un poste.']})}}]}))}});
  const result=await provider.run({kind:'conversation',level:'B1',scenario:'interview',audio:audio()},{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(calls.length,2);assert.match(calls[0].body.get('prompt'),/mot pour mot/);assert.equal(JSON.parse(calls[1].body).model,'gpt-4o-mini');assert.ok(JSON.parse(calls[1].body).messages.at(-1).content.includes(heard));assert.equal(result.result.transcript,heard);assert.deepEqual(result.result.corrections,[]);
+});
+
+test('conversation survives null or malformed optional coaching, but rejects missing partner reply',async()=>{
+ const valid={reply:'Bonjour ! Vous désirez ?',englishHelp:null,transcript:null,corrections:[null,{}, {original:'',corrected:'x',explanation:'x'}],suggestedReplies:[null,'Un café, merci.',{text:'bad'},'','Oui','Non','Encore']};
+ assert.deepEqual(validateOutput('conversation',valid),{reply:valid.reply,englishHelp:'',transcript:'',corrections:[],suggestedReplies:['Un café, merci.','Oui','Non']});
+ const provider=createOpenAiProvider({key:'test',fetcher:async()=>new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(valid)}}]}))});
+ const result=await provider.run({kind:'conversation',level:'A0',scenario:'cafe',start:true},{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(result.result.reply,valid.reply);assert.equal(result.result.transcript,'');assert.deepEqual(result.result.corrections,[]);
+ assert.throws(()=>validateOutput('conversation',{reply:null}));
 });
