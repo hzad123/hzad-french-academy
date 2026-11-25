@@ -47,7 +47,15 @@ export function validateOutput(kind,raw){
  const corrections=items=>list(items,8,item=>({original:resultText(item?.original,240),corrected:resultText(item?.corrected,240),explanation:resultText(item?.explanation,500)}));
  let result;
  if(kind==='writing')result={correctedText:resultText(raw.correctedText,6000),summary:resultText(raw.summary,700),corrections:corrections(raw.corrections),suggestions:list(raw.suggestions,5,s=>resultText(s,400))};
- else if(kind==='pronunciation')result={heardText:resultText(raw.heardText,500,true),feedback:resultText(raw.feedback,700),strengths:list(raw.strengths,4,s=>resultText(s,300)),focus:list(raw.focus,4,item=>({sound:resultText(item?.sound,80),example:resultText(item?.example,160),tip:resultText(item?.tip,400)})),practicePhrase:resultText(raw.practicePhrase,240)};
+ else if(kind==='pronunciation'){
+  // Optional fields must not invalidate actual acoustic feedback. Never invent findings.
+  const optional=(value,max)=>typeof value==='string'?value.trim().slice(0,max):'';
+  const strengths=Array.isArray(raw.strengths)?raw.strengths.filter(x=>typeof x==='string'&&x.trim()).slice(0,4).map(x=>optional(x,300)):[];
+  const focus=Array.isArray(raw.focus)?raw.focus.filter(x=>x&&typeof x==='object').map(x=>({sound:optional(x.sound,80),example:optional(x.example,160),tip:optional(x.tip,400)})).filter(x=>x.sound&&x.tip).slice(0,4):[];
+  const feedback=optional(raw.feedback,700);
+  if(!feedback)throw new AiError('The AI response did not contain pronunciation feedback.',502,'AI_OUTPUT');
+  result={heardText:optional(raw.heardText,500),feedback,strengths,focus,practicePhrase:optional(raw.practicePhrase,240)};
+ }
  else result={reply:resultText(raw.reply,2000),englishHelp:resultText(raw.englishHelp,1000),transcript:resultText(raw.transcript,2000,true),corrections:corrections(raw.corrections),suggestedReplies:list(raw.suggestedReplies,3,s=>resultText(s,300))};
  if(new TextEncoder().encode(JSON.stringify(result)).length>16000)throw new AiError('The AI response was too long. Please try a shorter activity.',502,'AI_OUTPUT');
  return result;
