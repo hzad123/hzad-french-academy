@@ -21,7 +21,7 @@ jobs:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url || steps.deployment_final.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -79,7 +79,23 @@ jobs:
           done
           echo "::error::The uploaded GitHub Pages artifact did not become visible."
           exit 1
+      - name: Allow artifact metadata to propagate
+        run: sleep 25
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before retrying Pages publication
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before final Pages publication attempt
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry.outcome == 'failure'
+        run: sleep 60
+      - id: deployment_final
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry.outcome == 'failure'
         uses: actions/deploy-pages@v4
       - name: Verify published TCF speaking instructions, scorecards and corrections
         run: |
@@ -97,6 +113,9 @@ jobs:
                 if(revision.trim()===expected&&
                    bootstrap.includes('BUILD_COMMIT.txt')&&
                    bootstrap.includes('academy-app.js')&&
+                   js.includes('French Practice Studio')&&
+                   js.includes('hz-studio-grid')&&
+                   css.includes('hz-studio-grid')&&
                    js.includes('hz-tcf-speaking-three-tasks')&&
                    css.includes('hz-tcf-speaking-three-tasks')&&
                    js.includes('hz-tcf-speaking-scoreboard')&&
