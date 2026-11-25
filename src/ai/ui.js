@@ -1,5 +1,6 @@
 import {makeAiStore} from './store.js';
 import {mountRecorder} from './audio.js';
+import {pronunciationPhrases,nextPronunciationPhrase} from './pronunciation-practice.js';
 import {recordHome,recordView} from '../ui/navigation.js';
 const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
 const trainers={
@@ -24,17 +25,17 @@ function studioIcon(kind){
  wrapper.append(svg);return wrapper;
 }
 const scenarios={cafe:'At a café',travel:'Travel and directions',daily:'Daily life',work:'At work',interview:'Job interview',debate:'Ideas and debate'};
-const phrases={A0:'Bonjour, je m’appelle Camille.',A1:'Je voudrais un café et un croissant, s’il vous plaît.',A2:'Nous allons prendre le train demain matin.',B1:'Si j’avais plus de temps, je voyagerais davantage.',B2:'Il est essentiel que chacun puisse exprimer son opinion.',C1:'Quoi qu’il en soit, cette hypothèse mérite d’être approfondie.',C2:'Encore eût-il fallu que les circonstances s’y prêtassent.'};
+const phrases=Object.fromEntries(Object.entries(pronunciationPhrases).map(([level,bank])=>[level,bank[0]]));
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const button=(label,fn,alt=false)=>{const b=el('button',label,'hz-btn'+(alt?' hz-btn-alt':''));b.type='button';b.addEventListener('click',fn);return b};
 export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorder}={}){
  const area=root.querySelector('#hz-ai-learning'),launch=root.querySelector('#hz-ai-launch'),chooser=root.querySelector('#hz-course-chooser');
  if(!area||!launch)return;
  const store=makeAiStore(client,fetcher);
- let state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
+ let state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
  const draftKey=()=>state.tab+':'+state.level;
  function clear(){epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},conversation:null,result:null,pending:null}}
+ function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);root.addEventListener('hzad-close-ai',clear);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
  const status=(text,error=false)=>{const n=el('p',text,'hz-ai-status');n.setAttribute('role',error?'alert':'status');area.append(n);return n};
@@ -87,10 +88,11 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    block.append(el('p',result.summary),el('h5','Improved French'),el('p',result.correctedText,'hz-ai-corrected-text'),el('h5','Corrections explained'));corrections(result.corrections,block);
    const list=el('ul');for(const s of result.suggestions)list.append(el('li',s));block.append(el('h5','Try this next'),list);
   }else if(kind==='pronunciation'){
+   if(state.result?.reviewedReference)block.append(el('p','Reviewed sentence: '+state.result.reviewedReference,'hz-small'));
    block.append(el('p',result.feedback));if(result.heardText)block.append(el('p','Heard: '+result.heardText));
    const strengths=el('ul');for(const s of result.strengths)strengths.append(el('li',s));block.append(strengths);
    for(const focus of result.focus){const card=el('article',undefined,'hz-ai-feedback-card');card.append(el('h5',focus.sound),el('p',focus.example,'hz-ai-corrected'),el('p',focus.tip));block.append(card)}
-   block.append(el('p',result.practicePhrase,'hz-ai-practice-phrase'),button('Hear practice phrase',()=>speak(result.practicePhrase),true));
+   if(!state.result?.nextPronunciation)block.append(el('h5','Suggested practice'),el('p',result.practicePhrase,'hz-ai-practice-phrase'),button('Hear practice phrase',()=>speak(result.practicePhrase),true));
   }else{
    block.append(el('p',result.reply,'hz-ai-french-reply'),button('Hear French reply',()=>speak(result.reply),true));
    const help=el('details');help.append(el('summary','English help'),el('p',result.englishHelp));block.append(help);corrections(result.corrections,block);
@@ -101,7 +103,25 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  async function receive(response,signal,current){
   if(!current())return;
   if(response.status==='completed'){
-   state.result={kind:state.pending?.kind||response.kind||state.tab,data:response.result};state.pending=null;
+   const completed=state.pending;
+   const kind=completed?.kind||response.kind||state.tab;
+   state.result={kind,data:response.result};
+   if(kind==='pronunciation'&&completed&&response.result){
+    const level=completed.payload?.level||response.level||state.level;
+    const key='pronunciation:'+level;
+    const session=state.pronunciationRuns[level]||{completed:0,used:[],lastId:null};
+    const submitted=completed.payload?.reference??state.drafts[key]??phrases[level];
+    if(session.lastId!==completed.id){
+     session.used.push(submitted);
+     const next=nextPronunciationPhrase(level,submitted,response.result.practicePhrase,session.used);
+     state.drafts[key]=next;session.completed++;session.lastId=completed.id;session.lastReference=submitted;
+     state.pronunciationRuns[level]=session;
+    }
+    state.result.reviewedReference=session.lastReference;
+    state.result.nextPronunciation=true;
+    state.tab='pronunciation';state.level=level;
+   }
+   state.pending=null;
    if(response.conversationId){try{const conversation=await store.conversation(response.conversationId,signal);if(current())state.conversation=conversation}catch{if(current())state.conversation={id:response.conversationId,level:state.level,scenario:state.scenario,messages:[]}}}
    if(!current())return;
    if(state.result.kind==='conversation')state.drafts['conversation:'+state.level]='';
@@ -198,14 +218,19 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    history();
   }else{
    const levelLabel=el('label','French level','hz-studio-level'),level=el('select');level.setAttribute('aria-label','AI French level');for(const l of LEVELS){const o=el('option',l);o.value=l;level.append(o)}level.value=state.level;
+   level.dataset.locked=String(!!state.pending);
    level.addEventListener('change',()=>{state.level=level.value;state.conversation=null;state.result=null;render()});levelLabel.append(level);area.append(levelLabel);
    const benefit=el('div',undefined,'hz-studio-exercise-summary');benefit.append(studioIcon(trainers[state.tab][0]),el('p',trainers[state.tab][3].join(' · ')));area.append(benefit);
    if(state.tab==='writing'){
     const label=el('label','Your French writing'),input=el('textarea');input.rows=8;input.maxLength=4000;input.required=true;input.setAttribute('aria-label','Your French writing');input.value=state.drafts[draftKey()]||'';
     const count=el('p',`${input.value.length}/4000 characters`,'hz-small');input.addEventListener('input',()=>{state.drafts[draftKey()]=input.value;count.textContent=`${input.value.length}/4000 characters`});label.append(input);area.append(label,count,creditButton('Review my writing',submit));
    }else if(state.tab==='pronunciation'){
-    const label=el('label','Practice sentence'),reference=el('textarea');reference.rows=2;reference.maxLength=240;reference.setAttribute('aria-label','Practice sentence');reference.value=state.drafts[draftKey()]??phrases[state.level];reference.lang='fr';reference.addEventListener('input',()=>{state.drafts[draftKey()]=reference.value});label.append(reference);area.append(label,button('Hear French example',()=>speak(reference.value),true));
-    recorder=recorderFactory(area);area.append(creditButton('Get pronunciation feedback',submit));
+    const completed=state.pronunciationRuns[state.level]?.completed||0;
+    if(state.result?.kind==='pronunciation')feedback(state.result.data);
+    const exercise=el('section',undefined,'hz-ai-pronunciation-next');
+    exercise.append(el('p','EXERCISE '+(completed+1),'hz-studio-kicker'),el('h4',completed?'Next pronunciation exercise':'Your pronunciation exercise'),el('p',completed?'Listen to the new sentence, record yourself and submit for feedback when ready.':'Listen to the example, then record yourself reading the sentence.'));
+    const label=el('label','Practice sentence'),reference=el('textarea');reference.rows=2;reference.maxLength=240;reference.setAttribute('aria-label','Practice sentence');reference.value=state.drafts[draftKey()]??phrases[state.level];reference.lang='fr';reference.addEventListener('input',()=>{state.drafts[draftKey()]=reference.value});label.append(reference);exercise.append(label,button('Hear French example',()=>speak(reference.value),true));
+    recorder=recorderFactory(exercise);exercise.append(creditButton('Get pronunciation feedback',submit));area.append(exercise);
    }else{
     const label=el('label','Conversation scenario'),scenario=el('select');scenario.setAttribute('aria-label','Conversation scenario');for(const [key,name] of Object.entries(scenarios)){const o=el('option',name);o.value=key;scenario.append(o)}scenario.value=state.scenario;scenario.disabled=!!state.conversation;scenario.dataset.locked=String(!!state.conversation);scenario.addEventListener('change',()=>{state.scenario=scenario.value;render()});label.append(scenario);area.append(label);
     const log=el('div',undefined,'hz-ai-chat');log.setAttribute('role','log');log.setAttribute('aria-label','French conversation');
@@ -216,7 +241,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     if(!complete)area.append(creditButton(state.conversation?'Send reply':'Start conversation',submit));else area.append(el('p','Great practice! Start a new scenario to continue.'));
     if(state.conversation)area.append(button('New conversation',()=>{state.conversation=null;state.result=null;state.drafts[draftKey()]='';render()},true));
    }
-   if(state.result?.kind===state.tab)feedback(state.result.data);
+   if(state.tab!=='pronunciation'&&state.result?.kind===state.tab)feedback(state.result.data);
   }
   pending();remember();renderControls();
  }
