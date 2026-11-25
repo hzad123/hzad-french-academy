@@ -26,7 +26,7 @@ export function makeAiStore(client,fetcher=globalThis.fetch.bind(globalThis)){
    if(response.status===429)pausedUntil=Date.now()+retryAfterMs(response.headers.get('Retry-After'),Date.now());
    if(!response.ok){const error=Error(result.error||'AI Learning could not connect. Please try again shortly.');error.status=response.status;error.code=result.code;error.activityStatus=result.status;throw error}
    return result;
-  },signal,body?65000:12000);
+  },signal,body?.kind==='conversation'?125000:body?65000:12000);
  }
  return {state:signal=>call('',undefined,signal),activity:(id,signal)=>call('?request='+encodeURIComponent(id),undefined,signal),conversation:(id,signal)=>call('?conversation='+encodeURIComponent(id),undefined,signal),submit:(payload,signal)=>call('',payload,signal)};
 }
