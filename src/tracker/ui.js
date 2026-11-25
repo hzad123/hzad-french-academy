@@ -1,3 +1,4 @@
+import {renderLearningInsights} from './insights.js';
 import {makeTrackerStore} from './store.js';
 import {LEVELS,SKILLS,learningLevel,skillEvidence,dueMistakes,makeDailyPlan} from './plan.js';
 import {mountRewards,mountCertificates} from '../achievements/ui.js';
@@ -7,9 +8,9 @@ const revisionSummary=entry=>`${entry.skill} · missed ${entry.wrongCount} time(
 export function wireTracker(root,client){
  const area=root.querySelector('#hz-progress-tracker'),launch=root.querySelector('#hz-tracker-launch');
  const chooser=root.querySelector('#hz-course-chooser'),store=makeTrackerStore(client);
- let snapshot=null,tab='plan',epoch=0,busy=false,filter='due',page=0,notice='',disposeExtra=null,examToRestore=null;
+ let snapshot=null,tab='overview',insights=null,epoch=0,busy=false,filter='due',page=0,notice='',disposeExtra=null,examToRestore=null;
  const button=(title,fn,alt=false)=>{const n=el('button',title,'hz-btn'+(alt?' hz-btn-alt':''));n.type='button';n.addEventListener('click',fn);return n};
- const clear=()=>{epoch++;busy=false;snapshot=null;notice='';disposeExtra?.();disposeExtra=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')};
+ const clear=()=>{epoch++;busy=false;snapshot=null;insights=null;notice='';disposeExtra?.();disposeExtra=null;area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')};
  let viewer=null;
  client.auth.onAuthStateChange?.((event,session)=>{
   if(event==='SIGNED_OUT'){viewer=null;clear();root.dispatchEvent(new CustomEvent('hzad-nav-reset'))}
@@ -34,7 +35,7 @@ export function wireTracker(root,client){
    const next=response?.snapshot||response;
    if(!next||!Array.isArray(next.units)||!Array.isArray(next.skills)||!Array.isArray(next.notebook))throw Error('Invalid progress tracker response.');
    if(response?.feedback)notice=response.feedback.correct?'✓ Correct. Your review is saved and the next revision is scheduled.':`Not quite. ${response.feedback.explanation||'Revisit the explanation and try again.'}`;
-   snapshot=next;page=0;render();
+   snapshot=next;page=0;try{const data=await store.insights();if(ticket!==epoch)return;insights=data}catch{if(ticket!==epoch)return;insights=null}render();
   }catch(error){
    if(ticket!==epoch)return;
    const msg=el('p',error.message||'Your progress could not load. Please retry.');msg.setAttribute('role','alert');area.append(msg);
@@ -79,10 +80,10 @@ export function wireTracker(root,client){
  function render(){
   disposeExtra?.();disposeExtra=null;
   area.replaceChildren();area.classList.remove('hz-hidden');
-  const heading=el('h3','Your Progress Tracker');heading.tabIndex=-1;
+  const heading=el('h3','Your learning progress');heading.tabIndex=-1;
   area.append(heading,button('← All levels',close,true),button('Refresh progress',()=>{notice='';void run(()=>store.snapshot())},true));
-  const tabs=el('nav');tabs.setAttribute('aria-label','Progress tracker views');
-  for(const [key,label] of [['plan','Daily plan'],['mastery','French mastery'],['notebook','Mistake notebook'],['rewards','Achievements'],['certificates','Certificates']]){
+  const tabs=el('nav',undefined,'hz-insights-nav');tabs.setAttribute('aria-label','Progress tracker views');
+  for(const [key,label] of [['overview','Overview'],['plan','Daily plan'],['mastery','French mastery'],['notebook','Mistake notebook'],['rewards','Achievements'],['certificates','Certificates']]){
    const b=button(label,()=>{
     tab=key;page=0;notice='';examToRestore=null;
     if(key==='plan'&&snapshot?.notebookOffset){void run(()=>store.snapshot());return}
@@ -94,6 +95,7 @@ export function wireTracker(root,client){
   const previous={filter,page,offset:snapshot?.notebookOffset||0},currentTab=tab;
   recordView(root,'tracker:'+currentTab,()=>openTracker(currentTab,previous));
   if(!snapshot){area.append(el('p','Load your saved progress to build your study plan.'),button('Load progress',()=>run(()=>store.snapshot())));return}
+  if(tab==='overview')area.append(renderLearningInsights(insights,root));
   if(tab==='plan')renderPlan();
   if(tab==='mastery')renderMastery();
   if(tab==='notebook')renderNotebook();
@@ -195,7 +197,7 @@ export function wireTracker(root,client){
   if(offset>0)area.append(button('Previous 200 saved items',()=>run(()=>store.snapshot(Math.max(0,offset-200))),true));
   if(offset+200<snapshot.notebookTotal)area.append(button('Next 200 saved items',()=>run(()=>store.snapshot(offset+200)),true));
  }
- async function openTracker(nextTab='plan',options={}){
+ async function openTracker(nextTab='overview',options={}){
   if(busy)return;
   root.dispatchEvent(new CustomEvent('hzad-route-reset'));
   epoch++;tab=nextTab;filter=options.filter||'due';page=0;notice='';examToRestore=options.attemptId||null;
