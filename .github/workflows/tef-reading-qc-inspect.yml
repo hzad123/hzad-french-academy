@@ -43,3 +43,13 @@ jobs:
           console.log('PUBLIC_STUDIO_CHECK='+JSON.stringify(checks));
           if(!checks.studioName||!checks.studioGridJS||!checks.studioGridCSS||!checks.adaptiveChart||checks.oldFixedChart||!checks.tutorName||!checks.tutorEndpoint||!checks.tutorDockCSS||checks.oldAudioAdmin)process.exitCode=1;
           NODE
+
+      - name: Verify learning insights public assets
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const js=readFileSync('/tmp/academy-app.js','utf8'),css=readFileSync('/tmp/academy.css','utf8');
+          const checks={insightsRPC:js.includes('academy_learning_insights'),overview:js.includes('Your learning rhythm'),chartCSS:css.includes('.hz-insights-bars'),reducedMotion:css.includes('prefers-reduced-motion')};
+          console.log('PUBLIC_INSIGHTS='+JSON.stringify(checks));
+          if(Object.values(checks).some(x=>!x))process.exitCode=1;
+          NODE
