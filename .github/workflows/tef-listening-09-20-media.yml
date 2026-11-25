@@ -1,0 +1,90 @@
+name: Measure new TEF Listening papers
+on:
+  pull_request:
+    branches: [development]
+    paths:
+      - 'curriculum/tef-listening-08-20/test-*.mjs'
+      - 'scripts/release/*tef-listening-08-20*'
+      - 'scripts/check-tef-listening-08-20-measured.mjs'
+      - 'scripts/check-tef-listening-source-match.mjs'
+      - '.github/workflows/tef-listening-09-20-media.yml'
+jobs:
+  measure:
+    if: github.head_ref == 'feature/tef-listening-08-20-final' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        test: [9,10,11,12,13,14,15,16,17,18,19,20]
+    concurrency:
+      group: tef-final-media-${{ matrix.test }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Inspect authored source and existing measured package
+        id: inspect
+        shell: bash
+        run: |
+          t=$(printf "%02d" "${{ matrix.test }}")
+          echo "test=$t" >> "$GITHUB_OUTPUT"
+          if [ ! -f "curriculum/tef-listening-08-20/test-$t.mjs" ]; then
+            echo "Test $t not yet authored"
+            echo "render=false" >> "$GITHUB_OUTPUT"
+          elif node scripts/check-tef-listening-source-match.mjs "$t" && node scripts/check-tef-listening-08-20-measured.mjs "$t"; then
+            echo "Test $t exact source and media already verified"
+            echo "render=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "render=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.inspect.outputs.render == 'true'
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        if: steps.inspect.outputs.render == 'true'
+        with:
+          python-version: '3.11'
+      - name: Install pinned voice runtime
+        if: steps.inspect.outputs.render == 'true'
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.8.0
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          mkdir -p "$RUNNER_TEMP/models"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/models" fr_FR-siwis-medium fr_FR-tom-medium
+      - name: Generate and validate original media
+        if: steps.inspect.outputs.render == 'true'
+        run: |
+          t="${{ steps.inspect.outputs.test }}"
+          node scripts/release/prepare-tef-listening-08-20.mjs "$t"
+          python scripts/release/render-tef-listening-08-20.py --models "$RUNNER_TEMP/models" --test "$t"
+          node scripts/check-tef-listening-source-match.mjs "$t"
+          node scripts/check-tef-listening-08-20-measured.mjs "$t"
+      - name: Stage only verified media for this paper
+        if: steps.inspect.outputs.render == 'true'
+        run: |
+          t="${{ steps.inspect.outputs.test }}"
+          branch="${{ github.head_ref }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "supabase/exams/tef-listening-test$t-v1.json" "assets/tef-listening/tef-listening-2026-11-test$t-v1"
+          if ! git diff --cached --quiet; then
+            git commit -m "Stage source-matched measured TEF Listening Test $t"
+            for retry in 1 2 3 4 5 6 7 8 9 10 11 12; do
+              git fetch origin "$branch"
+              git rebase "origin/$branch"
+              node scripts/check-tef-listening-source-match.mjs "$t"
+              node scripts/check-tef-listening-08-20-measured.mjs "$t"
+              if git push origin "HEAD:$branch"; then exit 0; fi
+              sleep "$retry"
+            done
+            exit 1
+          fi

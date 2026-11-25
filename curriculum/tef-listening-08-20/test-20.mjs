@@ -1,0 +1,679 @@
+/* Original Test 20 source with final measured duration adjustment. */
+export const clips = [
+  {
+    "start": 1,
+    "topic": "réglage d'un appareil de reliure",
+    "script": "— Les trous ne sont pas alignés avec la couverture du dossier.\n— Déplace le guide jusqu'au bord des feuilles et perfore une petite pile à la fois.\n— Je peux insérer les anneaux maintenant ?\n— Oui, ouvre-les avec le levier, puis place toutes les feuilles dans le bon ordre avant de refermer la reliure.",
+    "questions": [
+      {
+        "stem": "Quelle tâche réalise-t-on ?",
+        "correct": "Relier les feuilles d'un dossier.",
+        "wrong": [
+          "Plastifier une affiche.",
+          "Imprimer un livret.",
+          "Découper des étiquettes."
+        ],
+        "explanation": "Les feuilles perforées sont assemblées à l'aide d'anneaux de reliure.",
+        "illustrationIcons": [
+          "📓",
+          "📄",
+          "🖨️",
+          "🏷️"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 2,
+    "topic": "pose d’un autocollant sur une vitrine",
+    "script": "— Il y a encore plusieurs bulles sous le dessin. — Ne retire pas toute la feuille de protection d’un seul coup. Applique le motif progressivement en passant la raclette du centre vers les bords. — Je peux enlever le support transparent maintenant ? — Attends que le dessin adhère bien à la vitre, puis soulève-le lentement.",
+    "questions": [
+      {
+        "stem": "Quelle tâche est effectuée ?",
+        "correct": "Poser un motif adhésif sur une vitre.",
+        "wrong": [
+          "Nettoyer les traces sur une vitre.",
+          "Peindre une affiche en papier.",
+          "Remplacer une vitre cassée."
+        ],
+        "explanation": "La feuille de protection et la raclette servent à appliquer un motif adhésif.",
+        "illustrationIcons": [
+          "🪟",
+          "🧽",
+          "🎨",
+          "🔨"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 3,
+    "topic": "assemblage d’un moulin à vent décoratif",
+    "script": "— Les pales touchent le support quand elles tournent. — Déplace légèrement la petite rondelle pour créer un espace entre les deux pièces. — Je dois serrer davantage la vis ? — Non, l’axe doit rester libre de tourner. Nous le placerons ensuite dehors pour vérifier que les pales se mettent en mouvement quand le vent souffle.",
+    "questions": [
+      {
+        "stem": "Quel objet assemble-t-on ?",
+        "correct": "Un moulin à vent décoratif.",
+        "wrong": [
+          "Une horloge mécanique.",
+          "Une girouette fixe en métal.",
+          "Une lampe de jardin."
+        ],
+        "explanation": "Les pales tournent librement sous l’effet du vent.",
+        "illustrationIcons": [
+          "🌬️",
+          "🕰️",
+          "🧭",
+          "💡"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 4,
+    "topic": "préparation d’une boîte pour transporter un gâteau",
+    "script": "— Le fond est solide, mais les bords risquent de s’ouvrir quand je la porterai. — Replie les languettes dans les fentes et place le disque en carton au milieu. — Je pose directement le gâteau dessus ? — Oui, vérifie simplement qu’il ne touche pas les parois. Ensuite, ferme le couvercle sans appuyer sur la décoration.",
+    "questions": [
+      {
+        "stem": "Quel objet prépare-t-on ?",
+        "correct": "Une boîte de transport pour un gâteau.",
+        "wrong": [
+          "Un coffret pour ranger des bijoux.",
+          "Un emballage pour des livres.",
+          "Un panier pour des bouteilles."
+        ],
+        "explanation": "Le disque et les parois protègent le gâteau et sa décoration.",
+        "illustrationIcons": [
+          "🎂",
+          "💍",
+          "📚",
+          "🍾"
+        ]
+      }
+    ]
+  },
+  {
+    "start": 5,
+    "topic": "avis de fermeture d’un passage couvert",
+    "script": "Nous informons les usagers que le passage couvert reliant les deux bâtiments du centre administratif sera fermé demain en raison d’une intervention sur la toiture. Pour rejoindre le bâtiment B, il faudra sortir par l’entrée principale et suivre le chemin piéton indiqué par des panneaux orange. Les rendez-vous prévus dans les deux bâtiments sont maintenus. Les personnes qui ont besoin d’un accompagnement peuvent le demander à l’accueil.",
+    "questions": [
+      {
+        "stem": "Comment les usagers devront-ils rejoindre le bâtiment B ?",
+        "correct": "En empruntant un chemin extérieur signalé.",
+        "wrong": [
+          "En passant par le passage couvert habituel.",
+          "En attendant la fin des interventions.",
+          "En prenant rendez-vous dans un troisième bâtiment."
+        ],
+        "explanation": "Le passage est fermé et un itinéraire piéton extérieur est indiqué."
+      }
+    ]
+  },
+  {
+    "start": 6,
+    "topic": "information relative à une visite de jardins privés",
+    "script": "Les personnes inscrites à la découverte des jardins privés sont invitées à récupérer leur plan samedi au stand situé devant l’office de tourisme. Le document indique les jardins participant à l’opération et leurs heures d’ouverture. Certains propriétaires ne recevront des visiteurs que l’après-midi. Le billet permet de visiter autant de jardins que souhaité pendant la journée, mais il ne garantit pas l’accès à un jardin en dehors des horaires indiqués.",
+    "questions": [
+      {
+        "stem": "À quoi les visiteurs doivent-ils particulièrement faire attention ?",
+        "correct": "Aux horaires propres à chaque jardin.",
+        "wrong": [
+          "Au nombre maximal de jardins autorisés.",
+          "À la nécessité d’acheter un billet par jardin.",
+          "Aux conditions d’accès à l’office de tourisme."
+        ],
+        "explanation": "Chaque jardin peut avoir des horaires différents."
+      }
+    ]
+  },
+  {
+    "start": 7,
+    "topic": "annonce d’un spectacle de musique en plein air",
+    "script": "Le concert de ce soir est maintenu malgré les prévisions de pluie légère. Les musiciens se produiront sous le kiosque, mais les places assises initialement prévues devant la scène ne seront pas toutes abritées. Les spectateurs peuvent apporter un vêtement imperméable, mais les grands parapluies seront interdits pendant le concert afin de ne pas gêner la visibilité. En cas d’aggravation des conditions, une information sera diffusée à l’entrée du parc.",
+    "questions": [
+      {
+        "stem": "Quel objet ne sera pas autorisé pendant le concert ?",
+        "correct": "Un grand parapluie ouvert devant la scène.",
+        "wrong": [
+          "Un vêtement de protection contre la pluie.",
+          "Un billet acheté avant la représentation.",
+          "Un coussin destiné à une place assise."
+        ],
+        "explanation": "Les grands parapluies gêneraient la visibilité."
+      }
+    ]
+  },
+  {
+    "start": 8,
+    "topic": "consignes relatives à un échange de livres",
+    "script": "L’échange de livres organisé par le centre culturel aura lieu dimanche matin. Chaque participant pourra déposer jusqu’à cinq ouvrages en bon état et recevoir un ticket pour chacun d’eux. Les tickets permettront ensuite de choisir d’autres livres sur les tables. Il est possible de revenir plus tard dans la matinée pour les utiliser. Les ouvrages qui n’auront pas trouvé de nouveau lecteur seront proposés à une association, sauf demande contraire de leur propriétaire.",
+    "questions": [
+      {
+        "stem": "Que peut faire un participant après avoir déposé ses livres ?",
+        "correct": "Utiliser ses tickets plus tard dans la matinée.",
+        "wrong": [
+          "Choisir obligatoirement ses nouveaux livres immédiatement.",
+          "Déposer un nombre illimité d’ouvrages.",
+          "Revendre ses tickets au personnel du centre."
+        ],
+        "explanation": "Les tickets restent utilisables pendant la matinée."
+      }
+    ]
+  },
+  {
+    "start": 9,
+    "topic": "message d’un service de réparation d’appareils photographiques",
+    "script": "Bonjour, ici l’atelier photographique. Nous avons terminé le nettoyage de votre appareil. Nous avons toutefois remarqué une rayure sur le filtre que vous avez laissé devant l’objectif. Elle n’empêche pas l’appareil de fonctionner, mais elle peut apparaître sur certaines images prises face à la lumière. Nous n’avons pas remplacé le filtre sans votre accord. Vous pourrez venir comparer les résultats avec et sans ce filtre avant de décider.",
+    "questions": [
+      {
+        "stem": "Pourquoi l’atelier n’a-t-il pas changé le filtre ?",
+        "correct": "Le remplacement nécessite l’accord du client.",
+        "wrong": [
+          "La rayure est située sur une pièce irréparable.",
+          "Le nettoyage n’est pas encore terminé.",
+          "Les photographies sont impossibles sans filtre."
+        ],
+        "explanation": "L’atelier attend la décision du client."
+      }
+    ]
+  },
+  {
+    "start": 10,
+    "topic": "préparation d’une rencontre dans un club de jardinage",
+    "script": "Bonjour, je vous rappelle que la prochaine rencontre du club sera consacrée aux plantes qui poussent dans les endroits peu ensoleillés. Si vous souhaitez demander un conseil pour votre jardin, apportez une photographie de l’emplacement concerné et indiquez à quel moment de la journée il reçoit de la lumière. Il n’est pas nécessaire d’apporter les plantes elles-mêmes. Nous préparerons ensuite une liste de variétés adaptées aux situations présentées.",
+    "questions": [
+      {
+        "stem": "Que doit apporter une personne souhaitant un conseil personnalisé ?",
+        "correct": "Une photo du lieu et des indications sur son exposition.",
+        "wrong": [
+          "Un échantillon de terre et toutes ses plantes.",
+          "Une liste des variétés déjà cultivées par le club.",
+          "Un plan détaillé de l’ensemble de son quartier."
+        ],
+        "explanation": "La photo et les renseignements sur la lumière permettent d’évaluer le lieu."
+      }
+    ]
+  },
+  {
+    "start": 11,
+    "topic": "confirmation d’une inscription à une formation informatique",
+    "script": "Bonjour Monsieur Laurent. Nous avons bien reçu votre inscription à la formation sur les tableaux numériques. Vous pouvez apporter votre ordinateur personnel, mais ce n’est pas obligatoire puisque la salle est équipée. En revanche, si vous souhaitez travailler sur un document utilisé dans votre activité professionnelle, préparez-en une copie ne contenant aucune information confidentielle. Le formateur pourra vous aider à reproduire certaines opérations sans modifier le document original.",
+    "questions": [
+      {
+        "stem": "Quelle précaution est demandée pour les documents professionnels ?",
+        "correct": "Utiliser une copie débarrassée des informations confidentielles.",
+        "wrong": [
+          "Remettre le document original au formateur avant la séance.",
+          "Installer le logiciel uniquement sur un ordinateur personnel.",
+          "Éviter de travailler sur un exemple professionnel."
+        ],
+        "explanation": "Le document doit être une copie ne contenant pas d’informations confidentielles."
+      }
+    ]
+  },
+  {
+    "start": 12,
+    "topic": "message d’une association proposant des sorties culturelles",
+    "script": "Bonjour, c’est l’association Découvertes. Votre place pour la sortie de samedi est confirmée. Le restaurant où nous devions déjeuner étant fermé exceptionnellement, nous avons réservé un espace couvert près du lieu de visite. Chaque participant devra donc apporter son déjeuner. Nous vous rembourserons la somme prévue pour le repas lors du départ. Le transport, les visites et les horaires restent exactement ceux qui figurent sur votre confirmation.",
+    "questions": [
+      {
+        "stem": "Quelle modification concerne les participants ?",
+        "correct": "Ils devront prévoir leur propre déjeuner.",
+        "wrong": [
+          "Ils devront payer un supplément pour le transport.",
+          "La sortie se terminera avant le déjeuner.",
+          "Le lieu principal de visite sera différent."
+        ],
+        "explanation": "Le restaurant est fermé et le repas doit être apporté."
+      }
+    ]
+  },
+  {
+    "start": 13,
+    "topic": "aménagement d’espaces de jeux dans les parcs",
+    "script": "Dans le parc près de chez moi, les jeux pour les petits enfants sont regroupés dans un espace fermé. C’est rassurant, mais les parents qui accompagnent plusieurs enfants d’âges différents doivent parfois se déplacer entre des zones éloignées. J’aimerais que l’on rapproche certains jeux destinés aux plus grands, sans pour autant supprimer les protections adaptées aux petits. Les familles pourraient ainsi profiter du parc plus facilement.",
+    "questions": [
+      {
+        "stem": "Quelle évolution souhaite cette personne ?",
+        "correct": "Rapprocher les espaces de jeu destinés aux différents âges.",
+        "wrong": [
+          "Supprimer les protections autour des jeux pour petits enfants.",
+          "Réserver l’ensemble du parc aux familles nombreuses.",
+          "Installer les mêmes jeux pour tous les enfants."
+        ],
+        "explanation": "Elle propose de rapprocher les zones tout en conservant les protections nécessaires."
+      }
+    ]
+  },
+  {
+    "start": 14,
+    "topic": "organisation de permanences de réparation de petits objets",
+    "script": "Je participe à des permanences où l’on essaie de réparer de petits objets apportés par les habitants. Je trouve intéressant de montrer aux personnes ce qui a été fait, même quand la réparation échoue. Elles peuvent ainsi comprendre si une pièce manque ou si l’objet présente un défaut plus important. Il ne faudrait pas considérer toutes les tentatives sans résultat comme du temps perdu : elles peuvent aider à décider quoi faire ensuite.",
+    "questions": [
+      {
+        "stem": "Quelle idée défend cette personne ?",
+        "correct": "Une tentative de réparation peut rester utile même sans succès.",
+        "wrong": [
+          "Seules les réparations terminées devraient être expliquées.",
+          "Les objets difficiles à réparer devraient être refusés immédiatement.",
+          "Toutes les pièces manquantes devraient être commandées gratuitement."
+        ],
+        "explanation": "Comprendre la cause de l’échec aide à prendre une décision."
+      }
+    ]
+  },
+  {
+    "start": 15,
+    "topic": "utilisation de panneaux d’information lors de travaux",
+    "script": "Dans notre rue, des travaux sont prévus pendant plusieurs mois. Les panneaux indiquent la date de fin, mais celle-ci ne nous dit pas quand l’accès à certains commerces sera compliqué. Je préférerais recevoir des informations par étape, avec les rues concernées pendant la semaine suivante. Même si le calendrier doit changer, cela serait plus utile pour organiser mes déplacements qu’une date générale annoncée longtemps à l’avance.",
+    "questions": [
+      {
+        "stem": "Quel type d’information serait plus utile selon cette personne ?",
+        "correct": "Les perturbations prévues à court terme pour chaque secteur.",
+        "wrong": [
+          "La date définitive de la fin de tous les travaux.",
+          "Le budget consacré à chaque phase du chantier.",
+          "Le nombre de personnes employées sur le chantier."
+        ],
+        "explanation": "Les informations par étape facilitent les déplacements quotidiens."
+      }
+    ]
+  },
+  {
+    "start": 16,
+    "topic": "présentation des menus dans les cafés associatifs",
+    "script": "Dans le café associatif où je vais, les plats proposés varient selon les produits disponibles et les personnes présentes en cuisine. J’aime cette diversité, mais certains visiteurs hésitent à entrer lorsqu’ils ne savent pas ce qu’ils pourront commander. Un petit tableau placé à l’extérieur et actualisé au début du service me semblerait suffisant. On pourrait conserver une carte souple sans obliger les clients à demander chaque fois les mêmes renseignements.",
+    "questions": [
+      {
+        "stem": "Quelle solution propose-t-elle ?",
+        "correct": "Afficher les plats disponibles au moment du service.",
+        "wrong": [
+          "Adopter une carte identique pendant toute l’année.",
+          "Exiger une réservation avant de préparer les plats.",
+          "Réduire le nombre de personnes participant à la cuisine."
+        ],
+        "explanation": "Un tableau actualisé indique ce qui est réellement proposé."
+      }
+    ]
+  },
+  {
+    "start": 17,
+    "topic": "participation à des réunions en format hybride",
+    "script": "Dans mon association, certaines réunions réunissent des participants sur place et d’autres à distance. Souvent, ceux qui suivent depuis leur ordinateur entendent les interventions principales mais pas les petites discussions qui se déroulent dans la salle. Je proposerais qu’une personne soit chargée de reformuler brièvement les questions posées avant que quelqu’un y réponde. Cela aiderait tout le monde à suivre sans nécessairement acheter de nouveaux équipements.",
+    "questions": [
+      {
+        "stem": "Quelle amélioration souhaite cette personne ?",
+        "correct": "Reformuler les questions pour que les participants à distance puissent les suivre.",
+        "wrong": [
+          "Organiser toutes les réunions uniquement à distance.",
+          "Empêcher les personnes présentes de poser des questions.",
+          "Remplacer les réunions par des comptes rendus écrits."
+        ],
+        "explanation": "La reformulation rend les échanges audibles et compréhensibles pour tous."
+      }
+    ]
+  },
+  {
+    "start": 18,
+    "topic": "information sur les horaires de fréquentation des marchés",
+    "script": "J’aime acheter mes légumes au marché, mais je préfère éviter les moments où les allées sont très encombrées. Les sites Internet indiquent les heures d’ouverture, sans donner d’indication sur la fréquentation habituelle. Quelques repères, fondés sur les observations des commerçants, m’aideraient à choisir un moment plus calme. Je sais bien que cela ne peut pas être une prévision exacte, mais une tendance générale serait déjà utile.",
+    "questions": [
+      {
+        "stem": "Quel renseignement aimerait-elle obtenir ?",
+        "correct": "Les périodes généralement moins fréquentées.",
+        "wrong": [
+          "Le nombre exact de visiteurs présents à chaque minute.",
+          "Les prix pratiqués par tous les commerçants.",
+          "Les horaires individuels de chaque stand."
+        ],
+        "explanation": "Elle souhaite une tendance de fréquentation, pas une mesure exacte."
+      }
+    ]
+  },
+  {
+    "start": 19,
+    "topic": "choix d’un parcours pour une visite libre de quartier",
+    "script": "Quand je découvre un quartier à pied, je n’ai pas toujours envie de suivre le circuit touristique dans l’ordre proposé. J’aimerais disposer de courtes promenades thématiques que je pourrais associer selon mon temps disponible. Une personne intéressée par l’architecture ne choisira pas forcément les mêmes rues qu’une personne cherchant des ateliers d’artisans. Le plan devrait aider à composer un parcours, plutôt qu’imposer un trajet unique.",
+    "questions": [
+      {
+        "stem": "Quel type de plan cette personne préférerait-elle ?",
+        "correct": "Un plan permettant de combiner des itinéraires thématiques.",
+        "wrong": [
+          "Un circuit unique couvrant tous les monuments.",
+          "Un plan ne présentant que les commerces artisanaux.",
+          "Une visite guidée à un horaire fixé."
+        ],
+        "explanation": "Elle souhaite construire librement un itinéraire à partir de thèmes."
+      }
+    ]
+  },
+  {
+    "start": 20,
+    "topic": "organisation des achats groupés dans une résidence",
+    "script": "Dans notre résidence, plusieurs habitants commandent ensemble certains produits pour réduire les frais de livraison. Le problème, c’est qu’il faut parfois avancer une somme importante avant de connaître le nombre définitif de participants. Je préférerais fixer une date limite de confirmation, puis annoncer le montant à payer à chacun avant de passer la commande. Les personnes intéressées sauraient ainsi exactement à quoi elles s’engagent, et l’organisateur n’aurait pas à avancer trop d’argent.",
+    "questions": [
+      {
+        "stem": "Quelle mesure est proposée ?",
+        "correct": "Confirmer les participations et les montants avant la commande.",
+        "wrong": [
+          "Passer les commandes avant de consulter les habitants.",
+          "Fixer un prix identique quel que soit le nombre de participants.",
+          "Demander à un seul habitant de financer toutes les livraisons."
+        ],
+        "explanation": "La confirmation préalable clarifie les engagements financiers."
+      }
+    ]
+  },
+  {
+    "start": 21,
+    "topic": "étude des effets de la lumière sur la conservation des photographies",
+    "script": "Une équipe spécialisée dans la conservation de photographies a comparé les modifications observées sur plusieurs types de tirages exposés à la lumière. Les premiers résultats indiquent que les réactions varient selon les procédés de fabrication et l’état initial des documents. Les chercheurs soulignent également que deux photographies présentées pendant une durée identique peuvent recevoir des quantités de lumière très différentes selon leur emplacement. Ils recommandent donc de suivre les conditions d’exposition effectives plutôt que de définir une durée maximale unique pour toutes les pièces. Des essais seront poursuivis sur des documents représentatifs des différentes collections, afin d’adapter les recommandations sans rendre inutilement difficile la présentation publique des photographies.",
+    "questions": [
+      {
+        "stem": "Pourquoi une durée d’exposition identique ne suffit-elle pas comme critère ?",
+        "correct": "Les photographies peuvent recevoir des doses de lumière et réagir différemment.",
+        "wrong": [
+          "Les tirages exposés ne peuvent pas être comparés entre eux.",
+          "Les salles d’exposition utilisent toujours des éclairages identiques.",
+          "Les photographies anciennes réagissent toutes de la même façon."
+        ],
+        "explanation": "La dose lumineuse dépend de l’emplacement et les procédés influencent la réaction."
+      }
+    ]
+  },
+  {
+    "start": 22,
+    "topic": "analyse de l’efficacité de systèmes de prêt de batteries portables",
+    "script": "Un réseau de lieux publics a expérimenté le prêt de batteries portables destinées aux visiteurs dont le téléphone n’a plus suffisamment d’autonomie. Les premiers bilans se fondaient sur le nombre de prêts, mais les responsables ont constaté que certaines batteries restaient immobilisées longtemps sans être utilisées. Ils envisagent donc de mieux préciser les possibilités de restitution dans différents lieux et de rappeler aux utilisateurs les conditions de retour. L’objectif n’est pas de réduire systématiquement la durée des prêts, car certains visiteurs en ont besoin pendant plusieurs heures. Le prochain bilan distinguera la disponibilité réelle des appareils, la satisfaction des utilisateurs et les opérations nécessaires à leur entretien.",
+    "questions": [
+      {
+        "stem": "Quel objectif guide les modifications proposées ?",
+        "correct": "Améliorer la disponibilité sans ignorer la diversité des besoins.",
+        "wrong": [
+          "Réduire tous les prêts à une durée identique.",
+          "Remplacer les batteries par des téléphones de prêt.",
+          "Augmenter le nombre de prêts sans examiner les restitutions."
+        ],
+        "explanation": "Les responsables souhaitent limiter l’immobilisation inutile tout en respectant les besoins."
+      }
+    ]
+  },
+  {
+    "start": 23,
+    "topic": "étude des conditions de transmission des techniques de fabrication de papier",
+    "script": "— Votre atelier conserve des techniques de fabrication manuelle de papier. Comment les enseignez-vous aux personnes qui débutent ?\n— Nous commençons par leur montrer comment préparer les fibres et former une feuille, mais nous insistons aussi sur les variations possibles. Les matières premières ne présentent pas toujours les mêmes caractéristiques. Une méthode qui donne un résultat satisfaisant avec une préparation peut nécessiter un ajustement avec une autre.\n— Les participants disposent-ils d’instructions écrites ?\n— Oui, elles permettent de retrouver les étapes et de comprendre les principes. Cependant, certaines informations sont difficiles à transmettre uniquement par écrit. Par exemple, les participants doivent apprendre à observer la manière dont les fibres se répartissent dans l’eau et à reconnaître quand la feuille formée peut être déplacée.\n— Comment développez-vous cette capacité d’observation ?\n— Nous comparons plusieurs essais. Nous demandons aux participants de modifier un élément à la fois et d’examiner ce que cela change. Une feuille présentant un défaut peut être particulièrement intéressante pour comprendre un phénomène. Elle n’est pas nécessairement jetée immédiatement.\n— Faut-il reproduire exactement les techniques anciennes ?\n— Nous documentons les pratiques historiques lorsque nous disposons d’informations fiables. Mais les ateliers actuels utilisent parfois des matériaux ou des équipements différents. Il est important de préciser les adaptations réalisées plutôt que de présenter chaque démonstration comme une reproduction parfaite du passé.\n— Comment choisissez-vous les activités destinées au public ?\n— Nous distinguons les séances de découverte, qui permettent de comprendre quelques opérations, et les formations plus longues, qui développent une pratique autonome. Les visiteurs n’ont pas tous les mêmes attentes. Nous souhaitons éviter de promettre une maîtrise complète à l’issue d’une courte séance.\n— Quel serait un résultat satisfaisant pour vous ?\n— Que les participants puissent expliquer leurs choix et continuer à expérimenter avec méthode. La conservation d’un savoir-faire implique aussi de transmettre les moyens de l’adapter à de nouvelles situations.\n— Les participants conservent-ils les feuilles réalisées pendant les essais ?\n— Nous leur conseillons de conserver des exemples annotés pour comparer leurs prochains essais.",
+    "questions": [
+      {
+        "stem": "Pourquoi comparer plusieurs essais pendant la formation ?",
+        "correct": "Pour comprendre les effets des variations apportées au procédé.",
+        "wrong": [
+          "Pour déterminer un modèle unique de feuille à reproduire.",
+          "Pour sélectionner uniquement les feuilles sans défaut.",
+          "Pour remplacer l’observation par des instructions écrites."
+        ],
+        "explanation": "Les modifications sont examinées une par une pour en comprendre les effets."
+      },
+      {
+        "stem": "Quelle précaution l’intervenant prend-il concernant les techniques historiques ?",
+        "correct": "Il distingue les pratiques documentées des adaptations actuelles.",
+        "wrong": [
+          "Il impose les matériaux anciens à tous les participants.",
+          "Il considère toute démonstration comme une reproduction fidèle.",
+          "Il limite les activités aux techniques dont aucun détail n’a changé."
+        ],
+        "explanation": "Les adaptations doivent être explicitées."
+      }
+    ]
+  },
+  {
+    "start": 25,
+    "topic": "organisation du suivi des équipements dans les petits laboratoires",
+    "script": "— Vous conseillez des laboratoires qui souhaitent mieux organiser l’entretien de leurs équipements. Pourquoi les calendriers de maintenance habituels sont-ils parfois insuffisants ?\n— Ils sont nécessaires, mais ils ne rendent pas toujours compte des conditions réelles d’utilisation. Deux appareils identiques peuvent être utilisés à des fréquences très différentes ou dans des environnements qui sollicitent certains composants de manière particulière.\n— Faut-il donc contrôler chaque équipement en permanence ?\n— Ce serait rarement pertinent. Nous cherchons à définir les informations utiles en fonction du rôle de l’équipement et des conséquences possibles d’un dysfonctionnement. Certains contrôles peuvent être intégrés aux opérations ordinaires, tandis que d’autres nécessitent une intervention spécialisée.\n— Que faites-vous des problèmes signalés par les utilisateurs ?\n— Nous leur demandons de décrire les circonstances de l’apparition du problème, plutôt que simplement indiquer que l’appareil fonctionne mal. Ces précisions aident à distinguer une anomalie liée à un réglage d’un défaut qui nécessite une vérification technique.\n— Avez-vous proposé un outil numérique commun ?\n— Oui, mais nous avons commencé par définir les informations que les équipes devaient partager. Un outil très complet peut être peu utile si personne ne sait quelles données doivent être enregistrées ni qui doit les examiner. Nous évitons également de demander des saisies répétitives qui n’entraînent aucune décision.\n— Comment répartissez-vous les responsabilités ?\n— Les utilisateurs doivent connaître les vérifications qu’ils peuvent effectuer dans le cadre de leur activité. Les interventions qui dépassent leurs compétences restent confiées aux personnes qualifiées. Nous accordons aussi de l’importance à la transmission des informations lorsque plusieurs équipes utilisent un même appareil.\n— Que souhaitez-vous mesurer après la mise en place de cette organisation ?\n— Les interruptions évitables, bien sûr, mais aussi la qualité des informations disponibles lorsqu’un problème survient. Une intervention peut être mieux préparée grâce à un historique clair. Nous ne cherchons pas uniquement à diminuer le nombre d’opérations de maintenance, mais à les rendre plus pertinentes.\n— Les équipes peuvent-elles modifier les informations demandées ?\n— Oui, lorsque les besoins évoluent. Nous évitons les saisies devenues inutiles.",
+    "questions": [
+      {
+        "stem": "Pourquoi tenir compte des conditions réelles d’utilisation des appareils ?",
+        "correct": "Des équipements identiques peuvent subir des sollicitations différentes.",
+        "wrong": [
+          "Les calendriers de maintenance doivent être supprimés pour tous les équipements.",
+          "Les appareils utilisés fréquemment ne nécessitent aucun contrôle.",
+          "Les utilisateurs doivent assurer toutes les interventions spécialisées."
+        ],
+        "explanation": "Le rythme et l’environnement d’utilisation influencent les besoins de suivi."
+      },
+      {
+        "stem": "Quel principe guide la conception de l’outil numérique ?",
+        "correct": "Définir d’abord les informations utiles et leur utilisation.",
+        "wrong": [
+          "Enregistrer toutes les données possibles indépendamment de leur utilité.",
+          "Confier à chaque utilisateur les décisions de maintenance spécialisée.",
+          "Remplacer l’ensemble des contrôles techniques par un historique numérique."
+        ],
+        "explanation": "L’outil doit servir une organisation claire et des décisions concrètes."
+      }
+    ]
+  },
+  {
+    "start": 27,
+    "topic": "conception de programmes de découverte des métiers maritimes",
+    "script": "— Vous organisez des activités pour faire découvrir les métiers maritimes à des personnes qui envisagent une orientation professionnelle. Comment choisissez-vous les contenus ?\n— Nous essayons de montrer plusieurs environnements de travail, car les métiers maritimes ne se limitent pas à la navigation. Certaines activités se déroulent dans des ateliers, dans des bureaux ou sur des installations portuaires. Les conditions d’exercice varient considérablement.\n— Les visites sur place constituent-elles l’essentiel du programme ?\n— Elles sont utiles, mais elles doivent être préparées. Si un participant observe seulement une opération très spécialisée, il peut avoir du mal à comprendre le rôle de cette opération dans l’ensemble du travail. Nous proposons quelques repères avant la rencontre et des échanges après celle-ci.\n— Les professionnels présentent-ils toujours les aspects difficiles de leur métier ?\n— Nous leur demandons de parler aussi des contraintes, par exemple des horaires, des déplacements ou des compétences nécessaires pour travailler avec d’autres équipes. Il ne s’agit pas de décourager les participants, mais de leur permettre de se faire une idée réaliste des activités.\n— Certains métiers sont difficiles à observer directement. Comment procédez-vous ?\n— Nous utilisons des témoignages, des simulations ou des objets servant de support à une discussion. Ces activités ne remplacent pas totalement l’expérience du terrain, mais elles peuvent préparer des questions plus précises lors d’une visite ultérieure.\n— Est-ce que chaque participant doit choisir un métier à la fin du programme ?\n— Non. Certaines personnes découvrent un intérêt pour un secteur, d’autres comprennent qu’une activité ne correspond pas à leurs attentes. Ces deux résultats peuvent être utiles. Nous souhaitons surtout que les participants sachent quelles informations rechercher ensuite.\n— Comment évaluez-vous votre travail ?\n— Nous recueillons leurs questions avant et après le programme. Nous observons si elles deviennent plus précises et si les participants identifient des démarches adaptées à leur situation. Le nombre d’inscriptions à une formation maritime n’est donc pas notre seul indicateur de réussite.\n— Les participants rencontrent-ils des personnes en formation ?\n— Lorsque c'est possible, leurs témoignages complètent ceux des professionnels. Ils permettent de mieux comprendre les étapes d'apprentissage.",
+    "questions": [
+      {
+        "stem": "Pourquoi préparer les participants avant les visites ?",
+        "correct": "Pour leur permettre de situer les opérations observées dans leur contexte.",
+        "wrong": [
+          "Pour vérifier qu’ils possèdent déjà toutes les compétences techniques.",
+          "Pour choisir définitivement leur future spécialité.",
+          "Pour limiter les échanges avec les professionnels rencontrés."
+        ],
+        "explanation": "Une opération spécialisée est difficile à comprendre sans repères préalables."
+      },
+      {
+        "stem": "Quel résultat est considéré comme utile même sans inscription à une formation ?",
+        "correct": "Mieux comprendre ses attentes et identifier les informations à rechercher.",
+        "wrong": [
+          "Retenir toutes les caractéristiques des installations portuaires.",
+          "Choisir nécessairement un métier exercé en mer.",
+          "Réaliser seul une opération spécialisée pendant la visite."
+        ],
+        "explanation": "Le programme vise une orientation mieux informée, pas uniquement des inscriptions."
+      }
+    ]
+  },
+  {
+    "start": 29,
+    "topic": "expérimentation d’un service de transport de produits agricoles entre exploitations et cantines",
+    "script": "Des collectivités et des exploitations agricoles d’une même région ont décidé d’étudier une organisation commune du transport de produits destinés aux cantines scolaires. Les premières propositions reposaient sur un véhicule qui passerait dans chaque exploitation avant de rejoindre les établissements. Cependant, l’étude des horaires a montré que les contraintes étaient très différentes selon les produits et les périodes de l’année. Certains légumes peuvent être préparés à l’avance, alors que d’autres marchandises nécessitent des conditions de conservation précises. Les responsables ont donc choisi de commencer par un nombre limité de tournées, en sélectionnant les produits compatibles avec les équipements disponibles. Les cantines participantes ont également été invitées à préciser leurs capacités de stockage et les jours où elles pouvaient réceptionner les marchandises. Une attention particulière sera accordée aux commandes modifiées tardivement : une variation faible pour une cantine peut entraîner un changement important dans l’organisation d’une exploitation ou d’une tournée. Les partenaires expérimenteront des outils permettant de confirmer les volumes à des dates convenues, sans imposer un calendrier identique à tous les produits. Le bilan ne portera pas seulement sur la réduction des kilomètres parcourus. Il examinera également le temps consacré à la préparation des commandes, la fiabilité des livraisons et les pertes de marchandises. Les collectivités souhaitent déterminer si l’organisation commune apporte un bénéfice à l’ensemble des participants, plutôt que déplacer certaines charges d’un acteur vers un autre. Si les résultats sont satisfaisants, de nouveaux établissements pourront rejoindre le dispositif progressivement, à condition que les moyens de transport et les capacités de réception restent adaptés.\nLes partenaires compareront aussi les solutions proposées selon la saison. Les volumes disponibles peuvent varier alors que les besoins des établissements restent relativement réguliers. Les essais serviront à déterminer quels ajustements de calendrier peuvent être envisagés sans compromettre l'organisation des cuisines.",
+    "questions": [
+      {
+        "stem": "Pourquoi le dispositif commence-t-il par un nombre limité de tournées ?",
+        "correct": "Les contraintes de conservation et de préparation diffèrent selon les produits.",
+        "wrong": [
+          "Les cantines ont toutes demandé une diminution de leurs commandes.",
+          "Les exploitations ne souhaitent travailler qu’avec un seul établissement.",
+          "Les responsables ont déjà conclu que tous les produits sont compatibles."
+        ],
+        "explanation": "Le projet sélectionne d’abord les produits compatibles avec les moyens disponibles."
+      },
+      {
+        "stem": "Quelle précaution les collectivités prennent-elles dans leur évaluation ?",
+        "correct": "Vérifier que les gains ne correspondent pas à un simple transfert de charges.",
+        "wrong": [
+          "Mesurer uniquement le nombre de kilomètres parcourus.",
+          "Écarter les coûts liés à la préparation des commandes.",
+          "Élargir le dispositif avant d’examiner sa fiabilité."
+        ],
+        "explanation": "L’évaluation doit tenir compte de l’ensemble des acteurs et des contraintes."
+      }
+    ]
+  },
+  {
+    "start": 31,
+    "topic": "comparaison de dispositifs de protection des fenêtres dans les bâtiments scolaires",
+    "script": "Une commune a comparé plusieurs dispositifs destinés à réduire l’échauffement des salles de classe exposées au soleil. Les premiers essais ont porté sur la température intérieure, mais les enseignants ont signalé que certaines protections réduisaient fortement la lumière nécessaire aux activités. Les responsables vont donc compléter les mesures par des observations concernant l’éclairage, l’ouverture des fenêtres et l’utilisation quotidienne des salles. Ils souhaitent examiner les possibilités de réglage plutôt que choisir un dispositif fixe identique pour tous les bâtiments. Les résultats seront interprétés selon l’orientation des façades et les horaires d’occupation. L’objectif est d’améliorer les conditions de travail sans créer de nouvelles contraintes qui obligeraient à compenser systématiquement par d’autres équipements. Les essais tiendront aussi compte de la possibilité d'utiliser les protections pendant les périodes où les salles restent inoccupées. Les responsables pourront ainsi comparer plusieurs modes de gestion.",
+    "questions": [
+      {
+        "stem": "Quel facteur doit être ajouté aux comparaisons ?",
+        "correct": "Les effets sur l’éclairage et l’usage quotidien des salles.",
+        "wrong": [
+          "Le prix des fenêtres avant leur installation uniquement.",
+          "Le nombre d’enseignants présents dans chaque établissement.",
+          "La température extérieure indépendamment de l’orientation."
+        ],
+        "explanation": "Les protections peuvent diminuer la lumière utile aux activités."
+      }
+    ]
+  },
+  {
+    "start": 32,
+    "topic": "organisation des retours d’expérience dans les équipes de maintenance",
+    "script": "Une entreprise a mis en place des réunions destinées à examiner les interventions de maintenance réalisées au cours du mois. Au début, les échanges portaient surtout sur les pannes ayant provoqué des interruptions importantes. Les responsables ont constaté que certaines petites difficultés répétées contenaient également des informations utiles pour améliorer l’organisation du travail. Ils ont donc introduit un format permettant de signaler des situations ordinaires, en précisant leur fréquence et les solutions provisoires utilisées. Les réunions ne doivent pas devenir une liste exhaustive de tous les incidents. L’entreprise souhaite sélectionner des situations pouvant déboucher sur une action concrète ou une modification des consignes, puis vérifier si les changements apportés produisent effectivement les résultats attendus.",
+    "questions": [
+      {
+        "stem": "Quelle évolution est prévue dans les réunions ?",
+        "correct": "Examiner aussi les difficultés récurrentes susceptibles de conduire à des améliorations.",
+        "wrong": [
+          "Limiter les échanges aux pannes ayant causé de longues interruptions.",
+          "Recenser tous les incidents sans sélectionner ceux à traiter.",
+          "Supprimer l’évaluation des modifications mises en œuvre."
+        ],
+        "explanation": "Les petites difficultés répétées peuvent révéler des améliorations possibles."
+      }
+    ]
+  },
+  {
+    "start": 33,
+    "topic": "analyse de l’usage de plans simplifiés dans les établissements de soins",
+    "script": "Un établissement de soins a testé des plans simplifiés pour aider les visiteurs à rejoindre différents services. Les premiers essais ont montré que la suppression de nombreux détails rendait les plans plus faciles à lire, mais que certains visiteurs perdaient leurs repères lorsqu’ils devaient changer d’étage. Les concepteurs souhaitent donc ajouter des indications spécifiques aux moments où le parcours se modifie, notamment près des escaliers et des ascenseurs. Ils ne prévoient pas de réintroduire toutes les informations qui figuraient auparavant sur les plans. Les prochaines observations porteront sur les difficultés rencontrées à chaque étape du déplacement. Le projet vise à identifier les détails réellement utiles à l’orientation, en fonction des décisions que les visiteurs doivent prendre.",
+    "questions": [
+      {
+        "stem": "Quelle orientation les concepteurs retiennent-ils ?",
+        "correct": "Ajouter des repères ciblés aux étapes où l’orientation devient difficile.",
+        "wrong": [
+          "Rétablir l’intégralité des anciens plans détaillés.",
+          "Supprimer les indications concernant les différents étages.",
+          "Créer un plan identique pour tous les bâtiments de l’établissement."
+        ],
+        "explanation": "Les repères supplémentaires doivent correspondre aux décisions de déplacement."
+      }
+    ]
+  },
+  {
+    "start": 34,
+    "topic": "évaluation de dispositifs de prêt de matériel pour les activités de plein air",
+    "script": "Une collectivité a ouvert un service de prêt de matériel destiné aux activités de plein air. Les premiers bilans indiquaient une forte demande pour certains équipements, ce qui semblait justifier l’achat de nouveaux exemplaires. Toutefois, une analyse des réservations a montré que plusieurs demandes concernaient des périodes où le matériel était déjà immobilisé en raison de retours tardifs ou de vérifications techniques. Les responsables souhaitent améliorer la disponibilité des équipements existants avant d’élargir leur parc. Ils prévoient notamment de clarifier les horaires de restitution et d’organiser plus efficacement les contrôles nécessaires. Le prochain bilan comparera les demandes non satisfaites aux causes réelles d’indisponibilité, afin de distinguer un manque d’équipement d’un problème d’organisation.",
+    "questions": [
+      {
+        "stem": "Pourquoi les responsables reportent-ils certains achats ?",
+        "correct": "L’indisponibilité peut provenir du fonctionnement du service plutôt que du nombre d’équipements.",
+        "wrong": [
+          "La demande de matériel a disparu depuis l’ouverture du service.",
+          "Les contrôles techniques doivent être définitivement supprimés.",
+          "Les utilisateurs ont demandé de réduire le choix des équipements."
+        ],
+        "explanation": "Les retours tardifs et vérifications peuvent immobiliser le matériel."
+      }
+    ]
+  },
+  {
+    "start": 35,
+    "topic": "analyse des conditions de réussite des ateliers de fabrication de meubles",
+    "script": "Un organisme de formation a comparé plusieurs ateliers au cours desquels des participants fabriquent un petit meuble. Les premières évaluations reposaient principalement sur la qualité de l’objet terminé. Les formateurs ont cependant remarqué que certains participants obtenaient un résultat satisfaisant après avoir suivi exactement des instructions, sans pouvoir expliquer les choix réalisés. Le programme intégrera donc des activités où les participants devront adapter certaines dimensions ou sélectionner un assemblage à partir de contraintes simples. Les formateurs continueront à vérifier la qualité et la sécurité des réalisations. Ils souhaitent également évaluer la capacité à transférer les connaissances vers un projet différent, plutôt que de considérer la fabrication réussie d’un seul objet comme une preuve suffisante de maîtrise.",
+    "questions": [
+      {
+        "stem": "Quelle compétence les nouvelles activités visent-elles à développer ?",
+        "correct": "Adapter les connaissances et les choix techniques à d’autres projets.",
+        "wrong": [
+          "Reproduire un modèle identique sans examiner les contraintes.",
+          "Terminer chaque meuble plus rapidement que les autres participants.",
+          "Supprimer les vérifications de la qualité de l’objet."
+        ],
+        "explanation": "La formation veut développer le transfert des acquis."
+      }
+    ]
+  },
+  {
+    "start": 36,
+    "topic": "étude des causes d’abandon de démarches de réservation en ligne",
+    "script": "Un service culturel a analysé les démarches de réservation commencées sur son site mais non terminées. Les responsables avaient d’abord interprété ces abandons comme un signe de difficultés techniques. Des entretiens avec les visiteurs ont montré que certaines personnes interrompaient volontairement la démarche pour vérifier leurs disponibilités ou demander l’avis d’un accompagnant. D’autres ne comprenaient pas certaines informations sur les conditions d’annulation. Le service souhaite donc distinguer les différentes situations avant de modifier son site. Il envisage notamment de permettre de retrouver facilement une réservation commencée et de mieux expliquer les conditions applicables. L’objectif est de faciliter les décisions sans chercher systématiquement à pousser les utilisateurs à confirmer plus rapidement leur achat.",
+    "questions": [
+      {
+        "stem": "Pourquoi les abandons ne sont-ils plus interprétés de manière uniforme ?",
+        "correct": "Ils peuvent résulter de décisions normales ou de difficultés différentes.",
+        "wrong": [
+          "Ils sont tous provoqués par des erreurs du système de paiement.",
+          "Ils concernent uniquement les visiteurs ayant déjà acheté un billet.",
+          "Ils montrent que les conditions d’annulation sont toujours comprises."
+        ],
+        "explanation": "Les entretiens révèlent des raisons diverses, techniques ou non."
+      }
+    ]
+  },
+  {
+    "start": 37,
+    "topic": "organisation de la collecte des informations pour l’entretien des chemins de randonnée",
+    "script": "Une association chargée d’entretenir des chemins de randonnée reçoit régulièrement des signalements concernant l’état des parcours. Les messages contiennent parfois des descriptions très précises, mais certains indiquent seulement qu’un chemin est difficile à emprunter. L’association souhaite proposer une méthode simple pour préciser le lieu, le type de difficulté et les conditions rencontrées. Elle rappelle qu’un passage boueux après de fortes pluies ne nécessite pas forcément les mêmes interventions qu’un obstacle permanent. Les informations recueillies seront examinées avec les observations des équipes d’entretien avant de fixer les priorités. Le projet vise à mieux orienter les interventions, sans considérer automatiquement chaque signalement comme une demande de travaux immédiats.",
+    "questions": [
+      {
+        "stem": "Quelle distinction doit guider l’analyse des signalements ?",
+        "correct": "Les difficultés temporaires et les problèmes qui nécessitent une intervention durable.",
+        "wrong": [
+          "Les randonneurs débutants et les randonneurs expérimentés uniquement.",
+          "Les chemins situés près des villes et ceux situés loin des habitations.",
+          "Les messages courts et les messages rédigés par des professionnels."
+        ],
+        "explanation": "Le contexte permet de distinguer une difficulté ponctuelle d’un obstacle durable."
+      }
+    ]
+  },
+  {
+    "start": 38,
+    "topic": "évaluation des modalités de présentation des tarifs dans les services de location",
+    "script": "Une entreprise de location de matériel a testé plusieurs façons de présenter ses tarifs. Le premier format indiquait un prix de base, auquel s’ajoutaient des montants pour les prestations facultatives. Le second permettait de consulter plusieurs exemples de coût total selon l’usage prévu. Les clients interrogés ont apprécié ces exemples, notamment lorsqu’ils découvraient le service. Cependant, les responsables souhaitent conserver l’accès aux prix détaillés afin que les personnes connaissant déjà leurs besoins puissent comparer les options. Ils prévoient donc de combiner les deux formes de présentation. L’évaluation portera sur la compréhension des montants à payer et sur la fréquence des demandes de clarification, plutôt que sur la seule rapidité de lecture du tarif affiché.",
+    "questions": [
+      {
+        "stem": "Quelle présentation l’entreprise envisage-t-elle ?",
+        "correct": "Associer des exemples de coût total à des tarifs détaillés.",
+        "wrong": [
+          "Supprimer les prix de base au profit d’un tarif unique.",
+          "Réserver les exemples aux clients connaissant déjà le service.",
+          "Afficher les prestations facultatives sans leur prix."
+        ],
+        "explanation": "Les exemples et les détails répondent à des besoins complémentaires."
+      }
+    ]
+  },
+  {
+    "start": 39,
+    "topic": "étude de la répartition des demandes d’aide dans les ateliers numériques",
+    "script": "Des ateliers numériques ouverts au public ont analysé les demandes d’aide reçues pendant plusieurs mois. Les premières statistiques classaient les demandes selon les logiciels concernés, mais les animateurs ont constaté que certaines difficultés se retrouvaient dans des activités très différentes. Il s’agissait notamment de retrouver un fichier, de comprendre un message d’erreur ou de distinguer une information enregistrée localement d’une information disponible en ligne. Les responsables souhaitent donc compléter leur classement par des compétences transversales. Ils pourront proposer de courts ateliers centrés sur ces difficultés, tout en conservant l’accompagnement individuel pour les situations particulières. Le projet doit permettre de répondre à des besoins communs sans supposer que tous les participants utilisent les mêmes outils ni progressent au même rythme.",
+    "questions": [
+      {
+        "stem": "Quel intérêt présente le nouveau classement ?",
+        "correct": "Identifier des difficultés communes à plusieurs usages numériques.",
+        "wrong": [
+          "Répartir les participants selon le seul logiciel qu’ils utilisent.",
+          "Remplacer toutes les demandes individuelles par des formations obligatoires.",
+          "Éliminer les activités utilisant plusieurs logiciels différents."
+        ],
+        "explanation": "Les compétences transversales apparaissent dans des activités variées."
+      }
+    ]
+  },
+  {
+    "start": 40,
+    "topic": "comparaison de méthodes de préparation des rencontres entre producteurs et consommateurs",
+    "script": "Un réseau de producteurs organise des rencontres permettant aux consommateurs de poser des questions sur les conditions de fabrication des produits. Lors des premières rencontres, les échanges commençaient par une présentation générale de chaque exploitation. Les organisateurs ont constaté que certains visiteurs souhaitaient plutôt comprendre des points précis, mais n’osaient pas intervenir devant tout le groupe. Une nouvelle formule prévoit de recueillir des questions avant la rencontre et d’organiser quelques échanges en petits groupes. Les présentations générales seront conservées, car elles donnent des repères utiles aux personnes qui découvrent les activités. Le prochain bilan examinera si cette organisation facilite la formulation de questions et la compréhension des réponses, sans obliger les producteurs à préparer des présentations entièrement différentes pour chaque visiteur.",
+    "questions": [
+      {
+        "stem": "Quel objectif poursuivent les organisateurs avec la nouvelle formule ?",
+        "correct": "Faciliter les questions précises tout en conservant des repères généraux.",
+        "wrong": [
+          "Supprimer les présentations permettant de découvrir les exploitations.",
+          "Réserver les échanges aux consommateurs déjà bien informés.",
+          "Préparer une présentation individuelle pour chaque visiteur."
+        ],
+        "explanation": "La formule associe questions préparées, petits groupes et présentation commune."
+      }
+    ]
+  }
+];
