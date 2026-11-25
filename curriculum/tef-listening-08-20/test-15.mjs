@@ -1,4 +1,4 @@
-/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
+/* Original TEF paper with targeted measured-audio corrections. */
 export const clips = [
   {
     "start": 1,
@@ -526,7 +526,7 @@ export const clips = [
   {
     "start": 32,
     "topic": "évaluation des formations à l’utilisation de logiciels de gestion",
-    "script": "Une entreprise a proposé des formations à un nouveau logiciel de gestion. Les premières séances expliquaient successivement les différentes fonctions de l’outil. Les salariés réussissaient souvent les exercices guidés, mais certains hésitaient lorsqu’ils devaient réaliser une opération réelle qui nécessitait plusieurs fonctions. Les formateurs ont donc introduit des situations de travail complètes, dans lesquelles les participants doivent choisir eux-mêmes les étapes à effectuer. Les démonstrations restent disponibles sous forme de supports courts pour retrouver une fonction précise. La formation souhaite désormais distinguer la connaissance des commandes et la capacité à les mobiliser dans une tâche professionnelle. Les évaluations porteront aussi sur les erreurs que les participants savent repérer et corriger sans demander immédiatement l’intervention d’un formateur.",
+    "script": "Une entreprise a proposé des formations à un nouveau logiciel de gestion. Les premières séances expliquaient successivement les différentes fonctions de l’outil. Les salariés réussissaient souvent les exercices guidés, mais certains hésitaient lorsqu’ils devaient réaliser une opération réelle qui nécessitait plusieurs fonctions. Les formateurs ont donc introduit des situations de travail complètes, dans lesquelles les participants doivent choisir eux-mêmes les étapes à effectuer. Les démonstrations restent disponibles sous forme de supports courts pour retrouver une fonction précise. La formation souhaite désormais distinguer la connaissance des commandes et la capacité à les mobiliser dans une tâche professionnelle. Les évaluations porteront aussi sur les erreurs que les participants savent repérer et corriger sans demander immédiatement l’intervention d’un formateur. Les formateurs proposent également une activité nouvelle quelques semaines après la formation. Elle permet de vérifier si les participants savent retrouver les procédures sans reproduire exactement l'exercice initial.",
     "questions": [
       {
         "stem": "Quelle capacité la nouvelle formation cherche-t-elle à mieux développer ?",

@@ -16,7 +16,7 @@ jobs:
           python - <<'PY'
           import hashlib,pathlib,urllib.request,time,concurrent.futures
           base='https://hzad123.github.io/hzad-french-academy/'
-          tests=[9,10,11,13]
+          tests=list(range(9,20))
           expected=[]
           for t in tests:
               p=pathlib.Path(f'assets/tef-listening/tef-listening-2026-11-test{t:02d}-v1')

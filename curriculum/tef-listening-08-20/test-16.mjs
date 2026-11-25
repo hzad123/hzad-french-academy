@@ -1,4 +1,4 @@
-/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
+/* Original TEF paper with targeted measured-audio corrections. */
 export const clips = [
   {
     "start": 1,
@@ -509,7 +509,7 @@ export const clips = [
   {
     "start": 31,
     "topic": "analyse de l’utilisation de services de traduction dans les échanges commerciaux",
-    "script": "Une entreprise exportatrice a commencé à utiliser un service de traduction pour ses échanges avec des clients étrangers. Les responsables souhaitaient initialement mesurer le succès à partir du nombre de messages traduits et de la rapidité des réponses. Ils ont ensuite constaté que certaines difficultés concernaient surtout l’interprétation de conditions commerciales, même lorsque les phrases étaient correctement traduites. L’entreprise a donc établi une liste de formulations devant être validées lorsqu’elles concernent des délais, des garanties ou des engagements. Elle conserve des outils rapides pour les échanges courants, mais distingue les messages informatifs de ceux qui peuvent avoir des conséquences contractuelles. Les résultats seront évalués en examinant aussi les demandes de clarification et les erreurs d’interprétation signalées.",
+    "script": "Une entreprise exportatrice a commencé à utiliser un service de traduction pour ses échanges avec des clients étrangers. Les responsables souhaitaient initialement mesurer le succès à partir du nombre de messages traduits et de la rapidité des réponses. Ils ont ensuite constaté que certaines difficultés concernaient surtout l’interprétation de conditions commerciales, même lorsque les phrases étaient correctement traduites. L’entreprise a donc établi une liste de formulations devant être validées lorsqu’elles concernent des délais, des garanties ou des engagements. Elle conserve des outils rapides pour les échanges courants, mais distingue les messages informatifs de ceux qui peuvent avoir des conséquences contractuelles. Les résultats seront évalués en examinant aussi les demandes de clarification et les erreurs d’interprétation signalées. Les responsables prévoient enfin de recueillir les formulations qui suscitent le plus souvent des demandes de précision. Elles pourront alimenter les futurs supports de travail.",
     "questions": [
       {
         "stem": "Quel principe oriente la nouvelle organisation ?",
