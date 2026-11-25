@@ -1,5 +1,5 @@
 import {SCENARIOS,AiError,validateOutput} from './contracts.js';
-import {transcribeFrenchLearnerWav} from './verbatim-transcription.js';
+import {FRENCH_VERBATIM_PROMPT} from './verbatim-transcription.js';
 const shapes={
  writing:'{"correctedText":"full corrected French text","summary":"encouraging overview in English","corrections":[{"original":"learner excerpt","corrected":"French correction","explanation":"clear English explanation"}],"suggestions":["specific improvement in English"]}',
  pronunciation:'{"heardText":"words actually heard, or empty if unclear","feedback":"specific encouraging feedback in English","strengths":["audible strength"],"focus":[{"sound":"French sound or rhythm","example":"French example","tip":"actionable articulation tip in English"}],"practicePhrase":"short French sentence"}',
@@ -37,8 +37,16 @@ export function createOpenAiProvider({key,fetcher=fetch}){
   async run(input,configuration){
    let transcript=null;
    if(input.kind==='conversation'&&input.audio){
-    try{({transcript}=await transcribeFrenchLearnerWav({audio:input.audio,key,fetcher,maxChars:2000}))}catch{throw new AiError('Speech recognition could not complete.',502,'AI_TRANSCRIPTION')}
-    if(!transcript.trim())throw new AiError('No intelligible speech detected.',502,'AI_TRANSCRIPTION');
+    // Conversation uses the established single-language recognizer directly.
+    // Preserve the verbatim prompt; never infer a transcript from the scenario.
+    try{
+     const raw=atob(input.audio),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);
+     const form=new FormData();form.append('file',new Blob([bytes],{type:'audio/wav'}),'reply.wav');form.append('model','gpt-4o-mini-transcribe');form.append('language','fr');form.append('response_format','json');form.append('prompt',FRENCH_VERBATIM_PROMPT);
+     const asr=await fetcher('https://api.openai.com/v1/audio/transcriptions',{method:'POST',headers:{Authorization:'Bearer '+key},body:form,signal:AbortSignal.timeout(45000)});
+     if(!asr.ok){console.warn('academy-ai speech recognition provider rejected',{status:asr.status});throw new AiError('Speech recognition temporarily unavailable. Please speak again.',502,'AI_TRANSCRIPTION')}
+     const result=await asr.json();transcript=typeof result.text==='string'?result.text.trim():'';
+     if(!transcript||transcript.length>2000){console.warn('academy-ai speech recognition empty or invalid',{length:transcript.length});throw new AiError('No clear speech recognized. Please speak again.',502,'AI_TRANSCRIPTION')}
+    }catch(error){if(error instanceof AiError)throw error;console.warn('academy-ai speech recognition failed',{name:error?.name||'unknown'});throw new AiError('Speech recognition could not complete. Please speak again.',502,'AI_TRANSCRIPTION')}
     input={...input,audio:undefined,text:transcript};
    }
    const model=input.kind==='conversation'&&configuration.model==='gpt-audio-mini'?'gpt-4o-mini':configuration.model;

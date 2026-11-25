@@ -182,6 +182,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     // Lost connection is ambiguous: recover by the same request ID, never charge again.
     try{const saved=await store.activity(payload.id,signal);if(current()){await receive(saved,signal,current);return}}catch{}
    }
+   if(payload.kind==='conversation'&&payload.audio&&error.activityStatus==='failed'&&error.code==='AI_TRANSCRIPTION'&&callActive&&!state.pending){voiceMode('idle');render();status('Could not recognize that reply. Please speak again. No credits were charged for this failed turn.');return}
    throw error;
   }
  }
