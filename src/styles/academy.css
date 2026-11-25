@@ -879,3 +879,12 @@
 #hzad-french-academy .hz-tutor-dock button:disabled{opacity:.5;cursor:default}
 #hzad-french-academy .hz-tutor-dock button:focus-visible,#hzad-french-academy .hz-tutor-dock textarea:focus-visible{outline:2px solid #e9ae48;outline-offset:2px}
 @media(max-width:600px){#hzad-french-academy .hz-tutor-dock{right:12px;bottom:max(12px,env(safe-area-inset-bottom))}#hzad-french-academy .hz-tutor-panel{width:min(390px,calc(100vw - 24px));height:min(530px,calc(100dvh - 88px))}#hzad-french-academy .hz-tutor-launch{font-size:13px;padding:11px 15px}}
+
+/* Persistent student navigation, outside all individual practice views. */
+#hzad-french-academy .hz-global-nav{position:sticky;top:0;z-index:100;align-items:center;gap:10px;padding:10px 0;background:#fff;box-shadow:0 4px 12px #1635660a}
+#hzad-french-academy #hz-navigation-status{flex:1;min-width:0;font-size:13px}
+#hzad-french-academy .hz-global-dashboard{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-left:auto;flex-shrink:0;min-height:44px;padding:10px 18px;border:0;border-radius:12px;color:#fff;background:linear-gradient(110deg,var(--blue),var(--navy));font-size:14px;font-weight:750;box-shadow:0 3px 12px #16356620}
+#hzad-french-academy .hz-global-dashboard.hz-hidden{display:none!important}
+#hzad-french-academy .hz-global-dashboard:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#hzad-french-academy #hz-course-chooser{scroll-margin-top:76px}
+@media(max-width:600px){#hzad-french-academy .hz-global-dashboard,#hzad-french-academy .hz-global-back{padding:10px 12px}}
