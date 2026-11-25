@@ -7,6 +7,7 @@ export function makeTrackerStore(client){
   return data;
  };
  return {
+  insights:()=>call('academy_learning_insights',{}),
   snapshot:(offset=0)=>call('academy_tracker_snapshot',{p_offset:offset}),
   preferences:(minutes,level)=>call('academy_tracker_preferences',{p_minutes:minutes,p_level:level||null}),
   revise:(unitId,questionId,choice)=>call('academy_tracker_revise',{p_unit_id:unitId,p_question_id:questionId,p_answer:choice})

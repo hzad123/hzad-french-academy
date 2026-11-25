@@ -1,0 +1,35 @@
+/* Learning analytics */
+#hzad-french-academy .hz-insights{display:grid;gap:20px;color:#183153}
+#hzad-french-academy .hz-insights-nav{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0}
+#hzad-french-academy .hz-insights-nav .hz-btn{margin:0;flex:0 1 auto;font-size:13px}
+#hzad-french-academy .hz-insights-nav [aria-current=page]{background:#173d75;color:white;border-color:#173d75}
+#hzad-french-academy .hz-insights-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#hzad-french-academy .hz-insights-stat,#hzad-french-academy .hz-insights-card{background:white;border:1px solid #dce5ef;border-radius:15px;padding:20px;min-width:0;box-shadow:0 3px 12px #18315308}
+#hzad-french-academy .hz-insights-stat{display:flex;flex-direction:column;gap:8px;border-top:3px solid #327a86}
+#hzad-french-academy .hz-insights-stat:nth-child(2){border-top-color:#2856a2}
+#hzad-french-academy .hz-insights-stat:nth-child(3){border-top-color:#b38536}
+#hzad-french-academy .hz-insights-stat:nth-child(4){border-top-color:#547d63}
+#hzad-french-academy .hz-insights-stat strong{font-size:36px;letter-spacing:-.04em;line-height:1.1;color:#173d75}
+#hzad-french-academy .hz-insights-stat span{font-size:13px;font-weight:700}
+#hzad-french-academy .hz-insights small,#hzad-french-academy .hz-insights-muted{color:#65778b;font-size:12px;line-height:1.5}
+#hzad-french-academy .hz-insights h4{font-size:21px;color:#173d75;margin:0 0 8px}
+#hzad-french-academy .hz-insights p{font-size:14px;line-height:1.55;margin:6px 0 12px}
+#hzad-french-academy .hz-insights-bars{display:flex;align-items:stretch;gap:4px;height:150px;border-bottom:1px solid #dce5ef;padding:8px 0 0}
+#hzad-french-academy .hz-insights-bar-col{display:flex;align-items:flex-end;flex:1;min-width:0}
+#hzad-french-academy .hz-insights-bar{background:#327a86;width:100%;border-radius:4px 4px 0 0;transform-origin:bottom;animation:hz-insights-grow .55s ease-out}
+#hzad-french-academy .hz-insights-exams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#hzad-french-academy .hz-insights-module{padding:15px 0;border-top:1px solid #e4ebf3;display:grid;gap:6px}
+#hzad-french-academy .hz-insights-module-top{display:flex;justify-content:space-between;gap:8px}
+#hzad-french-academy .hz-insights-module-top span{font-size:12px;color:#65778b}
+#hzad-french-academy .hz-insights-score{color:#2856a2;font-size:20px}
+#hzad-french-academy .hz-insights-track{height:8px;border-radius:10px;background:#e9eff6;overflow:hidden}
+#hzad-french-academy .hz-insights-track div{height:100%;background:#327a86;border-radius:10px;transform-origin:left;animation:hz-insights-slide .6s ease-out}
+#hzad-french-academy .hz-insights-history{display:flex;flex-wrap:wrap;gap:5px}
+#hzad-french-academy .hz-insights-history div{background:#f1f5fa;border:1px solid #dce5ef;border-radius:6px;padding:5px 7px;font-size:12px}
+#hzad-french-academy .hz-insights-feedback{padding:12px 0;border-top:1px solid #e4ebf3}
+#hzad-french-academy .hz-insights-feedback small{display:block}
+@keyframes hz-insights-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes hz-insights-slide{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:850px){#hzad-french-academy .hz-insights-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#hzad-french-academy .hz-insights-exams{grid-template-columns:1fr}#hzad-french-academy .hz-insights-stat,#hzad-french-academy .hz-insights-card{padding:14px}#hzad-french-academy .hz-insights-stat strong{font-size:28px}#hzad-french-academy .hz-insights-bars{gap:2px;height:110px}}
+@media(prefers-reduced-motion:reduce){#hzad-french-academy .hz-insights-bar,#hzad-french-academy .hz-insights-track div{animation:none}}
