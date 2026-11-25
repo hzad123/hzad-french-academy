@@ -32,9 +32,9 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  const area=root.querySelector('#hz-ai-learning'),launch=root.querySelector('#hz-ai-launch'),chooser=root.querySelector('#hz-course-chooser');
  if(!area||!launch)return;
  const store=makeAiStore(client,fetcher);
- let state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null,voicePhase='idle',voiceSerial=0,callActive=false,callStarted=0,callTimer=null,callCapture=null,callMuted=false,callTranscript=false,callResults=[],callAudio=null,callEnded=false,callEnding=false,voiceWatchdog=null,spokenUtterance=null,micVerified=false,micEnergy=0;
+ let state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null,voicePhase='idle',voiceSerial=0,callActive=false,callStarted=0,callTimer=null,callCapture=null,callMuted=false,callTranscript=false,callResults=[],callAudio=null,callEnded=false,callEnding=false,voiceWatchdog=null,spokenUtterance=null,micVerified=false,micEnergy=0,pollTimer=null,pollCount=0;
  const draftKey=()=>state.tab+':'+state.level;
- function clear(){stopCallMedia();callEnded=false;callEnding=false;callResults=[];voiceSerial++;voicePhase='idle';epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
+ function clear(){clearTimeout(pollTimer);pollTimer=null;pollCount=0;stopCallMedia();callEnded=false;callEnding=false;callResults=[];voiceSerial++;voicePhase='idle';epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);root.addEventListener('hzad-close-ai',clear);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
@@ -45,9 +45,10 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=n.dataset.callControl!=='true'});
   area.querySelectorAll('.hz-ai-status').forEach(n=>n.remove());const progress=status('Working on your AI practice…');
   const slow=setTimeout(()=>{if(ticket===epoch)progress.textContent='Still processing. Your request is being checked; you will not be charged twice.'},15000);
-  try{await work(requestController.signal,()=>ticket===epoch)}catch(error){if(ticket===epoch){if(state.tab==='conversation'){stopCallMedia();callEnded=true;}render();status(error.name==='AbortError'?'Connection interrupted. Check saved activity before starting again.':error.message||'AI Learning could not connect.',true)}}
-  finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls();if(callEnding&&!state.pending){endCall(true)}else if(callActive&&voicePhase==='idle'&&!callMuted&&!state.pending&&!callCapture?.isListening())listenCall()}}
+  try{await work(requestController.signal,()=>ticket===epoch)}catch(error){if(ticket===epoch){if(state.tab==='conversation'&&!state.pending){stopCallMedia();callEnded=true;}render();status(error.name==='AbortError'?'Connection interrupted. Check saved activity before starting again.':error.message||'AI Learning could not connect.',true)}}
+  finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls();if(state.pending?.kind==='conversation'&&(callActive||callEnded))schedulePending();else if(callEnding&&!state.pending){endCall(true)}else if(callActive&&voicePhase==='idle'&&!callMuted&&!state.pending&&!callCapture?.isListening())listenCall()}}
  }
+ function schedulePending(){clearTimeout(pollTimer);if(!state.pending||pollCount>=20)return;const id=state.pending.id,ticket=epoch;pollTimer=setTimeout(()=>{if(ticket!==epoch||state.pending?.id!==id)return;if(busy){schedulePending();return}pollCount++;void run(async(signal,current)=>{try{const result=await store.activity(id,signal);if(current())await receive(result,signal,current)}catch(error){if(current()){render();status('Still retrieving the saved reply. No extra credits are charged.')}}})},2000)}
  function renderControls(){
   area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=(busy&&n.dataset.callControl!=='true')||n.dataset.locked==='true'});
  }
@@ -149,19 +150,20 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     state.result.nextPronunciation=true;
     state.tab='pronunciation';state.level=level;
    }
-   state.pending=null;
-   if(response.conversationId){try{const conversation=await store.conversation(response.conversationId,signal);if(current())state.conversation=conversation}catch{if(current())state.conversation={id:response.conversationId,level:state.level,scenario:completed?.payload?.scenario||state.scenario,messages:[]}}}
+   state.pending=null;clearTimeout(pollTimer);pollCount=0;
+   if(response.conversationId){const previous=state.conversation?.id===response.conversationId?state.conversation:null;const messages=[...(previous?.messages||[])];messages.push({role:'user',content:response.result?.transcript||'[Conversation started]'},{role:'assistant',content:response.result?.reply||''});state.conversation={id:response.conversationId,level:state.level,scenario:completed?.payload?.scenario||previous?.scenario||state.scenario,messages,busy:false};}
    if(!current())return;
    if(state.result.kind==='conversation')voiceMode('idle');
   }else if(response.status==='failed')state.pending=null;
+  else if(state.pending?.kind==='conversation'){render();return}
   if(!current())return;
-  // Show completed feedback and the new exercise immediately, before balance retrieval.
+  // Speak immediately on successful completion; refresh credit balance concurrently with playback. The next turn waits for both.
   state.walletStale=true;render();
+  if(response.status==='completed'&&state.result?.kind==='conversation'&&response.result?.reply&&callActive)speak(response.result.reply);
   try{const snapshot=await load(signal);if(!current())return;state.snapshot=snapshot;state.walletStale=false;render()}
   catch{if(!current())return;status('Feedback is saved. Refresh balance before starting another paid review.',true)}
-  if(response.status==='completed'&&state.result?.kind==='conversation'&&response.result?.reply&&callActive)speak(response.result.reply);
   if(response.status==='failed'){if(callActive)endCall(true);status('This activity could not complete. Your credits were returned.',true);}
-  else if(response.status!=='completed')status('Your activity is still processing. Use Check activity to retrieve it without another charge.');
+  else if(response.status!=='completed')status('Your spoken reply is being retrieved automatically. No extra credits are charged.');
  }
  async function send(payload,signal,current){
   try{
@@ -195,12 +197,12 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    if(!input.conversationId){input.start=true}else{input.audio=callAudio;callAudio=null;if(!input.audio){status('No spoken reply captured.',true);return}}
   }
   if(input.kind==='conversation'){callCapture?.pause();voiceSerial++;globalThis.speechSynthesis?.cancel();voiceMode('thinking')}
-  state.pending={id:input.id,kind:input.kind,payload:input};
-  void run((signal,current)=>send(input,signal,current));
+  pollCount=0;state.pending={id:input.id,kind:input.kind,payload:input};
+  if(input.kind==='conversation')render();void run((signal,current)=>send(input,signal,current));
  }
  function pending(){
   if(!state.pending)return;
-  const block=el('div',undefined,'hz-ai-pending');block.append(el('p','Check this activity before starting another.'));
+  const block=el('div',undefined,'hz-ai-pending');if(state.pending.kind==='conversation'&&(callActive||callEnded)&&pollCount<20){block.append(el('p',busy?'Processing your spoken reply…':'Automatically checking your saved reply…'));area.append(block);return}block.append(el('p','Check this activity before starting another.'));
   block.append(button('Check activity',()=>run(async(signal,current)=>receive(await store.activity(state.pending.id,signal),signal,current)),true));
   if(state.pending.payload)block.append(button('Retry same request',()=>run((signal,current)=>send(state.pending.payload,signal,current)),true));
   area.append(block);
