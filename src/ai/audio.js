@@ -50,3 +50,23 @@ export function mountRecorder(parent,onReady=()=>{},onVoice=()=>{}){
  stop.addEventListener('click',finish);clear.addEventListener('click',()=>{erase();onVoice('idle',0);status.textContent='Record up to 30 seconds.'});
  return {getAudio:()=>data,isRecording:()=>recording,dispose(){disposed=true;release();erase();chunks=[]}};
 }
+
+export function detectSpeechTurn(state,rms,seconds){
+ const voiced=rms>=.012;const speech=state.speech+(voiced?seconds:0),silence=voiced?0:state.silence+seconds,elapsed=state.elapsed+seconds;
+ return {speech,silence,elapsed,done:speech>=.25&&(silence>=1.6||elapsed>=29.8),expired:elapsed>=29.8&&speech<.25};
+}
+export function createCallCapture({onAudio,onVoice,onError}){
+ let stream=null,context=null,source=null,processor=null,gain=null,serial=0,active=false;
+ function stop(){serial++;active=false;for(const n of [source,processor,gain])try{n?.disconnect()}catch{};stream?.getTracks().forEach(t=>t.stop());stream=null;if(context){void context.close().catch(()=>{});context=null}}
+ async function listen(){stop();const ticket=serial;try{
+ const AudioContext=globalThis.AudioContext||globalThis.webkitAudioContext;if(!AudioContext||!navigator.mediaDevices?.getUserMedia)throw Error('Microphone is unavailable.');
+ const mic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true}});if(ticket!==serial){mic.getTracks().forEach(t=>t.stop());return}stream=mic;context=new AudioContext();await context.resume();if(ticket!==serial)return;
+ const rate=context.sampleRate;source=context.createMediaStreamSource(stream);processor=context.createScriptProcessor(4096,1,1);gain=context.createGain();gain.gain.value=0;
+ let vad={speech:0,silence:0,elapsed:0},chunks=[],frames=0,pre=[],preFrames=0;active=true;onVoice('listening',0);
+ processor.onaudioprocess=e=>{if(!active||ticket!==serial)return;const data=e.inputBuffer.getChannelData(0);let energy=0;for(let i=0;i<data.length;i++)energy+=data[i]*data[i];const rms=Math.sqrt(energy/data.length);const prior=vad.speech;vad=detectSpeechTurn(vad,rms,data.length/rate);onVoice('listening',rms);
+ if(!prior&&!vad.speech){pre.push(new Float32Array(data));preFrames+=data.length;while(preFrames>rate*.5&&pre.length>1)preFrames-=pre.shift().length}else{if(!prior){chunks=pre;frames=preFrames;pre=[]}const n=Math.min(data.length,Math.max(0,Math.floor(rate*30)-frames));if(n){chunks.push(new Float32Array(data.subarray(0,n)));frames+=n}}
+ if(vad.done||frames>=rate*30){const samples=new Float32Array(frames);let off=0;for(const part of chunks){samples.set(part,off);off+=part.length}stop();onAudio(audioBase64(encodeWav(samples,rate)))}else if(vad.expired){stop();onError('No speech heard. Tap Resume microphone when ready.')}
+ };source.connect(processor);processor.connect(gain);gain.connect(context.destination);
+ }catch(e){if(ticket===serial){stop();onError('Microphone unavailable. Allow access and resume.')}}}
+ return {listen,stop};
+}
