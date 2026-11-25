@@ -11,7 +11,7 @@ export function encodeWav(samples,sampleRate){
  return bytes;
 }
 export function audioBase64(bytes){let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(binary)}
-export function mountRecorder(parent,onReady=()=>{}){
+export function mountRecorder(parent,onReady=()=>{},onVoice=()=>{}){
  const el=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n};
  const box=el('section');box.className='hz-ai-recorder';
  const record=el('button','● Record French'),stop=el('button','Stop recording'),clear=el('button','Clear recording');
@@ -23,10 +23,10 @@ export function mountRecorder(parent,onReady=()=>{}){
  function release(){recording=false;clearTimeout(timer);for(const node of [source,processor,gain])try{node?.disconnect()}catch{};stream?.getTracks().forEach(t=>t.stop());stream=null;if(context){void context.close().catch(()=>{});context=null}}
  function erase(){if(url)URL.revokeObjectURL(url);url=null;data=null;playback.pause();playback.removeAttribute('src');playback.hidden=true;clear.hidden=true;onReady(null)}
  function finish(){
-  if(!recording)return;release();record.disabled=false;stop.disabled=true;stop.dataset.locked='true';record.dataset.locked='false';
+  if(!recording)return;release();onVoice('ready',0);record.disabled=false;stop.disabled=true;stop.dataset.locked='true';record.dataset.locked='false';
   if(disposed)return;
   const samples=new Float32Array(frames);let offset=0;for(const chunk of chunks){samples.set(chunk,offset);offset+=chunk.length}chunks=[];
-  if(frames/rate<.5){status.textContent='Record at least one second and try again.';return}
+  if(frames/rate<.5){onVoice('idle',0);status.textContent='Record at least one second and try again.';return}
   const wav=encodeWav(samples,rate);data=audioBase64(wav);url=URL.createObjectURL(new Blob([wav],{type:'audio/wav'}));playback.src=url;playback.hidden=false;clear.hidden=false;
   status.textContent=`Recording ready · ${(frames/rate).toFixed(1)} seconds.`;record.textContent='● Record again';onReady(data);
  }
@@ -41,12 +41,12 @@ export function mountRecorder(parent,onReady=()=>{}){
    rate=context.sampleRate;chunks=[];frames=0;source=context.createMediaStreamSource(stream);processor=context.createScriptProcessor(4096,1,1);gain=context.createGain();gain.gain.value=0;
    processor.onaudioprocess=event=>{
     if(!recording)return;const input=event.inputBuffer.getChannelData(0),length=Math.min(input.length,Math.max(0,Math.floor(rate*30)-frames));
-    if(length){chunks.push(new Float32Array(input.subarray(0,length)));frames+=length}if(frames>=rate*30)finish();
+    if(length){chunks.push(new Float32Array(input.subarray(0,length)));frames+=length;let energy=0;for(let j=0;j<length;j++)energy+=input[j]*input[j];onVoice('listening',Math.sqrt(energy/length))}if(frames>=rate*30)finish();
    };
-   source.connect(processor);processor.connect(gain);gain.connect(context.destination);recording=true;stop.disabled=false;stop.dataset.locked='false';
+   source.connect(processor);processor.connect(gain);gain.connect(context.destination);recording=true;onVoice('listening',0);stop.disabled=false;stop.dataset.locked='false';
    status.textContent='Recording… speak French, then choose Stop recording.';timer=setTimeout(finish,30000);
   }catch{release();if(!disposed){record.disabled=false;record.dataset.locked='false';status.textContent='Microphone access is unavailable. Enable it in your browser and try again.'}}
  });
- stop.addEventListener('click',finish);clear.addEventListener('click',()=>{erase();status.textContent='Record up to 30 seconds.'});
+ stop.addEventListener('click',finish);clear.addEventListener('click',()=>{erase();onVoice('idle',0);status.textContent='Record up to 30 seconds.'});
  return {getAudio:()=>data,isRecording:()=>recording,dispose(){disposed=true;release();erase();chunks=[]}};
 }

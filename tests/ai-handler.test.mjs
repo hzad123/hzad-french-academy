@@ -106,3 +106,9 @@ test('custom opening uses bounded scenario and text-only model',async()=>{
  let body;const provider=createOpenAiProvider({key:'test',fetcher:async(_,opts)=>{body=JSON.parse(opts.body);return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({reply:'Bonjour, vous cherchez un appartement ?',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:['Oui.']})}}]}))}});
  await provider.run(input,{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(body.model,'gpt-4o-mini');assert.equal(body.response_format.type,'json_object');assert.match(body.messages.at(-1).content,/Call a landlord/);assert.match(body.messages.at(-1).content,/Begin the conversation/);
 });
+
+test('spoken conversation transcribes independently and never accepts silent spelling feedback',async()=>{
+ const heard="Pourquoi tu m’a demandé ça ? euh je veux travailler à Montréal";const calls=[];
+ const provider=createOpenAiProvider({key:'test',fetcher:async(url,opts)=>{calls.push({url,body:opts.body});if(url.endsWith('/transcriptions'))return new Response(JSON.stringify({text:heard}));return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({reply:'Vous souhaitez travailler à Montréal, très bien.',englishHelp:'You want to work in Montreal.',transcript:'invented polished text',corrections:[{original:'tu m’a demandé',corrected:'tu m’as demandé',explanation:'Add s.'}],suggestedReplies:['Je cherche un poste.']})}}]}))}});
+ const result=await provider.run({kind:'conversation',level:'B1',scenario:'interview',audio:audio()},{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(calls.length,2);assert.match(calls[0].body.get('prompt'),/mot pour mot/);assert.equal(JSON.parse(calls[1].body).model,'gpt-4o-mini');assert.ok(JSON.parse(calls[1].body).messages.at(-1).content.includes(heard));assert.equal(result.result.transcript,heard);assert.deepEqual(result.result.corrections,[]);
+});
