@@ -39,6 +39,7 @@ export function wireFrenchTutor(root,client,{fetcher}={}){
  root.addEventListener('hzad-access-active',event=>{const id=event.detail?.userId;if(!id)return;if(viewer&&viewer!==id)reset();viewer=id;active=true;dock.classList.remove('hz-hidden');controls()});
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset()});
  function toggle(next){if(!active)return;open=next;panel.classList.toggle('hz-hidden',!open);launcher.setAttribute('aria-expanded',String(open));launcher.classList.toggle('hz-tutor-launch-open',open);if(open){if(!busy)void run(async signal=>refresh(signal));input.focus()}else launcher.focus()}
+ root.addEventListener('hzad-open-french-tutor',()=>toggle(true));
  panel.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();toggle(false)}});
  input.addEventListener('input',()=>{draft=input.value;controls()});
  input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();if(!send.disabled)form.requestSubmit()}});
