@@ -114,3 +114,5 @@ test('spoken conversation transcribes independently and never accepts silent spe
 });
 
 test('call detection accepts quiet speech, waits for pauses, and never expires from silence',()=>{let s={speech:0,silence:0,elapsed:0};for(let i=0;i<600;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,false);assert.equal(s.elapsed,0);for(let i=0;i<5;i++)s=detectSpeechTurn(s,.005,.1);assert.ok(s.speech>=.18);for(let i=0;i<10;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,false);for(let i=0;i<10;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,true)});
+
+test('call microphone check API is independent of billable speech turns',()=>{const c=createCallCapture({onAudio:()=>{},onVoice:()=>{},onError:()=>{}});assert.equal(typeof c.check,'function');assert.equal(c.isListening(),false);c.stop();});
