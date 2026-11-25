@@ -2,7 +2,27 @@ import {makeAiStore} from './store.js';
 import {mountRecorder} from './audio.js';
 import {recordHome,recordView} from '../ui/navigation.js';
 const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
-const trainers={pronunciation:['◉','Pronunciation trainer','Speak French and improve your sounds, rhythm and flow.'],conversation:['◌','Conversation simulator','Practise real situations with your French-speaking partner.'],writing:['✎','Writing trainer','Refine your French with clear corrections and useful explanations.']};
+const trainers={
+ pronunciation:['mic','Pronunciation trainer','Speak with clearer French pronunciation.',['Listen to a French practice example','Record your own voice','Get feedback on sounds, rhythm and liaison'],'review','Speak & improve'],
+ conversation:['chat','Conversation simulator','Build confidence in everyday conversations.',['Practise realistic situations','Reply by typing or recording','Get corrections and suggested replies'],'reply','Start practising'],
+ writing:['pen','Writing trainer','Make your French writing more natural and accurate.',['Get a corrected version of your text','Understand grammar and word-choice errors','Apply practical improvement tips'],'review','Review your writing']
+};
+const tutor=['book','HZad French Tutor','Get help whenever you have a French question.',['Translate words, phrases and sentences','Understand grammar and conjugation','Ask follow-up questions and get examples'],'message','Open French tutor'];
+const iconPaths={
+ mic:['M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z','M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M9 22h6'],
+ chat:['M20 11a7 7 0 0 1-7 7H7l-4 3v-7a7 7 0 0 1 7-10h3a7 7 0 0 1 7 7Z','M8 11h.01M12 11h.01M16 11h.01'],
+ pen:['M4 20h5l11-11-5-5L4 15v5ZM13 6l5 5','M4 22h16'],
+ book:['M12 6C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 2ZM12 6v15','M5 9h3M16 9h3M5 13h3M16 13h3'],
+ wallet:['M3 6h16a2 2 0 0 1 2 2v11H3a1 1 0 0 1-1-1V6l3-3h13','M21 10h-6a2 2 0 0 0 0 4h6M16 12h.01']
+};
+function studioIcon(kind){
+ const wrapper=el('span',undefined,'hz-studio-icon hz-studio-icon-'+kind);wrapper.setAttribute('aria-hidden','true');
+ if(!document.createElementNS){wrapper.textContent={mic:'◉',chat:'◌',pen:'✎',book:'▤',wallet:'▣'}[kind];return wrapper}
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ for(const [k,v] of Object.entries({viewBox:'0 0 24 24',fill:'none',stroke:'currentColor','stroke-width':'1.6','stroke-linecap':'round','stroke-linejoin':'round'}))svg.setAttribute(k,v);
+ for(const d of iconPaths[kind]){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);svg.append(p)}
+ wrapper.append(svg);return wrapper;
+}
 const scenarios={cafe:'At a café',travel:'Travel and directions',daily:'Daily life',work:'At work',interview:'Job interview',debate:'Ideas and debate'};
 const phrases={A0:'Bonjour, je m’appelle Camille.',A1:'Je voudrais un café et un croissant, s’il vous plaît.',A2:'Nous allons prendre le train demain matin.',B1:'Si j’avais plus de temps, je voyagerais davantage.',B2:'Il est essentiel que chacun puisse exprimer son opinion.',C1:'Quoi qu’il en soit, cette hypothèse mérite d’être approfondie.',C2:'Encore eût-il fallu que les circonstances s’y prêtassent.'};
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
@@ -116,35 +136,46 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  }
  function history(){
   const snapshot=state.snapshot;if(!snapshot)return;
-  const detail=el('details');detail.append(el('summary','Saved AI practice'));
-  for(const item of snapshot.history.filter(item=>Object.hasOwn(trainers,item.kind))){
+  const detail=el('section',undefined,'hz-studio-history');detail.append(el('h4','Saved AI practice'),el('p','Revisit feedback or continue a previous conversation without starting a new paid activity.','hz-studio-muted'));
+  const rows=el('div',undefined,'hz-studio-history-list');
+  const entries=snapshot.history.filter(item=>Object.hasOwn(trainers,item.kind));
+  for(const item of entries){
    const label={completed:'Completed',failed:'Try a new activity',reserved:'In progress',dispatched:'In progress'}[item.status]||'In progress';
    const title=`${trainers[item.kind]?.[1]||'AI activity'} · ${item.level} · ${new Date(item.createdAt).toLocaleDateString()} · ${label}`;
-   detail.append(button(title,()=>{
+   const row=button(title,()=>{
     if(item.status==='completed'){
      state.tab=item.kind;state.level=item.level;state.result={kind:item.kind,data:item.result};
      if(item.kind==='conversation'&&item.conversationId){void open('conversation',{level:item.level,conversationId:item.conversationId});return}render();
-    }else if(item.status!=='failed'){state.pending={id:item.id,kind:item.kind};render()}
-   },true));
+    }else if(item.status!=='failed'){state.tab=item.kind;state.level=item.level;state.pending={id:item.id,kind:item.kind};render()}
+   },true);row.classList.add('hz-studio-history-row');row.disabled=item.status==='failed';row.dataset.locked=String(item.status==='failed');rows.append(row);
   }
-  if(!snapshot.history.length)detail.append(el('p','Your feedback will appear here after your first activity.'));
+  if(!entries.length)rows.append(el('p','Your feedback will appear here after your first activity.','hz-studio-empty'));
+  detail.append(rows);
+  const conversations=snapshot.conversations||[];
+  if(conversations.length){detail.append(el('h4','Continue a conversation'));for(const c of conversations)detail.append(button(`Resume ${c.level} · ${scenarios[c.scenario]||'Conversation'}`,()=>open('conversation',{level:c.level,conversationId:c.id}),true))}
   area.append(detail);
  }
  function render(){
   recorder?.dispose();recorder=null;area.replaceChildren();area.classList.remove('hz-hidden');
-  const h=el('h3','AI Learning');h.tabIndex=-1;
-  const hero=el('header',undefined,'hz-ai-hero');hero.append(el('p','YOUR FRENCH PRACTICE STUDIO','hz-eyebrow'),h,el('p','Speak with confidence. Keep the conversation going. Make every sentence stronger.'));area.append(hero);
-  area.append(button('← All levels',()=>{clear();recordHome(root)},true));
-  const levelLabel=el('label','French level'),level=el('select');level.setAttribute('aria-label','AI French level');for(const l of LEVELS){const o=el('option',l);o.value=l;level.append(o)}level.value=state.level;
-  level.addEventListener('change',()=>{state.level=level.value;state.conversation=null;state.result=null;render()});levelLabel.append(level);area.append(levelLabel);
-  const nav=el('nav');nav.setAttribute('aria-label','AI trainers');
-  nav.append(button('AI studio',()=>{state.tab='home';render()},true));
-  for(const [key,[,label]] of Object.entries(trainers)){const b=button(label,()=>{state.tab=key;state.result=null;render()},true);b.setAttribute('aria-current',state.tab===key?'page':'false');nav.append(b)}area.append(nav);
-  if(!state.snapshot){area.append(el('p','Opening your AI practice…'));remember();return}
+  const top=el('div',undefined,'hz-studio-top');
+  const back=button('← All levels',()=>{clear();recordHome(root)},true);back.classList.add('hz-studio-back');top.append(back);
+  const nav=el('nav',undefined,'hz-studio-nav');nav.setAttribute('aria-label','AI trainers');
+  const overview=button('Practice tools',()=>{state.tab='home';state.result=null;render()},true);overview.setAttribute('aria-current',state.tab==='home'?'page':'false');
+  const saved=button('Saved practice',()=>{state.tab='history';state.result=null;render()},true);saved.setAttribute('aria-current',state.tab==='history'?'page':'false');nav.append(overview,saved);top.append(nav);area.append(top);
+  const hero=el('header',undefined,'hz-ai-hero hz-studio-hero'),intro=el('div',undefined,'hz-studio-intro');
+  const h=el('h3',state.tab==='home'?'French Practice Studio':state.tab==='history'?'Your practice history':trainers[state.tab][1]);h.tabIndex=-1;
+  intro.append(el('p','HZAD FRENCH ACADEMY','hz-studio-kicker'),h,el('p',state.tab==='home'?'Real practice. Personal feedback. Build confidence in French, one skill at a time.':state.tab==='history'?'Keep learning from your previous work.':trainers[state.tab][2]));
+  hero.append(intro);
+  if(state.snapshot?.wallet){
+   const snap=state.snapshot,w=snap.wallet,wallet=el('aside',undefined,'hz-studio-wallet'),head=el('div',undefined,'hz-studio-wallet-head');
+   head.append(studioIcon('wallet'),el('span','Your AI credits'));wallet.append(head,el('strong',String(w.available),'hz-studio-credit-value'),el('span','credits available','hz-studio-credit-label'));
+   if(w.reserved>0)wallet.append(el('span',w.reserved+' reserved','hz-studio-muted'));
+   const expiry=new Date(w.expiresAt);if(Number.isFinite(expiry.getTime()))wallet.append(el('span','Valid until '+expiry.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}),'hz-studio-muted'));
+   const refresh=button('Refresh balance',()=>void run(async(signal,current)=>{const next=await load(signal);if(current()){state.snapshot=next;render()}}),true);refresh.classList.add('hz-studio-refresh');wallet.append(refresh);hero.append(wallet);
+  }
+  area.append(hero);
+  if(!state.snapshot){area.append(el('p','Opening your AI practice…','hz-studio-empty'));remember();return}
   const snap=state.snapshot;
-  if(snap.testingCad)area.append(el('p',`AI testing allowance: up to CAD $${Number(snap.testingCad).toFixed(2)}.`,'hz-small'));
-  else if(Number.isFinite(Number(snap.includedCad)))area.append(el('p',`Included AI allowance: up to CAD $${Number(snap.includedCad).toFixed(2)}. Additional AI use requires a paid credit top-up.`,'hz-small'));
-  if(snap.wallet)area.append(el('p',`${snap.wallet.available} AI credits available · ${snap.wallet.reserved} reserved`,'hz-ai-balance'));
   if(!snap.enabled)status('AI Learning is being prepared. Please return soon.');
   else if(snap.wallet&&(Date.parse(snap.wallet.expiresAt)<=Date.now()||!snap.wallet.budgetAvailable||snap.wallet.available===0)){
    status('Your AI credit allowance is used. Purchase additional AI credits to continue.');
@@ -153,14 +184,22 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    else status('Contact the academy to arrange a paid AI credit top-up.');
   }
   if(state.tab==='home'){
-   const cards=el('div',undefined,'hz-ai-cards');for(const [key,[icon,title,description]] of Object.entries(trainers)){
-    const card=el('article',undefined,'hz-ai-card');const symbol=el('span',icon,'hz-ai-symbol');symbol.setAttribute('aria-hidden','true');card.append(symbol,el('h4',title),el('p',description));
-    const cost=snap.activities[key]?.credits;if(Number.isSafeInteger(cost))card.append(el('p',`${cost} ${cost===1?'credit':'credits'} per ${key==='conversation'?'reply':'review'}`,'hz-ai-cost'));
-    card.append(button('Open '+title,()=>{state.tab=key;state.result=null;render()}));cards.append(card);
+   const heading=el('div',undefined,'hz-studio-section-head');heading.append(el('h4','Choose a skill'),el('p','Each tool shows its credit cost before you begin.','hz-studio-muted'));area.append(heading);
+   const cards=el('div',undefined,'hz-ai-cards hz-studio-grid');
+   for(const [key,[icon,title,description,benefits,unit,cta]] of [...Object.entries(trainers),['tutor',tutor]]){
+    const card=el('article',undefined,'hz-ai-card hz-studio-card hz-studio-card-'+key),topline=el('div',undefined,'hz-studio-card-top');
+    const activity=snap.activities[key],cost=activity?.credits;
+    topline.append(studioIcon(icon),el('span',Number.isSafeInteger(cost)?`${cost} ${cost===1?'credit':'credits'} / ${unit}`:'Price unavailable','hz-studio-price'));card.append(topline,el('h4',title),el('p',description,'hz-studio-card-description'));
+    const list=el('ul',undefined,'hz-studio-benefits');for(const benefit of benefits)list.append(el('li',benefit));card.append(list);
+    const action=button(cta+' →',()=>{if(key==='tutor'){root.dispatchEvent(new CustomEvent('hzad-open-french-tutor'));return}state.tab=key;state.result=null;render()});action.classList.add('hz-studio-card-action');action.dataset.locked=String(!snap.enabled||!activity?.enabled);action.disabled=action.dataset.locked==='true';card.append(action);cards.append(card);
    }area.append(cards);
-   for(const conversation of snap.conversations||[])area.append(button(`Resume ${conversation.level} · ${scenarios[conversation.scenario]}`,()=>open('conversation',{level:conversation.level,conversationId:conversation.id}),true));
+   const how=el('section',undefined,'hz-studio-how');how.append(el('h4','How your credits work'),el('p','All practice tools and the French Tutor share one credit balance. Opening tools, viewing saved feedback and checking your balance are free. Credits are deducted only for a new AI activity; failed activities return the credits.'));if(snap.testingCad)how.append(el('p',`Testing allowance: up to CAD $${Number(snap.testingCad).toFixed(2)}.`,'hz-studio-muted'));area.append(how);
+  }else if(state.tab==='history'){
+   history();
   }else{
-   area.append(el('h4',trainers[state.tab][1]));
+   const levelLabel=el('label','French level','hz-studio-level'),level=el('select');level.setAttribute('aria-label','AI French level');for(const l of LEVELS){const o=el('option',l);o.value=l;level.append(o)}level.value=state.level;
+   level.addEventListener('change',()=>{state.level=level.value;state.conversation=null;state.result=null;render()});levelLabel.append(level);area.append(levelLabel);
+   const benefit=el('div',undefined,'hz-studio-exercise-summary');benefit.append(studioIcon(trainers[state.tab][0]),el('p',trainers[state.tab][3].join(' · ')));area.append(benefit);
    if(state.tab==='writing'){
     const label=el('label','Your French writing'),input=el('textarea');input.rows=8;input.maxLength=4000;input.required=true;input.setAttribute('aria-label','Your French writing');input.value=state.drafts[draftKey()]||'';
     const count=el('p',`${input.value.length}/4000 characters`,'hz-small');input.addEventListener('input',()=>{state.drafts[draftKey()]=input.value;count.textContent=`${input.value.length}/4000 characters`});label.append(input);area.append(label,count,creditButton('Review my writing',submit));
@@ -179,7 +218,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    }
    if(state.result?.kind===state.tab)feedback(state.result.data);
   }
-  pending();history();remember();renderControls();
+  pending();remember();renderControls();
  }
  launch.addEventListener('click',()=>{if(!busy)void open()});
 }
