@@ -49,7 +49,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls()}}
  }
  function renderControls(){
-  area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=n.dataset.locked==='true'});
+  area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=busy||n.dataset.locked==='true'});
  }
  async function load(signal){const snapshot=await store.state(signal);if(!snapshot||!snapshot.activities||!Array.isArray(snapshot.history))throw Error('Your AI practice could not load.');return snapshot}
  async function open(tab='home',options={}){
@@ -156,6 +156,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   }
  }
  function submit(){
+  if(busy||state.pending||state.walletStale)return;
   if(recorder?.isRecording?.()){status('Stop your recording before sending it.',true);return}
   const input={id:crypto.randomUUID(),kind:state.tab,level:state.level,expectedCredits:state.snapshot?.activities[state.tab]?.credits};
   if(state.tab==='writing'){input.text=(state.drafts[draftKey()]||'').trim();if(!input.text){status('Write a French response first.',true);return}}
