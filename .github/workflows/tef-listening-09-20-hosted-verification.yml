@@ -1,0 +1,46 @@
+name: Verify hosted TEF listening release media
+on:
+  pull_request:
+    branches: [development]
+jobs:
+  verify:
+    if: github.head_ref == 'feature/tef-listening-09-20-hosted-verification' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify hosted assets
+        run: |
+          python - <<'PY'
+          import hashlib,pathlib,urllib.request,time,concurrent.futures
+          base='https://hzad123.github.io/hzad-french-academy/'
+          tests=[9,10,11,13]
+          expected=[]
+          for t in tests:
+              p=pathlib.Path(f'assets/tef-listening/tef-listening-2026-11-test{t:02d}-v1')
+              paths=[x for x in p.rglob('*') if x.is_file()]
+              assert len(paths)==43,(t,len(paths))
+              expected.extend(paths)
+          def get(path):
+              req=urllib.request.Request(base+str(path)+'?verify=20261125',headers={'Cache-Control':'no-cache','User-Agent':'HZad-TEF-host-verification'})
+              with urllib.request.urlopen(req,timeout=30) as r:return r.read()
+          def check(path):
+              assert hashlib.sha256(get(path)).digest()==hashlib.sha256(path.read_bytes()).digest(),str(path)
+              return str(path)
+          for i in range(40):
+              try:
+                  before=get('BUILD_COMMIT.txt').decode().strip()
+                  assert len(before)==40,repr(before)
+                  with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:passed=list(ex.map(check,expected))
+                  assert before==get('BUILD_COMMIT.txt').decode().strip(),'Deployment changed'
+                  print('HOSTED_REVISION='+before)
+                  print('VERIFIED_FILES='+str(len(passed)))
+                  print('VERIFIED_TESTS='+','.join(map(str,tests)))
+                  break
+              except Exception as e:
+                  print('Attempt',i+1,repr(e),flush=True)
+                  if i==39:raise
+                  time.sleep(10)
+          PY
