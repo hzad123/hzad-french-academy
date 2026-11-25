@@ -51,10 +51,11 @@ export function createHandler({authenticate,db,provider,allowedOrigins=new Set([
    let generated;
    try{generated=await provider.run(input,claim)}
    catch(error){
+    console.warn('academy-ai activity failed',{kind:input.kind,code:error instanceof AiError?error.code:'AI_RUNTIME'});
     let refunded=false;try{await db.adminRpc('academy_ai_fail',{p_user:user.id,p_id:input.id});refunded=true}catch{}
     return reply({id:input.id,status:refunded?'failed':'processing',error:refunded?'The trainer could not complete this activity. Your credits were returned.':'Your activity is being checked. Open saved activity shortly.'},refunded?502:202);
    }
-   try{return reply(await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.id,p_result:generated.result,p_usage:generated.usage,p_student_text:input.kind==='conversation'?(input.text||generated.result.transcript||'Spoken reply'):null}))}
+   try{return reply(await db.adminRpc('academy_ai_finish',{p_user:user.id,p_id:input.id,p_result:generated.result,p_usage:generated.usage,p_student_text:input.kind==='conversation'?(input.start?'[Conversation started]':input.text||generated.result.transcript||'Spoken reply'):null}))}
    catch{return reply({id:input.id,status:'processing'},202)}
   }catch(error){const safe=safeError(error);return reply({error:safe.message,code:safe.code},safe.status)}
  };

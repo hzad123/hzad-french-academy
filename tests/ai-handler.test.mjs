@@ -99,3 +99,10 @@ test('provider context stays bounded while retaining the introduction and latest
  const messages=buildMessages({kind:'conversation',level:'A2',scenario:'cafe',text:'Un café.'},history);
  assert.equal(messages.length,10);assert.equal(messages[1].content,'Message 0');assert.equal(messages[2].content,'Message 1');assert.equal(messages[3].content,'Message 18');
 });
+
+test('custom opening uses bounded scenario and text-only model',async()=>{
+ const input=validateInput({id:crypto.randomUUID(),kind:'conversation',level:'A2',scenario:'custom:Call a landlord',start:true,expectedCredits:10});
+ assert.equal(input.start,true);assert.throws(()=>validateInput({...input,scenario:'custom: '}));assert.throws(()=>validateInput({...input,scenario:'custom:'+ 'x'.repeat(501)}));assert.throws(()=>validateInput({...input,conversationId:crypto.randomUUID()}));
+ let body;const provider=createOpenAiProvider({key:'test',fetcher:async(_,opts)=>{body=JSON.parse(opts.body);return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({reply:'Bonjour, vous cherchez un appartement ?',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:['Oui.']})}}]}))}});
+ await provider.run(input,{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(body.model,'gpt-4o-mini');assert.equal(body.response_format.type,'json_object');assert.match(body.messages.at(-1).content,/Call a landlord/);assert.match(body.messages.at(-1).content,/Begin the conversation/);
+});
