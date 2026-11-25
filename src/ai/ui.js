@@ -32,9 +32,9 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  const area=root.querySelector('#hz-ai-learning'),launch=root.querySelector('#hz-ai-launch'),chooser=root.querySelector('#hz-course-chooser');
  if(!area||!launch)return;
  const store=makeAiStore(client,fetcher);
- let state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null,voicePhase='idle',voiceSerial=0,callActive=false,callStarted=0,callTimer=null,callCapture=null,callMuted=false,callTranscript=false,callResults=[],callAudio=null;
+ let state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null,voicePhase='idle',voiceSerial=0,callActive=false,callStarted=0,callTimer=null,callCapture=null,callMuted=false,callTranscript=false,callResults=[],callAudio=null,callEnded=false,callEnding=false,voiceWatchdog=null,spokenUtterance=null;
  const draftKey=()=>state.tab+':'+state.level;
- function clear(){stopCallMedia();voiceSerial++;voicePhase='idle';epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
+ function clear(){stopCallMedia();callEnded=false;callEnding=false;callResults=[];voiceSerial++;voicePhase='idle';epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
  function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);root.addEventListener('hzad-close-ai',clear);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
@@ -45,8 +45,8 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=n.dataset.callControl!=='true'});
   area.querySelectorAll('.hz-ai-status').forEach(n=>n.remove());const progress=status('Working on your AI practice…');
   const slow=setTimeout(()=>{if(ticket===epoch)progress.textContent='Still processing. Your request is being checked; you will not be charged twice.'},15000);
-  try{await work(requestController.signal,()=>ticket===epoch)}catch(error){if(ticket===epoch){if(state.tab==='conversation')stopCallMedia();render();status(error.name==='AbortError'?'Connection interrupted. Check saved activity before starting again.':error.message||'AI Learning could not connect.',true)}}
-  finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls();if(callActive&&voicePhase==='idle'&&!callMuted&&!state.pending&&!callCapture)listenCall()}}
+  try{await work(requestController.signal,()=>ticket===epoch)}catch(error){if(ticket===epoch){if(state.tab==='conversation'){stopCallMedia();callEnded=true;}render();status(error.name==='AbortError'?'Connection interrupted. Check saved activity before starting again.':error.message||'AI Learning could not connect.',true)}}
+  finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls();if(callEnding&&!state.pending){endCall(true)}else if(callActive&&voicePhase==='idle'&&!callMuted&&!state.pending&&!callCapture?.isListening())listenCall()}}
  }
  function renderControls(){
   area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=(busy&&n.dataset.callControl!=='true')||n.dataset.locked==='true'});
@@ -72,17 +72,34 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   b.dataset.locked=String(state.walletStale||!state.snapshot?.enabled||!activity?.enabled||!Number.isSafeInteger(credits)||!wallet||wallet.available<credits||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||!!state.pending||!!state.conversation?.busy&&state.tab==='conversation');
   b.disabled=b.dataset.locked==='true';return b;
  }
- function voiceMode(mode,energy=0){voicePhase=mode;const panel=area.querySelector('.hz-conversation-voice');if(!panel)return;panel.dataset.phase=mode;panel.style.setProperty('--voice-energy',String(Math.min(1,energy*8)));panel.querySelector('[role=status]').textContent=({idle:'Ready to speak',listening:'Listening to you…',thinking:'Understanding your reply…',speaking:'French partner is speaking…',ready:'Recording ready — send your reply'})[mode]||'Ready to speak';}
- function stopCallMedia(){callActive=false;callCapture?.stop();callCapture=null;clearInterval(callTimer);callTimer=null;callMuted=false;callAudio=null;voiceSerial++;globalThis.speechSynthesis?.cancel();voicePhase='idle'}
+ function voiceMode(mode,energy=0){voicePhase=mode;const panel=area.querySelector('.hz-conversation-voice');if(!panel)return;panel.dataset.phase=mode;panel.style.setProperty('--voice-energy',String(Math.min(1,energy*8)));panel.querySelector('[role=status]').textContent=({idle:'Ready to speak',listening:'Listening to you…',thinking:'Understanding your reply…',speaking:'French partner is speaking…',ready:'Preparing your reply…',muted:'Microphone muted',connecting:'Connecting microphone…'})[mode]||'Ready to speak';}
+ function stopCallMedia(){clearTimeout(voiceWatchdog);voiceWatchdog=null;spokenUtterance=null;callActive=false;callCapture?.stop();callCapture=null;clearInterval(callTimer);callTimer=null;callMuted=false;callAudio=null;voiceSerial++;globalThis.speechSynthesis?.cancel();voicePhase='idle'}
  function tickCall(){const n=area.querySelector('.hz-call-timer');if(!n)return;const sec=Math.max(0,Math.floor((Date.now()-callStarted)/1000));n.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
- function endCall(){stopCallMedia();render()}
- function listenCall(){if(!callActive||callMuted||busy||state.pending||state.walletStale||!state.conversation)return;const cost=state.snapshot?.activities.conversation?.credits;if(!state.snapshot?.enabled||!state.snapshot?.activities.conversation?.enabled||!Number.isSafeInteger(cost)||state.snapshot?.wallet?.available<cost||!state.snapshot?.wallet?.budgetAvailable||Date.parse(state.snapshot?.wallet?.expiresAt)<=Date.now()||(state.conversation.messages?.length||0)>=24){endCall();return}callCapture?.stop();callCapture=createCallCapture({onAudio:audio=>{if(!callActive||callMuted||busy||state.pending)return;callAudio=audio;submit()},onVoice:voiceMode,onError:message=>{if(callActive){callCapture=null;callMuted=true;voiceMode('idle');render();status(message,true)}}});void callCapture.listen()}
- function startCall(){if(busy||state.pending||state.walletStale)return;if(state.scenario==='custom'&&!state.customScenario.trim()){status('Describe your preferred situation first.',true);return}callActive=true;callStarted=Date.now();callResults=[];callTranscript=false;callMuted=false;callTimer=setInterval(tickCall,1000);if(state.conversation){render();listenCall()}else submit()}
- function voicePanel(){const panel=el('section',undefined,'hz-conversation-voice');const orb=el('div',undefined,'hz-voice-orb');orb.setAttribute('aria-hidden','true');for(let i=0;i<9;i++){const bar=el('i');bar.style.setProperty('--i',String(i));orb.append(bar)}const label=el('p');label.setAttribute('role','status');panel.append(el('p','HZAD AI · FRENCH CALL','hz-call-kicker'),el('h4',scenarios[state.scenario]||'French partner'),el('p',state.level+' · French conversation partner','hz-call-subtitle'));if(callActive){panel.append(el('p','00:00','hz-call-timer'));}panel.append(orb,label);if(callActive){const controls=el('div',undefined,'hz-call-controls');const mute=button(callMuted?'Resume microphone':'Mute',()=>{callMuted=!callMuted;if(callMuted){callCapture?.stop();callCapture=null;if(voicePhase==='listening')voiceMode('idle')}render();if(!callMuted&&voicePhase!=='speaking'&&!busy)listenCall()},true),end=button('End call',endCall),transcript=button(callTranscript?'Hide transcript':'Transcript',()=>{callTranscript=!callTranscript;const log=area.querySelector('.hz-call-transcript');if(log)log.hidden=!callTranscript;transcript.textContent=callTranscript?'Hide transcript':'Transcript'},true);end.classList.add('hz-call-end');for(const b of [mute,end,transcript])b.dataset.callControl='true';controls.append(mute,end,transcript);panel.append(controls)}area.append(panel);if(callActive)tickCall();voiceMode(voicePhase)}
+ function endCall(force=false){
+  if(!force&&callActive&&!busy&&callCapture?.finish()){callEnding=true;stopCallMedia();callEnded=true;render();return}
+  callEnding=!!state.pending;stopCallMedia();callEnded=true;render();
+ }
+ function listenCall(){if(!callActive||callEnding||callMuted||busy||state.pending||!state.conversation)return;if(state.walletStale){endCall(true);status('Refresh balance before resuming the call.',true);return}const cost=state.snapshot?.activities.conversation?.credits;const wallet=state.snapshot?.wallet;if(!state.snapshot?.enabled||!state.snapshot?.activities.conversation?.enabled||!Number.isSafeInteger(cost)||!wallet||wallet.available<cost||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||(state.conversation.messages?.length||0)>=24){endCall(true);return}if(callCapture&&!callCapture.isListening()){voiceMode('connecting');void callCapture.listen()}}
+ async function startCall(){
+  if(busy||state.pending||state.walletStale||callActive)return;
+  if(state.scenario==='custom'&&!state.customScenario.trim()){status('Describe your preferred situation first.',true);return}
+  callActive=true;callEnded=false;callEnding=false;callStarted=Date.now();callResults=[];callTranscript=false;callMuted=false;callTimer=setInterval(tickCall,1000);
+  callCapture=createCallCapture({onAudio:audio=>{if(!callActive||callMuted||busy||state.pending)return;callAudio=audio;submit()},onVoice:voiceMode,onError:message=>{if(callActive){endCall(true);status(message,true)}}});
+  const capture=callCapture;voiceMode('connecting');render();const ready=await capture.prepare();if(!ready||!callActive||capture!==callCapture)return;
+  if(state.conversation)listenCall();else submit();
+ }
+ function voicePanel(){const panel=el('section',undefined,'hz-conversation-voice');const orb=el('div',undefined,'hz-voice-orb');orb.setAttribute('aria-hidden','true');for(let i=0;i<9;i++){const bar=el('i');bar.style.setProperty('--i',String(i));orb.append(bar)}const label=el('p');label.setAttribute('role','status');panel.append(el('p','HZAD AI · FRENCH CALL','hz-call-kicker'),el('h4',scenarios[state.scenario]||'French partner'),el('p',state.level+' · French conversation partner','hz-call-subtitle'));if(callActive){panel.append(el('p','00:00','hz-call-timer'));}panel.append(orb,label);if(callActive){const controls=el('div',undefined,'hz-call-controls');const mute=button(callMuted?'Resume microphone':'Mute',()=>{callMuted=!callMuted;if(callMuted){callCapture?.pause();if(voicePhase==='listening'||voicePhase==='connecting')voiceMode('muted')}render();if(!callMuted&&voicePhase!=='speaking'&&!busy)listenCall()},true),end=button('End call',()=>endCall()),transcript=button(callTranscript?'Hide transcript':'Transcript',()=>{callTranscript=!callTranscript;const log=area.querySelector('.hz-call-transcript');if(log)log.hidden=!callTranscript;transcript.textContent=callTranscript?'Hide transcript':'Transcript'},true);end.classList.add('hz-call-end');for(const b of [mute,end,transcript])b.dataset.callControl='true';controls.append(mute,end,transcript);panel.append(controls)}area.append(panel);if(callActive)tickCall();voiceMode(voicePhase)}
  function speak(text){
-  const speech=globalThis.speechSynthesis,voice=speech?.getVoices().find(v=>/^fr[-_]/i.test(v.lang));
-  if(!speech||!voice||!globalThis.SpeechSynthesisUtterance){status('Enable a French voice in your device settings for playback.');if(callActive){callMuted=true;render()}return}
-  const serial=++voiceSerial;speech.cancel();const audio=new SpeechSynthesisUtterance(text);audio.lang='fr-FR';audio.voice=voice;audio.rate=.9;if(state.tab==='conversation'){voiceMode('speaking');audio.onstart=()=>{if(serial===voiceSerial)voiceMode('speaking')};audio.onend=()=>{if(serial===voiceSerial){voiceMode('idle');if(callActive)listenCall()}};audio.onerror=()=>{if(serial===voiceSerial){voiceMode('idle');if(callActive){callMuted=true;render();status('Voice playback unavailable. Resume microphone or end call.',true)}}}}speech.speak(audio);
+  const speech=globalThis.speechSynthesis,voice=speech?.getVoices().find(v=>/^fr(?:[-_]|$)/i.test(v.lang));
+  const inCall=state.tab==='conversation'&&callActive;
+  clearTimeout(voiceWatchdog);const serial=++voiceSerial;
+  const complete=(failed=false)=>{if(serial!==voiceSerial)return;clearTimeout(voiceWatchdog);voiceWatchdog=null;spokenUtterance=null;voiceMode(callMuted?'muted':'idle');if(callActive){if(failed){callTranscript=true;render();status('Voice playback was unavailable. Read the partner’s reply and speak to continue.',true)}listenCall()}};
+  if(!speech||!globalThis.SpeechSynthesisUtterance){if(inCall)complete(true);else status('Enable speech playback in your browser.');return}
+  try{speech.cancel();const audio=new SpeechSynthesisUtterance(text);spokenUtterance=audio;audio.lang='fr-FR';if(voice)audio.voice=voice;audio.rate=.9;
+   if(inCall){callCapture?.pause();voiceMode('speaking');audio.onstart=()=>{if(serial===voiceSerial)voiceMode('speaking')};audio.onend=()=>complete();audio.onerror=()=>complete(true);
+   const limit=Math.max(10000,Math.min(45000,text.length*110+5000));voiceWatchdog=setTimeout(()=>{if(serial!==voiceSerial)return;speech.cancel();complete(true)},limit)}
+   speech.speak(audio);speech.resume?.();
+  }catch{if(inCall)complete(true);else status('Speech playback was unavailable.')}
  }
  function corrections(items,parent){
   if(!items?.length){parent.append(el('p','Keep going—no specific corrections in this response.'));return}
@@ -114,7 +131,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   if(response.status==='completed'){
    const completed=state.pending;
    const kind=completed?.kind||response.kind||state.tab;
-   state.result={kind,data:response.result};if(kind==='conversation'&&callActive&&response.result?.transcript)callResults.push(response.result);
+   state.result={kind,data:response.result};if(kind==='conversation'&&(callActive||callEnded)&&response.result?.transcript&&!callResults.some(x=>x.requestId===(response.id||completed?.id)))callResults.push({...response.result,requestId:response.id||completed?.id});
    if(kind==='pronunciation'&&completed&&response.result){
     const level=completed.payload?.level||response.level||state.level;
     const key='pronunciation:'+level;
@@ -141,7 +158,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   try{const snapshot=await load(signal);if(!current())return;state.snapshot=snapshot;state.walletStale=false;render()}
   catch{if(!current())return;status('Feedback is saved. Refresh balance before starting another paid review.',true)}
   if(response.status==='completed'&&state.result?.kind==='conversation'&&response.result?.reply&&callActive)speak(response.result.reply);
-  if(response.status==='failed'){if(callActive)endCall();status('This activity could not complete. Your credits were returned.',true);}
+  if(response.status==='failed'){if(callActive)endCall(true);status('This activity could not complete. Your credits were returned.',true);}
   else if(response.status!=='completed')status('Your activity is still processing. Use Check activity to retrieve it without another charge.');
  }
  async function send(payload,signal,current){
@@ -175,7 +192,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    if(state.scenario==='custom'&&!state.customScenario.trim()){status('Describe your preferred situation first.',true);return}
    if(!input.conversationId){input.start=true}else{input.audio=callAudio;callAudio=null;if(!input.audio){status('No spoken reply captured.',true);return}}
   }
-  if(input.kind==='conversation'){callCapture?.stop();callCapture=null;voiceSerial++;globalThis.speechSynthesis?.cancel();voiceMode('thinking')}
+  if(input.kind==='conversation'){callCapture?.pause();voiceSerial++;globalThis.speechSynthesis?.cancel();voiceMode('thinking')}
   state.pending={id:input.id,kind:input.kind,payload:input};
   void run((signal,current)=>send(input,signal,current));
  }
@@ -270,9 +287,9 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     const log=el('div',undefined,'hz-ai-chat hz-call-transcript');log.hidden=callActive&&!callTranscript;log.setAttribute('role','log');log.setAttribute('aria-label','French conversation');
     for(const m of state.conversation?.messages||[]){if(m.role==='user'&&m.content==='[Conversation started]')continue;const bubble=el('article',undefined,'hz-ai-bubble '+(m.role==='assistant'?'is-partner':'is-learner'));bubble.append(el('strong',m.role==='assistant'?'French partner':'You'),el('p',m.content));log.append(bubble)}area.append(log);
     const complete=(state.conversation?.messages?.length||0)>=24;
-    if(!callActive){const cost=snap.activities.conversation?.credits;area.append(el('p',Number.isSafeInteger(cost)?'Current billing: '+cost+' credits per completed AI turn. No charge for silence.':'Price unavailable','hz-small'));if(!complete){const start=creditButton(state.conversation?'Resume call':'Start call',startCall);start.textContent=state.conversation?'Resume call':'Start call';start.classList.add('hz-call-start');area.append(start)}else area.append(el('p','Call complete. Start a new scenario to continue.'));if(state.conversation)area.append(button('New conversation',()=>{stopCallMedia();state.conversation=null;state.result=null;callResults=[];render()},true));if(callResults.length){const review=el('section',undefined,'hz-ai-feedback');review.append(el('h4','Call review'));for(const item of callResults){review.append(el('p',item.transcript,'hz-ai-transcript'));corrections(item.corrections||[],review)}area.append(review)}}
+    if(!callActive){const cost=snap.activities.conversation?.credits;area.append(el('p',Number.isSafeInteger(cost)?'Current billing: '+cost+' credits per completed AI turn. No charge for silence.':'Price unavailable','hz-small'));if(!complete){const start=creditButton(state.conversation?'Resume call':'Start call',startCall);start.textContent=state.conversation?'Resume call':'Start call';start.classList.add('hz-call-start');area.append(start)}else area.append(el('p','Call complete. Start a new scenario to continue.'));if(state.conversation)area.append(button('New conversation',()=>{stopCallMedia();state.conversation=null;state.result=null;callResults=[];callEnded=false;callEnding=false;render()},true));if(callEnded||callResults.length){const review=el('section',undefined,'hz-ai-feedback');review.append(el('h4','Call review'),el('p',callResults.length+' spoken replies reviewed'));if(state.pending)review.append(el('p','Final reply is being processed. Feedback will update when it is saved.'));else if(!callResults.length)review.append(el('p','No spoken reply was successfully captured, so there is not enough evidence for speaking feedback. Try a new call and check microphone access.'));for(const item of callResults){review.append(el('h5','What we heard'),el('p',item.transcript,'hz-ai-transcript'),el('h5','Speaking corrections'));corrections(item.corrections||[],review)}area.append(review)}}
    }
-   if(state.tab!=='pronunciation'&&state.result?.kind===state.tab&&!callActive&&!(state.tab==='conversation'&&callResults.length))feedback(state.result.data);
+   if(state.tab!=='pronunciation'&&state.result?.kind===state.tab&&!callActive&&!(state.tab==='conversation'&&(callEnded||callResults.length)))feedback(state.result.data);
   }
   pending();remember();renderControls();
  }

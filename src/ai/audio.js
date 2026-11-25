@@ -52,21 +52,36 @@ export function mountRecorder(parent,onReady=()=>{},onVoice=()=>{}){
 }
 
 export function detectSpeechTurn(state,rms,seconds){
- const voiced=rms>=.012;const speech=state.speech+(voiced?seconds:0),silence=voiced?0:state.silence+seconds,elapsed=state.elapsed+seconds;
- return {speech,silence,elapsed,done:speech>=.25&&(silence>=1.6||elapsed>=29.8),expired:elapsed>=29.8&&speech<.25};
+ const threshold=Math.max(.003,Math.min(.012,(state.noise??.0015)*2.5));
+ const voiced=rms>=threshold;
+ const speech=state.speech+(voiced?seconds:0),silence=voiced?0:state.silence+seconds;
+ const elapsed=speech>0?state.elapsed+seconds:0;
+ const noise=!voiced&&!state.speech?(state.noise??.0015)*.95+rms*.05:(state.noise??.0015);
+ return {speech,silence,elapsed,noise,done:speech>=.18&&(silence>=1.8||elapsed>=28)};
 }
+// One microphone stream and AudioContext per call. Pause sampling during playback
+// and requests, but never reopen the microphone between turns.
 export function createCallCapture({onAudio,onVoice,onError}){
- let stream=null,context=null,source=null,processor=null,gain=null,serial=0,active=false;
- function stop(){serial++;active=false;for(const n of [source,processor,gain])try{n?.disconnect()}catch{};stream?.getTracks().forEach(t=>t.stop());stream=null;if(context){void context.close().catch(()=>{});context=null}}
- async function listen(){stop();const ticket=serial;try{
- const AudioContext=globalThis.AudioContext||globalThis.webkitAudioContext;if(!AudioContext||!navigator.mediaDevices?.getUserMedia)throw Error('Microphone is unavailable.');
- const mic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true}});if(ticket!==serial){mic.getTracks().forEach(t=>t.stop());return}stream=mic;context=new AudioContext();await context.resume();if(ticket!==serial)return;
- const rate=context.sampleRate;source=context.createMediaStreamSource(stream);processor=context.createScriptProcessor(4096,1,1);gain=context.createGain();gain.gain.value=0;
- let vad={speech:0,silence:0,elapsed:0},chunks=[],frames=0,pre=[],preFrames=0;active=true;onVoice('listening',0);
- processor.onaudioprocess=e=>{if(!active||ticket!==serial)return;const data=e.inputBuffer.getChannelData(0);let energy=0;for(let i=0;i<data.length;i++)energy+=data[i]*data[i];const rms=Math.sqrt(energy/data.length);const prior=vad.speech;vad=detectSpeechTurn(vad,rms,data.length/rate);onVoice('listening',rms);
- if(!prior&&!vad.speech){pre.push(new Float32Array(data));preFrames+=data.length;while(preFrames>rate*.5&&pre.length>1)preFrames-=pre.shift().length}else{if(!prior){chunks=pre;frames=preFrames;pre=[]}const n=Math.min(data.length,Math.max(0,Math.floor(rate*30)-frames));if(n){chunks.push(new Float32Array(data.subarray(0,n)));frames+=n}}
- if(vad.done||frames>=rate*30){const samples=new Float32Array(frames);let off=0;for(const part of chunks){samples.set(part,off);off+=part.length}stop();onAudio(audioBase64(encodeWav(samples,rate)))}else if(vad.expired){stop();onError('No speech heard. Tap Resume microphone when ready.')}
- };source.connect(processor);processor.connect(gain);gain.connect(context.destination);
- }catch(e){if(ticket===serial){stop();onError('Microphone unavailable. Allow access and resume.')}}}
- return {listen,stop};
+ let stream=null,context=null,source=null,processor=null,gain=null,closed=false,active=false,opening=null;
+ let vad, chunks,frames,pre,preFrames,rate=16000;
+ function reset(){vad={speech:0,silence:0,elapsed:0,noise:.0015};chunks=[];frames=0;pre=[];preFrames=0}
+ reset();
+ function pause(){active=false;reset()}
+ function stop(){closed=true;pause();for(const n of [source,processor,gain])try{n?.disconnect()}catch{};stream?.getTracks().forEach(t=>t.stop());stream=null;if(context){void context.close().catch(()=>{});context=null}}
+ function finish(){if(!active||vad.speech<.18||frames<rate*.5)return false;const samples=new Float32Array(frames);let off=0;for(const part of chunks){samples.set(part,off);off+=part.length}let sum=0;for(const x of samples)sum+=x*x;const rms=Math.sqrt(sum/samples.length);if(rms<.0008){reset();return false}const scale=Math.min(5,Math.max(1,.012/rms));if(scale>1)for(let i=0;i<samples.length;i++)samples[i]=Math.max(-1,Math.min(1,samples[i]*scale));pause();onAudio(audioBase64(encodeWav(samples,rate)));return true}
+ async function prepare(){if(closed)return false;if(opening)return opening;
+ opening=(async()=>{try{
+ const AudioContext=globalThis.AudioContext||globalThis.webkitAudioContext;if(!AudioContext||!navigator.mediaDevices?.getUserMedia)throw Error('Microphone unavailable');
+ // Resume immediately in the Start call click, before the first network request.
+ context=new AudioContext();const ready=context.resume();const mic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true}});if(closed){mic.getTracks().forEach(t=>t.stop());return false}stream=mic;await ready;if(closed)return false;
+ rate=context.sampleRate;source=context.createMediaStreamSource(stream);processor=context.createScriptProcessor(4096,1,1);gain=context.createGain();gain.gain.value=0;
+ processor.onaudioprocess=e=>{if(!active||closed)return;const data=e.inputBuffer.getChannelData(0);let energy=0;for(const v of data)energy+=v*v;const rms=Math.sqrt(energy/data.length);const prior=vad.speech;vad=detectSpeechTurn(vad,rms,data.length/rate);onVoice('listening',rms);
+ if(!prior&&!vad.speech){pre.push(new Float32Array(data));preFrames+=data.length;while(preFrames>rate*.5&&pre.length>1)preFrames-=pre.shift().length}else{if(!prior){chunks=pre;frames=preFrames;pre=[]}const n=Math.min(data.length,Math.max(0,Math.floor(rate*29.9)-frames));if(n){chunks.push(new Float32Array(data.subarray(0,n)));frames+=n}}
+ // Ignore transient noise rather than accumulating it until a false turn.
+ if(vad.speech>0&&vad.speech<.18&&vad.silence>1.8){reset();return}
+ if(vad.done||frames>=rate*29.9)finish();
+ };source.connect(processor);processor.connect(gain);gain.connect(context.destination);return true;
+ }catch{if(!closed){stop();onError('Microphone access is unavailable. Allow access and start a new call.')}return false}})();return opening}
+ async function listen(){if(!await prepare()||closed)return false;try{if(context.state!=='running')await context.resume();if(closed)return false;reset();active=true;onVoice('listening',0);return true}catch{onError('Microphone could not resume. End the call and try again.');return false}}
+ return {prepare,listen,pause,stop,finish,isListening:()=>active};
 }

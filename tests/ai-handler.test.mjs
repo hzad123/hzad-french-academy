@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createHandler} from '../supabase/functions/academy-ai/handler.js';
 import {createOpenAiProvider,buildMessages} from '../supabase/functions/academy-ai/provider.js';
 import {validateInput,validateOutput,inspectAudio,AiError} from '../supabase/functions/academy-ai/contracts.js';
-import {encodeWav,audioBase64} from '../src/ai/audio.js';
+import {encodeWav,audioBase64,detectSpeechTurn,createCallCapture} from '../src/ai/audio.js';
 import {providerKey} from '../supabase/functions/academy-ai/config.js';
 import {readFile} from 'node:fs/promises';
 const uid='11111111-1111-4111-8111-111111111111';
@@ -112,3 +112,5 @@ test('spoken conversation transcribes independently and never accepts silent spe
  const provider=createOpenAiProvider({key:'test',fetcher:async(url,opts)=>{calls.push({url,body:opts.body});if(url.endsWith('/transcriptions'))return new Response(JSON.stringify({text:heard}));return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({reply:'Vous souhaitez travailler à Montréal, très bien.',englishHelp:'You want to work in Montreal.',transcript:'invented polished text',corrections:[{original:'tu m’a demandé',corrected:'tu m’as demandé',explanation:'Add s.'}],suggestedReplies:['Je cherche un poste.']})}}]}))}});
  const result=await provider.run({kind:'conversation',level:'B1',scenario:'interview',audio:audio()},{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]});assert.equal(calls.length,2);assert.match(calls[0].body.get('prompt'),/mot pour mot/);assert.equal(JSON.parse(calls[1].body).model,'gpt-4o-mini');assert.ok(JSON.parse(calls[1].body).messages.at(-1).content.includes(heard));assert.equal(result.result.transcript,heard);assert.deepEqual(result.result.corrections,[]);
 });
+
+test('call detection accepts quiet speech, waits for pauses, and never expires from silence',()=>{let s={speech:0,silence:0,elapsed:0};for(let i=0;i<600;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,false);assert.equal(s.elapsed,0);for(let i=0;i<5;i++)s=detectSpeechTurn(s,.005,.1);assert.ok(s.speech>=.18);for(let i=0;i<10;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,false);for(let i=0;i<10;i++)s=detectSpeechTurn(s,.0004,.1);assert.equal(s.done,true)});
