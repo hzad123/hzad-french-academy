@@ -32,7 +32,7 @@ jobs:
           for i in range(60):
               try:
                   before=get('BUILD_COMMIT.txt').decode().strip()
-                  assert before=='62138185cd110b5901c57d195dc4e525b8835486',f'Deployment still at {before}'
+                  assert before=='5fe37859b5b801bc52b48da772c03de291b563a1',f'Deployment still at {before}'
                   with concurrent.futures.ThreadPoolExecutor(max_workers=32) as ex:passed=list(ex.map(check,expected))
                   assert before==get('BUILD_COMMIT.txt').decode().strip(),'Deployment changed'
                   print('HOSTED_REVISION='+before)
