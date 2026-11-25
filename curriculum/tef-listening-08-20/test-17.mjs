@@ -1,4 +1,4 @@
-/* Original Test 17 source; pending measured media and editorial review. */
+/* Original authored TEF paper; revised substantive recordings, pending measured and editorial QA. */
 export const clips = [
   {
     "start": 1,
@@ -25,46 +25,46 @@ export const clips = [
   },
   {
     "start": 2,
-    "topic": "entretien d’un aquarium",
-    "script": "— L’eau paraît trouble depuis hier. Est-ce que je dois tout vider ? — Non, prélève seulement une partie de l’eau avec le tuyau, puis ajoute de l’eau préparée à la même température. — Et le filtre ? — Rince la mousse dans l’eau retirée. Il faut préserver les bactéries utiles qui s’y trouvent, sinon l’équilibre du bac risque de changer.",
+    "topic": "réglage d'une imprimante d'étiquettes",
+    "script": "— Les caractères sont coupés sur le bord gauche de chaque étiquette.\n— Vérifie la largeur du rouleau et le repère de départ dans le logiciel.\n— Je dois remplacer le ruban ?\n— Pas encore. Imprime une étiquette d'essai et mesure les marges. Si le texte est correctement placé, tu pourras lancer la série destinée aux boîtes.",
     "questions": [
       {
-        "stem": "Quelle activité est montrée ?",
-        "correct": "Entretenir un aquarium.",
+        "stem": "Quel appareil est réglé ?",
+        "correct": "Une imprimante d'étiquettes.",
         "wrong": [
-          "Nettoyer une machine à café.",
-          "Arroser des plantes en serre.",
-          "Remplir une piscine."
+          "Un lecteur de codes-barres.",
+          "Un scanner de photographies.",
+          "Une machine à relier."
         ],
-        "explanation": "Le bac, le filtre et les bactéries utiles concernent l’aquarium.",
+        "explanation": "Le rouleau et les marges sont réglés pour imprimer une série d'étiquettes.",
         "illustrationIcons": [
-          "🐠",
-          "☕",
-          "🌱",
-          "🏊"
+          "🏷️",
+          "🔍",
+          "📷",
+          "📚"
         ]
       }
     ]
   },
   {
     "start": 3,
-    "topic": "réparation d’un parapluie",
-    "script": "— La toile est intacte, mais cette tige se replie dès que je l’ouvre. — Regarde le petit rivet qui relie les deux parties. Il s’est détaché. — Je dois remplacer toute la structure ? — Pas nécessairement. On va remettre une fixation, puis ouvrir et fermer plusieurs fois le mécanisme pour vérifier qu’il ne se bloque plus.",
+    "topic": "fabrication d'un mobile en papier",
+    "script": "— Les formes penchent toutes du même côté quand je suspends la baguette.\n— Déplace le point d'attache vers la partie la plus lourde. Les fils doivent rester séparés pour que les éléments tournent librement.\n— Je peux ajouter cette étoile ?\n— Oui, mais vérifie de nouveau l'équilibre avant de suspendre le mobile au plafond.",
     "questions": [
       {
-        "stem": "Quel objet réparent-ils ?",
-        "correct": "Un parapluie.",
+        "stem": "Quel objet est fabriqué ?",
+        "correct": "Un mobile décoratif suspendu.",
         "wrong": [
-          "Un store de fenêtre.",
-          "Une valise.",
-          "Une chaise pliante."
+          "Un cadre de photographies.",
+          "Une guirlande posée sur une table.",
+          "Un abat-jour en tissu."
         ],
-        "explanation": "La toile, les tiges et l’ouverture correspondent à un parapluie.",
+        "explanation": "Les formes suspendues doivent rester équilibrées et mobiles.",
         "illustrationIcons": [
-          "☂️",
-          "🪟",
-          "🧳",
-          "🪑"
+          "⭐",
+          "🖼️",
+          "🎉",
+          "💡"
         ]
       }
     ]
@@ -401,7 +401,7 @@ export const clips = [
   {
     "start": 23,
     "topic": "adaptation des instruments de musique aux élèves à mobilité réduite",
-    "script": "— Votre atelier transforme des instruments pour permettre à des élèves ayant des difficultés motrices de jouer. Comment commencez-vous un projet ?\n— Nous ne partons pas d’un diagnostic médical seul. Deux personnes qui ont une difficulté semblable peuvent avoir des gestes très différents et des objectifs musicaux distincts. Nous observons d’abord comment l’élève souhaite tenir son instrument, produire un son et enchaîner plusieurs notes.\n— Ensuite, vous fabriquez directement une pièce adaptée ?\n— Pas immédiatement. Nous réalisons souvent une première solution avec des matériaux faciles à modifier. L’enseignant peut l’essayer pendant quelques leçons et nous signaler les mouvements qui restent difficiles. Il arrive que le premier dispositif fonctionne très bien pour une note isolée, mais devienne gênant lorsqu’il faut passer rapidement à une autre.\n— Est-ce que vous cherchez à rendre l’instrument aussi simple que possible ?\n— Nous cherchons plutôt à supprimer les obstacles qui ne correspondent pas au travail musical visé. Si l’élève veut apprendre à contrôler l’intensité d’une note, il faut conserver une possibilité de variation. Une adaptation trop automatique risquerait de retirer précisément ce qu’il souhaite apprendre.\n— Les instruments modifiés restent-ils utilisables par d’autres élèves ?\n— Cela dépend. Nous privilégions les modifications réversibles quand l’instrument appartient à une école. Toutefois, une solution très personnelle peut être justifiée pour un instrument utilisé quotidiennement par la même personne. Il faut aussi prévoir la maintenance : une petite pièce difficile à remplacer peut rendre l’ensemble inutilisable pendant plusieurs semaines.\n— Comment jugez-vous le résultat ?\n— Nous revenons après quelques mois. Nous demandons à l’élève et au professeur ce que l’adaptation permet réellement de jouer, et si leurs attentes ont évolué. La réussite ne se mesure donc pas seulement au nombre d’instruments transformés, mais à la possibilité de continuer à progresser musicalement.",
+    "script": "— Votre atelier transforme des instruments pour permettre à des élèves ayant des difficultés motrices de jouer. Comment commencez-vous un projet ?\n— Nous ne partons pas d’un diagnostic médical seul. Deux personnes qui ont une difficulté semblable peuvent avoir des gestes très différents et des objectifs musicaux distincts. Nous observons d’abord comment l’élève souhaite tenir son instrument, produire un son et enchaîner plusieurs notes.\n— Ensuite, vous fabriquez directement une pièce adaptée ?\n— Pas immédiatement. Nous réalisons souvent une première solution avec des matériaux faciles à modifier. L’enseignant peut l’essayer pendant quelques leçons et nous signaler les mouvements qui restent difficiles. Il arrive que le premier dispositif fonctionne très bien pour une note isolée, mais devienne gênant lorsqu’il faut passer rapidement à une autre.\n— Est-ce que vous cherchez à rendre l’instrument aussi simple que possible ?\n— Nous cherchons plutôt à supprimer les obstacles qui ne correspondent pas au travail musical visé. Si l’élève veut apprendre à contrôler l’intensité d’une note, il faut conserver une possibilité de variation. Une adaptation trop automatique risquerait de retirer précisément ce qu’il souhaite apprendre.\n— Les instruments modifiés restent-ils utilisables par d’autres élèves ?\n— Cela dépend. Nous privilégions les modifications réversibles quand l’instrument appartient à une école. Toutefois, une solution très personnelle peut être justifiée pour un instrument utilisé quotidiennement par la même personne. Il faut aussi prévoir la maintenance : une petite pièce difficile à remplacer peut rendre l’ensemble inutilisable pendant plusieurs semaines.\n— Comment jugez-vous le résultat ?\n— Nous revenons après quelques mois. Nous demandons à l’élève et au professeur ce que l’adaptation permet réellement de jouer, et si leurs attentes ont évolué. La réussite ne se mesure donc pas seulement au nombre d’instruments transformés, mais à la possibilité de continuer à progresser musicalement.\n— Les élèves participent-ils au choix de l'apparence de la pièce ?\n— Dans la mesure du possible, oui. L'acceptation de l'instrument compte dans son utilisation quotidienne. Nous cherchons des solutions discrètes lorsque c'est leur préférence.",
     "questions": [
       {
         "stem": "Sur quoi repose la première étape du projet ?",
@@ -428,7 +428,7 @@ export const clips = [
   {
     "start": 25,
     "topic": "gestion des prêts d’œuvres entre petits musées",
-    "script": "— Des musées de petite taille souhaitent organiser des expositions ensemble. Qu’est-ce qui complique le prêt des œuvres ?\n— On évoque souvent les assurances et le transport, mais la difficulté commence parfois bien plus tôt. Un établissement doit savoir quelles œuvres seront disponibles, à quelles dates, et si leur état permet plusieurs déplacements. Les calendriers d’exposition sont rarement établis au même moment dans tous les musées.\n— Existe-t-il un inventaire partagé ?\n— Nous avons mis en place un outil dans lequel les établissements indiquent leurs projets et leurs périodes de disponibilité. Ce n’est pas un catalogue public donnant automatiquement accès aux collections. Une œuvre signalée comme disponible peut nécessiter des vérifications complémentaires avant le prêt.\n— Les coûts sont-ils répartis entre les établissements ?\n— Nous cherchons à mutualiser certaines opérations. Par exemple, si deux expositions successives se trouvent dans des villes proches, il peut être pertinent d’organiser un transport commun. Mais chaque trajet supplémentaire doit être justifié au regard de la conservation des œuvres. Un circuit financièrement avantageux ne l’est pas forcément pour un objet fragile.\n— Les petits musées disposent-ils du matériel nécessaire ?\n— Pas toujours. Nous avons constitué une réserve de supports, de caisses et de dispositifs de surveillance des conditions climatiques. Les équipes peuvent aussi échanger sur les installations réalisées. Cela ne signifie pas que tous les espaces deviennent adaptés à toutes les œuvres.\n— Qu’espérez-vous à long terme ?\n— Nous voudrions que les projets communs soient préparés plus tôt et que les refus de prêt soient mieux compris. Un refus n’est pas nécessairement un manque de volonté de coopérer. Il peut découler d’une contrainte de conservation qu’il est possible d’anticiper en choisissant une autre œuvre ou en modifiant le calendrier. Nous voulons augmenter le nombre de projets réalisables sans multiplier les déplacements inutiles.",
+    "script": "— Des musées de petite taille souhaitent organiser des expositions ensemble. Qu’est-ce qui complique le prêt des œuvres ?\n— On évoque souvent les assurances et le transport, mais la difficulté commence parfois bien plus tôt. Un établissement doit savoir quelles œuvres seront disponibles, à quelles dates, et si leur état permet plusieurs déplacements. Les calendriers d’exposition sont rarement établis au même moment dans tous les musées.\n— Existe-t-il un inventaire partagé ?\n— Nous avons mis en place un outil dans lequel les établissements indiquent leurs projets et leurs périodes de disponibilité. Ce n’est pas un catalogue public donnant automatiquement accès aux collections. Une œuvre signalée comme disponible peut nécessiter des vérifications complémentaires avant le prêt.\n— Les coûts sont-ils répartis entre les établissements ?\n— Nous cherchons à mutualiser certaines opérations. Par exemple, si deux expositions successives se trouvent dans des villes proches, il peut être pertinent d’organiser un transport commun. Mais chaque trajet supplémentaire doit être justifié au regard de la conservation des œuvres. Un circuit financièrement avantageux ne l’est pas forcément pour un objet fragile.\n— Les petits musées disposent-ils du matériel nécessaire ?\n— Pas toujours. Nous avons constitué une réserve de supports, de caisses et de dispositifs de surveillance des conditions climatiques. Les équipes peuvent aussi échanger sur les installations réalisées. Cela ne signifie pas que tous les espaces deviennent adaptés à toutes les œuvres.\n— Qu’espérez-vous à long terme ?\n— Nous voudrions que les projets communs soient préparés plus tôt et que les refus de prêt soient mieux compris. Un refus n’est pas nécessairement un manque de volonté de coopérer. Il peut découler d’une contrainte de conservation qu’il est possible d’anticiper en choisissant une autre œuvre ou en modifiant le calendrier. Nous voulons augmenter le nombre de projets réalisables sans multiplier les déplacements inutiles.\n— Comment les équipes préparent-elles les demandes de prêt ?\n— Elles transmettent des renseignements sur les conditions de présentation prévues. Cette préparation permet parfois d'identifier une difficulté avant d'engager des dépenses de transport.",
     "questions": [
       {
         "stem": "Quelle fonction remplit l’outil partagé ?",
@@ -455,7 +455,7 @@ export const clips = [
   {
     "start": 27,
     "topic": "mise au point de systèmes de ventilation pour salles de sport",
-    "script": "— Pourquoi étudier spécifiquement la ventilation des salles de sport ?\n— L’occupation d’une salle change rapidement. Pendant un cours collectif, beaucoup de personnes sont présentes et leur activité physique augmente les besoins de renouvellement de l’air. Peu après, la salle peut rester presque vide.\n— Les installations fonctionnent-elles généralement en continu ?\n— Certaines, oui. D’autres suivent un calendrier de cours. Mais les horaires théoriques ne correspondent pas toujours à l’usage réel. Un groupe peut terminer plus tard ou une séance peut être annulée. Nous avons comparé ces systèmes avec des réglages fondés sur des mesures effectuées dans la salle.\n— Quel indicateur utilisez-vous ?\n— La concentration en dioxyde de carbone nous aide à suivre l’occupation et le renouvellement de l’air, mais elle n’indique pas tout. La température, l’humidité et la circulation effective de l’air sont également importantes. Nous étudions donc plusieurs paramètres plutôt que de confier toute la décision à un seul capteur.\n— Les résultats permettent-ils de réduire la consommation d’énergie ?\n— Dans certains cas, oui, notamment lorsqu’une installation fonctionne à pleine puissance dans une salle vide. Il faut cependant éviter de réduire trop tôt la ventilation après une activité. L’air doit retrouver des conditions satisfaisantes avant l’arrivée du groupe suivant.\n— Quelles difficultés avez-vous rencontrées ?\n— Le placement des capteurs a une influence importante. Un appareil situé près d’une arrivée d’air frais peut donner une image trop favorable de l’ensemble de la pièce. Nous vérifions les mesures à différents endroits avant de retenir un réglage.\n— Quel sera le rôle des responsables des équipements ?\n— Ils devront comprendre les limites du dispositif et pouvoir signaler les usages imprévus. Une installation bien réglée n’est pas un système dont on peut oublier le fonctionnement. Elle doit être entretenue et réévaluée lorsque l’organisation des activités change.",
+    "script": "— Pourquoi étudier spécifiquement la ventilation des salles de sport ?\n— L’occupation d’une salle change rapidement. Pendant un cours collectif, beaucoup de personnes sont présentes et leur activité physique augmente les besoins de renouvellement de l’air. Peu après, la salle peut rester presque vide.\n— Les installations fonctionnent-elles généralement en continu ?\n— Certaines, oui. D’autres suivent un calendrier de cours. Mais les horaires théoriques ne correspondent pas toujours à l’usage réel. Un groupe peut terminer plus tard ou une séance peut être annulée. Nous avons comparé ces systèmes avec des réglages fondés sur des mesures effectuées dans la salle.\n— Quel indicateur utilisez-vous ?\n— La concentration en dioxyde de carbone nous aide à suivre l’occupation et le renouvellement de l’air, mais elle n’indique pas tout. La température, l’humidité et la circulation effective de l’air sont également importantes. Nous étudions donc plusieurs paramètres plutôt que de confier toute la décision à un seul capteur.\n— Les résultats permettent-ils de réduire la consommation d’énergie ?\n— Dans certains cas, oui, notamment lorsqu’une installation fonctionne à pleine puissance dans une salle vide. Il faut cependant éviter de réduire trop tôt la ventilation après une activité. L’air doit retrouver des conditions satisfaisantes avant l’arrivée du groupe suivant.\n— Quelles difficultés avez-vous rencontrées ?\n— Le placement des capteurs a une influence importante. Un appareil situé près d’une arrivée d’air frais peut donner une image trop favorable de l’ensemble de la pièce. Nous vérifions les mesures à différents endroits avant de retenir un réglage.\n— Quel sera le rôle des responsables des équipements ?\n— Ils devront comprendre les limites du dispositif et pouvoir signaler les usages imprévus. Une installation bien réglée n’est pas un système dont on peut oublier le fonctionnement. Elle doit être entretenue et réévaluée lorsque l’organisation des activités change.\n— Les systèmes peuvent-ils être réglés différemment selon les activités ?\n— Oui, mais nous vérifions les effets réels des réglages. Une programmation détaillée ne présente un intérêt que si elle correspond aux usages observés.",
     "questions": [
       {
         "stem": "Pourquoi le calendrier des cours ne suffit-il pas pour régler la ventilation ?",
@@ -482,7 +482,7 @@ export const clips = [
   {
     "start": 29,
     "topic": "réhabilitation d’une voie ferroviaire pour des déplacements locaux",
-    "script": "Une ancienne ligne ferroviaire, inutilisée depuis plus de vingt ans, traverse plusieurs communes d’une région rurale. Alors que certains habitants souhaitent la transformer en itinéraire cyclable, d’autres proposent de conserver une partie de l’infrastructure pour un service de transport léger. Une étude a donc été confiée à une équipe spécialisée afin de comparer les possibilités sans se limiter aux coûts immédiats des travaux. Les premiers relevés indiquent que plusieurs ouvrages, notamment deux ponts, nécessitent une remise en état quel que soit l’usage retenu. Cependant, les travaux complémentaires seraient différents : le passage de véhicules sur rails exige des vérifications spécifiques, tandis qu’un itinéraire cyclable doit notamment être relié aux routes et aux chemins existants. L’étude examine également la localisation des déplacements. Une ligne reliant directement deux centres de village peut être intéressante pour les habitants, alors qu’une section éloignée des habitations présenterait surtout un intérêt touristique. Les communes ont été invitées à préciser leurs projets de développement autour des anciennes gares. L’équipe souligne qu’un même aménagement ne doit pas forcément couvrir toute la ligne : certains tronçons peuvent être complémentaires, à condition de prévoir leurs connexions. Les collectivités souhaitent aussi éviter des travaux qui empêcheraient définitivement un autre usage sans avoir évalué sa pertinence. À ce stade, aucune décision finale n’a été annoncée. Les résultats seront présentés publiquement, avec une comparaison des dépenses d’entretien, des besoins de déplacement et des possibilités de mise en service progressive. Le débat devrait ainsi porter sur les services que l’infrastructure pourrait rendre, plutôt que sur la seule opposition entre deux modes de transport.",
+    "script": "Une ancienne ligne ferroviaire, inutilisée depuis plus de vingt ans, traverse plusieurs communes d’une région rurale. Alors que certains habitants souhaitent la transformer en itinéraire cyclable, d’autres proposent de conserver une partie de l’infrastructure pour un service de transport léger. Une étude a donc été confiée à une équipe spécialisée afin de comparer les possibilités sans se limiter aux coûts immédiats des travaux. Les premiers relevés indiquent que plusieurs ouvrages, notamment deux ponts, nécessitent une remise en état quel que soit l’usage retenu. Cependant, les travaux complémentaires seraient différents : le passage de véhicules sur rails exige des vérifications spécifiques, tandis qu’un itinéraire cyclable doit notamment être relié aux routes et aux chemins existants. L’étude examine également la localisation des déplacements. Une ligne reliant directement deux centres de village peut être intéressante pour les habitants, alors qu’une section éloignée des habitations présenterait surtout un intérêt touristique. Les communes ont été invitées à préciser leurs projets de développement autour des anciennes gares. L’équipe souligne qu’un même aménagement ne doit pas forcément couvrir toute la ligne : certains tronçons peuvent être complémentaires, à condition de prévoir leurs connexions. Les collectivités souhaitent aussi éviter des travaux qui empêcheraient définitivement un autre usage sans avoir évalué sa pertinence. À ce stade, aucune décision finale n’a été annoncée. Les résultats seront présentés publiquement, avec une comparaison des dépenses d’entretien, des besoins de déplacement et des possibilités de mise en service progressive. Le débat devrait ainsi porter sur les services que l’infrastructure pourrait rendre, plutôt que sur la seule opposition entre deux modes de transport.\nLes communes étudieront aussi la continuité des parcours aux endroits où les anciennes installations rejoignent des routes très fréquentées. Un tronçon isolé, même bien aménagé, peut répondre difficilement aux besoins des habitants. Les possibilités de correspondance avec les services existants seront examinées avec les collectivités voisines. Les responsables souhaitent que les différentes étapes puissent être évaluées séparément avant d'engager les travaux suivants.",
     "questions": [
       {
         "stem": "Pourquoi les communes doivent-elles préciser leurs projets autour des gares ?",
