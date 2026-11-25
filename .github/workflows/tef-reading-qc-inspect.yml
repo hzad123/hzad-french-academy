@@ -29,3 +29,5 @@ jobs:
           if [ -f /tmp/ghl.html ]; then grep -oE 'https://[^" <>]+/academy(-app)?\\.js[^" <>]*' /tmp/ghl.html | head -10 || true; fi
           curl -fsSL "$base/academy.css?check=$GITHUB_RUN_ID" -o /tmp/academy.css
           grep -q 'hz-studio-grid' /tmp/academy.css && echo STUDIO_CSS_PRESENT || true
+
+# Check Pages retry release 5fe37859.
