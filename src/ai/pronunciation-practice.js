@@ -1,22 +1,136 @@
-// Local, level-appropriate backup exercises. Selecting a sentence never calls AI.
+// Selecting another exercise is local and free. Count apostrophe/hyphen-separated words conservatively.
 export const pronunciationPhrases={
- A0:['Bonjour, je m’appelle Camille.','Je suis à la maison.','Merci beaucoup, bonne journée !','J’ai deux frères.','Voici mon ami.','Il fait beau aujourd’hui.','Je parle un peu français.','Nous sommes ici.','Tu as un chat ?','À demain, tout le monde !'],
- A1:['Je voudrais un café et un croissant, s’il vous plaît.','Vous habitez dans cette rue ?','J’achète trois pommes et du pain.','Nous avons un rendez-vous à huit heures.','Elle prend le bus tous les matins.','Mes amis arrivent ce soir.','Il y a une boulangerie près de la gare.','Je préfère le jus de fruits.','Les enfants jouent dans le jardin.','Je cherche une chambre pour deux nuits.'],
- A2:['Nous allons prendre le train demain matin.','Hier, j’ai oublié mes clés chez ma sœur.','Il faut tourner à gauche après le pont.','Nous avons réservé une table pour quatre personnes.','Elle est arrivée en avance à la réunion.','Je n’ai pas encore répondu à son message.','Pendant les vacances, on se promenait au bord de la mer.','Vous pouvez me montrer où se trouve la pharmacie ?','Le musée ferme plus tôt le dimanche.','J’aimerais apprendre à préparer ce plat.'],
- B1:['Si j’avais plus de temps, je voyagerais davantage.','Même si le trajet est long, je préfère prendre le train.','Nous aurions pu partir plus tôt pour éviter les embouteillages.','J’ai finalement réussi à convaincre mes collègues.','Ce qui m’intéresse, c’est la manière dont il raconte son histoire.','Il vaut mieux prévenir les autres avant de changer de programme.','Je me demande pourquoi elle n’a pas accepté cette proposition.','Les habitants se sont réunis pour discuter du projet.','Bien qu’il pleuve, nous allons maintenir notre promenade.','Dès que j’aurai terminé, je vous enverrai les documents.'],
- B2:['Il est essentiel que chacun puisse exprimer son opinion.','Les résultats semblent confirmer une tendance que nous avions sous-estimée.','À force de reporter cette décision, nous risquons de perdre une occasion précieuse.','Quelles que soient les circonstances, il convient de rester à l’écoute des autres.','Si les moyens le permettaient, davantage de services seraient accessibles au public.','Contrairement à ce que l’on pourrait croire, cette mesure ne résout pas toutes les difficultés.','Les efforts entrepris jusqu’à présent commencent à porter leurs fruits.','Encore faudrait-il que les personnes concernées disposent des informations nécessaires.','La proposition mérite d’être examinée sous plusieurs angles avant d’être adoptée.','Nous cherchons une solution qui tienne compte des contraintes de chacun.'],
- C1:['Quoi qu’il en soit, cette hypothèse mérite d’être approfondie.','Loin de remettre en cause ces avancées, cette analyse en souligne les limites.','Il serait réducteur d’attribuer ce phénomène à une seule et même cause.','À supposer que ces conclusions soient exactes, leur portée demeure néanmoins incertaine.','Les divergences d’interprétation témoignent de la complexité des enjeux sous-jacents.','Il importe de distinguer les intentions affichées des effets effectivement observés.','Si pertinente soit-elle, cette objection ne saurait à elle seule invalider le raisonnement.','Les transformations successives ont contribué à fragiliser un équilibre déjà précaire.','On ne saurait faire abstraction des circonstances dans lesquelles cette décision a été prise.','L’enjeu consiste moins à trancher définitivement qu’à éclairer les termes du débat.'],
- C2:['Encore eût-il fallu que les circonstances s’y prêtassent.','Tout bien considéré, la pertinence de cette distinction tient à la subtilité de ses implications.','Fût-elle étayée par des témoignages concordants, cette interprétation appellerait quelques réserves.','Il n’est pas jusqu’aux formulations les plus anodines qui ne révèlent les présupposés du discours.','Sous couvert de concilier des intérêts divergents, le dispositif pourrait en exacerber les tensions.','Nul ne saurait préjuger des répercussions qu’entraînerait une telle inflexion.','Pour peu que l’on s’attarde sur les nuances du propos, son apparente contradiction se dissipe.','Il s’en faut de beaucoup que les éléments recueillis permettent de lever toutes les ambiguïtés.','L’hétérogénéité des témoignages ne dispense nullement d’en examiner la cohérence interne.','À rebours des idées reçues, la portée de cette réforme s’apprécie à l’aune de ses effets différés.']
+ "A0": [
+  "Bonjour, je m’appelle Camille.",
+  "Je suis ici.",
+  "Merci beaucoup, bonne journée à vous !",
+  "J’ai deux frères.",
+  "Voici mon ami.",
+  "Il fait beau dans notre ville aujourd’hui.",
+  "Je parle un peu français.",
+  "Nous sommes ici.",
+  "Tu as un chat ?",
+  "À demain, tout le monde !",
+  "Un café, merci.",
+  "Les enfants sont dans la cour ce matin.",
+  "Je suis prêt.",
+  "Elle aime les fleurs rouges.",
+  "Vous avez un petit chien très gentil."
+ ],
+ "A1": [
+  "Je voudrais un café, s’il vous plaît.",
+  "Vous habitez ici ?",
+  "J’achète trois pommes et du pain frais.",
+  "Mes amis arrivent.",
+  "Nous avons un rendez-vous à huit heures.",
+  "Elle prend le bus tous les matins.",
+  "Il pleut dehors.",
+  "Les enfants jouent dans le jardin après déjeuner.",
+  "Je préfère le jus de fruits.",
+  "Où est la gare ?",
+  "La boutique ferme à six heures ce soir.",
+  "Je cherche une chambre.",
+  "Nous partons demain pour visiter la vieille ville.",
+  "Elle a faim.",
+  "Il porte un manteau bleu et des bottes."
+ ],
+ "A2": [
+  "Nous allons prendre le train demain matin.",
+  "Je suis en retard.",
+  "Hier, nous avons oublié nos clés chez Paul.",
+  "Il faut tourner à gauche.",
+  "Nous avons réservé une table pour quatre personnes.",
+  "Elle est arrivée en avance à la réunion.",
+  "Le musée ferme bientôt.",
+  "Pendant les vacances, nous visitions souvent ce musée.",
+  "Je préfère rester ici.",
+  "Vous pouvez traverser la rue devant la pharmacie.",
+  "Tout est prêt.",
+  "Nous aimerions découvrir les villages près du lac.",
+  "Il répond rarement.",
+  "On a finalement trouvé une solution assez simple.",
+  "Je voudrais en savoir davantage."
+ ],
+ "B1": [
+  "Si je pouvais, je voyagerais davantage.",
+  "Cela me surprend.",
+  "Nous aurions préféré partir avant les premiers embouteillages.",
+  "Je doute de sa réponse.",
+  "Les habitants se sont réunis pour discuter ensemble.",
+  "Bien que fatiguée, elle poursuivit sa route.",
+  "Il vaut mieux attendre.",
+  "Nous devons prévenir les autres avant toute décision.",
+  "Elle hésite encore.",
+  "Si vous acceptez, nous pourrons commencer dès demain.",
+  "Je reconnais mon erreur.",
+  "Le public semblait apprécier la qualité du spectacle.",
+  "Ce projet me plaît.",
+  "Nous avons enfin obtenu les renseignements nécessaires.",
+  "Il aurait fallu réfléchir."
+ ],
+ "B2": [
+  "Il est essentiel que chacun exprime son opinion.",
+  "Cela reste incertain.",
+  "Les résultats confirment une tendance jusque-là peu visible.",
+  "Cette hypothèse paraît fragile.",
+  "Les efforts entrepris commencent enfin à porter leurs fruits.",
+  "Il convient de nuancer.",
+  "Nous cherchons une solution adaptée aux contraintes locales.",
+  "Le délai semble excessif.",
+  "Si nécessaire, nous réviserons les critères de sélection.",
+  "Cette mesure suscite des réserves.",
+  "Les participants souhaitent approfondir plusieurs aspects du dossier.",
+  "Il faut relativiser.",
+  "Ces conclusions méritent une analyse plus rigoureuse.",
+  "Rien ne garantit cela.",
+  "Toute modification devra respecter les engagements déjà pris."
+ ],
+ "C1": [
+  "Cette hypothèse mérite une analyse approfondie.",
+  "Cette distinction importe.",
+  "Les divergences révèlent la complexité des enjeux sous-jacents.",
+  "Il serait réducteur de conclure.",
+  "Les transformations successives ont fragilisé un équilibre précaire.",
+  "La nuance est déterminante.",
+  "Ces avancées ne sauraient occulter les difficultés persistantes.",
+  "Cette objection demeure pertinente.",
+  "Les effets observés contredisent parfois les intentions affichées.",
+  "Cela exige des précautions.",
+  "Toute interprétation suppose une connaissance précise du contexte.",
+  "Le raisonnement paraît contestable.",
+  "Cette réforme appelle une réflexion sur ses conséquences.",
+  "Il convient de relativiser.",
+  "Les témoignages recueillis éclairent plusieurs dimensions du débat."
+ ],
+ "C2": [
+  "Encore fallait-il que les circonstances soient favorables.",
+  "Ce constat appelle réserve.",
+  "Nul ne saurait préjuger des répercussions de cette réforme.",
+  "La distinction demeure ténue.",
+  "Ces formulations révèlent les présupposés implicites du discours.",
+  "Cela relève du paradoxe.",
+  "Le dispositif risque pourtant de cristalliser les tensions.",
+  "Le propos reste équivoque.",
+  "Cette interprétation ne saurait épuiser toutes les nuances.",
+  "Cette prémisse est discutable.",
+  "Les témoignages concordants ne dissipent pas toute ambiguïté.",
+  "Il serait vain de spéculer.",
+  "Une telle inflexion bouleverserait les équilibres institutionnels.",
+  "La portée reste indéterminée.",
+  "Ces conclusions appellent une réévaluation des critères retenus."
+ ]
 };
-const normalize=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('fr').replace(/[\p{P}\p{S}\s]+/gu,'').trim();
+export const pronunciationWordCount=s=>(String(s||'').match(/[\p{L}\p{N}]+/gu)||[]).length;
+export const validPronunciationPhrase=s=>typeof s==='string'&&s.trim().length>0&&s.length<=240&&pronunciationWordCount(s)>=1&&pronunciationWordCount(s)<=9;
+const normalize=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('fr').replace(/[\p{P}\p{S}\s]+/gu,'');
 export function nextPronunciationPhrase(level,submitted,suggestion,used=[]){
  const bank=pronunciationPhrases[level]||pronunciationPhrases.A0;
  const previous=normalize(submitted),seen=new Set(used.map(normalize));seen.add(previous);
  const candidate=typeof suggestion==='string'?suggestion.trim():'';
- if(candidate.length>=5&&candidate.length<=240&&/\p{L}/u.test(candidate)&&!seen.has(normalize(candidate)))return candidate;
- const fresh=bank.find(p=>!seen.has(normalize(p)));
- // Once the bank is exhausted, rotate rather than ever immediately repeating.
- if(fresh)return fresh;
- const index=bank.findIndex(p=>normalize(p)===previous);
- return bank[(index+1)%bank.length];
+ const wantLong=pronunciationWordCount(submitted)<=5;
+ const varied=p=>wantLong?pronunciationWordCount(p)>=6:pronunciationWordCount(p)<=5;
+ if(validPronunciationPhrase(candidate)&&varied(candidate)&&!seen.has(normalize(candidate)))return candidate;
+ const fresh=bank.filter(p=>!seen.has(normalize(p)));
+ const available=fresh.length?fresh:bank.filter(p=>normalize(p)!==previous);
+ return available.find(varied)||available[0];
 }

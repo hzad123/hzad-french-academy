@@ -1,6 +1,6 @@
 import {makeAiStore} from './store.js';
 import {mountRecorder} from './audio.js';
-import {pronunciationPhrases,nextPronunciationPhrase} from './pronunciation-practice.js';
+import {pronunciationPhrases,nextPronunciationPhrase,validPronunciationPhrase,pronunciationWordCount} from './pronunciation-practice.js';
 import {recordHome,recordView} from '../ui/navigation.js';
 const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
 const trainers={
@@ -32,10 +32,10 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  const area=root.querySelector('#hz-ai-learning'),launch=root.querySelector('#hz-ai-launch'),chooser=root.querySelector('#hz-course-chooser');
  if(!area||!launch)return;
  const store=makeAiStore(client,fetcher);
- let state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
+ let state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
  const draftKey=()=>state.tab+':'+state.level;
  function clear(){epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
+ function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);root.addEventListener('hzad-close-ai',clear);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
  const status=(text,error=false)=>{const n=el('p',text,'hz-ai-status');n.setAttribute('role',error?'alert':'status');area.append(n);return n};
@@ -43,12 +43,13 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  async function run(work){
   if(busy)return;busy=true;const ticket=epoch;requestController=new AbortController();
   area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=true});
-  area.querySelectorAll('.hz-ai-status').forEach(n=>n.remove());status('Working on your AI practice…');
+  area.querySelectorAll('.hz-ai-status').forEach(n=>n.remove());const progress=status('Working on your AI practice…');
+  const slow=setTimeout(()=>{if(ticket===epoch)progress.textContent='Still processing. Your request is being checked; you will not be charged twice.'},15000);
   try{await work(requestController.signal,()=>ticket===epoch)}catch(error){if(ticket===epoch){render();status(error.name==='AbortError'?'Connection interrupted. Check saved activity before starting again.':error.message||'AI Learning could not connect.',true)}}
-  finally{if(ticket===epoch){busy=false;renderControls()}}
+  finally{clearTimeout(slow);progress.remove();if(ticket===epoch){busy=false;requestController=null;renderControls()}}
  }
  function renderControls(){
-  area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=n.dataset.locked==='true'});
+  area.querySelectorAll('button,input,textarea,select').forEach(n=>{n.disabled=busy||n.dataset.locked==='true'});
  }
  async function load(signal){const snapshot=await store.state(signal);if(!snapshot||!snapshot.activities||!Array.isArray(snapshot.history))throw Error('Your AI practice could not load.');return snapshot}
  async function open(tab='home',options={}){
@@ -59,7 +60,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   await run(async(signal,current)=>{
    const snapshot=await load(signal);let conversation=null;
    if(options.conversationId)conversation=await store.conversation(options.conversationId,signal);
-   if(!current())return;state.snapshot=snapshot;
+   if(!current())return;state.snapshot=snapshot;state.walletStale=false;
    if(conversation){state.conversation=conversation;state.level=conversation.level;state.scenario=conversation.scenario}
    render();
   });
@@ -68,7 +69,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   const activity=state.snapshot?.activities[state.tab],credits=activity?.credits;
   const b=button(Number.isSafeInteger(credits)?`${label} · ${credits} ${credits===1?'credit':'credits'}`:label,fn);
   const wallet=state.snapshot?.wallet;
-  b.dataset.locked=String(!state.snapshot?.enabled||!activity?.enabled||!Number.isSafeInteger(credits)||!wallet||wallet.available<credits||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||!!state.pending||!!state.conversation?.busy&&state.tab==='conversation');
+  b.dataset.locked=String(state.walletStale||!state.snapshot?.enabled||!activity?.enabled||!Number.isSafeInteger(credits)||!wallet||wallet.available<credits||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||!!state.pending||!!state.conversation?.busy&&state.tab==='conversation');
   b.disabled=b.dataset.locked==='true';return b;
  }
  function speak(text){
@@ -92,7 +93,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    block.append(el('p',result.feedback));if(result.heardText)block.append(el('p','Heard: '+result.heardText));
    const strengths=el('ul');for(const s of result.strengths)strengths.append(el('li',s));block.append(strengths);
    for(const focus of result.focus){const card=el('article',undefined,'hz-ai-feedback-card');card.append(el('h5',focus.sound),el('p',focus.example,'hz-ai-corrected'),el('p',focus.tip));block.append(card)}
-   if(!state.result?.nextPronunciation)block.append(el('h5','Suggested practice'),el('p',result.practicePhrase,'hz-ai-practice-phrase'),button('Hear practice phrase',()=>speak(result.practicePhrase),true));
+   if(!state.result?.nextPronunciation&&validPronunciationPhrase(result.practicePhrase))block.append(el('h5','Suggested practice'),el('p',result.practicePhrase,'hz-ai-practice-phrase'),button('Hear practice phrase',()=>speak(result.practicePhrase),true));
   }else{
    block.append(el('p',result.reply,'hz-ai-french-reply'),button('Hear French reply',()=>speak(result.reply),true));
    const help=el('details');help.append(el('summary','English help'),el('p',result.englishHelp));block.append(help);corrections(result.corrections,block);
@@ -126,20 +127,40 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    if(!current())return;
    if(state.result.kind==='conversation')state.drafts['conversation:'+state.level]='';
   }else if(response.status==='failed')state.pending=null;
-  const snapshot=await load(signal);if(current()){state.snapshot=snapshot;render();if(response.status==='failed')status('This activity could not complete. Your credits were returned.',true);else if(response.status!=='completed')status('Your activity is being checked. Use Check activity to retrieve it.')}
+  if(!current())return;
+  // Show completed feedback and the new exercise immediately, before balance retrieval.
+  state.walletStale=true;render();
+  try{const snapshot=await load(signal);if(!current())return;state.snapshot=snapshot;state.walletStale=false;render()}
+  catch{if(!current())return;status('Feedback is saved. Refresh balance before starting another paid review.',true)}
+  if(response.status==='failed')status('This activity could not complete. Your credits were returned.',true);
+  else if(response.status!=='completed')status('Your activity is still processing. Use Check activity to retrieve it without another charge.');
  }
  async function send(payload,signal,current){
-  try{await receive(await store.submit(payload,signal),signal,current)}
+  try{
+   let response=await store.submit(payload,signal);
+   // A processing response is not a new submission. Check the existing request.
+   if(current()&&['processing','reserved','dispatched'].includes(response.status)){
+    try{response=await store.activity(payload.id,signal)}catch{}
+   }
+   await receive(response,signal,current);
+  }
   catch(error){
-   if(current()&&(error.activityStatus==='failed'||[400,401,403,409,413].includes(error.status))){state.pending=null;try{state.snapshot=await load(signal)}catch{}}
+   if(!current())return;
+   if(error.activityStatus==='failed'||[400,401,403,409,413].includes(error.status)){
+    state.pending=null;state.walletStale=true;try{const snapshot=await load(signal);if(current()){state.snapshot=snapshot;state.walletStale=false}}catch{}
+   }else{
+    // Lost connection is ambiguous: recover by the same request ID, never charge again.
+    try{const saved=await store.activity(payload.id,signal);if(current()){await receive(saved,signal,current);return}}catch{}
+   }
    throw error;
   }
  }
  function submit(){
+  if(busy||state.pending||state.walletStale)return;
   if(recorder?.isRecording?.()){status('Stop your recording before sending it.',true);return}
   const input={id:crypto.randomUUID(),kind:state.tab,level:state.level,expectedCredits:state.snapshot?.activities[state.tab]?.credits};
   if(state.tab==='writing'){input.text=(state.drafts[draftKey()]||'').trim();if(!input.text){status('Write a French response first.',true);return}}
-  if(state.tab==='pronunciation'){input.reference=state.drafts[draftKey()]??phrases[state.level];if(!input.reference.trim()){status('Enter a French practice sentence first.',true);return}input.audio=recorder?.getAudio();if(!input.audio){status('Record the French sentence first.',true);return}}
+  if(state.tab==='pronunciation'){input.reference=state.drafts[draftKey()]??phrases[state.level];if(!validPronunciationPhrase(input.reference)){status('Use a French practice sentence containing one to nine words.',true);return}input.audio=recorder?.getAudio();if(!input.audio){status('Record the French sentence first.',true);return}}
   if(state.tab==='conversation'){
    input.scenario=state.scenario;input.conversationId=state.conversation?.id||null;input.audio=recorder?.getAudio();
    if(!input.audio){delete input.audio;input.text=(state.drafts[draftKey()]||'').trim()||(!input.conversationId?'Bonjour !':'');if(!input.text){status('Type or record your next reply.',true);return}}
@@ -191,7 +212,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    head.append(studioIcon('wallet'),el('span','Your AI credits'));wallet.append(head,el('strong',String(w.available),'hz-studio-credit-value'),el('span','credits available','hz-studio-credit-label'));
    if(w.reserved>0)wallet.append(el('span',w.reserved+' reserved','hz-studio-muted'));
    const expiry=new Date(w.expiresAt);if(Number.isFinite(expiry.getTime()))wallet.append(el('span','Valid until '+expiry.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}),'hz-studio-muted'));
-   const refresh=button('Refresh balance',()=>void run(async(signal,current)=>{const next=await load(signal);if(current()){state.snapshot=next;render()}}),true);refresh.classList.add('hz-studio-refresh');wallet.append(refresh);hero.append(wallet);
+   const refresh=button('Refresh balance',()=>void run(async(signal,current)=>{const next=await load(signal);if(current()){state.snapshot=next;state.walletStale=false;render()}}),true);refresh.classList.add('hz-studio-refresh');wallet.append(refresh);hero.append(wallet);
   }
   area.append(hero);
   if(!state.snapshot){area.append(el('p','Opening your AI practice…','hz-studio-empty'));remember();return}
@@ -229,7 +250,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     if(state.result?.kind==='pronunciation')feedback(state.result.data);
     const exercise=el('section',undefined,'hz-ai-pronunciation-next');
     exercise.append(el('p','EXERCISE '+(completed+1),'hz-studio-kicker'),el('h4',completed?'Next pronunciation exercise':'Your pronunciation exercise'),el('p',completed?'Listen to the new sentence, record yourself and submit for feedback when ready.':'Listen to the example, then record yourself reading the sentence.'));
-    const label=el('label','Practice sentence'),reference=el('textarea');reference.rows=2;reference.maxLength=240;reference.setAttribute('aria-label','Practice sentence');reference.value=state.drafts[draftKey()]??phrases[state.level];reference.lang='fr';reference.addEventListener('input',()=>{state.drafts[draftKey()]=reference.value});label.append(reference);exercise.append(label,button('Hear French example',()=>speak(reference.value),true));
+    const label=el('label','Practice sentence'),reference=el('textarea');reference.rows=2;reference.maxLength=240;reference.setAttribute('aria-label','Practice sentence');reference.value=state.drafts[draftKey()]??phrases[state.level];reference.lang='fr';const wordCount=el('p',pronunciationWordCount(reference.value)+'/9 words','hz-small');reference.addEventListener('input',()=>{state.drafts[draftKey()]=reference.value;wordCount.textContent=pronunciationWordCount(reference.value)+'/9 words'});label.append(reference,wordCount);exercise.append(label,button('Hear French example',()=>speak(reference.value),true));
     recorder=recorderFactory(exercise);exercise.append(creditButton('Get pronunciation feedback',submit));area.append(exercise);
    }else{
     const label=el('label','Conversation scenario'),scenario=el('select');scenario.setAttribute('aria-label','Conversation scenario');for(const [key,name] of Object.entries(scenarios)){const o=el('option',name);o.value=key;scenario.append(o)}scenario.value=state.scenario;scenario.disabled=!!state.conversation;scenario.dataset.locked=String(!!state.conversation);scenario.addEventListener('change',()=>{state.scenario=scenario.value;render()});label.append(scenario);area.append(label);
