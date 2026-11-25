@@ -20,10 +20,11 @@ export function inspectAudio(base64,maxSeconds=30,{minimumRms=.003}={}){
  return {seconds:(bytes.length-44)/32000,bytes:bytes.length};
 }
 export function validateInput(raw){
- if(!raw||Array.isArray(raw)||typeof raw!=='object'||Object.keys(raw).some(k=>!['id','kind','level','text','reference','audio','conversationId','scenario','expectedCredits'].includes(k)))throw new AiError('Invalid AI activity.');
+ if(!raw||Array.isArray(raw)||typeof raw!=='object'||Object.keys(raw).some(k=>!['id','kind','level','text','reference','audio','conversationId','scenario','expectedCredits','start'].includes(k)))throw new AiError('Invalid AI activity.');
  if(!uuid(raw.id)||!['writing','pronunciation','conversation'].includes(raw.kind)||!LEVELS.includes(raw.level))throw new AiError('Choose a trainer and French level.');
  if(!Number.isSafeInteger(raw.expectedCredits)||raw.expectedCredits<1||raw.expectedCredits>10000)throw new AiError('Refresh the activity credit charge.');
  const input={id:raw.id,kind:raw.kind,level:raw.level,expectedCredits:raw.expectedCredits};
+ if(raw.start!==undefined&&(raw.kind!=='conversation'||raw.start!==true))throw new AiError('Invalid conversation start.');
  if(raw.kind==='writing'){
   if(raw.audio||raw.reference||raw.conversationId||raw.scenario)throw new AiError('Send your French writing for review.');
   input.text=text(raw.text,4000,'your French writing');
@@ -31,9 +32,10 @@ export function validateInput(raw){
   if(raw.text||raw.conversationId||raw.scenario)throw new AiError('Record the practice sentence.');
   input.reference=text(raw.reference,240,'the practice sentence');inspectAudio(raw.audio);input.audio=raw.audio;
  }else{
-  if(raw.reference||!Object.hasOwn(SCENARIOS,raw.scenario)||(raw.conversationId!=null&&!uuid(raw.conversationId)))throw new AiError('Choose a conversation scenario.');
+  if(raw.reference||!(Object.hasOwn(SCENARIOS,raw.scenario)||(typeof raw.scenario==='string'&&raw.scenario.startsWith('custom:')&&raw.scenario.length<=507&&raw.scenario.slice(7).trim()))||(raw.conversationId!=null&&!uuid(raw.conversationId)))throw new AiError('Choose a conversation scenario.');
   input.scenario=raw.scenario;input.conversationId=raw.conversationId||null;
-  if(raw.audio){if(raw.text?.trim())throw new AiError('Send either a recording or a typed reply.');inspectAudio(raw.audio);input.audio=raw.audio}
+  if(raw.start===true){if(input.conversationId||raw.audio||raw.text)throw new AiError('Start a new conversation without a reply.');input.start=true}
+  else if(raw.audio){if(raw.text?.trim())throw new AiError('Send either a recording or a typed reply.');inspectAudio(raw.audio);input.audio=raw.audio}
   else input.text=text(raw.text,2000,'your French reply');
  }
  return input;

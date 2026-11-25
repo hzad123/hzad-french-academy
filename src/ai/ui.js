@@ -5,7 +5,7 @@ import {recordHome,recordView} from '../ui/navigation.js';
 const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
 const trainers={
  pronunciation:['mic','Pronunciation trainer','Speak with clearer French pronunciation.',['Listen to a French practice example','Record your own voice','Get feedback on sounds, rhythm and liaison'],'review','Speak & improve'],
- conversation:['chat','Conversation simulator','Build confidence in everyday conversations.',['Practise realistic situations','Reply by typing or recording','Get corrections and suggested replies'],'reply','Start practising'],
+ conversation:['chat','Conversation simulator','Build confidence in everyday conversations.',['Practise realistic situations','Reply using your microphone','Get corrections and suggested replies'],'reply','Start practising'],
  writing:['pen','Writing trainer','Make your French writing more natural and accurate.',['Get a corrected version of your text','Understand grammar and word-choice errors','Apply practical improvement tips'],'review','Review your writing']
 };
 const tutor=['book','HZad French Tutor','Get help whenever you have a French question.',['Translate words, phrases and sentences','Understand grammar and conjugation','Ask follow-up questions and get examples'],'message','Open French tutor'];
@@ -24,7 +24,7 @@ function studioIcon(kind){
  for(const d of iconPaths[kind]){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);svg.append(p)}
  wrapper.append(svg);return wrapper;
 }
-const scenarios={cafe:'At a café',travel:'Travel and directions',daily:'Daily life',work:'At work',interview:'Job interview',debate:'Ideas and debate'};
+const scenarios={cafe:'At a café',travel:'Travel and directions',daily:'Daily life',work:'At work',interview:'Job interview',debate:'Ideas and debate',custom:'Custom scenario'};
 const phrases=Object.fromEntries(Object.entries(pronunciationPhrases).map(([level,bank])=>[level,bank[0]]));
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
 const button=(label,fn,alt=false)=>{const b=el('button',label,'hz-btn'+(alt?' hz-btn-alt':''));b.type='button';b.addEventListener('click',fn);return b};
@@ -32,10 +32,10 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  const area=root.querySelector('#hz-ai-learning'),launch=root.querySelector('#hz-ai-launch'),chooser=root.querySelector('#hz-course-chooser');
  if(!area||!launch)return;
  const store=makeAiStore(client,fetcher);
- let state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
+ let state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null},epoch=0,busy=false,requestController=null,recorder=null,viewer=null;
  const draftKey=()=>state.tab+':'+state.level;
  function clear(){epoch++;busy=false;requestController?.abort();requestController=null;recorder?.dispose();recorder=null;globalThis.speechSynthesis?.cancel();area.replaceChildren();area.classList.add('hz-hidden');chooser.classList.remove('hz-hidden')}
- function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
+ function reset(){clear();state={tab:'home',level:'A0',scenario:'cafe',customScenario:'',snapshot:null,walletStale:false,drafts:{},pronunciationRuns:{},conversation:null,result:null,pending:null}}
  root.addEventListener('hzad-route-reset',clear);root.addEventListener('hzad-clear-lessons',reset);root.addEventListener('hzad-close-ai',clear);
  client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'){viewer=null;reset()}else if(session?.user?.id){if(viewer&&viewer!==session.user.id)reset();viewer=session.user.id}});
  const status=(text,error=false)=>{const n=el('p',text,'hz-ai-status');n.setAttribute('role',error?'alert':'status');area.append(n);return n};
@@ -61,7 +61,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    const snapshot=await load(signal);let conversation=null;
    if(options.conversationId)conversation=await store.conversation(options.conversationId,signal);
    if(!current())return;state.snapshot=snapshot;state.walletStale=false;
-   if(conversation){state.conversation=conversation;state.level=conversation.level;state.scenario=conversation.scenario}
+   if(conversation){state.conversation=conversation;state.level=conversation.level;state.scenario=conversation.scenario.startsWith('custom:')?'custom':conversation.scenario;state.customScenario=conversation.scenario.startsWith('custom:')?conversation.scenario.slice(7):''}
    render();
   });
  }
@@ -97,7 +97,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   }else{
    block.append(el('p',result.reply,'hz-ai-french-reply'),button('Hear French reply',()=>speak(result.reply),true));
    const help=el('details');help.append(el('summary','English help'),el('p',result.englishHelp));block.append(help);corrections(result.corrections,block);
-   for(const suggestion of result.suggestedReplies)block.append(button(suggestion,()=>{state.drafts[draftKey()]=suggestion;render()},true));
+   for(const suggestion of result.suggestedReplies)block.append(el('p',suggestion,'hz-ai-practice-phrase'));
   }
   area.append(block);
  }
@@ -123,9 +123,9 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     state.tab='pronunciation';state.level=level;
    }
    state.pending=null;
-   if(response.conversationId){try{const conversation=await store.conversation(response.conversationId,signal);if(current())state.conversation=conversation}catch{if(current())state.conversation={id:response.conversationId,level:state.level,scenario:state.scenario,messages:[]}}}
+   if(response.conversationId){try{const conversation=await store.conversation(response.conversationId,signal);if(current())state.conversation=conversation}catch{if(current())state.conversation={id:response.conversationId,level:state.level,scenario:completed?.payload?.scenario||state.scenario,messages:[]}}}
    if(!current())return;
-   if(state.result.kind==='conversation')state.drafts['conversation:'+state.level]='';
+   if(state.result.kind==='conversation'&&response.result?.reply)speak(response.result.reply);
   }else if(response.status==='failed')state.pending=null;
   if(!current())return;
   // Show completed feedback and the new exercise immediately, before balance retrieval.
@@ -162,8 +162,9 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   if(state.tab==='writing'){input.text=(state.drafts[draftKey()]||'').trim();if(!input.text){status('Write a French response first.',true);return}}
   if(state.tab==='pronunciation'){input.reference=state.drafts[draftKey()]??phrases[state.level];if(!validPronunciationPhrase(input.reference)){status('Use a French practice sentence containing one to nine words.',true);return}input.audio=recorder?.getAudio();if(!input.audio){status('Record the French sentence first.',true);return}}
   if(state.tab==='conversation'){
-   input.scenario=state.scenario;input.conversationId=state.conversation?.id||null;input.audio=recorder?.getAudio();
-   if(!input.audio){delete input.audio;input.text=(state.drafts[draftKey()]||'').trim()||(!input.conversationId?'Bonjour !':'');if(!input.text){status('Type or record your next reply.',true);return}}
+   input.scenario=state.conversation?.scenario||(state.scenario==='custom'?'custom:'+state.customScenario.trim():state.scenario);input.conversationId=state.conversation?.id||null;
+   if(state.scenario==='custom'&&!state.customScenario.trim()){status('Describe your preferred situation first.',true);return}
+   if(!input.conversationId){input.start=true}else{input.audio=recorder?.getAudio();if(!input.audio){status('Record your spoken reply first.',true);return}}
   }
   state.pending={id:input.id,kind:input.kind,payload:input};
   void run((signal,current)=>send(input,signal,current));
@@ -193,7 +194,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   if(!entries.length)rows.append(el('p','Your feedback will appear here after your first activity.','hz-studio-empty'));
   detail.append(rows);
   const conversations=snapshot.conversations||[];
-  if(conversations.length){detail.append(el('h4','Continue a conversation'));for(const c of conversations)detail.append(button(`Resume ${c.level} · ${scenarios[c.scenario]||'Conversation'}`,()=>open('conversation',{level:c.level,conversationId:c.id}),true))}
+  if(conversations.length){detail.append(el('h4','Continue a conversation'));for(const c of conversations)detail.append(button(`Resume ${c.level} · ${scenarios[c.scenario]||(c.scenario.startsWith('custom:')?'Custom scenario':'Conversation')}`,()=>open('conversation',{level:c.level,conversationId:c.id}),true))}
   area.append(detail);
  }
  function render(){
@@ -254,10 +255,10 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
     recorder=recorderFactory(exercise);exercise.append(creditButton('Get pronunciation feedback',submit));area.append(exercise);
    }else{
     const label=el('label','Conversation scenario'),scenario=el('select');scenario.setAttribute('aria-label','Conversation scenario');for(const [key,name] of Object.entries(scenarios)){const o=el('option',name);o.value=key;scenario.append(o)}scenario.value=state.scenario;scenario.disabled=!!state.conversation;scenario.dataset.locked=String(!!state.conversation);scenario.addEventListener('change',()=>{state.scenario=scenario.value;render()});label.append(scenario);area.append(label);
+    if(state.scenario==='custom'){const customLabel=el('label','Describe your situation'),custom=el('textarea');custom.rows=4;custom.maxLength=500;custom.placeholder='For example: I am calling a landlord to ask about an apartment.';custom.value=state.customScenario||'';custom.disabled=!!state.conversation;custom.dataset.locked=String(!!state.conversation);custom.addEventListener('input',()=>{state.customScenario=custom.value});customLabel.append(custom);area.append(customLabel)}
     const log=el('div',undefined,'hz-ai-chat');log.setAttribute('role','log');log.setAttribute('aria-label','French conversation');
-    for(const m of state.conversation?.messages||[]){const bubble=el('article',undefined,'hz-ai-bubble '+(m.role==='assistant'?'is-partner':'is-learner'));bubble.append(el('strong',m.role==='assistant'?'French partner':'You'),el('p',m.content));log.append(bubble)}area.append(log);
-    const inputLabel=el('label','Your French reply'),input=el('textarea');input.rows=3;input.maxLength=2000;input.setAttribute('aria-label','Your French reply');input.value=state.drafts[draftKey()]||'';input.addEventListener('input',()=>{state.drafts[draftKey()]=input.value});inputLabel.append(input);area.append(inputLabel);
-    recorder=recorderFactory(area,audio=>{input.disabled=!!audio;input.dataset.locked=String(!!audio)});
+    for(const m of state.conversation?.messages||[]){if(m.role==='user'&&m.content==='[Conversation started]')continue;const bubble=el('article',undefined,'hz-ai-bubble '+(m.role==='assistant'?'is-partner':'is-learner'));bubble.append(el('strong',m.role==='assistant'?'French partner':'You'),el('p',m.content));log.append(bubble)}area.append(log);
+    if(state.conversation){area.append(el('p','Listen to your French partner, then record your spoken reply.'));recorder=recorderFactory(area)}
     const complete=(state.conversation?.messages?.length||0)>=24;
     if(!complete)area.append(creditButton(state.conversation?'Send reply':'Start conversation',submit));else area.append(el('p','Great practice! Start a new scenario to continue.'));
     if(state.conversation)area.append(button('New conversation',()=>{state.conversation=null;state.result=null;state.drafts[draftKey()]='';render()},true));
