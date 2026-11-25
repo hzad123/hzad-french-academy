@@ -4,6 +4,7 @@ export const recordHome=root=>recordView(root,'home',()=>root.dispatchEvent(new 
 export function wireNavigation(root){
  const back=root.querySelector('#hz-global-back');
  const status=root.querySelector('#hz-navigation-status');
+ const dashboard=root.querySelector('#hz-global-dashboard');
  let stack=[],replaying=false,epoch=0;
  const home=()=>({key:'home',restore:()=>root.dispatchEvent(new CustomEvent('hzad-nav-home'))});
  const update=()=>{back.disabled=replaying||stack.length<2;back.setAttribute('aria-label','Go back to the previous view')};
@@ -21,6 +22,8 @@ export function wireNavigation(root){
   root.dispatchEvent(new CustomEvent('hzad-route-reset'));
   try{await target.restore()}catch{if(ticket===epoch&&status)status.textContent='The previous page could not open. Please retry from All levels.'}finally{if(ticket===epoch){replaying=false;update()}}
  }
+ function goHome(){reset();root.dispatchEvent(new CustomEvent('hzad-route-reset'));root.dispatchEvent(new CustomEvent('hzad-nav-home'));root.querySelector('#hz-course-chooser')?.scrollIntoView?.({behavior:'auto',block:'start'});}
+ dashboard?.addEventListener('click',goHome);
  back.addEventListener('click',()=>{void goBack()});
  root.addEventListener('hzad-navigate-back',()=>{void goBack()});
  root.addEventListener('hzad-clear-lessons',reset);

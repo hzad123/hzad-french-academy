@@ -31,7 +31,7 @@ export function mountAcademy(host,createClient){
   wireNavigation(root);
   const client=getAcademyClient(createClient,SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
   let tab='login',busy=false,recovering=false,accessSequence=0,navUser=null;
-  const show=which=>['hz-auth','hz-pending','hz-dashboard','hz-recovery'].forEach(id=>$(id).classList.toggle('hz-hidden',id!==which));
+  const show=which=>{['hz-auth','hz-pending','hz-dashboard','hz-recovery'].forEach(id=>$(id).classList.toggle('hz-hidden',id!==which));$('hz-global-dashboard').classList.toggle('hz-hidden',which!=='hz-dashboard')};
   const clearMsg=id=>{$(id).textContent='';$(id).classList.add('hz-hidden')};
   const msg=(id,text,error=false)=>{const el=$(id);el.textContent=text;el.classList.remove('hz-hidden');el.classList.toggle('hz-error',error)};
   const setBusy=value=>{busy=value;$('hz-submit').disabled=value;$('hz-refresh').disabled=value;$('hz-recovery-submit').disabled=value};
