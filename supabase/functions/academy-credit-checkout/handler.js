@@ -73,6 +73,7 @@ export function createCreditCheckout({authenticate,userRpc,adminRpc,key,webhookS
    if(user.email)params.set('customer_email',user.email);
    const session=await stripe('checkout/sessions',{params,idempotency:'hzad-credit-'+order.id});
    const url=new URL(session.url);if(session.livemode!==true||!stripeId(session.id,'cs_live_')||url.protocol!=='https:'||url.hostname!=='checkout.stripe.com')throw Error('Invalid checkout URL');
+   await adminRpc('academy_stripe_bind_session',{p_user:user.id,p_id:order.id,p_session:session.id});
    return response({url:url.href});
   }catch{console.warn('academy-credit-checkout could not create checkout');return response({error:'Checkout could not start. Try again or contact the academy.'},503)}
  };
