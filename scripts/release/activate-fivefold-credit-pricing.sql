@@ -12,6 +12,8 @@ begin
  update academy_ai.wallets set available=available*100,initial_credits=initial_credits*100;
  update academy_ai.requests set credits=credits*100;
  update academy_ai.ledger set credits_delta=credits_delta*100;
+ alter table academy_ai.testing_grants drop constraint testing_grants_credits_added_check;
+ alter table academy_ai.testing_grants add constraint testing_grants_credits_added_check check(credits_added between 0 and 500000);
  update academy_ai.testing_grants set credits_added=credits_added*100;
  -- These are maximum reservation quotes; successful calls settle estimated actual cost.
  update academy_ai.activities a set credits=q.units,ceiling_microcad=q.units::bigint*200
