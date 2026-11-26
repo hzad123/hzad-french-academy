@@ -4,9 +4,9 @@ import {wireNavigation,recordView,recordHome} from '../src/ui/navigation.js';
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 class Button extends EventTarget{disabled=false;setAttribute(){};click(){if(!this.disabled)this.dispatchEvent(new Event('click'))}}
 function fixture(){
- const root=new EventTarget(),button=new Button(),status={textContent:''};
- root.querySelector=id=>id==='#hz-global-back'?button:status;
- wireNavigation(root);return {root,button,status};
+ const root=new EventTarget(),button=new Button(),dashboard=new Button(),status={textContent:''};
+ root.querySelector=id=>id==='#hz-global-back'?button:id==='#hz-global-dashboard'?dashboard:id==='#hz-navigation-status'?status:null;
+ wireNavigation(root);return {root,button,dashboard,status};
 }
 test('Back restores the previous view with its latest lesson or tab state',async()=>{
  const {root,button}=fixture(),visited=[];
@@ -45,4 +45,10 @@ test('A failed restoration reports an error without leaving navigation busy',asy
  const {root,button,status}=fixture();recordView(root,'failed',()=>Promise.reject(Error('offline')));recordView(root,'next',()=>{});
  button.click();await tick();assert.match(status.textContent,/could not open/);assert.equal(button.disabled,false);
  button.click();await tick();assert.equal(button.disabled,true);
+});
+
+test('Dashboard cancels current navigation, closes active views and returns directly home',async()=>{
+ const {root,button,dashboard}=fixture();const events=[];root.addEventListener('hzad-route-reset',()=>events.push('reset'));root.addEventListener('hzad-nav-home',()=>events.push('home'));
+ recordView(root,'lesson:A2',()=>{});recordView(root,'exam:active',()=>{});dashboard.click();assert.deepEqual(events,['reset','home']);assert.equal(button.disabled,true);
+ let finish;recordView(root,'slow',()=>new Promise(resolve=>{finish=resolve}));recordView(root,'next',()=>{});button.click();dashboard.click();finish();await tick();assert.equal(button.disabled,true);assert.deepEqual(events.slice(-2),['reset','home']);
 });
