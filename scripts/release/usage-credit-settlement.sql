@@ -21,7 +21,7 @@ begin
    if a<0 or a>i then return null;end if;
    usd:=usd+(i-a)*.60+a*10+o*2.40;
   else return null;end if;
- elsif not(speech and p_usage->>'transcription_model' in ('gpt-transcribe','gpt-4o-mini-transcribe') and not(p_usage ? 'prompt_tokens') and not(p_usage ? 'completion_tokens')) then return null;
+ elsif not(coalesce(speech and p_usage->>'transcription_model' in ('gpt-transcribe','gpt-4o-mini-transcribe') and not(p_usage ? 'prompt_tokens') and not(p_usage ? 'completion_tokens'),false)) then return null;
  end if;
  return greatest(1,ceil(usd*1.45)::bigint);
 exception when data_exception then return null;
