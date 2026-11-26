@@ -8,7 +8,7 @@ const browser=await build({entryPoints:['src/entry.js'],bundle:true,format:'iife
 await writeFile('dist/academy.js',await readFile('src/bootstrap.js','utf8'));
 if(Object.keys(browser.metafile.inputs).some(path=>path.startsWith('supabase/')))throw Error('Server-only question keys or privileged modules entered the browser bundle.');
 const version=process.env.GITHUB_SHA||Date.now().toString(36);
-const css=(await readFile('src/styles/academy.css','utf8'))+'\n'+(await readFile('src/styles/practice-studio.css','utf8'))+'\n'+(await readFile('src/styles/learning-insights.css','utf8'));
+const css=(await readFile('src/styles/academy.css','utf8'))+'\n'+(await readFile('src/styles/practice-studio.css','utf8'))+'\n'+(await readFile('src/styles/learning-insights.css','utf8'))+'\n'+(await readFile('src/styles/credit-wallet.css','utf8'));
 await writeFile('dist/academy.css',css);
 await writeFile('dist/index.html',`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HZad French Academy - Preview</title><link rel="stylesheet" href="./academy.css?v=${version}"></head><body><div id="hzad-academy-host"></div><script src="./academy.js?v=${version}"></script></body></html>`);
 console.log('Built academy preview in dist/');
