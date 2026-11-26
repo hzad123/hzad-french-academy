@@ -1,0 +1,57 @@
+name: Inspect TEF Reading QC runs
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  actions: read
+  contents: read
+jobs:
+  inspect:
+    if: github.head_ref == 'fix/tef-reading-six-blind-distractors-20261120'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Locate existing independent review runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/tef-reading-blind-qc.yml/runs?branch=fix%2Ftef-reading-six-blind-distractors-20261120&per_page=10" --jq '.workflow_runs[] | {id,head_sha,status,conclusion,html_url}'
+      - name: Inspect actual academy Pages deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/runs?branch=development&per_page=10" --jq '.workflow_runs[] | {id,head_sha,status,conclusion,html_url}'
+          base=https://hzad123.github.io/hzad-french-academy
+          curl -fsSL "$base/BUILD_COMMIT.txt?check=$GITHUB_RUN_ID" -o /tmp/academy-revision
+          printf 'LIVE_REVISION='; cat /tmp/academy-revision; echo
+          curl -fsSL "$base/academy-app.js?check=$GITHUB_RUN_ID" -o /tmp/academy-app.js
+          node --input-type=module -e "import {readFileSync} from 'node:fs';const s=readFileSync('/tmp/academy-app.js','utf8');console.log(JSON.stringify({oldAxis:s.includes('196-')&&s.includes('*4.6'),hasNewAxis:s.includes('maximumSignificantDigits:8'),hasContinuousPronunciation:s.includes('Next pronunciation exercise')&&s.includes('hz-ai-pronunciation-next'),hasStudio:s.includes('French Practice Studio')&&s.includes('hz-studio-grid'),hasTutor:s.includes('HZad French Tutor')&&s.includes('academy-french-tutor'),hasTeFDropdown:s.includes('hz-tef-dropdown'),hasOldAdmin:s.includes('Continue generating exam audio')}))"
+          curl -fsSL 'https://teftcf.hzadeducation.org/hzadfrenchacademy' -o /tmp/ghl.html || true
+          if [ -f /tmp/ghl.html ]; then grep -oE 'https://[^" <>]+/academy(-app)?\\.js[^" <>]*' /tmp/ghl.html | head -10 || true; fi
+          curl -fsSL "$base/academy.css?check=$GITHUB_RUN_ID" -o /tmp/academy.css
+          grep -q 'hz-studio-grid' /tmp/academy.css && echo STUDIO_CSS_PRESENT || true
+
+      - name: Confirm published Studio and retained graph and tutor features
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rev=$(tr -d '[:space:]' </tmp/academy-revision)
+          gh api "repos/${GITHUB_REPOSITORY}/compare/5fe37859b5b801bc52b48da772c03de291b563a1...${rev}" --jq '{status,ahead_by,behind_by}'
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const js=readFileSync('/tmp/academy-app.js','utf8'),css=readFileSync('/tmp/academy.css','utf8');
+          const checks={studioName:js.includes('French Practice Studio'),studioGridJS:js.includes('hz-studio-grid'),studioGridCSS:css.includes('.hz-studio-grid'),adaptiveChart:js.includes('maximumSignificantDigits:8'),oldFixedChart:/196\s*-\s*[\w$]+\s*\*\s*4\.6\b/.test(js),tutorName:js.includes('HZad French Tutor'),tutorEndpoint:js.includes('academy-french-tutor'),tutorDockCSS:css.includes('.hz-tutor-dock'),oldAudioAdmin:js.includes('Continue generating exam audio')};
+          console.log('PUBLIC_STUDIO_CHECK='+JSON.stringify(checks));
+          if(!checks.studioName||!checks.studioGridJS||!checks.studioGridCSS||!checks.adaptiveChart||checks.oldFixedChart||!checks.tutorName||!checks.tutorEndpoint||!checks.tutorDockCSS||checks.oldAudioAdmin)process.exitCode=1;
+          NODE
+
+      - name: Verify learning insights public assets
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const js=readFileSync('/tmp/academy-app.js','utf8'),css=readFileSync('/tmp/academy.css','utf8');
+          const checks={insightsRPC:js.includes('academy_learning_insights'),overview:js.includes('Your learning rhythm'),chartCSS:css.includes('.hz-insights-bars'),reducedMotion:css.includes('prefers-reduced-motion')};
+          console.log('PUBLIC_INSIGHTS='+JSON.stringify(checks));
+          if(Object.values(checks).some(x=>!x))process.exitCode=1;
+          NODE
+
+# Verify release 21035bc7 after test correction.

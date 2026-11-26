@@ -1,0 +1,68 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {githubOidcFetch} from '../lib/tef-reading-github-oidc.mjs';
+import {randomInt} from 'node:crypto';
+const test=Number(process.argv[2]);if(!Number.isInteger(test)||test<7||test>13)throw Error('Invalid test');
+const fetcher=githubOidcFetch();const url=process.env.TEF_READING_QC_URL;
+const pad=n=>String(n).padStart(2,'0');
+const root='work/tef-reading-batch/'+pad(test);await mkdir(root,{recursive:true});
+const plans={
+7:['bicycle parking, theater subscriptions, optical workshop, community pool, bakery preorder, astronomy evening, pet boarding','insurance renewal, coastal cleanup, pottery studio','equipment rental, catering jobs','library relocation, horticulture grant, laboratory visit, apartment inspection, rehearsal booking','digital inheritance, urban beekeeping, apprenticeships in craft trades, public clocks'],
+8:['music rehearsal, aquarium, ski rental, florist delivery, sports lockers, ferry ticket, daycare registration','water testing, volunteer schedules, translation deadlines','training scholarships, housing rentals','school canteen, film distribution, book fair, clinic appointments, museum loan','urban shade, clothing rental, citizen juries, historical weather records'],
+9:['rail museum, market stall, climbing gym, pharmacy pickup, textile exhibition, lakeside camping, parcel collection','community mediation, orchard disease, invoice corrections','work placements, photography classes','recycling facility, dance residency, river excursion, university exchanges, local radio','seed banks, automated translation at hospitals, cultural diplomacy, construction salvage'],
+10:['ceramic market, dance hall, botanical garden, ski school, moving van, animal shelter, municipal pool','proofreading, fisheries quotas, accessible publications','guided trips, seasonal jobs','community kitchen, research conference, volunteer rescue training, studio hire, municipal permit','night lighting, oral history, shared office spaces, insurance risk models'],
+11:['winter garden, theatre matinee, sports stadium, dry cleaning, clock repair, tourist tram, furniture delivery','equipment calibration, theatre grants, municipal budgeting','language exchanges, volunteer roles','archaeology camp, textile donation, chamber orchestra, regional survey, agricultural certification','restoring peatlands, digitized handwriting, patient data consent, neighborhood noise mapping'],
+12:['observatory visit, craft brewery tour without tasting, bookshop event, campsite, bakery workshop, tailor appointment, ice rink','technical inspections, catering standards, editorial revisions','art residencies, courier roles','building ventilation, community orchestra, fishing licenses, heritage house, botanical survey','migratory birds, remote arbitration, data centers and heat, collective bargaining'],
+13:['harbor shuttle, art gallery opening, sewing workshop, cycling race, public sauna, tool hire, historical chapel','grant reimbursement, weather forecast verification, public records','weekend excursions, professional certificates','rowing club, allergy protocol, dance audition, science festival, municipal garden','ocean acoustics, cooperative housing, scientific illustration, urban freight']
+};
+const existing=[];for(let n=1;n<=6;n++){const name='supabase/exams/tef-reading-test'+pad(n)+'-v'+(n<3?3:2)+'.json';const p=JSON.parse(await readFile(name,'utf8'));existing.push(...p.questions.map(q=>q.group||q.media?.heading||q.passage.split('\n')[0].slice(0,80)));}
+const shared='Write in natural French, original fiction, no copied items. Return questions [{number,points:1,passage,question,options:[four strings],correct:"A"|"B"|"C"|"D",explanation,semantic:{concept,evidence},section?,group?,media?}]. Every option grammatical, similar length; explanation in French explains why each alternative fails, with exact source evidence. No answer order pattern. Avoid topics already used: '+[...new Set(existing)].join('; ').slice(0,4500)+'. Assigned themes: ';
+const blocks=[
+[1,7,shared+plans[test][0]+'. Q1,2,6 illustration media {kind:"illustration",scene:one of "garden","fair","festival","observatory","radio","lighthouse","greenhouse","heritage-train","canoe","cinema","weatherballoon","orchard",heading}; choose relevant scene, or a notice with icon if no matching scene. Q3,4,5,7 notice media {kind:"notice",icon:emoji,heading,accent:"#hex"}. Short distinct notices and appropriate comprehension. No section needed.'],
+[8,17,shared+plans[test][1]+'. Q8–11 single cloze section "cloze" use ________. Q12–17 three distinct paired cloze passages, numbered blanks ________ (1) and ________ (2), each pair must have identical passage/group, section "paired-cloze". Four choices of the same part of speech, one grammatical or semantic answer, no alternative tense or synonymous answer defensible.'],
+[18,22,shared+plans[test][2]+'. Q18–19 four distinct offers, section "offers", passage "", media {kind:"offers",heading,items:[four strings]}, options Offre 1, Offre 2, Offre 3, Offre 4. Each question combines three constraints, exactly one meets all. Q20–22 section "charts", media {kind:"chart-grid",heading,unit,years:[five labels],series:[four arrays each of five numeric values]}, options Graphique 1–4. Each series is a new trend, ask a mathematically precise combination of trend and comparison with exactly one answer.'],
+[23,32,shared+plans[test][3]+'. Five distinct pairs of questions, Q23–24,25–26,27–28,29–30,31–32. Each pair same group and source of 100–150 words; section "email". Notices/emails with realistic conditions, exceptions, several plausible options. One question tests interpretation of condition, one tests consequences.'],
+[33,40,shared+plans[test][4]+'. Four pairs Q33–34,35–36,37–38,39–40. Each pair identical group and passage of 180–240 French words, section "long". Design each passage around multiple specific stakeholder perspectives with nuanced competing explanations, tradeoffs and evidence; no generic balanced moral. Q36–39 must require connecting separate parts of the source, interpreting implicit meaning, author intention, or distinguishing actors; never direct retrieval. All options must be near neighbors, each use the same substantive concepts and differ in attribution or logical relationship. Do not write one sensible nuanced answer and three speculative extremes. Make all four propositions defensible in a different hypothetical version of the source; only one true in actual source.']
+];
+async function call(stage,input){for(let i=0;i<3;i++){const r=await fetcher(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stage,input}),signal:AbortSignal.timeout(155000)});const b=await r.json();if(r.ok&&b.result)return b;console.error(stage,r.status,b.error);await new Promise(r=>setTimeout(r,2000*(i+1)));}throw Error('Provider failed: '+stage);}
+function structural(q,n){return q?.number===n&&q.points===1&&typeof q.passage==='string'&&typeof q.question==='string'&&q.options?.length===4&&new Set(q.options).size===4&&/^[ABCD]$/.test(q.correct)&&q.explanation?.length>15&&q.semantic?.concept&&q.semantic?.evidence&&(n>7||['notice','illustration'].includes(q.media?.kind))&&(n<18||n>19||q.media?.kind==='offers'&&q.media.items?.length===4)&&(n<20||n>22||q.media?.kind==='chart-grid'&&q.media.series?.length===4&&q.media.series.every(s=>s.length===5&&s.every(Number.isFinite))&&q.media.years?.length===5);}
+function evidence(q){if(q.media?.kind==='offers')return q.media.items.map((x,i)=>'Offre '+(i+1)+': '+x).join('\n');if(q.media?.kind==='chart-grid')return q.media.series.map((x,i)=>'Graphique '+(i+1)+': '+x.join(', ')).join('\n');return q.passage;}
+function permute(q){const p=[0,1,2,3];for(let i=3;i>0;i--){const j=randomInt(i+1);[p[i],p[j]]=[p[j],p[i]];}return {choices:p.map(i=>q.options[i]),expected:p.indexOf('ABCD'.indexOf(q.correct)),p};}
+async function review(q){const {choices,expected}=permute(q);const ground=await call('ground',{source:evidence(q),question:q.question,choices});const g=ground.result;const grounded=g.questionSupported===true&&g.ambiguous===false&&g.supportedIndices?.length===1&&g.supportedIndices[0]===expected&&g.options?.length===4&&g.options.every(o=>typeof o.reason==='string'&&o.reason.length>8);let blind=null;let strong=false;if(q.number>=23){const p=permute(q);blind=await call('blind',{question:q.question,choices:p.choices});blind.expected=p.expected;strong=blind.result.guess===p.expected&&(blind.result.confident===true||blind.result.probabilities[p.expected]>=0.6||blind.result.cues?.length>0);}return {number:q.number,grounded,strong,ground,blind,expected};}
+async function pool(items,fn,n=3){const out=[];let i=0;await Promise.all(Array.from({length:n},async()=>{while(i<items.length){const j=i++;out[j]=await fn(items[j],j);}}));return out;}
+const pairs=[12,14,16,23,25,27,29,31,33,35,37,39];
+const pairOK=qs=>pairs.every(n=>{const a=qs.find(q=>q.number===n),b=qs.find(q=>q.number===n+1);return !a||!b||a.passage===b.passage&&a.group===b.group;});
+const authored=await pool(blocks,async([start,end,spec])=>{
+ let saved;try{saved=JSON.parse(await readFile(root+'/block-'+start+'.json','utf8')).result.questions;}catch{}
+ if(saved?.length===end-start+1&&saved.every((q,i)=>structural(q,start+i))&&pairOK(saved))return saved;
+ // Recover smaller units instead of sending long, timeout-prone requests.
+ const chunks=start===8?[[8,11],[12,13],[14,15],[16,17]]:start===23?[[23,24],[25,26],[27,28],[29,30],[31,32]]:start===33?[[33,34],[35,36],[37,38],[39,40]]:start===1?[[1,4],[5,7]]:[[18,19],[20,22]];
+ const result=[];
+ for(const [lo,hi] of chunks){
+   const cached=saved?.filter(q=>q.number>=lo&&q.number<=hi);
+   if(cached?.length===hi-lo+1&&cached.every((q,i)=>structural(q,lo+i))&&pairOK(cached)){result.push(...cached);continue;}
+   let accepted=false;
+   for(let attempt=0;attempt<3;attempt++){
+    const b=await call('generate',{test,start:lo,end:hi,spec:spec+' Generate ONLY question numbers '+lo+' through '+hi+'. For paired questions copy EXACTLY the same passage and group into both question objects.'});
+    const qs=b.result.questions;if(qs?.length===hi-lo+1&&qs.every((q,i)=>structural(q,lo+i))&&pairOK(qs)){result.push(...qs);accepted=true;break;}
+   }
+   if(!accepted)throw Error('Invalid sub-block '+lo);
+ }
+ await writeFile(root+'/block-'+start+'.json',JSON.stringify({result:{questions:result}},null,2));return result;
+},2);
+let questions=authored.flat();
+let oldReviews=null;
+try{const old=JSON.parse(await readFile('supabase/exams/tef-reading-test'+pad(test)+'-v1.json','utf8'));const rs=JSON.parse(await readFile('docs/tef-reading-batch-07-13/'+pad(test)+'-reviews.json','utf8'));if(old.questions.length===40&&old.questions.every((q,i)=>structural(q,i+1))&&pairOK(old.questions)&&rs.length===40){questions=old.questions;oldReviews=rs;}}catch{}
+if(!pairOK(questions))throw Error('Mismatched pair');
+const paper={id:'tef-reading-'+pad(test),version:'tef-reading-2026-11-original-'+pad(test)+'-v1',title:'TEF Canada · Compréhension écrite · Test '+pad(test),seconds:3600,maxPoints:40,questions};
+await writeFile(root+'/paper.json',JSON.stringify(paper,null,2));
+let reviews=oldReviews||await pool(questions,review,4);
+for(let attempt=0;attempt<2;attempt++){
+ const failing=reviews.filter(r=>!r.grounded||r.strong&&r.number>=36&&r.number<=39);
+ if(!failing.length)break;
+ await pool(failing,async r=>{const q=questions[r.number-1];if(q.number<=22){const b=await call('generate',{test,start:q.number,end:q.number,spec:shared+' Repair this specific item only: '+JSON.stringify(q)+' Reviewer: '+JSON.stringify(r.ground.result)+' Keep the exact existing passage, group and media, correct any answer ambiguity and return one question.'});const next=b.result.questions?.[0];if(structural(next,q.number)&&JSON.stringify(next.media??null)===JSON.stringify(q.media??null)&&next.passage===q.passage&&next.group===q.group){questions[q.number-1]=next;reviews[q.number-1]=await review(next);}return;}const a=await call('author',{source:q.passage,question:q.question,choices:q.options,correctIndex:'ABCD'.indexOf(q.correct),number:q.number,semantic:q.semantic,feedback:JSON.stringify({ground:r.ground.result,blind:r.blind?.result}).slice(0,2700)});const x=a.result;const next={...q,question:x.question,options:x.choices,correct:'ABCD'[x.correctIndex],explanation:x.explanation,semantic:x.semantic};if(structural(next,q.number)){questions[q.number-1]=next;reviews[q.number-1]=await review(next);}},3);
+ await writeFile(root+'/paper.json',JSON.stringify(paper,null,2));
+}
+const advanced=reviews.filter(r=>r.number>=36&&r.number<=39);
+const summary={test,questions:questions.length,grounded:reviews.filter(r=>r.grounded).length,advancedStrong:advanced.filter(r=>r.strong).length,advancedBlindCorrect:advanced.filter(r=>r.blind.result.guess===r.blind.expected).length,failed:reviews.filter(r=>!r.grounded||r.strong&&r.number>=36&&r.number<=39).map(r=>r.number)};
+await writeFile(root+'/reviews.json',JSON.stringify(reviews,null,2));await writeFile(root+'/summary.json',JSON.stringify(summary,null,2));console.log('TEF_BATCH_SUMMARY '+JSON.stringify(summary));
+if(summary.failed.length)process.exitCode=1;
