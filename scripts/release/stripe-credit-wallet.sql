@@ -41,7 +41,7 @@ begin
  if not found or w.payment_hold then raise exception 'Payment review required';end if;
  select * into o from academy_ai.stripe_orders where id=p_id;
  if found then
-  if o.user_id<>p_user or o.cents<>p_cents or o.status<>'created' then raise exception 'Invalid order';end if;
+  if o.user_id<>p_user or o.cents<>p_cents or o.status<>'created' or o.created_at<now()-interval '23 hours' then raise exception 'Invalid order';end if;
  else
   if (select count(*) from academy_ai.stripe_orders where user_id=p_user and created_at>now()-interval '1 hour')>=5 then raise exception 'Too many checkout requests';end if;
   insert into academy_ai.stripe_orders(id,user_id,cents,credits,budget_microcad) values(p_id,p_user,p_cents,p_cents*10,p_cents::bigint*2000) returning * into o;
@@ -55,6 +55,7 @@ begin
  perform 1 from academy_ai.policy where id for update;
  select * into o from academy_ai.stripe_orders where id=p_id for update;
  if not found or p_cents is distinct from o.cents or p_session is null or p_session !~ '^cs_live_[A-Za-z0-9_]+$' or p_intent is null or p_intent !~ '^pi_[A-Za-z0-9_]+$' then raise exception 'Invalid verified checkout';end if;
+ if o.session_id is distinct from p_session then raise exception 'Checkout session was not bound to this order';end if;
  if o.status='review' then raise exception 'Payment under review';end if;
  if o.status='paid' then
   if o.session_id is distinct from p_session or o.payment_intent is distinct from p_intent then raise exception 'Payment reference mismatch';end if;
@@ -66,7 +67,7 @@ begin
  insert into academy_ai.paid_topups(payment_reference,user_id,credits,budget_microcad,expired_credits,expires_at)
  values(p_session,o.user_id,o.credits,o.budget_microcad,case when w.expires_at<=now() then w.available else 0 end,expiry);
  update academy_ai.wallets set available=(case when w.expires_at>now() then w.available else 0 end)+o.credits,
- cap_microcad=greatest(w.cap_microcad,w.spent_microcad+w.reserved_microcad)+o.budget_microcad,
+ cap_microcad=w.cap_microcad+o.budget_microcad,
  purchased_budget_microcad=w.purchased_budget_microcad+o.budget_microcad,expires_at=expiry where user_id=o.user_id;
  update academy_ai.stripe_orders set status='paid',session_id=p_session,payment_intent=p_intent,paid_at=now() where id=o.id;
  return jsonb_build_object('credited',true,'credits',o.credits);
@@ -94,4 +95,14 @@ create or replace function public.academy_stripe_fulfill(p_id uuid,p_session tex
 create or replace function public.academy_stripe_review(p_id uuid,p_intent text,p_reason text) returns void language sql set search_path='' as $fn$ select academy_ai.stripe_review(p_id,p_intent,p_reason) $fn$;
 revoke all on function academy_ai.stripe_prepare(uuid,uuid,integer),academy_ai.stripe_fulfill(uuid,text,text,integer),academy_ai.stripe_review(uuid,text,text),public.academy_stripe_prepare(uuid,uuid,integer),public.academy_stripe_fulfill(uuid,text,text,integer),public.academy_stripe_review(uuid,text,text) from public,anon,authenticated;
 grant execute on function academy_ai.stripe_prepare(uuid,uuid,integer),academy_ai.stripe_fulfill(uuid,text,text,integer),academy_ai.stripe_review(uuid,text,text),public.academy_stripe_prepare(uuid,uuid,integer),public.academy_stripe_fulfill(uuid,text,text,integer),public.academy_stripe_review(uuid,text,text) to service_role;
+create or replace function academy_ai.stripe_bind_session(p_user uuid,p_id uuid,p_session text) returns void language plpgsql security definer set search_path='' as $fn$
+declare o academy_ai.stripe_orders;
+begin
+ select * into o from academy_ai.stripe_orders where id=p_id and user_id=p_user for update;
+ if not found or o.status<>'created' or p_session is null or p_session !~ '^cs_live_[A-Za-z0-9_]+ or (o.session_id is not null and o.session_id<>p_session) then raise exception 'Invalid checkout binding';end if;
+ update academy_ai.stripe_orders set session_id=p_session where id=p_id;
+end;$fn$;
+create or replace function public.academy_stripe_bind_session(p_user uuid,p_id uuid,p_session text) returns void language sql set search_path='' as $fn$ select academy_ai.stripe_bind_session(p_user,p_id,p_session) $fn$;
+revoke all on function academy_ai.stripe_bind_session(uuid,uuid,text),public.academy_stripe_bind_session(uuid,uuid,text) from public,anon,authenticated;
+grant execute on function academy_ai.stripe_bind_session(uuid,uuid,text),public.academy_stripe_bind_session(uuid,uuid,text) to service_role;
 commit;
