@@ -56,7 +56,13 @@ export function validateOutput(kind,raw){
   if(!feedback)throw new AiError('The AI response did not contain pronunciation feedback.',502,'AI_OUTPUT');
   result={heardText:optional(raw.heardText,500),feedback,strengths,focus,practicePhrase:optional(raw.practicePhrase,240)};
  }
- else result={reply:resultText(raw.reply,2000),englishHelp:resultText(raw.englishHelp,1000),transcript:resultText(raw.transcript,2000,true),corrections:corrections(raw.corrections),suggestedReplies:list(raw.suggestedReplies,3,s=>resultText(s,300))};
+ else {
+  // A valid partner reply is essential. Optional coaching must never abort it.
+  const optional=(value,max)=>typeof value==='string'?value.trim().slice(0,max):'';
+  const spokenCorrections=Array.isArray(raw.corrections)?raw.corrections.map(x=>({original:optional(x?.original,240),corrected:optional(x?.corrected,240),explanation:optional(x?.explanation,500)})).filter(x=>x.original&&x.corrected&&x.explanation).slice(0,8):[];
+  const suggestions=Array.isArray(raw.suggestedReplies)?raw.suggestedReplies.map(s=>optional(s,300)).filter(Boolean).slice(0,3):[];
+  result={reply:resultText(raw.reply,2000),englishHelp:optional(raw.englishHelp,1000),transcript:optional(raw.transcript,2000),corrections:spokenCorrections,suggestedReplies:suggestions,correctedReply:optional(raw.correctedReply,3000),feedback:optional(raw.feedback,1000)};
+ }
  if(new TextEncoder().encode(JSON.stringify(result)).length>16000)throw new AiError('The AI response was too long. Please try a shorter activity.',502,'AI_OUTPUT');
  return result;
 }
