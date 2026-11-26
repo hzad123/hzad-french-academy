@@ -1,3 +1,4 @@
+import {formatCredits,creditLabel} from './credit-scale.js';
 import {requireSession} from '../auth/session.js';
 import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY} from '../config.js';
 import {retryAfterMs} from '../auth/rate-limit.js';
@@ -33,7 +34,7 @@ export function wireFrenchTutor(root,client,{fetcher}={}){
  const send=el('button','Send','hz-tutor-send');send.type='submit';
  form.append(input,send);panel.append(head,balance,actions,log,status,form);dock.append(panel,launcher);
  const validWallet=()=>{const w=snapshot?.wallet,c=snapshot?.credits;return !!snapshot?.enabled&&Number.isSafeInteger(c)&&c>0&&!!w&&w.available>=c&&w.budgetAvailable&&Date.parse(w.expiresAt)>Date.now()};
- function controls(){input.disabled=!active;send.disabled=busy||!active||!validWallet()||!!pending||!input.value.trim()||!!conversation&&conversation.messages.length>=24;send.textContent=Number.isSafeInteger(snapshot?.credits)?'Send · '+snapshot.credits+' '+(snapshot.credits===1?'credit':'credits'):'Send';}
+ function controls(){input.disabled=!active;send.disabled=busy||!active||!validWallet()||!!pending||!input.value.trim()||!!conversation&&conversation.messages.length>=24;send.textContent=Number.isSafeInteger(snapshot?.credits)?'Send · '+creditLabel(snapshot.credits):'Send';}
  function reset(){epoch++;controller?.abort();controller=null;viewer=null;active=false;busy=false;open=false;snapshot=null;conversation=null;pending=null;initialized=false;notice='';draft='';input.value='';dock.classList.add('hz-hidden');panel.classList.add('hz-hidden');launcher.setAttribute('aria-expanded','false');render()}
  root.addEventListener('hzad-clear-lessons',reset);
  root.addEventListener('hzad-access-active',event=>{const id=event.detail?.userId;if(!id)return;if(viewer&&viewer!==id)reset();viewer=id;active=true;dock.classList.remove('hz-hidden');controls()});
@@ -67,7 +68,7 @@ export function wireFrenchTutor(root,client,{fetcher}={}){
  function render(){
   balance.replaceChildren();actions.replaceChildren();log.replaceChildren();
   const c=snapshot?.credits,w=snapshot?.wallet;
-  balance.append(el('strong',Number.isSafeInteger(c)?c+' '+(c===1?'credit':'credits')+' per message':'Loading credit price…'),el('span',w?w.available+' credits remaining':''));
+  balance.append(el('strong',Number.isSafeInteger(c)?creditLabel(c)+' per message':'Loading credit price…'),el('span',w?formatCredits(w.available)+' credits remaining':''));
   if(snapshot&&!validWallet()){let url;try{const u=new URL(snapshot.topUpUrl);if(u.protocol==='https:')url=u.href}catch{}if(url){const a=el('a','Top up credits');a.href=url;a.target='_blank';a.rel='noopener noreferrer';balance.append(a)}else balance.append(el('span',snapshot.enabled?'Contact the academy for credit top-ups.':'Tutor temporarily unavailable.'))}
   const newChat=btn('New chat',()=>{conversation=null;notice='';initialized=true;render();input.focus()});newChat.disabled=busy||!!pending;
   const reload=btn('Refresh balance',()=>void run(refresh));reload.disabled=busy;actions.append(newChat,reload);
