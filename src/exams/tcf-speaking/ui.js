@@ -292,7 +292,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
     panel.append(el('p','Next: read the instructions at your own pace. The exam timer does not start until you confirm.','hz-tcf-speaking-hint'));
     if(!ready)panel.append(el('p','The AI speaking examiner is temporarily unavailable.'));
     else if(!mayStart)panel.append(el('p','Insufficient AI credits to start a speaking test.','hz-tcf-speaking-hint'));
-    panel.append(el('p',formatCredits(turn?.credits)+' AI credits per submitted response · '+formatCredits(grade?.credits)+' for final feedback. Saved reviews are free.','hz-tcf-speaking-hint'));
+    panel.append(el('p',formatCredits(turn?.credits)+' AI credits maximum per submitted response · '+formatCredits(grade?.credits)+' maximum for final feedback. Saved reviews are free.','hz-tcf-speaking-hint'));
    }
    area.append(panel);
   }
@@ -342,7 +342,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
      const same=completed().filter(c=>c.phase===index),question=same.length?same.at(-1).result.reply:phase.opening;
      if(question&&!same.length){const p=el('p','Examiner: '+question);p.lang='fr';block.append(p)}
      block.append(el('p',index===3?'Speak continuously for up to 4 minutes 30 seconds. Submit response ends your monologue early; the timer submits it automatically at the end.':'Submit response saves your answer and moves to the next task. Every 30 seconds, audio is saved automatically so you can continue speaking with the examiner.'));
-     block.append(el('p',`${formatCredits(turn?.credits)} AI credits per submitted response.`,'hz-small'),button('Submit response',()=>{void submit(true)},!canPay(turn?.credits)));
+     block.append(el('p',`Up to ${formatCredits(turn?.credits)} AI credits per submitted response.`,'hz-small'),button('Submit response',()=>{void submit(true)},!canPay(turn?.credits)));
      if(examinerVoiceNeedsTap()){
       block.append(button('🔊 Réécouter l’interlocuteur si la lecture échoue',()=>{void beginAnswer(true)},!canPay(turn?.credits)));
       block.append(button('Enregistrer sans voix (texte affiché)',()=>{void beginAnswer(true,true)},!canPay(turn?.credits)));
@@ -442,7 +442,7 @@ export function wireTcfSpeaking(root,client,{fetcher,recorderFactory=createSpeak
     for(const task of result.missingTasks||[])
      feedback.append(el('p','Task '+task+': no usable speech was recognized. An overall TCF/NCLC estimate needs recorded evidence for all three tasks.','hz-tcf-speaking-missing'));
     area.append(feedback);
-   }else if(!attempt.pending){const assessment=el('div',undefined,'hz-speaking-assessment');area.append(assessment);assessment.append(el('strong','TCF speaking score /20 and NCLC: awaiting assessment'));assessment.append(button(`Get TCF speaking feedback · ${creditLabel(grade?.credits)}`,()=>{void run(async(signal,current)=>{const next=await store.send({kind:'feedback',id:attempt.id,callId:crypto.randomUUID(),expectedCredits:grade.credits},signal);if(next.processing)accept(await store.read(attempt.id,signal));else accept(next);if(current())render()})},!canPay(grade?.credits)));}
+   }else if(!attempt.pending){const assessment=el('div',undefined,'hz-speaking-assessment');area.append(assessment);assessment.append(el('strong','TCF speaking score /20 and NCLC: awaiting assessment'));assessment.append(button(`Get TCF speaking feedback · up to ${creditLabel(grade?.credits)}`,()=>{void run(async(signal,current)=>{const next=await store.send({kind:'feedback',id:attempt.id,callId:crypto.randomUUID(),expectedCredits:grade.credits},signal);if(next.processing)accept(await store.read(attempt.id,signal));else accept(next);if(current())render()})},!canPay(grade?.credits)));}
    else area.append(button('Check saved feedback',()=>{void run(async(signal,current)=>{await reconcile(signal);if(current())render()})}));
   }
  }
