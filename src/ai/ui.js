@@ -90,7 +90,13 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    block.append(el('p',result.summary),el('h5','Improved French'),el('p',result.correctedText,'hz-ai-corrected-text'),el('h5','Corrections explained'));corrections(result.corrections,block);
    const list=el('ul');for(const s of result.suggestions)list.append(el('li',s));block.append(el('h5','Try this next'),list);
   }else if(kind==='pronunciation'){
-   if(state.result?.reviewedReference)block.append(el('p','Reviewed sentence: '+state.result.reviewedReference,'hz-small'));
+   const reviewed=state.result?.reviewedReference;
+   if(reviewed){
+    const original=el('article',undefined,'hz-ai-feedback-card');
+    const sentence=el('p',reviewed,'hz-ai-practice-phrase');sentence.lang='fr';
+    original.append(el('h5','Original sentence you just practised'),sentence,button('Hear original sentence',()=>speak(reviewed),true));
+    block.append(original);
+   }
    block.append(el('p',result.feedback));if(result.heardText)block.append(el('p','Heard: '+result.heardText));
    const strengths=el('ul');for(const s of result.strengths)strengths.append(el('li',s));block.append(strengths);
    for(const focus of result.focus){const card=el('article',undefined,'hz-ai-feedback-card');card.append(el('h5',focus.sound),el('p',focus.example,'hz-ai-corrected'),el('p',focus.tip));block.append(card)}
