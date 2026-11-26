@@ -1,3 +1,4 @@
+import {notifyCreditsChanged} from '../../ai/credit-scale.js';
 import {requireSession} from '../../auth/session.js';
 import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY} from '../../config.js';
 export function makeTefWritingStore(client,fetcher=globalThis.fetch.bind(globalThis)){
@@ -13,7 +14,7 @@ export function makeTefWritingStore(client,fetcher=globalThis.fetch.bind(globalT
     const suffix=/^[A-Z_]{3,32}$/.test(code)?' (code: '+code+')':'';
     throw Error((data.error||'TEF writing could not connect.')+suffix);
    }return data;
-  }finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
+  }finally{if(body)notifyCreditsChanged();clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
  }
  return {catalog:signal=>call('',null,signal),read:(id,signal)=>call('?attempt='+encodeURIComponent(id),null,signal),send:(body,signal)=>call('',body,signal)};
 }

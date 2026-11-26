@@ -1,3 +1,4 @@
+import {notifyCreditsChanged} from './credit-scale.js';
 import {requireSession} from '../auth/session.js';
 import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY} from '../config.js';
 import {retryAfterMs} from '../auth/rate-limit.js';
@@ -17,7 +18,7 @@ export async function boundedAiRequest(work,signal,timeoutMs){
 export function makeAiStore(client,fetcher=globalThis.fetch.bind(globalThis)){
  const endpoint=SUPABASE_URL+'/functions/v1/academy-ai';let pausedUntil=0;
  async function call(query='',body,signal){
-  return boundedAiRequest(async requestSignal=>{
+  try{return await boundedAiRequest(async requestSignal=>{
    const session=await requireSession(client);
    if(requestSignal.aborted)throw new DOMException('AI request interrupted','AbortError');
    if(Date.now()<pausedUntil)throw Error('AI requests are paused briefly. Please try again shortly.');
@@ -26,7 +27,7 @@ export function makeAiStore(client,fetcher=globalThis.fetch.bind(globalThis)){
    if(response.status===429)pausedUntil=Date.now()+retryAfterMs(response.headers.get('Retry-After'),Date.now());
    if(!response.ok){const error=Error(result.error||'AI Learning could not connect. Please try again shortly.');error.status=response.status;error.code=result.code;error.activityStatus=result.status;throw error}
    return result;
-  },signal,body?.kind==='conversation'?125000:body?65000:12000);
+  },signal,body?.kind==='conversation'?125000:body?65000:12000)}finally{if(body)notifyCreditsChanged()}
  }
  return {state:signal=>call('',undefined,signal),activity:(id,signal)=>call('?request='+encodeURIComponent(id),undefined,signal),conversation:(id,signal)=>call('?conversation='+encodeURIComponent(id),undefined,signal),submit:(payload,signal)=>call('',payload,signal)};
 }

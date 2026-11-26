@@ -1,3 +1,4 @@
+import {notifyCreditsChanged} from '../../ai/credit-scale.js';
 import {requireSession} from '../../auth/session.js';
 import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY} from '../../config.js';
 export function makeWritingStore(client,fetcher=globalThis.fetch.bind(globalThis)){
@@ -7,7 +8,7 @@ export function makeWritingStore(client,fetcher=globalThis.fetch.bind(globalThis
   try{
    const response=await fetcher(SUPABASE_URL+'/functions/v1/academy-tcf-writing'+query,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+session.access_token,apikey:SUPABASE_PUBLISHABLE_KEY,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined,signal:controller.signal});
    const data=await response.json();if(!response.ok)throw Error(data.error||'TCF writing could not connect.');return data;
-  }finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
+  }finally{if(body)notifyCreditsChanged();clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
  }
  return {catalog:signal=>call('?format=sample-v2',null,signal),read:(id,signal)=>call('?attempt='+encodeURIComponent(id),null,signal),send:(body,signal)=>call('',body,signal)};
 }

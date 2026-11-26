@@ -1,3 +1,4 @@
+import {formatCredits,creditLabel} from '../ai/credit-scale.js';
 import {makeExamStore} from './store.js';
 import {mountRecorder} from '../ai/audio.js';
 import {recordView,recordHome} from '../ui/navigation.js';
@@ -190,7 +191,7 @@ export function wireExams(root,client,{fetcher,recorderFactory=mountRecorder}={}
   }
   tefBody.append(tefGrid);tefHub.append(tefBody);
   area.append(tefHub);
-  if(catalog.wallet)area.append(el('p',`${catalog.wallet.available} AI credits available`,'hz-ai-balance'));
+  if(catalog.wallet)area.append(el('p',`${formatCredits(catalog.wallet.available)} AI credits available`,'hz-ai-balance'));
   if(catalog.topUpUrl){try{const url=new URL(catalog.topUpUrl);if(url.protocol==='https:'){const a=el('a','Purchase AI credits','hz-btn');a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';area.append(a)}}catch{}}
   const history=el('section');history.append(el('h4','Your saved attempts'));for(const item of catalog.history)history.append(button(`${names[item.exam]} · ${new Date(item.createdAt).toLocaleDateString()} · ${item.status}`,()=>open(item.id),true));area.append(history);
  }

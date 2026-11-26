@@ -122,7 +122,7 @@ def check_viewport(browser, width: int, papers: list[dict], expected: dict) -> d
     try:
         page.goto(FIXTURE_URL, wait_until="load")
         page.wait_for_function("window.fixtureReady === true", timeout=120000)
-        page.locator("#hz-exams .hz-tcf-hub > summary").click()
+        page.locator("#hz-exams .hz-tcf-hub:not(.hz-tef-dropdown) > summary").click()
         page.get_by_role("button", name="Open TCF Reading tests", exact=True).click()
         selector = page.get_by_label("Choose a TCF reading test")
         selector.wait_for()

@@ -1,3 +1,4 @@
+import {formatCredits,creditLabel} from '../../ai/credit-scale.js';
 import {makeWritingStore} from './store.js';
 import {recordView} from '../../ui/navigation.js';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
@@ -92,7 +93,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
    status('The previous assessment failed. Your credit was returned and your responses are saved.',true);
    if(attempt.failure?.code)area.append(el('p','Assessment reference: '+(attempt.failure.providerCode||attempt.failure.code),'hz-small'));
    const cost=catalog.credits,wallet=catalog.wallet;
-   const retry=button(`Retry saved feedback · ${cost} ${cost===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{
+   const retry=button(`Retry saved feedback · up to ${creditLabel(cost)}`,()=>{void run(async(signal,current)=>{
     let next;try{next=await store.send({kind:'retry',id:attempt.id,expectedCredits:cost},signal)}catch(error){
      try{const saved=await store.read(attempt.id,signal);if(current()){receive(saved,{restore:true});render()}}catch{}throw error;
     }
@@ -104,8 +105,8 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   if(attempt.reviewStatus==='dispatched'||attempt.processing){area.append(button('Check saved feedback',()=>{void open(attempt.id)}));status('Your writing assessment is processing. Check saved feedback before sending again.');return}
   if(!locked)area.append(button('Save responses',()=>{void run((signal,current)=>save(signal,current))},true));
   const quote=Number.isSafeInteger(catalog.credits)?catalog.credits:null;
-  area.append(el('p',quote?`${quote} AI ${quote===1?'credit':'credits'} for one assessment of all three tasks. Viewing saved feedback costs no additional credits.`:'AI marking is being prepared. You can write and save all 20 tests.','hz-small'));
-  const submit=button(`Get AI feedback${quote?' · '+quote+' '+(quote===1?'credit':'credits'):''}`,()=>{
+  area.append(el('p',quote?`${formatCredits(quote)} AI credits maximum for one assessment of all three tasks. Viewing saved feedback costs no additional credits.`:'AI marking is being prepared. You can write and save all 20 tests.','hz-small'));
+  const submit=button(`Get AI feedback${quote?' · up to '+creditLabel(quote):''}`,()=>{
    if(!locked&&remaining>0&&local.responses.some(s=>!s.trim())){status('Complete all three tasks before submitting.',true);return}
    void run(async(signal,current)=>{
     if(dirty&&remaining>0)await save(signal,current);if(!current())return;
@@ -141,7 +142,7 @@ export function wireTcfWriting(root,client,{fetcher}={}){
   }section.append(criteria);
   if(result.rubricVersion!=='tcf-writing-public-criteria-v2'){
    const cost=catalog.credits,wallet=catalog.wallet;
-   const update=button(`Update TCF feedback · ${cost} ${cost===1?'credit':'credits'}`,()=>{void run(async(signal,current)=>{
+   const update=button(`Update TCF feedback · up to ${creditLabel(cost)}`,()=>{void run(async(signal,current)=>{
     let next;try{next=await store.send({kind:'reassess',id:attempt.id,reviewId:attempt.reviewId||attempt.id,expectedCredits:cost},signal)}catch(error){
      try{const saved=await store.read(attempt.id,signal);if(current()){receive(saved,{restore:true});render()}}catch{}throw error;
     }
