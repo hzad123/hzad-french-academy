@@ -1,3 +1,4 @@
+import {formatCredits,creditLabel} from '../../ai/credit-scale.js';
 import {makeTefWritingStore} from './store.js';
 import {recordView} from '../../ui/navigation.js';
 const make=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n};
@@ -151,11 +152,11 @@ export function wireTefWriting(root,client,{fetcher}={}){
   const credits=catalog.credits,wallet=catalog.wallet,costOk=Number.isSafeInteger(credits)&&credits>0&&catalog.enabled&&wallet&&wallet.available>=credits&&wallet.budgetAvailable&&Date.parse(wallet.expiresAt)>Date.now();
   if(attempt.reviewStatus==='failed'){
    notify('AI marking failed. Your response was saved and its reserved credits were returned.',true);
-   const retry=button('Retry saved feedback · '+credits+' AI credit'+(credits===1?'':'s'),()=>{void review('retry')});
+   const retry=button('Retry saved feedback · '+formatCredits(credits)+' AI credits',()=>{void review('retry')});
    retry.dataset.locked=String(!costOk);area.append(retry);return;
   }
   if(!locked&&remaining()>0)area.append(button('Save my writing',()=>{void run(async(signal,current)=>{await save(signal,current)})},true));
-  const note=make('p',credits?'AI feedback for both sections costs '+credits+' credit'+(credits===1?'':'s')+'. Saved feedback can be reopened free.':'AI feedback is currently unavailable. Your responses remain saved.','hz-small');
+  const note=make('p',credits?'AI feedback for both sections costs up to '+creditLabel(credits)+'. Saved feedback can be reopened free.':'AI feedback is currently unavailable. Your responses remain saved.','hz-small');
   area.append(note);
   const submit=button('Submit both sections for AI feedback'+(credits?' · '+credits+' credit'+(credits===1?'':'s'):''),()=>{void review('review')});
   submit.dataset.locked=String(!costOk||conflict);
