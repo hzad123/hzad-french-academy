@@ -1,3 +1,4 @@
+import {formatCredits,creditLabel} from './credit-scale.js';
 import {makeAiStore} from './store.js';
 import {mountRecorder} from './audio.js';
 import {pronunciationPhrases,nextPronunciationPhrase,validPronunciationPhrase,pronunciationWordCount} from './pronunciation-practice.js';
@@ -68,7 +69,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  }
  function creditButton(label,fn){
   const activity=state.snapshot?.activities[state.tab],credits=activity?.credits;
-  const b=button(Number.isSafeInteger(credits)?`${label} · ${credits} ${credits===1?'credit':'credits'}`:label,fn);
+  const b=button(Number.isSafeInteger(credits)?`${label} · ${creditLabel(credits)}`:label,fn);
   const wallet=state.snapshot?.wallet;
   b.dataset.locked=String(state.walletStale||!state.snapshot?.enabled||!activity?.enabled||!Number.isSafeInteger(credits)||!wallet||wallet.available<credits||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||!!state.pending||!!state.conversation?.busy&&state.tab==='conversation');
   b.disabled=b.dataset.locked==='true';return b;
@@ -220,7 +221,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
   hero.append(intro);
   if(state.snapshot?.wallet){
    const snap=state.snapshot,w=snap.wallet,wallet=el('aside',undefined,'hz-studio-wallet'),head=el('div',undefined,'hz-studio-wallet-head');
-   head.append(studioIcon('wallet'),el('span','Your AI credits'));wallet.append(head,el('strong',String(w.available),'hz-studio-credit-value'),el('span','credits available','hz-studio-credit-label'));
+   head.append(studioIcon('wallet'),el('span','Your AI credits'));wallet.append(head,el('strong',formatCredits(w.available),'hz-studio-credit-value'),el('span','credits available','hz-studio-credit-label'));
    if(w.reserved>0)wallet.append(el('span',w.reserved+' reserved','hz-studio-muted'));
    const expiry=new Date(w.expiresAt);if(Number.isFinite(expiry.getTime()))wallet.append(el('span','Valid until '+expiry.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}),'hz-studio-muted'));
    const refresh=button('Refresh balance',()=>void run(async(signal,current)=>{const next=await load(signal);if(current()){state.snapshot=next;state.walletStale=false;render()}}),true);refresh.classList.add('hz-studio-refresh');wallet.append(refresh);hero.append(wallet);
@@ -241,11 +242,11 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    for(const [key,[icon,title,description,benefits,unit,cta]] of [...Object.entries(trainers),['tutor',tutor]]){
     const card=el('article',undefined,'hz-ai-card hz-studio-card hz-studio-card-'+key),topline=el('div',undefined,'hz-studio-card-top');
     const activity=snap.activities[key],cost=activity?.credits;
-    topline.append(studioIcon(icon),el('span',Number.isSafeInteger(cost)?`${cost} ${cost===1?'credit':'credits'} / ${unit}`:'Price unavailable','hz-studio-price'));card.append(topline,el('h4',title),el('p',description,'hz-studio-card-description'));
+    topline.append(studioIcon(icon),el('span',Number.isSafeInteger(cost)?`${creditLabel(cost)} / ${unit}`:'Price unavailable','hz-studio-price'));card.append(topline,el('h4',title),el('p',description,'hz-studio-card-description'));
     const list=el('ul',undefined,'hz-studio-benefits');for(const benefit of benefits)list.append(el('li',benefit));card.append(list);
     const action=button(cta+' →',()=>{if(key==='tutor'){root.dispatchEvent(new CustomEvent('hzad-open-french-tutor'));return}state.tab=key;state.result=null;render()});action.classList.add('hz-studio-card-action');action.dataset.locked=String(!snap.enabled||!activity?.enabled);action.disabled=action.dataset.locked==='true';card.append(action);cards.append(card);
    }area.append(cards);
-   const how=el('section',undefined,'hz-studio-how');how.append(el('h4','How your credits work'),el('p','All practice tools and the French Tutor share one credit balance. Opening tools, viewing saved feedback and checking your balance are free. Credits are deducted only for a new AI activity; failed activities return the credits.'));if(snap.testingCad)how.append(el('p',`Testing allowance: up to CAD $${Number(snap.testingCad).toFixed(2)}.`,'hz-studio-muted'));area.append(how);
+   const how=el('section',undefined,'hz-studio-how');how.append(el('h4','How your credits work'),el('p','All practice tools and the French Tutor share one credit balance. Displayed charges are maximum quotes; unused reserved credits are returned after a successful review when usage-based pricing is active. Opening tools, viewing saved feedback and checking your balance are free. Credits are deducted only for a new AI activity; failed activities return the credits.'));if(snap.testingCad)how.append(el('p',`Testing allowance: up to CAD $${Number(snap.testingCad).toFixed(2)}.`,'hz-studio-muted'));area.append(how);
   }else if(state.tab==='history'){
    history();
   }else{
