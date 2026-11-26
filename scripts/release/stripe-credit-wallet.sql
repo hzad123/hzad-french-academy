@@ -99,7 +99,7 @@ create or replace function academy_ai.stripe_bind_session(p_user uuid,p_id uuid,
 declare o academy_ai.stripe_orders;
 begin
  select * into o from academy_ai.stripe_orders where id=p_id and user_id=p_user for update;
- if not found or o.status<>'created' or p_session is null or p_session !~ '^cs_live_[A-Za-z0-9_]+ or (o.session_id is not null and o.session_id<>p_session) then raise exception 'Invalid checkout binding';end if;
+ if not found or o.status<>'created' or p_session is null or p_session !~ '^cs_live_[A-Za-z0-9_]+$' or (o.session_id is not null and o.session_id<>p_session) then raise exception 'Invalid checkout binding';end if;
  update academy_ai.stripe_orders set session_id=p_session where id=p_id;
 end;$fn$;
 create or replace function public.academy_stripe_bind_session(p_user uuid,p_id uuid,p_session text) returns void language sql set search_path='' as $fn$ select academy_ai.stripe_bind_session(p_user,p_id,p_session) $fn$;
