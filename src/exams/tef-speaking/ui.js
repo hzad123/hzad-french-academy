@@ -247,7 +247,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   }
   if(![0,2].includes(attempt.phase)&&((kind==='feedback_a'&&attempt.phase>=1)||(kind==='feedback_b'&&attempt.phase===3))){
    const box=el('div',undefined,'hz-tef-feedback-action');
-   const fee=cost('feedback');box.append(el('p','Évaluation de cette étape : '+formatCredits(fee)+' crédit(s) IA.'));
+   const fee=cost('feedback');box.append(el('p','Évaluation de cette étape : jusqu’à '+formatCredits(fee)+' crédit(s) IA.'));
    box.append(button(kind==='feedback_a'?'Obtenir le bilan de la Section A':'Obtenir le bilan général',
     ()=>{void sendFeedback(kind)},!canPay('feedback')));
    return box;
@@ -299,7 +299,7 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   };
   controls.append(field,start);picker.append(controls);
   picker.append(el('p',
-   'Coût : '+formatCredits(cost('turn'))+' crédits IA par réponse · '+
+   'Coût maximum : '+formatCredits(cost('turn'))+' crédits IA par réponse · '+
    formatCredits(cost('feedback'))+' crédit(s) par évaluation.',
    'hz-tef-speaking-picker-cost'));
   area.append(picker);
@@ -370,13 +370,13 @@ export function wireTefSpeaking(root,client,{fetcher,recorderFactory=createSpeak
   const last=turns(attempt.phase).at(-1)?.result?.reply||section.opening;
   const examiner=el('p','Interlocuteur : '+last,'hz-tef-examiner-line');examiner.lang='fr';area.append(examiner);
   area.append(el('p','Écoutez l’interlocuteur, posez vos questions ou défendez vos idées puis envoyez chaque réponse. Le test continue sans changer de section.'));
-  area.append(el('p','Coût du prochain tour : '+formatCredits(cost('turn'))+' crédits IA.','hz-small'));
+  area.append(el('p','Coût maximum du prochain tour : '+formatCredits(cost('turn'))+' crédits IA.','hz-small'));
   if(attempt.pending){
    area.append(el('p','Traitement de votre réponse en cours. Aucun nouvel envoi payant n’est effectué.'));
    area.append(button('Vérifier ma réponse sauvegardée',()=>{pollCount=0;void run(async(signal,current)=>{await reconcile(signal);if(current())render()})},false,true));
   }else if(capture?.failed){
    area.append(el('p','Le traitement a échoué. L’enregistrement est conservé pour une nouvelle tentative. Les crédits du tour précédent ont été remboursés.','hz-tef-warning'));
-   area.append(button('Réessayer avec la réponse enregistrée · '+formatCredits(cost('turn'))+' crédits IA',
+   area.append(button('Réessayer avec la réponse enregistrée · jusqu’à '+formatCredits(cost('turn'))+' crédits IA',
     ()=>{capture={...capture,callId:crypto.randomUUID(),failed:false};void sendCapture()},!canPay('turn')));
   }else if(capture){
    area.append(el('p','Votre réponse est sauvegardée localement pour son envoi. Vérifiez le résultat avant tout nouvel enregistrement.'));
