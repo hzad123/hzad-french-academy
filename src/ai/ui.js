@@ -69,7 +69,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
  }
  function creditButton(label,fn){
   const activity=state.snapshot?.activities[state.tab],credits=activity?.credits;
-  const b=button(Number.isSafeInteger(credits)?`${label} · ${creditLabel(credits)}`:label,fn);
+  const b=button(Number.isSafeInteger(credits)?`${label} · up to ${creditLabel(credits)}`:label,fn);
   const wallet=state.snapshot?.wallet;
   b.dataset.locked=String(state.walletStale||!state.snapshot?.enabled||!activity?.enabled||!Number.isSafeInteger(credits)||!wallet||wallet.available<credits||!wallet.budgetAvailable||Date.parse(wallet.expiresAt)<=Date.now()||!!state.pending||!!state.conversation?.busy&&state.tab==='conversation');
   b.disabled=b.dataset.locked==='true';return b;
@@ -234,7 +234,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    status('Your AI credit allowance is used. Purchase additional AI credits to continue.');
    let checkout;try{const url=new URL(snap.topUpUrl);if(url.protocol==='https:')checkout=url.href}catch{}
    if(checkout){const link=el('a','Purchase AI credits','hz-btn');link.href=checkout;link.target='_blank';link.rel='noopener noreferrer';area.append(link)}
-   else status('Contact the academy to arrange a paid AI credit top-up.');
+   else area.append(button('View credit top-up options',()=>root.dispatchEvent(new CustomEvent('hzad-open-credit-wallet')),true));
   }
   if(state.tab==='home'){
    const heading=el('div',undefined,'hz-studio-section-head');heading.append(el('h4','Choose a skill'),el('p','Each tool shows its credit cost before you begin.','hz-studio-muted'));area.append(heading);
@@ -242,7 +242,7 @@ export function wireAiLearning(root,client,{fetcher,recorderFactory=mountRecorde
    for(const [key,[icon,title,description,benefits,unit,cta]] of [...Object.entries(trainers),['tutor',tutor]]){
     const card=el('article',undefined,'hz-ai-card hz-studio-card hz-studio-card-'+key),topline=el('div',undefined,'hz-studio-card-top');
     const activity=snap.activities[key],cost=activity?.credits;
-    topline.append(studioIcon(icon),el('span',Number.isSafeInteger(cost)?`${creditLabel(cost)} / ${unit}`:'Price unavailable','hz-studio-price'));card.append(topline,el('h4',title),el('p',description,'hz-studio-card-description'));
+    topline.append(studioIcon(icon),el('span',Number.isSafeInteger(cost)?`up to ${creditLabel(cost)} / ${unit}`:'Price unavailable','hz-studio-price'));card.append(topline,el('h4',title),el('p',description,'hz-studio-card-description'));
     const list=el('ul',undefined,'hz-studio-benefits');for(const benefit of benefits)list.append(el('li',benefit));card.append(list);
     const action=button(cta+' →',()=>{if(key==='tutor'){root.dispatchEvent(new CustomEvent('hzad-open-french-tutor'));return}state.tab=key;state.result=null;render()});action.classList.add('hz-studio-card-action');action.dataset.locked=String(!snap.enabled||!activity?.enabled);action.disabled=action.dataset.locked==='true';card.append(action);cards.append(card);
    }area.append(cards);
