@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHandler} from '../supabase/functions/academy-ai/handler.js';
-import {createOpenAiProvider,buildMessages} from '../supabase/functions/academy-ai/provider.js';
+import {createOpenAiProvider,buildMessages,filterSpokenCorrections} from '../supabase/functions/academy-ai/provider.js';
 import {validateInput,validateOutput,inspectAudio,AiError} from '../supabase/functions/academy-ai/contracts.js';
 import {encodeWav,audioBase64,detectSpeechTurn,createCallCapture} from '../src/ai/audio.js';
 import {providerKey} from '../supabase/functions/academy-ai/config.js';
@@ -91,7 +91,7 @@ test('pronunciation provider receives audio evidence, bounded output and a fixed
 test('writing/conversation outputs are bounded and malformed feedback fails before settlement',()=>{
  assert.deepEqual(validateOutput('writing',writing),writing);
  assert.throws(()=>validateOutput('writing',{...writing,correctedText:'x'.repeat(7000)}));assert.throws(()=>validateOutput('pronunciation',{heardText:'Bonjour.'}));
- assert.throws(()=>validateOutput('conversation',{reply:'Bonjour',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:Array(4).fill('Oui')}));
+ assert.equal(validateOutput('conversation',{reply:'Bonjour',englishHelp:'Hello',transcript:'',corrections:[],suggestedReplies:Array(4).fill('Oui')}).suggestedReplies.length,3);
  const messages=buildMessages({kind:'conversation',level:'A0',scenario:'cafe',text:'Un café.'},[{role:'user',content:'Bonjour'},{role:'assistant',content:'Bienvenue'}]);assert.equal(messages.length,4);assert.match(messages[0].content,/level A0/);
 });
 test('provider context stays bounded while retaining the introduction and latest conversation messages',()=>{
@@ -118,3 +118,6 @@ test('call detection accepts quiet speech, waits for pauses, and never expires f
 test('call microphone check API is independent of billable speech turns',()=>{const c=createCallCapture({onAudio:()=>{},onVoice:()=>{},onError:()=>{}});assert.equal(typeof c.check,'function');assert.equal(c.isListening(),false);c.stop();});
 
 test('conversation uses stable French ASR and refuses empty speech without inventing words',async()=>{let calls=0;const provider=createOpenAiProvider({key:'test',fetcher:async(url,opts)=>{calls++;assert.ok(url.endsWith('/transcriptions'));assert.equal(opts.body.get('model'),'gpt-4o-mini-transcribe');assert.equal(opts.body.get('language'),'fr');return new Response(JSON.stringify({text:''}))}});await assert.rejects(provider.run({kind:'conversation',level:'A0',scenario:'cafe',audio:audio()},{model:'gpt-audio-mini',maxOutputTokens:1200,messages:[]}),e=>e.code==='AI_TRANSCRIPTION');assert.equal(calls,1)});
+
+test('spoken grammar corrections survive filtering while silent spelling is excluded',()=>{const corrections=[{original:'je vouloir café',corrected:'je veux un café',explanation:'Conjugate vouloir with je and add an article.'},{original:'je suis faim',corrected:'j’ai faim',explanation:'Use avoir faim, not être.'},{original:'tu m’a demandé',corrected:'tu m’as demandé',explanation:'Add s.'},{original:'invented',corrected:'autre',explanation:'Vocabulary'}];assert.deepEqual(filterSpokenCorrections(corrections,'je vouloir café, je suis faim, tu m’a demandé'),corrections.slice(0,2));});
+test('conversation retains teacher feedback and improved French independently of verbatim transcript',()=>{const r=validateOutput('conversation',{reply:'Très bien.',transcript:'je vouloir café',speakingFeedback:'Conjugate vouloir.',improvedReply:'Je veux un café.',corrections:[],suggestedReplies:[]});assert.equal(r.transcript,'je vouloir café');assert.equal(r.improvedReply,'Je veux un café.');assert.equal(r.speakingFeedback,'Conjugate vouloir.');});
