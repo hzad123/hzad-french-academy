@@ -21,7 +21,7 @@ begin
  perform academy_ai.require_access(u);perform academy_ai.ensure_wallet(u);
  select * into p from academy_ai.policy where id;
  select * into w from academy_ai.wallets where user_id=u;
- return jsonb_build_object('scale',p.credit_scale,'available',case when w.expires_at>now() then coalesce(w.available,0) else 0 end,'reserved',coalesce(w.reserved,0),'expiresAt',w.expires_at,'paymentHold',coalesce(w.payment_hold,false),'topupsEnabled',p.stripe_enabled and p.credit_scale=100 and p.enabled and not coalesce(w.payment_hold,false),'budgetAvailable',coalesce(w.spent_microcad+w.reserved_microcad<w.cap_microcad,false),'activities',(select jsonb_object_agg(kind,jsonb_build_object('credits',credits,'enabled',enabled)) from academy_ai.activities));
+ return jsonb_build_object('scale',p.credit_scale,'available',case when w.expires_at>now() then coalesce(w.available,0) else 0 end,'reserved',coalesce(w.reserved,0),'expiresAt',w.expires_at,'paymentHold',coalesce(w.payment_hold,false),'topupsEnabled',p.stripe_enabled and p.credit_scale=100 and p.enabled and not coalesce(w.payment_hold,false),'budgetAvailable',coalesce(w.spent_microcad+w.reserved_microcad<w.cap_microcad,false),'lastCharge',(select jsonb_build_object('kind',kind,'credits',credits,'at',updated_at) from academy_ai.requests where user_id=u and status='completed' order by updated_at desc limit 1),'activities',(select jsonb_object_agg(kind,jsonb_build_object('credits',credits,'enabled',enabled)) from academy_ai.activities));
 end;$fn$;
 revoke all on function academy_ai.credit_wallet() from public,anon;
 grant execute on function academy_ai.credit_wallet() to authenticated;
