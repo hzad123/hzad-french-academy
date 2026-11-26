@@ -152,7 +152,7 @@ export function wireTefWriting(root,client,{fetcher}={}){
   const credits=catalog.credits,wallet=catalog.wallet,costOk=Number.isSafeInteger(credits)&&credits>0&&catalog.enabled&&wallet&&wallet.available>=credits&&wallet.budgetAvailable&&Date.parse(wallet.expiresAt)>Date.now();
   if(attempt.reviewStatus==='failed'){
    notify('AI marking failed. Your response was saved and its reserved credits were returned.',true);
-   const retry=button('Retry saved feedback · '+formatCredits(credits)+' AI credits',()=>{void review('retry')});
+   const retry=button('Retry saved feedback · up to '+formatCredits(credits)+' AI credits',()=>{void review('retry')});
    retry.dataset.locked=String(!costOk);area.append(retry);return;
   }
   if(!locked&&remaining()>0)area.append(button('Save my writing',()=>{void run(async(signal,current)=>{await save(signal,current)})},true));
