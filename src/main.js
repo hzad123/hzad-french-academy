@@ -8,6 +8,7 @@ import {wireA0} from './learning/dashboard-integration.js';
 import {wirePlacement} from './placement/ui.js';
 import {wireTracker} from './tracker/ui.js';
 import {wireAiLearning} from './ai/ui.js';
+import {wireCreditWallet} from './ai/credit-wallet.js';
 import {wireFrenchTutor} from './ai/french-tutor.js';
 import {wireExams} from './exams/ui.js';
 import {wireTcfSpeaking} from './exams/tcf-speaking/ui.js';
@@ -30,6 +31,7 @@ export function mountAcademy(host,createClient){
   const $=id=>root.querySelector('#'+id);
   wireNavigation(root);
   const client=getAcademyClient(createClient,SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+  const creditWallet=wireCreditWallet(root,client);
   let tab='login',busy=false,recovering=false,accessSequence=0,navUser=null;
   const show=which=>{['hz-auth','hz-pending','hz-dashboard','hz-recovery'].forEach(id=>$(id).classList.toggle('hz-hidden',id!==which));$('hz-global-dashboard').classList.toggle('hz-hidden',which!=='hz-dashboard')};
   const clearMsg=id=>{$(id).textContent='';$(id).classList.add('hz-hidden')};
@@ -62,7 +64,7 @@ export function mountAcademy(host,createClient){
     if(sequence!==accessSequence||recovering)return;
     $('hz-user-label').textContent=result.user?.email||'';
     if(result.kind==='signed_out'){navUser=null;clearLessons();show('hz-auth');return}
-    if(result.kind==='active'){if(navUser!==result.user.id){if(navUser)clearLessons();root.dispatchEvent(new CustomEvent('hzad-nav-reset'));navUser=result.user.id}clearMsg('hz-pending-message');show('hz-dashboard');root.dispatchEvent(new CustomEvent('hzad-access-active',{detail:{userId:result.user.id}}));return}
+    if(result.kind==='active'){if(navUser!==result.user.id){if(navUser)clearLessons();root.dispatchEvent(new CustomEvent('hzad-nav-reset'));navUser=result.user.id}clearMsg('hz-pending-message');await creditWallet.prepare(result.user.id);if(sequence!==accessSequence||recovering)return;show('hz-dashboard');root.dispatchEvent(new CustomEvent('hzad-access-active',{detail:{userId:result.user.id}}));return}
     clearLessons();show('hz-pending');clearMsg('hz-pending-message');
     if(result.kind==='unverified')$('hz-pending-text').textContent='Please verify your email using the link in your inbox.';
     else if(result.kind==='error'){
