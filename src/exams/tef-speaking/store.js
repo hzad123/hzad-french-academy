@@ -1,3 +1,4 @@
+import {notifyCreditsChanged} from '../../ai/credit-scale.js';
 import {requireSession} from '../../auth/session.js';
 import {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY} from '../../config.js';
 export function makeTefSpeakingStore(client,fetcher=globalThis.fetch.bind(globalThis)){
@@ -25,7 +26,7 @@ export function makeTefSpeakingStore(client,fetcher=globalThis.fetch.bind(global
     error.status=response.status;throw error;
    }
    return result;
-  }finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
+  }finally{if(body)notifyCreditsChanged();clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
  }
  return {catalog:signal=>call('',null,signal),read:(id,signal)=>call('?attempt='+encodeURIComponent(id),null,signal),
   send:(body,signal)=>call('',body,signal),
