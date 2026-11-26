@@ -38,7 +38,7 @@ export function wireCreditWallet(root,client,{fetcher=globalThis.fetch.bind(glob
  function reset(){epoch++;viewer=null;clearInterval(timer);timer=null;pending=null;snap=null;open=false;busy=false;checkoutId=null;checkoutReady=false;status='';dock.classList.add('hz-hidden');panel.classList.add('hz-hidden');launcher.setAttribute('aria-expanded','false');setCreditScale(1);render()}
  async function prepare(userId){if(viewer!==userId){reset();viewer=userId}await update()}
  root.addEventListener('hzad-access-active',event=>{const id=event.detail?.userId;if(!id)return;if(viewer!==id){reset();viewer=id}dock.classList.remove('hz-hidden');if(!timer)timer=setInterval(()=>{if(!document.hidden)void update()},10000);void update();if(new URLSearchParams(globalThis.location?.search||'').get('credits')==='return'){status='We’re checking your payment. Your balance increases only after Stripe confirms payment.';toggle(true)}});
- root.addEventListener('hzad-clear-lessons',reset);client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset()});
+ root.addEventListener('hzad-open-credit-wallet',()=>{if(viewer)toggle(true)});root.addEventListener('hzad-clear-lessons',reset);client.auth.onAuthStateChange?.((event,session)=>{if(event==='SIGNED_OUT'||viewer&&session?.user?.id&&viewer!==session.user.id)reset()});
  globalThis.addEventListener?.('hzad-credit-changed',()=>void update());globalThis.addEventListener?.('focus',()=>void update());document.addEventListener?.('visibilitychange',()=>{if(!document.hidden)void update()});
  render();return {prepare,reset}
 }
